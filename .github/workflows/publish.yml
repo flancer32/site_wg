@@ -4,7 +4,7 @@ name: Deploy site to production environment (live)
 on: workflow_dispatch
 
 env:
-  PATH_TARGET: /home/live/inst/wg/site
+  PATH_TARGET: /home/github/tmp
   PRJ: site
   ZIP: site_wg.zip
 
