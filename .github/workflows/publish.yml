@@ -36,7 +36,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY_CONTABO }}
           ARGS: "-rltgoDzvO"
           SOURCE: "${{env.ZIP}}"
-          TARGET: "${{env.PATH_TARGET}}/../"
+          TARGET: "${{env.PATH_TARGET}}/"
 
       - name: Extract files on Remote Server and switch site to the new instance.
         uses: appleboy/ssh-action@master
