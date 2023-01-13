@@ -49,7 +49,6 @@ jobs:
             rm -fr ${{env.PRJ}}.old/  
             mkdir ${{env.PRJ}}.new
             unzip ${{env.ZIP}} -d ./${{env.PRJ}}.new/ &> /dev/null
-            cp ~/cfg/${{env.PRJ}}/local.* ./${{env.PRJ}}.new/cfg/
             mv ./${{env.PRJ}} ./${{env.PRJ}}.old
             mv ./${{env.PRJ}}.new ./${{env.PRJ}}
             ls -lh ./${{env.PRJ}}/
