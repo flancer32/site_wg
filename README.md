@@ -1,2 +1,3 @@
-# site_wg
-Web site for wiredgeese.com
+# wiredgeese.com
+
+Sources for website 'wiredgeese.com'.
