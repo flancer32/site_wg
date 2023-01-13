@@ -4,6 +4,7 @@ name: Deploy site to production environment (live)
 on: workflow_dispatch
 
 env:
+  PATH_TARGET: /home/live/inst/wg/site
   PRJ: site_wg
   ZIP: site_wg.zip
 
@@ -15,9 +16,9 @@ jobs:
       - name: Check-out repo.
         uses: actions/checkout@v3
 
-      - name: Build application.
-        run: |
-          ./bin/deploy/live.sh
+#      - name: Build application.
+#        run: |
+#          ./bin/deploy/live.sh
 
       - name: Add application files to archive.
         uses: montudor/action-zip@v1
@@ -26,3 +27,13 @@ jobs:
 
       - name: Validate archive existence.
         run: ls -lh ${{env.ZIP}}
+
+      - name: Copy files to Remote Server.
+        uses: easingthemes/ssh-deploy@v2.0.7
+        env:
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST_CONTABO }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER_CONTABO }}
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY_CONTABO }}
+          ARGS: "-rltgoDzvO"
+          SOURCE: "${{env.ZIP}}"
+          TARGET: "${{env.PATH_TARGET}}.new/"
