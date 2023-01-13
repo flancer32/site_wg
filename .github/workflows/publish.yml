@@ -6,6 +6,7 @@ on: workflow_dispatch
 env:
   PATH_TARGET: /home/live/inst/wg/site
   PRJ: site
+  USER: live
   ZIP: site_wg.zip
 
 jobs:
@@ -32,7 +33,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.0.7
         env:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST_CONTABO }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER_CONTABO }}
+          REMOTE_USER: "${{env.USER}}"
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY_CONTABO }}
           ARGS: "-rltgoDzvO"
           SOURCE: "${{env.ZIP}}"
@@ -42,7 +43,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.REMOTE_HOST_CONTABO }}
-          username: ${{ secrets.REMOTE_USER_CONTABO }}
+          username: ${{ env.USER }}
           key: ${{ secrets.SERVER_SSH_KEY_CONTABO }}
           script: |
             cd "${{env.PATH_TARGET}}/../"
