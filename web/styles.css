@@ -4,3 +4,26 @@ BODY {
     background-position: center;
     background-size: cover;
 }
+
+.q-header {
+    opacity: 0.8;
+}
+
+.q-drawer {
+    opacity: 0.8;
+}
+
+.q-card {
+    opacity: 0.8;
+}
+
+.app-card-home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.app-card-home .cell-bottom {
+    color: aquamarine;
+    grid-column: span 3 / 4; /* Short hand */
+}
