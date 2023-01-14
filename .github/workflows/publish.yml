@@ -17,9 +17,10 @@ jobs:
       - name: Check-out repo.
         uses: actions/checkout@v3
 
-      #      - name: Build application.
-      #        run: |
-      #          ./bin/deploy/live.sh
+      - name: Build application.
+        run: |
+          cd ./web
+          npm install
 
       - name: Add application files to archive.
         uses: montudor/action-zip@v1

@@ -1,0 +1,21 @@
+{
+  "name": "site_wg",
+  "version": "0.1.0",
+  "description": "Website wiredgeese.com.",
+  "homepage": "https://github.com/flancer32/site_wg/",
+  "bugs": {
+    "url": "https://github.com/flancer32/site_wg/issues",
+    "email": "alex@flancer32.com"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Alex Gusev",
+    "email": "alex@flancer64.com",
+    "url": "https://github.com/flancer64"
+  },
+  "repository": "github:flancer32/site_wg",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
