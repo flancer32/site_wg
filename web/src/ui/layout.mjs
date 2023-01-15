@@ -1,33 +1,60 @@
-const vueComp = {
-    template: `
+import DEF from '../def.mjs';
+
+const template = `
 <q-layout view="hhh lpR fff"  class="shadow-2 rounded-borders">
-    <q-header reveal class="bg-black">
+    <q-header reveal class="app-colors">
         <q-toolbar>
-            <q-toolbar-title>Wiredgeese Devs</q-toolbar-title>
+            <q-toolbar-title>
+                <span class="app-pointer" v-on:click="$router.push('${DEF.ROUTE_HOME}')">Wiredgeese Devs</span>
+            </q-toolbar-title>
             <q-btn flat @click="drawerRight = !drawerRight" round dense icon="menu" />
         </q-toolbar>
     </q-header>
 
     <q-drawer v-model="drawerRight"
             behavior="desktop"
-            class="bg-black text-white"
+            class="app-colors"
             overlay
             side="right"
             width="200"
     >
         <q-scroll-area class="fit">
             <div class="q-pa-sm">
-                <div>Home</div>
-                <div>About</div>
-                <div>Pricing</div>
-                <div>Contacts</div>
+                <q-list bordered separator>
+                    <q-item clickable v-ripple>
+                        <q-item-section>
+                            <router-link to="${DEF.ROUTE_ABOUT}">About</router-link>        
+                        </q-item-section>
+                    </q-item>
+                    <q-item clickable v-ripple>
+                        <q-item-section>
+                            <router-link to="${DEF.ROUTE_STACK}">Stack</router-link>        
+                        </q-item-section>
+                    </q-item>
+                    <q-item clickable v-ripple>
+                        <q-item-section>
+                            <router-link to="${DEF.ROUTE_SERVICE}">Service</router-link>        
+                        </q-item-section>
+                    </q-item>
+                    <q-item clickable v-ripple>
+                        <q-item-section>
+                            <router-link to="${DEF.ROUTE_CONTACTS}">Contacts</router-link>        
+                        </q-item-section>
+                    </q-item>
+                </q-list>
             </div>
         </q-scroll-area>
     </q-drawer>
 
     <q-page-container>
-        <q-page style="padding-top: 60px" class="q-pa-md">
-            <slot/>
+        <q-page class="app-main q-pa-md">
+            <div>
+                <router-view v-slot="{ Component }">
+                    <transition name="fade" mode="out-in">
+                        <component :is="Component" :key="$route.path"/>
+                    </transition>
+                </router-view>
+            </div>
         </q-page>
 
         <q-page-scroller position="bottom">
@@ -35,14 +62,13 @@ const vueComp = {
         </q-page-scroller>
     </q-page-container>
 </q-layout>
-`,
+`;
+
+export default {
+    template,
     data() {
         return {
             drawerRight: false,
         }
     },
 };
-
-export {
-    vueComp as default
-}

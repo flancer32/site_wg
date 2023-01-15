@@ -1,17 +1,19 @@
 import DEF from './def.mjs';
 
-const Home = () => import('./ui/route/home.mjs');
+const about = () => import('./ui/route/about.mjs');
+const contacts = () => import('./ui/route/contacts.mjs');
+const home = () => import('./ui/route/home.mjs');
+const service = () => import('./ui/route/service.mjs');
+const stack = () => import('./ui/route/stack.mjs');
 
-const router = VueRouter.createRouter({
+export default VueRouter.createRouter({
     history: VueRouter.createWebHashHistory(),
     routes: [
-        {
-            path: DEF.ROUTE_HOME,
-            component: Home,
-        }
+        {path: DEF.ROUTE_ABOUT, component: about},
+        {path: DEF.ROUTE_CONTACTS, component: contacts, meta: {transition: 'slide-left'},},
+        {path: DEF.ROUTE_HOME, component: home},
+        {path: DEF.ROUTE_SERVICE, component: service},
+        {path: DEF.ROUTE_STACK, component: stack},
     ],
 });
 
-export {
-    router as default
-}

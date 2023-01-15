@@ -1,6 +1,16 @@
+:root {
+    /*--color-bg: black;*/
+    /*--color-text: white;*/
+    --color-bg: white;
+    --color-text: #343409;
+}
+
+
 BODY {
     background-attachment: fixed;
-    background-image: url("./img/bg.webp");
+    /*background-image: url("./img/bg_teq.jpg");*/
+    background-image: url("./img/bg_light.webp");
+    /*background-image: url("./img/bg.webp");*/
     background-position: center;
     background-size: cover;
 }
@@ -10,12 +20,38 @@ BODY {
 }
 
 .q-drawer {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .q-card {
     opacity: 0.8;
 }
+
+.app-colors {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+.app-pointer {
+    cursor: pointer;
+}
+
+.app-main {
+    display: grid;
+    justify-items: center;
+}
+
+.app-main > DIV {
+    max-width: 800px;
+}
+
+
+@media only screen and (min-width: 600px) {
+    .app-main > DIV {
+        min-width: 400px;
+    }
+}
+
 
 .app-card-home {
     display: grid;
@@ -23,7 +59,13 @@ BODY {
     grid-gap: 10px;
 }
 
-.app-card-home .cell-bottom {
-    color: aquamarine;
-    grid-column: span 3 / 4; /* Short hand */
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
 }
