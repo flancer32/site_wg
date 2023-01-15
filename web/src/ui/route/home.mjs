@@ -5,7 +5,8 @@ const template = `
 
     <q-card class="app-colors app-pointer" v-on:click="$router.push('${DEF.ROUTE_ABOUT}')">
         <q-card-section>
-            <div v-for="n in 5" :key="n">ABOUT {{ n }} / 5</div>
+<div>Витя, спасибо, Витя!</div>
+            <!-- div v-for="n in 5" :key="n">ABOUT {{ n }} / 5</div -->
         </q-card-section>
     </q-card>
     
