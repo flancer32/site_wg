@@ -49,11 +49,7 @@ const template = `
     <q-page-container>
         <q-page class="app-main q-pa-md">
             <div>
-                <router-view v-slot="{ Component }">
-                    <transition name="fade" mode="out-in">
-                        <component :is="Component" :key="$route.path"/>
-                    </transition>
-                </router-view>
+                <router-view/>
             </div>
         </q-page>
 
