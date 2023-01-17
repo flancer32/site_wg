@@ -16,7 +16,7 @@ BODY {
 }
 
 .q-header {
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .q-drawer {
@@ -45,6 +45,10 @@ BODY {
     max-width: 800px;
 }
 
+.app-content DIV {
+    text-align: justify;
+    padding-top: 10px;
+}
 
 @media only screen and (min-width: 600px) {
     .app-main > DIV {
@@ -68,4 +72,31 @@ BODY {
 .fade-enter-from,
 .fade-leave-to {
     opacity: 0;
+}
+
+.bg-mission {
+    background-attachment: fixed;
+    background-image: url("img/page/mission.png");
+    background-position: center;
+    background-size: cover;
+}
+
+/* Styles for annotations (top parts on pages) */
+.anno-wrap {
+    overflow: hidden;
+    position: relative;
+}
+
+.anno-bg {
+    opacity: 0.6;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+}
+
+.anno-content {
+    position: relative;
+    font-size: larger;
 }

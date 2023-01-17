@@ -23,7 +23,7 @@ const template = `
                 <q-list bordered separator>
                     <q-item clickable v-ripple>
                         <q-item-section>
-                            <router-link to="${DEF.ROUTE_ABOUT}">About</router-link>        
+                            <router-link to="${DEF.ROUTE_MISSION}">Mission</router-link>        
                         </q-item-section>
                     </q-item>
                     <q-item clickable v-ripple>

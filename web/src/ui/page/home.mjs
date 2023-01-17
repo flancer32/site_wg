@@ -3,7 +3,7 @@ import DEF from '../../def.mjs';
 const template = `
 <div class="app-card-home">
 
-    <q-card class="app-colors app-pointer" v-on:click="$router.push('${DEF.ROUTE_ABOUT}')">
+    <q-card class="app-colors app-pointer" v-on:click="$router.push('${DEF.ROUTE_MISSION}')">
         <q-card-section>
             <div>MISSION</div>
         </q-card-section>
