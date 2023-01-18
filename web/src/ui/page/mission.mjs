@@ -6,7 +6,7 @@ const template = `
         <div class="anno-wrap">
             <img class="anno-bg" src="img/page/mission.png" alt="">
             <div class="anno-content">
-                <q-card class="app-colors">
+                <q-card class="app-bg  app-centered">
                     <q-card-section>
                         <ul>
                             <li>Mobile PWA for small businesses</li>
@@ -22,7 +22,7 @@ const template = `
     </template>
 
     <template #content>
-        <q-card class="app-colors" style="margin-bottom: 20px;">
+        <q-card class="app-bg" style="margin-bottom: 20px;">
             <q-card-section class="app-content">
                 <div>At Wiredgeese Devs, our mission is to empower small businesses to succeed in the digital age by
                     providing them with high-quality, cutting-edge web applications for mobile phones.

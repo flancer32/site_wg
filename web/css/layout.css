@@ -1,0 +1,24 @@
+#layout-header {
+    background-color: var(--color-lighter);
+}
+
+#layout-right {
+    background-color: var(--color-bg);
+}
+
+#layout-main {
+    display: grid;
+    justify-items: center;
+}
+
+#layout-main > DIV {
+    max-width: 800px;
+}
+
+@media only screen and (min-width: 600px) {
+    .app-main > DIV {
+        min-width: 400px;
+    }
+}
+
+

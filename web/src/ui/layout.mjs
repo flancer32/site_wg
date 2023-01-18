@@ -2,7 +2,7 @@ import DEF from '../def.mjs';
 
 const template = `
 <q-layout view="hhh lpR fff"  class="shadow-2 rounded-borders">
-    <q-header reveal class="app-colors">
+    <q-header reveal id="layout-header">
         <q-toolbar>
             <q-toolbar-title>
                 <span class="app-pointer" v-on:click="$router.push('${DEF.ROUTE_HOME}')">Wiredgeese Devs</span>
@@ -11,9 +11,8 @@ const template = `
         </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="drawerRight"
+    <q-drawer v-model="drawerRight" class="layout-right"
             behavior="desktop"
-            class="app-colors"
             overlay
             side="right"
             width="200"
@@ -47,7 +46,7 @@ const template = `
     </q-drawer>
 
     <q-page-container>
-        <q-page class="app-main q-pa-md">
+        <q-page id="layout-main" class="q-pa-md">
             <div>
                 <router-view/>
             </div>

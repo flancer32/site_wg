@@ -1,0 +1,11 @@
+BODY {
+    color: var(--color-darker);
+}
+
+A:link, A:visited {
+    color: var(--color-base);
+}
+
+.app-bg {
+    background-color: var(--color-bg);
+}

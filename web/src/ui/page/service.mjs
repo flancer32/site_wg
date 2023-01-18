@@ -1,5 +1,5 @@
 const template = `
-    <q-card class="app-colors">
+    <q-card class="app-bg">
         <q-card-section>
             <div v-for="n in 5" :key="n">SERVICE {{ n }} / 5</div>
         </q-card-section>

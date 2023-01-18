@@ -4,6 +4,11 @@ const template = `
     <div style="margin-bottom: 20px;"><slot name="resume" /></div>
     
     <div><slot name="content"/></div>
+    
+    <q-card style="display: grid; grid-template-columns: 1fr 1fr; padding-left: 10px; padding-right: 10px;">
+        <div>© SIA "F. Lancer", 2023</div>
+        <div style="text-align: right;"><a href="mailto:info@wiredgeese.com">info@wiredgeese.com</a></div>
+    </q-card>
 `;
 
 export default {
