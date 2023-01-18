@@ -1,9 +1,10 @@
 #layout-header {
-    background-color: var(--color-lighter);
+    background-color: white;
+    color: var(--color-darker);
 }
 
 #layout-right {
-    background-color: var(--color-bg);
+    /*background-color: var(--color-bg);*/
 }
 
 #layout-main {

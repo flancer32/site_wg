@@ -11,7 +11,7 @@ const template = `
         </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="drawerRight" class="layout-right"
+    <q-drawer v-model="drawerRight" id="layout-right"
             behavior="desktop"
             overlay
             side="right"
