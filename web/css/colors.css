@@ -6,6 +6,19 @@ A:link, A:visited {
     color: var(--color-base);
 }
 
+#menu-top A:link,
+#menu-top A:visited,
+#layout-right A:link,
+#layout-right A:visited {
+    color: var(--color-darker);
+    text-decoration: none;
+}
+
+#menu-top .active,
+#layout-right .active {
+    background-color: var(--color-lightest);
+}
+
 .app-bg {
-    background-color: var(--color-bg);
+    /*background-color: var(--color-bg);*/
 }

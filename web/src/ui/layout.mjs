@@ -1,4 +1,6 @@
 import DEF from '../def.mjs';
+import menuRight from './layout/menu/right.mjs';
+import menuTop from './layout/menu/top.mjs';
 
 const template = `
 <q-layout view="hhh lpR fff"  class="shadow-2 rounded-borders">
@@ -7,7 +9,8 @@ const template = `
             <q-toolbar-title>
                 <span class="app-pointer" v-on:click="$router.push('${DEF.ROUTE_HOME}')">Wiredgeese Devs</span>
             </q-toolbar-title>
-            <q-btn flat @click="drawerRight = !drawerRight" round dense icon="menu" />
+            <menu-top />
+            <q-btn id="btn-menu" flat @click="drawerRight = !drawerRight" round dense icon="menu" />
         </q-toolbar>
     </q-header>
 
@@ -17,32 +20,7 @@ const template = `
             side="right"
             width="200"
     >
-        <q-scroll-area class="fit">
-            <div class="q-pa-sm">
-                <q-list bordered separator>
-                    <q-item clickable v-ripple>
-                        <q-item-section>
-                            <router-link to="${DEF.ROUTE_MISSION}">Mission</router-link>        
-                        </q-item-section>
-                    </q-item>
-                    <q-item clickable v-ripple>
-                        <q-item-section>
-                            <router-link to="${DEF.ROUTE_STACK}">Stack</router-link>        
-                        </q-item-section>
-                    </q-item>
-                    <q-item clickable v-ripple>
-                        <q-item-section>
-                            <router-link to="${DEF.ROUTE_SERVICE}">Service</router-link>        
-                        </q-item-section>
-                    </q-item>
-                    <q-item clickable v-ripple>
-                        <q-item-section>
-                            <router-link to="${DEF.ROUTE_CONTACTS}">Contacts</router-link>        
-                        </q-item-section>
-                    </q-item>
-                </q-list>
-            </div>
-        </q-scroll-area>
+        <menu-right />
     </q-drawer>
 
     <q-page-container>
@@ -61,6 +39,7 @@ const template = `
 
 export default {
     template,
+    components: {menuRight, menuTop},
     data() {
         return {
             drawerRight: false,

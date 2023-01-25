@@ -20,6 +20,24 @@
     .app-main > DIV {
         min-width: 400px;
     }
+
+    #menu-top {
+        display: flex;
+    }
+
+    #btn-menu, .q-drawer-container {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 599px) {
+    #menu-top {
+        display: none;
+    }
+
+    #btn-menu, .q-drawer-container {
+        display: block;
+    }
 }
 
 
