@@ -6,7 +6,7 @@ const template = `
 
     <template #resume>
 
-        <q-card class="app-bg">
+        <q-card square class="app-bg">
             <q-card-section>
                 <div style="padding-bottom: 5px;">We are a small company based in Riga, Latvia.</div>
                 <div>email: info@wiredgeese.com</div>

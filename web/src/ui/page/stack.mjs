@@ -6,7 +6,7 @@ const template = `
         <div class="anno-wrap">
             <img class="anno-bg" src="img/page/stack.webp" alt="">
             <div class="anno-content">
-                <q-card class="app-bg  app-centered">
+                <q-card square class="app-bg  app-centered">
                     <q-card-section>
                         <ul>
                             <li>HTML5, CSS3, "vanilla" JS (ES2015+)</li>

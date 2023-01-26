@@ -21,6 +21,12 @@
         min-width: 400px;
     }
 
+    .app-card-home {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+    }
+
     #menu-top {
         display: flex;
     }
@@ -31,6 +37,12 @@
 }
 
 @media only screen and (max-width: 599px) {
+    .app-card-home {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+
     #menu-top {
         display: none;
     }

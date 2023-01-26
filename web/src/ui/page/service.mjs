@@ -8,7 +8,7 @@ const template = `
         <div class="anno-wrap">
             <img class="anno-bg" src="img/page/service.webp" alt="">
             <div class="anno-content">
-                <q-card class="app-bg  app-centered">
+                <q-card square class="app-bg  app-centered">
                     <q-card-section>
                         <ul>
                             <li>PWA for mobiles</li>
