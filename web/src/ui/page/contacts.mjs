@@ -9,7 +9,7 @@ const template = `
         <q-card square class="app-bg">
             <q-card-section>
                 <div style="padding-bottom: 5px;">We are a small company based in Riga, Latvia.</div>
-                <div>email: info@wiredgeese.com</div>
+                <div>email: <a href="mailto:info@wiredgeese.com">info@wiredgeese.com</a></div>
                 <div>legal person: <a href="https://company.lursoft.lv/en/f-lancer/40103303120">SIA "F. Lancer"</a>
                 </div>
                 <div>bank acc.: <a href="https://www.swedbank.lv/about/start">LV83HABA0551028650868</a></div>
@@ -21,6 +21,7 @@ const template = `
     <template #content>
 
         <div style="text-align: center; font-size: larger;">Our Team</div>
+        <div style="text-align: center; font-size: smaller;">All avatars are made by AI from real photos.</div>
 
         <ui-contact>
             <template #image>
@@ -32,11 +33,28 @@ const template = `
 
         <ui-contact>
             <template #image>
+                <img src="./img/avatar/harry.png" alt="">
+            </template>
+            <template #title>Harry, Project Manager</template>
+            <template #details>ig@wiredgeese.com</template>
+        </ui-contact>
+        
+        <ui-contact>
+            <template #image>
                 <img src="./img/avatar/alex.png" alt="">
             </template>
-            <template #title>Alex, developer</template>
+            <template #title>Alex, Developer</template>
             <template #details>ag@wiredgeese.com</template>
         </ui-contact>
+
+        <ui-contact>
+            <template #image>
+                <img src="./img/avatar/victor.png" alt="">
+            </template>
+            <template #title>Victor, Developer</template>
+            <template #details>vg@wiredgeese.com</template>
+        </ui-contact>
+
 
     </template>
 </ui-page>

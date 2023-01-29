@@ -16,9 +16,9 @@ const template = `
             <q-item-label>
                 <slot name="title"/>
             </q-item-label>
-            <q-item-label caption>
-                <slot name="details"/>
-            </q-item-label>
+<!--            <q-item-label caption>-->
+<!--                <slot name="details"/>-->
+<!--            </q-item-label>-->
         </q-item-section>
     </q-item>
 </q-card>
