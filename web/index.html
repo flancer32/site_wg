@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="description" content="Wiredgeese Devs">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
     <title>Wiredgeese Devs</title>
     <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/quasar@2.11.5/dist/quasar.prod.css" rel="stylesheet" type="text/css">
@@ -16,12 +16,20 @@
         }
     </style>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-48WM3FE8HL"></script>
     <script>
+        // prepare environment to load GA script
+        const GA_CODE = (location.hostname === 'wiredgeese.com') ? 'G-48WM3FE8HL' : 'G-KGZJBZCNB8';
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {dataLayer.push(arguments);}
+
         gtag('js', new Date());
-        gtag('config', 'G-48WM3FE8HL');
+        gtag('config', GA_CODE);
+
+        // append SCRIPT tag to HEAD and start loading of GA script
+        const elScript = document.createElement('script');
+        elScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_CODE}`;
+        document.getElementsByTagName('head')[0].appendChild(elScript);
     </script>
 </head>
 <body>
@@ -42,13 +50,22 @@
     import appComp from './src/app.mjs';
     import layoutComp from './src/ui/layout.mjs';
     import router from './src/router.mjs';
-    // create Vue app and mount to the page
+    // create and setup Vue app
     const app = Vue.createApp(appComp);
     app.use(Quasar);
-    app.use(router);
     app.component('layout', layoutComp);
     app.component('uiPage', uiPage);
     app.component('uiTitle', uiTitle);
+    // setup router
+    app.use(router);
+    router.afterEach((to) => {
+        debugger
+        window.ga('send', 'pageview', {
+            'page': '/route' + to.fullPath,
+            'title': 'Route: ' + to.fullPath,
+        });
+    })
+    // mount app to the page
     app.mount('BODY > DIV');
 </script>
 
