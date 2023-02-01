@@ -59,8 +59,7 @@
     // setup router
     app.use(router);
     router.afterEach((to) => {
-        debugger
-        window.ga('send', 'pageview', {
+        window.ga('send', 'page_view', {
             'page': '/route' + to.fullPath,
             'title': 'Route: ' + to.fullPath,
         });
