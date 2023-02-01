@@ -33,6 +33,14 @@ const template = `
 
         <ui-contact>
             <template #image>
+                <img src="./img/avatar/alex.png" alt="">
+            </template>
+            <template #title>Alex, CTO</template>
+            <template #details>ag@wiredgeese.com</template>
+        </ui-contact>
+
+        <ui-contact>
+            <template #image>
                 <img src="./img/avatar/harry.png" alt="">
             </template>
             <template #title>Harry, Project Manager</template>
@@ -41,20 +49,19 @@ const template = `
         
         <ui-contact>
             <template #image>
-                <img src="./img/avatar/alex.png" alt="">
+                <img src="./img/avatar/victor.png" alt="">
             </template>
-            <template #title>Alex, Developer</template>
-            <template #details>ag@wiredgeese.com</template>
+            <template #title>Victor, Full Stack Developer</template>
+            <template #details>vg@wiredgeese.com</template>
         </ui-contact>
 
         <ui-contact>
             <template #image>
-                <img src="./img/avatar/victor.png" alt="">
+                <img src="./img/avatar/nataly.png" alt="">
             </template>
-            <template #title>Victor, Developer</template>
-            <template #details>vg@wiredgeese.com</template>
+            <template #title>Nataly, Software Tester</template>
+            <template #details>nata@wiredgeese.com</template>
         </ui-contact>
-
 
     </template>
 </ui-page>
