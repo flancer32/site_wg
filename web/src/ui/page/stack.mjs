@@ -24,7 +24,7 @@ const template = `
     </template>
 
     <template #content>
-        <q-card class="app-bg" style="margin-bottom: 20px;">
+        <q-card class="t-bg" style="margin-bottom: 20px;">
             <q-card-section class="app-content">
                 <div>We use the latest and most advanced technologies in web development to create cutting-edge
                     products. Our tech stack includes HTML5, CSS3, and ES2015+, which enables us to take advantage of
@@ -78,5 +78,8 @@ export default {
     template,
     data() {
         return {}
-    }
+    },
+    mounted() {
+        document.title = 'WGD: Stack';
+    },
 }

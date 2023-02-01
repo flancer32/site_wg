@@ -2,8 +2,15 @@ BODY {
     color: var(--color-darker);
 }
 
-A:link, A:visited {
+A:link,
+A:visited {
     color: var(--color-base);
+}
+
+.t-cookies A:link,
+.t-cookies A:visited {
+    color: var(--color-lightest);
+    font-weight: bold;
 }
 
 #menu-top A:link,
@@ -19,6 +26,10 @@ A:link, A:visited {
     background-color: var(--color-lightest);
 }
 
-.app-bg {
+.t-bg {
     /*background-color: var(--color-bg);*/
+}
+
+.t-bg-darker {
+    background-color: var(--color-lighter);
 }

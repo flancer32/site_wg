@@ -1,9 +1,11 @@
 import DEF from '../def.mjs';
 import menuRight from './layout/menu/right.mjs';
 import menuTop from './layout/menu/top.mjs';
+import cookies from './layout/cookies.mjs';
 
 const template = `
 <q-layout view="hhh lpR fff"  class="shadow-2">
+    
     <q-header reveal id="layout-header">
         <q-toolbar>
             <q-toolbar-title>
@@ -24,6 +26,9 @@ const template = `
     </q-drawer>
 
     <q-page-container>
+    
+        <cookies/>
+    
         <q-page id="layout-main" class="q-pa-md">
             <div>
                 <router-view/>
@@ -33,13 +38,15 @@ const template = `
         <q-page-scroller position="bottom">
             <q-btn fab icon="keyboard_arrow_up" color="red" />
         </q-page-scroller>
+    
     </q-page-container>
+    
 </q-layout>
 `;
 
 export default {
     template,
-    components: {menuRight, menuTop},
+    components: {cookies, menuRight, menuTop},
     data() {
         return {
             drawerRight: false,

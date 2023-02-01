@@ -1,3 +1,17 @@
+H1 {
+    font-size: x-large;
+    font-weight: bolder;
+    line-height: 3rem;
+    margin: 0;
+    text-align: center;
+}
+
+H2 {
+    font-size: large;
+    font-weight: bolder;
+    margin-top: 10px;
+}
+
 #layout-header {
     background-color: white;
     color: var(--color-darker);
@@ -16,12 +30,23 @@
     max-width: 800px;
 }
 
+.t-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 5px 0 5px;
+}
+
+.t-footer DIV {
+    padding: 0 5px 0 5px;
+}
+
 @media only screen and (min-width: 600px) {
-    .app-main > DIV {
-        min-width: 400px;
+    .t-mob-hide {
+        display: block;
     }
 
-    .app-card-home {
+    .t-card-home {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 10px;
@@ -37,7 +62,11 @@
 }
 
 @media only screen and (max-width: 599px) {
-    .app-card-home {
+    .t-mob-hide {
+        display: none;
+    }
+
+    .t-card-home {
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: 10px;

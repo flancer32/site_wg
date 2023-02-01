@@ -4,7 +4,7 @@
  */
 
 const template = `
-<q-card class="app-bg" style="margin-bottom: 10px;">
+<q-card class="t-bg" style="margin-bottom: 10px;">
     <q-item>
         <q-item-section avatar>
             <q-avatar size="100px" class="overlapping">

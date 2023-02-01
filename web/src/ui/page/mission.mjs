@@ -22,7 +22,7 @@ const template = `
     </template>
 
     <template #content>
-        <q-card class="app-bg" style="margin-bottom: 20px;">
+        <q-card class="t-bg" style="margin-bottom: 20px;">
             <q-card-section class="app-content">
                 <div>At Wiredgeese Devs, our mission is to empower small businesses to succeed in the digital age by
                     providing them with high-quality, cutting-edge web applications for mobile phones.
@@ -55,5 +55,8 @@ export default {
     template,
     data() {
         return {}
-    }
+    },
+    mounted() {
+        document.title = 'WGD: Mission';
+    },
 }

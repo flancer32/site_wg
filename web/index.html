@@ -45,24 +45,25 @@
 <link rel="stylesheet" href="./styles.css">
 
 <script type="module">
-    import uiTitle from './src/ui/lib/title.mjs';
-    import uiPage from './src/ui/lib/page.mjs';
     import appComp from './src/app.mjs';
     import layoutComp from './src/ui/layout.mjs';
     import router from './src/router.mjs';
+    import uiFooter from './src/ui/layout/footer.mjs';
+    import uiPage from './src/ui/layout/page.mjs';
+
     // create and setup Vue app
     const app = Vue.createApp(appComp);
     app.use(Quasar);
     app.component('layout', layoutComp);
+    app.component('uiFooter', uiFooter);
     app.component('uiPage', uiPage);
-    app.component('uiTitle', uiTitle);
     // setup router
     app.use(router);
     router.afterEach((to) => {
-        window.ga('send', 'page_view', {
-            'page': '/route' + to.fullPath,
-            'title': 'Route: ' + to.fullPath,
-        });
+        if (typeof window.gtag === 'function')
+            window.gtag('event', 'page_view', {
+                page_path: to.fullPath,
+            });
     })
     // mount app to the page
     app.mount('BODY > DIV');

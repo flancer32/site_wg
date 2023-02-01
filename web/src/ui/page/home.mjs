@@ -1,7 +1,7 @@
 import DEF from '../../def.mjs';
 
 const template = `
-<div class="app-card-home">
+<div class="t-card-home">
 
     <q-card class="app-bg app-pointer" v-on:click="$router.push('${DEF.ROUTE_MISSION}')">
         <q-card-section>
@@ -48,7 +48,7 @@ const template = `
         </q-card-section>
     </q-card>
 
-    <q-card class="app-bg">
+    <q-card class="t-bg">
         <q-card-section>
             <div class="app-pointer" v-on:click="$router.push('${DEF.ROUTE_CONTACTS}')">CONTACTS</div>
             <div>
@@ -69,5 +69,8 @@ export default {
     template,
     data() {
         return {}
+    },
+    mounted() {
+        document.title = 'Wiredgeese Devs';
     }
 }

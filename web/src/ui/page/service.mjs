@@ -25,7 +25,7 @@ const template = `
     </template>
 
     <template #content>
-        <q-card class="app-bg" style="margin-bottom: 20px;">
+        <q-card class="t-bg" style="margin-bottom: 20px;">
             <q-card-section class="app-content">
                 <div>We specialize in developing Progressive Web Applications (PWAs) for small businesses. Our PWAs are optimized for mobile devices, providing a user-friendly experience for your customers while they are on the move.</div>
                 <div>Our team of experienced developers use a selected <a href="#${DEF.ROUTE_STACK}">set of tools</a> to ensure that your PWA is built to the highest standards. Despite our limited toolset, we are not limited in terms of development topics and can work on a wide range of projects.</div>
@@ -43,5 +43,8 @@ export default {
     template,
     data() {
         return {}
-    }
+    },
+    mounted() {
+        document.title = 'WGD: Service';
+    },
 }
