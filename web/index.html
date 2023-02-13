@@ -31,6 +31,27 @@
         elScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_CODE}`;
         document.getElementsByTagName('head')[0].appendChild(elScript);
     </script>
+
+    <!-- Matomo -->
+    <script>
+        if (location.hostname === 'wiredgeese.com') {
+            let _paq = window._paq = window._paq || [];
+            /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function () {
+                let u = "//matomo.service.wiredgeese.com/";
+                _paq.push(['setTrackerUrl', u + 'matomo.php']);
+                _paq.push(['setSiteId', '3']);
+                let d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+                g.async = true;
+                g.src = u + 'matomo.js';
+                s.parentNode.insertBefore(g, s);
+            })();
+        }
+    </script>
+    <!-- End Matomo Code -->
+
 </head>
 <body>
 <div id="q-app"></div>
@@ -64,6 +85,13 @@
             window.gtag('event', 'page_view', {
                 page_path: to.fullPath,
             });
+
+        if (window._paq) {
+            const _paq = window._paq;
+            _paq.push(['setCustomUrl', to.path]);
+            _paq.push(['setDocumentTitle', document.title]);
+            _paq.push(['trackPageView']);
+        }
     })
     // mount app to the page
     app.mount('BODY > DIV');
