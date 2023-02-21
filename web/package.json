@@ -14,10 +14,7 @@
     "url": "https://github.com/flancer64"
   },
   "repository": "github:flancer32/site_wg",
-  "dependencies": {
-    "vue": "^3",
-    "vue-router": "^4"
-  },
+  "dependencies": {},
   "devDependencies": {
   }
 }

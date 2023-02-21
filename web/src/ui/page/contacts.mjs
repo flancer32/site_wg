@@ -57,6 +57,14 @@ const template = `
 
         <ui-contact>
             <template #image>
+                <img src="./img/avatar/lera.png" alt="">
+            </template>
+            <template #title>Lera, Software Developer</template>
+            <template #details>nata@wiredgeese.com</template>
+        </ui-contact>
+
+        <ui-contact>
+            <template #image>
                 <img src="./img/avatar/nataly.png" alt="">
             </template>
             <template #title>Nataly, Software Tester</template>
