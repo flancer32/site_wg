@@ -1,7 +1,7 @@
 {
   "name": "site_wg",
-  "version": "0.1.0",
-  "description": "Website wiredgeese.com.",
+  "version": "0.2.0",
+  "description": "Wiredgeese Devs website",
   "homepage": "https://github.com/flancer32/site_wg/",
   "bugs": {
     "url": "https://github.com/flancer32/site_wg/issues",
@@ -15,6 +15,5 @@
   },
   "repository": "github:flancer32/site_wg",
   "dependencies": {},
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
