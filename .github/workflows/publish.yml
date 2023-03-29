@@ -21,6 +21,7 @@ jobs:
         run: |
           cd ./web
           npm install
+          npm run docs:build
 
       - name: Add application files to archive.
         uses: montudor/action-zip@v1

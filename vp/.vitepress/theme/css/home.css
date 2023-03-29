@@ -30,17 +30,17 @@
 /*    background-image: url("../../../img/home/contacts.png");*/
 /*}*/
 
-/*.mission .hbImage {*/
-/*    background-image: url("../../../img/home/mission.png");*/
-/*}*/
+.mission .hbImage {
+    background-image: url("../../../img/home/mission.jpg");
+}
 
 /*.portfolio .hbImage {*/
 /*    background-image: url("../../../img/home/portfolio.png");*/
 /*}*/
 
-/*.service .hbImage {*/
-/*    background-image: url("../../../img/home/service.png");*/
-/*}*/
+.service .hbImage {
+    background-image: url("../../../img/home/service.jpg");
+}
 
 /*.techStack .hbImage {*/
 /*    background-image: url("../../../img/home/techStack.png");*/
