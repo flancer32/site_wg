@@ -26,7 +26,7 @@ jobs:
       - name: Add application files to archive.
         uses: montudor/action-zip@v1
         with:
-          args: zip -qq --exclude=*.git* --exclude=.github --exclude=vp --exclude=web.old -r ${{env.ZIP}} ./
+          args: zip -qq --exclude=*.git* --exclude=./vp/ --exclude=./web.old/ -r ${{env.ZIP}} ./
 
       - name: Validate archive existence.
         run: ls -lh ${{env.ZIP}}
