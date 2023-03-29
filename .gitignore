@@ -14,3 +14,5 @@
 /tmp/
 /var/*.pid
 /var/store/**
+/vp/.vitepress/cache/
+/web/
