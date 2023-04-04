@@ -56,3 +56,11 @@ HEADER.hasBg {
         font-size: 300%;
     }
 }
+
+@media (max-height: 400px) {
+    .home-slogan {
+        top: 100px;
+        text-align: center;
+        font-size: 300%;
+    }
+}

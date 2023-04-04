@@ -26,12 +26,12 @@
     padding-left: 10px;
 }
 
-/*.contacts .hImage {*/
-/*    background-image: url("../../../img/home/contacts.png");*/
-/*}*/
+.contacts .hbImage {
+    background-image: url("../../../img/home/contacts.png");
+}
 
 .mission .hbImage {
-    background-image: url("../../../img/home/mission.jpg");
+    background-image: url("../../../img/home/mission.png");
 }
 
 /*.portfolio .hbImage {*/
@@ -42,9 +42,9 @@
     background-image: url("../../../img/home/service.jpg");
 }
 
-/*.techStack .hbImage {*/
-/*    background-image: url("../../../img/home/techStack.png");*/
-/*}*/
+.techStack .hbImage {
+    background-image: url("../../../img/home/mission.jpg");
+}
 
 /* Blocks on homepage: text + image */
 
