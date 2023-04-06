@@ -1,0 +1,9 @@
+/* Styles for 'Page' layout */
+
+HEADER.page {
+    height: var(--size-header-height);
+}
+
+MAIN.page {
+    padding-top: calc(var(--size-header-height) + var(--size-lg));
+}

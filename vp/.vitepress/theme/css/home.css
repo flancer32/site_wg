@@ -27,11 +27,11 @@
 }
 
 .contacts .hbImage {
-    background-image: url("../../../img/home/contacts.png");
+    background-image: url("../../../public/img/home/contacts.png");
 }
 
 .mission .hbImage {
-    background-image: url("../../../img/home/mission.png");
+    background-image: url("../../../public/img/home/mission.png");
 }
 
 /*.portfolio .hbImage {*/
@@ -39,11 +39,11 @@
 /*}*/
 
 .service .hbImage {
-    background-image: url("../../../img/home/service.jpg");
+    background-image: url("../../../public/img/home/service.jpg");
 }
 
 .techStack .hbImage {
-    background-image: url("../../../img/home/mission.jpg");
+    background-image: url("../../../public/img/home/mission.jpg");
 }
 
 /* Blocks on homepage: text + image */

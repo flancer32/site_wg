@@ -2,7 +2,7 @@
 import {useData} from 'vitepress';
 import Home from './Home.vue';
 // import NotFound from './NotFound.vue';
-// import Page from './Page.vue';
+import Page from './Page.vue';
 import {onMounted} from 'vue';
 import Analytics from './js/analytics.mjs';
 
@@ -13,7 +13,6 @@ onMounted(Analytics);
 
 <template>
   <!--  <NotFound v-if="page.isNotFound"/>-->
-  <!--  <Home v-if="frontmatter.layout === 'home'"/>-->
-  <!--  <Page v-else/>-->
-  <Home/>
+  <Home v-if="frontmatter.layout === 'home'"/>
+  <Page v-else/>
 </template>

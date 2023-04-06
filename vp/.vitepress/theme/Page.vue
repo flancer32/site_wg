@@ -1,10 +1,15 @@
 <script setup>
-import { useData } from 'vitepress'
-
+import {useData} from 'vitepress';
 // https://vitepress.dev/reference/runtime-api#usedata
-const { site, frontmatter } = useData()
+const {site, frontmatter} = useData()
 </script>
 
 <template>
-  <Content />
+  <header class="page">
+    <div class="logo">Wiredgeese Devs</div>
+    <nav class="menu">Menu</nav>
+  </header>
+  <main class="page">
+    <Content/>
+  </main>
 </template>
