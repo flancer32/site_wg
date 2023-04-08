@@ -1,0 +1,16 @@
+---
+import Header from '../components/Header.vue';
+import Layout from '../layouts/Main.astro';
+import Portfolio from '../components/Portfolio.vue';
+---
+
+<Layout title="Portfolio">
+    <Header/>
+    <main>
+        <Portfolio client:load/>
+    </main>
+</Layout>
+
+<style>
+
+</style>

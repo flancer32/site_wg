@@ -1,0 +1,12 @@
+@font-face {
+    font-family: appFontNormal;
+    src: url(../font/PTSans-Regular.ttf);
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: appFontBold;
+    src: url(../font/PTSans-Bold.ttf);
+    font-weight: bold;
+}

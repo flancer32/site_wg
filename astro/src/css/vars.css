@@ -1,0 +1,21 @@
+:root {
+    --bp-lg: 1920px;
+    --bp-md: 1440px;
+    --bp-sm: 1024px;
+    --bp-xs: 600px;
+    --color-bg-dark: #070505;
+    /*--color-bg-dark: #554b48;*/
+    --color-bg: #f2f7fc;
+    --color-set-base: #878787;
+    --color-set-darker: #545454;
+    --color-set-darkest: #1f1f1f;
+    --color-set-lighter: #bababa;
+    --color-set-lightest: #ededed;
+    --color-text: #343409;
+    --size-xs: 2px;
+    --size-sm: 5px;
+    --size-md: 7px;
+    --size-lg: 10px;
+    --size-xl: 15px;
+    --size-header-height: 30px;
+}

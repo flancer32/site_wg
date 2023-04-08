@@ -1,0 +1,19 @@
+{
+  "name": "boo",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "./node_modules/.bin/astro dev",
+    "start": "./node_modules/.bin/astro dev",
+    "build": "./node_modules/.bin/astro build",
+    "preview": "./node_modules/.bin/astro preview",
+    "astro": "./node_modules/.bin/astro"
+  },
+  "dependencies": {
+    "@astrojs/vue": "^2.1.1",
+    "astro": "^2.2.0",
+    "naive-ui": "^2.34.3",
+    "vue": "^3.2.47",
+    "vuetify": "^3.1.13"
+  }
+}
