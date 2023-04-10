@@ -17,13 +17,13 @@ jobs:
       - name: Check-out repo.
         uses: actions/checkout@v3
 
-      - name: Build 'vitepress' then build site.
+      - name: Build 'astro' then build site.
         run: |
-          cd ./vp
+          cd ./astro
           npm install
-          npm run docs:build
+          npm run build
           cd ..
-          rm -fr ./vp/ ./web.old/
+          rm -fr ./astro/ ./vp/ ./web.old/
 
       - name: Add application files to archive.
         uses: montudor/action-zip@v1

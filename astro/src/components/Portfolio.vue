@@ -1,19 +1,18 @@
 <script setup>
-import AlusPils from './Portfolio/AlusPils.vue';
 import Bwl from './Portfolio/Bwl.vue';
-import ConfReg from './Portfolio/ConfReg.vue';
 import DEF from '../js/defaults.mjs';
 import Duplo from './Portfolio/Duplo.vue';
+import ImgUpload from './Portfolio/ImgUpload.vue';
 import RaAdmin from './Portfolio/RaAdmin.vue';
 import RaMob from './Portfolio/RaMob.vue';
-import {computed, ref} from 'vue';
+import {computed, onMounted, ref} from 'vue';
 
 // VARS
 const projects = [DEF.PRJ_RA_MOB, DEF.PRJ_RA_ADMIN, DEF.PRJ_DUPLO, DEF.PRJ_BWL, DEF.PRJ_IMG_UP];
 
 // DATA (reactivity)
-const index = ref(0);
 const code = ref(DEF.PRJ_RA_MOB); // code for currently selected project
+const index = ref(0);
 const showModal = ref(false);
 const uiImageSrc = ref(null);
 
@@ -44,31 +43,38 @@ function doSwitch(cur, prev) {
 }
 
 // const projects = computed(() => {});
-
+// MAIN
+onMounted(() => {
+    const el = document.querySelector('.carousel-container');
+    el.style.display = 'block';
+});
 </script>
 
 <template>
-    <NCarousel
-            :on-update:current-index="doSwitch"
-            :show-dots="false"
-            class="my-carousel"
-            effect="card"
-            next-slide-style="transform: translateX(50%) translateZ(-800px);"
-            prev-slide-style="transform: translateX(-150%) translateZ(-800px);"
-    >
-        <NCarouselItem :style="{ width: '60%' }"
-                       v-for="code in projects"
-                       v-on:click="openImg(code)"
+    <div class="carousel-container">
+        <NCarousel
+                :on-update:current-index="doSwitch"
+                :show-dots="false"
+                class="my-carousel"
+                effect="card"
+                next-slide-style="transform: translateX(50%) translateZ(-800px);"
+                prev-slide-style="transform: translateX(-150%) translateZ(-800px);"
         >
-            <img
-                    class="carousel-img"
-                    :src="urlImgSource(code)"
+            <NCarouselItem :style="{ width: '60%' }"
+                           v-for="code in projects"
+                           v-on:click="openImg(code)"
             >
-        </NCarouselItem>
-    </NCarousel>
+                <img
+                        class="carousel-img"
+                        :src="urlImgSource(code)"
+                >
+            </NCarouselItem>
+        </NCarousel>
+    </div>
     <div class="description">
         <Bwl v-if="code===DEF.PRJ_BWL"/>
         <Duplo v-if="code===DEF.PRJ_DUPLO"/>
+        <ImgUpload v-if="code===DEF.PRJ_IMG_UP"/>
         <RaAdmin v-if="code===DEF.PRJ_RA_ADMIN"/>
         <RaMob v-if="code===DEF.PRJ_RA_MOB"/>
     </div>
@@ -83,6 +89,10 @@ function doSwitch(cur, prev) {
 .my-carousel {
     height: 240px;
     width: 100vw;
+}
+
+.carousel-container {
+    display: none;
 }
 
 .carousel-img {

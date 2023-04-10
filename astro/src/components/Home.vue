@@ -2,6 +2,7 @@
 import Contacts from './Home/Contacts.vue';
 import Header from './Header.vue';
 import Mission from './Home/Mission.vue';
+import Portfolio from './Home/Portfolio.vue';
 import Service from './Home/Service.vue';
 import TechStack from './Home/TechStack.vue';
 </script>
@@ -14,7 +15,8 @@ import TechStack from './Home/TechStack.vue';
         <Mission class="home-block direct"/>
         <Service class="home-block reverse"/>
         <TechStack class="home-block direct"/>
-        <Contacts class="home-block reverse"/>
+        <Portfolio class="home-block reverse"/>
+        <Contacts class="home-block direct"/>
     </main>
 </template>
 
@@ -44,6 +46,10 @@ import TechStack from './Home/TechStack.vue';
 
 .home-block {
     display: grid;
+}
+
+.home-block A {
+    text-decoration: none;
 }
 
 .home-block .text {

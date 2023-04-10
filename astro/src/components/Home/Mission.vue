@@ -19,6 +19,6 @@
 
 <style>
 .image.mission {
-    background-image: url("../../../public/img/home/mission.png");
+    background-image: url("../../../public/img/home/techStack.jpg");
 }
 </style>
