@@ -20,6 +20,6 @@
 <style>
 
 .image.contacts {
-    background-image: url("../../../public/img/home/techStack.jpg");
+    background-image: url("../../../public/img/home/contacts.png");
 }
 </style>
