@@ -24,7 +24,7 @@
 
 <style>
 .image.portfolio {
-    background-image: url("../../../public/img/home/service.jpg");
+    background-image: url("../../../public/img/home/portfolio.jpg");
 }
 
 .image.portfolio > A > DIV {
