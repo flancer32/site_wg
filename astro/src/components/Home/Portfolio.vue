@@ -4,7 +4,7 @@
 
 <template>
 
-    <section>
+    <section class="clickable">
         <a href="/portfolio/">
             <section class="text">
                 <h1>Portfolio</h1>
@@ -30,5 +30,10 @@
 .image.portfolio > A > DIV {
     height: 100%;
     width: 100%;
+}
+
+.clickable:hover {
+    background-color: var(--color-bg);
+    color: var(--color-bg-dark);
 }
 </style>

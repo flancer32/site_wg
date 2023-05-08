@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Main.astro';
+---
+
+<Layout title="Wiredgeese Devs">
+    <main>
+        <div class="center">
+            <h1>Not Found</h1>
+            <div>The requested URL was not found on this server.</div>
+            <div style="margin-top: 50px;">Try these links:</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio/">Portfolio</a></li>
+            </ul>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    .center {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
+</style>
