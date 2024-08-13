@@ -7,6 +7,7 @@
 /**/tmp/
 /**/ttttest.*
 /.idea/
+/astro3/
 /atlassian-ide-plugin.xml
 /cfg/local.*
 /composer.lock
@@ -16,3 +17,4 @@
 /var/store/**
 /vp/.vitepress/cache/
 /web/
+/web2/

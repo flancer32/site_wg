@@ -1,0 +1,26 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Links from '../../components/tmp/Links.astro';
+import {SITE_TITLE, SITE_DESCRIPTION} from '../../consts';
+
+export function getStaticPaths() {
+    return [
+        {params: {slug: 'post'}},
+    ];
+}
+
+const {slug} = Astro.params;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
+</head>
+<body>
+<main>
+    <h1>Blog Post</h1>
+    <Links/>
+</main>
+</body>
+</html>
