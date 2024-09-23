@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #333;
+    color: #f1f1f1;
+    margin: 0;
+}
+
+header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+}
+
+.site-title {
+    width: 50%;
+}
+
+.menu-icon {
+    display: none;
+    /* Will be shown in mobile view with media query later */
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #222;
+}
+
+.menu li {
+    float: left;
+}
+
+.menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    background-color: #111;
+}
+
+main .content-area {
+    padding: 2em;
+    overflow-y: auto;
+}
+
+footer {
+    background-color: rgba(2, 2, 2, 0.4);
+    color: #f1f1f1;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    font-size: 5px;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the menu and the content stack on top of each other */
+@media screen and (max-width: 600px) {
+    .menu li {
+        float: none;
+        width: 100%;
+    }
+
+    .menu-icon {
+        display: initial;
+    }
+}
+
+/* INTRO CSS */
+
+/* Intro Block Styling */
+.intro {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro .content {
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    color: white;
+}
+
+.intro .avatar {
+    width: 100px; /* Avatar size */
+    height: 100px;
+    border-radius: 50%; /* Makes the image a circle */
+    margin-bottom: 15px; /* Space between avatar and slogan */
+}
+
+.intro .slogan {
+    font-size: 24px; /* Font size for the slogan */
+    margin: 0;
+}
