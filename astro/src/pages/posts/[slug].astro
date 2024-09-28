@@ -5,7 +5,7 @@ import {SITE_TITLE, SITE_DESCRIPTION} from '../../consts';
 import MainLayout from '../../layouts/main.astro';
 import {getCollection} from 'astro:content'
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
     const blogEntries = await getCollection('posts');
     return blogEntries.map(entry => ({
         params: {slug: entry.slug}, props: {entry},

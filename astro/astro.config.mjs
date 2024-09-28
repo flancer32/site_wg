@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	outDir: '../web2',
+	outDir: '../web',
     integrations: [mdx(), sitemap()],
     output: 'static',
     site: 'https://wiredgeese.com',
