@@ -13,10 +13,10 @@ interface Props {
 const {pageTitle} = Astro.props;
 ---
 <script is:inline type="module">
-    import FBigImage from '/public/components/AppBigImage.mjs';
-    import FFooter from '/public/components/AppFooter.mjs';
-    import FHeader from '/public/components/AppHeader.mjs';
-    import FMenu from '/public/components/AppMenu.mjs';
+    import FBigImage from '/components/AppBigImage.mjs';
+    import FFooter from '//components/AppFooter.mjs';
+    import FHeader from '/components/AppHeader.mjs';
+    import FMenu from '/components/AppMenu.mjs';
 
     // create and register web-components in browser mode (not in SSR mode)
     if (typeof window !== 'undefined') {
