@@ -1,0 +1,179 @@
+---
+import MainLayout from '../layouts/main.astro';
+const pageTitle = "Contact Me";
+---
+<style>
+    ARTICLE {
+        display: block;
+        margin: 0 auto;
+        padding: 10px;
+        width: fit-content;
+    }
+
+    ARTICLE.links {
+
+        & UL {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+
+            & LI {
+                align-items: center;
+                display: flex;
+                margin-bottom: 10px;
+                transition: transform 0.3s ease;
+            }
+        }
+
+        & A {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+
+            & DIV {
+                margin-right: 10px;
+            }
+
+            & DIV:nth-child(1) {
+                background-color: white;
+                max-height: 60px;
+                max-width: 60px;
+                padding: 2px;
+            }
+
+            IMG {
+                width: 60px;
+            }
+        }
+
+        & A:hover {
+            transform: scale(1.05); /* Увеличение масштаба блока при наведении */
+        }
+
+    }
+
+
+    ARTICLE.company {
+        & DIV.table {
+            display: grid;
+            grid-gap: 10px;
+            align-items: center;
+            grid-template-columns: 1fr auto;
+        }
+
+        & .since {
+            font-size: xx-small;
+        }
+    }
+</style>
+
+<MainLayout pageTitle={pageTitle}>
+    <h1>{pageTitle}</h1>
+    <article class="links">
+        <ul>
+            <li>
+                <a href="mailto:alex@wiredgeese.com">
+                    <div>
+                        <img src="/img/contacts/email.svg"/>
+                    </div>
+                    <div>mailto:alex@wiredgeese.com</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://t.me/wiredgeese" target="_blank">
+                    <div>
+                        <img src="/img/contacts/telegram.svg"/>
+                    </div>
+                    <div>@wiredgeese</div>
+                </a>
+            </li>
+            <li>
+                <a href="skype:alex.gusev.work">
+                    <div>
+                        <img src="/img/contacts/skype.png"/>
+                    </div>
+                    <div>alex.gusev.work</div>
+                </a>
+            </li>
+        </ul>
+    </article>
+
+    <article class="links">
+        <h2>My Links</h2>
+        <ul>
+            <li>
+                <a href="https://github.com/flancer64">
+                    <div>
+                        <img src="/img/contacts/github.svg"/>
+                    </div>
+                    <div>GitHub</div>
+                </a>
+
+            </li>
+            <li>
+                <a href="https://stackoverflow.com/users/4073821/alex-gusev">
+                    <div>
+                        <img src="/img/contacts/stackoverflow.svg"/>
+                    </div>
+                    <div>StackOverflow</div>
+                </a>
+
+            </li>
+            <li>
+                <a href="https://flancer32.com/">
+                    <div>
+                        <img src="/img/contacts/medium.svg"/>
+                    </div>
+                    <div>Medium</div>
+                </a>
+
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/">
+                    <div>
+                        <img src="/img/contacts/linkedin.svg"/>
+                    </div>
+                    <div>LinkedIn</div>
+                </a>
+
+            </li>
+            <li>
+                <a href="https://www.upwork.com/freelancers/~0181de0a64c6981497">
+                    <div>
+                        <img src="/img/contacts/upwork.svg"/>
+                    </div>
+                    <div>Upwork</div>
+                </a>
+
+            </li>
+            <li>
+                <a href="https://www.fiverr.com/users/wiredgeese">
+                    <div>
+                        <img src="/img/contacts/fiverr.svg"/>
+                    </div>
+                    <div>Fiverr</div>
+                </a>
+
+            </li>
+        </ul>
+    </article>
+
+    <article class="company">
+        <h2>My Company</h2>
+
+        <div class="table">
+            <div>Company Name:</div>
+            <div>F. Lancer</div>
+            <div>Company Registration Number:</div>
+            <div>40103303120 <span class="since">(since 2010/06/29)</span></div>
+            <div>SEPA Identifier:</div>
+            <div>LV82ZZZ40103303120</div>
+            <div>VAT Number:</div>
+            <div>LV40103303120 <span class="since">(since 2023/09/27)</span></div>
+            <div>Bank Account Number:</div>
+            <div>LV83HABA0551028650868</div>
+        </div>
+
+    </article>
+
+</MainLayout>

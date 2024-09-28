@@ -1,0 +1,32 @@
+/* Intro Block Styling */
+.intro {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .content {
+        width: 80%;
+        max-width: 400px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+        padding: 20px;
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+        color: white;
+    }
+
+    & .avatar {
+        width: 100px; /* Avatar size */
+        height: 100px;
+        border-radius: 50%; /* Makes the image a circle */
+        margin-bottom: 15px; /* Space between avatar and slogan */
+    }
+
+    & .slogan {
+        font-size: 24px; /* Font size for the slogan */
+        margin: 0;
+    }
+}

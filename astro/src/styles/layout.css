@@ -1,0 +1,32 @@
+
+
+
+
+.site-title {
+    width: 50%;
+}
+
+MAIN .content-area {
+    padding-bottom: 2em;
+    overflow-y: auto;
+}
+
+
+
+
+
+/* Responsive layout - when the screen is less than 600px wide, make the menu and the content stack on top of each other */
+@media screen and (max-width: 600px) {
+    .menu li {
+        float: none;
+        width: 100%;
+    }
+
+    .menu-icon {
+        display: initial;
+    }
+}
+
+/* INTRO CSS */
+
+/* TMP */

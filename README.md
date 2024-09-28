@@ -5,7 +5,7 @@ Sources for website 'wiredgeese.com'.
 ## Development
 
 ```shell
-$ cd ./vp/
+$ cd ./astro/
 $ npm run docs:dev
 $ npm run docs:build
 
