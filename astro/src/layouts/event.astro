@@ -3,6 +3,7 @@ import '../styles/global.css';
 import '../styles/layout/event.css';
 import {SITE_TITLE, SITE_DESCRIPTION} from '../consts';
 import Links from '../components/Links.astro';
+import Stats from '../components/Stats.astro';
 ---
 <script is:inline type="module">
     import FBigImage from '/components/AppBigImage.mjs';
@@ -26,6 +27,7 @@ import Links from '../components/Links.astro';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{SITE_TITLE}</title>
+    <Stats/>
 </head>
 <body>
 <header class="no-print">

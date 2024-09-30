@@ -3,6 +3,7 @@ import '../styles/global.css';
 import '../styles/layout/main.css';
 import {SITE_TITLE, SITE_DESCRIPTION} from '../consts';
 import Links from '../components/Links.astro';
+import Stats from '../components/Stats.astro';
 
 /** Define properties of the component (layout) */
 interface Props {
@@ -34,6 +35,7 @@ const {pageTitle} = Astro.props;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{SITE_TITLE} - {pageTitle}</title>
+    <Stats/>
 </head>
 <body>
 <header class="no-print">
