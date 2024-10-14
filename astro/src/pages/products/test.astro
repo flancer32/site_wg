@@ -1,0 +1,30 @@
+---
+import MainLayout from '../../layouts/main.astro';
+const pageTitle = "Products & Services";
+---
+
+<style>
+
+</style>
+
+<MainLayout pageTitle={pageTitle}>
+    <h1>{pageTitle}</h1>
+
+    <!-- Product 1: SPA/PWA Development -->
+    <article id="spa-pwa-development">
+        <img src="/img/products/github_actions.webp" alt="GitHub Actions" style="width: 100px; float: left; margin: 0 15px 15px 0"/>
+
+        <h3>Single Page Applications (SPA) & Progressive Web Applications (PWA) Development</h3>
+        <p>I specialize in developing modern Single Page Applications (SPA) and Progressive Web Applications (PWA) using
+            JavaScript. My expertise includes building browser-based, serverless applications and integrating them with
+            various external services, such as payment gateways, large language models (LLM), and other APIs. This
+            allows businesses to extend their online capabilities and provide seamless user experiences.</p>
+        <p>In addition to development, I offer full deployment services, ensuring that your application is set up on a
+            virtual host or cloud infrastructure. I also provide Continuous Integration and Continuous Deployment
+            (CI/CD) pipelines using GitHub Actions, which ensures efficient and reliable updates throughout the
+            application’s lifecycle.</p>
+        <p>Whether you need a new custom web app or want to modernize an existing one, I will work closely with you to
+            deliver a solution that meets your business objectives.</p>
+    </article>
+
+</MainLayout>
