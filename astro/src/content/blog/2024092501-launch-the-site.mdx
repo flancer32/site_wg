@@ -2,12 +2,16 @@
 title: 'Launch of My Personal Website'
 description: 'Launch of My Personal Website'
 pubDate: '2024-09-30'
-heroImage: '/blog-placeholder-3.jpg'
+image: '/img/events/2024092501.png'
 ---
 
 # { frontmatter.title }
 
-**Date:** {frontmatter.pubDate}
+<span style={{display: 'block', textAlign: 'right'}}>
+  **Date:** {frontmatter.pubDate}
+</span>
+
+<img src={frontmatter.image} alt={frontmatter.title} style={{width: '100px', float: 'left', margin: '0 15px 15px 0'}}/>
 
 I am excited to announce the official launch of my personal website, a project that has been in development for some
 time. This site serves as a hub for showcasing my professional journey, technical expertise, and the products and

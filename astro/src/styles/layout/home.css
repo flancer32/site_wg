@@ -1,11 +1,12 @@
 /* Intro Block Styling */
 .intro {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
 
     & .content {
         width: 80%;
@@ -28,5 +29,19 @@
     & .slogan {
         font-size: 24px; /* Font size for the slogan */
         margin: 0;
+    }
+}
+
+MAIN {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    & .content-area {
+        background-color: rgba(2, 2, 2, 0.4);
+        padding: 1rem;
+        width: min(90%, 800px);
     }
 }
