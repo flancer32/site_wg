@@ -1,20 +1,18 @@
 ---
-import Layout from '../layouts/Posts.astro';
+import HomeLayout from '../layouts/home.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-// import BlogPost from "../components/BlogPost.astro";
-const pageTitle = "My Events";
-//const allPosts = await Astro.glob("../pages/posts/*.md");
-import {getCollection} from "astro:content";
+import {getCollection} from 'astro:content';
+
 const events = (await getCollection('blog')).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
-<Layout pageTitle={pageTitle}>
-    <h1>{pageTitle}</h1>
-    <ul>
-        {
-            events.map((event) => (
+<HomeLayout>
+    <section>
+        <h2>Recent Events</h2>
+        <ul style="list-style-type: none; padding: 0;">
+            {events.slice(0, 5).map((event) => (
                     <li style="display: flex; align-items: flex-start; margin-bottom: 20px;">
                         <a href={`/events/${event.slug}/`}
                            style="display: flex; text-decoration: none; color: inherit;">
@@ -27,7 +25,7 @@ const events = (await getCollection('blog')).sort(
                             )}
                         </a>
                         <div>
-                            <a href={`/events/${event.slug}/`}>
+                            <a href={`/events/${event.slug}/`} style="text-decoration: none; color: inherit;">
                                 <h4 class="title" style="margin: 0;">
                                     {event.data.title}
                                 </h4>
@@ -37,7 +35,9 @@ const events = (await getCollection('blog')).sort(
                             </p>
                         </div>
                     </li>
-            ))
-        }
-    </ul>
-</Layout>
+            ))}
+        </ul>
+    </section>
+
+</HomeLayout>
+

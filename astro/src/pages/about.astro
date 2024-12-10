@@ -1,15 +1,10 @@
 ---
-import MainLayout from '../layouts/main.astro';
-// import BaseHead from '../components/BaseHead.astro';
+import Layout from '../layouts/Posts.astro';
 // import {SITE_TITLE, SITE_DESCRIPTION} from '../consts';
 const pageTitle = "About Me";
 ---
 
-<!--<head>-->
-<!--    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>-->
-<!--</head>-->
-
-<MainLayout pageTitle={pageTitle}>
+<Layout pageTitle={pageTitle}>
     <h1>{pageTitle}</h1>
     <article>
         <h2>Personal Background</h2>
@@ -122,4 +117,4 @@ const pageTitle = "About Me";
         </p>
 
     </article>
-</MainLayout>
+</Layout>

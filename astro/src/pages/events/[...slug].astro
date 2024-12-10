@@ -1,6 +1,7 @@
 ---
 import {type CollectionEntry, getCollection} from 'astro:content';
 import BlogPost from '../../layouts/main.astro';
+import Layout from '../../layouts/Posts.astro';
 
 export async function getStaticPaths() {
     const posts = await getCollection('blog');
@@ -17,6 +18,6 @@ const pageTitle = `Event - ${post.data.title}`;
 debugger
 ---
 
-<BlogPost pageTitle={pageTitle}>
+<Layout pageTitle={pageTitle}>
     <Content/>
-</BlogPost>
+</Layout>

@@ -1,0 +1,204 @@
+---
+title: "JOINed SELECT with 'Knex.js'"
+description: "A comprehensive guide to building Telegram bots using Node.js and grammY."
+pubDate: "2022-04-07"
+image: "logo.webp"
+tags:
+  - Telegram
+  - Bots
+  - Node.js
+---
+
+# JOINed SELECT with Knex.js
+
+---
+![Logo](logo.webp)
+---
+
+[Knex.js](https://knexjs.org/) is a great library to interact with relational DBMS in Node.js apps (such as
+MySQL/MariaDB, PostgreSQL, MSSQL, Oracle, …). It is not
+an [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) tool, it is more like
+a [DAL](https://en.wikipedia.org/wiki/Data_access_layer) tool. In this post, I will describe how to create `SELECT …
+JOIN …` queries using `Knex`.
+
+## Transaction
+
+First of all, we need to get a transaction to communicate with the DB. This is a sample of how to connect to the DB,
+create a transaction, then close the connection:
+
+```javascript
+import knex from 'knex';
+
+/** @type {Knex} */
+const conn = await knex({
+    client: '...',
+    connection: {...}
+});
+
+/** @type {Knex.Transaction} */
+const trx = await conn.transaction();
+
+try {
+    // execute SQL here
+    await trx.commit();
+} catch (e) {
+    await trx.rollback();
+}
+
+await conn.destroy();
+```
+
+## Simple SELECT
+
+Select one record from a table:
+
+```javascript
+const trx = await conn.transaction();
+
+try {
+    /** @type {Knex.QueryBuilder} */
+    const query = trx.queryBuilder();
+    query.table('app_task');
+    query.select();
+    query.where('id', 3);
+
+    console.log('SQL: ' + query.toString());
+    const rs = await query;
+    for (const one of rs) console.log(one);
+
+    await trx.commit();
+} catch (e) {
+    await trx.rollback();
+    console.log(e);
+}
+```
+
+Output:
+
+```
+SQL: select * from `app_task` where `id` = 3
+{
+  id: 3,
+  ...
+}
+```
+
+## Simple JOIN
+
+In this sample, I create an SQL statement to select all data from two tables: `app_task` and `app_upload`:
+
+```javascript
+const query = trx.queryBuilder();
+
+// main table
+query.table('app_task');
+query.select();
+
+// join another table
+query.leftJoin('app_upload', 'app_upload.id', 'image_ref');
+console.log('SQL: ' + query.toString());
+```
+
+This results in the following SQL:
+
+```
+select * from `app_task`;
+left join `app_upload` on `app_upload`.`id` = `image_ref`;
+```
+
+## "Professional" JOIN
+
+Generally, we need to join more than two tables and use aliases for tables and selected columns (fields). In some cases,
+we need to separate columns with the same names from different tables in a query:
+
+```
+select
+    app_task.id as taskId,
+    app_upload.id as uploadId
+from ...
+```
+
+Also, the same table can be joined more than once in a query using different aliases:
+
+```
+left join `app_upload` as taskImg on taskImg.id=...
+left join `app_upload` as userImg on userImg.id=...
+```
+
+This is a sample of a more complex JOIN:
+
+```javascript
+/* METADATA */
+// tables
+const T_TASK = 'app_task';
+const T_UPLOAD = 'app_upload';
+const T_USER = 'app_user';
+
+// columns
+const T_TASK_A_ID = 'id';
+const T_TASK_A_TITLE = 'title';
+const T_TASK_A_IMAGE_REF = 'image_ref';
+const T_TASK_A_USER_REF = 'user_ref';
+
+const T_UPLOAD_A_ID = 'id';
+const T_UPLOAD_A_UUID = 'uuid';
+
+const T_USER_A_ID = 'id';
+const T_USER_A_NAME = 'name';
+
+/* ALIASES */
+// for tables
+const asTask = 't';
+const asUpload = 'up';
+const asUser = 'usr';
+
+// knex objects
+const tTask = {[asTask]: T_TASK}; // "app_task as t"
+const tUpload = {[asUpload]: T_UPLOAD}; // "app_upload as up"
+const tUser = {[asUser]: T_USER}; // "app_user as usr";
+
+/** @type {Knex.QueryBuilder} */
+const query = trx.queryBuilder();
+
+// main table
+query.table(tTask);
+query.select([
+    {[`${asTask}.id`]: 'taskId'},
+    {[`${asTask}.title`]: 'taskName'}
+]);
+
+// join tables
+query.leftJoin(tUpload, `${asUpload}.${T_UPLOAD_A_ID}`, `${asTask}.${T_TASK_A_IMAGE_REF}`);
+query.select([
+    {[`${asUpload}.${T_UPLOAD_A_UUID}`]: 'imgUuid'}
+]);
+
+query.leftJoin(tUser, `${asUser}.${T_USER_A_ID}`, `${asTask}.${T_TASK_A_USER_REF}`);
+query.select([
+    {[`${asUser}.${T_USER_A_NAME}`]: 'userName'}
+]);
+
+// WHERE clause
+query.where(`${asTask}.${T_TASK_A_ID}`, 3);
+```
+
+Resulting SQL:
+
+```
+select
+    `t`.`id` as `taskId`,
+    `t`.`title` as `taskName`,
+    `up`.`uuid` as `imgUuid`,
+    `usr`.`name` as `userName`
+from `app_task` as `t`
+left join `app_upload` as `up` on `up`.`id` = `t`.`image_ref`
+left join `app_user` as `usr` on `usr`.`id` = `t`.`user_ref`
+where `t`.`id` = 3
+```
+
+## Summary
+
+SQL is the foundation for interacting with relational DBMS. `SELECT` with `JOIN` is often used in applications, and Knex
+allows you to create SQL of any complexity.
+
+---

@@ -1,7 +1,64 @@
 ---
-import MainLayout from '../layouts/main.astro';
+import Layout from '../layouts/Layout.astro';
 const pageTitle = "Contact Me";
 ---
+<Layout pageTitle={pageTitle}>
+    <h1>{pageTitle}</h1>
+    <div class="contacts-grid">
+        <article class="links">
+            <h2>Email & Messengers</h2>
+            <ul>
+                <li>
+                    <a href="mailto:alex@wiredgeese.com">
+                        <img src="/img/contacts/email.svg" alt="Email"/>
+                        <span>mailto:alex@wiredgeese.com</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://t.me/wiredgeese" target="_blank">
+                        <img src="/img/contacts/telegram.svg" alt="Telegram"/>
+                        <span>@wiredgeese</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="skype:alex.gusev.work">
+                        <img src="/img/contacts/skype.png" alt="Skype"/>
+                        <span>alex.gusev.work</span>
+                    </a>
+                </li>
+            </ul>
+        </article>
+
+        <article class="links">
+            <h2>My Links</h2>
+            <ul>
+                <li><a href="https://github.com/flancer64"><img src="/img/contacts/github.svg" alt="GitHub"/><span>GitHub</span></a></li>
+                <li><a href="https://stackoverflow.com/users/4073821/alex-gusev"><img src="/img/contacts/stackoverflow.svg" alt="StackOverflow"/><span>StackOverflow</span></a></li>
+                <li><a href="https://flancer32.com/"><img src="/img/contacts/medium.svg" alt="Medium"/><span>Medium</span></a></li>
+                <li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/"><img src="/img/contacts/linkedin.svg" alt="LinkedIn"/><span>LinkedIn</span></a></li>
+                <li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497"><img src="/img/contacts/upwork.svg" alt="Upwork"/><span>Upwork</span></a></li>
+                <li><a href="https://www.fiverr.com/users/wiredgeese"><img src="/img/contacts/fiverr.svg" alt="Fiverr"/><span>Fiverr</span></a></li>
+            </ul>
+        </article>
+
+        <article class="company">
+            <h2>My Company</h2>
+            <div class="table">
+                <div>Company Name:</div>
+                <div>F. Lancer</div>
+                <div>Company Registration Number:</div>
+                <div>40103303120 <span class="since">(since 2010/06/29)</span></div>
+                <div>SEPA Identifier:</div>
+                <div>LV82ZZZ40103303120</div>
+                <div>VAT Number:</div>
+                <div>LV40103303120 <span class="since">(since 2023/09/27)</span></div>
+                <div>Bank Account Number:</div>
+                <div>LV83HABA0551028650868</div>
+            </div>
+        </article>
+    </div>
+</Layout>
+
 <style>
     ARTICLE {
         display: block;
@@ -66,114 +123,3 @@ const pageTitle = "Contact Me";
         }
     }
 </style>
-
-<MainLayout pageTitle={pageTitle}>
-    <h1>{pageTitle}</h1>
-    <article class="links">
-        <ul>
-            <li>
-                <a href="mailto:alex@wiredgeese.com">
-                    <div>
-                        <img src="/img/contacts/email.svg"/>
-                    </div>
-                    <div>mailto:alex@wiredgeese.com</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://t.me/wiredgeese" target="_blank">
-                    <div>
-                        <img src="/img/contacts/telegram.svg"/>
-                    </div>
-                    <div>@wiredgeese</div>
-                </a>
-            </li>
-            <li>
-                <a href="skype:alex.gusev.work">
-                    <div>
-                        <img src="/img/contacts/skype.png"/>
-                    </div>
-                    <div>alex.gusev.work</div>
-                </a>
-            </li>
-        </ul>
-    </article>
-
-    <article class="links">
-        <h2>My Links</h2>
-        <ul>
-            <li>
-                <a href="https://github.com/flancer64">
-                    <div>
-                        <img src="/img/contacts/github.svg"/>
-                    </div>
-                    <div>GitHub</div>
-                </a>
-
-            </li>
-            <li>
-                <a href="https://stackoverflow.com/users/4073821/alex-gusev">
-                    <div>
-                        <img src="/img/contacts/stackoverflow.svg"/>
-                    </div>
-                    <div>StackOverflow</div>
-                </a>
-
-            </li>
-            <li>
-                <a href="https://flancer32.com/">
-                    <div>
-                        <img src="/img/contacts/medium.svg"/>
-                    </div>
-                    <div>Medium</div>
-                </a>
-
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/">
-                    <div>
-                        <img src="/img/contacts/linkedin.svg"/>
-                    </div>
-                    <div>LinkedIn</div>
-                </a>
-
-            </li>
-            <li>
-                <a href="https://www.upwork.com/freelancers/~0181de0a64c6981497">
-                    <div>
-                        <img src="/img/contacts/upwork.svg"/>
-                    </div>
-                    <div>Upwork</div>
-                </a>
-
-            </li>
-            <li>
-                <a href="https://www.fiverr.com/users/wiredgeese">
-                    <div>
-                        <img src="/img/contacts/fiverr.svg"/>
-                    </div>
-                    <div>Fiverr</div>
-                </a>
-
-            </li>
-        </ul>
-    </article>
-
-    <article class="company">
-        <h2>My Company</h2>
-
-        <div class="table">
-            <div>Company Name:</div>
-            <div>F. Lancer</div>
-            <div>Company Registration Number:</div>
-            <div>40103303120 <span class="since">(since 2010/06/29)</span></div>
-            <div>SEPA Identifier:</div>
-            <div>LV82ZZZ40103303120</div>
-            <div>VAT Number:</div>
-            <div>LV40103303120 <span class="since">(since 2023/09/27)</span></div>
-            <div>Bank Account Number:</div>
-            <div>LV83HABA0551028650868</div>
-        </div>
-
-    </article>
-
-</MainLayout>

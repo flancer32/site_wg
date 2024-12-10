@@ -1,0 +1,101 @@
+---
+const links = [
+    {href: "/events/", text: "Blog"},
+    {href: "/posts/", text: "Posts"},
+    {href: "/products/", text: "Products"},
+    {href: "/contacts/", text: "Contact"},
+    {href: "/about/", text: "About"},
+];
+---
+<nav class="navbar">
+    <div class="nav-logo">
+        <a href="/">
+            <img src="/favicon.ico" alt="Tequila Framework Logo">
+        </a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+        &#9776;
+    </button>
+    <ul class="nav-links">
+        {links.map(link => (
+                <li><a href={link.href}>{link.text}</a></li>
+        ))}
+    </ul>
+</nav>
+
+<style>
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #1A1A1A;
+        padding: 10px 20px;
+        position: relative;
+        color: #00FF00;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-logo img {
+        height: 40px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 15px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #4CAF50;
+        font-size: 1rem;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .nav-links a:hover {
+        color: #81C784;
+    }
+
+    .nav-toggle {
+        display: none;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: #4CAF50;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #1A1A1A;
+            width: 200px;
+            padding: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-toggle {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    const toggleButton = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    toggleButton?.addEventListener('click', () => {
+        navLinks?.classList.toggle('active');
+    });
+</script>
