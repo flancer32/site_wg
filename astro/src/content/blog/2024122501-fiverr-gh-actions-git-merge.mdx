@@ -1,0 +1,29 @@
+---
+title: 'New Project Completion: GitHub Action for Branch Merging with File Exclusions'
+description: 'An overview of a recent project where I developed a GitHub Action to merge branches while excluding specific files, and switched from PAT to SSH key authentication for secure pushes.'
+pubDate: '2024-12-25'
+image: '/img/events/2024122501.png'
+---
+
+# { frontmatter.title }
+
+<span style={{display: 'block', textAlign: 'right'}}>
+**Date:** {frontmatter.pubDate}
+</span>
+
+<img src={frontmatter.image} alt={frontmatter.title} style={{width: '100px', float: 'left', margin: '0 15px 15px 0'}}/>
+
+I’m excited to announce the completion of a recent project where I developed a GitHub Action that automates the process
+of merging one branch into another while excluding specific files from the merge. Afterward, the updated branch is
+pushed back to the repository.
+
+During the project, I discovered that for secure pushes, SSH key authentication was required instead of just using a
+Personal Access Token (PAT). This required me to configure SSH key-based authentication for the action, ensuring
+seamless and secure repository interactions.
+
+It was a great learning experience, and I’m looking forward to similar projects in the future!
+
+If you're interested in setting up CI/CD with GitHub Actions, feel free to check out
+my [Fiverr Gig](https://www.fiverr.com/wiredgeese/set-up-ci-cd-with-github-actions-for-deployment-on-virtual-server).
+
+Happy coding!
