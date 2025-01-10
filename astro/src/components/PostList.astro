@@ -80,9 +80,18 @@ posts.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
         color: #81C784;
     }
 
-    .post-images img {
+    .post-images {
+        display: flex;
+        justify-content: center;
         width: 100%;
+    }
+
+    .post-images img {
+        max-width: 100%;
+        width: auto !important;
+        height: auto;
         margin: 10px 0;
         border-radius: 5px;
     }
+
 </style>

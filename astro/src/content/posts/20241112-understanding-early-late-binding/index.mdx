@@ -1,7 +1,7 @@
 ---
 title: "Understanding Early vs Late Binding in JavaScript"
 description: "A detailed explanation of early vs late binding in JavaScript, with code examples and insights."
-pubDate: "2024-12-16"
+pubDate: "2024-11-12"
 image: "logo.webp"
 tags:
   - JavaScript
@@ -12,7 +12,7 @@ tags:
 
 ---
 
-import { Image } from 'astro:assets'; import logo from './logo.webp';
+import logo from './logo.webp';
 
 # Understanding Early vs Late Binding in JavaScript
 
@@ -23,7 +23,9 @@ developer’s perspective. In this article, I’ll share a foundational insight 
 using a straightforward JavaScript/TypeScript example. While this perspective may be unconventional, it could offer
 valuable clarity for developers refining their approach to code dependencies.
 
-<Image src={logo} alt="Logo" width={600} height="auto" loading="lazy" decoding="async" />
+<div className="post-images">
+    <img src={logo.src} alt="Logo for the post" style="max-width: 100%" />
+</div>
 
 The key difference between early and late binding, in my view, lies in the developer’s mindset. With early binding, we
 think about creating objects and managing their dependencies ourselves. With late binding, however, we focus on defining
