@@ -1,0 +1,261 @@
+---
+title: "Understanding Early vs Late Binding in JavaScript"
+description: "A detailed explanation of early vs late binding in JavaScript, with code examples and insights."
+pubDate: "2024-12-16"
+image: "logo.webp"
+tags:
+  - JavaScript
+  - Binding
+  - TypeScript
+  - Dependency Injection
+  - Teqfw
+
+---
+
+import { Image } from 'astro:assets'; import logo from './logo.webp';
+
+# Understanding Early vs Late Binding in JavaScript
+
+---
+
+The difference between early and late binding is significant but can be challenging to grasp — especially from a
+developer’s perspective. In this article, I’ll share a foundational insight that I believe captures this distinction,
+using a straightforward JavaScript/TypeScript example. While this perspective may be unconventional, it could offer
+valuable clarity for developers refining their approach to code dependencies.
+
+<Image src={logo} alt="Logo" width={600} height="auto" loading="lazy" decoding="async" />
+
+The key difference between early and late binding, in my view, lies in the developer’s mindset. With early binding, we
+think about creating objects and managing their dependencies ourselves. With late binding, however, we focus on defining
+interaction interfaces — the objects arrive ready-made, adhering to these interfaces.
+
+## Early Binding
+
+In this setup, we create and manage object dependencies directly. The code below illustrates early binding, where we use
+specific classes (Cat) and call their methods explicitly.
+
+```typescript
+// ./cat.ts
+export class Cat {
+    speak(): void {
+        console.log("Meow");
+    }
+}
+```
+
+```typescript
+// ./animal.ts
+import {Cat} from "./cat";
+
+export function animalSound(animal: Cat): void {
+    animal.speak();
+}
+```
+
+```typescript
+// ./main.ts
+import {animalSound} from './animal';
+
+import {Cat} from './cat';
+
+const myCat = new Cat();
+animalSound(myCat);  // Outputs: Meow
+```
+
+In this example, early binding is evident because each dependency is manually created and imported. Here, animal.ts
+directly depends on the specific class Cat.
+
+Now, let’s say we want to add a new animal type, Dog. With early binding, this requires updating animal.ts to explicitly
+import and handle Dog:
+
+```typescript
+// ./animal.ts
+import {Cat} from "./cat";
+
+import {Dog} from "./dog";
+
+export function animalSound(animal: Cat | Dog): void {
+    animal.speak();
+}
+```
+
+With early binding, we tend to think in terms of specific classes. Each time we introduce a new class, we must adjust
+the existing code to accommodate it. However, when we start introducing interfaces, we shift toward thinking in terms of
+interactions rather than concrete classes — taking a step closer to late binding, where dependencies are resolved based
+on interfaces, not on specific implementations.
+
+## Late Binding
+
+Let’s define a separate Animal interface and rewrite our code accordingly:
+
+```typescript
+// iAnimal.ts
+export interface Animal {
+    speak(): void;
+}
+```
+
+```typescript
+// animal.ts
+import {Animal} from "./iAnimal";
+
+export function animalSound(animal: Animal): void {
+    animal.speak();
+}
+```
+
+```typescript
+// cat.ts
+import {Animal} from './iAnimal';
+
+export class Cat implements Animal {
+    speak(): void {
+        console.log("Meow");
+    }
+}
+```
+
+```typescript
+// main.ts
+import {animalSound} from './animal';
+
+import {Cat} from './cat';
+
+const myCat = new Cat();
+animalSound(myCat);
+```
+
+Now, let’s introduce a new class, Dog:
+
+```typescript
+// dog.ts
+import {Animal} from './animal';
+
+export class Dog implements Animal {
+    speak(): void {
+        console.log("Woof");
+    }
+}
+```
+
+The key difference here is that our code in animal.ts doesn’t need to change, no matter how many new classes implement
+Animal. By shifting our mindset to think in terms of interfaces, we take the first step towards late binding.
+
+## What’s Under the Hood?
+
+To understand what’s happening behind the scenes, let’s examine how TypeScript transpiles TypeScript code into
+JavaScript (specifically ES6 modules). Given this TypeScript code:
+
+```typescript
+// ./iAnimal.ts
+export interface Animal {
+    speak(): void;
+}
+```
+
+```typescript
+// ./animal.ts
+import {Animal} from "./iAnimal";
+
+export function animalSound(animal: Animal): void {
+    animal.speak();
+}
+```
+
+The resulting JavaScript code will look like this:
+
+```javascript
+// ./iAnimal.js
+export {};
+
+// ./animal.js
+export function animalSound(animal) {
+    animal.speak();
+}
+```
+
+Notice there’s no import … from … statement in the JavaScript code. This is because JavaScript lacks the concept of an
+interface as a language construct. Interfaces are a feature exclusive to TypeScript, so they’re removed during
+transpilation.
+
+We can simulate interfaces in JavaScript using JSDoc annotations, like this:
+
+```javascript
+/**
+ * @interface
+ */
+class IAction {
+    /**
+     * @param {Object} [opts]
+     * @returns {Promise<Object>}
+     */
+    act(opts) {}
+}
+```
+
+While this code isn’t executable (just like interfaces in other languages), it can be referenced by other scripts:
+
+```javascript
+/**
+ * @implements IAction
+ */
+export class FindUser {
+    act(opts) {}
+}
+```
+
+I use this interface-like style in my applications for documentation purposes. It helps maintain clarity and
+consistency, even though JavaScript lacks native interface support.
+
+## Identifying Late Binding in JavaScript
+
+The absence of static imports, despite dependencies, is a definitive sign of late binding. Let’s take another look at
+./animal.js:
+
+```javascript
+export function animalSound(animal) {
+    animal.speak();
+}
+```
+
+We can see that the animalSound function relies on (or depends on) the animal object. However, there are no import
+statements linking this function to any specific implementation elsewhere in the code.
+
+This is the fundamental marker of late binding: if your code has dependencies but lacks static imports, you’re using
+late binding. This principle helps to identify when dependencies are being resolved dynamically, making your code more
+flexible and modular.
+
+## Dependency Injection
+
+JavaScript code without static imports is often typical when using dependency injection (DI). Several excellent DI
+libraries are available:
+
+- InversifyJS — A powerful DI container for TypeScript and JavaScript with support for decorators and type annotations.
+- Awilix — A flexible and lightweight DI container for Node.js, optimized for Express and modular applications.
+- BottleJS — A minimalist DI container for JavaScript, supporting factories and services.
+
+However, I found that these libraries lack full compatibility with plain JavaScript that works seamlessly in both the
+browser and Node.js. So I created my own library, teqfw/di — a small but fully functional DI library with a UMD bundle
+size of about 2.4kB.
+
+This library lets me harness the power of late binding in my applications, along with the ability to use “interfaces” in
+JavaScript. With this library, I can configure dependencies directly within the code and without any static imports:
+
+```javascript
+export default function (
+    {
+        Wallet_Front_Defaults$: DEF,
+        Wallet_Front_Util_Geo$: utilGeo,
+        Wallet_Front_Mod_App_Config$: modConfig,
+        Wallet_Front_Mod_Data$: modData,
+        Wallet_Front_Mod_Notify$: modNotify,
+        Wallet_Front_Ui_Widget_App_Title$: wgTitle,
+    }
+) {}
+```
+
+This setup greatly simplifies code testing. At times, it feels like magic. But in reality, it’s just a widely used
+technique in other ecosystems (Java, C#, PHP, etc.).
+
+But to be a magician, you have to think like a magician and code like a magician. I hope this article helps you take a
+step toward mastering that mindset!

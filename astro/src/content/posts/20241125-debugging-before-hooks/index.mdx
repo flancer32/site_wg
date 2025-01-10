@@ -1,0 +1,46 @@
+---
+title: "Debugging `before` Hooks in Mocha"
+description: "Encountering and resolving timeout issues in Mocha's `before` hooks during debugging."
+pubDate: "2024-11-25"
+image: "logo.png"
+tags:
+  - Mocha
+  - Debugging
+  - JavaScript
+  - Testing
+---
+
+# Debugging `before` Hooks in Mocha
+
+---
+
+![Logo](logo.png)
+
+---
+
+Recently, I encountered an unusual issue while creating acceptance tests for a plugin. The `before` hook set up the
+environment (e.g., database records, mocked dependencies), and the `after` hook cleaned up afterward. Running the test
+individually worked fine, but it failed when run with other tests—it appeared that remnants of previous tests interfered
+with the current test.
+
+Under the debugger, the `it` blocks were skipped, and only the `after` hooks ran. Mocha's behavior, as my AI assistant
+explained, was perfectly reasonable: if the `before` hook fails, Mocha skips the `it` blocks but still executes the
+`after` hooks.
+
+After hours of refactoring and debugging, I couldn’t find any errors. Strangely, the problematic test worked fine when
+running all tests together but failed again during debugging. The hours spent debugging allowed me to frame the right
+question — one my AI assistant promptly answered with the perfect solution:
+
+```javascript
+before(async function () {
+    this.timeout(60000); // 1 min
+});
+```
+
+The issue? Mocha’s default timeout for the `before` hook is 2 seconds. Debugging took longer than that, causing Mocha to
+assume a failure. Setting the timeout explicitly resolved the issue immediately.
+
+This is a reasonable default behavior for the framework, but knowing it beforehand could have saved me hours. Now I
+know — and so do you.
+
+---
