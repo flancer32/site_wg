@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "Page Not Found";
+---
+
+<Layout title={title}>
+    <div style="text-align: center; padding: 2rem;">
+        <h1>{title}</h1>
+        <div style="font-size: 5rem; margin: 1rem;">😕</div>
+        <article>
+            <h2>Oops! The page you're looking for doesn't exist.</h2>
+            <p>
+                It seems like you've stumbled upon a page that's missing or has been moved.
+                Don't worry! Here are a few links that might interest you:
+            </p>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin: 1rem 0;">
+                    <a href="/about/" style="text-decoration: none; color: #0070f3;">
+                        <span style="font-size: 1.5rem;">👤</span> About Me
+                    </a> — Learn more about who I am and what I do.
+                </li>
+                <li style="margin: 1rem 0;">
+                    <a href="/blog/" style="text-decoration: none; color: #0070f3;">
+                        <span style="font-size: 1.5rem;">📝</span> Blog
+                    </a> — Check out my latest articles and thoughts.
+                </li>
+            </ul>
+        </article>
+    </div>
+</Layout>
