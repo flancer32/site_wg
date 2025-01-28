@@ -7,15 +7,35 @@ const events = (await getCollection('blog')).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
-<Layout title="Alex Gusev | Advanced Web Applications & Bot Development">
-    <section class="hero">
+<Layout title="Alex Gusev | AI-Powered Web Applications & Messenger Bots">
+    <section class="hero bg-gradient">
         <div class="hero-content">
-            <h1>Your Web Apps Connected to the Future</h1>
+            <h1>Welcome to My Personal Website</h1>
             <p>
-                Creating innovative web applications integrated with
-                <strong>Telegram</strong> and <strong>ChatGPT</strong>.
+                Specializing in innovative web applications integrating
+                <strong>AI agents</strong> and <strong>messengers</strong> like Telegram and ChatGPT.
             </p>
         </div>
+    </section>
+    <section class="intro bg-gradient">
+        <p>
+            I am <a href="/about/">Alex Gusev</a>, a web developer focusing on integrating AI agents with messaging platforms. Working
+            independently, I’ve developed the Tequila Framework (TeqFW), a set of tools embodying my unique approach to
+            web development.
+        </p>
+        <h3>My Focus</h3>
+        <ul>
+            <li><strong>AI and Messenger Integration:</strong> Creating seamless interactions between AI agents and
+                platforms like Telegram.
+            </li>
+            <li><strong>Tequila Framework:</strong> Using my custom toolkit to build adaptive and modular solutions.
+            </li>
+        </ul>
+        <p>
+            Explore my work, learn about my development principles, and see real-world applications where I combine AI
+            and messengers to solve practical problems. I welcome feedback on my approach and invite those interested in
+            similar projects to connect.
+        </p>
     </section>
     <section>
         <h2>Recent Events</h2>
@@ -49,23 +69,93 @@ const events = (await getCollection('blog')).sort(
 </Layout>
 
 <style>
+    /* Hero Section */
     .hero {
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 50px 20px;
-        background: linear-gradient(145deg, #121212, #1F1F1F);
+        padding: 20px 20px;
+        border-radius: 10px;
     }
 
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        font-weight: bold;
         margin-bottom: 20px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     }
 
     .hero p {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         margin-bottom: 20px;
-        color: #81C784;
+        color: #66BB6A;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
+
+    /* Content Sections */
+    .intro {
+        padding: 50px 20px;
+        color: #FFFFFF;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        margin: 40px auto;
+        max-width: 800px;
+        transition: all 0.3s ease;
+    }
+
+    .intro:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .intro h2, .intro h3 {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .intro ul {
+        margin: 20px 0;
+        padding-left: 20px;
+        list-style: disc;
+        font-size: 1.1rem;
+    }
+
+    .intro li {
+        margin-bottom: 10px;
+    }
+
+    /* Navigation */
+    nav {
+        background: #121212;
+        padding: 15px 20px;
+        border-bottom: 2px solid #81C784;
+    }
+
+    nav a {
+        color: #A5D6A7;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 15px;
+        transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+        color: #66BB6A;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+
+        .intro {
+            padding: 30px 15px;
+        }
+    }
+
 </style>

@@ -1,11 +1,14 @@
 /* General Styles */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Arial", sans-serif;
     background-color: #0D0D0D;
     color: #D4D4D4;
+    display: flex;
+    flex-direction: column;
+    font-family: "Arial", sans-serif;
+    height: 100vh;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 a {
@@ -43,6 +46,9 @@ h2 {
     color: #4CAF50;
 }
 
+main {
+    flex: 1;
+}
 /* Code Blocks */
 pre {
     background-color: #1A1A1A;
@@ -80,4 +86,9 @@ p code {
 p {
     margin-bottom: 1.2rem;
     line-height: 1.8; /* Читаемый стиль из публикаций */
+}
+
+.bg-gradient {
+    background: linear-gradient(145deg, #1A1A1A, #181C22);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
