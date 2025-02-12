@@ -1,0 +1,80 @@
+---
+title: 'Key Principles of Documentation Creation'
+description: 'The document outlines principles for creating structured, hierarchical, and LLM-oriented documentation to effectively shape the audience''s cognitive context.'
+pubDate: '2025-02-12'
+image: '/img/brand/doc.svg'
+layout: ../../layouts/Posts.astro
+---
+
+# Key Principles of Documentation Creation
+
+## Terms
+
+- **Documentation Audience** — a group of people and/or language models (LLMs) that use the documentation to form a
+cognitive context. The audience includes end users, developers, business analysts, and other stakeholders.
+
+- **Cognitive Context** — a combination of factors such as knowledge, experience, expectations, motivation, and
+perception that influence the interpretation and understanding of information. It determines how a person or LLM
+perceives and processes data, affecting responses and conclusions. It includes both prior knowledge and current goals
+and tasks.
+
+- **Documentation Subject** — the product, process, or concept described in the documentation. This can be software, a
+methodology, a business process, or a technical implementation.
+
+## Introduction
+
+Documentation is the process of synchronizing the cognitive context of the audience, which includes both humans and
+language models. Its goal is to provide the audience with a holistic understanding of the documented subject through a
+gradual increase in detail, from general concepts to specifics. Different levels of detail are often required, ranging
+from a high-level overview to in-depth details. Therefore, documentation is structured hierarchically, ensuring a
+sequential disclosure of information—from general provisions to clarifying details—avoiding duplication and allowing
+both quick familiarization and in-depth study.
+
+## Immersion of the Reader into the Cognitive Context
+
+Documentation should be structured to enable the reader to efficiently immerse themselves in the cognitive context of
+the documented subject. This is achieved through a clear structure, logical coherence, and sufficient depth of
+information, allowing the reader to align their knowledge and understanding with the provided content.
+
+## Structuring and Hierarchy of Documentation
+
+Documentation should follow a hierarchical approach, where information is presented in levels of detail—from general to
+specific. Each level complements and refines the previous one, forming a logical sequence that allows the reader to
+navigate the documentation based on their experience and current needs in forming a cognitive context.
+
+### Documentation Levels
+
+A document typically includes multiple levels of detail:
+
+- **Title** – a brief designation that allows identifying the document’s content.
+- **Summary** – a _very concise_ description of the document’s essence, serving as a "mental anchor." It helps the
+reader quickly recall the context and key details.
+- **Introduction** (optional) – explains the document’s purpose, its audience, and may set the context for LLMs.
+- **Overview** – a brief description that helps determine whether the document is relevant for the current task.
+- **Content** – the main section containing a detailed description of the documented subject. It includes its own
+structure, aligned with the described domain.
+
+### Level Size Recommendations
+
+- **Title**: optimal length – 5-10 words, maximum: \<20 words.
+- **Summary**: optimal length – 30-50 words, maximum: \<150 words.
+- **Introduction**: optimal length – 10-20 words, maximum: \<50 words.
+- **Overview**: optimal length – 50-100 words, maximum: \<250 words.
+- **Content**: optimal length – 1000-3000 tokens, maximum: \<8000 tokens
+(https://platform.openai.com/tokenizer).
+
+## Navigational Accessibility
+
+Documentation should be structured as a set of interconnected documents, where each document covers a specific aspect of
+the subject. Navigation should assist the reader in orienting themselves within this set, making it easy to find
+relevant materials and move between levels and topics. Interactive elements such as hyperlinks, tables of contents, and
+cross-references simplify access to information. The reader should always understand their position within the structure
+and how to transition to related documents or return to an overview.
+
+## LLM Orientation
+
+Documentation should account for the specifics of how language models (LLMs) work and be formatted in Markdown, which
+ensures structured content and ease of processing. Key information should be placed at the beginning of each section to
+establish a foundational context. Consistency in terminology is crucial, avoiding ambiguity and redundant terms. The
+documentation structure should be logical and hierarchical, using headings, lists, and formatting to highlight semantic
+blocks. Sections should be self-contained yet interlinked through cross-references to maintain context.
