@@ -1,5 +1,6 @@
 ---
 import {getCollection} from 'astro:content';
+import FormattedDate from "./FormattedDate.astro";
 
 // Fetch all posts
 const posts = await getCollection('posts', ({data}) => !!data.pubDate);
@@ -33,7 +34,7 @@ posts.sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
                     </div>
                     <h2><a href={`/posts/${slug}/`}>{data.title}</a></h2>
                     <p>{data.description}</p>
-                    <time datetime={data.pubDate}>{data.pubDate}</time>
+                    <FormattedDate date={data.pubDate}/>
                 </article>
         ))}
     </div>
