@@ -1,0 +1,19 @@
+---
+import {getCollection, getEntryBySlug} from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+
+export async function getStaticPaths() {
+    const docs = await getCollection('docs')
+    return docs.map((doc) => ({
+        params: {slug: doc.slug},
+        props: {doc},
+    }))
+}
+
+const {doc} = Astro.props;
+const markdownText = doc.body
+const pageTitle = `Doc - ${doc.id}`;
+---
+<Layout pageTitle={pageTitle}>
+    <pre><code>{markdownText}</code></pre>
+</Layout>
