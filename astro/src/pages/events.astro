@@ -22,7 +22,14 @@ const events = (await getCollection('blog')).sort(
                                     <img
                                             src={event.data.image}
                                             alt={event.data.title}
-                                            style={{width: '100px', marginRight: '15px', flexShrink: 0}}
+                                            style={{
+                                                width: '100px',
+                                                height: '100px',
+                                                marginRight: '15px',
+                                                flexShrink: 0,
+                                                borderRadius: '50%',
+                                                objectFit: 'cover'
+                                            }}
                                     />
                             )}
                         </a>
