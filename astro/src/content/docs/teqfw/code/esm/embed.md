@@ -1,4 +1,4 @@
-## Details of ES-Module Generation Rules for TeqFW
+## Details of ES-Module Generation Rules for TeqFW (v2.0)
 
 ### 1. **Only ES-Modules (ESM)**
 
@@ -65,6 +65,9 @@ export default API;
 
 All dependencies must be **explicitly passed** (e.g., through constructor or factory function arguments). **Static and
 dynamic imports** within the module are prohibited.
+
+For architectural constraints regarding `import` usage,
+see [TeqFW and ES Modules: Architectural Notes](#7-teqfw-and-es-modules-architectural-notes).
 
 #### 🔹 **Why is this important?**
 
@@ -148,3 +151,41 @@ export default function increment(counter) {
 
 **LLM must strictly follow these rules and clarify any discrepancies**, if the user requests code incompatible with ESM.
 In such cases, the model is required to offer a correct solution consistent with TeqFW principles.
+
+### 7. **TeqFW and ES Modules: Architectural Notes**
+
+TeqFW adopts the **ES Module (ESM)** standard for all code but introduces a specific **architectural constraint**
+regarding the use of `import`.
+
+#### 🔹 Restriction on `import` in application-level modules
+
+Application modules—such as logic handlers, DTOs, factories, coordinators, and configuration units—**must not
+use `import` statements**, neither static (`import x from '...'`) nor dynamic (`await import(...)`). Instead, **all
+dependencies must be injected explicitly** through constructor or factory parameters.
+
+This restriction ensures:
+
+- Full support for **late binding** and **dynamic dependency resolution**.
+- **Improved testability** by allowing dependencies to be stubbed or replaced.
+- Consistency with TeqFW’s object-container-based architecture.
+
+#### 🔹 Exception: DI Container initialization
+
+The only context where `import` is permitted is during the initialization of the **DI Container** (`@teqfw/di`). For
+example:
+
+```js
+import Container from '@teqfw/di';
+
+const container = new Container();
+```
+
+This usage is fully compatible with the ESM standard and limited to the startup/bootstrap layer of the application.
+
+#### 🔹 Conformance to ESM
+
+Although TeqFW modules do not use `import`, they remain **technically valid ES modules** by using `export` statements
+and being interpreted by the JavaScript engine in ESM mode.
+
+This distinction is crucial: the architectural constraint is **not a technical limitation**, but a deliberate design
+decision to ensure **modularity, isolation, and LLM compatibility**.
