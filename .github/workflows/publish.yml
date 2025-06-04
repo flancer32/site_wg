@@ -1,59 +1,86 @@
-name: Deploy site to production environment (live)
+name: LIVE - Redeploy the Site
 
-# start action manually
+# Trigger action manually
 on: workflow_dispatch
 
 env:
-  PATH_TARGET: /home/live/inst/wg/site
-  PRJ: site
-  USER: live
-  ZIP: site_wg.zip
+  APP_DIR: /home/${{vars.USER}}/inst/wg/  # Directory of the application
+  PRJ: site  # The name of the project
+  SERVICE: site.service  # The name of the service to manage
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check-out repo.
+      - name: Check out the repository on the GitHub environment.
         uses: actions/checkout@v3
 
-      - name: Build 'astro' then build site.
+      - name: Install dependencies and build the project.
         run: |
-          cd ./astro
-          npm install
-          npm run build
-          cd ..
-          rm -fr ./astro/ ./vp/ ./web.old/
+          npm install --omit=optional 
+          npm prune --omit=dev
 
-      - name: Add application files to archive.
+      - name: Add application files to the archive.
         uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r ${{env.ZIP}} ./
+          args: zip -qq --exclude=*.git* -r ${{env.PRJ}}.zip ./
 
-      - name: Validate archive existence.
-        run: ls -lh ${{env.ZIP}}
+      - name: Validate the existence of the archive.
+        run: |
+          pwd
+          ls -lh 
+
+      - name: Validate SSH connection.
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{vars.REMOTE_HOST_CONTABO}}
+          username: ${{vars.USER}}
+          key: ${{secrets.SERVER_SSH_KEY_CONTABO}}
+          script: |
+            pwd
+            whoami
 
       - name: Copy files to Remote Server.
-        uses: easingthemes/ssh-deploy@v2.0.7
-        env:
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST_CONTABO }}
-          REMOTE_USER: "${{env.USER}}"
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY_CONTABO }}
-          ARGS: "-rltgoDzvO"
-          SOURCE: "${{env.ZIP}}"
-          TARGET: "${{env.PATH_TARGET}}/../"
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{vars.REMOTE_HOST_CONTABO}}
+          username: ${{vars.USER}}
+          key: ${{secrets.SERVER_SSH_KEY_CONTABO}}
+          source: ${{env.PRJ}}.zip
+          target: ${{env.APP_DIR}}
 
       - name: Extract files on Remote Server and switch site to the new instance.
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.REMOTE_HOST_CONTABO }}
-          username: ${{ env.USER }}
-          key: ${{ secrets.SERVER_SSH_KEY_CONTABO }}
+          host: ${{vars.REMOTE_HOST_CONTABO}}
+          username: ${{vars.USER}}
+          key: ${{secrets.SERVER_SSH_KEY_CONTABO}}
           script: |
-            cd "${{env.PATH_TARGET}}/../"
-            rm -fr ${{env.PRJ}}.old/  
-            mkdir ${{env.PRJ}}.new
-            unzip ${{env.ZIP}} -d ./${{env.PRJ}}.new/ &> /dev/null
-            mv ./${{env.PRJ}} ./${{env.PRJ}}.old
-            mv ./${{env.PRJ}}.new ./${{env.PRJ}}
-            ls -lh ./${{env.PRJ}}/
+            cd "${{env.APP_DIR}}/"
+            rm -fr prod.old  
+            mkdir prod.new
+            unzip ${{env.PRJ}}.zip -d ./prod.new/ &> /dev/null
+
+            # Load nvm and set up node
+            source ~/.nvm/nvm.sh
+            nvm use node
+
+            # Generate a timestamp
+            TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+
+            # Stop the service and run database export to separate backup file
+            sudo /bin/systemctl stop ${{env.SERVICE}}
+            
+            # Switch the app version then reset the db structure (export / init / import)
+            mv ./prod ./prod.old
+            mv ./prod.new ./prod
+            cp ./prod.old/.env ./prod/.env
+            
+            # Start the service
+            sudo /bin/systemctl start ${{env.SERVICE}}
+            
+            # Rename the archive with a timestamp
+            mv ${{env.PRJ}}.zip ${{env.PRJ}}-${TIMESTAMP}.zip
+            echo "Archive renamed to: ${{env.PRJ}}-${TIMESTAMP}.zip"            
+            ls -lh ${{env.APP_DIR}}
