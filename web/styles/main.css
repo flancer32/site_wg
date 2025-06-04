@@ -1,0 +1,197 @@
+/* === General === */
+body {
+    background-color: #f9f9f9;
+    color: #222;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+a {
+    color: #007B5E;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #005a40;
+}
+
+h1, h2, h3 {
+    font-family: "Arial", sans-serif;
+    font-weight: 600;
+    color: #007B5E;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* === Card Block === */
+.card {
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 12px;
+    padding: 0 1rem;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.card.info {
+    background: linear-gradient(135deg, #e8f5e9, #d0f0e0);
+    border-color: #c8e6c9;
+    color: #2e7d32;
+}
+
+.card.warn {
+    background: linear-gradient(135deg, #fff8e1, #ffecb3);
+    border-color: #ffe082;
+    color: #f57f17;
+}
+
+.card.error {
+    background: linear-gradient(135deg, #ffebee, #ffcdd2);
+    border-color: #ef9a9a;
+    color: #c62828;
+}
+
+/* === Code Blocks === */
+pre {
+    background-color: #f0f0f0;
+    color: #005a40;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    font-family: "Courier New", Courier, monospace;
+}
+
+code {
+    background-color: #eeeeee;
+    padding: 0 4px;
+    color: #333;
+}
+
+p code {
+    background-color: #dddddd;
+}
+
+/* === Navigation === */
+nav {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    padding: 0;
+    width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 1rem;
+    box-sizing: border-box;
+}
+
+nav img {
+    height: 40px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.locale-switcher {
+    display: flex;
+    gap: 0.5rem;
+    padding-left: 1rem;
+    font-size: 0.95rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #007B5E;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #005a40;
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #007B5E;
+    cursor: pointer;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .card {
+        padding: 0 1rem;
+    }
+
+    .nav-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        width: 200px;
+        padding: 10px;
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+}
+
+/* === Footer === */
+footer {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    color: #666;
+    font-size: 0.9rem;
+    background-color: #fafafa;
+}

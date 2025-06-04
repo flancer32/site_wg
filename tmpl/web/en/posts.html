@@ -1,0 +1,85 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}About Me — Alex Gusev{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Personal</h2>
+    <img src="/img/avatar.jpg" alt="Avatar" style="width: 100px; float: left; margin: 0 15px 15px 0"/>
+
+    <p>My name is Alex Gusev, I'm a web developer from Latvia (EU). My passion for programming began back in school,
+        when I first encountered the <a href="https://en.wikipedia.org/wiki/Agat_(computer)">Agat</a> computer.
+        This inspired me to enroll in Riga Aviation University, where I graduated from the Systems Engineering faculty in 1996.
+        I got my first job in 1998 at "Paritate" bank — this marked the beginning of my IT career.</p>
+
+    <p>From the very start, I worked with web applications. I was team lead for the "Paritate Online" project — one of the first
+        internet banks in Latvia.
+        Later I became Technical Director at "Renesource Capital" (a financial company in the e-money field),
+        where I continued developing in the technological direction.</p>
+
+    <p>In 2010 I founded the company "F. Lancer" and have been developing web applications under this brand ever since.
+        Simultaneously, I collaborated for two years with "D8", working on banking systems.
+        Then for almost 10 years I developed e-commerce solutions on Magento.</p>
+
+    <p>About five years ago I discovered Vue Storefront (PWA for Magento) — this revolutionized my understanding of
+        the web:
+        it turned out that one language — JavaScript — could do everything. Since then I've worked exclusively with JS,
+        creating modern web applications.</p>
+</div>
+
+<div class="card">
+    <h2>Professional</h2>
+
+    <p>I have over 25 years of programming experience. I've worked with LotusScript, C/C++, Java, PHP, but now use
+        only JavaScript.</p>
+
+    <p>I'm proficient in HTML/XML, CSS, JSON, YAML, Markdown. I configure Ubuntu servers, work with domains, web and databases,
+        use shell scripts. In projects I implement CI/CD via GitHub Actions.</p>
+
+    <p>My tech stack:</p>
+    <ul>
+        <li>JavaScript (ES6+) + JSDoc</li>
+        <li>Node.js, npm</li>
+        <li>Vue.js, Quasar, i18next</li>
+        <li>Knex.js (PostgreSQL, MariaDB/MySQL, SQLite)</li>
+    </ul>
+
+    <p>I focus on PWA and SPA — especially serverless variants (in-browser).
+        I'm interested in creating web applications as alternatives to native mobile apps,
+        though I can also make classic websites (for example, on Astro).</p>
+
+    <p>I believe smartphones changed the internet, and bots in Telegram, Discord and Slack + AI can even compete with
+        PWAs.</p>
+</div>
+
+<div class="card">
+    <h2>Approach</h2>
+
+    <p>I'm a proponent of modular monoliths — convenient for medium web applications with distributed storage.
+        I use only JavaScript (ES6+) and JSDoc — no TypeScript and no transpilation.</p>
+
+    <p>I rely on DI and late binding (from JavaEE and Magento), writing code that works both on frontend and
+        server.</p>
+
+    <p>My stack is implemented in Tequila Framework — Node.js + familiar npm packages (e.g. Commander, Knex.js).
+        I easily integrate external services: authorization, payments, LLM.</p>
+
+    <p>The platform supports both classic browser applications and PWAs for smartphones plus bots for
+        messengers.</p>
+</div>
+
+<div class="card">
+    <h2>Personal Life</h2>
+
+    <p>Hobbies help me stay in shape. I love traveling, mountains and sea, deserts and forests, especially coniferous ones.
+        I prefer hiking, walking trails and day trips.
+        I have a PADI Open Water Diver certificate, but I prefer staying on land.</p>
+
+    <p>I have a large family and value my loved ones. Relationships with family and friends are important to me.
+        I support traditional values, spiritually — a liberal conservative. I respect freedom and personal
+        responsibility.</p>
+
+    <p>I'm a cat person. Our cat is named Firefox, but at home we call her Faya.
+        She's smart, playful and delights us with her mood every day.</p>
+</div>
+{% endblock %}

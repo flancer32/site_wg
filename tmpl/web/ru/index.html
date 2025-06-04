@@ -1,0 +1,60 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Алекс Гусев — веб-разработчик, исследователь, архитектор{% endblock %}
+
+{% block content %}
+<div class="card hero">
+    <h1>Алекс Гусев — веб-разработчик, исследователь, архитектор</h1>
+    <p>
+        Более 25 лет в разработке программного обеспечения. Автор <a href="https://github.com/teqfw">Tequila
+        Framework</a> —
+        платформы для создания модульных, управляемых и расширяемых решений.
+        Я разрабатываю инструменты, в которых человек и ИИ работают как партнёры.
+    </p>
+    <nav class="hero-links">
+        <a href="/{{ locale }}/projects.html">Проекты</a>
+        <a href="/{{ locale }}/contact.html">Связаться</a>
+    </nav>
+</div>
+
+<div class="card">
+    <h2>Чем я занимаюсь</h2>
+    <ul>
+        <li><strong>ИИ в практике:</strong> встраивание LLM в реальные рабочие процессы</li>
+        <li><strong>Кастомные GPT-чаты:</strong> разработка агентных решений под конкретные задачи</li>
+        <li><strong>Системная архитектура:</strong> проектирую расширяемые и предсказуемые решения, подходящие для
+            распределённой разработки и командной работы
+        </li>
+    </ul>
+    <p>
+        Этот сайт — мой эксперимент и демонстрационная площадка. Здесь я делюсь идеями, кодом и наблюдениями.
+        Если вам близок инженерный подход к интеграции ИИ — буду рад сотрудничеству.
+    </p>
+</div>
+
+<style>
+    .hero-links {
+        margin-top: 1rem;
+        display: flex;
+        padding-bottom: 2rem;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-links a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border: 1px solid #007B5E;
+        background-color: #fff;
+        color: #007B5E;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    .hero-links a:hover {
+        background-color: #e6f2ef;
+    }
+</style>
+{% endblock %}

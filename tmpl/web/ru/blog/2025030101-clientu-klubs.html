@@ -1,0 +1,43 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Clientu Klubs: база клиентов для Domotehnika{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Clientu Klubs: база клиентов для Domotehnika</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2025-03-01
+    </span>
+
+    <zoom-img
+            src="/img/brand/domotehnika.svg"
+            alt="Clientu Klubs — Domotehnika"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Реализовал небольшой проект на <strong>TeqFW</strong> для латвийского магазина электроники
+        <strong>Domotehnika</strong>:
+        <a href="https://tc.klientuklubs.lv/app/about/" target="_blank"><strong>Clientu Klubs</strong></a> — лёгкое
+        веб-приложение для сбора и управления клиентской базой.</p>
+
+    <p>Система помогает накапливать контактные данные для последующего использования в маркетинговых рассылках, бонусных
+        программах и персонализированных предложениях. Пользователи могут регистрироваться по телефону или email и
+        участвовать в кампаниях лояльности.</p>
+
+    <h4>Ключевые особенности:</h4>
+    <ul>
+        <li>Регистрация по телефону или email</li>
+        <li>Учёт согласий согласно требованиям GDPR</li>
+        <li>Участие в кампаниях и накопление бонусов</li>
+        <li>Инструменты CRM: сегментация и экспорт контактов</li>
+    </ul>
+
+    <p>Система полностью написана на ES6-модулях и построена на архитектуре <strong>модульного монолита с поздним
+        связыванием и DI</strong>, реализованной в <strong>TeqFW</strong>.</p>
+
+    <p>Если вы создаёте маркетинговые или CRM-решения для ритейла — этот стек стоит рассмотреть. Никаких WordPress или
+        Laravel — всё с нуля, под задачу.</p>
+</div>
+{% endblock %}

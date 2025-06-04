@@ -1,0 +1,327 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}События и публикации{% endblock %}
+
+{% block content %}
+<h1>События и публикации</h1>
+<div style="margin: 20px auto; max-width: 800px;">
+    <ul>
+        <li>
+            <a href="/{{ locale }}/blog/2025060301-site-on-teq-cms/">
+                <img src="/img/blog/2025060301.png" alt="Переход сайта на TeqCMS"/>
+                <div>
+                    <h4>Переход сайта на TeqCMS</h4>
+                    <p>
+                        Перевёл сайт на собственную CMS — TeqCMS. Теперь весь контент генерируется через SSR,
+                        переводится ИИ
+                        и управляется в Git.
+                    </p>
+                    <time datetime="2025-06-03">3 июня 2025</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2025041301-smtp-logger/">
+                <img src="/img/brand/teqfw.webp" alt="smtp-logger для Postfix и Node.js"/>
+                <div>
+                    <h4>smtp-logger для Postfix и Node.js</h4>
+                    <p>
+                        Создал утилиту логирования исходящих писем Postfix в SQL через Node.js и @teqfw/di.
+                    </p>
+                    <time datetime="2025-04-13">13 апреля 2025</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2025040101-nutrilog-beta-launch/">
+                <img src="/img/brand/nutrilog.webp" alt="Запуск беты NutriLog"/>
+                <div>
+                    <h4>Запуск беты NutriLog</h4>
+                    <p>
+                        Запущена открытая бета AI-ассистента NutriLog. Первые 100 пользователей подключены через Google
+                        Ads.
+                    </p>
+                    <time datetime="2025-04-01">1 апреля 2025</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2025031501-teqfw-philosophy-update/">
+                <img src="/img/brand/habr.webp" alt="Обновлённая философия TeqFW"/>
+                <div>
+                    <h4>Обновлённая философия TeqFW</h4>
+                    <p>
+                        Опубликована новая редакция документа о философии TeqFW — с акцентом на модульный монолит и
+                        единый стек.
+                    </p>
+                    <time datetime="2025-03-15">15 марта 2025</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2025030401-ioc-di-vs-ambient/">
+                <img src="/img/brand/habr.webp" alt="IoC: DI vs Ambient Context"/>
+                <div>
+                    <h4>IoC: DI vs Ambient Context</h4>
+                    <p>
+                        Вышла статья о выборе между Dependency Injection и Ambient Context при проектировании
+                        архитектуры.
+                    </p>
+                    <time datetime="2025-03-04">4 марта 2025</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2025030101-clientu-klubs/">
+                <img src="/img/brand/domotehnika.svg" alt="Clientu Klubs для Domotehnika"/>
+                <div>
+                    <h4>Clientu Klubs для Domotehnika</h4>
+                    <p>
+                        Реализовал веб-приложение для накопления клиентской базы и запуска программ лояльности.
+                        Архитектура — на TeqFW.
+                    </p>
+                    <time datetime="2025-03-01">1 марта 2025</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2025022801-energy-efficiency-intelligence/">
+                <img src="/img/brand/habr.webp" alt="Энергоэффективность интеллекта"/>
+                <div>
+                    <h4>Энергоэффективность интеллекта</h4>
+                    <p>
+                        Рассуждение о том, почему AGI вряд ли заменит программистов — из-за колоссального
+                        энергопотребления ИИ.
+                    </p>
+                    <time datetime="2025-02-28">28 февраля 2025</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2025021202-teqfw-philosophy/">
+                <img src="/img/brand/doc.svg" alt="Философия Tequila Framework"/>
+                <div>
+                    <h4>Философия Tequila Framework</h4>
+                    <p>
+                        Опубликован структурированный документ, описывающий архитектурные принципы TeqFW и подход к
+                        модульному монолиту.
+                    </p>
+                    <time datetime="2025-02-12">12 февраля 2025</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2025021201-doc-principles-updated/">
+                <img src="/img/brand/doc.svg" alt="Обновлены принципы документации"/>
+                <div>
+                    <h4>Обновлены принципы документации</h4>
+                    <p>
+                        Опубликована новая версия документа с акцентом на структуру, логику и формат для LLM и людей.
+                    </p>
+                    <time datetime="2025-02-12">12 февраля 2025</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2025010701-habr-removed-agi-post/">
+                <img src="/img/blog/2025010701.webp" alt="Удаление статьи с Habr"/>
+                <div>
+                    <h4>Удаление статьи с Habr</h4>
+                    <p>
+                        Habr удалил мою статью о влиянии AGI из-за политики против ИИ-контента, несмотря на авторский
+                        вклад.
+                    </p>
+                    <time datetime="2025-01-07">7 января 2025</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2024122501-github-action-branch-merge/">
+                <img src="/img/blog/2024122501.png" alt="GitHub Action с исключением файлов"/>
+                <div>
+                    <h4>GitHub Action с исключением файлов</h4>
+                    <p>
+                        Разработал GitHub Action для слияния веток с исключением файлов и настроил SSH-аутентификацию
+                        для безопасного push.
+                    </p>
+                    <time datetime="2024-12-25">25 декабря 2024</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2024111201-early-vs-late-binding/">
+                <img src="/img/blog/2024111201.png" alt="Статья о связывании в JavaScript"/>
+                <div>
+                    <h4>Статья о связывании в JavaScript</h4>
+                    <p>
+                        Объясняю ключевые различия между ранним и поздним связыванием и их влияние на архитектуру кода.
+                    </p>
+                    <time datetime="2024-11-12">12 ноября 2024</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2024102801-telegram-error-handling/">
+                <img src="/img/blog/2024102801.png" alt="Статья об устойчивости Telegram-ботов"/>
+                <div>
+                    <h4>Статья об устойчивости Telegram-ботов</h4>
+                    <p>
+                        Разбираю, как с помощью Node.js и grammY повысить надёжность бота за счёт обработки ошибок и
+                        логирования.
+                    </p>
+                    <time datetime="2024-10-28">28 октября 2024</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2024102201-medium-dialogues-telegram/">
+                <img src="/img/blog/2024102201.png" alt="Статья о диалогах в Telegram-ботах"/>
+                <div>
+                    <h4>Статья о диалогах в Telegram-ботах</h4>
+                    <p>
+                        Рассказываю, как строить интерактивные диалоги в Telegram-ботах на Node.js с использованием
+                        grammY.
+                    </p>
+                    <time datetime="2024-10-22">22 октября 2024</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2024101501-chatgpt-js-codegen/">
+                <img src="/img/blog/2024101501.png" alt="Статья о генерации кода с ChatGPT"/>
+                <div>
+                    <h4>Статья о генерации кода с ChatGPT</h4>
+                    <p>
+                        Поделился опытом использования ChatGPT для автоматической генерации шаблонного кода в
+                        JS-проектах.
+                    </p>
+                    <time datetime="2024-10-15">15 октября 2024</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2024101401-medium-telegram-crudl/">
+                <img src="/img/blog/2024101401.png" alt="Новая статья о CRUD-L для Telegram-бота"/>
+                <div>
+                    <h4>Новая статья о CRUD-L для Telegram-бота</h4>
+                    <p>
+                        Рассказал, как реализовать аргументы команд и CRUD-L в Telegram-боте на Node.js с помощью
+                        grammY.
+                    </p>
+                    <time datetime="2024-10-14">14 октября 2024</time>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="/{{ locale }}/blog/2024100801-medium-telegram-bots/">
+                <img src="/img/blog/2024100801.png" alt="Новая статья о Telegram-ботах"/>
+                <div>
+                    <h4>Новая статья о Telegram-ботах</h4>
+                    <p>
+                        Опубликовал подробное руководство для начинающих по созданию Telegram-ботов с grammY и Node.js.
+                    </p>
+                    <time datetime="2024-10-08">8 октября 2024</time>
+                </div>
+            </a>
+        </li>
+
+
+        <li>
+            <a href="/{{ locale }}/blog/2024092501-launch-the-site/">
+                <img src="/img/blog/2024092501.png" alt="Запуск моего персонального сайта"/>
+                <div>
+                    <h4>Запуск моего персонального сайта</h4>
+                    <p>
+                        Представил персональный сайт как платформу для проектов, публикаций и общения. В центре — мои
+                        разработки, статьи и услуги в сфере веб-технологий.
+                    </p>
+                    <time datetime="2024-09-25">25 сентября 2024</time>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block style %}
+<style>
+    main {
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: nowrap;
+        }
+
+        li a {
+            display: flex;
+            text-decoration: none;
+            color: inherit;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        li img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10%;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        li div {
+            flex: 1 1 auto;
+            max-width: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        li h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
+            color: #007B5E;
+        }
+
+        li p {
+            margin: 0 0 0.5rem 0;
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        li time {
+            align-self: flex-end;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+            padding-right: 1rem;
+        }
+    }
+</style>
+{% endblock %}
+

@@ -6,8 +6,8 @@
 /**/package-lock.json
 /**/tmp/
 /**/ttttest.*
+/.env
 /.idea/
-/astro3/
 /atlassian-ide-plugin.xml
 /cfg/local.*
 /composer.lock
@@ -15,6 +15,4 @@
 /tmp/
 /var/*.pid
 /var/store/**
-/vp/.vitepress/cache/
-/web/
-/web2/
+/var/teq-cms/db_translate.json

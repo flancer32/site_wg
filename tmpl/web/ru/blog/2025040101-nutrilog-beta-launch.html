@@ -1,0 +1,37 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Запущена открытая бета NutriLog{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Запущена открытая бета NutriLog</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2025-04-01
+    </span>
+
+    <zoom-img
+            src="/img/brand/nutrilog.webp"
+            alt="NutriLog"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Рад сообщить о запуске проекта <a href="https://nutrilog.app.wiredgeese.com/"
+                                         target="_blank"><strong>NutriLog</strong></a> — персонального AI-ассистента для
+        отслеживания калорий, анализа питания и работы с целями по весу.</p>
+
+    <p>С 1 апреля стартовала <strong>открытая бета</strong>: доступ получили первые <strong>100 пользователей</strong>,
+        которым предоставлены <strong>3 месяца бесплатной подписки</strong>. Для привлечения этой аудитории я провёл
+        небольшой эксперимент с <strong>Google Ads</strong> — направив ограниченный, но точно таргетированный трафик.
+    </p>
+
+    <p>NutriLog построен на базе <a href="https://github.com/teqfw/di" target="_blank"><strong>TeqFW</strong></a> —
+        лёгкой модульной платформы на JavaScript, разработанной мной специально для надёжной архитектуры и управляемой
+        разработки.</p>
+
+    <p>Система объединяет GPT-подобный чат с внешней памятью: у пользователя остаётся свобода диалога, но появляется
+        структура — цели, прогресс, визуализация. Если вам интересен самонаправляемый путь контроля питания и веса —
+        попробуйте NutriLog. Обратная связь очень приветствуется!</p>
+</div>
+{% endblock %}

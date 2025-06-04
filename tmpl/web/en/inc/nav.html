@@ -1,0 +1,51 @@
+<nav>
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="/{{ locale }}/">
+                <img src="/favicon.ico" alt="Tequila Framework Logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/{{ locale }}/blog/">Blog</a></li>
+            <li><a href="/{{ locale }}/projects.html">Projects</a></li>
+            <li><a href="/{{ locale }}/contact.html">Contacts</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="locale-switcher">
+                {% for loc in localeAllowed %}
+                {% if not loop.first %}|{% endif %}
+                {% if loc == locale %}
+                <span>{{ loc | upper }}</span>
+                {% else %}
+                <a href="/{{ loc }}" onclick="return switchLocale('{{ loc }}')">{{ loc | upper }}</a>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </div>
+</nav>
+<script>
+    // @formatter:off
+    function switchLocale(targetLocale) {
+        const allowed = {{ localeAllowed | dump | safe }};
+        const path = window.location.pathname;
+        const current = allowed.find(loc => path === `/${loc}` || path.startsWith(`/${loc}/`));
+        let basePath = path;
+
+        if (current) {
+            basePath = path.replace(new RegExp(`^/${current}`), '');
+        }
+        window.location.href = `/${targetLocale}${basePath || '/'}`;
+        return false;
+    }
+    // @formatter:on
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggleButton = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        toggleButton?.addEventListener('click', () => {
+            navLinks?.classList.toggle('active');
+        });
+    });
+</script>

@@ -1,0 +1,50 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Services and Products — Alex Gusev{% endblock %}
+
+{% block content %}
+<h1>Services and Products</h1>
+
+<div class="card" id="github-actions-ci-cd">
+    <h3 style="text-align: center">
+        <a href="./github_actions/">CI/CD Automation with GitHub Actions for Node.js and PHP</a>
+    </h3>
+    <img src="/img/products/github_actions.png" alt="GitHub Actions"
+         style="width: 100px; float: left; margin: 0 15px 15px 0"/>
+    <p>Want to speed up deployment and eliminate routine? I offer CI/CD setup using GitHub Actions:
+        build, test and deploy projects for Node.js (npm/yarn) and PHP (Composer).</p>
+    <p>I'll configure workflows for your needs - from auto-builds to secure deployment on Ubuntu VPS.
+        It's a fast, reliable and affordable way to automate code delivery.</p>
+    <p>Perfect for indie developers, small teams and startups without complex infrastructure.</p>
+    <p style="text-align: center;">
+        <a href="https://www.fiverr.com/wiredgeese">Order on Fiverr</a> |
+        <a href="https://www.upwork.com/freelancers/~0181de0a64c6981497">Hire on Upwork</a>
+    </p>
+</div>
+
+<div class="card" id="spa-pwa-development">
+    <h3>SPA and PWA Development</h3>
+    <p>I create modern single-page (SPA) and progressive (PWA) web applications in JavaScript.
+        These can be client-side (serverless) solutions with external API integrations: payments, LLM, analytics and more.</p>
+    <p>Beyond development, I provide full deployment to VPS or cloud, CI/CD with GitHub Actions and full application lifecycle support.</p>
+    <p>If you need to create a new application or modernize an existing one - let's discuss your requirements.</p>
+</div>
+
+<div class="card" id="telegram-bot-development">
+    <h3>Custom Telegram Bots</h3>
+    <p>I develop custom Telegram bots using Node.js with grammY library. These can be client services,
+        automation tools or content delivery systems.</p>
+    <p>The bot works in polling or webhook mode, deployed on my server or your hosting. Full support,
+        scaling, configuration - everything turnkey.</p>
+    <p>Ideal for businesses looking to enhance their Telegram presence with a smart, extensible assistant.</p>
+</div>
+
+<div class="card" id="tequila-framework">
+    <h3>Tequila Framework: Architectural Foundation</h3>
+    <p>Tequila is my own framework for Node.js and pure JavaScript applications. Modular monolithic
+        architecture, shared frontend/backend modules, no framework bloat.</p>
+    <p>Supports integrations: authorization, payments, LLM and any APIs. Perfect for complex and scalable solutions
+        that need control, performance and flexibility.</p>
+    <p>If you're looking for a custom platform without unnecessary complexity - Tequila can help.</p>
+</div>
+{% endblock %}

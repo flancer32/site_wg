@@ -1,0 +1,36 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Новая статья: Диалоги в Telegram-ботах на Node.js{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Новая статья: Диалоги в Telegram-ботах на Node.js</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2024-10-22
+    </span>
+
+    <zoom-img
+            src="/img/blog/2024102201.png"
+            alt="Диалоги в Telegram-ботах на Node.js"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Опубликовал новую статью на <a href="https://medium.com/link-to-your-article" target="_blank">Medium</a> и <a
+            href="https://habr.com/ru/link-to-your-article" target="_blank">Habr</a> — на этот раз о создании
+        интерактивных диалогов в Telegram-ботах на платформе Node.js с использованием фреймворка <a
+                href="https://grammy.dev/" target="_blank">grammY</a>.</p>
+
+    <p>В статье я подробно рассказываю, как обрабатывать пользовательский ввод, управлять состоянием диалога,
+        реализовывать ветвление, циклы и избегать побочных эффектов в логике бота.</p>
+
+    <p>Вы можете посмотреть, как это работает, в демонстрационном боте:
+        <a href="https://t.me/f64_demo_conversation_bot" target="_blank">@f64_demo_conversation_bot</a>
+    </p>
+
+    <p>К статье также прилагается репозиторий с полным исходным кодом:
+        <a href="https://github.com/flancer64/tg-demo-conversation" target="_blank">@flancer64/tg-demo-conversation</a>
+    </p>
+</div>
+{% endblock %}

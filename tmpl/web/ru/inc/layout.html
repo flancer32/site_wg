@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}Алекс Гусев | AI и мессенджеры, веб-приложения и фреймворки{% endblock %}</title>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    {% block style %}{% endblock %}
+    <script type="module" src="/js/comp/zoom-img.js"></script>
+</head>
+<body>
+{% include "inc/nav.html" %}
+<main>
+    {% block content %}{% endblock %}
+</main>
+{% include "inc/footer.html" %}
+</body>
+</html>
