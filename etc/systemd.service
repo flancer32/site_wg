@@ -1,0 +1,18 @@
+[Unit]
+Description=Wiredgeese Site
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+User=live
+WorkingDirectory=/home/live/inst/wg/site
+
+Environment="NVM_DIR=/home/live/.nvm"
+ExecStart=/bin/bash -c 'source $NVM_DIR/nvm.sh && node index.js'
+
+StandardOutput=append:/home/live/store/wg/site/log/out.log
+StandardError=append:/home/live/store/wg/site/log/out.log
+
+[Install]
+WantedBy=multi-user.target
