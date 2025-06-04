@@ -4,7 +4,7 @@ name: LIVE - Redeploy the Site
 on: workflow_dispatch
 
 env:
-  APP_DIR: /home/${{vars.USER}}/inst/wg/  # Directory of the application
+  APP_DIR: /home/${{vars.USER}}/inst/wg/site  # Directory of the application
   PRJ: site  # The name of the project
   SERVICE: site.service  # The name of the service to manage
 
