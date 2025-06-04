@@ -1,0 +1,39 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Client Club: Customer Database for Domotehnika{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Client Club: Customer Database for Domotehnika</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2025-03-01
+    </span>
+
+    <zoom-img
+            src="/img/brand/domotehnika.svg"
+            alt="Client Club — Domotehnika"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Implemented a small project on <strong>TeqFW</strong> for the Latvian electronics store
+        <strong>Domotehnika</strong>:
+        <a href="https://tc.klientuklubs.lv/app/about/" target="_blank"><strong>Client Club</strong></a> — a lightweight
+        web application for collecting and managing customer database.</p>
+
+    <p>The system helps accumulate contact details for subsequent use in marketing campaigns, loyalty programs and personalized offers. Users can register via phone or email and participate in loyalty campaigns.</p>
+
+    <h4>Key features:</h4>
+    <ul>
+        <li>Registration via phone or email</li>
+        <li>GDPR-compliant consent management</li>
+        <li>Participation in campaigns and bonus accumulation</li>
+        <li>CRM tools: segmentation and contact export</li>
+    </ul>
+
+    <p>The system is entirely written in ES6 modules and built on <strong>modular monolith with late binding and DI</strong> architecture implemented in <strong>TeqFW</strong>.</p>
+
+    <p>If you're developing marketing or CRM solutions for retail — this stack is worth considering. No WordPress or Laravel — everything built from scratch, tailored to the task.</p>
+</div>
+{% endblock %}

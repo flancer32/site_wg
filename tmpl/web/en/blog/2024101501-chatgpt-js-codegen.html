@@ -1,0 +1,26 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Article: JavaScript Code Generation with ChatGPT{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Article: JavaScript Code Generation with ChatGPT</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2024-10-15
+    </span>
+
+    <zoom-img
+            src="/img/blog/2024101501.png"
+            alt="JavaScript code generation with ChatGPT"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Published an article on <a href="https://habr.com/ru/articles/850846/" target="_blank">Habr</a> where I shared my experience in automating template code generation for JavaScript projects using ChatGPT.</p>
+
+    <p>Key findings: code should be well-structured, divided into separate blocks, and contain explanatory comments. This helps ChatGPT correctly understand the context and accurately reproduce repeating patterns.</p>
+
+    <p>Functions should have clearly defined input parameters and expected output values. This approach speeds up development and improves the quality of automatically generated code.</p>
+</div>
+{% endblock %}

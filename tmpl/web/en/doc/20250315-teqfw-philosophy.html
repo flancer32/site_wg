@@ -1,0 +1,79 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}TeqFW Platform Philosophy (update March 15, 2025){% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>TeqFW Platform Philosophy</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2025-03-15
+    </span>
+
+    <zoom-img
+            src="/img/brand/teqfw.webp"
+            alt="TeqFW Platform Philosophy"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p><strong>Tequila Framework (TeqFW) Philosophy</strong> is my personal approach to organizing web application development. I, Alex Gusev, have formed it based on my own experience focused on <strong>modular monoliths</strong> with a single database. This document describes precisely this context and does not claim universality.</p>
+
+    <p>Some ideas may be useful more broadly, but certain principles may be inappropriate or even harmful outside the monolithic architecture framework. This is important to consider when interpreting the material.</p>
+
+    <p>The document forms a cognitive context for both people and language models (LLMs). It covers practical aspects of web development and more general architectural topics: reducing excessive complexity, structural integrity, and adaptability to changes.</p>
+
+    <p><strong>Tequila Framework (TeqFW) is not a finished product</strong>, but an experimental platform built according to the described principles. It demonstrates their practical feasibility, is already used in development, and continues to evolve.</p>
+
+    <h2>Key TeqFW Principles</h2>
+    <ol>
+        <li><strong>Single development language:</strong> JavaScript (ES6+) on both client and server. This reduces duplication and cognitive load.</li>
+        <li><strong>Late binding:</strong> dynamic dependency management through object containers and ES6 namespaces.</li>
+        <li><strong>Evolutionary resilience:</strong> designing code with changes in mind without modifying existing components.</li>
+        <li><strong>Functional code separation:</strong> isolation of DTOs and logic handlers.</li>
+        <li><strong>Namespaces:</strong> for all entity types: packages, modules, tables, CLI, and configurations.</li>
+        <li><strong>Pure JavaScript without compilation:</strong> no TypeScript, no transpilation, with JSDoc support.</li>
+        <li><strong>LLM adaptation:</strong> code and documentation are structured for easy analysis and enhancement by language models.</li>
+    </ol>
+
+    <h2>Detailed Principles</h2>
+
+    <h3>Single Development Language</h3>
+    <p>ES6+ is used everywhere, simplifying team learning and collaboration. JS is the only high-level language in browsers, and with Node.js it became a server standard. This enables isomorphic code and logic reuse.</p>
+
+    <h3>Late Binding</h3>
+    <p>Dependencies are resolved at runtime rather than through hard imports. This reduces module coupling and simplifies component extension, replacement, and testing.</p>
+
+    <h3>Evolutionary Resilience</h3>
+    <p>Code is designed with inevitable changes in mind. Key techniques:</p>
+    <ul>
+        <li>argument destructuring and ignoring unknown fields in DTOs;</li>
+        <li>clear interaction contracts separated from implementation;</li>
+        <li>using abstractions instead of hard links.</li>
+    </ul>
+
+    <h3>Functional Code Separation</h3>
+    <p>Code is divided into DTOs and handlers. The latter don't store state and can be singletons. Handlers are independent of data structure, with side effects minimized.</p>
+
+    <h3>Namespaces</h3>
+    <p>Each entity operates in its own namespace: modules, files, tables, API, configurations. This prevents conflicts, establishes hierarchy, and makes the project predictable.</p>
+
+    <h3>Pure JavaScript Without Compilation</h3>
+    <p>TeqFW uses modern JS without builds. This speeds up debugging, simplifies maintenance, and eases third-party library integration. JSDoc annotations are used for code navigation.</p>
+
+    <h3>LLM Adaptation</h3>
+    <p>The project is structured for LLM analysis:</p>
+    <ul>
+        <li>predictable file structure;</li>
+        <li>unified patterns and repeatable structure;</li>
+        <li>controlled nesting depth;</li>
+        <li>JSDoc comments and standardized notations.</li>
+    </ul>
+    <p>Models can analyze, enhance, comment, and generate code according to project standards, reducing routine work and accelerating development.</p>
+
+    <h2>Conclusion</h2>
+    <p>The described principles form an approach to creating <strong>modular monoliths</strong> focused on predictability, structure, and flexibility. These ideas don't require complex theoretical foundations and allow focusing on code rather than infrastructure.</p>
+
+    <p><strong>Tequila Framework (TeqFW)</strong> illustrates them in practice. The platform is evolving and can serve as a foundation both for custom tools and for rethinking classical code organization methods.</p>
+</div>
+{% endblock %}

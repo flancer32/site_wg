@@ -1,0 +1,65 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}TeqFW Platform Philosophy{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>TeqFW Platform Philosophy</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2025-02-12
+    </span>
+
+    <zoom-img
+            src="/img/brand/teqfw.webp"
+            alt="TeqFW Platform Philosophy"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p><strong>Tequila Framework (TeqFW) Philosophy</strong> is my personal perspective on web development. I, Alex Gusev, have formed this approach based on my own experience and preferences when creating web applications. At its core is the pursuit of modularity, flexibility, and adaptability.</p>
+
+    <p>This philosophy covers both practical aspects of web development and more general architectural principles. Its goal is to simplify code organization, reduce complexity, and increase project resilience to changes.</p>
+
+    <p>Important: my experience focuses on developing <strong>modular monoliths</strong>, not microservices. The main priority is development and maintenance convenience without excessive overhead.</p>
+
+    <p>The proposed ideas don't require complex theory. Their strength lies in simplicity and practicality. Tequila Framework (TeqFW) serves as an example of implementing these principles and as a platform for experimentation.</p>
+
+    <h2>Key Principles of TeqFW</h2>
+    <ol>
+        <li><strong>Single development language:</strong> JavaScript (ES6+) at all application levels.</li>
+        <li><strong>Late binding:</strong> adapting approaches from Java, C#, PHP — through dependency containers and ES6 namespaces.</li>
+        <li><strong>Evolutionary resilience:</strong> code is designed with changes in mind without rewriting existing implementations.</li>
+        <li><strong>Separation of data and logic:</strong> strict isolation of DTOs and handlers.</li>
+        <li><strong>Namespaces:</strong> for modules, tables, CLI, configurations, and packages.</li>
+        <li><strong>No transpilation:</strong> pure JS with JSDoc, no TypeScript.</li>
+        <li><strong>LLM integration in development:</strong> project structure and style account for language model operations.</li>
+    </ol>
+
+    <h2>Principle Details</h2>
+
+    <h3>Single Development Language</h3>
+    <p>Using JavaScript (ES6+) on both client and server simplifies development, lowers the entry barrier, and bridges the gap between teams. This reduces logic redundancy and facilitates knowledge sharing.</p>
+
+    <h3>Late Binding</h3>
+    <p>Dependency containers and namespaces allow flexible management of module relationships. This approach simplifies testing and reduces risks during modifications.</p>
+
+    <h3>Evolutionary Resilience</h3>
+    <p>Code is designed with changes in mind: function arguments are passed as objects (destructuring), DTOs allow "extra" fields, interfaces and injections are used instead of rigid implementations.</p>
+
+    <h3>Separation of Data and Logic</h3>
+    <p>DTOs and handlers are separated. This increases modularity, simplifies testing, and makes code predictable during team collaboration.</p>
+
+    <h3>Namespaces</h3>
+    <p>Each entity type — from modules to CLI — is placed in its own namespace. This simplifies navigation, eliminates conflicts, and sets standards for code extension.</p>
+
+    <h3>No Transpilation</h3>
+    <p>TeqFW uses modern JavaScript without build steps or TypeScript-style typing. Instead, JSDoc annotations are used, providing IDE support without complicating the pipeline.</p>
+
+    <h3>LLM Integration in Development</h3>
+    <p>The project is organized so LLMs can analyze, supplement, and generate code. Flat structure, templates, repeating blocks, and minimal nesting levels are used.</p>
+
+    <h2>Conclusion</h2>
+    <p>These principles help build modular monoliths that are easy to read, develop, and adapt. Even if implementations may be imperfect, the ideas themselves remain practical and applicable. They give developers a foundation for independent problem-solving — without dictation, but with direction.</p>
+</div>
+{% endblock %}

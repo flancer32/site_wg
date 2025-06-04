@@ -1,0 +1,173 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Contacts — Alex Gusev{% endblock %}
+
+{% block content %}
+<h1>Contacts</h1>
+
+<!-- Contact cards: rendered in one row on desktop -->
+<div class="contacts-grid">
+    <!-- Card 1: Email & Messengers -->
+    <article class="card links">
+        <h2>Email & Messengers</h2>
+        <ul>
+            <li>
+                <a href="mailto:alex@wiredgeese.com">
+                    <img src="/img/contacts/email.svg" alt="Email">
+                    <span>alex@wiredgeese.com</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wa.me/37129181801" target="_blank" rel="noopener noreferrer">
+                    <img src="/img/contacts/whatsapp.svg" alt="WhatsApp">
+                    <span>+371 29181801</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://t.me/wiredgeese" target="_blank">
+                    <img src="/img/contacts/telegram.svg" alt="Telegram">
+                    <span>@wiredgeese</span>
+                </a>
+            </li>
+        </ul>
+    </article>
+
+    <!-- Card 2: Profiles -->
+    <article class="card links">
+        <h2>Profiles & Platforms</h2>
+        <ul>
+            <li><a href="https://github.com/flancer64"><img src="/img/contacts/github.svg"
+                                                            alt="GitHub"><span>GitHub</span></a></li>
+            <li><a href="https://stackoverflow.com/users/4073821/alex-gusev"><img src="/img/contacts/stackoverflow.svg"
+                                                                                  alt="StackOverflow"><span>StackOverflow</span></a>
+            </li>
+            <li><a href="https://flancer32.com/"><img src="/img/contacts/medium.svg"
+                                                      alt="Medium"><span>Medium</span></a></li>
+            <li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/"><img src="/img/contacts/linkedin.svg"
+                                                                                       alt="LinkedIn"><span>LinkedIn</span></a>
+            </li>
+            <li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497"><img src="/img/contacts/upwork.svg"
+                                                                                      alt="Upwork"><span>Upwork</span></a>
+            </li>
+            <li><a href="https://www.fiverr.com/users/wiredgeese"><img src="/img/contacts/fiverr.svg"
+                                                                       alt="Fiverr"><span>Fiverr</span></a></li>
+        </ul>
+    </article>
+
+    <!-- Card 3: Company Info -->
+    <article class="card company">
+        <h2>Company</h2>
+        <div class="table">
+            <div>Name:</div>
+            <div>F. Lancer</div>
+            <div>Registration number:</div>
+            <div>40103303120 <span class="since">(since 29.06.2010)</span></div>
+            <div>SEPA ID:</div>
+            <div>LV82ZZZ40103303120</div>
+            <div>VAT number:</div>
+            <div>LV40103303120 <span class="since">(since 27.09.2023)</span></div>
+            <div>Bank account:</div>
+            <div>LV83HABA0551028650868</div>
+        </div>
+    </article>
+</div>
+
+<!-- Presentation card: structured text sections -->
+<div class="card">
+    <h2>About Me</h2>
+
+    <section class="block">
+        <img src="/img/avatar.jpg" alt="Avatar"
+             style="width: 100px; float: left; margin: 14px 15px 0 0; border-radius: 10%;">
+        <p>My name is Alex Gusev, I'm a web developer from Latvia. My career began in 1998 with banking systems and went through fintech and e-commerce. Since 2010 I've been working under my own brand, developing custom web applications.</p>
+        <p>Since 2019 I've almost completely switched to JavaScript. Facing the limitations of ready-made solutions, I began forming my own architectural principles that became the foundation of the Tequila Framework platform - for modular and manageable web systems.</p>
+    </section>
+
+    <section class="block">
+        <h3>Technologies</h3>
+        <p>JavaScript (ES6+) with JSDoc, Node.js, Vue.js, Quasar, Knex.js. Databases: PostgreSQL, MariaDB, SQLite. CI/CD via GitHub Actions. I create both PWA/SPAs that work directly in the browser without server logic, and full-fledged backend services on Node.js - all in a single stack, with full responsibility for the entire system.</p>
+    </section>
+
+    <section class="block">
+        <h3>Development Approach</h3>
+        <p>I use modular monolith and avoid TypeScript and bundlers. Based on DI and late binding. All projects are compatible with LLM and designed for distributed development.</p>
+    </section>
+</div>
+
+<!-- Local styles specific to contact page -->
+<style>
+    .contacts-grid {
+        display: grid;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    @media (min-width: 769px) {
+        .contacts-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .card ul li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.75rem;
+    }
+
+    .card ul li img {
+        width: 28px;
+        height: 28px;
+        margin-right: 0.75rem;
+        border-radius: 50%;
+        background-color: #fff;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .card ul li a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .card ul li a:hover {
+        transform: scale(1.05);
+        color: #007B5E;
+    }
+
+    .card .table {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.5rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .card .since {
+        font-size: 0.85rem;
+        color: #666;
+    }
+
+    .card .block {
+        margin-bottom: 1.25rem;
+        overflow: hidden;
+    }
+
+    .card .block:last-child {
+        margin-bottom: 0;
+    }
+
+    .card h3 {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+        color: #007B5E;
+    }
+</style>
+{% endblock %}
