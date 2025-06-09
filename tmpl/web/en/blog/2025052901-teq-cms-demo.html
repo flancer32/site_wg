@@ -1,0 +1,44 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}TeqCMS: Server-side CMS with Nunjucks Templates{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>TeqCMS: Server-side CMS with Nunjucks Templates</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2025-05-29
+    </span>
+
+    <zoom-img
+            src="/img/brand/teqfw.webp"
+            alt="TeqCMS based on Nunjucks"
+            style="max-width: 100%; float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>A package set for creating a CMS with server-side page generation using 
+        <a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a> templates has been published. The new system is built on the 
+        <strong>TeqFW</strong> architecture and includes modules for web server, template rendering, and content management:</p>
+
+    <ul style="list-style: none; padding-left: 0;">
+        <li><a href="https://github.com/flancer32/teq-web" target="_blank"><code>@flancer32/teq-web</code></a> —
+            modular web server with HTTP/2 support
+        </li>
+        <li><a href="https://github.com/flancer32/teq-tmpl" target="_blank"><code>@flancer32/teq-tmpl</code></a> —
+            universal renderer for Nunjucks and Mustache
+        </li>
+        <li><a href="https://github.com/flancer32/teq-cms" target="_blank"><code>@flancer32/teq-cms</code></a> —
+            file-oriented CMS with localization support
+        </li>
+        <li><a href="https://github.com/flancer32/teq-cms-demo" target="_blank"><code>@flancer32/teq-cms-demo</code></a>
+            — demo website
+        </li>
+    </ul>
+
+    <p>All packages use <code>@teqfw/di</code> for dependency injection, are designed as plugins, and can be easily combined. The demo shows how to create a multilingual website without a database with full SSR.</p>
+
+    <p>The system is adapted for static hosting, automatic translation, and full operation without bundlers or third-party trackers.</p>
+
+    <p>Working example: <a href="https://cms.teqfw.com/ru/" target="_blank">cms.teqfw.com</a></p>
+</div>
+{% endblock %}

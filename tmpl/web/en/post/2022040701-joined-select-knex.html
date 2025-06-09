@@ -16,14 +16,10 @@
             style="max-width: 100%; float: left; margin: 15px 15px 0 0;"
     ></zoom-img>
 
-    <p><a href="https://knexjs.org/">Knex.js</a> is an excellent library for working with relational databases in
-        Node.js applications (MySQL/MariaDB, PostgreSQL, MSSQL, Oracle, etc.). It's not an <a
-                href="https://en.wikipedia.org/wiki/Object–relational_mapping">ORM</a>, but rather a <a
-                href="https://en.wikipedia.org/wiki/Data_access_layer">DAL</a> level tool. In this post, I'll show how
-        to create <code>SELECT … JOIN …</code> queries using Knex.</p>
+    <p><a href="https://knexjs.org/">Knex.js</a> is an excellent library for working with relational databases in Node.js applications (MySQL/MariaDB, PostgreSQL, MSSQL, Oracle, etc.). It's not an <a href="https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping">ORM</a>, but rather a <a href="https://en.wikipedia.org/wiki/Data_access_layer">DAL</a> level tool. In this post I'll show how to create <code>SELECT … JOIN …</code> queries using Knex.</p>
 
     <h2>Transaction</h2>
-    <p>First, you need to get a transaction object. Example of connecting to the database, creating a transaction, and closing the connection:</p>
+    <p>First you need to get a transaction object. Example of connecting to DB, creating transaction and closing connection:</p>
 
     <pre><code class="language-js">import knex from 'knex';
 
@@ -83,7 +79,7 @@ console.log('SQL: ' + query.toString());</code></pre>
 left join `app_upload` on `app_upload`.`id` = `image_ref`</code></pre>
 
     <h2>"Professional" JOIN</h2>
-    <p>In practice, you often need to join multiple tables, use aliases, and select specific fields:</p>
+    <p>In practice, you often need to join multiple tables, use aliases and select specific fields:</p>
 
     <pre><code class="language-sql">select
     app_task.id as taskId,
@@ -149,7 +145,6 @@ left join `app_user` as `usr` on `usr`.`id` = `t`.`user_ref`
 where `t`.`id` = 3</code></pre>
 
     <h2>Conclusion</h2>
-    <p>SQL is the foundation for working with relational databases. <code>SELECT</code> queries with <code>JOIN</code> are one
-        of the most frequently used tools, and Knex allows you to create them at any complexity level.</p>
+    <p>SQL is the foundation for working with relational databases. <code>SELECT</code> queries with <code>JOIN</code> are one of the most frequently used tools, and Knex allows you to create them with any complexity.</p>
 </div>
 {% endblock %}
