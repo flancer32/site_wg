@@ -1,0 +1,129 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}ES6 `export` as a Building Block{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>ES6 <code>export</code> as a Building Block</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2022-05-08
+    </span>
+
+    <zoom-img
+            src="/img/post/2022050801.webp"
+            alt="Publication illustration"
+            style="max-width: 100%; float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>What is a building block (<em>brick</em>) in modern ES2015+ applications? A variable, function, class, or module? My answer is <code>export</code>. Today we organize JavaScript code as ES6 modules and connect them via <code>import</code>:</p>
+
+    <pre><code class="language-js">import {export1, export2} from "module-name";</code></pre>
+
+    <p>Each <code>export</code> is a minimal code object from which complex programs can be built.</p>
+
+    <h2>Script Files</h2>
+    <p>Code is typically placed in separate files - modules. An ES6 module can contain multiple classes, functions, and objects. The code executes on the first <code>import</code>, and its result is saved in the module's scope:</p>
+
+    <pre><code class="language-js">// cube.mjs
+export default function cube(x) {
+    return x * x * x;
+}</code></pre>
+
+    <p>To access an <code>export</code>, you need to know the file path:</p>
+
+    <pre><code class="language-js">// main.mjs
+import cube from './cube.mjs';
+const y = cube(2); // 8</code></pre>
+
+    <p>Paths can be absolute or relative. Node.js also supports package name paths:</p>
+
+    <pre><code class="language-js">import cube from '@vendor/package/path/to/cube.mjs';</code></pre>
+
+    <p>Important: relative paths must start with <code>./</code>. Otherwise - error:</p>
+
+    <pre><code>Relative references must start with either "/", "./", or "../".</code></pre>
+
+    <h2>First <code>import</code></h2>
+    <p>Module code executes only once - on the first <code>import</code>. Subsequent imports use already computed <code>export</code>s.</p>
+
+    <h2>Module Scope</h2>
+    <p>Example module with a <code>hello</code> function that changes internal state:</p>
+
+    <pre><code class="language-js">// sub.mjs
+console.log(`es6-module is imported.`);
+let from = 'module';
+
+export function hello(to) {
+    console.log(`Hello to ${to} from ${from}.`);
+    from = to;
+}</code></pre>
+
+    <p>Even with multiple imports, the message will appear only once:</p>
+
+    <pre><code class="language-js">import {hello} from './sub.mjs';
+
+hello('main');
+hello('again');</code></pre>
+
+    <pre><code>es6-module is imported.
+Hello to main from module.
+Hello to again from main.</code></pre>
+
+    <h2>Async import</h2>
+    <p>A module can perform async initialization and export the result later:</p>
+
+    <pre><code class="language-js">console.log(`es6-module is imported.`);
+const init = new Promise((resolve) => {
+    setTimeout(() => {
+        function hello(to) {
+            console.log(`Hello to ${to} from ${from}.`);
+            from = to;
+        }
+        resolve(hello);
+    }, 3000);
+});
+let from = 'module';
+
+const hello = (await init);
+console.log(`'hello' function is created.`);
+export {hello}</code></pre>
+
+    <pre><code class="language-js">import {hello} from './async.mjs';
+
+hello('main');
+hello('again');</code></pre>
+
+    <pre><code>es6-module is imported.
+'hello' function is created.
+Hello to main from module.
+Hello to again from main.</code></pre>
+
+    <h2>Module Without Exports</h2>
+    <p>A module can perform useful actions without <code>export</code>s:</p>
+
+    <pre><code class="language-js">function cleanUpFiles() {}
+
+setInterval(() => {
+    cleanUpFiles();
+}, 60 * 1000);</code></pre>
+
+    <p>Importing such a module still activates it:</p>
+
+    <pre><code class="language-js">import './cleaner.mjs';</code></pre>
+
+    <h2>Conclusion</h2>
+    <p>Each <code>export</code> is a building block (<em>brick</em>) for creating applications (<em>wall</em>). I think in terms of <code>Path_To_Module.exportName</code> - both in documentation and code:</p>
+
+    <pre><code class="language-js">class Demo {
+    constructor(spec) {
+        const castInt = spec['TeqFw_Core_Shared_Util_Cast.castInt'];
+        const castStr = spec['TeqFw_Core_Shared_Util_Cast.castStr'];
+    }
+}</code></pre>
+
+    <p>This is an example of using the <code>@teqfw/di</code> dependency container, with which I build complex applications from simple modules.</p>
+
+    <p>I'm convinced: JavaScript needs namespaces like "serious" languages. I plan to continue this topic in future posts.</p>
+</div>
+{% endblock %}
