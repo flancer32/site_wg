@@ -9,7 +9,7 @@ User=live
 WorkingDirectory=/home/live/inst/wg/site
 
 Environment="NVM_DIR=/home/live/.nvm"
-ExecStart=/bin/bash -c 'source $NVM_DIR/nvm.sh && node index.js'
+ExecStart=/bin/bash -c 'source $NVM_DIR/nvm.sh && npx teq-cms web'
 
 StandardOutput=append:/home/live/store/wg/site/log/out.log
 StandardError=append:/home/live/store/wg/site/log/out.log

@@ -12,7 +12,7 @@
         </ul>
         <div class="nav-right">
             <div class="locale-switcher">
-                {% for loc in localeAllowed %}
+                {% for loc in allowedLocales %}
                 {% if not loop.first %}|{% endif %}
                 {% if loc == locale %}
                 <span>{{ loc | upper }}</span>
@@ -28,7 +28,7 @@
 <script>
     // @formatter:off
     function switchLocale(targetLocale) {
-        const allowed = {{ localeAllowed | dump | safe }};
+        const allowed = {{ allowedLocales | dump | safe }};
         const path = window.location.pathname;
         const current = allowed.find(loc => path === `/${loc}` || path.startsWith(`/${loc}/`));
         let basePath = path;
