@@ -1,9 +1,8 @@
 {
   "name": "@flancer32/site_wg",
   "version": "0.2.0",
-  "description": "The personal website for A. Gusev powered by TeqCMS — a minimal SSR multilingual CMS built on Node.js.",
+  "description": "Sources for Alex Gusev’s personal website wiredgeese.com powered by TeqCMS — a minimal multilingual CMS with SSR and AI localization.",
   "type": "module",
-  "main": "index.js",
   "keywords": [
     "teqcms",
     "teqfw",
