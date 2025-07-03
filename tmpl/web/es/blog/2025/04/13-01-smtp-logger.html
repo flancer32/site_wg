@@ -17,31 +17,31 @@
             style="float: left; margin: 15px 15px 0 0;"
     ></zoom-img>
 
-    <p>Durante el desarrollo de NutriLog, necesitaba rastrear todos los correos electrónicos salientes enviados a través de <strong>Postfix</strong>.
+    <p>Durante el desarrollo de NutriLog, necesitaba rastrear todos los correos salientes enviados a través de <strong>Postfix</strong>.
         Así surgió una pequeña herramienta —
         <a href="https://github.com/flancer64/smtp-logger" target="_blank"><strong>smtp-logger</strong></a>.</p>
 
     <p>Es una <strong>utilidad simple en Node.js</strong> que se conecta a Postfix como un manejador a través de pipe. Recibe
-        el correo completo a través de `stdin`, extrae el remitente, destinatario y asunto, y también guarda toda la estructura MIME
-        "cruda" en una <strong>base de datos SQL</strong> (PostgreSQL, SQLite, MySQL y otros a través de `knex`).</p>
+        el correo completo a través de `stdin`, extrae el remitente, destinatario y asunto, y guarda toda la estructura MIME "cruda"
+        en una <strong>base de datos SQL</strong> (PostgreSQL, SQLite, MySQL, etc. mediante `knex`).</p>
 
     <h4>¿Qué hace interesante este proyecto?</h4>
-    <p>Es un ejemplo práctico de aplicación de <strong>módulos ES6</strong> y <strong>enlace tardío de dependencias</strong> en
+    <p>Es un ejemplo funcional de aplicación de <strong>módulos ES6</strong> y <strong>enlace tardío de dependencias</strong> en
         arquitectura JS. Toda la estructura está construida usando <a href="https://github.com/teqfw/di"
-                                                                       target="_blank">@teqfw/di</a> — un
-        contenedor DI ligero, compatible con JavaScript nativo (sin TypeScript ni bundlers).</p>
+                                                                       target="_blank">@teqfw/di</a> — un contenedor DI
+        ligero, compatible con JavaScript nativo (sin TypeScript ni bundlers).</p>
 
     <h4>Características</h4>
     <ul>
-        <li>Integración con Postfix a través de `pipe` (por ejemplo, mediante `always_bcc`)</li>
-        <li>Extracción de `from`, `to` y `subject` + almacenamiento de todo el correo</li>
+        <li>Integración con Postfix mediante `pipe` (por ejemplo, a través de `always_bcc`)</li>
+        <li>Extracción de `from`, `to` y `subject` + almacenamiento del correo completo</li>
         <li>Funciona con cualquier base de datos compatible con `knex`</li>
         <li>Interfaz CLI: comandos `init-db` y `log`</li>
         <li>Soporte para SQLite en registros locales</li>
     </ul>
 
-    <p><strong>Importante:</strong> el esquema de la base de datos no se crea automáticamente. Antes de usar, es necesario
-        ejecutar manualmente el comando `init-db`.</p>
+    <p><strong>Importante:</strong> el esquema de la base de datos no se crea automáticamente. Antes de usar, es necesario ejecutar manualmente
+        el comando `init-db`.</p>
 
     <p>Si usas Postfix solo para correo saliente — esta es una excelente solución para auditoría, depuración y registro
         de mensajes en producción o entornos de staging.</p>

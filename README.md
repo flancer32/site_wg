@@ -39,9 +39,9 @@ Templates and translations are stored as:
 tmpl/web/
 ├── en/
 │   └── about.html
-├── ru/
-│   └── about.html
 ├── es/
+│   └── about.html
+├── ru/
 │   └── about.html
 ```
 

@@ -1,0 +1,33 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Испанская версия сайта: AI-перевод за $0.05{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Испанская версия сайта: AI-перевод за $0.05</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2025-07-03
+    </span>
+
+    <zoom-img
+            src="/img/blog/2025/07/03-01-deepseek-report.png"
+            alt="График использования DeepSeek API"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Сайт <strong>переведён на испанский язык</strong> с помощью платформы <a href="https://deepseek.com/"
+                                                                                target="_blank">DeepSeek</a> и
+        возможностей <a href="https://cms.teqfw.com/" target="_blank">TeqCMS</a>.</p>
+
+    <p>Всего потребовалось <strong>42 запроса</strong> и <strong>~87 000 токенов</strong> — это стоило <strong>всего
+        $0.05</strong>. Перевод осуществлялся автоматически на основе оригинальных русскоязычных файлов.</p>
+
+    <p>Таким образом, TeqCMS продемонстрировал ключевую функцию — <strong>AI-локализацию</strong> контента с
+        минимальными затратами и полным контролем через Git.</p>
+
+    <p>Все страницы, включая <code>/about.html</code>, <code>/projects.html</code> и <code>/blog/</code>, теперь
+        доступны на <a href="/es/" target="_blank">испанском</a>. Язык можно переключить через UI.</p>
+</div>
+{% endblock %}
