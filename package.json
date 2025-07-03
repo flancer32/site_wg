@@ -39,6 +39,9 @@
   "engines": {
     "node": ">=20"
   },
+  "overrides": {
+    "whatwg-url": "13.0.0"
+  },
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/teqfw"
