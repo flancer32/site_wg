@@ -1,0 +1,59 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Alex Gusev — desarrollador web, investigador, arquitecto{% endblock %}
+
+{% block content %}
+<div class="card hero">
+    <h1>Alex Gusev — desarrollador web, investigador, arquitecto</h1>
+    <p>
+        Más de 25 años en desarrollo de software. Autor de <a href="https://github.com/teqfw">Tequila Framework</a> —
+        una plataforma para crear soluciones modulares, gestionables y extensibles.
+        Desarrollo herramientas donde humanos e IA trabajan como socios.
+    </p>
+    <nav class="hero-links">
+        <a href="/{{ locale }}/projects.html">Proyectos</a>
+        <a href="/{{ locale }}/contact.html">Contacto</a>
+    </nav>
+</div>
+
+<div class="card">
+    <h2>Qué hago</h2>
+    <ul>
+        <li><strong>IA en práctica:</strong> integración de LLM en flujos de trabajo reales</li>
+        <li><strong>Chats GPT personalizados:</strong> desarrollo de soluciones agentes para tareas específicas</li>
+        <li><strong>Arquitectura de sistemas:</strong> diseño soluciones extensibles y predecibles, adecuadas para
+            desarrollo distribuido y trabajo en equipo
+        </li>
+    </ul>
+    <p>
+        Este sitio es mi experimento y plataforma de demostración. Aquí comparto ideas, código y observaciones.
+        Si te interesa el enfoque ingenieril en la integración de IA — estaré encantado de colaborar.
+    </p>
+</div>
+
+<style>
+    .hero-links {
+        margin-top: 1rem;
+        display: flex;
+        padding-bottom: 2rem;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-links a {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border: 1px solid #007B5E;
+        background-color: #fff;
+        color: #007B5E;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    .hero-links a:hover {
+        background-color: #e6f2ef;
+    }
+</style>
+{% endblock %}

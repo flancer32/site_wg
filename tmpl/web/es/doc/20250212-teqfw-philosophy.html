@@ -1,0 +1,82 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Filosofía de la plataforma TeqFW{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Filosofía de la plataforma TeqFW</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2025-02-12
+    </span>
+
+    <zoom-img
+            src="/img/brand/teqfw.webp"
+            alt="Filosofía de la plataforma TeqFW"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p><strong>La filosofía de Tequila Framework (TeqFW)</strong> es mi visión personal sobre el desarrollo web. Yo, Alex Gusev,
+        he formulado este enfoque basándome en mi propia experiencia y preferencias al crear aplicaciones web. En su núcleo está
+        el deseo de modularidad, flexibilidad y adaptabilidad.</p>
+
+    <p>Esta filosofía abarca tanto aspectos aplicados del desarrollo web como principios arquitectónicos más generales. Su objetivo
+        es simplificar la organización del código, reducir la complejidad y aumentar la resistencia de los proyectos a los cambios.</p>
+
+    <p>Importante: mi experiencia se centra en el desarrollo de <strong>monolitos modulares</strong>, no en microservicios. La prioridad principal
+        es la comodidad en el desarrollo y mantenimiento, sin gastos generales excesivos.</p>
+
+    <p>Las ideas propuestas no requieren teoría compleja. Su fuerza radica en la simplicidad y practicidad. Tequila Framework (TeqFW)
+        sirve como ejemplo de implementación de estos principios y como plataforma para experimentos.</p>
+
+    <h2>Principios clave de TeqFW</h2>
+    <ol>
+        <li><strong>Lenguaje único de desarrollo:</strong> JavaScript (ES6+) en todos los niveles de la aplicación.</li>
+        <li><strong>Vinculación tardía:</strong> adaptación de enfoques de Java, C#, PHP — mediante contenedor de dependencias y
+            espacios de nombres ES6.
+        </li>
+        <li><strong>Resistencia evolutiva:</strong> el código se diseña considerando cambios sin necesidad de reescribir lo ya hecho.
+        </li>
+        <li><strong>Separación de datos y lógica:</strong> aislamiento estricto entre DTO y manejadores.</li>
+        <li><strong>Espacios de nombres:</strong> para módulos, tablas, CLI, configuraciones y paquetes.</li>
+        <li><strong>Sin transpilación:</strong> JavaScript puro con JSDoc, sin TypeScript.</li>
+        <li><strong>Integración de LLM en el desarrollo:</strong> la estructura y estilo del proyecto consideran el trabajo con modelos de lenguaje.
+        </li>
+    </ol>
+
+    <h2>Detalles de los principios</h2>
+
+    <h3>Lenguaje único de desarrollo</h3>
+    <p>Usar JavaScript (ES6+) tanto en el cliente como en el servidor simplifica el desarrollo, reduce la barrera de entrada y elimina
+        la brecha entre equipos. Esto reduce la redundancia lógica y facilita el intercambio de conocimientos.</p>
+
+    <h3>Vinculación tardía</h3>
+    <p>El contenedor de dependencias y los espacios de nombres permiten gestionar flexiblemente las conexiones entre módulos. Este enfoque
+        facilita las pruebas y reduce riesgos en modificaciones.</p>
+
+    <h3>Resistencia evolutiva</h3>
+    <p>El código se diseña considerando cambios: los argumentos de funciones se pasan como objetos (destructuring), los DTO permiten
+        campos "extra", se usan interfaces e inyecciones en lugar de implementaciones rígidas.</p>
+
+    <h3>Separación de datos y lógica</h3>
+    <p>DTO y manejadores están separados. Esto aumenta la modularidad, facilita las pruebas y hace el código predecible en trabajo en equipo.</p>
+
+    <h3>Espacios de nombres</h3>
+    <p>Cada tipo de entidad —desde módulos hasta CLI— se coloca en su propio espacio de nombres. Esto simplifica la navegación, evita
+        conflictos y establece estándares para extender el código.</p>
+
+    <h3>Sin transpilación</h3>
+    <p>TeqFW usa JavaScript moderno sin compilación ni tipado al estilo TypeScript. En su lugar, se usan anotaciones JSDoc, lo que
+        proporciona soporte IDE sin complicar el pipeline.</p>
+
+    <h3>Integración de LLM en el desarrollo</h3>
+    <p>El proyecto está organizado para que los LLM puedan analizar, complementar y generar código. Se usa estructura plana,
+        plantillas, bloques repetitivos y niveles mínimos de anidación.</p>
+
+    <h2>Conclusión</h2>
+    <p>Estos principios ayudan a construir monolitos modulares que son fáciles de leer, desarrollar y adaptar. Incluso si la implementación
+        puede ser imperfecta, las ideas en sí siguen siendo prácticas y aplicables. Dan al desarrollador una base para buscar soluciones
+        por sí mismo —sin dictados, pero con dirección.</p>
+</div>
+{% endblock %}

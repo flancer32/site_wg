@@ -1,0 +1,87 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Principios clave para crear documentación{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Principios clave para crear documentación</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2025-02-12
+    </span>
+
+    <zoom-img
+            src="/img/brand/doc.svg"
+            alt="Principios clave para crear documentación"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <h2>Términos</h2>
+    <ul>
+        <li><strong>Audiencia de la documentación</strong> — grupo de personas y/o modelos de lenguaje (LLM) que utilizan
+            la documentación para formar un contexto cognitivo. Incluye usuarios finales, desarrolladores,
+            analistas y otras partes interesadas.
+        </li>
+        <li><strong>Contexto cognitivo</strong> — conjunto de conocimientos, experiencia, expectativas y motivación que determina
+            la percepción e interpretación de la información. Incluye tanto conocimientos previos como objetivos actuales.
+        </li>
+        <li><strong>Objeto de la documentación</strong> — producto, proceso o concepto descrito en el documento: software,
+            metodología, proceso de negocio, etc.
+        </li>
+    </ul>
+
+    <h2>Introducción</h2>
+    <p>
+        La documentación es el proceso de sincronizar el contexto cognitivo de la audiencia (personas y LLM). El objetivo es garantizar
+        una comprensión integral del objeto descrito, comenzando con conceptos generales y pasando a detalles. La información
+        se presenta jerárquicamente, sin duplicación, permitiendo tanto una revisión rápida como un estudio profundo.
+    </p>
+
+    <h2>Inmersión del lector en el contexto</h2>
+    <p>
+        La estructura de la documentación debe facilitar la rápida inmersión del lector en el contexto cognitivo del objeto. Esto
+        se logra con lógica, secuencia y suficiente profundidad en la exposición.
+    </p>
+
+    <h2>Jerarquía y estructura</h2>
+    <p>
+        La información se presenta por niveles: de lo general a lo específico. Cada nivel complementa al anterior y forma una
+        secuencia coherente, orientada a las tareas actuales del lector.
+    </p>
+
+    <h3>Niveles de documentación</h3>
+    <ul>
+        <li><strong>Título</strong> — nombre breve que refleja la esencia.</li>
+        <li><strong>Resumen</strong> — descripción muy breve del significado (ancla mental).</li>
+        <li><strong>Introducción</strong> — propósito del documento, su audiencia, establecimiento del contexto.</li>
+        <li><strong>Resumen general</strong> — breve exposición que permite evaluar la relevancia.</li>
+        <li><strong>Sección principal</strong> — descripción detallada, estructurada por dominio.</li>
+    </ul>
+
+    <h3>Recomendaciones de volumen</h3>
+    <ul>
+        <li>Título: 5–10 palabras, máximo &lt; 20</li>
+        <li>Resumen: 30–50 palabras, máximo &lt; 150</li>
+        <li>Introducción: 10–20 palabras, máximo &lt; 50</li>
+        <li>Resumen general: 50–100 palabras, máximo &lt; 250</li>
+        <li>Texto principal: 1000–3000 tokens, máximo &lt; 8000 (<a href="https://platform.openai.com/tokenizer"
+                                                                      target="_blank">tokenizador</a>)
+        </li>
+    </ul>
+
+    <h2>Accesibilidad de navegación</h2>
+    <p>
+        La documentación es una estructura interconectada donde cada documento cubre un aspecto. Los hipervínculos,
+        índices y referencias cruzadas deben facilitar la navegación. El lector siempre debe entender su posición en
+        la estructura y tener la posibilidad de ir a temas relacionados o volver al resumen general.
+    </p>
+
+    <h2>Orientación a LLM</h2>
+    <p>
+        La documentación debe considerar las características de los modelos de lenguaje y formatearse en Markdown. La información clave
+        debe estar al inicio de las secciones. Es importante usar terminología uniforme, evitar ambigüedades. La estructura debe ser
+        lógica, jerárquica, con marcado claro de títulos y listas. Las secciones deben ser autosuficientes pero interrelacionadas.
+    </p>
+</div>
+{% endblock %}

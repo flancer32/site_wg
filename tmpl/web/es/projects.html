@@ -1,0 +1,166 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Proyectos — Alex Gusev{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Mis proyectos</h1>
+
+    <p>Desde 2019 desarrollo la arquitectura <strong>Tequila Framework (TeqFW)</strong> — una plataforma en JavaScript para crear aplicaciones web modulares con inyección de dependencias, SSR y una estructura de archivos clara. Esta filosofía nació de la experiencia práctica con Magento y se implementó en varios proyectos propios y para clientes. A continuación, una retrospectiva de mis soluciones más significativas.</p>
+</div>
+
+<div class="card">
+    <h2>TeqCMS</h2>
+    <p><strong>Fecha de inicio:</strong> marzo 2025</p>
+    <p><strong>Descripción:</strong> CMS minimalista, implementado como plugin para TeqFW. Permite construir sitios SSR multilingües basados en plantillas Mustache, con gestión de contenido a través de Git y traducción automática mediante LLM. Se utiliza para generar este sitio.</p>
+    <p><strong>Características:</strong></p>
+    <ul>
+        <li>Renderizado en servidor basado en plantillas Mustache o Nunjucks</li>
+        <li>Estructura de archivos para el contenido, sin base de datos</li>
+        <li>Soporte multilingüe mediante plantillas y traducciones automáticas</li>
+        <li>Despliegue mediante Git + CI/CD, desarrollo sin bundlers</li>
+    </ul>
+    <p><strong>Sitio:</strong> <a href="https://cms.teqfw.com/" target="_blank">cms.teqfw.com</a></p>
+    <p><strong>Repositorio:</strong> <a href="https://github.com/flancer32/teq-cms" target="_blank">GitHub</a></p>
+</div>
+
+<div class="card">
+    <h2>smtp-logger</h2>
+    <p><strong>Fecha de inicio:</strong> abril 2025</p>
+    <p><strong>Descripción:</strong> Utilidad en Node.js para registrar correos salientes en una base de datos SQL (PostgreSQL, MySQL, SQLite). Se usa como manejador `pipe` en Postfix (`always_bcc` o `aliases`) y registra mensajes MIME completos. Basada en la arquitectura DI de TeqFW, fácil de integrar y extender.</p>
+    <p><strong>Características:</strong></p>
+    <ul>
+        <li>Recepción de correos desde stdin, análisis completo de cabeceras y cuerpo</li>
+        <li>Registro en BD mediante Knex.js (soporte para PostgreSQL, SQLite, MySQL)</li>
+        <li>Arquitectura modular con @teqfw/di y configuración CLI</li>
+        <li>Inicialización de esquema BD incluida, configuración mediante `.env`</li>
+        <li>Útil para entornos de producción y staging — auditoría simple de correos</li>
+    </ul>
+    <p><strong>Repositorio:</strong> <a href="https://github.com/flancer64/smtp-logger" target="_blank">GitHub</a></p>
+</div>
+
+<div class="card">
+    <h2>NutriLog</h2>
+    <p><strong>Fecha de inicio:</strong> enero 2025</p>
+    <p><strong>Descripción:</strong> Aplicación PWA personal para seguimiento de nutrición y peso, con integración estrecha de asistente GPT. NutriLog continúa las ideas de BWL pero reinterpretadas mediante interacción con LLM: la IA ayuda a llevar un diario, calcular calorías y formar hábitos conscientes. Basado en TeqFW, se desarrolla activamente como experimento de IA.</p>
+    <p><strong>Características:</strong></p>
+    <ul>
+        <li>Integración con chat GPT, diálogo personalizado</li>
+        <li>Soporte para diario de nutrición, peso y objetivos</li>
+        <li>Cálculo automático de calorías y macronutrientes</li>
+        <li>Memoria externa e interfaz web alrededor de la IA</li>
+    </ul>
+    <p><strong>Sitio:</strong> <a href="https://nutrilog.app.wiredgeese.com/" target="_blank">nutrilog.app.wiredgeese.com</a></p>
+    <p><strong>Repositorio:</strong> <a href="https://github.com/flancer32/pwa-svelters" target="_blank">GitHub</a></p>
+</div>
+
+<div class="card">
+    <h2>Domothenika QR Intake</h2>
+    <p><strong>Fecha de inicio:</strong> enero 2025</p>
+    <p><strong>Descripción:</strong> Aplicación web minimalista para registro de clientes mediante enlaces QR en el programa de fidelidad de la tienda Domotehnika. El visitante escanea un QR en la tienda, accede a la página de registro y obtiene ofertas personalizadas. Los datos se almacenan centralmente para marketing y análisis.</p>
+    <p><strong>Características:</strong></p>
+    <ul>
+        <li>Registro de cliente mediante enlace QR personal</li>
+        <li>Mínimo de campos, adaptado para móviles</li>
+        <li>Arquitectura autónoma en TeqFW, sin integraciones externas</li>
+        <li>Lógica de servidor para almacenamiento y análisis</li>
+    </ul>
+    <p><strong>Sitio:</strong> <a href="https://tc.klientuklubs.lv/" target="_blank">tc.klientuklubs.lv</a></p>
+    <p><strong>Repositorio:</strong> privado</p>
+</div>
+
+<div class="card">
+    <h2>PWA Wallet</h2>
+    <p><strong>Fecha de inicio:</strong> julio 2024</p>
+    <p><strong>Descripción:</strong> Aplicación web progresiva para almacenar, mostrar y organizar códigos QR y de barras en dispositivos móviles. Todos los datos se guardan localmente en el navegador y están disponibles sin conexión. Demuestra capacidades modernas de PWA: instalación, funcionamiento offline, integración con APIs hardware y bases locales. Concebido como MVP pero con arquitectura completa.</p>
+    <p><strong>Características:</strong></p>
+    <ul>
+        <li>Escanear códigos mediante <code>Camera API</code> con <code>html5-qrcode</code></li>
+        <li>Mostrar códigos de barras con <code>bwip-js</code></li>
+        <li>Seguimiento geográfico con <code>Geolocation API</code></li>
+        <li>Almacenamiento en <code>IndexedDB</code>, configuraciones en <code>localStorage</code></li>
+        <li>Funcionamiento offline completo gracias a <code>Service Worker</code> y <code>Cache API</code></li>
+        <li>Arquitectura de rutas: páginas separadas para añadir, ver, configurar y usar tarjetas</li>
+        <li>Framework: Vue 3 + Quasar + @teqfw/di; sin bundlers, instalación via npm</li>
+    </ul>
+    <p><strong>Sitio:</strong> <a href="https://wallet.wiredgeese.com/" target="_blank">wallet.wiredgeese.com</a></p>
+    <p><strong>Repositorio:</strong> <a href="https://github.com/flancer64/pwa-wallet" target="_blank">GitHub</a></p>
+</div>
+
+<div class="card">
+    <h2>Remote Console</h2>
+    <p><strong>Fecha de inicio:</strong> junio 2023</p>
+    <p><strong>Descripción:</strong> Utilidad para monitoreo remoto de logs de aplicaciones JavaScript en tiempo real. Los mensajes del navegador se envían al servidor mediante Beacon API y se retransmiten a los desarrolladores conectados mediante SSE (Server-Sent Events). Solución mínimamente invasiva, útil para desarrollo local y depuración en móviles.</p>
+    <p><strong>Características:</strong></p>
+    <ul>
+        <li>Envío de logs desde cliente mediante Beacon API o Fetch</li>
+        <li>Transmisión en tiempo real al frontend mediante SSE</li>
+        <li>Soporte para canales de logging nombrados</li>
+        <li>Sin autenticación, con servidor de prueba público</li>
+        <li>Despliegue mediante Node.js y npm sin dependencias externas</li>
+    </ul>
+    <p><strong>Servidor público:</strong> <a href="https://console.wiredgeese.com/" target="_blank">console.wiredgeese.com</a></p>
+    <p><strong>Repositorio:</strong> <a href="https://github.com/flancer64/spa-remote-console" target="_blank">GitHub</a></p>
+</div>
+
+<div class="card">
+    <h2>Rehapp</h2>
+    <p><strong>Fecha de inicio:</strong> abril 2022</p>
+    <p><strong>Descripción:</strong> Plataforma para rehabilitación personalizada, incluyendo PWA para pacientes y panel web para especialistas. Implementa principios de TeqFW en un producto médico real: arquitectura modular, inyección de dependencias, lógica de servidor, integración con LLM.</p>
+    <p><strong>Características:</strong></p>
+    <ul>
+        <li>Ejercicios animados con configuración flexible</li>
+        <li>Soporte para más de 50 programas basados en investigación científica</li>
+        <li>Integración con LLM para traducción automática y generación de contenido</li>
+        <li>Panel personal para especialistas con seguimiento de progreso</li>
+        <li>Mecanismos de motivación: bonos, descuentos, entrevistas personalizadas</li>
+    </ul>
+    <p><strong>Sitio:</strong> <a href="https://rehapp.ru/" target="_blank">rehapp.ru</a></p>
+    <p><strong>Repositorio:</strong> privado</p>
+</div>
+
+<div class="card">
+    <h2>BWL (Body Weight Logger)</h2>
+    <p><strong>Fecha de inicio:</strong> 2021</p>
+    <p><strong>Descripción:</strong> Aplicación PWA para registrar peso en grupos pequeños. Primera implementación de principios arquitectónicos de TeqFW en interfaz de usuario: inyección de dependencias, CLI, trabajo con BD. Usado por un círculo limitado de usuarios.</p>
+    <p><strong>Características:</strong></p>
+    <ul>
+        <li>Basado en TeqFW: DI, estructura, lógica de servidor</li>
+        <li>Adaptación móvil (mobile-first) y acceso offline</li>
+        <li>Trabajo con BD local, autonomía de interfaz</li>
+    </ul>
+    <p><strong>Sitio:</strong> <a href="https://bwl.wiredgeese.com/pub/#/" target="_blank">bwl.wiredgeese.com</a></p>
+    <p><strong>Repositorio:</strong> <a href="https://github.com/flancer32/pwa_bwl" target="_blank">GitHub</a></p>
+</div>
+
+<div class="card">
+    <h2>Tequila Framework (TeqFW)</h2>
+    <p><strong>Fecha de inicio:</strong> agosto 2019</p>
+    <p><strong>Descripción:</strong> Plataforma arquitectónica en JavaScript para crear aplicaciones web modulares con inyección de dependencias, estructura de archivos estricta y énfasis en desarrollo sin complejidad. TeqFW es la base de todos mis proyectos modernos y la evolución práctica de mi experiencia con Magento 2.</p>
+    <p><strong>Características:</strong></p>
+    <ul>
+        <li>Lenguaje único (ES6+) en cliente y servidor</li>
+        <li>Enlace tardío y contenedor DI en lugar de imports rígidos</li>
+        <li>Separación de datos (DTO) y lógica, manejadores stateless</li>
+        <li>Estructuración mediante jerarquía de namespaces</li>
+        <li>Optimización para herramientas LLM</li>
+    </ul>
+    <p><strong>Repositorio:</strong> <a href="https://github.com/teqfw/di" target="_blank">GitHub</a></p>
+    <p><strong>Filosofía:</strong> <a href="https://github.com/teqfw/di/blob/main/PHILOSOPHY.md" target="_blank">PHILOSOPHY.md</a></p>
+</div>
+
+<div class="card">
+    <h2>Santegra</h2>
+    <p><strong>Fecha de inicio:</strong> 2016</p>
+    <p><strong>Descripción:</strong> Tienda online en Magento 2 con personalización profunda para negocio MLM. Extensiones para árbol de clientes, cálculo de bonos, componentes personalizados de admin, integraciones externas. Proyecto base para ideas arquitectónicas luego implementadas en TeqFW. Mi último gran proyecto en PHP, en producción desde 2018.</p>
+    <p><strong>Características:</strong></p>
+    <ul>
+        <li>Plataforma: Magento 2 (PHP)</li>
+        <li>Lógica MLM: bonos, árbol de clientes, cálculos PV</li>
+        <li>~30 extensiones externas + 15 plugins propios</li>
+    </ul>
+    <p><strong>Sitio:</strong> <a href="https://santegra.com/" target="_blank">santegra.com</a></p>
+    <p><strong>Repositorio:</strong> privado</p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Sobre mí — Alex Gusev{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Personal</h2>
+    <img src="/img/avatar.jpg" alt="Avatar" style="width: 100px; float: left; margin: 0 15px 15px 0"/>
+
+    <p>Me llamo Alex Gusev, soy desarrollador web de Letonia (UE). Mi pasión por la programación comenzó en la escuela,
+        cuando conocí por primera vez la computadora <a href="https://ru.wikipedia.org/wiki/Агат_(компьютер)">Agat</a>.
+        Esto me inspiró a ingresar a la Universidad de Aviación de Riga, donde me gradué en 1996 en la facultad de
+        ingeniería de sistemas.
+        Mi primer trabajo lo obtuve en 1998 en el banco "Paritate" — así comenzó mi carrera en TI.</p>
+
+    <p>Desde el principio me dediqué a aplicaciones web. Fui líder del proyecto "Paritate Online" — uno de los primeros
+        bancos por internet en Letonia.
+        Más tarde me convertí en director técnico de "Renesource Capital" (empresa financiera en el ámbito del dinero electrónico),
+        donde continué desarrollándome en el área tecnológica.</p>
+
+    <p>En 2010 fundé la empresa "F. Lancer" y desde entonces desarrollo aplicaciones web bajo esta marca.
+        Paralelamente, colaboré durante dos años con "D8", trabajando en sistemas bancarios.
+        Luego, durante casi 10 años, desarrollé soluciones de e-commerce en Magento.</p>
+
+    <p>Hace unos cinco años conocí Vue Storefront (PWA para Magento) — esto cambió por completo mi visión de la web:
+        descubrí que un solo lenguaje — JavaScript — permite hacer todo. Desde entonces trabajo exclusivamente con JS,
+        creando aplicaciones web modernes.</p>
+</div>
+
+<div class="card">
+    <h2>Profesional</h2>
+
+    <p>Tengo más de 25 años de experiencia en programación. He programado en LotusScript, C/C++, Java, PHP, pero ahora solo uso
+        JavaScript.</p>
+
+    <p>Domino HTML/XML, CSS, JSON, YAML, Markdown. Configuro servidores en Ubuntu, trabajo con dominios, bases de datos web,
+        uso scripts shell. En proyectos aplico CI/CD mediante GitHub Actions.</p>
+
+    <p>Mi stack:</p>
+    <ul>
+        <li>JavaScript (ES6+) + JSDoc</li>
+        <li>Node.js, npm</li>
+        <li>Vue.js, Quasar, i18next</li>
+        <li>Knex.js (PostgreSQL, MariaDB/MySQL, SQLite)</li>
+    </ul>
+
+    <p>Me enfoco en PWA y SPA — especialmente en opciones sin servidor (en el navegador).
+        Me interesa crear aplicaciones web como alternativa a las móviles nativas,
+        aunque también sé hacer sitios clásicos (por ejemplo, en Astro).</p>
+
+    <p>Creo que los smartphones han cambiado internet, y que los bots en Telegram, Discord y Slack + IA pueden competir incluso con
+        PWA.</p>
+</div>
+
+<div class="card">
+    <h2>Enfoque</h2>
+
+    <p>Soy partidario de los monolitos modulares — son convenientes para aplicaciones web medianas con almacenamiento distribuido.
+        Uso solo JavaScript (ES6+) y JSDoc — sin TypeScript y sin transpilación.</p>
+
+    <p>Me baso en DI y late binding (de JavaEE y Magento), escribo código que funciona tanto en frontend como en
+        backend.</p>
+
+    <p>Mi stack está implementado en Tequila Framework — es Node.js + paquetes npm conocidos (por ejemplo, Commander, Knex.js).
+        Conecto fácilmente servicios externos: autenticación, pagos, LLM.</p>
+
+    <p>La plataforma soporta tanto aplicaciones clásicas para navegador como PWA para smartphones y bots para
+        mensajería.</p>
+</div>
+
+<div class="card">
+    <h2>Personal</h2>
+
+    <p>Mis aficiones me ayudan a mantenerme en forma. Me encantan los viajes, las montañas y el mar, los desiertos y los bosques, especialmente los de coníferas.
+        Prefiero caminar, hacer senderismo y excursiones de un día.
+        Tengo certificación PADI Open Water Diver, pero prefiero caminar por tierra.</p>
+
+    <p>Tengo una familia numerosa y valoro mucho a mis seres queridos. Las relaciones con familiares y amigos son importantes para mí.
+        Soy partidario de los valores tradicionales, en espíritu — un conservador liberal. Respeto la libertad y la responsabilidad
+        personal.</p>
+
+    <p>Soy de los que aman a los gatos. Nuestra gata se llama Firefox, pero en casa la llamamos simplemente Faya.
+        Es inteligente, juguetona y cada día nos alegra con su actitud.</p>
+</div>
+{% endblock %}

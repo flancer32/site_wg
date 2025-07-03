@@ -1,0 +1,30 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Nuevo proyecto: GitHub Action para fusionar ramas con exclusión de archivos{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Nuevo proyecto: GitHub Action para fusionar ramas con exclusión de archivos</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2024-12-25
+    </span>
+
+    <zoom-img
+            src="/img/blog/2024122501.png"
+            alt="GitHub Action: fusión de ramas con exclusiones"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>He completado un proyecto para crear un <strong>GitHub Action</strong> que fusiona automáticamente una rama con otra excluyendo ciertos archivos. Luego, la rama actualizada se envía de vuelta al repositorio.</p>
+
+    <p>Durante la implementación, descubrí que un <em>Personal Access Token (PAT)</em> no es suficiente para enviar cambios de forma segura — fue necesario configurar la <strong>autenticación SSH</strong> para una interacción confiable con el repositorio.</p>
+
+    <p>Este proyecto ha sido una gran experiencia práctica. Si necesitas configurar CI/CD con GitHub Actions, te invito a ver mi
+        <a href="https://www.fiverr.com/wiredgeese/set-up-ci-cd-with-github-actions-for-deployment-on-virtual-server"
+           target="_blank">Gig en Fiverr</a>.</p>
+
+    <p>¡Feliz codificación!</p>
+</div>
+{% endblock %}

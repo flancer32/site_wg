@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}Alex Gusev | IA y mensajería, aplicaciones web y frameworks{% endblock %}</title>
+    {# --- SEO Canonical & Alternate URLs --- #}
+    {% if canonicalUrl %}
+        <link rel="canonical" href="{{ canonicalUrl }}">
+    {% endif %}
+    {% if alternateUrls %}
+        {% for lang, url in alternateUrls %}
+            <link rel="alternate" hreflang="{{ lang }}" href="{{ url }}">
+        {% endfor %}
+    {% endif %}
+    <link rel="stylesheet" href="/styles/main.css"/>
+    {% block style %}{% endblock %}
+    <script type="module" src="/js/comp/zoom-img.js"></script>
+</head>
+<body>
+{% include "inc/nav.html" %}
+<main>
+    {% block content %}{% endblock %}
+</main>
+{% include "inc/footer.html" %}
+</body>
+</html>

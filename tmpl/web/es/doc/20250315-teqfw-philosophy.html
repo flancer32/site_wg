@@ -1,0 +1,79 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Filosofía de la plataforma TeqFW (actualización del 15 de marzo de 2025){% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Filosofía de la plataforma TeqFW</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2025-03-15
+    </span>
+
+    <zoom-img
+            src="/img/brand/teqfw.webp"
+            alt="Filosofía de la plataforma TeqFW"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p><strong>La filosofía de Tequila Framework (TeqFW)</strong> es mi enfoque personal para organizar el desarrollo de aplicaciones web. Yo, Alex Gusev, lo he formado basándome en mi propia experiencia, orientada hacia <strong>monolitos modulares</strong> con una sola base de datos. Este documento describe precisamente ese contexto y no pretende ser universal.</p>
+
+    <p>Algunas ideas pueden ser útiles en un ámbito más amplio, pero ciertos principios pueden resultar inapropiados o incluso perjudiciales fuera del marco de una arquitectura monolítica. Es importante tener esto en cuenta al interpretar el material.</p>
+
+    <p>El documento establece un contexto cognitivo tanto para personas como para modelos de lenguaje (LLM). Abarca aspectos prácticos del desarrollo web y temas arquitectónicos más generales: reducción de complejidad redundante, estructuración y adaptabilidad a los cambios.</p>
+
+    <p><strong>Tequila Framework (TeqFW) no es un producto terminado</strong>, sino una plataforma experimental construida según los principios descritos. Demuestra su viabilidad práctica, ya se utiliza en desarrollo y continúa evolucionando.</p>
+
+    <h2>Principios clave de TeqFW</h2>
+    <ol>
+        <li><strong>Lenguaje único de desarrollo:</strong> JavaScript (ES6+) en cliente y servidor. Esto reduce la duplicación y la carga cognitiva.</li>
+        <li><strong>Vinculación tardía:</strong> gestión dinámica de dependencias a través de un contenedor de objetos y espacios de nombres ES6.</li>
+        <li><strong>Resistencia evolutiva:</strong> diseño de código pensando en cambios sin modificar componentes existentes.</li>
+        <li><strong>Separación funcional del código:</strong> aislamiento de DTO y manejadores de lógica.</li>
+        <li><strong>Espacios de nombres:</strong> para todo tipo de entidades: paquetes, módulos, tablas, CLI y configuraciones.</li>
+        <li><strong>JavaScript puro sin compilación:</strong> sin TypeScript, sin transpilación, con soporte para JSDoc.</li>
+        <li><strong>Adaptación para LLM:</strong> código y documentación estructurados para facilitar el análisis y la ampliación por modelos de lenguaje.</li>
+    </ol>
+
+    <h2>Detalle de los principios</h2>
+
+    <h3>Lenguaje único de desarrollo</h3>
+    <p>ES6+ se utiliza en todas partes, lo que simplifica el aprendizaje y la colaboración en equipo. JS es el único lenguaje de alto nivel en el navegador, y con la llegada de Node.js también se convirtió en un estándar en el servidor. Esto permite escribir código isomórfico y reutilizar lógica.</p>
+
+    <h3>Vinculación tardía</h3>
+    <p>Las dependencias se resuelven en tiempo de ejecución, no mediante importaciones rígidas. Esto reduce el acoplamiento entre módulos y facilita la extensión, sustitución y prueba de componentes.</p>
+
+    <h3>Resistencia evolutiva</h3>
+    <p>El código se diseña teniendo en cuenta los cambios inevitables. Técnicas principales:</p>
+    <ul>
+        <li>desestructuración de argumentos e ignorar campos desconocidos en DTO;</li>
+        <li>contratos de interacción claros, separados de la implementación;</li>
+        <li>uso de abstracciones en lugar de enlaces rígidos.</li>
+    </ul>
+
+    <h3>Separación funcional del código</h3>
+    <p>El código se divide en DTO y manejadores. Estos últimos no almacenan estado y pueden ser singletons. Los manejadores son independientes de la estructura de datos y los efectos secundarios se minimizan.</p>
+
+    <h3>Espacios de nombres</h3>
+    <p>Cada entidad opera en su propio namespace: módulos, archivos, tablas, API, configuraciones. Esto evita conflictos, establece jerarquía y hace el proyecto predecible.</p>
+
+    <h3>JavaScript puro sin compilación</h3>
+    <p>TeqFW utiliza JS moderno sin compilación. Esto acelera la depuración, simplifica el mantenimiento y facilita la integración de bibliotecas externas. Para la navegación en el código se usan anotaciones JSDoc.</p>
+
+    <h3>Adaptación para LLM</h3>
+    <p>El proyecto está estructurado para análisis por LLM:</p>
+    <ul>
+        <li>estructura de archivos predecible;</li>
+        <li>patrones unificados y repetibilidad de estructura;</li>
+        <li>profundidad de anidación controlada;</li>
+        <li>comentarios JSDoc y notaciones estandarizadas.</li>
+    </ul>
+    <p>Los modelos pueden analizar, complementar, comentar y generar código según los estándares del proyecto, reduciendo la rutina y acelerando el desarrollo.</p>
+
+    <h2>Conclusión</h2>
+    <p>Los principios descritos forman un enfoque para crear <strong>monolitos modulares</strong>, orientados a la previsibilidad, estructura y flexibilidad. Estas ideas no requieren una base teórica compleja y permiten centrarse en el código, no en la infraestructura.</p>
+
+    <p><strong>Tequila Framework (TeqFW)</strong> los ilustra en la práctica. La plataforma evoluciona y puede servir como base tanto para herramientas propias como para repensar métodos clásicos de organización de código.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}LLM-first: desarrollo en pareja sin vibecoding{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>LLM-first: desarrollo en pareja sin vibecoding</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2025-05-31
+    </span>
+
+    <zoom-img
+            src="/img/brand/habr.webp"
+            alt="Publicación en Habr"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>En <a href="https://habr.com/ru/articles/914324/" target="_blank">Habr</a> se publicó el artículo
+        <strong>«LLM-first: desarrollo en pareja sin vibecoding»</strong>. Es un resumen de mi experiencia creando
+        un CMS multilingüe con ChatGPT y DeepSeek API, desde la estructura arquitectónica hasta pruebas unitarias y JSDoc.</p>
+
+    <p>Describí en detalle cómo uso LLM como socio en el diseño: documento objetivos y estructura en Markdown,
+        organizo DI mediante <code>@teqfw/di</code>, realizo generación y pruebas de código aisladas.</p>
+
+    <p>La conclusión principal: LLM-first no es un juego con prompts, sino un enfoque estructurado de desarrollo donde
+        el Humano y el Modelo interactúan en igualdad de condiciones, a través de arquitectura y texto.</p>
+
+    <p>El proyecto TeqCMS, del que se habla, está disponible en <a href="https://cms.teqfw.com/" target="_blank">cms.teqfw.com</a>, y su código en el repositorio <a href="https://github.com/flancer32/teq-cms-demo" target="_blank">teq-cms-demo</a>.</p>
+</div>
+{% endblock %}
