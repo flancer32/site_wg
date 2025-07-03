@@ -1,0 +1,31 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Новая статья: Раннее и позднее связывание в JavaScript{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Новая статья: Раннее и позднее связывание в JavaScript</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2024-11-12
+    </span>
+
+    <zoom-img
+            src="/img/blog/2024/11/12-01.png"
+            alt="Раннее и позднее связывание в JavaScript"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Опубликовал статью на <a
+            href="https://flancer32.com/understanding-early-vs-late-binding-in-javascript-d80c6b985f4b" target="_blank">Medium</a>
+        и <a href="https://habr.com/ru/articles/856578/" target="_blank">Habr</a>, где делюсь своим взглядом на различия
+        между <strong>ранним</strong> и <strong>поздним связыванием</strong> в JavaScript.</p>
+
+    <p>Через практические примеры я объясняю, как эти подходы влияют на структуру кода, и как они связаны с концепцией
+        внедрения зависимостей. Если вы стремитесь создавать более гибкие и масштабируемые архитектуры — эта статья
+        будет полезна.</p>
+
+    <p>Надеюсь, она прояснит ключевые моменты и вдохновит на применение новых подходов в проектах.</p>
+</div>
+{% endblock %}

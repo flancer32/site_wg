@@ -1,0 +1,34 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Новый проект: GitHub Action для слияния веток с исключением файлов{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Новый проект: GitHub Action для слияния веток с исключением файлов</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2024-12-25
+    </span>
+
+    <zoom-img
+            src="/img/blog/2024/12/25-01.png"
+            alt="GitHub Action: слияние веток с исключениями"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Завершил проект по созданию <strong>GitHub Action</strong>, который автоматически сливает одну ветку в другую с
+        исключением определённых файлов. После этого обновлённая ветка отправляется обратно в репозиторий.</p>
+
+    <p>В процессе реализации оказалось, что для безопасной отправки изменений недостаточно <em>Personal Access Token
+        (PAT)</em> — потребовалась настройка <strong>SSH-аутентификации</strong> для надёжного взаимодействия с
+        репозиторием.</p>
+
+    <p>Проект стал отличным практическим опытом. Если вам нужно настроить CI/CD с GitHub Actions — приглашаю посмотреть
+        мой
+        <a href="https://www.fiverr.com/wiredgeese/set-up-ci-cd-with-github-actions-for-deployment-on-virtual-server"
+           target="_blank">Gig на Fiverr</a>.</p>
+
+    <p>Удачного кодинга!</p>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Новая статья: Повышение устойчивости Telegram-ботов через обработку ошибок{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Новая статья: Повышение устойчивости Telegram-ботов через обработку ошибок</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2024-10-28
+    </span>
+
+    <zoom-img
+            src="/img/blog/2024/10/28-01.png"
+            alt="Обработка ошибок в Telegram-ботах на Node.js"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Опубликовал новую статью на <a
+            href="https://flancer32.com/telegram-bot-with-node-js-using-error-handling-to-boost-resilience-cd04f99074fc"
+            target="_blank">Medium</a>, посвящённую повышению устойчивости Telegram-ботов с помощью системной обработки
+        ошибок в Node.js и фреймворке <a href="https://grammy.dev/" target="_blank">grammY</a>.</p>
+
+    <p>В статье рассматриваются стратегии предотвращения сбоев, организация глобальной и локальной обработки ошибок, а
+        также методы логирования, которые помогают эффективно отслеживать и устранять неполадки в работе бота.</p>
+</div>
+{% endblock %}
