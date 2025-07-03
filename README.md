@@ -41,6 +41,8 @@ tmpl/web/
 │   └── about.html
 ├── ru/
 │   └── about.html
+├── es/
+│   └── about.html
 ```
 
 ## Commands
