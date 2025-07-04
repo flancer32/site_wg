@@ -33,7 +33,7 @@
     "translate": "npx teq-cms translate"
   },
   "dependencies": {
-    "@flancer32/teq-cms": "^0.5.1",
+    "@flancer32/teq-cms": "^0.5.2",
     "nunjucks": "^3.2.4"
   },
   "engines": {
