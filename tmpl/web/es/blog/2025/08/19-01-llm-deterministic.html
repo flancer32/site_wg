@@ -1,0 +1,38 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Publicación en Habr: cuando la LLM se vuelve predecible{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Publicación en Habr: cuando la LLM se vuelve predecible</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2025-08-19
+    </span>
+
+    <zoom-img
+            src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/bf7/8d9/fb9/bf78d9fb95f5504ced77f9a7b9ceba4a.png"
+            alt="Cuando la LLM se vuelve predecible"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Se publicó la nota <strong>«Cuando la LLM se vuelve predecible»</strong>. En ella se analiza la idea
+        de que, con la formulación correcta de las solicitudes —en formato de especificaciones ejecutables—,
+        los modelos empiezan a comportarse de manera más determinista. Esto abre la posibilidad de utilizarlos como una
+        herramienta de ingeniería para generar código, y no solo como un «interlocutor probabilístico».</p>
+
+    <p>Para <strong>ADSM</strong> esta idea es especialmente importante: la formulación de reglas y especificaciones se
+        convierte en la clave para el trabajo predecible de los agentes.</p>
+
+    <p>La nota incluía una encuesta: <em>«¿Se puede utilizar una LLM como herramienta de ingeniería para generar código?»</em><br/>
+        El 73 % respondió «no, la naturaleza probabilística del modelo es demasiado fuerte», el 27 % — «sí, a través del
+        prompt se puede describir con precisión el resultado deseado».</p>
+
+    <p>La mayoría no cree en la controlabilidad de los modelos probabilísticos. Yo, en cambio, estoy convencido de que son
+        lo suficientemente deterministas para las soluciones de ingeniería. Los disparadores en la memoria de las computadoras
+        también cambian de estado espontáneamente bajo la influencia de la radiación dura, y es un problema solucionable.
+        Con los modelos ocurre lo mismo: la cuestión no es que sean probabilísticos, sino cómo sabemos trabajar con sus zonas
+        predecibles.</p>
+</div>
+{% endblock %}
