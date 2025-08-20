@@ -11,7 +11,7 @@
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/</loc>
-        <lastmod>2025-07-03</lastmod>
+        <lastmod>2025-07-18</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/"/>
@@ -299,6 +299,18 @@
                     href="https://wiredgeese.com/ru/blog/2025/07/15-01-habr-save-history-for-llm/"/>
         <xhtml:link rel="alternate" hreflang="es"
                     href="https://wiredgeese.com/es/blog/2025/07/15-01-habr-save-history-for-llm/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2025/07/18-01-ai-agents-vs-api-translation/</loc>
+        <lastmod>2025-07-18</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en"
+                    href="https://wiredgeese.com/en/blog/2025/07/18-01-ai-agents-vs-api-translation/"/>
+        <xhtml:link rel="alternate" hreflang="ru"
+                    href="https://wiredgeese.com/ru/blog/2025/07/18-01-ai-agents-vs-api-translation/"/>
+        <xhtml:link rel="alternate" hreflang="es"
+                    href="https://wiredgeese.com/es/blog/2025/07/18-01-ai-agents-vs-api-translation/"/>
     </url>
     <url>
         <loc>https://wiredgeese.com/en/contact/</loc>
