@@ -325,6 +325,18 @@
                     href="https://wiredgeese.com/es/blog/2025/07/25-01-adsm-concept/"/>
     </url>
     <url>
+        <loc>https://wiredgeese.com/en/blog/2025/08/17-01-indirect-tool/</loc>
+        <lastmod>2025-08-17</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en"
+                    href="https://wiredgeese.com/en/blog/2025/08/17-01-indirect-tool/"/>
+        <xhtml:link rel="alternate" hreflang="ru"
+                    href="https://wiredgeese.com/ru/blog/2025/08/17-01-indirect-tool/"/>
+        <xhtml:link rel="alternate" hreflang="es"
+                    href="https://wiredgeese.com/es/blog/2025/08/17-01-indirect-tool/"/>
+    </url>
+    <url>
         <loc>https://wiredgeese.com/en/contact/</loc>
         <lastmod>2025-07-03</lastmod>
         <priority>1.0</priority>
