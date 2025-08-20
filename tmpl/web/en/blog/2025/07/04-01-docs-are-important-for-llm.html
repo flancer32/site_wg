@@ -1,0 +1,31 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}From Machine Code to Documentation{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>From Machine Code to Documentation</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2025-07-04
+    </span>
+
+    <zoom-img
+            src="/img/avatar.jpg"
+            alt="Alex Gusev"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Application development is changing. Once, <strong>machine code</strong> was the main value&mdash;the era of
+        mainframes and punch cards. Then the value shifted to <strong>programs</strong> written in high-level languages
+        that could generate machine code.</p>
+
+    <p>Today, as AI agents enter the development process, the value shifts further: the primary artifact becomes
+        <strong>documentation and instructions</strong> on which programs are based. They determine what tasks the code
+        solves and what capabilities users get.</p>
+
+    <p>We are entering an era where not the code itself, but the <strong>context and instructions for its generation</strong>
+        define the success of development.</p>
+</div>
+{% endblock %}
