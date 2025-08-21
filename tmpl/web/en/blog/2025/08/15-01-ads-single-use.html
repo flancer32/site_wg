@@ -1,0 +1,26 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Single-use apps and ADSM{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Single-use apps and ADSM</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2025-08-15
+    </span>
+
+    <zoom-img
+            src="/img/avatar.jpg"
+            alt="Single-use apps and ADSM"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>A family need arose to make a small app for tracking apartment rental ads in a specific area of our city. I used this opportunity to check how the <strong>ADSM</strong> methodology works as a tool for developing disposable utilities.</p>
+
+    <p>The experience showed that separating code and context works outside websites too. In fact, the "Site" in the acronym turned into "Software" — <strong>Agent Driven Software Management</strong>. The agent helped shape the main architecture and write most of the code, while I only clarified details. It also became obvious that minor fixes are easier to apply manually than to explain to the agent in context.</p>
+
+    <p>I realized that the context should include large blocks of specifications — descriptions of architecture and approaches. These blocks should move from project to project if tasks are similar. This approach makes ADSM applicable to small utilities needed here and now and allows using agents to write programs with a limited life cycle.</p>
+</div>
+{% endblock %}
