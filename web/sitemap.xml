@@ -11,7 +11,7 @@
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/</loc>
-        <lastmod>2025-08-25</lastmod>
+        <lastmod>2025-08-26</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/"/>
@@ -392,6 +392,15 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2025/08/25-01-simple-models-adsm/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2025/08/25-01-simple-models-adsm/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2025/08/25-01-simple-models-adsm/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2025/08/26-01-browser-extension/</loc>
+        <lastmod>2025-08-26</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2025/08/26-01-browser-extension/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2025/08/26-01-browser-extension/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2025/08/26-01-browser-extension/"/>
     </url>
     <url>
         <loc>https://wiredgeese.com/en/contact/</loc>
