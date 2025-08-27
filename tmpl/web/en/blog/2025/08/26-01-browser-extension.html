@@ -1,0 +1,36 @@
+{% extends "inc/layout.html" %}
+{% block title %}My first browser extension{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>My first browser extension</h1>
+
+  <span style="display: block; text-align: right"> <strong>Publication date:</strong> 2025-08-26 </span>
+
+  <zoom-img
+    src="/img/avatar.jpg"
+    alt="My first browser extension"
+    width="100px"
+    style="float: left; margin: 15px 15px 0 0"
+  ></zoom-img>
+
+  <p>
+    Yesterday I took my first step toward developing browser extensions. For many years I had used them but never written my own.
+  </p>
+
+  <p>
+    My motivation is twofold. On one hand, I've always been curious how extensions work, since they accompany my daily browsing. On the other, I now have the ADSM methodology and agents that help document the development process through context documents. It's a great reason to try it in a new domain.
+  </p>
+
+  <p>
+    The extension's theme is close to my previous experiments: I once built
+    <a href="https://github.com/flancer64/demo-wa-esm-openai" target="_blank">
+      a browser app for working with the OpenAI API
+    </a>
+    directly in the browser window. Now I want to repeat this idea in extension format. I know such projects already exist, but for me the product is less important than the process: defining context, assembling specifications, and recording steps in ADSM.
+  </p>
+
+  <p>
+    It's also a step forward for the site and blog. I want to show that the methodology applies not only to browser and client-server apps but also to extensions that are becoming an important part of the browser user experience.
+  </p>
+</div>
+{% endblock %}
