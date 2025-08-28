@@ -1,0 +1,55 @@
+{% extends "inc/layout.html" %}
+{% block title %}Integración de @teqfw/di y OpenAI SDK en una extensión de Chrome{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Integración de @teqfw/di y OpenAI SDK en una extensión de Chrome</h1>
+
+  <span style="display: block; text-align: right"> <strong>Fecha de publicación:</strong> 2025-08-28 </span>
+
+  <zoom-img
+    src="/img/blog/2025/08/28-01-di-openai-extension.png"
+    alt="@teqfw/di y OpenAI SDK"
+    width="100px"
+    style="float: left; margin: 15px 15px 0 0"
+  ></zoom-img>
+
+  <p>
+    Probé crear un prototipo de extensión de Chrome (MV3) para comprobar cómo funciona
+    <a href="https://github.com/teqfw/di"><strong>@teqfw/di</strong></a> en un entorno restringido y al conectar un SDK de terceros. De inmediato aparecieron tres áreas problemáticas: configuración del contenedor, restricciones de CSP y ejecución del OpenAI SDK en el navegador.
+  </p>
+
+  <h3>1. Rutas relativas</h3>
+  <p>
+    <strong>Problema</strong>: en la extensión no se pueden usar rutas absolutas al configurar el espacio de nombres en el contenedor. Las rutas absolutas dentro de una extensión de Chrome funcionan de forma distinta a un navegador normal o a Node.js.
+  </p>
+  <ul>
+    <li>En <strong>Node.js</strong>, los módulos se cargan mediante <code>file://…</code>.</li>
+    <li>En el <strong>navegador</strong> — mediante <code>http(s)://…</code>.</li>
+    <li>En una <strong>extensión de Chrome</strong> — solo a través de <code>chrome-extension://&lt;id&gt;/…</code>.</li>
+  </ul>
+  <p>
+    <strong>Solución</strong>: al configurar el contenedor de objetos, usar siempre <code>import.meta.url</code> para construir rutas relativas.
+  </p>
+
+  <h3>2. CSP y análisis de dependencias</h3>
+  <p>
+    La CSP en MV3 prohíbe por completo <code>new Function</code>. En una versión anterior del contenedor se utilizaba este recurso para analizar dependencias, pero fue necesario pasar a una opción compatible sin código dinámico. Gracias a ello, el contenedor DI sigue funcionando bajo las estrictas limitaciones de las extensiones.
+  </p>
+
+  <h3>3. OpenAI SDK y limitaciones del navegador</h3>
+  <p>
+    El propio <strong>OpenAI SDK</strong> en el navegador requiere activar la opción <code>dangerouslyAllowBrowser: true</code>. Es una protección contra la filtración accidental de la clave API. En mi prototipo, la clave se almacena en <code>chrome.storage.local</code> en texto plano. Para una extensión eso es aceptable, pero aun así conviene añadir al menos una ligera ofuscación.
+  </p>
+
+  <h3>Ventajas del contenedor DI</h3>
+  <p>
+    El contenedor DI <a href="https://github.com/teqfw/di"><strong>@teqfw/di</strong></a> integró los módulos ESM del OpenAI SDK como dependencias normales. Esto dio dos efectos inmediatos: el código se puede probar en <strong>Node.js</strong> y ejecutar en la <strong>extensión de Chrome</strong> sin cambios. El contenedor trabaja solo con los <strong>módulos ESM</strong> del SDK, lo cual coincide con el formato moderno.
+  </p>
+
+  <p>
+    Hace una semana lancé la primera versión estable de
+    <a href="https://wiredgeese.com/ru/blog/2025/08/21-02-teqfw-di-release.html">@teqfw/di</a>, pero ya han surgido nuevas solicitudes de mejora: se necesita un "modo seguro" sin <code>new Function</code>. Este experimento demostró que incluso con las estrictas limitaciones de MV3 es posible construir una arquitectura flexible basada en
+    <a href="https://github.com/teqfw/di"><strong>@teqfw/di</strong></a>.
+  </p>
+</div>
+{% endblock %}
