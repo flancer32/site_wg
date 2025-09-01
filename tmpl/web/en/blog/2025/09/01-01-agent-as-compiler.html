@@ -1,0 +1,33 @@
+{% extends "inc/layout.html" %}
+{% block title %}Agent as the new compiler{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Agent as the new compiler</h1>
+
+  <span style="display: block; text-align: right"> <strong>Publication date:</strong> 2025-09-01 </span>
+
+  <zoom-img
+    src="/img/avatar.jpg"
+    alt="Agent as the compiler"
+    width="100px"
+    style="float: left; margin: 15px 15px 0 0"
+  ></zoom-img>
+
+  <p>
+    Today I grasped an interesting analogy. Once programs were written in languages like Fortran or COBOL. The same source code could be compiled for different processors, and the compiler turned it into machine instructions for a specific processor.
+  </p>
+
+  <p>
+    Now it's similar, just on a new level. A human description of the product becomes the programming language, and the Agent (for example,
+    <a href="https://openai.com/codex/" target="_blank">OpenAI Codex</a>) plays the role of the compiler — it translates the description into working code.
+  </p>
+
+  <p>
+    The processors in this scheme are execution platforms: Node.js, Python, Java, C#. The idea is the same, but there can be many implementations. Even on one platform, different frameworks and programming styles can be used.
+  </p>
+
+  <p>
+    As a result, program code ceases to be primary. The idea expressed in words becomes primary. And it doesn't even matter what language those words are in.
+  </p>
+</div>
+{% endblock %}
