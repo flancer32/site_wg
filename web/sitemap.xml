@@ -11,7 +11,7 @@
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/</loc>
-        <lastmod>2025-08-28</lastmod>
+        <lastmod>2025-09-01</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/"/>
@@ -410,6 +410,15 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2025/08/28-01-di-openai-extension/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2025/08/28-01-di-openai-extension/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2025/08/28-01-di-openai-extension/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2025/09/01-01-agent-as-compiler/</loc>
+        <lastmod>2025-09-01</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2025/09/01-01-agent-as-compiler/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2025/09/01-01-agent-as-compiler/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2025/09/01-01-agent-as-compiler/"/>
     </url>
     <url>
         <loc>https://wiredgeese.com/en/contact/</loc>
