@@ -457,6 +457,15 @@
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/contact/"/>
     </url>
     <url>
+        <loc>https://wiredgeese.com/en/doc/20250107-ai-resources-levels/</loc>
+        <lastmod>2025-01-07</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/doc/20250107-ai-resources-levels/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/doc/20250107-ai-resources-levels/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/doc/20250107-ai-resources-levels/"/>
+    </url>
+    <url>
         <loc>https://wiredgeese.com/en/doc/20250212-teqfw-philosophy/</loc>
         <lastmod>2025-07-03</lastmod>
         <priority>1.0</priority>
