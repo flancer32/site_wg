@@ -1,0 +1,118 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}ADSM: top-level directories{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>ADSM: top-level directories</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2025-01-01
+    </span>
+
+    <h2>The linguistic nature of agents</h2>
+    <p>The most popular agents used today to build software applications are based on Large Language Models (LLMs). The
+        main thing that makes an "<em>intelligent</em>" agent is preparing a request for the LLM (a prompt) and then
+        parsing the result of that request and recording it as a new text file (for example, with source code) or as
+        changes to an existing one.</p>
+    <p>At the moment I can formulate four statements that I call the "<em>4 ADSM axioms</em>":</p>
+    <ol>
+        <li>By its nature, a language model can serve as a tool for transforming knowledge into code <em>without the need
+                to understand it</em>.</li>
+        <li>All interaction with the model happens only through text.</li>
+        <li>The model only works with texts that are statistically significant to it.</li>
+        <li>The model performs inference within a finite context where the density of statistical connections declines as
+            the volume grows.</li>
+    </ol>
+    <p>My approach to structuring project files is driven by these axioms. I have already <a
+            href="https://habr.com/ru/articles/948282/">noted</a> that a human and an agent interact iteratively through
+        a hierarchically structured array of texts. In this publication I will describe the top-level directory structure
+        I currently use in my projects with LLM agents.</p>
+
+    <h2>Code and documents</h2>
+    <p>Initially, I split all files into two GitHub repositories:</p>
+    <ul>
+        <li><strong>project documents</strong>: the cognitive context where a human and an LLM agent work together.</li>
+        <li><strong>application code (sources)</strong>: the end result of their interaction.</li>
+    </ul>
+    <p>To let the agent operate in both spaces, two separate repositories were assembled into one file structure when
+        configuring the cloud version of the Codex agent. I mounted the documents repository into the <code>./ctx</code>
+        directory of the base repository (with the sources) when launching the Codex agent, and for the agent it was a
+        single file structure, even though it was actually spread across different repositories. At the same time, the
+        agent could commit changes only to the base repository. Project documents were used in a read-only mode.</p>
+    <p>This experience led me to understand that documentation for the same product can be mounted into different code
+        bases in different programming languages. The same product can be released as various applications written for
+        different platforms.</p>
+    <p>It is clear that the programming language chosen for implementation imposes its own requirements on the file
+        structure of the source code repository. A Python project will differ from a Node.js project, but in both cases
+        you can mount a <code>./ctx/</code> directory into the repository with the source code and place the cognitive
+        context documents there. Or you can skip mounting and simply create a <code>./ctx/</code> directory right in the
+        source repository if the project is not too large. In that case, there is a bonus—the agent can also edit the
+        documentation if needed.</p>
+
+    <h2>Product and application</h2>
+    <p>From this understanding came the idea that all documentation in the <code>./ctx/</code> directory can be divided
+        into two unequal parts:</p>
+    <ul>
+        <li><strong>business description of the product</strong>: a small corpus of documents describing the product
+            idea.</li>
+        <li><strong>rules for creating the corresponding application</strong>: a larger corpus of documents governing the
+            rules for building the product in the chosen programming language or group of languages.</li>
+    </ul>
+    <pre><code>./ctx/
+    product/
+    rules/
+    </code></pre>
+    <p>Documents in the <code>product/</code> directory set the skeleton of the future application. They regulate
+        <strong>what</strong> the application should do but do not say <em>how</em>. Essentially, these documents shape the
+        field of action for the agent and focus its attention on business-critical points. This is a presentation of
+        statistically unique propositions. As a rule, each business idea seeks to differ from competing ones, and these
+        documents contain such propositions that were unlikely part of the training dataset of the model powering the
+        agent.</p>
+    <p>Documents in the <code>rules/</code> directory are the most important part for code generation or modification by
+        the agent. They regulate the agent's actions at the level required to write source code. Because of the
+        statistical nature of LLMs, the more "average" these documents are formulated—the closer they are to the
+        "average" of the training dataset—the less text is needed for the agent to generate working source code while
+        following these rules.</p>
+    <p>In my demo project I built a web application using my own object container with dependency injection in the
+        constructor, which required several separate documents in <code>./rules/</code> that regulated the creation of new
+        ES6 modules that could be used by my container.</p>
+
+    <h2>Human communication with the agent</h2>
+    <pre><code>./ctx/
+    agent/
+    </code></pre>
+    <p>Broadly speaking, this directory stores operational information that immediately becomes archival. Through this
+        directory, the agent reports to its supervisor (a human) about the actions it has taken during the current
+        iteration of work on the code (task execution). As a rule, the person assigning a task to the agent is in the
+        context of the task at the time it is set, but that context quickly dissolves and is forgotten (roughly within
+        two weeks, in my experience).</p>
+    <p>If a person works on a project alone, as in my case, the need for such reports is not obvious—the agents work fast
+        enough that I do not have time to fall out of the task context (less than an hour). But for team development or
+        longer projects, such reports are useful because they help any member of the "meatbag" team restore the
+        development context when it is lost. These reports are also quite helpful when the agent executes commands
+        incorrectly—analyzing them helps uncover why the agent misunderstood the task.</p>
+    <p>Initially, when I separated context documents and sources into different repositories, this directory was not part
+        of the cognitive context because it had to be part of the base repository to allow committing changes in the
+        cloud version of the Codex agent. When running the CLI version of the agent or when both the sources and the
+        cognitive context are in the same repository, the <code>./agent/</code> directory can be kept inside the
+        cognitive context (<code>./ctx</code>).</p>
+
+    <h2>Summary</h2>
+    Since the core of any agent—not just Codex—is preparing a prompt for an LLM and transforming the inference result,
+    files in a project should be structured to account for the nature of LLMs. In my case, this results in the following
+    top-level directory structure:
+    <pre><code>./ctx/
+    agent/
+    product/
+    rules/
+    </code></pre>
+    <p>This structure is not any kind of standard—it simply reflects my experience with the Codex agent. Broadly
+        speaking, I have reflected on and documented my practice in this publication. The subdirectory structure at
+        lower levels is already taking shape, but I am not yet ready to lock it in. You can look at the structure I
+        describe in my <a
+            href="https://github.com/flancer64/pwa-home-call/tree/milestone/20251122-adsm-top-level-dirs">demo
+            project</a>.</p>
+
+</div>
+{% endblock %}
