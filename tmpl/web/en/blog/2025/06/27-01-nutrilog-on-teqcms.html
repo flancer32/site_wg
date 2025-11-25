@@ -35,3 +35,19 @@
         might look like with fully automated localization, SSR, and version control.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/06/27-01-nutrilog-on-teqcms.html"></a>
+        <img src="/img/blog/2025/06/27-01.png" alt="NutriLog migrated from Astro to TeqCMS"/>
+        <div>
+            <h4>NutriLog migrated from Astro to TeqCMS</h4>
+            <p>
+                Switched from Astro to TeqCMS with SSR and Mustache. Now translating pages via DeepSeek
+                and deploying to server via GitHub Actions.
+            </p>
+            <time datetime="2025-06-27">June 27, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

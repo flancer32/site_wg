@@ -26,3 +26,19 @@
         также методы логирования, которые помогают эффективно отслеживать и устранять неполадки в работе бота.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2024/10/28-01-telegram-error-handling.html"></a>
+        <img alt="Статья об устойчивости Telegram-ботов" src="/img/blog/2024/10/28-01.png" />
+        <div>
+            <h4>Статья об устойчивости Telegram-ботов</h4>
+            <p>
+                Разбираю, как с помощью Node.js и grammY повысить надёжность бота за счёт обработки ошибок и
+                логирования.
+            </p>
+            <time datetime="2024-10-28">28 октября 2024</time>
+        </div>
+    </li>
+{% endblock %}
+

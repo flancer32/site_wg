@@ -28,3 +28,19 @@
     <p>Happy coding!</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2024/12/25-01-github-action-branch-merge.html"></a>
+        <img src="/img/blog/2024/12/25-01.png" alt="GitHub Action with file exclusion"/>
+        <div>
+            <h4>GitHub Action with file exclusion</h4>
+            <p>
+                Developed GitHub Action for branch merging with file exclusion and configured SSH authentication
+                for secure push.
+            </p>
+            <time datetime="2024-12-25">December 25, 2024</time>
+        </div>
+    </li>
+{% endblock %}
+

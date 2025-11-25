@@ -24,3 +24,19 @@
     <p>The website has now become not just a showcase for my projects, but also a demonstration of TeqCMS capabilities. I plan to share implementation details, architecture, and workflows - as part of an open experiment on integrating AI into everyday development.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/06/03-01-site-on-teq-cms.html"></a>
+        <img src="/img/blog/2025/06/03-01.png" alt="Site transition to TeqCMS"/>
+        <div>
+            <h4>Site transition to TeqCMS</h4>
+            <p>
+                Migrated the site to my own CMS - TeqCMS. Now all content is generated via SSR,
+                translated by AI, and managed in Git.
+            </p>
+            <time datetime="2025-06-03">June 3, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

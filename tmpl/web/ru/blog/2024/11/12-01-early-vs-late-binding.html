@@ -29,3 +29,17 @@
     <p>Надеюсь, она прояснит ключевые моменты и вдохновит на применение новых подходов в проектах.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2024/11/12-01-early-vs-late-binding.html"></a>
+        <img alt="Статья о связывании в JavaScript" src="/img/blog/2024/11/12-01.png" />
+        <div>
+            <h4>Статья о связывании в JavaScript</h4>
+            <p>Объясняю ключевые различия между ранним и поздним связыванием и их влияние на архитектуру
+                кода.</p>
+            <time datetime="2024-11-12">12 ноября 2024</time>
+        </div>
+    </li>
+{% endblock %}
+

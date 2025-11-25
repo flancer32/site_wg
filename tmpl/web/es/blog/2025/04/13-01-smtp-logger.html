@@ -47,3 +47,18 @@
         de mensajes en producción o entornos de staging.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/04/13-01-smtp-logger.html"></a>
+        <img src="/img/brand/teqfw.webp" alt="smtp-logger para Postfix y Node.js"/>
+        <div>
+            <h4>smtp-logger para Postfix y Node.js</h4>
+            <p>
+                Creé una utilidad para registrar correos salientes de Postfix en SQL mediante Node.js y @teqfw/di.
+            </p>
+            <time datetime="2025-04-13">13 de abril de 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

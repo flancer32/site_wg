@@ -45,3 +45,19 @@
     <p>Ejemplo de sitio en funcionamiento: <a href="https://cms.teqfw.com/ru/" target="_blank">cms.teqfw.com</a></p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/05/29-01-teq-cms-demo.html"></a>
+        <img src="/img/brand/teqfw.webp" alt="TeqCMS basado en Nunjucks"/>
+        <div>
+            <h4>TeqCMS basado en Nunjucks</h4>
+            <p>
+                Se lanzó un CMS con plantillas Nunjucks, generación en servidor y localización. Se publicaron paquetes y
+                un sitio demo, construidos con la arquitectura TeqFW.
+            </p>
+            <time datetime="2025-05-29">29 de mayo de 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

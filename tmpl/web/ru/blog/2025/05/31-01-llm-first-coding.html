@@ -33,3 +33,20 @@
     </p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/05/31-01-llm-first-coding.html"></a>
+        <img alt="Публикация на Хабре: LLM-first" src="/img/brand/habr.webp" />
+        <div>
+            <h4>LLM-first: разработка без вайбкодинга</h4>
+            <p>
+                Рассказал на Хабре, как за 2 недели построил CMS с GPT и DeepSeek, используя DI, Markdown и
+                JSDoc. LLM как
+                соавтор архитектуры.
+            </p>
+            <time datetime="2025-05-31">31 мая 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

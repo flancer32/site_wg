@@ -42,3 +42,19 @@
     <p>Working example: <a href="https://cms.teqfw.com/ru/" target="_blank">cms.teqfw.com</a></p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/05/29-01-teq-cms-demo.html"></a>
+        <img src="/img/brand/teqfw.webp" alt="TeqCMS based on Nunjucks"/>
+        <div>
+            <h4>TeqCMS based on Nunjucks</h4>
+            <p>
+                Released a CMS on Nunjucks templates with server-side generation and localization. Published packages and
+                demo site built on TeqFW architecture.
+            </p>
+            <time datetime="2025-05-29">May 29, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

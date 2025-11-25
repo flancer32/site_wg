@@ -35,3 +35,20 @@
         управление контентом в условиях полной автоматизации локализации, SSR и контроля версий.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/06/27-01-nutrilog-on-teqcms.html"></a>
+        <img alt="NutriLog переведён с Astro на TeqCMS" src="/img/blog/2025/06/27-01.png" />
+        <div>
+            <h4>NutriLog переведён с Astro на TeqCMS</h4>
+            <p>
+                Отказался от Astro в пользу TeqCMS с SSR и Mustache. Теперь перевожу страницы через DeepSeek и
+                выкладываю на
+                сервер через GitHub Actions.
+            </p>
+            <time datetime="2025-06-27">27 июня 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

@@ -24,3 +24,19 @@
     <p>I realized that the context should include large blocks of specifications — descriptions of architecture and approaches. These blocks should move from project to project if tasks are similar. This approach makes ADSM applicable to small utilities needed here and now and allows using agents to write programs with a limited life cycle.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/08/15-01-ads-single-use.html"></a>
+        <img src="/img/avatar.jpg"
+                             alt="Single-use apps and ADSM"/>
+        <div>
+            <h4>Single-use apps and ADSM</h4>
+            <p>
+                A small experiment: the ADSM methodology helped build a one-off utility for monitoring apartment rental ads. The agent created the architecture, while minor fixes were easier to apply manually.
+            </p>
+            <time datetime="2025-08-15">August 15, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

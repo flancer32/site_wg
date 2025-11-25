@@ -31,3 +31,18 @@
     <p><a href="/doc/doc-principles/">Leer el documento actualizado</a></p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/02/12-01-doc-principles-updated.html"></a>
+        <img src="/img/brand/doc.svg" alt="Principios de documentación actualizados"/>
+        <div>
+            <h4>Principios de documentación actualizados</h4>
+            <p>
+                Se publicó una nueva versión del documento con énfasis en estructura, lógica y formato para LLM y humanos.
+            </p>
+            <time datetime="2025-02-12">12 de febrero de 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

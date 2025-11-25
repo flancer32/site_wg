@@ -53,3 +53,18 @@
   </p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/08/28-01-di-openai-extension.html"></a>
+        <img src="/img/blog/2025/08/28-01-di-openai-extension.png" alt="@teqfw/di y OpenAI SDK"/>
+        <div>
+            <h4>Integración de @teqfw/di y OpenAI SDK en una extensión de Chrome</h4>
+            <p>
+                Un prototipo de extensión MV3 que usa @teqfw/di mostró tres problemas: manejo de rutas, límites de CSP y ejecución del OpenAI SDK en el navegador. El contenedor DI facilitó probar el código en Node.js y ejecutarlo en la extensión, pero ya requiere mejoras.
+            </p>
+            <time datetime="2025-08-28">28 de agosto de 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

@@ -32,3 +32,20 @@
     <p>Удачного кодинга!</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2024/12/25-01-github-action-branch-merge.html"></a>
+        <img alt="GitHub Action с исключением файлов" src="/img/blog/2024/12/25-01.png" />
+        <div>
+            <h4>GitHub Action с исключением файлов</h4>
+            <p>
+                Разработал GitHub Action для слияния веток с исключением файлов и настроил SSH-аутентификацию
+                для
+                безопасного push.
+            </p>
+            <time datetime="2024-12-25">25 декабря 2024</time>
+        </div>
+    </li>
+{% endblock %}
+

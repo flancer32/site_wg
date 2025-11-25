@@ -31,3 +31,21 @@
         available in <a href="/es/" target="_blank">Spanish</a>. The language can be switched via UI.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/07/03-01-es-on-personal-site.html"></a>
+        <img src="/img/blog/2025/07/03-01-deepseek-report.png"
+                             alt="Spanish version of the site: AI translation for $0.05"/>
+        <div>
+            <h4>Spanish version of the site: AI translation for $0.05</h4>
+            <p>
+                Added a third language - Spanish. Automatic translation of all pages from Russian took 42
+                requests and cost $0.05.
+                Demonstration of AI localization based on TeqCMS and DeepSeek API.
+            </p>
+            <time datetime="2025-07-03">July 3, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

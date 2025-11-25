@@ -29,3 +29,20 @@
         переводов.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/ru/blog/2025/07/18-01-ai-agents-vs-api-translation.html"></a>
+        <img alt="API и агенты: два подхода к переводу страниц" src="/img/avatar.jpg" />
+        <div>
+            <h4>API и агенты: два подхода к переводу страниц</h4>
+            <p>
+                В TeqCMS переводы выполнялись через API пофайлово, но я попробовал агентный подход: перевод
+                сразу нескольких
+                страниц за сессию с сохранением контекста. Вижу ценность в обоих методах.
+            </p>
+            <time datetime="2025-07-18">18 июля 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

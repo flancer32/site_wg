@@ -31,3 +31,16 @@
     <p><a href="/doc/doc-principles/">Читать обновлённый документ</a></p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/02/12-01-doc-principles-updated.html"></a>
+        <img alt="Обновлены принципы документации" src="/img/brand/doc.svg" />
+        <div>
+            <h4>Обновлены принципы документации</h4>
+            <p>Опубликована новая версия документа с акцентом на структуру, логику и формат для LLM и людей.</p>
+            <time datetime="2025-02-12">12 февраля 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

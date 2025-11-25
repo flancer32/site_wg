@@ -47,3 +47,16 @@
         сообщений на продакшене или в staging-среде.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/04/13-01-smtp-logger.html"></a>
+        <img alt="smtp-logger для Postfix и Node.js" src="/img/brand/teqfw.webp" />
+        <div>
+            <h4>smtp-logger для Postfix и Node.js</h4>
+            <p>Создал утилиту логирования исходящих писем Postfix в SQL через Node.js и @teqfw/di.</p>
+            <time datetime="2025-04-13">13 апреля 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

@@ -35,3 +35,20 @@
         probabilistic, but how we work with their predictable zones.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/08/19-01-llm-deterministic.html"></a>
+        <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/bf7/8d9/fb9/bf78d9fb95f5504ced77f9a7b9ceba4a.png"
+                             alt="When an LLM becomes predictable"/>
+        <div>
+            <h4>Publication on Habr: when an LLM becomes predictable</h4>
+            <p>
+                A post about how prompts written as executable specifications make models more deterministic,
+                turning them into an engineering tool for code generation.
+            </p>
+            <time datetime="2025-08-19">August 19, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

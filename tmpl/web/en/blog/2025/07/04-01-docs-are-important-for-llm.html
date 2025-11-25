@@ -29,3 +29,19 @@
         define the success of development.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/07/04-01-docs-are-important-for-llm.html"></a>
+        <img src="/img/avatar.jpg"
+                             alt="From Machine Code to Documentation"/>
+        <div>
+            <h4>From Machine Code to Documentation</h4>
+            <p>
+                How the value of development has shifted: from machine code and programs to documentation and instructions that let humans and AI agents generate software.
+            </p>
+            <time datetime="2025-07-04">July 4, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

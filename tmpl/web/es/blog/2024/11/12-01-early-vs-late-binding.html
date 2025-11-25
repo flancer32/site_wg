@@ -29,3 +29,18 @@
     <p>Espero que aclare los puntos clave y te inspire a aplicar nuevos enfoques en tus proyectos.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2024/11/12-01-early-vs-late-binding.html"></a>
+        <img src="/img/blog/2024/11/12-01.png" alt="Artículo sobre binding en JavaScript"/>
+        <div>
+            <h4>Artículo sobre binding en JavaScript</h4>
+            <p>
+                Explico las diferencias clave entre early y late binding y su impacto en la arquitectura del código.
+            </p>
+            <time datetime="2024-11-12">12 de noviembre de 2024</time>
+        </div>
+    </li>
+{% endblock %}
+

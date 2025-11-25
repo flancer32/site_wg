@@ -24,3 +24,20 @@
     <p>Ahora el sitio no solo es un escaparate de mis proyectos, sino también una demostración de las capacidades de TeqCMS. Planeo compartir detalles de implementación, arquitectura y flujos de trabajo - como parte de un experimento abierto sobre la integración de IA en el desarrollo diario.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/06/03-01-site-on-teq-cms.html"></a>
+        <img src="/img/blog/2025/06/03-01.png" alt="Migración del sitio a TeqCMS"/>
+        <div>
+            <h4>Migración del sitio a TeqCMS</h4>
+            <p>
+                Migré el sitio a mi propio CMS: TeqCMS. Ahora todo el contenido se genera mediante SSR,
+                se traduce con IA
+                y se gestiona en Git.
+            </p>
+            <time datetime="2025-06-03">3 de junio de 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

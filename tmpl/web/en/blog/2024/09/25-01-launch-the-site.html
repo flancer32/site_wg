@@ -26,3 +26,19 @@
     <p>The launch of this website is an important milestone in my public and professional development. Welcome!</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2024/09/25-01-launch-the-site.html"></a>
+        <img src="/img/blog/2024/09/25-01.png" alt="Launch of my personal website"/>
+        <div>
+            <h4>Launch of my personal website</h4>
+            <p>
+                Introduced personal website as a platform for projects, publications and communication. Focused on my
+                developments, articles and services in web technologies.
+            </p>
+            <time datetime="2024-09-25">September 25, 2024</time>
+        </div>
+    </li>
+{% endblock %}
+

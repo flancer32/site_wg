@@ -38,3 +38,21 @@
         intelligent interlocutor.</p>
 </div>
 {% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/{{ locale }}/blog/2025/07/01-01-habr-inanimate.html"></a>
+        <img src="/img/brand/habr.webp"
+                             alt="Publication on Habr: 'Don't Personify the Inanimate'"/>
+        <div>
+            <h4>Publication on Habr: "Don't Personify the Inanimate"</h4>
+            <p>
+                Reflections on the boundary between tool and subject in the context of LLMs. Purpose as the key criterion
+                of consciousness.
+                Active discussion and architectural hypotheses in the comments.
+            </p>
+            <time datetime="2025-07-01">July 1, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+
