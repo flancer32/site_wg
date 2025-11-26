@@ -1,0 +1,45 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Habr Publication: ADSM and AI Role Relationships{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Habr Publication: ADSM and AI Role Relationships</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2025-09-09
+    </span>
+
+    <zoom-img src="/img/brand/habr.webp" alt="ADSM: role relationships with AI" width="120px"
+        style="float: left; margin: 15px 15px 0 0;"></zoom-img>
+
+    <p>
+        An LLM does not work like a tool. There is no repeatability; answers are determined by distributed weights,
+        so the model acts as an executor, interpreting the task and proposing options.
+        The workflow relies on transferring the human's vision to the model: describing the task,
+        clarifying the context, aligning the direction, and checking the outcome.
+        The result depends on the quality of the phrasing and on keeping the model within the defined constraints.
+    </p>
+
+    <p>
+        This mode sets a different way of working with AI, where effectiveness is determined by the clarity of intent
+        and by carrying it through the entire interaction chain. The full
+        <a href="https://habr.com/ru/articles/945458/">article on Habr</a> is in Russian.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/en/blog/2025/20250909-01-adsm-roles-habr.html"></a>
+    <img alt="ADSM: role relationships with AI" src="/img/brand/habr.webp" />
+    <div>
+        <h4>Habr Publication: ADSM and AI Role Relationships</h4>
+        <p>
+            An LLM acts as an executor, interpreting the task and proposing options.
+            <a href="https://habr.com/ru/articles/945458/">The article</a> outlines the workflow and its practical consequences.
+        </p>
+        <time datetime="2025-09-09">September 9, 2025</time>
+    </div>
+</li>
+{% endblock %}

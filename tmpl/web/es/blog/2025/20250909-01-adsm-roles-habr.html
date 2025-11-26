@@ -1,0 +1,45 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Publicación en Habr: ADSM y relaciones de roles con IA{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Publicación en Habr: ADSM y relaciones de roles con IA</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2025-09-09
+    </span>
+
+    <zoom-img src="/img/brand/habr.webp" alt="ADSM: relaciones de roles con IA" width="120px"
+        style="float: left; margin: 15px 15px 0 0;"></zoom-img>
+
+    <p>
+        LLM no trabaja como una herramienta. No hay repetibilidad: las respuestas están determinadas por pesos distribuidos,
+        por lo que el modelo actúa como ejecutor, interpreta la tarea y propone variantes.
+        El flujo de trabajo se basa en transmitir la visión humana al modelo: describir la tarea,
+        aclarar el contexto, acordar la dirección y verificar el resultado.
+        El desenlace depende de la calidad de las formulaciones y de mantener el modelo dentro de los límites fijados.
+    </p>
+
+    <p>
+        Este modo propone otra forma de trabajar con la IA, donde la eficacia se determina por la claridad de la intención
+        y por llevarla a lo largo de toda la cadena de interacción. El artículo completo
+        <a href="https://habr.com/ru/articles/945458/">está publicado en Habr</a> en ruso.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/es/blog/2025/20250909-01-adsm-roles-habr.html"></a>
+    <img alt="ADSM: relaciones de roles con IA" src="/img/brand/habr.webp" />
+    <div>
+        <h4>Publicación en Habr: ADSM y relaciones de roles con IA</h4>
+        <p>
+            Un LLM actúa como ejecutor, interpreta la tarea y propone variantes.
+            <a href="https://habr.com/ru/articles/945458/">El artículo</a> describe el flujo de trabajo y sus consecuencias prácticas.
+        </p>
+        <time datetime="2025-09-09">9 de septiembre de 2025</time>
+    </div>
+</li>
+{% endblock %}
