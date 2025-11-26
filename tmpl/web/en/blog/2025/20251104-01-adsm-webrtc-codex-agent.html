@@ -1,0 +1,44 @@
+{% extends "inc/layout.html" %}
+{% block title %}ADSM: WebRTC video chat through a Codex agent{% endblock %}
+
+{% block content %}
+
+<div class="card blog-post">
+    <h1>ADSM: WebRTC video chat through a Codex agent</h1>
+    <time datetime="2025-11-04">4 November 2025</time>
+
+    <zoom-img src="/img/blog/2025/20251104-01-adsm-webrtc-codex-agent.png"
+        alt="ADSM: WebRTC video chat through a Codex agent" width="100px"></zoom-img>
+
+    <p>
+        I tested how controllable the development process becomes when strictly relying on ADSM and working through a
+        Codex agent. I built a simple WebRTC video-chat PWA where the agent generated wiring logic, signaling channels,
+        and component structure from my textual directives. The hardest part was not the code but the need to document every
+        architecture detail, because the agent ignores any context outside the text. To keep the project manageable I had to
+        create voluminous documentation that far exceeded the size of the code. The experiment proved that models can be
+        used to build working systems if they receive a stable context and rigid boundaries. The full article is written in
+        Russian and published on Habr.
+    </p>
+
+    <p>
+        <a href="https://habr.com/ru/articles/963082/" target="_blank">Read the original on Habr</a>
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+
+<li class="blog-item">
+    <a class="card-link" href="/en/blog/2025/20251104-01-adsm-webrtc-codex-agent.html"></a>
+    <img src="/img/blog/2025/20251104-01-adsm-webrtc-codex-agent.png"
+        alt="ADSM: WebRTC video chat through a Codex agent" />
+    <div>
+        <h4>ADSM: WebRTC video chat through a Codex agent</h4>
+        <p>
+            The Habr publication describes my experiment building a WebRTC video chat via a Codex agent. The text is
+            available via <a href="https://habr.com/ru/articles/963082/" target="_blank">the link</a>.
+        </p>
+        <time datetime="2025-11-04">4 November 2025</time>
+    </div>
+</li>
+{% endblock %}

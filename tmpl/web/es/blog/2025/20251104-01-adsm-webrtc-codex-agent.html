@@ -1,0 +1,45 @@
+{% extends "inc/layout.html" %}
+{% block title %}ADSM: videollamada WebRTC mediante un agente Codex{% endblock %}
+
+{% block content %}
+
+<div class="card blog-post">
+    <h1>ADSM: videollamada WebRTC mediante un agente Codex</h1>
+    <time datetime="2025-11-04">4 de noviembre de 2025</time>
+
+    <zoom-img src="/img/blog/2025/20251104-01-adsm-webrtc-codex-agent.png"
+        alt="ADSM: videollamada WebRTC mediante un agente Codex" width="100px"></zoom-img>
+
+    <p>
+        Verifiqué hasta qué punto el proceso de desarrollo puede controlarse cuando se apoya estrictamente en ADSM y se
+        trabaja a través de un agente Codex. Creé una PWA sencilla para videollamadas WebRTC en la que el agente generó
+        la lógica de conexión, los canales de señalización y la estructura de componentes a partir de mis indicaciones
+        textuales. La mayor dificultad no fue el código sino la necesidad de documentar cada detalle de la arquitectura,
+        ya que el agente no usa contexto fuera del texto. Para mantener el proyecto bajo control tuve que redactar una
+        documentación volumétrica que superó con creces el volumen del código. El experimento confirmó que se pueden usar
+        modelos para construir sistemas funcionales si se les proporciona un contexto estable y límites estrictos. El
+        artículo completo está escrito en ruso y publicado en Habr.
+    </p>
+
+    <p>
+        <a href="https://habr.com/ru/articles/963082/" target="_blank">Leer el original en Habr</a>
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+
+<li class="blog-item">
+    <a class="card-link" href="/es/blog/2025/20251104-01-adsm-webrtc-codex-agent.html"></a>
+    <img src="/img/blog/2025/20251104-01-adsm-webrtc-codex-agent.png"
+        alt="ADSM: videollamada WebRTC mediante un agente Codex" />
+    <div>
+        <h4>ADSM: videollamada WebRTC mediante un agente Codex</h4>
+        <p>
+            La publicación en Habr describe mi experimento creando un chat de vídeo WebRTC con un agente Codex. El texto
+            está disponible en <a href="https://habr.com/ru/articles/963082/" target="_blank">el enlace</a>.
+        </p>
+        <time datetime="2025-11-04">4 de noviembre de 2025</time>
+    </div>
+</li>
+{% endblock %}
