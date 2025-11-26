@@ -114,6 +114,14 @@ export default class App_Back_Web_Cms_Handler_Redirect {
                     return;
                 }
                 result.set(normalizedFrom, normalizedTo);
+                if (HTML_EXTENSION_PATTERN.test(normalizedFrom)) {
+                    const directoryAlias = normalizeRoute(
+                        normalizedFrom.replace(HTML_EXTENSION_PATTERN, '')
+                    );
+                    if (directoryAlias !== normalizedFrom) {
+                        result.set(directoryAlias, normalizedTo);
+                    }
+                }
             };
 
             if (Array.isArray(raw)) {

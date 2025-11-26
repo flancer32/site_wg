@@ -1,25 +1,29 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}JOIN en SELECT con Knex.js{% endblock %}
+{% block title %}JOIN в SELECT с Knex.js{% endblock %}
 
 {% block content %}
 <div class="card">
-    <h1>JOIN en SELECT con Knex.js</h1>
+    <h1>JOIN в SELECT с Knex.js</h1>
 
     <span style="display: block; text-align: right;">
-        <strong>Fecha de publicación:</strong> 2022-04-07
+        <strong>Дата публикации:</strong> 2022-04-07
     </span>
 
     <zoom-img
             src="/img/post/2022040701.webp"
-            alt="Logo de la publicación"
+            alt="Логотип публикации"
             style="max-width: 100%; float: left; margin: 15px 15px 0 0;"
     ></zoom-img>
 
-    <p><a href="https://knexjs.org/">Knex.js</a> es una excelente biblioteca para interactuar con bases de datos relacionales en aplicaciones Node.js (MySQL/MariaDB, PostgreSQL, MSSQL, Oracle, etc.). No es un <a href="https://es.wikipedia.org/wiki/Mapeo_objeto-relacional">ORM</a>, sino más bien una herramienta de nivel <a href="https://es.wikipedia.org/wiki/Capa_de_acceso_a_datos">DAL</a>. En esta publicación mostraré cómo crear consultas <code>SELECT … JOIN …</code> usando Knex.</p>
+    <p><a href="https://knexjs.org/">Knex.js</a> — это отличная библиотека для взаимодействия с реляционными СУБД в
+        Node.js-приложениях (MySQL/MariaDB, PostgreSQL, MSSQL, Oracle и др.). Это не <a
+                href="https://ru.wikipedia.org/wiki/ORM">ORM</a>, а скорее инструмент уровня <a
+                href="https://ru.wikipedia.org/wiki/Слой_доступа_к_данным">DAL</a>. В этой публикации я покажу, как
+        создавать запросы <code>SELECT … JOIN …</code> с помощью Knex.</p>
 
-    <h2>Transacción</h2>
-    <p>Primero necesitamos obtener un objeto de transacción. Ejemplo de conexión a la base de datos, creación de transacción y cierre de conexión:</p>
+    <h2>Транзакция</h2>
+    <p>Сначала нужно получить объект транзакции. Пример подключения к БД, создания транзакции и закрытия соединения:</p>
 
     <pre><code class="language-js">import knex from 'knex';
 
@@ -31,7 +35,7 @@ const conn = await knex({
 const trx = await conn.transaction();
 
 try {
-    // Consultas SQL aquí
+    // SQL-запросы здесь
     await trx.commit();
 } catch (e) {
     await trx.rollback();
@@ -39,8 +43,8 @@ try {
 
 await conn.destroy();</code></pre>
 
-    <h2>SELECT simple</h2>
-    <p>Selección de un registro de una tabla:</p>
+    <h2>Простой SELECT</h2>
+    <p>Выборка одной записи из таблицы:</p>
 
     <pre><code class="language-js">const trx = await conn.transaction();
 
@@ -66,8 +70,8 @@ try {
   ...
 }</code></pre>
 
-    <h2>JOIN simple</h2>
-    <p>Ejemplo de unión de tablas <code>app_task</code> y <code>app_upload</code>:</p>
+    <h2>Простой JOIN</h2>
+    <p>Пример соединения таблиц <code>app_task</code> и <code>app_upload</code>:</p>
 
     <pre><code class="language-js">const query = trx.queryBuilder();
 query.table('app_task');
@@ -78,22 +82,22 @@ console.log('SQL: ' + query.toString());</code></pre>
     <pre><code>select * from `app_task`
 left join `app_upload` on `app_upload`.`id` = `image_ref`</code></pre>
 
-    <h2>JOIN "profesional"</h2>
-    <p>En la práctica, a menudo es necesario unir varias tablas, usar alias y seleccionar campos específicos:</p>
+    <h2>"Профессиональный" JOIN</h2>
+    <p>На практике часто требуется соединять несколько таблиц, использовать псевдонимы и выбирать определённые поля:</p>
 
     <pre><code class="language-sql">select
     app_task.id as taskId,
     app_upload.id as uploadId
 from ...</code></pre>
 
-    <p>A veces una tabla se conecta varias veces con diferentes alias:</p>
+    <p>Иногда одну таблицу подключают несколько раз с разными псевдонимами:</p>
 
     <pre><code class="language-sql">left join `app_upload` as taskImg on taskImg.id = ...
 left join `app_upload` as userImg on userImg.id = ...</code></pre>
 
-    <p>Ejemplo de una consulta más compleja:</p>
+    <p>Пример более сложного запроса:</p>
 
-    <pre><code class="language-js">// METADATOS
+    <pre><code class="language-js">// METADATA
 const T_TASK = 'app_task';
 const T_UPLOAD = 'app_upload';
 const T_USER = 'app_user';
@@ -144,19 +148,20 @@ left join `app_upload` as `up` on `up`.`id` = `t`.`image_ref`
 left join `app_user` as `usr` on `usr`.`id` = `t`.`user_ref`
 where `t`.`id` = 3</code></pre>
 
-    <h2>Conclusión</h2>
-    <p>SQL es la base para trabajar con bases de datos relacionales. Las consultas <code>SELECT</code> con <code>JOIN</code> son una de las herramientas más utilizadas, y Knex permite crearlas con cualquier nivel de complejidad.</p>
+    <h2>Итог</h2>
+    <p>SQL — это основа для работы с реляционными базами данных. Запросы <code>SELECT</code> с <code>JOIN</code> — один
+        из самых часто используемых инструментов, и Knex позволяет создавать их любой сложности.</p>
 </div>
 {% endblock %}
 
 {% block blog_item %}
     <li class="blog-item">
-        <a class="card-link" href="/es/blog/2022/2022040701-joined-select-knex.html"></a>
-        <img alt="Logo de la publicación" src="/img/post/2022040701.webp" />
+        <a class="card-link" href="/ru/blog/2022/20220407-01-joined-select-knex.html"></a>
+        <img alt="Логотип публикации" src="/img/post/2022040701.webp" />
         <div>
-            <h4>JOIN en SELECT con Knex.js</h4>
-            <p>Mostró cómo construir consultas SELECT ... JOIN ... con Knex, incluyendo transacciones, uniones y alias.</p>
-            <time datetime="2022-04-07">7 de abril de 2022</time>
+            <h4>JOIN в SELECT с Knex.js</h4>
+            <p>Рассказал, как строить SELECT ... JOIN ... запросы в Knex, включая транзакции, присоединения и псевдонимы.</p>
+            <time datetime="2022-04-07">7 апреля 2022</time>
         </div>
     </li>
 {% endblock %}
