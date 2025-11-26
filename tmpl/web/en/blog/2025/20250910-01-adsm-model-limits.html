@@ -1,0 +1,44 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}ADSM: limits of model capabilities{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+
+    <h1>ADSM: limits of model capabilities</h1>
+    <time datetime="2025-09-10">September 10, 2025</time>
+
+    <zoom-img src="/img/blog/2025/20250910-01-adsm-model-limits.png" alt="ADSM: limits of model capabilities"
+        width="100px"></zoom-img>
+
+    <p>
+        Models operate inside the transformer architecture: vector width defines how detailed the representations are,
+        depth sets the level of abstraction, and the number of connections fixes the computational load. Each token is
+        produced by a full pass through the network. The context window is the shared space for input and output, so
+        growing the output reduces reproducibility. Efficient work relies on narrowing the context, feeding
+        homogeneous inputs, and keeping a strict one-shot mode. Minimizing the creative component keeps results steady
+        and the model within the intended frame. The full article in Russian is published on Habr.
+    </p>
+
+    <p>
+        <a href="https://habr.com/ru/articles/945816/" target="_blank">Read the original on Habr</a>
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/en/blog/2025/20250910-01-adsm-model-limits.html"></a>
+    <img src="/img/blog/2025/20250910-01-adsm-model-limits.png" alt="ADSM: limits of model capabilities" />
+    <div>
+        <h4>ADSM: limits of model capabilities</h4>
+        <p>
+            Transformers stick to the network architecture: width, depth, and connections define quality and compute
+            limits.
+            The context window determines reproducibility bounds, so stability comes from narrowing the context.
+            <a href="https://habr.com/ru/articles/945816/">The full article</a> is on Habr.
+        </p>
+        <time datetime="2025-09-10">September 10, 2025</time>
+    </div>
+</li>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}ADSM: los límites de las capacidades de los modelos{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+
+    <h1>ADSM: los límites de las capacidades de los modelos</h1>
+    <time datetime="2025-09-10">10 de septiembre de 2025</time>
+
+    <zoom-img src="/img/blog/2025/20250910-01-adsm-model-limits.png"
+        alt="ADSM: los límites de las capacidades de los modelos" width="100px"></zoom-img>
+
+    <p>
+        Los modelos trabajan dentro de la arquitectura de transformadores: el ancho del vector define el nivel de
+        detalle
+        de las representaciones, la profundidad fija el nivel de abstracción y la cantidad de conexiones determina el
+        coste computacional. Cada token se genera con un pase completo por la red. La ventana de contexto es el espacio
+        compartido entre entrada y salida, así que aumentar el volumen de salida reduce la reproducibilidad. El trabajo
+        eficaz se apoya en reducir el contexto, usar datos de entrada homogéneos y mantener un modo one-shot estricto.
+        Minimizar el componente creativo permite obtener resultados estables y mantener el modelo dentro del marco
+        previsto.
+        El artículo completo en ruso se publicó en Habr.
+    </p>
+
+    <p>
+        <a href="https://habr.com/ru/articles/945816/" target="_blank">Leer el original en Habr</a>
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/es/blog/2025/20250910-01-adsm-model-limits.html"></a>
+    <img src="/img/blog/2025/20250910-01-adsm-model-limits.png"
+        alt="ADSM: los límites de las capacidades de los modelos" />
+    <div>
+        <h4>ADSM: los límites de las capacidades de los modelos</h4>
+        <p>
+            Los transformadores operan dentro de la arquitectura de red: ancho, profundidad y conexiones determinan la
+            calidad y los límites computacionales. La ventana de contexto define los márgenes de reproducibilidad, y la
+            estabilidad llega al reducir el contexto. <a href="https://habr.com/ru/articles/945816/">El artículo
+                completo</a> se
+            encuentra en Habr.
+        </p>
+        <time datetime="2025-09-10">10 de septiembre de 2025</time>
+    </div>
+</li>
+{% endblock %}
