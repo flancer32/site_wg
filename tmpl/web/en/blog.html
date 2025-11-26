@@ -4,520 +4,14 @@
 
 {% block content %}
 <h1>Events and Publications</h1>
-<div style="margin: 20px auto; max-width: 800px;">
-    <ul>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/09/05-01-abdsm-habr.html"></a>
-            <img src="/img/blog/2025/09/05-01-abdsm.jpg" alt="Habr post: A/BDSM"/>
-            <div>
-                <h4>Habr post: A/BDSM and polls</h4>
-                <p>
-                    A cheeky post with a clickbait title about A/BDSM. In the polls, ten people chose ADSM over BDSM in both wording options. The downvotes were softer than expected.
-                </p>
-                <time datetime="2025-09-05">September 5, 2025</time>
-            </div>
-        </li>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/09/03-01-client-card.html"></a>
-            <img src="/img/blog/2025/09/03-01-client-card.png" alt="Client card in the Domotekhnika app"/>
-            <div>
-                <h4>Generating a client card</h4>
-                <p>
-                    Added client card generation to the Domotekhnika store app with name, ID, barcode, and logo.
-                    The work took about three and a half hours including translations and styling.
-                </p>
-                <time datetime="2025-09-03">September 3, 2025</time>
-            </div>
-        </li>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/09/02-01-brain-llm-probability.html"></a>
-            <img src="/img/avatar.jpg" alt="Comparison of the brain and LLM"/>
-            <div>
-                <h4>The brain's probabilistic nature and how it differs from LLMs</h4>
-                <p>
-                    Corrected my mistake: the brain has probabilistic behavior at the level of each synapse. The main difference from LLMs is not randomness but that the brain works through activity patterns and parallel waves, while an LLM uses linear tokens and a sequential domino effect.
-                </p>
-                <time datetime="2025-09-02">September 2, 2025</time>
-            </div>
-        </li>
 
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/09/01-01-agent-as-compiler.html"></a>
-            <img src="/img/avatar.jpg" alt="Agent as the compiler"/>
-            <div>
-                <h4>Agent as the new compiler</h4>
-                <p>
-                    The idea that a human description of a product becomes the programming language, and the Agent takes on the role of the compiler. Code stops being primary; the idea becomes central.
-                </p>
-                <time datetime="2025-09-01">September 1, 2025</time>
-            </div>
-        </li>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/08/28-01-di-openai-extension.html"></a>
-            <img src="/img/blog/2025/08/28-01-di-openai-extension.png" alt="@teqfw/di and OpenAI SDK"/>
-            <div>
-                <h4>Integrating @teqfw/di and OpenAI SDK in a Chrome extension</h4>
-                <p>
-                    A prototype MV3 extension using @teqfw/di exposed three problems: handling paths, CSP limits, and running the OpenAI SDK in the browser. The DI container made it easier to test code in Node.js and run it in the extension, but it already needs refinements.
-                </p>
-                <time datetime="2025-08-28">August 28, 2025</time>
-            </div>
-        </li>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/08/26-01-browser-extension.html"></a>
-            <img src="/img/avatar.jpg" alt="My first browser extension"/>
-            <div>
-                <h4>My first browser extension</h4>
-                <p>
-                    First experience creating a browser extension. For me it's a way to test the ADSM methodology in a new environment and document the process through context documents.
-                </p>
-                <time datetime="2025-08-26">August 26, 2025</time>
-            </div>
-        </li>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/08/25-01-simple-models-adsm.html"></a>
-            <img src="/img/avatar.jpg" alt="Simple models and ADSM"/>
-            <div>
-                <h4>Simple models as the foundation of ADSM</h4>
-                <p>
-                    An experiment with GPT-5 modes showed that ADSM benefits from simple models without reasoning.
-                    They provide stability, reproducibility, and let the process be guided through cognitive context.
-                </p>
-                <time datetime="2025-08-25">August 25, 2025</time>
-            </div>
-        </li>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/08/21-02-teqfw-di-release.html"></a>
-            <img src="/img/brand/teqfw.webp"
-                                 alt="First version of @teqfw/di"/>
-            <div>
-                <h4>First version of @teqfw/di</h4>
-                <p>
-                    Six years after the first commit, the @teqfw/di library reached its first release. Published on npm.
-                </p>
-                <time datetime="2025-08-22">August 21, 2025</time>
-            </div>
-        </li>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/08/21-01-agents-entry.html"></a>
-            <img src="/img/avatar.jpg"
-                                 alt="AGENTS.md as an entry point"/>
-            <div>
-                <h4>AGENTS.md as an entry point</h4>
-                <p>
-                    Choosing AGENTS.md as a single entry file for agents proved successful.
-                    It's an established format, handy for capturing rules and transferring context between projects.
-                </p>
-                <time datetime="2025-08-21">August 21, 2025</time>
-            </div>
-        </li>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/08/19-01-llm-deterministic.html"></a>
-            <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/bf7/8d9/fb9/bf78d9fb95f5504ced77f9a7b9ceba4a.png"
-                                 alt="When an LLM becomes predictable"/>
-            <div>
-                <h4>Publication on Habr: when an LLM becomes predictable</h4>
-                <p>
-                    A post about how prompts written as executable specifications make models more deterministic,
-                    turning them into an engineering tool for code generation.
-                </p>
-                <time datetime="2025-08-19">August 19, 2025</time>
-            </div>
-        </li>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/08/17-01-indirect-tool.html"></a>
-            <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/499/c70/9e9/499c709e91b018135b80de845c1e038d.png"
-                                 alt="Indirect control tool"/>
-            <div>
-                <h4>Publication on Habr: indirect control tool</h4>
-                <p>
-                    A note about how LLMs work as tools with indirect control: instead of direct commands, you create conditions. In a poll, 90% agreed with the metaphor &quot;people are tools for other people&quot;.
-                </p>
-                <time datetime="2025-08-17">August 17, 2025</time>
-            </div>
-        </li>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/08/15-01-ads-single-use.html"></a>
-            <img src="/img/avatar.jpg"
-                                 alt="Single-use apps and ADSM"/>
-            <div>
-                <h4>Single-use apps and ADSM</h4>
-                <p>
-                    A small experiment: the ADSM methodology helped build a one-off utility for monitoring apartment rental ads. The agent created the architecture, while minor fixes were easier to apply manually.
-                </p>
-                <time datetime="2025-08-15">August 15, 2025</time>
-            </div>
-        </li>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/07/25-01-adsm-concept.html"></a>
-            <img src="/img/blog/2025/07/25-01-adsm-concept.png"
-                                 alt="ADSM — concept of managing a site through an agent"/>
-            <div>
-                <h4>ADSM — concept of managing a site through an agent</h4>
-                <p>
-                    A new direction in my experiments has a name: ADSM.
-                    It's the idea of managing a site via an agent, where changes are made through dialogue
-                    and instructions instead of manual edits.
-                </p>
-                <time datetime="2025-07-25">July 25, 2025</time>
-            </div>
-        </li>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/07/18-01-ai-agents-vs-api-translation.html"></a>
-            <img src="/img/avatar.jpg"
-                                 alt="API and agents: two approaches to page translation"/>
-            <div>
-                <h4>API and agents: two approaches to page translation</h4>
-                <p>
-                    In TeqCMS, translations were done via API one file at a time, but I tried an agent approach: translating multiple pages per session while keeping context. Both methods are valuable.
-                </p>
-                <time datetime="2025-07-18">July 18, 2025</time>
-            </div>
-        </li>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/07/15-01-habr-save-history-for-llm.html"></a>
-            <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/acd/bc7/ec1/acdbc7ec1b608f00e5637520c6301071.png"
-                                 alt="Publication on Habr: history of prompts with AI agents"/>
-            <div>
-                <h4>Publication on Habr: history of prompts with AI agents</h4>
-                <p>
-                    In the Habr article I note that the main artifact of development with AI agents becomes the instructions and the history of prompts. In a poll, 50% of readers confirmed that they save such iterations.
-                </p>
-                <time datetime="2025-07-15">July 15, 2025</time>
-            </div>
-        </li>
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/07/04-01-docs-are-important-for-llm.html"></a>
-            <img src="/img/avatar.jpg"
-                                 alt="From Machine Code to Documentation"/>
-            <div>
-                <h4>From Machine Code to Documentation</h4>
-                <p>
-                    How the value of development has shifted: from machine code and programs to documentation and instructions that let humans and AI agents generate software.
-                </p>
-                <time datetime="2025-07-04">July 4, 2025</time>
-            </div>
-        </li>
+<div class="blog-container">
+    <ul class="blog-list">
 
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/07/03-01-es-on-personal-site.html"></a>
-            <img src="/img/blog/2025/07/03-01-deepseek-report.png"
-                                 alt="Spanish version of the site: AI translation for $0.05"/>
-            <div>
-                <h4>Spanish version of the site: AI translation for $0.05</h4>
-                <p>
-                    Added a third language - Spanish. Automatic translation of all pages from Russian took 42
-                    requests and cost $0.05.
-                    Demonstration of AI localization based on TeqCMS and DeepSeek API.
-                </p>
-                <time datetime="2025-07-03">July 3, 2025</time>
-            </div>
-        </li>
+        {% for item in blogIndex.items %}
+            {{ item.html | safe }}
+        {% endfor %}
 
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/07/01-01-habr-inanimate.html"></a>
-            <img src="/img/brand/habr.webp"
-                                 alt="Publication on Habr: 'Don't Personify the Inanimate'"/>
-            <div>
-                <h4>Publication on Habr: "Don't Personify the Inanimate"</h4>
-                <p>
-                    Reflections on the boundary between tool and subject in the context of LLMs. Purpose as the key criterion
-                    of consciousness.
-                    Active discussion and architectural hypotheses in the comments.
-                </p>
-                <time datetime="2025-07-01">July 1, 2025</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/06/27-01-nutrilog-on-teqcms.html"></a>
-            <img src="/img/blog/2025/06/27-01.png" alt="NutriLog migrated from Astro to TeqCMS"/>
-            <div>
-                <h4>NutriLog migrated from Astro to TeqCMS</h4>
-                <p>
-                    Switched from Astro to TeqCMS with SSR and Mustache. Now translating pages via DeepSeek
-                    and deploying to server via GitHub Actions.
-                </p>
-                <time datetime="2025-06-27">June 27, 2025</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/06/03-01-site-on-teq-cms.html"></a>
-            <img src="/img/blog/2025/06/03-01.png" alt="Site transition to TeqCMS"/>
-            <div>
-                <h4>Site transition to TeqCMS</h4>
-                <p>
-                    Migrated the site to my own CMS - TeqCMS. Now all content is generated via SSR,
-                    translated by AI, and managed in Git.
-                </p>
-                <time datetime="2025-06-03">June 3, 2025</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/05/31-01-llm-first-coding.html"></a>
-            <img src="/img/brand/habr.webp" alt="Publication on Habr: LLM-first"/>
-            <div>
-                <h4>LLM-first: development without vibe coding</h4>
-                <p>
-                    Shared on Habr how I built a CMS with GPT and DeepSeek in 2 weeks using DI, Markdown and
-                    JSDoc. LLM as a co-author of architecture.
-                </p>
-                <time datetime="2025-05-31">May 31, 2025</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/05/29-01-teq-cms-demo.html"></a>
-            <img src="/img/brand/teqfw.webp" alt="TeqCMS based on Nunjucks"/>
-            <div>
-                <h4>TeqCMS based on Nunjucks</h4>
-                <p>
-                    Released a CMS on Nunjucks templates with server-side generation and localization. Published packages and
-                    demo site built on TeqFW architecture.
-                </p>
-                <time datetime="2025-05-29">May 29, 2025</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/04/13-01-smtp-logger.html"></a>
-            <img src="/img/brand/teqfw.webp" alt="smtp-logger for Postfix and Node.js"/>
-            <div>
-                <h4>smtp-logger for Postfix and Node.js</h4>
-                <p>
-                    Created a utility for logging outgoing Postfix emails to SQL via Node.js and @teqfw/di.
-                </p>
-                <time datetime="2025-04-13">April 13, 2025</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/04/01-01-nutrilog-beta-launch.html"></a>
-            <img src="/img/brand/nutrilog.webp" alt="NutriLog beta launch"/>
-            <div>
-                <h4>NutriLog beta launch</h4>
-                <p>
-                    Launched open beta of NutriLog AI assistant. First 100 users onboarded via Google Ads.
-                </p>
-                <time datetime="2025-04-01">April 1, 2025</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/03/15-01-teqfw-philosophy-update.html"></a>
-            <img src="/img/brand/habr.webp" alt="Updated TeqFW philosophy"/>
-            <div>
-                <h4>Updated TeqFW philosophy</h4>
-                <p>
-                    Published a new edition of the TeqFW philosophy document - with emphasis on modular monolith and
-                    unified stack.
-                </p>
-                <time datetime="2025-03-15">March 15, 2025</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/03/04-01-ioc-di-vs-ambient.html"></a>
-            <img src="/img/brand/habr.webp" alt="IoC: DI vs Ambient Context"/>
-            <div>
-                <h4>IoC: DI vs Ambient Context</h4>
-                <p>
-                    Published an article about choosing between Dependency Injection and Ambient Context when designing
-                    architecture.
-                </p>
-                <time datetime="2025-03-04">March 4, 2025</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/03/01-01-clientu-klubs.html"></a>
-            <img src="/img/brand/domotehnika.svg" alt="Clientu Klubs for Domotehnika"/>
-            <div>
-                <h4>Clientu Klubs for Domotehnika</h4>
-                <p>
-                    Implemented a web application for accumulating client base and launching loyalty programs.
-                    Architecture based on TeqFW.
-                </p>
-                <time datetime="2025-03-01">March 1, 2025</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/02/28-01-energy-efficiency-intelligence.html"></a>
-            <img src="/img/brand/habr.webp" alt="Energy efficiency of intelligence"/>
-            <div>
-                <h4>Energy efficiency of intelligence</h4>
-                <p>
-                    Reasoning about why AGI is unlikely to replace programmers - due to the colossal
-                    energy consumption of AI.
-                </p>
-                <time datetime="2025-02-28">February 28, 2025</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/02/12-02-teqfw-philosophy.html"></a>
-            <img src="/img/brand/doc.svg" alt="Tequila Framework philosophy"/>
-            <div>
-                <h4>Tequila Framework philosophy</h4>
-                <p>
-                    Published a structured document describing TeqFW architectural principles and approach to
-                    modular monolith.
-                </p>
-                <time datetime="2025-02-12">February 12, 2025</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/02/12-01-doc-principles-updated.html"></a>
-            <img src="/img/brand/doc.svg" alt="Updated documentation principles"/>
-            <div>
-                <h4>Updated documentation principles</h4>
-                <p>
-                    Published a new version of the document focusing on structure, logic and format for LLMs and humans.
-                </p>
-                <time datetime="2025-02-12">February 12, 2025</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2025/01/07-01-habr-removed-agi-post.html"></a>
-            <img src="/img/blog/2025/01/07-01.webp" alt="Article removed from Habr"/>
-            <div>
-                <h4>Article removed from Habr</h4>
-                <p>
-                    Habr removed my article about AGI impact due to policy against AI content, despite author's
-                    contribution.
-                </p>
-                <time datetime="2025-01-07">January 7, 2025</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2024/12/25-01-github-action-branch-merge.html"></a>
-            <img src="/img/blog/2024/12/25-01.png" alt="GitHub Action with file exclusion"/>
-            <div>
-                <h4>GitHub Action with file exclusion</h4>
-                <p>
-                    Developed GitHub Action for branch merging with file exclusion and configured SSH authentication
-                    for secure push.
-                </p>
-                <time datetime="2024-12-25">December 25, 2024</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2024/11/12-01-early-vs-late-binding.html"></a>
-            <img src="/img/blog/2024/11/12-01.png" alt="Article about binding in JavaScript"/>
-            <div>
-                <h4>Article about binding in JavaScript</h4>
-                <p>
-                    Explaining key differences between early and late binding and their impact on code architecture.
-                </p>
-                <time datetime="2024-11-12">November 12, 2024</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2024/10/28-01-telegram-error-handling.html"></a>
-            <img src="/img/blog/2024/10/28-01.png" alt="Article about Telegram bot resilience"/>
-            <div>
-                <h4>Article about Telegram bot resilience</h4>
-                <p>
-                    Analyzing how to improve bot reliability through error handling and logging using Node.js and grammY.
-                </p>
-                <time datetime="2024-10-28">October 28, 2024</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2024/10/22-01-medium-dialogues-telegram.html"></a>
-            <img src="/img/blog/2024/10/22-01.png" alt="Article about dialogues in Telegram bots"/>
-            <div>
-                <h4>Article about dialogues in Telegram bots</h4>
-                <p>
-                    Sharing how to build interactive dialogues in Telegram bots using Node.js and grammY.
-                </p>
-                <time datetime="2024-10-22">October 22, 2024</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2024/10/15-01-chatgpt-js-codegen.html"></a>
-            <img src="/img/blog/2024/10/15-01.png" alt="Article about code generation with ChatGPT"/>
-            <div>
-                <h4>Article about code generation with ChatGPT</h4>
-                <p>
-                    Shared experience using ChatGPT for automatic template code generation in JS projects.
-                </p>
-                <time datetime="2024-10-15">October 15, 2024</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2024/10/14-01-medium-telegram-crudl.html"></a>
-            <img src="/img/blog/2024/10/14-01.png" alt="New article about CRUD-L for Telegram bot"/>
-            <div>
-                <h4>New article about CRUD-L for Telegram bot</h4>
-                <p>
-                    Explained how to implement command arguments and CRUD-L in Telegram bot using Node.js and grammY.
-                </p>
-                <time datetime="2024-10-14">October 14, 2024</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2024/10/08-01-medium-telegram-bots.html"></a>
-            <img src="/img/blog/2024/10/08-01.png" alt="New article about Telegram bots"/>
-            <div>
-                <h4>New article about Telegram bots</h4>
-                <p>
-                    Published a detailed beginner's guide to creating Telegram bots with grammY and Node.js.
-                </p>
-                <time datetime="2024-10-08">October 8, 2024</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/blog/2024/09/25-01-launch-the-site.html"></a>
-            <img src="/img/blog/2024/09/25-01.png" alt="Launch of my personal website"/>
-            <div>
-                <h4>Launch of my personal website</h4>
-                <p>
-                    Introduced personal website as a platform for projects, publications and communication. Focused on my
-                    developments, articles and services in web technologies.
-                </p>
-                <time datetime="2024-09-25">September 25, 2024</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/post/2022050801-export-as-brick.html"></a>
-            <img src="/img/post/2022050801.webp" alt="Article about ES6 modules and export"/>
-            <div>
-                <h4>Article about ES6 modules and export</h4>
-                <p>
-                    Explained why the <code>export</code> keyword is the fundamental building block in
-                    JavaScript applications. Lots of code, examples and philosophy.
-                </p>
-                <time datetime="2022-05-08">May 8, 2022</time>
-            </div>
-        </li>
-
-        <li class="blog-item">
-            <a class="card-link" href="/{{ locale }}/post/2022040701-joined-select-knex.html"></a>
-            <img src="/img/post/2022040701.webp" alt="JOIN in SELECT with Knex.js"/>
-            <div>
-                <h4>JOIN in SELECT with Knex.js</h4>
-                <p>
-                    Showed how to create SQL SELECT queries with JOIN in Node.js using Knex. The article covers
-                    simple and "professional" table joining options.
-                </p>
-                <time datetime="2022-04-07">April 7, 2022</time>
-            </div>
-        </li>
     </ul>
 </div>
 {% endblock %}
@@ -549,12 +43,17 @@
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
 
+    /* подложка внизу */
     .blog-item .card-link {
+        display: block;
         position: absolute;
         inset: 0;
-        z-index: 1;
+        z-index: 10;
+        background: transparent; /* важно */
+        pointer-events: auto;    /* важно */
     }
 
+    /* контент выше подложки */
     .blog-item img {
         width: 80px;
         height: 80px;
@@ -562,7 +61,7 @@
         border-radius: 10%;
         flex-shrink: 0;
         position: relative;
-        z-index: 2;
+        z-index: 20;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
 
@@ -572,7 +71,7 @@
         display: flex;
         flex-direction: column;
         position: relative;
-        z-index: 2;
+        z-index: 20;
     }
 
     .blog-item h4 {
@@ -587,11 +86,14 @@
         line-height: 1.4;
     }
 
+    /* внутренние ссылки выше всего */
     .blog-item p a {
         color: #007b5e;
         text-decoration: underline;
         position: relative;
-        z-index: 3;
+        z-index: 40;
+        pointer-events: auto;
+        /* критично */
     }
 
     .blog-item time {
@@ -599,8 +101,11 @@
         color: #666;
         font-size: .9rem;
         margin-top: .25rem;
+        position: relative;
+        z-index: 20;
     }
 
+    /* мобильная версия */
     @media (max-width: 600px) {
 
         .blog-item {
@@ -621,7 +126,7 @@
         .blog-item div {
             display: block !important;
             position: relative;
-            z-index: 2;
+            z-index: 20;
         }
 
         .blog-item time {
@@ -630,11 +135,11 @@
             text-align: right;
         }
 
-        /* Теперь этот слой можно безопасно держать сверху */
+        /* подложка остаётся внизу */
         .blog-item .card-link {
             position: absolute;
             inset: 0;
-            z-index: 3;
+            z-index: 10;
         }
     }
 </style>
