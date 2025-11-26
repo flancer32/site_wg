@@ -1,0 +1,48 @@
+{% extends "inc/layout.html" %}
+{% block title %}ADSM: iteratividad y jerarquía{% endblock %}
+{% block content %}
+
+<div class="card blog-post">
+    <h1>ADSM: iteratividad y jerarquía</h1>
+    <time datetime="2025-11-11">11 de noviembre de 2025</time>
+
+    <zoom-img src="/img/blog/2025/20251111-01-adsm-iterative-and-hierarchical.png" alt="ADSM: iteratividad y jerarquía"
+        width="100px"></zoom-img>
+
+    <p>
+        La limitación del contexto de salida determina los límites del uso de los Modelos al trabajar con una
+        base de código. La generación solo es posible de forma iterativa: un Modelo produce un resultado fiable
+        cuando el contexto de entrada es significativamente mayor que el de salida, provocando un estrechamiento
+        predecible. El proyecto se divide en archivos pequeños, cada uno creado dentro de un contexto controlado.
+        La repetibilidad se garantiza gracias a fragmentos de conocimiento fijos organizados como un árbol
+        jerárquico: desde los principios generales hasta los datos únicos de cada origen. Esta estructura forma
+        una base estable que permite a los Agentes desarrollar grandes proyectos sin romper la lógica subyacente.
+        El artículo completo está disponible en ruso en Habr.
+    </p>
+
+    <p>
+        <a href="https://habr.com/ru/articles/948282/" target="_blank">
+            Leer el original en Habr
+        </a>
+    </p>
+</div>
+
+{% endblock %}
+
+{% block blog_item %}
+
+<li class="blog-item">
+    <a class="card-link" href="/es/blog/2025/20251111-01-adsm-iterative-and-hierarchical.html"></a>
+    <img src="/img/blog/2025/20251111-01-adsm-iterative-and-hierarchical.png" alt="ADSM: iteratividad y jerarquía" />
+    <div>
+        <h4>ADSM: iteratividad y jerarquía</h4>
+        <p>
+            <a href="https://habr.com/ru/articles/948282/" target="_blank">El artículo</a> explica por qué el contexto
+            limitado del Modelo impone un desarrollo iterativo y por qué se requiere una jerarquía de conocimiento para
+            mantener la generación estable.
+        </p>
+        <time datetime="2025-11-11">11 de noviembre de 2025</time>
+    </div>
+</li>
+
+{% endblock %}

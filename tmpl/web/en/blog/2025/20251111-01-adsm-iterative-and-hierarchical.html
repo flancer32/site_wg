@@ -1,0 +1,47 @@
+{% extends "inc/layout.html" %}
+{% block title %}ADSM: Iterative and Hierarchical{% endblock %}
+{% block content %}
+
+<div class="card blog-post">
+    <h1>ADSM: Iterative and Hierarchical</h1>
+    <time datetime="2025-11-11">11 November 2025</time>
+
+    <zoom-img src="/img/blog/2025/20251111-01-adsm-iterative-and-hierarchical.png"
+        alt="ADSM: Iterative and Hierarchical" width="100px"></zoom-img>
+
+    <p>
+        The limited output context defines the boundaries for applying Models when working with a codebase.
+        Generation is only possible iteratively: a Model delivers a reliable result when the input context is
+        significantly larger than the output, forming a predictable narrowing. The project is split into
+        small files, each created within a tightly managed context. Repeatability is ensured through fixed
+        knowledge fragments organized as a hierarchical tree—from general principles to the unique data of
+        each source. This structure builds a stable foundation that lets Agents develop large projects without
+        breaking the underlying logic. The full article is available in Russian on Habr.
+    </p>
+
+    <p>
+        <a href="https://habr.com/ru/articles/948282/" target="_blank">
+            Read the original on Habr
+        </a>
+    </p>
+</div>
+
+{% endblock %}
+
+{% block blog_item %}
+
+<li class="blog-item">
+    <a class="card-link" href="/en/blog/2025/20251111-01-adsm-iterative-and-hierarchical.html"></a>
+    <img src="/img/blog/2025/20251111-01-adsm-iterative-and-hierarchical.png" alt="ADSM: Iterative and Hierarchical" />
+    <div>
+        <h4>ADSM: Iterative and Hierarchical</h4>
+        <p>
+            <a href="https://habr.com/ru/articles/948282/" target="_blank">The article</a> explains how a Model’s
+            limited context drives an iterative workflow and why a knowledge hierarchy is required to keep generation
+            stable.
+        </p>
+        <time datetime="2025-11-11">11 November 2025</time>
+    </div>
+</li>
+
+{% endblock %}
