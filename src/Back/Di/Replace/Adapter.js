@@ -10,7 +10,8 @@ export default class App_Back_Di_Replace_Adapter {
      * @param {Fl32_Cms_Back_Helper_Web} helpWeb
      * @param {Fl32_Cms_Back_Config} config
      * @param {Fl32_Cms_Back_Logger} logger
-     * @param App_Back_Web_Cms_Handler_Blog} blogHandler
+     * @param {App_Back_Web_Cms_Handler_Blog} blogHandler
+     * @param {App_Back_Web_Cms_Handler_Redirect} redirectHandler
      */
     constructor(
         {
@@ -21,21 +22,16 @@ export default class App_Back_Di_Replace_Adapter {
             Fl32_Cms_Back_Config$: config,
             Fl32_Cms_Back_Logger$: logger,
             App_Back_Web_Cms_Handler_Blog$: blogHandler,
+            App_Back_Web_Cms_Handler_Redirect$: redirectHandler,
         }
     ) {
         const self = this;
-        const cmsAdapterRef = cmsAdapter;
-        const helpWebRef = helpWeb;
-        const configRef = config;
-        const loggerRef = logger;
-        const fsModule = fs;
-        const pathModule = path;
 
         const resolveRouting = (req) => {
             const rawPath = decodeURIComponent(req?.url?.split('?')[0] || '');
-            const allowedLocales = configRef.getLocaleAllowed?.() || [];
-            const fallbackLocale = configRef.getLocaleBaseWeb?.() || '';
-            return helpWebRef.extractRoutingInfo({
+            const allowedLocales = config.getLocaleAllowed?.() || [];
+            const fallbackLocale = config.getLocaleBaseWeb?.() || '';
+            return helpWeb.extractRoutingInfo({
                 path: rawPath,
                 allowedLocales,
                 fallbackLocale,
@@ -48,21 +44,23 @@ export default class App_Back_Di_Replace_Adapter {
         };
 
         self.getRenderData = async function ({req}) {
-            const renderData = await cmsAdapterRef.getRenderData({req});
-            const data = renderData?.data;
+            // @LLM-DOC: `resolveRouting` returns `{ locale, cleanPath }` and we rely on `cleanPath`
             const routeInfo = resolveRouting(req);
+            await redirectHandler?.applyRedirect?.({req, routeInfo});
+            const renderData = await cmsAdapter?.getRenderData({req});
+            const data = renderData?.data;
             if (!renderData || !data) {
                 return renderData;
             }
 
             if (routeInfo?.cleanPath && isBlogIndexRoute(routeInfo.cleanPath)) {
-                const targetLocale = routeInfo.locale || configRef.getLocaleBaseWeb();
+                const targetLocale = routeInfo.locale || config.getLocaleBaseWeb();
                 let items = [];
                 try {
                     items = await blogHandler.collectBlogIndex(targetLocale);
                 } catch (error) {
                     if (error?.code !== 'ENOENT') {
-                        loggerRef?.error?.(error);
+                        logger?.error?.(error);
                     }
                 }
                 data.blogIndex = {
