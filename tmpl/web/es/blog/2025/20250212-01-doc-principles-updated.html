@@ -1,0 +1,48 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Documento actualizado «Principios de creación de documentación»{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Documento actualizado «Principios de creación de documentación»</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2025-02-12
+    </span>
+
+    <zoom-img
+            src="/img/brand/doc.svg"
+            alt="Principios de creación de documentación"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Se ha publicado una nueva versión del documento <strong><a href="/doc/doc-principles/">«Principios de creación de documentación»</a></strong>.
+        La actualización afecta tanto a la estructura como a la claridad de las formulaciones de los conceptos clave.</p>
+
+    <p>El enfoque principal está en la sincronización del <em>contexto cognitivo</em> entre el autor y el lector, así como
+        en la construcción de una jerarquía de información — de lo general a lo particular. El documento incluye recomendaciones mejoradas sobre
+        el formato orientado al trabajo con LLM: estructura Markdown, ubicación de bloques clave, uniformidad de
+        términos.</p>
+
+    <p>Si trabajas con documentación de proyectos o escribes instrucciones para IA y personas — esta versión puede ser útil.
+        En ella encontrarás cómo estructurar la lógica, involucrar al lector y garantizar una navegación cómoda.</p>
+
+    <p><a href="/doc/doc-principles/">Leer el documento actualizado</a></p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2025/20250212-01-doc-principles-updated.html"></a>
+        <img src="/img/brand/doc.svg" alt="Principios de documentación actualizados"/>
+        <div>
+            <h4>Principios de documentación actualizados</h4>
+            <p>
+                Se publicó una nueva versión del documento con énfasis en estructura, lógica y formato para LLM y humanos.
+            </p>
+            <time datetime="2025-02-12">12 de febrero de 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

@@ -1,0 +1,58 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Habr Publication: "Don't Animate the Inanimate"{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Habr Publication: "Don't Animate the Inanimate"</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2025-07-01
+    </span>
+
+    <zoom-img
+            src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/051/e81/db2/051e81db20cc376a5b9c7d4d12d3aa5c.png"
+            alt="Illustration for the article «Don't Animate the Inanimate»"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>The <a href="https://habr.com/" target="_blank">Habr</a> platform has published an article
+        <a href="https://habr.com/ru/articles/923838/" target="_blank"><strong>"Don't Animate the Inanimate"</strong></a>.
+    </p>
+
+    <p>I attempted to understand what exactly makes an LLM a tool or a subject and where the boundary lies between the model and
+        the operator. The focus is on goal-setting, the nature of consciousness, and the limitations of the scientific method as
+        the basis for reproducible knowledge.</p>
+
+    <p>In the article, I consistently distinguish between a tool and a subject, arguing that without the ability to independently
+        form goals, a language model remains precisely a tool. As long as LLMs don't generate their own goals, responsibility
+        lies with the operator.</p>
+
+    <p>Commentators offered interesting perspectives—from hypotheses about spontaneous subjectivity to descriptions of architectures
+        with meta-reflection and feedback. The "VORTEX 37.1 Protocol" was also discussed as a possible path to integrating coherent
+        thinking into LLMs.</p>
+
+    <p>For me, the main point remains: <strong>if the goal is set externally—it's a tool</strong>. And only if it arises internally
+        can we speak of the emergence of subjectivity. Until that happens—the model remains a tool, even if it behaves like an
+        intelligent interlocutor.</p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2025/20250701-01-habr-inanimate.html"></a>
+        <img src="/img/brand/habr.webp"
+                             alt="Publication on Habr: 'Don't Personify the Inanimate'"/>
+        <div>
+            <h4>Publication on Habr: "Don't Personify the Inanimate"</h4>
+            <p>
+                Reflections on the boundary between tool and subject in the context of LLMs. Purpose as the key criterion
+                of consciousness.
+                Active discussion and architectural hypotheses in the comments.
+            </p>
+            <time datetime="2025-07-01">July 1, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

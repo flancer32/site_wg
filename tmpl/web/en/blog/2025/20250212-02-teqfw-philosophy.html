@@ -1,0 +1,44 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Tequila Framework Philosophy Document Published{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Tequila Framework Philosophy Document Published</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2025-02-12
+    </span>
+
+    <zoom-img
+            src="/img/brand/doc.svg"
+            alt="Tequila Framework Philosophy"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>A new <strong>LLM-oriented document</strong> has been published, formalizing the architecture philosophy of <strong>Tequila Framework (TeqFW)</strong>. It describes key design principles: modularity, structure, and flexibility as the foundation of a manageable architecture.</p>
+
+    <p>The document emphasizes the concept of a <em>modular monolith</em>, enabling scalable applications without the excessive complexity of microservices. TeqFW focuses on transparent structure, strict dependency management, and predictable architectural decisions.</p>
+
+    <p>A unique feature of this release is its LLM-friendly format: clear structure, templating, and minimal nesting make it ideal for AI-assisted code analysis and generation.</p>
+
+    <p><a href="/doc/20250212-teqfw-philosophy/">Read full document</a></p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2025/20250212-02-teqfw-philosophy.html"></a>
+        <img src="/img/brand/doc.svg" alt="Tequila Framework philosophy"/>
+        <div>
+            <h4>Tequila Framework philosophy</h4>
+            <p>
+                Published a structured document describing TeqFW architectural principles and approach to
+                modular monolith.
+            </p>
+            <time datetime="2025-02-12">February 12, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

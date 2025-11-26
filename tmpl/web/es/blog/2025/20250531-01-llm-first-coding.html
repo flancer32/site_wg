@@ -1,0 +1,51 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}LLM-first: desarrollo en pareja sin vibe-coding{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>LLM-first: desarrollo en pareja sin vibe-coding</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2025-05-31
+    </span>
+
+    <zoom-img
+            src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/ffc/364/c6f/ffc364c6f480bcd8b2c2972383eb23a0.png"
+            alt="Publicación en Habr"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>En la plataforma <a href="https://habr.com/" target="_blank">Habr</a> se ha publicado el artículo
+        <a href="https://habr.com/ru/articles/914324/" target="_blank"><strong>«LLM-first: desarrollo en pareja sin
+            vibe-coding»</strong></a>. Es un resumen de mi experiencia creando
+        un CMS multilingüe con ChatGPT y DeepSeek API, desde la estructura arquitectónica hasta pruebas unitarias y JSDoc.</p>
+
+    <p>He detallado cómo uso LLM como compañero de diseño: documento objetivos y estructura en Markdown,
+        organizo DI mediante <code>@teqfw/di</code>, realizo generación y pruebas de código aisladas.</p>
+
+    <p>La conclusión principal: LLM-first no es un juego de prompts, sino un enfoque estructurado de desarrollo donde
+        el Humano y el Modelo interactúan en igualdad de condiciones, a través de arquitectura y texto.</p>
+
+    <p>El proyecto TeqCMS, del que trata el artículo, está disponible en <a href="https://cms.teqfw.com/" target="_blank">cms.teqfw.com</a>,
+        y su código en el repositorio <a href="https://github.com/flancer32/teq-cms-demo" target="_blank">teq-cms-demo</a>.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2025/20250531-01-llm-first-coding.html"></a>
+        <img src="/img/brand/habr.webp" alt="Publicación en Habr: LLM-first"/>
+        <div>
+            <h4>LLM-first: desarrollo sin vibecoding</h4>
+            <p>
+                Conté en Habr cómo construí un CMS con GPT y DeepSeek en 2 semanas, usando DI, Markdown y
+                JSDoc. LLM como coautor de la arquitectura.
+            </p>
+            <time datetime="2025-05-31">31 de mayo de 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

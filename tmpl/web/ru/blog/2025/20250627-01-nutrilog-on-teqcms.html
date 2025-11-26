@@ -1,0 +1,54 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}NutriLog переведён с Astro на TeqCMS{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>NutriLog переведён с Astro на TeqCMS</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2025-06-27
+    </span>
+
+    <zoom-img
+            src="/img/blog/2025/06/27-01.png"
+            alt="NutriLog переведён с Astro на TeqCMS"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>С 27 июня веб-сайт <a href="https://nutrilog.app.wiredgeese.com/" target="_blank">NutriLog</a> больше не
+        использует <a href="https://astro.build/" target="_blank">Astro</a>. Я полностью перевёл его на <a
+                href="https://cms.teqfw.com/en/" target="_blank">TeqCMS</a> — файловую CMS, реализованную в соответствии
+        с философией <strong>TeqFW</strong>.</p>
+
+    <p>Цель перехода — упростить управление сайтом и интегрировать автоматические переводы через API языковых моделей,
+        таких как <a href="https://www.deepseek.com/en" target="_blank">DeepSeek</a>. Теперь я могу создавать и
+        редактировать страницы локально, на своём ноутбуке, запускать перевод контента и публиковать результат через
+        GitHub. Контент в Git-репозитории автоматически передаётся на сервер с помощью GitHub Actions.</p>
+
+    <p>Вместо статической генерации (SSG) теперь используется <strong>серверная сборка страниц при запросе</strong>. Это
+        не подходит для сайтов с высокой нагрузкой, но даёт мне, как разработчику, максимальную гибкость и простоту.
+        Клиентской части у сайта нет — всё работает на серверной стороне, с генерацией через Mustache-шаблоны.</p>
+
+    <p>TeqCMS в этом проекте стал не просто движком генерации, а частью архитектурного эксперимента: как может выглядеть
+        управление контентом в условиях полной автоматизации локализации, SSR и контроля версий.</p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/ru/blog/2025/20250627-01-nutrilog-on-teqcms.html"></a>
+        <img alt="NutriLog переведён с Astro на TeqCMS" src="/img/blog/2025/06/27-01.png" />
+        <div>
+            <h4>NutriLog переведён с Astro на TeqCMS</h4>
+            <p>
+                Отказался от Astro в пользу TeqCMS с SSR и Mustache. Теперь перевожу страницы через DeepSeek и
+                выкладываю на
+                сервер через GitHub Actions.
+            </p>
+            <time datetime="2025-06-27">27 июня 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

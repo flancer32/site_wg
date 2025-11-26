@@ -1,0 +1,51 @@
+{% extends "inc/layout.html" %}
+{% block title %}Generación de una tarjeta de cliente en la aplicación Domotekhnika{% endblock %}
+{% block content %}
+<div class="card">
+    <h1>Generación de una tarjeta de cliente en la aplicación Domotekhnika</h1>
+
+    <span style="display: block; text-align: right;"><strong>Fecha de publicación:</strong> 2025-09-03</span>
+
+    <zoom-img
+            src="/img/blog/2025/09/03-01-client-card.png"
+            alt="Tarjeta de cliente en la aplicación Domotekhnika"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>
+        Hoy añadí la generación de la tarjeta de cliente a la aplicación de la tienda Domotekhnika en Riga. El diseño lo
+        hizo ChatGPT; también ayudó a elegir las bibliotecas para renderizar la imagen (<strong>canvas</strong>) y el
+        código de barras (<strong>bwip-js</strong>), además de sugerir el código JS.
+    </p>
+
+    <p>
+        El proyecto en sí ya está moralmente desfasado —aunque lo escribí hace apenas medio año, en primavera (todavía
+        usa plantillas mustache 👻).
+        Aun así, la actualización fue rápida: unas 2 horas y 40 minutos junto con las traducciones a tres idiomas mediante IA.
+        El despliegue se hizo a través de GitHub Actions.
+    </p>
+
+    <p>
+        Además, se fue aproximadamente una hora en el diseño con el logotipo. La parte visual siempre lleva más tiempo
+        que programar.
+        Ahora la aplicación tiene una tarjeta completa con nombre, ID, código de barras y marca corporativa.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2025/20250903-01-client-card.html"></a>
+        <img src="/img/blog/2025/09/03-01-client-card.png" alt="Tarjeta de cliente en la aplicación Domotekhnika"/>
+        <div>
+            <h4>Generación de una tarjeta de cliente</h4>
+            <p>
+                Añadí la generación de la tarjeta de cliente a la aplicación de la tienda Domotekhnika con nombre, ID, código de barras y logotipo.
+                El trabajo tomó alrededor de tres horas y media con las traducciones y el diseño.
+            </p>
+            <time datetime="2025-09-03">3 de septiembre de 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

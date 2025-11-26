@@ -1,0 +1,47 @@
+{% extends "inc/layout.html" %} {% block title %}Habr post: A/BDSM and polls{% endblock %}
+{% block content %}
+<div class="card">
+    <h1>Habr post: A/BDSM and polls</h1>
+
+    <span style="display: block; text-align: right;"> <strong>Published:</strong> 2025-09-05 </span>
+
+    <zoom-img
+            src="/img/blog/2025/09/05-01-abdsm.jpg"
+            alt="Habr post: A/BDSM"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>
+        <a href="https://habr.com/ru/articles/944134/">A note</a> with an openly provocative title came out — I played on the theme of controlling bots under the guise
+        of "BDSM" and immediately wrote in the teaser that the goal was a survey. In the text I explained the idea of
+        <strong>BDMS/ADSM</strong> and set up a small A/B test of the title through voting.
+    </p>
+
+    <p>
+        It turned into a light, mischievous experiment: three downvotes for the article and one downvote to karma — a
+        modest result for such a stunt. The reads were few: half as many as about AI and almost ten times fewer than the
+        technical notes on JavaScript.
+    </p>
+
+    <p>
+        Ten people took part in each poll. For the "own" instruction, six chose ADSM and four — BDSM. For the "foreign"
+        instruction the ratio was seven to three in favor of ADSM. A small but telling statistic.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2025/20250905-01-abdsm-habr.html"></a>
+        <img src="/img/blog/2025/09/05-01-abdsm.jpg" alt="Habr post: A/BDSM"/>
+        <div>
+            <h4>Habr post: A/BDSM and polls</h4>
+            <p>
+                <a href="https://habr.com/ru/articles/944134/">A cheeky post</a> with a clickbait title about A/BDSM. In the polls, ten people chose ADSM over BDSM in both wording options. The downvotes were softer than expected.
+            </p>
+            <time datetime="2025-09-05">September 5, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

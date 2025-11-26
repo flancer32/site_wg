@@ -1,5 +1,4 @@
 const YEAR_DIRECTORY_PATTERN = /^\d{4}$/;
-const MONTH_DIRECTORY_PATTERN = /^\d{2}$/;
 const BLOG_ITEM_BLOCK_PATTERN = /{% block blog_item %}([\s\S]*?){% endblock %}/i;
 const HTML_EXTENSION_PATTERN = /\.html$/i;
 
@@ -39,36 +38,24 @@ export default class App_Back_Web_Cms_Handler_Blog {
         const entries = [];
         for (const year of years) {
             const yearPath = this.path.join(blogRoot, year);
-            const months = await this.listMonthDirectories(yearPath);
             entries.push(
-                ...await this.collectEntriesFromMonths(locale, year, yearPath, months)
+                ...await this.collectEntriesFromYear(locale, year, yearPath)
             );
         }
         return entries;
     }
 
-    async collectEntriesFromMonths(locale, year, yearPath, months) {
+    async collectEntriesFromYear(locale, year, yearPath) {
         const entries = [];
-        for (const month of months) {
-            const monthPath = this.path.join(yearPath, month);
-            entries.push(
-                ...await this.collectEntriesFromMonth(locale, year, month, monthPath)
-            );
-        }
-        return entries;
-    }
-
-    async collectEntriesFromMonth(locale, year, month, monthPath) {
-        const entries = [];
-        const files = await this.listHtmlFiles(monthPath);
+        const files = await this.listHtmlFiles(yearPath);
         for (const fileName of files) {
-            const html = await this.extractBlogItemHtml(monthPath, fileName);
+            const html = await this.extractBlogItemHtml(yearPath, fileName);
             if (!html) {
                 continue;
             }
             entries.push({
                 slug: this.createSlug(fileName),
-                url: this.createUrl(locale, year, month, fileName),
+                url: this.createUrl(locale, year, fileName),
                 html,
             });
         }
@@ -77,10 +64,6 @@ export default class App_Back_Web_Cms_Handler_Blog {
 
     async listYearDirectories(target) {
         return this.listDirectoryNames(target, YEAR_DIRECTORY_PATTERN);
-    }
-
-    async listMonthDirectories(target) {
-        return this.listDirectoryNames(target, MONTH_DIRECTORY_PATTERN);
     }
 
     async listDirectoryNames(target, pattern) {
@@ -110,7 +93,7 @@ export default class App_Back_Web_Cms_Handler_Blog {
         return fileName.replace(HTML_EXTENSION_PATTERN, '');
     }
 
-    createUrl(locale, year, month, fileName) {
-        return this.path.posix.join('/', locale, 'blog', year, month, fileName);
+    createUrl(locale, year, fileName) {
+        return this.path.posix.join('/', locale, 'blog', year, fileName);
     }
 }

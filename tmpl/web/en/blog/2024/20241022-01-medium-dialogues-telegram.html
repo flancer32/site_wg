@@ -1,0 +1,51 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}New article: Dialogues in Telegram bots with Node.js{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>New article: Dialogues in Telegram bots with Node.js</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2024-10-22
+    </span>
+
+    <zoom-img
+            src="/img/blog/2024/10/22-01.png"
+            alt="Dialogues in Telegram bots with Node.js"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Published a new article on <a href="https://medium.com/link-to-your-article" target="_blank">Medium</a> and <a
+            href="https://habr.com/ru/link-to-your-article" target="_blank">Habr</a> — this time about creating
+        interactive dialogues in Telegram bots using Node.js with the <a
+                href="https://grammy.dev/" target="_blank">grammY</a> framework.</p>
+
+    <p>In the article, I explain in detail how to handle user input, manage dialogue state,
+        implement branching, loops, and avoid side effects in bot logic.</p>
+
+    <p>You can see how it works in the demo bot:
+        <a href="https://t.me/f64_demo_conversation_bot" target="_blank">@f64_demo_conversation_bot</a>
+    </p>
+
+    <p>The article also includes a repository with full source code:
+        <a href="https://github.com/flancer64/tg-demo-conversation" target="_blank">@flancer64/tg-demo-conversation</a>
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2024/20241022-01-medium-dialogues-telegram.html"></a>
+        <img src="/img/blog/2024/10/22-01.png" alt="Article about dialogues in Telegram bots"/>
+        <div>
+            <h4>Article about dialogues in Telegram bots</h4>
+            <p>
+                Sharing how to build interactive dialogues in Telegram bots using Node.js and grammY.
+            </p>
+            <time datetime="2024-10-22">October 22, 2024</time>
+        </div>
+    </li>
+{% endblock %}
+

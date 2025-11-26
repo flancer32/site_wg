@@ -1,0 +1,44 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Habr Article Removal: AGI and the Boundaries of AI Content{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Habr Article Removal: AGI and the Boundaries of AI Content</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2025-01-07
+    </span>
+
+    <zoom-img
+            src="/img/blog/2025/01/07-01.webp"
+            alt="Habr"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>On January 7th, I published an article titled <strong><a href="/{{ locale }}/library/philosophy/20250107-ai-resources-levels.html">"How AGI Will Make the Smart Richer and Everyone Else Poorer"</a></strong> on the <a href="https://habr.com/" target="_blank">Habr</a> platform. A few hours later, it was removed due to their policy prohibiting AI-generated content — even when the material is based on original ideas and merely edited with AI assistance.</p>
+
+    <p>Three weeks later, on January 30th, <a href="https://habr.com/ru/articles/877844/" target="_blank">another article</a> appeared on the same platform with a postscript: <em>"P.S.: The text was entirely written by ChatGPT, but it's so good I couldn't resist sharing"</em>. This one remained published.</p>
+
+    <p>This suggests a cautious conclusion that the platform's stance on AI content has become more flexible. Or at least, the boundaries of what's acceptable have begun to shift.</p>
+
+    <p>For me personally, this confirms an important trend: the lines between human-authored and machine-generated content are increasingly blurred. And if you're working at the cutting edge, encountering limitations is part of the journey. Sometimes you're just moving slightly ahead of where everyone else will eventually arrive.</p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2025/20250107-01-habr-removed-agi-post.html"></a>
+        <img src="/img/blog/2025/01/07-01.webp" alt="Article removed from Habr"/>
+        <div>
+            <h4>Article removed from Habr</h4>
+            <p>
+                Habr removed my article about AGI impact due to policy against AI content, despite author's
+                contribution.
+            </p>
+            <time datetime="2025-01-07">January 7, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

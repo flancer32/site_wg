@@ -1,0 +1,133 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}ADSM: directorios de nivel superior{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>ADSM: directorios de nivel superior</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2025-11-22
+    </span>
+
+    <h2>La naturaleza lingüística de los agentes</h2>
+    <p>Los agentes más populares utilizados hoy para crear aplicaciones de software se basan en Grandes Modelos de
+        Lenguaje (LLM). Lo principal que hace a un agente "<em>inteligente</em>" es preparar una solicitud para el LLM (un
+        prompt) y luego analizar el resultado de esa solicitud y registrarlo como un nuevo archivo de texto (por ejemplo,
+        con código fuente) o como cambios a uno existente.</p>
+    <p>Por el momento puedo formular cuatro afirmaciones que llamo las "<em>4 axiomas de ADSM</em>":</p>
+    <ol>
+        <li>Por su naturaleza, un modelo de lenguaje puede servir como una herramienta para transformar conocimiento en
+            código <em>sin necesidad de comprenderlo</em>.</li>
+        <li>Toda la interacción con el modelo ocurre únicamente a través de texto.</li>
+        <li>El modelo solo trabaja con textos que son estadísticamente significativos para él.</li>
+        <li>El modelo realiza la inferencia dentro de un contexto finito donde la densidad de las conexiones estadísticas
+            disminuye a medida que crece el volumen.</li>
+    </ol>
+    <p>Mi enfoque para estructurar los archivos del proyecto está impulsado precisamente por estos axiomas. Ya he <a
+            href="https://habr.com/ru/articles/948282/">señalado</a> que una persona y un agente interactúan de manera
+        iterativa a través de un conjunto jerárquicamente estructurado de textos. En esta publicación describiré la
+        estructura de directorios de nivel superior que utilizo actualmente en mis proyectos con agentes LLM.</p>
+
+    <h2>Código y documentos</h2>
+    <p>Inicialmente, dividí todos los archivos en dos repositorios de GitHub:</p>
+    <ul>
+        <li><strong>documentos del proyecto</strong>: el contexto cognitivo en el que trabajan juntos una persona y un
+            agente LLM.</li>
+        <li><strong>código de la aplicación (fuentes)</strong>: el resultado final de su interacción.</li>
+    </ul>
+    <p>Para permitir que el agente actuara en ambos espacios, dos repositorios separados se unieron en una sola estructura
+        de archivos al configurar la versión en la nube del agente Codex. Al iniciar el agente Codex, monté el
+        repositorio con los documentos en el directorio <code>./ctx</code> del repositorio base (con el código fuente), y
+        para el agente era una única estructura de archivos, aunque en realidad estuviera repartida en diferentes
+        repositorios. Al mismo tiempo, el agente podía hacer commits solo en el repositorio base. Los documentos del
+        proyecto se usaban en modo de solo lectura.</p>
+    <p>En esta experiencia entendí que la documentación de un mismo producto puede montarse en diferentes bases de código
+        en distintos lenguajes de programación. El mismo producto puede publicarse como varias aplicaciones escritas para
+        distintas plataformas.</p>
+    <p>Está claro que el lenguaje de programación elegido para la implementación impone sus propios requisitos a la
+        estructura de archivos del repositorio con el código fuente. Un proyecto en Python será diferente de un proyecto
+        en Node.js, pero en ambos casos se puede montar un directorio <code>./ctx/</code> en el repositorio con el código
+        fuente y colocar allí los documentos del contexto cognitivo. O incluso se puede prescindir del montaje y crear
+        directamente el directorio <code>./ctx/</code> en el repositorio de código fuente si el proyecto no es demasiado
+        grande. En ese caso aparece un bono: el agente también puede modificar la documentación si es necesario.</p>
+
+    <h2>Producto y aplicación</h2>
+    <p>De esta comprensión surgió la idea de que toda la documentación del directorio <code>./ctx/</code> puede dividirse en
+        dos partes desiguales:</p>
+    <ul>
+        <li><strong>descripción de negocio del producto</strong>: un pequeño corpus de documentos que describen la idea del
+            producto.</li>
+        <li><strong>reglas para crear la aplicación correspondiente</strong>: un corpus más amplio de documentos que
+            regulan las normas para crear el producto en el lenguaje o grupo de lenguajes elegido.</li>
+    </ul>
+    <pre><code>./ctx/
+    product/
+    rules/
+    </code></pre>
+    <p>Los documentos del directorio <code>product/</code> establecen el esqueleto de la futura aplicación. Regulan
+        <strong>qué</strong> debe hacer la aplicación, pero no dicen <em>cómo</em>. En esencia, estos documentos forman el
+        campo de acción para el agente y dirigen su atención a los puntos críticos para el negocio. Es una exposición de
+        proposiciones estadísticamente únicas. Por regla general, cada idea de negocio busca diferenciarse de las
+        competidoras, y estos documentos contienen proposiciones que probablemente no formaban parte del conjunto de
+        entrenamiento del modelo en el que se basa el agente.</p>
+    <p>Los documentos del directorio <code>rules/</code> son la parte más importante para que el agente genere o modifique
+        código. Regulan las acciones del agente al nivel necesario para escribir código fuente. Debido a la naturaleza
+        estadística de los LLM, cuanto más "promedio" estén formulados estos documentos, cuanto más se acerquen al
+        "promedio" del conjunto de entrenamiento, menos texto necesita el agente para generar código fuente funcional
+        siguiendo estas reglas.</p>
+    <p>En mi proyecto de demostración construí una aplicación web usando mi propio contenedor de objetos con inyección de
+        dependencias en el constructor, lo que requirió varios documentos separados en <code>./rules/</code> que regulaban
+        la creación de nuevos módulos ES6 que pudieran ser utilizados por mi contenedor.</p>
+
+    <h2>Comunicación humana con el agente</h2>
+    <pre><code>./ctx/
+    agent/
+    </code></pre>
+    <p>En términos generales, este directorio almacena información operativa que se vuelve de inmediato archivística. A
+        través de este directorio el agente informa a su supervisor (una persona) sobre las acciones que ha realizado
+        durante la iteración actual de trabajo sobre el código (ejecución de la tarea). Por regla general, la persona que
+        asigna la tarea al agente está en el contexto de la tarea en el momento de definirla, pero ese contexto se
+        disuelve y se olvida rápidamente (aproximadamente en dos semanas, según mi experiencia).</p>
+    <p>Si una persona trabaja en el proyecto en solitario, como en mi caso, la necesidad de estos informes no es
+        evidente: los agentes trabajan lo suficientemente rápido como para que yo no pierda el contexto de la tarea (menos
+        de una hora). Pero para el desarrollo en equipo o proyectos más largos, esos informes son útiles porque ayudan a
+        cualquier miembro del equipo "de carne y hueso" a restaurar el contexto de desarrollo cuando se pierde. Estos
+        informes también resultan bastante útiles cuando el agente ejecuta comandos de forma incorrecta: analizarlos
+        ayuda a descubrir por qué el agente entendió mal la tarea.</p>
+    <p>Inicialmente, cuando separé los documentos del contexto y el código fuente en diferentes repositorios, este
+        directorio no formaba parte del contexto cognitivo porque debía estar en el repositorio base para poder hacer
+        commits en la versión en la nube del agente Codex. En caso de ejecutar la versión CLI del agente o si tanto las
+        fuentes como el contexto cognitivo se encuentran en el mismo repositorio, el directorio <code>./agent/</code> puede
+        mantenerse dentro del contexto cognitivo (<code>./ctx</code>).</p>
+
+    <h2>Resumen</h2>
+    Dado que la esencia de cualquier agente —no solo de Codex— es preparar un prompt para un LLM y transformar el
+    resultado de la inferencia, los archivos de un proyecto deben estructurarse de modo que tengan en cuenta la naturaleza
+    de los LLM. En mi caso, esto da lugar a la siguiente estructura de directorios de nivel superior:
+    <pre><code>./ctx/
+    agent/
+    product/
+    rules/
+    </code></pre>
+    <p>Esta estructura no es ningún tipo de estándar: simplemente refleja mi experiencia con el agente Codex. En líneas
+        generales, he reflexionado y plasmado mi práctica en esta publicación. La estructura de los subdirectorios en
+        niveles inferiores ya se está perfilando, pero todavía no estoy listo para fijarla. Puedes consultar la estructura
+        que describo en mi <a
+            href="https://github.com/flancer64/pwa-home-call/tree/milestone/20251122-adsm-top-level-dirs">proyecto de
+            demostración</a>.</p>
+
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2025/2025112201-adsm-top-level-dirs.html"></a>
+        <img alt="Logotipo de TeqFW" src="/img/brand/teqfw.webp" />
+        <div>
+            <h4>ADSM: directorios de nivel superior</h4>
+            <p>Describió cómo ./ctx/, ./product/, ./rules/ y ./agent/ forman la estructura superior para trabajar con agentes LLM.</p>
+            <time datetime="2025-11-22">22 de noviembre de 2025</time>
+        </div>
+    </li>
+{% endblock %}

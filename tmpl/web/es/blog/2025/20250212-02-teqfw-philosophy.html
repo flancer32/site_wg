@@ -1,0 +1,44 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Publicado el documento sobre la filosofía de Tequila Framework{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Publicado el documento sobre la filosofía de Tequila Framework</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2025-02-12
+    </span>
+
+    <zoom-img
+            src="/img/brand/doc.svg"
+            alt="Filosofía de Tequila Framework"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Se ha publicado un nuevo <strong>documento orientado a LLM</strong> que formaliza la filosofía de la arquitectura <strong>Tequila Framework (TeqFW)</strong>. En él se describen los principios clave de diseño: modularidad, estructuración y flexibilidad como base de una arquitectura gestionable.</p>
+
+    <p>El documento enfatiza el concepto de <em>monolito modular</em>, que permite construir aplicaciones escalables sin la complejidad excesiva de los microservicios. En TeqFW es importante una estructura transparente, una gestión estricta de dependencias y la predictibilidad de las decisiones arquitectónicas.</p>
+
+    <p>La particularidad de esta versión es su formato orientado a la interacción con LLM: estructura clara, uso de plantillas y mínima anidación lo hacen ideal para análisis y generación de código mediante IA.</p>
+
+    <p><a href="/doc/20250212-teqfw-philosophy/">Leer documento completo</a></p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2025/20250212-02-teqfw-philosophy.html"></a>
+        <img src="/img/brand/doc.svg" alt="Filosofía de Tequila Framework"/>
+        <div>
+            <h4>Filosofía de Tequila Framework</h4>
+            <p>
+                Se publicó un documento estructurado que describe los principios arquitectónicos de TeqFW y el enfoque hacia
+                el monolito modular.
+            </p>
+            <time datetime="2025-02-12">12 de febrero de 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

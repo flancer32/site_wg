@@ -1,0 +1,41 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Article: JS Code Generation with ChatGPT{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Article: JS Code Generation with ChatGPT</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2024-10-15
+    </span>
+
+    <zoom-img
+            src="/img/blog/2024/10/15-01.png"
+            alt="JS Code Generation with ChatGPT"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Published an article on <a href="https://habr.com/ru/articles/850846/" target="_blank">Habr</a> where I shared my experience in automating template code generation for JavaScript projects using ChatGPT.</p>
+
+    <p>Key findings: code should be well-structured, divided into separate blocks, and contain explanatory comments. This helps ChatGPT correctly understand the context and accurately reproduce repetitive patterns.</p>
+
+    <p>Functions should have clearly defined input parameters and expected output values. This approach speeds up development and improves the quality of automatically generated code.</p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2024/20241015-01-chatgpt-js-codegen.html"></a>
+        <img src="/img/blog/2024/10/15-01.png" alt="Article about code generation with ChatGPT"/>
+        <div>
+            <h4>Article about code generation with ChatGPT</h4>
+            <p>
+                Shared experience using ChatGPT for automatic template code generation in JS projects.
+            </p>
+            <time datetime="2024-10-15">October 15, 2024</time>
+        </div>
+    </li>
+{% endblock %}
+

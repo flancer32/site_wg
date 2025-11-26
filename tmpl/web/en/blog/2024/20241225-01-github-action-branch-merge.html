@@ -1,0 +1,46 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}New Project: GitHub Action for Branch Merging with File Exclusions{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>New Project: GitHub Action for Branch Merging with File Exclusions</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2024-12-25
+    </span>
+
+    <zoom-img
+            src="/img/blog/2024/12/25-01.png"
+            alt="GitHub Action: branch merging with exclusions"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>I've completed a project creating a <strong>GitHub Action</strong> that automatically merges one branch into another while excluding specific files. The updated branch is then pushed back to the repository.</p>
+
+    <p>During implementation, I discovered that a <em>Personal Access Token (PAT)</em> alone isn't sufficient for safely pushing changes — configuring <strong>SSH authentication</strong> was required for reliable repository interaction.</p>
+
+    <p>This project provided excellent hands-on experience. If you need to set up CI/CD with GitHub Actions, I invite you to check out my
+        <a href="https://www.fiverr.com/wiredgeese/set-up-ci-cd-with-github-actions-for-deployment-on-virtual-server"
+           target="_blank">Fiverr Gig</a>.</p>
+
+    <p>Happy coding!</p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2024/20241225-01-github-action-branch-merge.html"></a>
+        <img src="/img/blog/2024/12/25-01.png" alt="GitHub Action with file exclusion"/>
+        <div>
+            <h4>GitHub Action with file exclusion</h4>
+            <p>
+                Developed GitHub Action for branch merging with file exclusion and configured SSH authentication
+                for secure push.
+            </p>
+            <time datetime="2024-12-25">December 25, 2024</time>
+        </div>
+    </li>
+{% endblock %}
+

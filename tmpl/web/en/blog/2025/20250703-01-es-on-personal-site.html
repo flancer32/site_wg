@@ -1,0 +1,51 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Spanish version of the site: AI translation for $0.05{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Spanish version of the site: AI translation for $0.05</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2025-07-03
+    </span>
+
+    <zoom-img
+            src="/img/blog/2025/07/03-01-deepseek-report.png"
+            alt="DeepSeek API usage chart"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>The site <strong>has been translated into Spanish</strong> using the <a href="https://deepseek.com/"
+                                                                                target="_blank">DeepSeek</a> platform and
+        capabilities of <a href="https://cms.teqfw.com/" target="_blank">TeqCMS</a>.</p>
+
+    <p>It required <strong>42 requests</strong> and <strong>~87,000 tokens</strong> — costing <strong>only
+        $0.05</strong>. The translation was performed automatically based on the original Russian-language files.</p>
+
+    <p>Thus, TeqCMS has demonstrated its key feature — <strong>AI localization</strong> of content with
+        minimal costs and full control via Git.</p>
+
+    <p>All pages, including <code>/about.html</code>, <code>/projects.html</code> and <code>/blog/</code>, are now
+        available in <a href="/es/" target="_blank">Spanish</a>. The language can be switched via UI.</p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2025/20250703-01-es-on-personal-site.html"></a>
+        <img src="/img/blog/2025/07/03-01-deepseek-report.png"
+                             alt="Spanish version of the site: AI translation for $0.05"/>
+        <div>
+            <h4>Spanish version of the site: AI translation for $0.05</h4>
+            <p>
+                Added a third language - Spanish. Automatic translation of all pages from Russian took 42
+                requests and cost $0.05.
+                Demonstration of AI localization based on TeqCMS and DeepSeek API.
+            </p>
+            <time datetime="2025-07-03">July 3, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

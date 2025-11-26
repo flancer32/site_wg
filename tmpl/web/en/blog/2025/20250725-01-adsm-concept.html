@@ -1,0 +1,49 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}ADSM — concept of managing a site through an agent{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>ADSM — concept of managing a site through an agent</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2025-07-25
+    </span>
+
+    <zoom-img
+            src="/img/blog/2025/07/25-01-adsm-concept.png"
+            alt="ADSM — managing a site through an agent"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Gradually, my experiments with the site have shaped a direction that has received a name —
+        <strong>ADSM (Agent Driven Site Management)</strong>. It is a concept of managing a site through an agent:
+        instead of traditional admin panels and manual edits, I formulate instructions, and the agent updates pages,
+        synchronizes translations and commits changes to Git.</p>
+
+    <p>As a result, the site becomes more of a <em>dialog document</em> than a set of files and forms.
+        I describe a task in words, and the agent turns it into action — an updated page or a translation.</p>
+
+    <p>This direction is still experimental. But such attempts give birth to new approaches, and ADSM may turn out
+        to be a step toward a different model of web project management.</p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2025/20250725-01-adsm-concept.html"></a>
+        <img src="/img/blog/2025/07/25-01-adsm-concept.png"
+                             alt="ADSM — concept of managing a site through an agent"/>
+        <div>
+            <h4>ADSM — concept of managing a site through an agent</h4>
+            <p>
+                A new direction in my experiments has a name: ADSM.
+                It's the idea of managing a site via an agent, where changes are made through dialogue
+                and instructions instead of manual edits.
+            </p>
+            <time datetime="2025-07-25">July 25, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

@@ -1,0 +1,44 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Actualizada la filosofía de la plataforma TeqFW{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Actualizada la filosofía de la plataforma TeqFW</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2025-03-15
+    </span>
+
+    <zoom-img
+            src="/img/brand/habr.webp"
+            alt="Filosofía actualizada de TeqFW"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>En <a href="https://habr.com/ru/articles/891134/" target="_blank">Habr</a> se ha publicado la versión actualizada del documento <strong>«Filosofía de Tequila Framework (TeqFW)»</strong>. En este texto he aclarado y mejorado los conceptos de la arquitectura de la plataforma: monolito modular, uniformidad de la pila JavaScript y el enfoque hacia un desarrollo estable y gestionable.</p>
+
+    <p>Si sigues la evolución de la idea TeqFW, puedes comparar la <a href="/doc/20250212-teqfw-philosophy/"
+                                                                      target="_blank">versión anterior</a> con la <a
+            href="/doc/20250315-teqfw-philosophy/" target="_blank">edición actualizada</a>.</p>
+
+    <p>Bienvenidos al debate y a la implementación. Esta filosofía no es un manifiesto, sino una base práctica que puede usarse como punto de apoyo para crear sistemas en JavaScript sin complejidad innecesaria.</p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2025/20250315-01-teqfw-philosophy-update.html"></a>
+        <img src="/img/brand/habr.webp" alt="Filosofía actualizada de TeqFW"/>
+        <div>
+            <h4>Filosofía actualizada de TeqFW</h4>
+            <p>
+                Se publicó una nueva edición del documento sobre la filosofía de TeqFW, con énfasis en el monolito modular y
+                la pila única.
+            </p>
+            <time datetime="2025-03-15">15 de marzo de 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

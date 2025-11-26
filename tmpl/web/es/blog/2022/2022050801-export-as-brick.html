@@ -1,0 +1,40 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}ES6 `export` como bloque de construcción{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>ES6 <code>export</code> como bloque de construcción</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2022-05-08
+    </span>
+
+    <zoom-img
+            src="/img/post/2022050801.webp"
+            alt="Ilustración de la publicación"
+            style="max-width: 100%; float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>¿Qué es un bloque de construcción (<em>brick</em>) en las aplicaciones modernas de ES2015+? ¿Variable, función, clase,
+        módulo? Mi respuesta es <code>export</code>. Hoy organizaremos el código JavaScript en módulos ES6 y los conectaremos
+        mediante <code>import</code>:</p>
+
+    <pre><code class="language-js">import {export1, export2} from "module-name";</code></pre>
+
+    <p>Estoy convencido: JavaScript necesita espacios de nombres, como en los lenguajes "serios". Planeo continuar este tema en las próximas
+        publicaciones.</p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2022/2022050801-export-as-brick.html"></a>
+        <img alt="Ilustración de la publicación" src="/img/post/2022050801.webp" />
+        <div>
+            <h4>ES6 <code>export</code> como bloque de construcción</h4>
+            <p>Destacó que <code>export</code> es el bloque base de los módulos ES6 y anticipó más publicaciones sobre espacios de nombres.</p>
+            <time datetime="2022-05-08">8 de mayo de 2022</time>
+        </div>
+    </li>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Опубликован документ о философии Tequila Framework{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Опубликован документ о философии Tequila Framework</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2025-02-12
+    </span>
+
+    <zoom-img
+            src="/img/brand/doc.svg"
+            alt="Философия Tequila Framework"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>Опубликован новый <strong>LLM-ориентированный документ</strong>, формализующий философию архитектуры <strong>Tequila
+        Framework (TeqFW)</strong>. В нём описаны ключевые принципы проектирования: модульность, структурированность и
+        гибкость как основа управляемой архитектуры.</p>
+
+    <p>Документ акцентирует внимание на концепции <em>модульного монолита</em>, позволяющего строить масштабируемые
+        приложения без избыточной сложности микросервисов. В TeqFW важна прозрачная структура, строгое управление
+        зависимостями и предсказуемость архитектурных решений.</p>
+
+    <p>Особенность этого релиза — формат, ориентированный на взаимодействие с LLM: чёткая структура, шаблонность и
+        минимум вложенности делают его удобным для анализа и генерации кода с помощью ИИ.</p>
+
+    <p><a href="/doc/20250212-teqfw-philosophy/">Читать полный документ</a></p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/ru/blog/2025/20250212-02-teqfw-philosophy.html"></a>
+        <img alt="Философия Tequila Framework" src="/img/brand/doc.svg" />
+        <div>
+            <h4>Философия Tequila Framework</h4>
+            <p>
+                Опубликован структурированный документ, описывающий архитектурные принципы TeqFW и подход к
+                модульному
+                монолиту.
+            </p>
+            <time datetime="2025-02-12">12 февраля 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

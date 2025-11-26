@@ -1,0 +1,43 @@
+{% extends "inc/layout.html" %} {% block title %}First version of @teqfw/di{% endblock %} {% block content %}
+<div class="card">
+    <h1>First version of @teqfw/di</h1>
+
+    <span style="display: block; text-align: right;"> <strong>Publication date:</strong> 2025-08-21 </span>
+
+    <zoom-img
+            src="/img/brand/teqfw.webp"
+            alt="The @teqfw/di library"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>
+        I made the first commit for <strong>@teqfw/di</strong> on August 18, 2019. Back then the idea was a loader for ES6 modules similar to <a href="https://requirejs.org/" target="_blank">requirejs</a> that works both in the browser and in Node.js. Over the years the library was rewritten several times and tested in various projects.
+    </p>
+
+    <p>
+        After an article on <a href="https://habr.com/ru/articles/887646/" target="_blank">Habr</a> I realized that for broad use the ability to obtain the container itself as a dependency should not exist. It was convenient for a trusted team but too risky for open projects. Yesterday I removed this option and released the first version —
+        <a href="https://www.npmjs.com/package/@teqfw/di/v/1.0.1" target="_blank">1.0.1 on npm</a>.
+    </p>
+
+    <p>
+        The other platform plugins still rely on the old container and are incompatible with the new version. They will have to be rewritten. But the main thing is that the platform's core library has finally grown out of its "infancy", and I am pleased with this step.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2025/20250821-02-teqfw-di-release.html"></a>
+        <img src="/img/brand/teqfw.webp"
+                             alt="First version of @teqfw/di"/>
+        <div>
+            <h4>First version of @teqfw/di</h4>
+            <p>
+                Six years after the first commit, the @teqfw/di library reached its first release. Published on npm.
+            </p>
+            <time datetime="2025-08-22">August 21, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

@@ -1,0 +1,45 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}AGENTS.md as an entry point{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>AGENTS.md as an entry point</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2025-08-21
+    </span>
+
+    <zoom-img
+            src="/img/avatar.jpg"
+            alt="AGENTS.md as an entry point"
+            width="100px"
+            style="float: left; margin: 15px 15px 0 0;"
+    ></zoom-img>
+
+    <p>I spent a long time thinking about which file should be the entry point for agents in my projects. I settled on <strong>AGENTS.md</strong>.
+        It turned out to be not just a convenient name, but an established format supported by many tools and used in thousands of repositories.</p>
+
+    <p>Essentially, it's a README for agents: a dedicated place for recording commands, rules, and specifications. This approach eases documentation for people and gives agents a predictable foundation.
+        In ADSM, this is especially important—the context can be carried over from project to project and remain clear.</p>
+
+    <p>More details at <a href="https://agents.md/" target="_blank">agents.md</a>.</p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2025/20250821-01-agents-entry.html"></a>
+        <img src="/img/avatar.jpg"
+                             alt="AGENTS.md as an entry point"/>
+        <div>
+            <h4>AGENTS.md as an entry point</h4>
+            <p>
+                Choosing AGENTS.md as a single entry file for agents proved successful.
+                It's an established format, handy for capturing rules and transferring context between projects.
+            </p>
+            <time datetime="2025-08-21">August 21, 2025</time>
+        </div>
+    </li>
+{% endblock %}
+

@@ -231,7 +231,16 @@ export default class App_Back_Web_Cms_Handler_Redirect {
                 return;
             }
 
-            req.url = buildUrlWithQuery(destination, query);
+            const finalUrl = buildUrlWithQuery(destination, query);
+            loggerRef?.info?.(
+                'Redirect applied:',
+                normalizedCleanPath,
+                '→',
+                destination,
+                query ? `(query: ${query})` : '(no query)',
+                resolved?.locale ? `(locale: ${resolved.locale})` : '(no locale)'
+            );
+            req.url = finalUrl;
         };
 
         self.applyRedirect = async function ({req, routeInfo}) {
