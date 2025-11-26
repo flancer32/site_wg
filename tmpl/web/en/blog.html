@@ -2,6 +2,10 @@
 
 {% block title %}Events and Publications{% endblock %}
 
+{% block html_head_extra %}
+<link rel="stylesheet" href="/styles/blog.css">
+{% endblock %}
+
 {% block content %}
 <h1>Events and Publications</h1>
 
@@ -14,133 +18,4 @@
 
     </ul>
 </div>
-{% endblock %}
-
-{% block style %}
-<style>
-    .blog-container {
-        margin: 20px auto;
-        max-width: 800px;
-    }
-
-    .blog-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .blog-item {
-        position: relative;
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 2rem;
-        padding: .5rem 0;
-        transition: background-color .2s ease, box-shadow .2s ease;
-    }
-
-    .blog-item:hover {
-        background-color: #f5f5f5;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    }
-
-    /* подложка внизу */
-    .blog-item .card-link {
-        display: block;
-        position: absolute;
-        inset: 0;
-        z-index: 10;
-        background: transparent; /* важно */
-        pointer-events: auto;    /* важно */
-    }
-
-    /* контент выше подложки */
-    .blog-item img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 10%;
-        flex-shrink: 0;
-        position: relative;
-        z-index: 20;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    }
-
-    .blog-item .content,
-    .blog-item div {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        z-index: 20;
-    }
-
-    .blog-item h4 {
-        margin: 0 0 .5rem 0;
-        font-size: 1.2rem;
-        color: #007b5e;
-    }
-
-    .blog-item p {
-        margin: 0 0 .5rem 0;
-        color: #333;
-        line-height: 1.4;
-    }
-
-    /* внутренние ссылки выше всего */
-    .blog-item p a {
-        color: #007b5e;
-        text-decoration: underline;
-        position: relative;
-        z-index: 40;
-        pointer-events: auto;
-        /* критично */
-    }
-
-    .blog-item time {
-        align-self: flex-end;
-        color: #666;
-        font-size: .9rem;
-        margin-top: .25rem;
-        position: relative;
-        z-index: 20;
-    }
-
-    /* мобильная версия */
-    @media (max-width: 600px) {
-
-        .blog-item {
-            display: block !important;
-            overflow: hidden;
-            position: relative;
-            padding: .5rem 0;
-        }
-
-        .blog-item img {
-            float: left;
-            width: 70px;
-            height: 70px;
-            margin-right: 1rem;
-            margin-bottom: .5rem;
-        }
-
-        .blog-item div {
-            display: block !important;
-            position: relative;
-            z-index: 20;
-        }
-
-        .blog-item time {
-            display: block;
-            margin-top: .5rem;
-            text-align: right;
-        }
-
-        /* подложка остаётся внизу */
-        .blog-item .card-link {
-            position: absolute;
-            inset: 0;
-            z-index: 10;
-        }
-    }
-</style>
 {% endblock %}
