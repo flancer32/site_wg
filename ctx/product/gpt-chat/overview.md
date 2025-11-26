@@ -1,5 +1,7 @@
 # Продукт: GPT Chat Customization & Integration
 
+Path: `ctx/product/gpt-chat/overview.md`
+
 ## Слоган
 
 > **Ваш голос — доходит до клиента: ясно, одинаково, везде.**

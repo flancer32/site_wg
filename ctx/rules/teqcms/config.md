@@ -1,6 +1,6 @@
 # Конфигурирование TeqCMS в проекте
 
-Path: `./ctx/rules/teqcms/config.md`
+Path: `ctx/rules/teqcms/config.md`
 
 ## Правило
 

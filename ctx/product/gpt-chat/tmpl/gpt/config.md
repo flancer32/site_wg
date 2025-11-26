@@ -1,5 +1,7 @@
 # Custom GPT — Configuration Template
 
+Path: `ctx/product/gpt-chat/tmpl/gpt/config.md`
+
 - **name:** [Chat name here]
 - **version:** 0.1.0 <!-- use SemVer format -->
 - **date:** YYYY-MM-DD <!-- date of this configuration -->

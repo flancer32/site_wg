@@ -4,113 +4,74 @@
  */
 export default class App_Back_Di_Replace_Adapter {
     /**
+     * @param {typeof import('node:fs/promises')} fs
+     * @param {typeof import('node:path')} path
      * @param {Fl32_Cms_Back_Di_Replace_Adapter} cmsAdapter
+     * @param {Fl32_Cms_Back_Helper_Web} helpWeb
+     * @param {Fl32_Cms_Back_Config} config
+     * @param {Fl32_Cms_Back_Logger} logger
+     * @param App_Back_Web_Cms_Handler_Blog} blogHandler
      */
     constructor(
         {
+            'node:fs/promises': fs,
+            'node:path': path,
             Fl32_Cms_Back_Di_Replace_Adapter$: cmsAdapter,
+            Fl32_Cms_Back_Helper_Web$: helpWeb,
+            Fl32_Cms_Back_Config$: config,
+            Fl32_Cms_Back_Logger$: logger,
+            App_Back_Web_Cms_Handler_Blog$: blogHandler,
         }
     ) {
         const self = this;
-        const cms = cmsAdapter;
+        const cmsAdapterRef = cmsAdapter;
+        const helpWebRef = helpWeb;
+        const configRef = config;
+        const loggerRef = logger;
+        const fsModule = fs;
+        const pathModule = path;
 
-        const normalizeHeaderValue = (value) => {
-            if (!value) {
-                return '';
-            }
-            const rawValue = Array.isArray(value) ? value[0] : value;
-            return String(rawValue).split(',')[0].trim();
+        const resolveRouting = (req) => {
+            const rawPath = decodeURIComponent(req?.url?.split('?')[0] || '');
+            const allowedLocales = configRef.getLocaleAllowed?.() || [];
+            const fallbackLocale = configRef.getLocaleBaseWeb?.() || '';
+            return helpWebRef.extractRoutingInfo({
+                path: rawPath,
+                allowedLocales,
+                fallbackLocale,
+            });
         };
 
-        const buildOrigin = (req) => {
-            const headers = req?.headers ?? {};
-            const forwardedHost = normalizeHeaderValue(headers['x-forwarded-host']);
-            const forwardedProto = normalizeHeaderValue(headers['x-forwarded-proto']);
-            const host = forwardedHost || headers.host;
-
-            if (!host) {
-                return '';
-            }
-
-            const trimmedHost = host.replace(/\/+$/, '');
-            const scheme = forwardedProto || (req?.socket?.encrypted ? 'https' : 'http');
-
-            return `${scheme}://${trimmedHost}`;
+        const isBlogIndexRoute = (cleanPath) => {
+            const normalized = (cleanPath || '').replace(/\/+$/, '');
+            return normalized === '/blog' || normalized === '/blog.html';
         };
 
-        const replaceOrigin = (url, origin) => {
-            if (!url || !origin) {
-                return url;
-            }
-            return url.replace(/^(?:https?:)?\/\/[^/]+/, origin);
-        };
-
-        const delegateCmsMethods = () => {
-            const overrides = new Set([
-                ...Object.getOwnPropertyNames(self.constructor.prototype),
-                ...Object.getOwnPropertySymbols(self.constructor.prototype),
-                'getRenderData',
-            ]);
-
-            const methods = new Set();
-            let current = cms;
-
-            while (current && current !== Object.prototype) {
-                const keys = [
-                    ...Object.getOwnPropertyNames(current),
-                    ...Object.getOwnPropertySymbols(current),
-                ];
-
-                for (const key of keys) {
-                    if (key === 'constructor' || overrides.has(key)) {
-                        continue;
-                    }
-
-                    const descriptor = Object.getOwnPropertyDescriptor(current, key);
-                    if (!descriptor || typeof descriptor.value !== 'function') {
-                        continue;
-                    }
-
-                    methods.add(key);
-                }
-
-                current = Object.getPrototypeOf(current);
-            }
-
-            for (const method of methods) {
-                if (Object.prototype.hasOwnProperty.call(self, method)) {
-                    continue;
-                }
-
-                self[method] = (...args) => cms[method](...args);
-            }
-        };
-
-        self.getRenderData = async function ({ req }) {
-            const renderData = await cms.getRenderData({ req });
+        self.getRenderData = async function ({req}) {
+            const renderData = await cmsAdapterRef.getRenderData({req});
             const data = renderData?.data;
-            const origin = buildOrigin(req);
-
-            if (!data || !origin) {
+            const routeInfo = resolveRouting(req);
+            if (!renderData || !data) {
                 return renderData;
             }
 
-            if (typeof data.canonicalUrl === 'string' && data.canonicalUrl) {
-                data.canonicalUrl = replaceOrigin(data.canonicalUrl, origin);
-            }
-
-            if (data.alternateUrls && typeof data.alternateUrls === 'object') {
-                for (const locale of Object.keys(data.alternateUrls)) {
-                    const url = data.alternateUrls[locale];
-                    if (typeof url === 'string' && url) {
-                        data.alternateUrls[locale] = replaceOrigin(url, origin);
+            if (routeInfo?.cleanPath && isBlogIndexRoute(routeInfo.cleanPath)) {
+                const targetLocale = routeInfo.locale || configRef.getLocaleBaseWeb();
+                let items = [];
+                try {
+                    items = await blogHandler.collectBlogIndex(targetLocale);
+                } catch (error) {
+                    if (error?.code !== 'ENOENT') {
+                        loggerRef?.error?.(error);
                     }
                 }
+                data.blogIndex = {
+                    items,
+                };
             }
 
             return renderData;
         };
 
-        delegateCmsMethods();
     }
 }
