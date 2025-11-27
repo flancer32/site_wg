@@ -1,0 +1,40 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}ADSM: каталоги верхнего уровня{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>ADSM: каталоги верхнего уровня</h1>
+    <time datetime="2025-11-22">22 ноября 2025</time>
+
+    <zoom-img src="/img/blog/2025/20251122-01-adsm-top-level-directories.png" alt="ADSM: каталоги верхнего уровня"
+        width="100px"></zoom-img>
+
+    <p>
+        Я разделяю проект на три слоя: product, rules и agent. Это избавляет модель от необходимости удерживать
+        разрозненные элементы контекста и делает генерацию предсказуемой. В product фиксируются цели и вектор продукта.
+        В rules задаются архитектурные нормы, позволяющие агенту работать устойчиво. В agent записывается ход итераций,
+        чтобы сохранялась наблюдаемость процесса. Такой каркас снижает нагрузку на модель и минимизирует ошибки,
+        возникающие из-за смешения смыслов. Полная статья написана на русском и доступна на Хабре.
+    </p>
+
+    <p>
+        <a href="https://habr.com/ru/articles/967452/" target="_blank">Читать оригинал на Хабре</a>
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/ru/blog/2025/20251122-01-adsm-top-level-directories.html"></a>
+    <img src="/img/blog/2025/20251122-01-adsm-top-level-directories.png" alt="ADSM: каталоги верхнего уровня" />
+    <div>
+        <h4>ADSM: каталоги верхнего уровня</h4>
+        <p>
+            Я показываю, как статья на <a href="https://habr.com/ru/articles/967452/" target="_blank">Хабре</a>
+            описывает трёхслойную структуру проекта и почему она повышает устойчивость работы с агентом.
+        </p>
+        <time datetime="2025-11-22">22 ноября 2025</time>
+    </div>
+</li>
+{% endblock %}
