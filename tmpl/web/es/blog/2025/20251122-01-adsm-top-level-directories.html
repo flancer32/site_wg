@@ -1,0 +1,65 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}ADSM: directorios de nivel superior{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>ADSM: directorios de nivel superior</h1>
+    <time datetime="2025-11-22">22 de noviembre de 2025</time>
+
+    <zoom-img src="/img/blog/2025/20251122-01-adsm-top-level-directories.png"
+        alt="ADSM: directorios de nivel superior" width="100px"></zoom-img>
+
+    <p style="text-align: center;">
+        <em>
+            La motivación del enfoque AFKP se explica en el artículo "<a href="https://habr.com/ru/articles/963910/">Cuando
+                el conocimiento es demasiado</a>". Este fragmento corresponde a la etapa 2 del AFKP (resonancia). En Habr
+            también se publicó <a href="https://habr.com/ru/articles/967452/">otra variante</a> de las dos primeras etapas
+            del AFKP: enganche y resonancia. Esta es una versión más compacta del texto para la etapa de resonancia.
+        </em>
+    </p>
+    <p>
+        En ADSM divido un proyecto en dos grandes áreas: código y documentación. El código depende del lenguaje de
+        programación elegido, y la documentación la divido a su vez en tres zonas:
+    </p>
+    <ul>
+        <li><strong>agent</strong> – zona para comunicarse con los agentes, donde se registran los informes y las plantillas
+            de prompt;</li>
+        <li><strong>product</strong> – descripción comercial del producto que establece el esqueleto de la aplicación futura
+            y define el campo de acción del agente;</li>
+        <li><strong>rules</strong> – un conjunto de reglamentos que describe cómo debe crearse el producto de software en el
+            lenguaje elegido.</li>
+    </ul>
+    <p>
+        Esta estructura de directorios refleja mi experiencia trabajando con agentes LLM y está diseñada para que la
+        documentación y el código coexistan como un único espacio que tiene en cuenta la naturaleza lingüística de los
+        modelos y sus limitaciones estadísticas. Ayuda a mantener el enfoque del agente y a guiar su trabajo dentro de los
+        límites necesarios.
+    </p>
+
+    <p style="text-align: center;">
+        <a href="/es/library/adsm/20251122-01-adsm-top-level-dirs.html">Leer el texto completo<em>(etapa 3 del AFKP –
+                inmersión)</em>.</a>
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/es/blog/2025/20251122-01-adsm-top-level-directories.html"></a>
+    <img src="/img/blog/2025/20251122-01-adsm-top-level-directories.png"
+        alt="ADSM: directorios de nivel superior" />
+    <div>
+        <h4>ADSM: directorios de nivel superior</h4>
+        <p>Mi enfoque personal para organizar la estructura básica de archivos de los proyectos en consonancia con la
+            metodología ADSM.</p>
+        <p style="text-align: center;">
+            <em>
+                Este es el primer artículo experimental redactado según el principio de aceptación previa del conocimiento
+                (AFKP). Este texto corresponde a la etapa 1 (enganche).
+            </em>
+        </p>
+        <time datetime="2025-11-22">22 de noviembre de 2025</time>
+    </div>
+</li>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}ADSM: top-level directories{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>ADSM: top-level directories</h1>
+    <time datetime="2025-11-22">22 November 2025</time>
+
+    <zoom-img src="/img/blog/2025/20251122-01-adsm-top-level-directories.png"
+        alt="ADSM: top-level directories" width="100px"></zoom-img>
+
+    <p style="text-align: center;">
+        <em>
+            The motivation for the AFKP approach is explained in the article "<a href="https://habr.com/ru/articles/963910/">When
+                Knowledge Is Too Much</a>". This excerpt corresponds to AFKP stage 2 (resonance). Habr also published
+            <a href="https://habr.com/ru/articles/967452/">another variant</a> of the first two AFKP stages – engagement and
+            resonance. This is a more compact version of the text for the resonance stage.
+        </em>
+    </p>
+    <p>
+        In ADSM I divide a project into two broad areas: code and documentation. The code depends on the chosen programming
+        language, and the documentation I further split into three zones:
+    </p>
+    <ul>
+        <li><strong>agent</strong> – a zone for communicating with agents, where reports and prompt templates are recorded;</li>
+        <li><strong>product</strong> – the business description of the product that sets the skeleton of the future
+            application and shapes the agent’s field of action;</li>
+        <li><strong>rules</strong> – a set of regulations that describe how the software product should be created on the
+            chosen language.</li>
+    </ul>
+    <p>
+        This directory structure reflects my experience working with LLM agents and is designed so that documentation and
+        code coexist as a single space that takes into account the linguistic nature of models and their statistical
+        limitations. It helps keep the agent focused and steer its work within the required boundaries.
+    </p>
+
+    <p style="text-align: center;">
+        <a href="/en/library/adsm/20251122-01-adsm-top-level-dirs.html">Read the full text<em>(AFKP stage 3 – immersion)</em>.</a>
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/en/blog/2025/20251122-01-adsm-top-level-directories.html"></a>
+    <img src="/img/blog/2025/20251122-01-adsm-top-level-directories.png" alt="ADSM: top-level directories" />
+    <div>
+        <h4>ADSM: top-level directories</h4>
+        <p>My personal approach to the baseline file structure of projects in accordance with the ADSM methodology.</p>
+        <p style="text-align: center;">
+            <em>
+                This is the first experimental article framed according to the Acceptance-First Knowledge Principle (AFKP).
+                This text corresponds to stage 1 (engagement).
+            </em>
+        </p>
+        <time datetime="2025-11-22">22 November 2025</time>
+    </div>
+</li>
+{% endblock %}
