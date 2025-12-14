@@ -1,0 +1,50 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}AGENTS.md в ADSM: практика и наблюдения{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>AGENTS.md в ADSM: практика и наблюдения</h1>
+    <time datetime="2025-12-14">14 декабря 2025</time>
+
+    <zoom-img src="/img/blog/2025/20251214-01-agents-files.png" alt="AGENTS.md в ADSM" width="100px"></zoom-img>
+
+    <p>
+        В процессе разработки проекта <strong>Svyazist</strong> я последовательно выстраивал
+        работу с LLM-агентом через файловую структуру и текстовые инструкции.
+        Одним из ключевых элементов этой практики стали файлы <code>AGENTS.md</code>.
+    </p>
+
+    <p>
+        Со временем стало понятно, что <code>AGENTS.md</code> работают не как набор команд,
+        а как механизм формирования контекста, в рамках которого агент принимает решения.
+        Их иерархия, размещение и структура начали оказывать заметное влияние
+        на устойчивость работы и повторяемость результатов.
+    </p>
+
+    <p>
+        В <a href="/ru/library/adsm/20251214-01-agents-files.html">этой публикации</a> я зафиксировал свой текущий опыт
+        использования AGENTS-файлов:
+        где они действительно помогают, какие ограничения имеют
+        и почему их роль в ADSM следует понимать как архитектурную,
+        а не управляющую напрямую.
+    </p>
+
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/ru/blog/2025/20251214-01-agents-files.html"></a>
+    <img src="/img/blog/2025/20251214-01-agents-files.png" alt="AGENTS.md в ADSM" />
+    <div>
+        <h4>AGENTS.md в ADSM</h4>
+        <p>
+            Личный опыт применения файлов AGENTS.md
+            при разработке проекта Svyazist
+            и их роль в методологии ADSM.
+        </p>
+        <time datetime="2025-12-14">14 декабря 2025</time>
+    </div>
+</li>
+{% endblock %}
