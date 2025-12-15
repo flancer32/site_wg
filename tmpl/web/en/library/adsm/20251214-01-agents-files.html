@@ -47,8 +47,10 @@
     <h2>The typical purpose of <code>AGENTS.md</code></h2>
 
     <p>
-        The <code>AGENTS.md</code> file is used as the standard place for instructions intended for agent tools.
-        It complements the <code>README.md</code> by moving the information that an agent needs into a separate document.
+        The <code>AGENTS.md</code> file is used as <a href="https://agents.md/">the standard place</a> for instructions
+        intended for agent tools.
+        It complements the <code>README.md</code> by moving the information that an agent needs into a separate
+        document.
     </p>
 
     <p>
@@ -88,7 +90,8 @@
 
     <p>
         Lower in the structure there are local <code>AGENTS.md</code> files. Their purpose depends on their position
-        in the file and conceptual structure. Such files clarify the rules that apply within a specific space and operate
+        in the file and conceptual structure. Such files clarify the rules that apply within a specific space and
+        operate
         only within their level boundaries.
     </p>
 
@@ -102,8 +105,10 @@
     <h2>Local <code>AGENTS.md</code></h2>
 
     <p>
-        Local <code>AGENTS.md</code> files are used to define rules and describe the structure of work at a specific level
-        of the project. That level can correspond to a portion of the cognitive context or a fragment of the source code.
+        Local <code>AGENTS.md</code> files are used to define rules and describe the structure of work at a specific
+        level
+        of the project. That level can correspond to a portion of the cognitive context or a fragment of the source
+        code.
     </p>
 
     <pre><code># &lt;Name of the documentation or code level&gt;
@@ -140,7 +145,8 @@ Path: `path/to/AGENTS.md`
     </p>
 
     <p>
-        Local files are placed only where it is necessary to explicitly fix rules of work and boundaries of responsibility.
+        Local files are placed only where it is necessary to explicitly fix rules of work and boundaries of
+        responsibility.
     </p>
 
     <hr />
@@ -153,7 +159,8 @@ Path: `path/to/AGENTS.md`
     </p>
 
     <p>
-        The root <code>AGENTS.md</code> sets up the basic project model, including the split between context and product,
+        The root <code>AGENTS.md</code> sets up the basic project model, including the split between context and
+        product,
         and fixes the order of interaction between them. It also defines the roles of the human and the agent,
         as well as how instructions should be taken into account throughout the project.
     </p>
@@ -173,7 +180,8 @@ Path: `path/to/AGENTS.md`
     </p>
 
     <p>
-        This file specifies a uniform way of working with agents and allows the same approach to be applied across projects.
+        This file specifies a uniform way of working with agents and allows the same approach to be applied across
+        projects.
     </p>
 
     <hr />
@@ -188,18 +196,21 @@ Path: `path/to/AGENTS.md`
 
     <p>
         In practice, this is evident, for example, in expectations about reporting. Even though the obligation to finish
-        an iteration with a report is fixed in the root file, the agent may forget to create such reports or do it irregularly.
+        an iteration with a report is fixed in the root file, the agent may forget to create such reports or do it
+        irregularly.
         This observation is important for properly understanding the role of <code>AGENTS.md</code> in the project.
     </p>
 
     <p>
-        At the same time, Codex truly scans the project filesystem and detects <code>AGENTS.md</code> files at different levels.
-        You can see this in its behavior and logs. Thus, the files are read by the agent, but they do not control it directly.
+        At the same time, Codex truly scans the project filesystem and detects <code>AGENTS.md</code> files at different
+        levels.
+        You can see this in its behavior and logs. Thus, the files are read by the agent, but they do not control it
+        directly.
     </p>
 
     <p style="text-align: center;">
-        <zoom-img src="/img/blog/2025/20251214-01-agents-files.png"
-            alt="Screenshot of Codex logs detecting AGENTS.md" width="100px"></zoom-img>
+        <zoom-img src="/img/blog/2025/20251214-01-agents-files.png" alt="Screenshot of Codex logs detecting AGENTS.md"
+            width="100px"></zoom-img>
     </p>
     <br />
     <hr />
@@ -212,13 +223,16 @@ Path: `path/to/AGENTS.md`
     </p>
 
     <p>
-        The agent independently collects its working context from the documents available to it. Which fragments it selects
-        and how it combines them is not known in advance. This imposes natural limits on how much agent behavior can be governed
+        The agent independently collects its working context from the documents available to it. Which fragments it
+        selects
+        and how it combines them is not known in advance. This imposes natural limits on how much agent behavior can be
+        governed
         through textual instructions.
     </p>
 
     <p>
-        In this sense, <code>AGENTS.md</code> do not directly define behavior, but they increase the probability that the agent
+        In this sense, <code>AGENTS.md</code> do not directly define behavior, but they increase the probability that
+        the agent
         will operate within the expected boundaries.
     </p>
 
@@ -228,7 +242,8 @@ Path: `path/to/AGENTS.md`
 
     <p>
         In my projects the root <code>AGENTS.md</code> acts as the agent&apos;s entry point into the project.
-        Its task is to give a general idea of the project structure, roles, and operating principles, not to describe details.
+        Its task is to give a general idea of the project structure, roles, and operating principles, not to describe
+        details.
     </p>
 
     <p>
@@ -238,7 +253,8 @@ Path: `path/to/AGENTS.md`
     </p>
 
     <p>
-        This approach allows the agent to orient itself in the project without being forced to handle excessive instructions at the start.
+        This approach allows the agent to orient itself in the project without being forced to handle excessive
+        instructions at the start.
     </p>
 
     <hr />
@@ -247,7 +263,8 @@ Path: `path/to/AGENTS.md`
 
     <p>
         When performing a specific task, the agent forms its own working context.
-        This context is assembled from the project documents and depends on the file structure, their volume, and internal cohesion.
+        This context is assembled from the project documents and depends on the file structure, their volume, and
+        internal cohesion.
     </p>
 
     <p>
@@ -267,7 +284,8 @@ Path: `path/to/AGENTS.md`
 
     <p>
         Experience shows that large monolithic documents increase the risk of contradictions in the task context.
-        When such a file is loaded in full, the agent has to work with a large volume of diverse meanings, which complicates
+        When such a file is loaded in full, the agent has to work with a large volume of diverse meanings, which
+        complicates
         forming an internally consistent context.
     </p>
 
@@ -277,7 +295,8 @@ Path: `path/to/AGENTS.md`
     </p>
 
     <p>
-        In that case, the agent can more easily compose the working context from consistent blocks rather than from fragmented parts of one big text.
+        In that case, the agent can more easily compose the working context from consistent blocks rather than from
+        fragmented parts of one big text.
     </p>
 
     <hr />
@@ -286,7 +305,8 @@ Path: `path/to/AGENTS.md`
 
     <p>
         <code>AGENTS.md</code> work well in tasks that require coordination, compliance with architectural constraints,
-        and repeatable processes. They are especially useful in projects with a developed contextual structure and a long lifecycle.
+        and repeatable processes. They are especially useful in projects with a developed contextual structure and a
+        long lifecycle.
     </p>
 
     <p>
@@ -295,7 +315,8 @@ Path: `path/to/AGENTS.md`
     </p>
 
     <p>
-        This means that <code>AGENTS.md</code> are not always useful, but primarily where long-term process control matters.
+        This means that <code>AGENTS.md</code> are not always useful, but primarily where long-term process control
+        matters.
     </p>
 
     <hr />
@@ -309,18 +330,33 @@ Path: `path/to/AGENTS.md`
     </p>
 
     <p>
-        <code>AGENTS.md</code> are not designed to directly control the agent. They do not prescribe algorithms or guarantee compliance.
-        Their role is to organize the environment in which the agent operates and to reduce semantic uncertainty when building the task context.
+        <code>AGENTS.md</code> are not designed to directly control the agent. They do not prescribe algorithms or
+        guarantee compliance.
+        Their role is to organize the environment in which the agent operates and to reduce semantic uncertainty when
+        building the task context.
     </p>
 
     <p>
-        The root <code>AGENTS.md</code> sets the general framework and direction, while local files specify rules for individual levels.
-        Together they form a context hierarchy that helps the agent navigate the project structure and take constraints into account without rigidly tying to specific scenarios.
+        The root <code>AGENTS.md</code> sets the general framework and direction, while local files specify rules for
+        individual levels.
+        Together they form a context hierarchy that helps the agent navigate the project structure and take constraints
+        into account without rigidly tying to specific scenarios.
     </p>
 
     <p>
         This approach does not completely remove uncertainty, but it makes it manageable and reproducible.
-        It allows agents to be used in complex, long-lived projects while keeping the context consistent and the process repeatable.
+        It allows agents to be used in complex, long-lived projects while keeping the context consistent and the process
+        repeatable.
+    </p>
+
+    <hr />
+
+    <p style="text-align: center;">
+        <em>
+            This page corresponds to the second stage of AFKP (Acceptance-First Knowledge Principle) — "unfolding".
+            The fourth stage ("sense-making") can be pursued in this <a href="https://t.me/alexgusev_lab_en/4">Telegram channel</a>
+            or directly <a href="https://habr.com/ru/articles/976760/" target="_blank">on Habr</a>.
+        </em>
     </p>
 
     <hr />

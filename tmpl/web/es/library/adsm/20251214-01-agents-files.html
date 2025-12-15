@@ -20,7 +20,8 @@
     <p>
         El proyecto Svyazist lo desarrollo junto con el agente Codex dentro de mi propio enfoque
         ADSM. Este enfoque surgió como resultado de la práctica de programación contextual con agentes
-        y está orientado a trabajar de forma sistemática con el contexto, las reglas y las restricciones arquitectónicas.
+        y está orientado a trabajar de forma sistemática con el contexto, las reglas y las restricciones
+        arquitectónicas.
     </p>
 
     <p>
@@ -47,13 +48,17 @@
     <h2>Destino típico de <code>AGENTS.md</code></h2>
 
     <p>
-        El archivo <code>AGENTS.md</code> se utiliza como el lugar estándar para las instrucciones destinadas a las herramientas agent.
-        Complementa el <code>README.md</code> al trasladar a un documento separado la información que necesita el agente para trabajar con el proyecto.
+        El archivo <code>AGENTS.md</code> se utiliza como <a href="https://agents.md/">el lugar estándar</a> para las
+        instrucciones destinadas a las herramientas agent.
+        Complementa el <code>README.md</code> al trasladar a un documento separado la información que necesita el agente
+        para trabajar con el proyecto.
     </p>
 
     <p>
-        El <code>AGENTS.md</code> típico contiene la descripción de la estructura del proyecto, los comandos de compilación y prueba,
-        las convenciones de estilo de código, las reglas del repositorio y otras instrucciones que el agente emplea al ejecutar tareas.
+        El <code>AGENTS.md</code> típico contiene la descripción de la estructura del proyecto, los comandos de
+        compilación y prueba,
+        las convenciones de estilo de código, las reglas del repositorio y otras instrucciones que el agente emplea al
+        ejecutar tareas.
     </p>
 
     <p>
@@ -62,7 +67,8 @@
 
     <p>
         Para proyectos con una estructura desarrollada se aplica una jerarquía de archivos <code>AGENTS.md</code>.
-        El agente considera todos los archivos <code>AGENTS.md</code> a lo largo de la ruta desde la raíz del repositorio hasta el directorio de trabajo actual,
+        El agente considera todos los archivos <code>AGENTS.md</code> a lo largo de la ruta desde la raíz del
+        repositorio hasta el directorio de trabajo actual,
         y las instrucciones más cercanas al lugar de trabajo tienen prioridad.
     </p>
 
@@ -81,18 +87,22 @@
     </p>
 
     <p>
-        En el nivel superior del proyecto se encuentra el <code>AGENTS.md</code> raíz. Define los límites generales de la actividad del agente,
-        establece los roles básicos, los principios para trabajar con el contexto y los invariantes que se mantienen en todos los proyectos.
+        En el nivel superior del proyecto se encuentra el <code>AGENTS.md</code> raíz. Define los límites generales de
+        la actividad del agente,
+        establece los roles básicos, los principios para trabajar con el contexto y los invariantes que se mantienen en
+        todos los proyectos.
     </p>
 
     <p>
         Más abajo en la estructura se hallan los <code>AGENTS.md</code> locales. Su propósito depende de su posición
-        en la estructura de archivos y de significado. Estos archivos aclaran las reglas que rigen dentro de un espacio específico
+        en la estructura de archivos y de significado. Estos archivos aclaran las reglas que rigen dentro de un espacio
+        específico
         y sólo aplican dentro de su nivel.
     </p>
 
     <p>
-        Así se forma un sistema multinivel de instrucciones, donde el archivo raíz define la arquitectura general de la interacción
+        Así se forma un sistema multinivel de instrucciones, donde el archivo raíz define la arquitectura general de la
+        interacción
         y los archivos locales detallan el comportamiento del agente en secciones concretas del proyecto.
     </p>
 
@@ -101,7 +111,8 @@
     <h2><code>AGENTS.md</code> locales</h2>
 
     <p>
-        Los archivos <code>AGENTS.md</code> locales se emplean para fijar reglas y describir la estructura del trabajo en un nivel concreto del proyecto.
+        Los archivos <code>AGENTS.md</code> locales se emplean para fijar reglas y describir la estructura del trabajo
+        en un nivel concreto del proyecto.
         Ese nivel puede corresponder a una parte del contexto cognitivo o a un segmento del código fuente.
     </p>
 
@@ -124,7 +135,8 @@ Path: `path/to/AGENTS.md`
 
     <p>
         Esta estructura se usa para fijar los límites del nivel y las reglas de funcionamiento en su interior.
-        El mapa de nivel describe de forma declarativa el contenido del directorio y sirve como modelo compacto de la estructura
+        El mapa de nivel describe de forma declarativa el contenido del directorio y sirve como modelo compacto de la
+        estructura
         sin necesidad de abrir los archivos.
     </p>
 
@@ -135,7 +147,8 @@ Path: `path/to/AGENTS.md`
 
     <p>
         Las secciones restantes dependen del tipo de nivel: en el contexto describen cómo trabajar con la documentación
-        y cómo modificarla; en el código detallan las restricciones y convenciones que se emplean al editar los orígenes.
+        y cómo modificarla; en el código detallan las restricciones y convenciones que se emplean al editar los
+        orígenes.
     </p>
 
     <p>
@@ -153,18 +166,22 @@ Path: `path/to/AGENTS.md`
     </p>
 
     <p>
-        El <code>AGENTS.md</code> raíz establece el modelo básico del proyecto, incluyendo la división entre contexto y producto,
+        El <code>AGENTS.md</code> raíz establece el modelo básico del proyecto, incluyendo la división entre contexto y
+        producto,
         y fija el orden de interacción entre ambos. También define los roles del humano y del agente, así como
         el modo de tomar en cuenta las instrucciones a lo largo del proyecto.
     </p>
 
     <p>
-        El archivo describe el mecanismo de jerarquía de <code>AGENTS.md</code>, los requisitos para las instrucciones locales,
-        el uso de mapas de nivel, la protección de comentarios importantes en el código y la obligación de reportar al final de cada iteración.
+        El archivo describe el mecanismo de jerarquía de <code>AGENTS.md</code>, los requisitos para las instrucciones
+        locales,
+        el uso de mapas de nivel, la protección de comentarios importantes en el código y la obligación de reportar al
+        final de cada iteración.
     </p>
 
     <p>
-        El <code>AGENTS.md</code> raíz se utiliza sin cambios y proporciona una base estable sobre la que se apoyan todas las reglas del proyecto.
+        El <code>AGENTS.md</code> raíz se utiliza sin cambios y proporciona una base estable sobre la que se apoyan
+        todas las reglas del proyecto.
     </p>
 
     <p>
@@ -173,7 +190,8 @@ Path: `path/to/AGENTS.md`
     </p>
 
     <p>
-        Este archivo establece una forma uniforme de trabajar con los agentes y permite aplicar el mismo enfoque en distintos proyectos.
+        Este archivo establece una forma uniforme de trabajar con los agentes y permite aplicar el mismo enfoque en
+        distintos proyectos.
     </p>
 
     <hr />
@@ -182,19 +200,25 @@ Path: `path/to/AGENTS.md`
 
     <p>
         Los archivos <code>AGENTS.md</code> no son programas en el sentido habitual.
-        No se ejecutan y no imponen un comportamiento rígido al agente. El agente puede considerar las instrucciones parcialmente
+        No se ejecutan y no imponen un comportamiento rígido al agente. El agente puede considerar las instrucciones
+        parcialmente
         o ignorarlas, incluso si las exigencias están formuladas de forma explícita.
     </p>
 
     <p>
-        En la práctica esto se ve, por ejemplo, en los requerimientos de reporte. Aunque la obligación de terminar la iteración
-        con un informe esté fijada en el archivo raíz, el agente puede olvidarse de generarlos o hacerlo de forma irregular.
-        Esta observación resulta importante para entender correctamente el papel de <code>AGENTS.md</code> en el proyecto.
+        En la práctica esto se ve, por ejemplo, en los requerimientos de reporte. Aunque la obligación de terminar la
+        iteración
+        con un informe esté fijada en el archivo raíz, el agente puede olvidarse de generarlos o hacerlo de forma
+        irregular.
+        Esta observación resulta importante para entender correctamente el papel de <code>AGENTS.md</code> en el
+        proyecto.
     </p>
 
     <p>
-        Al mismo tiempo, Codex sí escanea el sistema de archivos del proyecto y detecta los <code>AGENTS.md</code> en distintos niveles.
-        Se puede ver esto en su comportamiento y en los registros de trabajo. Por lo tanto, los archivos son leídos por el agente,
+        Al mismo tiempo, Codex sí escanea el sistema de archivos del proyecto y detecta los <code>AGENTS.md</code> en
+        distintos niveles.
+        Se puede ver esto en su comportamiento y en los registros de trabajo. Por lo tanto, los archivos son leídos por
+        el agente,
         pero no lo controlan directamente.
     </p>
 
@@ -208,7 +232,8 @@ Path: `path/to/AGENTS.md`
     <h2>Los límites de la gobernabilidad</h2>
 
     <p>
-        La práctica muestra que las instrucciones en <code>AGENTS.md</code> funcionan como orientaciones más que como mandatos.
+        La práctica muestra que las instrucciones en <code>AGENTS.md</code> funcionan como orientaciones más que como
+        mandatos.
         No garantizan acciones concretas, pero influyen en el contexto que el agente conforma para resolver una tarea.
     </p>
 
@@ -219,7 +244,8 @@ Path: `path/to/AGENTS.md`
     </p>
 
     <p>
-        En ese sentido, <code>AGENTS.md</code> no fijan el comportamiento de forma directa, pero aumentan la probabilidad
+        En ese sentido, <code>AGENTS.md</code> no fijan el comportamiento de forma directa, pero aumentan la
+        probabilidad
         de que el agente opere dentro de los marcos previstos.
     </p>
 
@@ -229,7 +255,8 @@ Path: `path/to/AGENTS.md`
 
     <p>
         En mis proyectos el <code>AGENTS.md</code> raíz actúa como el punto de entrada del agente en el proyecto.
-        Su tarea es ofrecer una visión general de la estructura del proyecto, los roles y los principios de trabajo, no describir detalles.
+        Su tarea es ofrecer una visión general de la estructura del proyecto, los roles y los principios de trabajo, no
+        describir detalles.
     </p>
 
     <p>
@@ -239,7 +266,8 @@ Path: `path/to/AGENTS.md`
     </p>
 
     <p>
-        Este enfoque permite al agente orientarse en el proyecto sin que se le impongan instrucciones excesivas al comenzar a trabajar.
+        Este enfoque permite al agente orientarse en el proyecto sin que se le impongan instrucciones excesivas al
+        comenzar a trabajar.
     </p>
 
     <hr />
@@ -248,7 +276,8 @@ Path: `path/to/AGENTS.md`
 
     <p>
         Al realizar una tarea concreta el agente conforma su propio contexto de trabajo.
-        Este contexto se construye a partir de los documentos del proyecto y depende de la estructura de archivos, su volumen
+        Este contexto se construye a partir de los documentos del proyecto y depende de la estructura de archivos, su
+        volumen
         y su cohesión interna.
     </p>
 
@@ -268,8 +297,10 @@ Path: `path/to/AGENTS.md`
     <h2>Distribución de sentidos</h2>
 
     <p>
-        La práctica muestra que los documentos grandes y monolíticos aumentan el riesgo de contradicciones en el contexto de la tarea.
-        Cuando se carga un archivo así, el agente debe operar con un volumen amplio de significados diversos, lo cual complica formar
+        La práctica muestra que los documentos grandes y monolíticos aumentan el riesgo de contradicciones en el
+        contexto de la tarea.
+        Cuando se carga un archivo así, el agente debe operar con un volumen amplio de significados diversos, lo cual
+        complica formar
         un contexto interno consistente.
     </p>
 
@@ -279,7 +310,8 @@ Path: `path/to/AGENTS.md`
     </p>
 
     <p>
-        De ese modo al agente le resulta más sencillo armar el contexto de trabajo a partir de bloques coherentes en lugar de fragmentos
+        De ese modo al agente le resulta más sencillo armar el contexto de trabajo a partir de bloques coherentes en
+        lugar de fragmentos
         dispersos de un texto voluminoso.
     </p>
 
@@ -288,8 +320,10 @@ Path: `path/to/AGENTS.md`
     <h2>Condiciones para la efectividad de <code>AGENTS.md</code></h2>
 
     <p>
-        <code>AGENTS.md</code> funcionan bien en tareas que requieren coordinación, cumplimiento de restricciones arquitectónicas
-        y repetibilidad del proceso. Son especialmente útiles en proyectos con una estructura contextual desarrollada y un ciclo de vida prolongado.
+        <code>AGENTS.md</code> funcionan bien en tareas que requieren coordinación, cumplimiento de restricciones
+        arquitectónicas
+        y repetibilidad del proceso. Son especialmente útiles en proyectos con una estructura contextual desarrollada y
+        un ciclo de vida prolongado.
     </p>
 
     <p>
@@ -298,7 +332,8 @@ Path: `path/to/AGENTS.md`
     </p>
 
     <p>
-        Esto indica que el uso de <code>AGENTS.md</code> tiene sentido no en todas partes, sino principalmente donde es importante gobernar el proceso a largo plazo.
+        Esto indica que el uso de <code>AGENTS.md</code> tiene sentido no en todas partes, sino principalmente donde es
+        importante gobernar el proceso a largo plazo.
     </p>
 
     <hr />
@@ -306,25 +341,41 @@ Path: `path/to/AGENTS.md`
     <h2><code>AGENTS.md</code> en ADSM</h2>
 
     <p>
-        En el enfoque ADSM los archivos <code>AGENTS.md</code> se emplean como un elemento de apoyo para trabajar con el contexto del proyecto.
+        En el enfoque ADSM los archivos <code>AGENTS.md</code> se emplean como un elemento de apoyo para trabajar con el
+        contexto del proyecto.
         Definen la estructura dentro de la cual el agente forma contextos de trabajo para tareas concretas,
         y enlazan la documentación, las reglas y el código en un único sistema.
     </p>
 
     <p>
-        <code>AGENTS.md</code> no están pensados para controlar directamente al agente. No dictan algoritmos ni garantizan el cumplimiento de las instrucciones.
-        Su papel consiste en organizar el entorno en el que el agente trabaja y disminuir la incertidumbre semántica al formar el contexto de la tarea.
+        <code>AGENTS.md</code> no están pensados para controlar directamente al agente. No dictan algoritmos ni
+        garantizan el cumplimiento de las instrucciones.
+        Su papel consiste en organizar el entorno en el que el agente trabaja y disminuir la incertidumbre semántica al
+        formar el contexto de la tarea.
     </p>
 
     <p>
-        El <code>AGENTS.md</code> raíz establece el marco general y la dirección, mientras que los archivos locales precisan las reglas en niveles particulares.
-        Juntos conforman una jerarquía de contexto que permite al agente orientarse en la estructura del proyecto y tomar en cuenta las restricciones
+        El <code>AGENTS.md</code> raíz establece el marco general y la dirección, mientras que los archivos locales
+        precisan las reglas en niveles particulares.
+        Juntos conforman una jerarquía de contexto que permite al agente orientarse en la estructura del proyecto y
+        tomar en cuenta las restricciones
         sin atarse rígidamente a escenarios concretos.
     </p>
 
     <p>
         Este enfoque no elimina por completo la incertidumbre, pero la hace manejable y reproducible.
-        Permite utilizar agentes en proyectos complejos y de larga duración conservando la coherencia del contexto y la repetibilidad del proceso.
+        Permite utilizar agentes en proyectos complejos y de larga duración conservando la coherencia del contexto y la
+        repetibilidad del proceso.
+    </p>
+
+    <hr />
+
+    <p style="text-align: center;">
+        <em>
+            Esta página corresponde a la segunda etapa de AFKP (Acceptance-First Knowledge Principle) — "despliegue".
+            La cuarta etapa ("comprensión") se puede realizar en este <a href="https://t.me/alexgusev_lab_es/4">canal de Telegram</a>
+            o directamente <a href="https://habr.com/ru/articles/976760/" target="_blank">en Habr</a>.
+        </em>
     </p>
 
     <hr />
