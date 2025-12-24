@@ -1,0 +1,45 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}JavaScript in VSCode: language, tool, and analysis model{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>JavaScript in VSCode: language, tool, and analysis model</h1>
+    <time datetime="2025-12-24">December 24, 2025</time>
+
+    <zoom-img src="/img/blog/2025/20251224-01-js-vscode-analysis.png" alt="JavaScript in VSCode" width="100px"></zoom-img>
+
+    <p>
+        In VSCode, JavaScript is analyzed not as an independent language but as a projection of the TypeScript type
+        model served by <code>tsserver</code>. This sets the boundaries of what the IDE can see in code and explains
+        why some constructs are analyzed predictably while others remain opaque.
+    </p>
+
+    <p>
+        In the publication I examine the role of <code>jsconfig.json</code>, the architecture of the Language Server
+        Protocol, and the place of JSDoc in a TypeScript-oriented analysis model. I also show why dynamic dependencies
+        and late binding stay outside the TypeScript model used by VSCode.
+    </p>
+
+    <p>
+        The full text is available in the
+        <a href="/en/library/teqfw/20251224-01-js-vscode-analysis.html">library material</a>.
+    </p>
+
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/en/blog/2025/20251224-01-js-vscode-analysis.html"></a>
+    <img src="/img/blog/2025/20251224-01-js-vscode-analysis.png" alt="JavaScript in VSCode" />
+    <div>
+        <h4>JavaScript in VSCode</h4>
+        <p>
+            Why JavaScript analysis in VSCode relies on the TypeScript model,
+            how <code>tsserver</code> works, and where dynamic links become invisible.
+        </p>
+        <time datetime="2025-12-24">December 24, 2025</time>
+    </div>
+</li>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}JavaScript в VSCode: язык, инструмент и модель анализа{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>JavaScript в VSCode: язык, инструмент и модель анализа</h1>
+    <time datetime="2025-12-24">24 декабря 2025</time>
+
+    <zoom-img src="/img/blog/2025/20251224-01-js-vscode-analysis.png" alt="JavaScript в VSCode" width="100px"></zoom-img>
+
+    <p>
+        В VSCode JavaScript анализируется не как самостоятельный язык, а как проекция типовой модели TypeScript,
+        обслуживаемая <code>tsserver</code>. Это задаёт границы того, что IDE видит в коде, и объясняет, почему часть
+        конструкций анализируется предсказуемо, а часть оказывается непрозрачной.
+    </p>
+
+    <p>
+        В публикации я разбираю роль <code>jsconfig.json</code>, архитектуру Language Server Protocol и место JSDoc в
+        TypeScript-ориентированной модели анализа. Отдельно показано, почему динамические зависимости и позднее
+        связывание остаются за пределами типовой модели VSCode.
+    </p>
+
+    <p>
+        Полный текст доступен в
+        <a href="/ru/library/teqfw/20251224-01-js-vscode-analysis.html">материале библиотеки</a>.
+    </p>
+
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/ru/blog/2025/20251224-01-js-vscode-analysis.html"></a>
+    <img src="/img/blog/2025/20251224-01-js-vscode-analysis.png" alt="JavaScript в VSCode" />
+    <div>
+        <h4>JavaScript в VSCode</h4>
+        <p>
+            Почему анализ JavaScript в VSCode опирается на TypeScript-модель,
+            как устроен <code>tsserver</code> и где заканчивается видимость динамических связей.
+        </p>
+        <time datetime="2025-12-24">24 декабря 2025</time>
+    </div>
+</li>
+{% endblock %}
