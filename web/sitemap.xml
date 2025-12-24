@@ -457,6 +457,15 @@
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/contact/"/>
     </url>
     <url>
+        <loc>https://wiredgeese.com/en/404/</loc>
+        <lastmod>2025-12-24</lastmod>
+        <priority>0.3</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/404/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/404/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/404/"/>
+    </url>
+    <url>
         <loc>https://wiredgeese.com/en/doc/20250107-ai-resources-levels/</loc>
         <lastmod>2025-01-07</lastmod>
         <priority>1.0</priority>
