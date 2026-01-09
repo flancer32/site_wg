@@ -1,0 +1,49 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Hay demasiados conocimientos: un ensayo sobre conocimiento y atención{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Hay demasiados conocimientos: un ensayo sobre conocimiento y atención</h1>
+    <time datetime="2026-01-08">8 de enero de 2026</time>
+
+    <zoom-img src="/img/library/concepts/20260108-knowledge-attention/kdpv.png" alt="Conocimiento y atención"
+        width="100px"></zoom-img>
+
+    <p>
+        Publiqué en Habr un <a href="https://habr.com/ru/articles/983094/" target="_blank">ensayo sobre conocimiento y atención</a>
+        y también lo añadí a mi <a href="/es/library/concepts/20260108-knowledge-attention.html">biblioteca</a>.
+    </p>
+
+    <h2>Resumen breve</h2>
+
+    <p>En esta publicación sostengo que:</p>
+    <ul>
+        <li>las personas no “transfieren conocimiento”: integran fragmentos en sus propias visiones del mundo,</li>
+        <li>la integración está limitada por la atención, que es finita y se gasta,</li>
+        <li>las formas clásicas de estructurar un texto (título → resumen → índice → prefacio → texto) son un mecanismo para ahorrar atención,</li>
+        <li>las plataformas modernas ya miden de forma implícita la inversión de atención a través del comportamiento,</li>
+        <li>las LLM permiten trabajar conscientemente con la densidad del relato (resúmenes, embeddings),</li>
+        <li>los embeddings pueden usarse como una “huella” universal del significado,</li>
+        <li>sumar embeddings de los textos leídos produce un perfil dinámico de intereses,</li>
+        <li>y eso abre el camino a una nueva personalización y a formas de pensamiento colectivo basadas en coincidencias parciales entre visiones del mundo.</li>
+    </ul>
+
+    <p>Si te interesa, puedes discutir estas ideas conmigo <a href="https://t.me/wiredgeese">en privado</a>.</p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/es/blog/2026/20260108-01-knowledge-attention.html"></a>
+    <img src="/img/library/concepts/20260108-knowledge-attention/kdpv.png" alt="Conocimiento y atención" />
+    <div>
+        <h4>Conocimiento y atención</h4>
+        <p>
+            Anuncio del ensayo: el conocimiento se integra en visiones del mundo personales, y la atención es el recurso
+            finito que gastamos para absorber significados.
+        </p>
+        <time datetime="2026-01-08">8 de enero de 2026</time>
+    </div>
+</li>
+{% endblock %}

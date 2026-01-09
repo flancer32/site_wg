@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+        <loc>https://wiredgeese.com/en/</loc>
+        <lastmod>2025-06-03</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/"/>
+    </url>
+    <url>
         <loc>https://wiredgeese.com/en/about/</loc>
         <lastmod>2025-07-03</lastmod>
         <priority>1.0</priority>
@@ -17,6 +26,24 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2022/04/07-01-joined-select-knex/</loc>
+        <lastmod>2022-04-07</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2022/04/07-01-joined-select-knex/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2022/04/07-01-joined-select-knex/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2022/04/07-01-joined-select-knex/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2022/05/08-01-export-as-brick/</loc>
+        <lastmod>2022-05-08</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2022/05/08-01-export-as-brick/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2022/05/08-01-export-as-brick/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2022/05/08-01-export-as-brick/"/>
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/2024/09/25-01-launch-the-site/</loc>
@@ -448,6 +475,96 @@
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2025/09/05-01-abdsm-habr/"/>
     </url>
     <url>
+        <loc>https://wiredgeese.com/en/blog/2025/09/09-01-adsm-roles-habr/</loc>
+        <lastmod>2025-09-09</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2025/09/09-01-adsm-roles-habr/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2025/09/09-01-adsm-roles-habr/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2025/09/09-01-adsm-roles-habr/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2025/09/10-01-adsm-model-limits/</loc>
+        <lastmod>2025-09-10</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2025/09/10-01-adsm-model-limits/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2025/09/10-01-adsm-model-limits/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2025/09/10-01-adsm-model-limits/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2025/09/18-01-adsm-iterative-and-hierarchical/</loc>
+        <lastmod>2025-09-18</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2025/09/18-01-adsm-iterative-and-hierarchical/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2025/09/18-01-adsm-iterative-and-hierarchical/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2025/09/18-01-adsm-iterative-and-hierarchical/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2025/10/08-01-adsm-probability-to-determinism/</loc>
+        <lastmod>2025-10-08</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2025/10/08-01-adsm-probability-to-determinism/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2025/10/08-01-adsm-probability-to-determinism/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2025/10/08-01-adsm-probability-to-determinism/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2025/10/25-01-stop-discriminating-algorithms/</loc>
+        <lastmod>2025-10-25</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2025/10/25-01-stop-discriminating-algorithms/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2025/10/25-01-stop-discriminating-algorithms/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2025/10/25-01-stop-discriminating-algorithms/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2025/11/04-01-adsm-webrtc-codex-agent/</loc>
+        <lastmod>2025-11-04</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2025/11/04-01-adsm-webrtc-codex-agent/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2025/11/04-01-adsm-webrtc-codex-agent/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2025/11/04-01-adsm-webrtc-codex-agent/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2025/11/07-01-when-knowledge-is-too-much/</loc>
+        <lastmod>2025-11-07</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2025/11/07-01-when-knowledge-is-too-much/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2025/11/07-01-when-knowledge-is-too-much/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2025/11/07-01-when-knowledge-is-too-much/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2025/11/22-01-adsm-top-level-directories/</loc>
+        <lastmod>2025-11-22</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2025/11/22-01-adsm-top-level-directories/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2025/11/22-01-adsm-top-level-directories/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2025/11/22-01-adsm-top-level-directories/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2025/12/14-01-agents-files/</loc>
+        <lastmod>2025-12-14</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2025/12/14-01-agents-files/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2025/12/14-01-agents-files/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2025/12/14-01-agents-files/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2026/01/08-01-knowledge-attention/</loc>
+        <lastmod>2026-01-08</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/01/08-01-knowledge-attention/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/01/08-01-knowledge-attention/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/01/08-01-knowledge-attention/"/>
+    </url>
+    <url>
         <loc>https://wiredgeese.com/en/blog/2025/12/24-01-js-vscode-analysis/</loc>
         <lastmod>2025-12-24</lastmod>
         <priority>1.0</priority>
@@ -466,76 +583,54 @@
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/contact/"/>
     </url>
     <url>
-        <loc>https://wiredgeese.com/en/404/</loc>
-        <lastmod>2025-12-24</lastmod>
-        <priority>0.3</priority>
+        <loc>https://wiredgeese.com/en/contacts/</loc>
+        <lastmod>2025-06-02</lastmod>
+        <priority>1.0</priority>
         <changefreq>weekly</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/404/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/404/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/404/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/contacts/"/>
     </url>
     <url>
-        <loc>https://wiredgeese.com/en/doc/20250107-ai-resources-levels/</loc>
+        <loc>https://wiredgeese.com/en/products/</loc>
+        <lastmod>2025-06-02</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/products/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/library/philosophy/20250107-ai-resources-levels/</loc>
         <lastmod>2025-01-07</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/doc/20250107-ai-resources-levels/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/doc/20250107-ai-resources-levels/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/doc/20250107-ai-resources-levels/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/philosophy/20250107-ai-resources-levels/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/philosophy/20250107-ai-resources-levels/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/philosophy/20250107-ai-resources-levels/"/>
     </url>
     <url>
-        <loc>https://wiredgeese.com/en/doc/20250212-teqfw-philosophy/</loc>
-        <lastmod>2025-07-03</lastmod>
+        <loc>https://wiredgeese.com/en/library/philosophy/20250212-teqfw-philosophy/</loc>
+        <lastmod>2025-02-12</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/doc/20250212-teqfw-philosophy/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/doc/20250212-teqfw-philosophy/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/doc/20250212-teqfw-philosophy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/philosophy/20250212-teqfw-philosophy/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/philosophy/20250212-teqfw-philosophy/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/philosophy/20250212-teqfw-philosophy/"/>
     </url>
     <url>
-        <loc>https://wiredgeese.com/en/doc/20250315-teqfw-philosophy/</loc>
-        <lastmod>2025-07-03</lastmod>
+        <loc>https://wiredgeese.com/en/library/philosophy/20250315-teqfw-philosophy/</loc>
+        <lastmod>2025-03-15</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/doc/20250315-teqfw-philosophy/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/doc/20250315-teqfw-philosophy/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/doc/20250315-teqfw-philosophy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/philosophy/20250315-teqfw-philosophy/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/philosophy/20250315-teqfw-philosophy/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/philosophy/20250315-teqfw-philosophy/"/>
     </url>
     <url>
-        <loc>https://wiredgeese.com/en/doc/doc-principles/</loc>
-        <lastmod>2025-07-03</lastmod>
+        <loc>https://wiredgeese.com/en/library/methodology/doc-principles/</loc>
+        <lastmod>2025-06-04</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/doc/doc-principles/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/doc/doc-principles/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/doc/doc-principles/"/>
-    </url>
-    <url>
-        <loc>https://wiredgeese.com/en/index/</loc>
-        <lastmod>2025-07-03</lastmod>
-        <priority>1.0</priority>
-        <changefreq>weekly</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/index/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/index/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/index/"/>
-    </url>
-    <url>
-        <loc>https://wiredgeese.com/en/post/2022040701-joined-select-knex/</loc>
-        <lastmod>2025-07-03</lastmod>
-        <priority>1.0</priority>
-        <changefreq>weekly</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/post/2022040701-joined-select-knex/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/post/2022040701-joined-select-knex/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/post/2022040701-joined-select-knex/"/>
-    </url>
-    <url>
-        <loc>https://wiredgeese.com/en/post/2022050801-export-as-brick/</loc>
-        <lastmod>2025-07-03</lastmod>
-        <priority>1.0</priority>
-        <changefreq>weekly</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/post/2022050801-export-as-brick/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/post/2022050801-export-as-brick/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/post/2022050801-export-as-brick/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/methodology/doc-principles/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/methodology/doc-principles/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/methodology/doc-principles/"/>
     </url>
     <url>
         <loc>https://wiredgeese.com/en/library/adsm/20251122-01-adsm-top-level-dirs/</loc>
@@ -547,6 +642,15 @@
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/adsm/20251122-01-adsm-top-level-dirs/"/>
     </url>
     <url>
+        <loc>https://wiredgeese.com/en/library/adsm/20251214-01-agents-files/</loc>
+        <lastmod>2025-12-14</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/adsm/20251214-01-agents-files/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/adsm/20251214-01-agents-files/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/adsm/20251214-01-agents-files/"/>
+    </url>
+    <url>
         <loc>https://wiredgeese.com/en/library/teqfw/20251224-01-js-vscode-analysis/</loc>
         <lastmod>2025-12-24</lastmod>
         <priority>1.0</priority>
@@ -554,6 +658,15 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/teqfw/20251224-01-js-vscode-analysis/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/teqfw/20251224-01-js-vscode-analysis/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/teqfw/20251224-01-js-vscode-analysis/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/library/concepts/20260108-knowledge-attention/</loc>
+        <lastmod>2026-01-08</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/concepts/20260108-knowledge-attention/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/concepts/20260108-knowledge-attention/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/concepts/20260108-knowledge-attention/"/>
     </url>
     <url>
         <loc>https://wiredgeese.com/en/posts/</loc>

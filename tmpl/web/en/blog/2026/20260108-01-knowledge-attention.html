@@ -1,0 +1,49 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Too Much Knowledge: an essay on knowledge and attention{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Too Much Knowledge: an essay on knowledge and attention</h1>
+    <time datetime="2026-01-08">January 8, 2026</time>
+
+    <zoom-img src="/img/library/concepts/20260108-knowledge-attention/kdpv.png" alt="Knowledge and attention"
+        width="100px"></zoom-img>
+
+    <p>
+        I published an <a href="https://habr.com/ru/articles/983094/" target="_blank">essay on knowledge and attention</a>
+        on Habr and also added it to my <a href="/en/library/concepts/20260108-knowledge-attention.html">library</a>.
+    </p>
+
+    <h2>Brief summary</h2>
+
+    <p>In this essay, I argue that:</p>
+    <ul>
+        <li>people don’t “transfer knowledge” — they integrate fragments into their personal worldviews,</li>
+        <li>integration is limited by attention, which is finite and expendable,</li>
+        <li>classic text structure (title → blurb → table of contents → preface → main text) is a mechanism for saving attention,</li>
+        <li>modern platforms already measure attention investment implicitly through behavior,</li>
+        <li>LLMs let us work consciously with narrative density (summaries, embeddings),</li>
+        <li>embeddings can be used as a universal “fingerprint” of meaning,</li>
+        <li>summing embeddings of texts a person has read yields a dynamic profile of their interests,</li>
+        <li>and this opens a path to new personalization and collective thinking built on partial overlaps between worldviews.</li>
+    </ul>
+
+    <p>If you’re interested, you can discuss these points with me <a href="https://t.me/wiredgeese">privately</a>.</p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/en/blog/2026/20260108-01-knowledge-attention.html"></a>
+    <img src="/img/library/concepts/20260108-knowledge-attention/kdpv.png" alt="Knowledge and attention" />
+    <div>
+        <h4>Knowledge and attention</h4>
+        <p>
+            Summary of the essay: knowledge integrates into personal worldviews, while attention is the finite resource we
+            spend to absorb meanings.
+        </p>
+        <time datetime="2026-01-08">January 8, 2026</time>
+    </div>
+</li>
+{% endblock %}
