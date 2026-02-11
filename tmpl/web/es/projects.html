@@ -6,18 +6,45 @@
 <div class="card">
     <h1>Mis proyectos</h1>
 
-    <p>Desde 2019 desarrollo la arquitectura <strong>Tequila Framework (TeqFW)</strong> — una plataforma en JavaScript para
-        crear aplicaciones web modulares con inyección de dependencias, SSR y una estructura de archivos clara. Esta filosofía
+    <p>Desde 2019 desarrollo la arquitectura <strong>Tequila Framework (TeqFW)</strong> — una plataforma en JavaScript
+        para
+        crear aplicaciones web modulares con inyección de dependencias, SSR y una estructura de archivos clara. Esta
+        filosofía
         nació de la experiencia práctica con Magento y se implementó en varios proyectos propios y para clientes. A
         continuación, una retrospectiva de mis soluciones más significativas.</p>
 </div>
 
 <div class="card">
+    <h2>Mindstream</h2>
+    <p><strong>Fecha de inicio:</strong> febrero de 2026</p>
+    <p><strong>Descripción:</strong> Una aplicación web experimental para observar la atención personal mediante
+        representaciones vectoriales y embeddings. La aplicación lee el RSS de Habr, genera anotaciones y
+        resúmenes con LLMs y calcula marcadores de proximidad semántica entre las publicaciones y el
+        vector personal de intereses del usuario. Por defecto, todos los cálculos se realizan localmente
+        en el navegador. El proyecto fue creado en modo agent-driven (LLM + Codex) dentro de la metodología ADSM.</p>
+    <p><strong>Características:</strong></p>
+    <ul>
+        <li>Vector personal de intereses formado directamente en el navegador del usuario</li>
+        <li>Embeddings y cálculo de similitud semántica para publicaciones</li>
+        <li>Modo local-first sin envío de datos al servidor por defecto</li>
+        <li>Identidad anónima opcional (UUID) para duplicar señales de atención</li>
+        <li>Arquitectura cliente-servidor basada en TeqFW y @teqfw/di</li>
+        <li>Desarrollo en modo agent-driven con LLM y Codex</li>
+    </ul>
+    <p><strong>Demo en vivo:</strong> <a href="https://mindstream.app.wiredgeese.com/"
+            target="_blank">mindstream.app.wiredgeese.com</a></p>
+    <p><strong>Repositorio:</strong> <a href="https://github.com/flancer32/mindstream" target="_blank">GitHub</a></p>
+</div>
+
+
+<div class="card">
     <h2>Svyazist</h2>
     <p><strong>Fecha de inicio:</strong> noviembre 2025</p>
     <p><strong>Descripción:</strong> Pequeña PWA autoalojada para videollamadas privadas entre miembros de la familia.
-        Funciona con JavaScript puro, usa WebRTC sin instalaciones externas, cuentas ni dependencias de servidor más allá del
-        señalizador. Se crea junto con el agente Codex y la metodología ADSM, experimentando con programación conversacional y
+        Funciona con JavaScript puro, usa WebRTC sin instalaciones externas, cuentas ni dependencias de servidor más
+        allá del
+        señalizador. Se crea junto con el agente Codex y la metodología ADSM, experimentando con programación
+        conversacional y
         contexto cognitivo.</p>
     <p><strong>Características:</strong></p>
     <ul>
@@ -34,8 +61,10 @@
 <div class="card">
     <h2>TeqCMS</h2>
     <p><strong>Fecha de inicio:</strong> marzo 2025</p>
-    <p><strong>Descripción:</strong> CMS minimalista, implementado como plugin para TeqFW. Permite construir sitios SSR multilingües
-        basados en plantillas Mustache, con gestión de contenido a través de Git y traducción automática mediante LLM. Se
+    <p><strong>Descripción:</strong> CMS minimalista, implementado como plugin para TeqFW. Permite construir sitios SSR
+        multilingües
+        basados en plantillas Mustache, con gestión de contenido a través de Git y traducción automática mediante LLM.
+        Se
         utiliza para generar este sitio.</p>
     <p><strong>Características:</strong></p>
     <ul>
@@ -51,8 +80,10 @@
 <div class="card">
     <h2>smtp-logger</h2>
     <p><strong>Fecha de inicio:</strong> abril 2025</p>
-    <p><strong>Descripción:</strong> Utilidad en Node.js para registrar correos salientes en una base de datos SQL (PostgreSQL,
-        MySQL, SQLite). Se usa como manejador `pipe` en Postfix (`always_bcc` o `aliases`) y registra mensajes MIME completos.
+    <p><strong>Descripción:</strong> Utilidad en Node.js para registrar correos salientes en una base de datos SQL
+        (PostgreSQL,
+        MySQL, SQLite). Se usa como manejador `pipe` en Postfix (`always_bcc` o `aliases`) y registra mensajes MIME
+        completos.
         Basada en la arquitectura DI de TeqFW, fácil de integrar y extender.</p>
     <p><strong>Características:</strong></p>
     <ul>
@@ -68,9 +99,12 @@
 <div class="card">
     <h2>NutriLog</h2>
     <p><strong>Fecha de inicio:</strong> enero 2025</p>
-    <p><strong>Descripción:</strong> Aplicación PWA personal para seguimiento de nutrición y peso, con integración estrecha de asistente
-        GPT. NutriLog continúa las ideas de BWL pero reinterpretadas mediante interacción con LLM: la IA ayuda a llevar un diario,
-        calcular calorías y formar hábitos conscientes. Basado en TeqFW, se desarrolla activamente como experimento de IA.</p>
+    <p><strong>Descripción:</strong> Aplicación PWA personal para seguimiento de nutrición y peso, con integración
+        estrecha de asistente
+        GPT. NutriLog continúa las ideas de BWL pero reinterpretadas mediante interacción con LLM: la IA ayuda a llevar
+        un diario,
+        calcular calorías y formar hábitos conscientes. Basado en TeqFW, se desarrolla activamente como experimento de
+        IA.</p>
     <p><strong>Características:</strong></p>
     <ul>
         <li>Integración con chat GPT, diálogo personalizado</li>
@@ -78,15 +112,18 @@
         <li>Cálculo automático de calorías y macronutrientes</li>
         <li>Memoria externa e interfaz web alrededor de la IA</li>
     </ul>
-    <p><strong>Sitio:</strong> <a href="https://nutrilog.app.wiredgeese.com/" target="_blank">nutrilog.app.wiredgeese.com</a></p>
+    <p><strong>Sitio:</strong> <a href="https://nutrilog.app.wiredgeese.com/"
+            target="_blank">nutrilog.app.wiredgeese.com</a></p>
     <p><strong>Repositorio:</strong> <a href="https://github.com/flancer32/pwa-svelters" target="_blank">GitHub</a></p>
 </div>
 
 <div class="card">
     <h2>Domothenika QR Intake</h2>
     <p><strong>Fecha de inicio:</strong> enero 2025</p>
-    <p><strong>Descripción:</strong> Aplicación web minimalista para registro de clientes mediante enlaces QR en el programa de
-        fidelidad de la tienda Domotehnika. El visitante escanea un QR en la tienda, accede a la página de registro y obtiene
+    <p><strong>Descripción:</strong> Aplicación web minimalista para registro de clientes mediante enlaces QR en el
+        programa de
+        fidelidad de la tienda Domotehnika. El visitante escanea un QR en la tienda, accede a la página de registro y
+        obtiene
         ofertas personalizadas. Los datos se almacenan centralmente para marketing y análisis.</p>
     <p><strong>Características:</strong></p>
     <ul>
@@ -102,9 +139,12 @@
 <div class="card">
     <h2>PWA Wallet</h2>
     <p><strong>Fecha de inicio:</strong> julio 2024</p>
-    <p><strong>Descripción:</strong> Aplicación web progresiva para almacenar, mostrar y organizar códigos QR y de barras en
-        dispositivos móviles. Todos los datos se guardan localmente en el navegador y están disponibles sin conexión. Demuestra
-        capacidades modernas de PWA: instalación, funcionamiento offline, integración con APIs hardware y bases locales. Concebido
+    <p><strong>Descripción:</strong> Aplicación web progresiva para almacenar, mostrar y organizar códigos QR y de
+        barras en
+        dispositivos móviles. Todos los datos se guardan localmente en el navegador y están disponibles sin conexión.
+        Demuestra
+        capacidades modernas de PWA: instalación, funcionamiento offline, integración con APIs hardware y bases locales.
+        Concebido
         como MVP pero con arquitectura completa.</p>
     <p><strong>Características:</strong></p>
     <ul>
@@ -123,8 +163,10 @@
 <div class="card">
     <h2>Remote Console</h2>
     <p><strong>Fecha de inicio:</strong> junio 2023</p>
-    <p><strong>Descripción:</strong> Utilidad para monitoreo remoto de logs de aplicaciones JavaScript en tiempo real. Los mensajes
-        del navegador se envían al servidor mediante Beacon API y se retransmiten a los desarrolladores conectados mediante SSE
+    <p><strong>Descripción:</strong> Utilidad para monitoreo remoto de logs de aplicaciones JavaScript en tiempo real.
+        Los mensajes
+        del navegador se envían al servidor mediante Beacon API y se retransmiten a los desarrolladores conectados
+        mediante SSE
         (Server-Sent Events). Solución mínimamente invasiva, útil para desarrollo local y depuración en móviles.</p>
     <p><strong>Características:</strong></p>
     <ul>
@@ -134,14 +176,17 @@
         <li>Sin autenticación, con servidor de prueba público</li>
         <li>Despliegue mediante Node.js y npm sin dependencias externas</li>
     </ul>
-    <p><strong>Servidor público:</strong> <a href="https://console.wiredgeese.com/" target="_blank">console.wiredgeese.com</a></p>
-    <p><strong>Repositorio:</strong> <a href="https://github.com/flancer64/spa-remote-console" target="_blank">GitHub</a></p>
+    <p><strong>Servidor público:</strong> <a href="https://console.wiredgeese.com/"
+            target="_blank">console.wiredgeese.com</a></p>
+    <p><strong>Repositorio:</strong> <a href="https://github.com/flancer64/spa-remote-console"
+            target="_blank">GitHub</a></p>
 </div>
 
 <div class="card">
     <h2>Rehapp</h2>
     <p><strong>Fecha de inicio:</strong> abril 2022</p>
-    <p><strong>Descripción:</strong> Plataforma para rehabilitación personalizada, incluyendo PWA para pacientes y panel web para
+    <p><strong>Descripción:</strong> Plataforma para rehabilitación personalizada, incluyendo PWA para pacientes y panel
+        web para
         especialistas. Implementa principios de TeqFW en un producto médico real: arquitectura modular, inyección de
         dependencias, lógica de servidor, integración con LLM.</p>
     <p><strong>Características:</strong></p>
@@ -159,8 +204,10 @@
 <div class="card">
     <h2>BWL (Body Weight Logger)</h2>
     <p><strong>Fecha de inicio:</strong> 2021</p>
-    <p><strong>Descripción:</strong> Aplicación PWA para registrar peso en grupos pequeños. Primera implementación de principios
-        arquitectónicos de TeqFW en interfaz de usuario: inyección de dependencias, CLI, trabajo con BD. Usado por un círculo
+    <p><strong>Descripción:</strong> Aplicación PWA para registrar peso en grupos pequeños. Primera implementación de
+        principios
+        arquitectónicos de TeqFW en interfaz de usuario: inyección de dependencias, CLI, trabajo con BD. Usado por un
+        círculo
         limitado de usuarios.</p>
     <p><strong>Características:</strong></p>
     <ul>
@@ -175,8 +222,10 @@
 <div class="card">
     <h2>Tequila Framework (TeqFW)</h2>
     <p><strong>Fecha de inicio:</strong> agosto 2019</p>
-    <p><strong>Descripción:</strong> Plataforma arquitectónica en JavaScript para crear aplicaciones web modulares con inyección de
-        dependencias, estructura de archivos estricta y énfasis en desarrollo sin complejidad. TeqFW es la base de todos mis
+    <p><strong>Descripción:</strong> Plataforma arquitectónica en JavaScript para crear aplicaciones web modulares con
+        inyección de
+        dependencias, estructura de archivos estricta y énfasis en desarrollo sin complejidad. TeqFW es la base de todos
+        mis
         proyectos modernos y la evolución práctica de mi experiencia con Magento 2.</p>
     <p><strong>Características:</strong></p>
     <ul>
@@ -187,14 +236,17 @@
         <li>Optimización para herramientas LLM</li>
     </ul>
     <p><strong>Repositorio:</strong> <a href="https://github.com/teqfw/di" target="_blank">GitHub</a></p>
-    <p><strong>Filosofía:</strong> <a href="https://github.com/teqfw/di/blob/main/PHILOSOPHY.md" target="_blank">PHILOSOPHY.md</a></p>
+    <p><strong>Filosofía:</strong> <a href="https://github.com/teqfw/di/blob/main/PHILOSOPHY.md"
+            target="_blank">PHILOSOPHY.md</a></p>
 </div>
 
 <div class="card">
     <h2>Santegra</h2>
     <p><strong>Fecha de inicio:</strong> 2016</p>
-    <p><strong>Descripción:</strong> Tienda online en Magento 2 con personalización profunda para negocio MLM. Extensiones para
-        árbol de clientes, cálculo de bonos, componentes personalizados de admin, integraciones externas. Proyecto base para ideas
+    <p><strong>Descripción:</strong> Tienda online en Magento 2 con personalización profunda para negocio MLM.
+        Extensiones para
+        árbol de clientes, cálculo de bonos, componentes personalizados de admin, integraciones externas. Proyecto base
+        para ideas
         arquitectónicas luego implementadas en TeqFW. Mi último gran proyecto en PHP, en producción desde 2018.</p>
     <p><strong>Características:</strong></p>
     <ul>
