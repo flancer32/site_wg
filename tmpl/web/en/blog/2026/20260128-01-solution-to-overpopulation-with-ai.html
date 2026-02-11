@@ -1,0 +1,46 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Solving the planet’s overpopulation problem with AI{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Solving the planet’s overpopulation problem with AI</h1>
+    <time datetime="2026-01-28T12:47:00">January 28, 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260128-01-solution-to-overpopulation-with-ai.png"
+        alt="Solving the planet’s overpopulation problem with AI" width="100px"></zoom-img>
+
+    <p>This text grew out of observing a discussion on Habr. In conversations with developers and active AI users, I noticed
+        a shift in how people relate to models: they are increasingly treated as a source of interpretation and judgment,
+        and trust in their conclusions grows faster than the habit of verifying and doubting. A new cognitive interaction
+        pattern is emerging, where AI becomes a constant intermediary between a person and information.</p>
+
+    <p>Twenty-four people took part in the poll attached to the post. Five participants allowed for the possibility of
+        transferring biological consciousness onto a silicon substrate. This share is small, yet the very presence of such
+        an answer indicates that this idea exists in the professional community.</p>
+
+    <p>I describe a possible mechanism of influence that is embedded in the architecture of personalized systems. An
+        algorithm capable of adapting arguments to a specific user can affect their decisions. When such systems scale, an
+        environment emerges in which guided persuasion becomes technologically feasible. The full article in Russian is
+        published on Habr.</p>
+
+    <p>
+        <a href="https://habr.com/ru/articles/990004/" target="_blank" rel="noopener">Read the original on Habr</a>
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/en/blog/2026/20260128-01-solution-to-overpopulation-with-ai.html"></a>
+    <img src="/img/blog/2026/20260128-01-solution-to-overpopulation-with-ai.png"
+        alt="Solving the planet’s overpopulation problem with AI" />
+    <div>
+        <h4>Solving the planet’s overpopulation problem with AI</h4>
+        <p>In the <a href="https://habr.com/ru/articles/990004/" target="_blank" rel="noopener">article</a>, I note an
+            emerging shift: personal AI systems are changing how we trust information, and 5 out of 24 survey participants
+            consider a transfer of consciousness to silicon plausible.</p>
+        <time datetime="2026-01-28T12:47:00">January 28, 2026</time>
+    </div>
+</li>
+{% endblock %}
