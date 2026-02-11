@@ -1,0 +1,45 @@
+{% extends "inc/layout.html" %} {% block title %}От идей к коду: проверяю теорию внимания на практике{% endblock %} {%
+block content %}
+
+<div class="card blog-post">
+    <h1>От идей к коду: проверяю теорию внимания на практике</h1>
+    <time datetime="2026-02-11">11 февраля 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260211-01-from-ideas-to-code-testing-attention-theory-in-practice.png"
+        alt="От идей к коду: проверяю теорию внимания на практике" width="100px"></zoom-img>
+
+    <p>Я реализовал Mindstream как инженерный эксперимент и рабочее приложение: <a
+            href="https://mindstream.app.wiredgeese.com/" target="_blank">mindstream.app.wiredgeese.com</a>. Система
+        читает Хабр по RSS, генерирует LLM-аннотации и LLM-обзоры, формирует единую ленту. Персонализация строится в
+        браузере: действия пользователя интерпретируются как сигналы внимания, из которых локально собирается вектор
+        интересов.</p>
+
+    <p>Маркер интереса рассчитывается через эмбеддинг обзора: обзор служит компактным носителем смысла публикации,
+        эмбеддинг задаёт её положение в семантическом пространстве, расстояние до текущего вектора интересов
+        используется как относительный индикатор корреляции. Приложение написано мной с использованием подхода ADSM
+        (Agent-Driven Software Management): документация фиксирует инварианты, код следует из неё, агенты применяются
+        как инструмент управляемой разработки. Полная статья на русском, ссылка ведёт на Хабр.</p>
+
+    <p>
+        <a href="https://habr.com/ru/articles/995070/" target="_blank">Читать оригинал на Хабре</a>
+    </p>
+</div>
+
+{% endblock %} {% block blog_item %}
+
+<li class="blog-item">
+    <a class="card-link"
+        href="/ru/blog/2026/20260211-01-from-ideas-to-code-testing-attention-theory-in-practice.html"></a>
+    <img src="/img/blog/2026/20260211-01-from-ideas-to-code-testing-attention-theory-in-practice.png"
+        alt="От идей к коду: проверяю теорию внимания на практике" />
+    <div>
+        <h4>От идей к коду: проверяю теорию внимания на практике</h4>
+        <p>Я описываю своё приложение <a href="https://mindstream.app.wiredgeese.com/" target="_blank">Mindstream</a>,
+            разработанное по ADSM, где сигналы внимания в браузере превращаются в маркер интереса через эмбеддинги;
+            исходная <a href="https://habr.com/ru/articles/995070/" target="_blank">публикация</a> раскрывает модель и
+            её ограничения.</p>
+        <time datetime="2026-02-11">11 февраля 2026</time>
+    </div>
+</li>
+
+{% endblock %}

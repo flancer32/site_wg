@@ -1,0 +1,46 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}From ideas to code: testing attention theory in practice{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>From ideas to code: testing attention theory in practice</h1>
+    <time datetime="2026-02-11">February 11, 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260211-01-from-ideas-to-code-testing-attention-theory-in-practice.png"
+        alt="From ideas to code: testing attention theory in practice" width="100px"></zoom-img>
+
+    <p>I built Mindstream as an engineering experiment and a working app:
+        <a href="https://mindstream.app.wiredgeese.com/" target="_blank" rel="noopener">mindstream.app.wiredgeese.com</a>.
+        It reads Habr via RSS, generates LLM annotations and LLM digests, and assembles a single feed. Personalization
+        happens in the browser: user actions are interpreted as attention signals, and a local interest vector is built
+        from those signals.</p>
+
+    <p>The interest score is computed from the digest embedding: the digest serves as a compact carrier of the post’s
+        meaning, the embedding places it in semantic space, and the distance to the current interest vector is used as a
+        relative indicator of correlation. I wrote the app using the ADSM (Agent-Driven Software Management) approach:
+        documentation captures invariants, code follows from it, and agents are used as a tool for guided development. The
+        full article in Russian is published on Habr.</p>
+
+    <p>
+        <a href="https://habr.com/ru/articles/995070/" target="_blank" rel="noopener">Read the original on Habr</a>
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link"
+        href="/en/blog/2026/20260211-01-from-ideas-to-code-testing-attention-theory-in-practice.html"></a>
+    <img src="/img/blog/2026/20260211-01-from-ideas-to-code-testing-attention-theory-in-practice.png"
+        alt="From ideas to code: testing attention theory in practice" />
+    <div>
+        <h4>From ideas to code: testing attention theory in practice</h4>
+        <p>I describe my app <a href="https://mindstream.app.wiredgeese.com/" target="_blank" rel="noopener">Mindstream</a>,
+            built with ADSM, where browser attention signals turn into an interest score via embeddings; the original
+            <a href="https://habr.com/ru/articles/995070/" target="_blank" rel="noopener">post</a> explains the model and
+            its limitations.</p>
+        <time datetime="2026-02-11">February 11, 2026</time>
+    </div>
+</li>
+{% endblock %}
