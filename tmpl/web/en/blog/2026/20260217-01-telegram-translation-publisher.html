@@ -1,0 +1,48 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Telegram Translation Publisher: ADSM and the guided evolution of an agent-built app{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Telegram Translation Publisher: ADSM and the guided evolution of an agent-built app</h1>
+    <time datetime="2026-02-17">February 17, 2026</time>
+
+    <zoom-img src="/img/brand/teqfw.webp"
+        alt="Telegram Translation Publisher: ADSM and the guided evolution of an agent-built app"
+        width="100px"></zoom-img>
+
+    <p>I built a small Node.js CLI that automatically translates my Telegram posts from Russian into English and Spanish
+        via the OpenAI API. The first working version was produced almost entirely by a Codex agent from a single prompt.
+        I only made a few follow-up edits related to my DI container and integration into the chosen architecture.</p>
+
+    <p>Most of the work happened before any code was generated. I spent about four hours shaping the architectural
+        baseline using the ADSM methodology: defining invariants, product boundaries, the interaction model with the
+        Telegram API, and stack constraints. With that frame in place, the agent stayed within it and assembled the app
+        in minutes.</p>
+
+    <p>By changing the product description in the context, I can get different system behavior without rebuilding the
+        architecture. This makes evolution incremental and controlled: code becomes a consequence of structure that was
+        fixed upfront. This case shows how, on a concrete stack—Node.js, the Telegram API, and the OpenAI API—you can set
+        up an environment where an agent generates an implementation within a defined model.</p>
+
+    <p>
+        <a href="https://github.com/flancer64/tg-wa-blog-post" target="_blank" rel="noopener">Project repository</a><br>
+        <a href="https://github.com/flancer64/tg-wa-blog-post/tree/main/ctx/docs" target="_blank" rel="noopener">Architecture baseline and context (ctx/docs)</a>
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/en/blog/2026/20260217-01-telegram-translation-publisher.html"></a>
+    <img src="/img/brand/teqfw.webp"
+        alt="Telegram Translation Publisher: ADSM and the guided evolution of an agent-built app" />
+    <div>
+        <h4>Telegram Translation Publisher: ADSM and the guided evolution of an agent-built app</h4>
+        <p>A Node.js CLI built by an agent on top of an architecture defined upfront—an example of controlled project
+            evolution with ADSM.</p>
+        <time datetime="2026-02-17">February 17, 2026</time>
+    </div>
+</li>
+{% endblock %}
+
