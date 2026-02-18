@@ -1,0 +1,80 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Projects — TeqFW Guide: Enum{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <h1>TeqFW Guide: Enum</h1>
+
+    <h2>An architectural assistant for teams</h2>
+
+    <p>
+        In TeqFW, the concept of an Enum has a strictly defined shape and architectural role. Developers often come with
+        different ideas about enums: as a set of constants, as a value object, or even as part of the domain model. In
+        TeqFW, Enum is interpreted differently — as a structural codifier of allowed values, embedded into the
+        late-binding model.
+    </p>
+
+    <p>
+        <a href="https://fly.wiredgeese.com/flancer/gpt/teqfw/guide/enum/" target="_blank" rel="noopener">TeqFW Guide:
+            Enum</a> is a personal GPT assistant that conveys a coherent understanding of Enums in TeqFW.
+        It is grounded in the specification and TeqFW’s DI system principles, helping project participants align their
+        mental model with the adopted architecture.
+    </p>
+
+    <h2>Personalized conversations</h2>
+
+    <p>
+        The assistant explains the Enum concept based on how the question is phrased and what assumptions the user
+        starts from. It helps distinguish structural discipline from behavior, separate the encoding of allowed values
+        from domain logic, and avoid expanding the architecture beyond the specification.
+    </p>
+
+    <p>
+        During the conversation, the assistant points out the boundaries of Enum responsibility and clarifies
+        requirements for a flat structure, a closed set of values, and DI compatibility. The result is a unified,
+        deterministic architectural picture.
+    </p>
+
+    <h2>An onboarding tool</h2>
+
+    <p>
+        TeqFW Guide: Enum can be used to onboard new team members. It lets people ask questions in free form and get
+        answers aligned with the Enum specification and TeqFW’s DI principles. This reduces ambiguity and supports the
+        project’s architectural integrity.
+    </p>
+
+    <p>
+        The assistant helps verify code against the Enum rules without introducing new mechanisms or rethinking the
+        architecture. Its job is to keep the model disciplined and predictable.
+    </p>
+
+    <h2>A coherent model and stability</h2>
+
+    <p>
+        The assistant’s behavior is based on a fixed corpus of documents and strict system rules. It does not expand
+        the architecture and does not propose alternative Enum forms. In disputed cases, it relies on the
+        specification and clearly states what’s allowed.
+    </p>
+
+    <p>
+        This creates a single architectural voice available to the whole team in a personal-dialogue format.
+    </p>
+
+    <h2>An example of GPT customization</h2>
+
+    <p>
+        TeqFW Guide: Enum is one example of a class of products called Solo GPT: custom GPT assistants tuned to a
+        specific knowledge model and predefined behavioral boundaries. Here the assistant serves Enum discipline in
+        TeqFW, but the same approach can be applied to any internal standards and engineering conventions.
+    </p>
+
+    <p style="text-align: center;">
+        <a href="https://solo.gpt.wiredgeese.com/" target="_blank" rel="noopener">Learn more about the Solo GPT format
+            and customization options...</a>
+    </p>
+
+</div>
+
+{% endblock %}

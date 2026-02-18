@@ -20,7 +20,7 @@
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-02-18</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/"/>
@@ -601,6 +601,15 @@
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/02/17-02-teqfw-dto-guide/"/>
     </url>
     <url>
+        <loc>https://wiredgeese.com/en/blog/2026/02/18-01-teqfw-guide-enum-onboarding/</loc>
+        <lastmod>2026-02-18</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/02/18-01-teqfw-guide-enum-onboarding/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/02/18-01-teqfw-guide-enum-onboarding/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/02/18-01-teqfw-guide-enum-onboarding/"/>
+    </url>
+    <url>
         <loc>https://wiredgeese.com/en/blog/2025/12/24-01-js-vscode-analysis/</loc>
         <lastmod>2025-12-24</lastmod>
         <priority>1.0</priority>
@@ -715,7 +724,7 @@
     </url>
     <url>
         <loc>https://wiredgeese.com/en/projects/</loc>
-        <lastmod>2026-02-17</lastmod>
+        <lastmod>2026-02-18</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/projects/"/>
@@ -730,5 +739,14 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/projects/custom-gpt/solo-teqfw-guide-dto/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/projects/custom-gpt/solo-teqfw-guide-dto/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/projects/custom-gpt/solo-teqfw-guide-dto/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/projects/custom-gpt/solo-teqfw-guide-enum/</loc>
+        <lastmod>2026-02-18</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/projects/custom-gpt/solo-teqfw-guide-enum/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/projects/custom-gpt/solo-teqfw-guide-enum/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/projects/custom-gpt/solo-teqfw-guide-enum/"/>
     </url>
 </urlset>

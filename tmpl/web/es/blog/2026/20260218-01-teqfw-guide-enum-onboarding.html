@@ -1,0 +1,50 @@
+{% extends "inc/layout.html" %}
+{% block title %}TeqFW Guide: Enum — un asistente de arquitectura para onboarding{% endblock %}
+{% block content %}
+
+<div class="card blog-post">
+    <h1>TeqFW Guide: Enum — un asistente de arquitectura para onboarding</h1>
+    <time datetime="2026-02-18">18 de febrero de 2026</time>
+
+    <zoom-img src="/img/brand/teqfw.webp" alt="TeqFW Guide: Enum — un asistente de arquitectura para onboarding"
+        width="100px"></zoom-img>
+
+    <p>
+        En TeqFW, Enum ocupa un lugar estrictamente definido en la arquitectura y se rige por restricciones
+        formalizadas. En la práctica, las personas interpretan las enumeraciones de distintas maneras: como un conjunto
+        de constantes, como un value object o como parte del modelo de dominio. Esto genera discrepancias en la
+        comprensión y difumina los límites de responsabilidad. Formalicé la especificación de Enum dentro del modelo de
+        enlace tardío y DI, y luego la convertí en una herramienta independiente.
+    </p>
+
+    <p>
+        <a href="https://fly.wiredgeese.com/flancer/gpt/teqfw/guide/enum/" target="_blank" rel="noopener">TeqFW Guide:
+            Enum</a> es un asistente GPT personal, entrenado con un corpus de documentos arquitectónicos del proyecto.
+        Transmite una visión coherente del papel de Enum, aclara los requisitos de una estructura plana y de un conjunto
+        cerrado de valores, y ayuda a verificar que el código cumpla el modelo adoptado. El asistente no amplía la
+        arquitectura ni propone formas alternativas: sostiene la disciplina y la previsibilidad del sistema.
+    </p>
+
+
+    <p style="text-align: center;">
+        <a href="/es/projects/custom-gpt/solo-teqfw-guide-enum.html">Más sobre TeqFW Guide: Enum.</a>
+    </p>
+</div>
+
+{% endblock %}
+{% block blog_item %}
+
+<li class="blog-item">
+    <a class="card-link" href="/es/blog/2026/20260218-01-teqfw-guide-enum-onboarding.html"></a>
+    <img src="/img/brand/teqfw.webp" alt="TeqFW Guide: Enum — un asistente de arquitectura para onboarding" />
+    <div>
+        <h4>TeqFW Guide: Enum — un asistente de arquitectura para onboarding</h4>
+        <p>Lancé un <a href="https://fly.wiredgeese.com/flancer/gpt/teqfw/guide/enum/" target="_blank"
+                rel="noopener">chat GPT personalizado</a> para alinear la comprensión de Enum en TeqFW y apoyar el
+            onboarding del equipo.
+        </p>
+        <time datetime="2026-02-18">18 de febrero de 2026</time>
+    </div>
+</li>
+
+{% endblock %}

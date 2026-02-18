@@ -1,0 +1,48 @@
+{% extends "inc/layout.html" %} {% block title %}TeqFW Guide: Enum — архитектурный ассистент для онбординга{% endblock
+%} {% block content %}
+
+<div class="card blog-post">
+    <h1>TeqFW Guide: Enum — архитектурный ассистент для онбординга</h1>
+    <time datetime="2026-02-18">18 февраля 2026</time>
+
+    <zoom-img src="/img/brand/teqfw.webp" alt="TeqFW Guide: Enum — архитектурный ассистент для онбординга"
+        width="100px"></zoom-img>
+
+    <p>
+        В TeqFW Enum занимает строго определённое место в архитектуре и подчиняется формализованным ограничениям. На
+        практике разработчики интерпретируют перечисления по-разному: как набор констант, как value object или как
+        элемент доменной модели. Это создаёт расхождение в понимании и приводит к размыванию границ ответственности. Я
+        зафиксировал спецификацию Enum в рамках модели позднего связывания и DI, а затем вынес её в отдельный
+        инструмент.
+    </p>
+
+    <p>
+        <a href="https://fly.wiredgeese.com/flancer/gpt/teqfw/guide/enum/" target="_blank" rel="noopener">TeqFW Guide:
+            Enum</a> — это персональный GPT-ассистент, обученный на корпусе архитектурных документов проекта. Он
+        передаёт целостную картину роли Enum, разъясняет требования к плоской структуре и закрытому множеству значений,
+        помогает проверять соответствие кода принятой модели. Ассистент не расширяет архитектуру и не предлагает
+        альтернативных форм, а поддерживает дисциплину и предсказуемость системы.
+    </p>
+
+
+    <p style="text-align: center;">
+        <a href="/ru/projects/custom-gpt/solo-teqfw-guide-enum.html">Подробнее о TeqFW Guide: Enum.</a>
+    </p>
+</div>
+
+{% endblock %} {% block blog_item %}
+
+<li class="blog-item">
+    <a class="card-link" href="/ru/blog/2026/20260218-01-teqfw-guide-enum-onboarding.html"></a>
+    <img src="/img/brand/teqfw.webp" alt="TeqFW Guide: Enum — архитектурный ассистент для онбординга" />
+    <div>
+        <h4>TeqFW Guide: Enum — архитектурный ассистент для онбординга</h4>
+        <p>Я запустил <a href="https://fly.wiredgeese.com/flancer/gpt/teqfw/guide/enum/" target="_blank"
+                rel="noopener">кастомный GPT-чат</a> для синхронизации понимания Enum в TeqFW и архитектурного
+            онбординга команды.
+        </p>
+        <time datetime="2026-02-18">18 февраля 2026</time>
+    </div>
+</li>
+
+{% endblock %}
