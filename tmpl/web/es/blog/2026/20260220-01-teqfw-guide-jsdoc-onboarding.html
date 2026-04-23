@@ -1,0 +1,53 @@
+{% extends "inc/layout.html" %}
+{% block title %}TeqFW Guide: JSDoc — onboarding práctico para JS sin TS{% endblock %}
+{% block content %}
+
+<div class="card blog-post">
+    <h1>TeqFW Guide: JSDoc — onboarding práctico para JS sin TS</h1>
+    <time datetime="2026-02-20">20 de febrero de 2026</time>
+
+    <zoom-img src="/img/brand/teqfw.webp" alt="TeqFW Guide: JSDoc — onboarding práctico para JS sin TS"
+        width="100px"></zoom-img>
+
+    <p>
+        En TeqFW, JSDoc ayuda a trabajar con soltura en un código JavaScript normal, sin TypeScript. Le da a VSCode y
+        a `tsserver` la estructura suficiente para entender módulos, contratos y tipos, de modo que el editor ofrezca
+        navegación y sugerencias útiles sin abandonar JS.
+    </p>
+
+    <p>
+        <a href="https://fly.wiredgeese.com/flancer/gpt/teqfw/guide/jsdoc/" target="_blank" rel="noopener">TeqFW Guide:
+            JSDoc</a> es un chat GPT personalizado que ayuda al equipo a ponerse de acuerdo sobre cómo escribir JSDoc
+        en TeqFW y cómo exponer los tipos del paquete para que VSCode los lea bien. Sirve para sostener el trabajo
+        diario y mantener una práctica documental coherente.
+    </p>
+
+    <p>
+        Lo valioso está en el diálogo. El chat convierte las reglas del proyecto en algo útil en el día a día: qué
+        poner en JSDoc, cómo describir tipos en un paquete npm y cómo evitar reconstrucciones innecesarias en una app
+        JavaScript isomórfica cuando el front y el back ya comparten el mismo código.
+    </p>
+
+    <p>
+        Para TeqFW esto importa porque la base de código sigue en JS sin TS y, al mismo tiempo, conserva soporte del
+        editor, firmas legibles y una navegación clara por el código. TeqFW Guide: JSDoc ayuda a mantener ese flujo.
+    </p>
+</div>
+
+{% endblock %}
+{% block blog_item %}
+
+<li class="blog-item">
+    <a class="card-link" href="/es/blog/2026/20260220-01-teqfw-guide-jsdoc-onboarding.html"></a>
+    <img src="/img/brand/teqfw.webp" alt="TeqFW Guide: JSDoc — onboarding práctico para JS sin TS" />
+    <div>
+        <h4>TeqFW Guide: JSDoc — onboarding práctico para JS sin TS</h4>
+        <p>Lancé un <a href="https://fly.wiredgeese.com/flancer/gpt/teqfw/guide/jsdoc/" target="_blank"
+                rel="noopener">chat GPT personalizado</a> para quienes escriben JS sin TypeScript y quieren que VSCode
+            entienda los tipos y que JSDoc siga formando parte de la práctica diaria del proyecto.
+        </p>
+        <time datetime="2026-02-20">20 de febrero de 2026</time>
+    </div>
+</li>
+
+{% endblock %}
