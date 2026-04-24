@@ -1,0 +1,54 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Codex agent in autonomous mode on a server{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Codex agent in autonomous mode on a server</h1>
+    <time datetime="2026-03-12">March 12, 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260312-01-codex-seo-image.png"
+        alt="Codex agent in autonomous mode on a server" width="100px"></zoom-img>
+
+    <p>
+        On March 12, a Codex agent was put into autonomous mode on one of the virtual servers in the US and connected
+        to OpenAI with an API key. It took three tries before it produced a simple result: a text file with the
+        greeting <code>Hello World!</code> in the current directory.
+    </p>
+
+    <p>
+        The agent kept trying to switch into interactive mode. Creating one small file cost about 10,000 tokens, or
+        roughly 3 cents. After that, the conclusion only got clearer: for ongoing work, Codex is probably better
+        value on subscription than through one-off API use.
+    </p>
+
+    <p>
+        A $20 monthly subscription already goes a long way. Over the last six months, the limit was never reached,
+        although nothing especially large was built through Codex either.
+    </p>
+
+    <p>
+        The next practical step is straightforward: a small web app for receiving GitHub webhooks, for example when
+        an issue is opened, and then using it to launch the agent. The agent can inspect the task text, route it to
+        work, or reject it outright. With enough funding, that is already enough to build a small automated software
+        agency. In terms of speed, it would not be worse than handling issues manually in Magento. Token usage,
+        though, would be noticeable.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2026/20260312-01-codex-agent-autonomous-server.html"></a>
+        <img alt="Codex agent in autonomous mode on a server" src="/img/blog/2026/20260312-01-codex-seo-image.png" />
+        <div>
+            <h4>Codex agent in autonomous mode on a server</h4>
+            <p>
+                A Codex agent ran autonomously on a US virtual server, took three tries to produce a simple file, and
+                showed what this setup costs in practice. The same pattern points toward webhook-driven issue triage
+                and small automated development workflows.
+            </p>
+            <time datetime="2026-03-12">March 12, 2026</time>
+        </div>
+    </li>
+{% endblock %}
