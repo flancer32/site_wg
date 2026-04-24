@@ -1,0 +1,49 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Mi primera habilidad de agente para validar ESM{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Mi primera habilidad de agente para validar ESM</h1>
+    <time datetime="2026-03-26">26 de marzo de 2026</time>
+
+        <zoom-img src="/img/brand/agent-skills-cover.png"
+        alt="Mi primera habilidad de agente para validar ESM" width="100px"></zoom-img>
+
+    <p>
+        Con ayuda de Codex, preparé mi primera <strong>habilidad de agente</strong> para la plataforma
+        Tequila: un validador de compatibilidad de código ESM con la configuración del proyecto. Al final
+        fueron solo tres comprobaciones, pero el recorrido completo desde el encargo hasta el resultado
+        funcional dejó el proceso bastante claro.
+    </p>
+
+    <p>
+        La publicación tomó unos 40 minutos, desde la primera incidencia hasta que el paquete quedó publicado
+        en npm. Para mí, la enseñanza fue clara: este tipo de trabajo puede llevarlo casi por completo el
+        agente. La creación de esta habilidad era un terreno nuevo para mí, pero el camino desde la idea hasta
+        la publicación resultó asumible sin tener que entrar a mano en cada detalle.
+    </p>
+
+    <p>
+        El paquete está aquí:
+        <a href="https://www.npmjs.com/package/@flancer32/skill-teqfw-esm-validator" target="_blank" rel="noopener">
+            @flancer32/skill-teqfw-esm-validator
+        </a>.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2026/20260326-01-agent-skill-teqfw-esm-validator.html"></a>
+        <img alt="Mi primer agent-skill para validar ESM" src="/img/brand/agent-skills-cover.png" />
+        <div>
+            <h4>Mi primer agent-skill para validar ESM</h4>
+            <p>
+                Se creó y publicó una primera habilidad de agente para Tequila: tres comprobaciones de
+                compatibilidad ESM, desde la incidencia hasta el paquete npm en unos 40 minutos.
+            </p>
+            <time datetime="2026-03-26">26 de marzo de 2026</time>
+        </div>
+    </li>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Первый agent-skill для проверки ESM-кода{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Первый agent-skill для проверки ESM-кода</h1>
+    <time datetime="2026-03-26">26 марта 2026</time>
+
+    <zoom-img src="/img/brand/agent-skills-cover.png"
+        alt="Первый agent-skill для проверки ESM-кода" width="100px"></zoom-img>
+
+    <p>
+        С помощью Codex-агента был собран мой первый <strong>agent-skill</strong> для платформы Tequila:
+        проверка формата ESM-кода на совместимость с проектной средой. Внутри получилось всего три проверки,
+        зато весь маршрут от постановки задачи до рабочего результата оказался наглядным.
+    </p>
+
+    <p>
+        На саму публикацию ушло около 40 минут: от первого issue до пакета в npm-реестре.
+        Урок здесь в том, что агент способен почти самостоятельно вести такого рода работу: для меня
+        разработка agent-skill была новой областью, но маршрут от идеи до публикации оказался проходимым
+        без ручного погружения во все детали.
+    </p>
+
+    <p>
+        Пакет опубликован здесь:
+        <a href="https://www.npmjs.com/package/@flancer32/skill-teqfw-esm-validator" target="_blank" rel="noopener">
+            @flancer32/skill-teqfw-esm-validator
+        </a>.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/ru/blog/2026/20260326-01-agent-skill-teqfw-esm-validator.html"></a>
+        <img alt="Первый agent-skill для проверки ESM-кода" src="/img/brand/agent-skills-cover.png" />
+        <div>
+            <h4>Первый agent-skill для проверки ESM-кода</h4>
+            <p>
+                Собран и опубликован мой первый agent-skill для Tequila: три проверки совместимости ESM-кода,
+                от issue до npm-пакета примерно за 40 минут.
+            </p>
+            <time datetime="2026-03-26">26 марта 2026</time>
+        </div>
+    </li>
+{% endblock %}

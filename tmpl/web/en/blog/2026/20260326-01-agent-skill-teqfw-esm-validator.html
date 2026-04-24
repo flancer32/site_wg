@@ -1,0 +1,48 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}My first agent-skill for ESM validation{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>My first agent-skill for ESM validation</h1>
+    <time datetime="2026-03-26">March 26, 2026</time>
+
+    <zoom-img src="/img/brand/agent-skills-cover.png"
+        alt="My first agent-skill for ESM validation" width="100px"></zoom-img>
+
+    <p>
+        With help from Codex, I built my first <strong>agent-skill</strong> for the Tequila platform:
+        a validator for ESM code compatibility with the project setup. It ended up being just three checks,
+        but the full path from task brief to working result made the process easy to follow.
+    </p>
+
+    <p>
+        The publication itself took about 40 minutes, from the first issue to the package being published on npm.
+        For me, the lesson was clear: this kind of work can be carried almost entirely by the agent. Agent-skill
+        development was new to me, yet the route from idea to publication proved manageable without
+        digging into every detail by hand.
+    </p>
+
+    <p>
+        The package is here:
+        <a href="https://www.npmjs.com/package/@flancer32/skill-teqfw-esm-validator" target="_blank" rel="noopener">
+            @flancer32/skill-teqfw-esm-validator
+        </a>.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2026/20260326-01-agent-skill-teqfw-esm-validator.html"></a>
+        <img alt="My first agent-skill for ESM validation" src="/img/brand/agent-skills-cover.png" />
+        <div>
+            <h4>My first agent-skill for ESM validation</h4>
+            <p>
+                A first agent-skill for Tequila was built and published: three ESM compatibility checks, from issue
+                to npm package in about 40 minutes.
+            </p>
+            <time datetime="2026-03-26">March 26, 2026</time>
+        </div>
+    </li>
+{% endblock %}

@@ -679,6 +679,30 @@
         <changefreq>weekly</changefreq>
     </url>
     <url>
+        <loc>https://wiredgeese.com/en/blog/2026/20260326-01-agent-skill-teqfw-esm-validator/</loc>
+        <lastmod>2026-03-26</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260326-01-agent-skill-teqfw-esm-validator/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260326-01-agent-skill-teqfw-esm-validator/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260326-01-agent-skill-teqfw-esm-validator/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/es/blog/2026/20260326-01-agent-skill-teqfw-esm-validator/</loc>
+        <lastmod>2026-03-26</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260326-01-agent-skill-teqfw-esm-validator/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260326-01-agent-skill-teqfw-esm-validator/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260326-01-agent-skill-teqfw-esm-validator/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/ru/blog/2026/20260326-01-agent-skill-teqfw-esm-validator/</loc>
+        <lastmod>2026-03-26</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
         <loc>https://wiredgeese.com/en/blog/2025/12/24-01-js-vscode-analysis/</loc>
         <lastmod>2025-12-24</lastmod>
         <priority>1.0</priority>
