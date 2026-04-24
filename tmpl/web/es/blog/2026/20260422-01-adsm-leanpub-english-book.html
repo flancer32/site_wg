@@ -1,0 +1,55 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}La versión en inglés de mi libro sobre ADSM ya está en Leanpub{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>La versión en inglés de mi libro sobre ADSM ya está en Leanpub</h1>
+    <time datetime="2026-04-22">22 de abril de 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260422-01-adsm-leanpub-english-book.jpg"
+        alt="La versión en inglés de mi libro sobre ADSM ya está en Leanpub" width="100px"></zoom-img>
+
+    <p>
+        Ya está en Leanpub la <a href="https://leanpub.com/adsm-en" target="_blank" rel="noopener">versión en
+        inglés</a> de mi libro sobre ADSM. La traduje con un agente de Codex y consumió alrededor del 10% de mi
+        cuota semanal de Codex en GPT Plus.
+    </p>
+
+    <p>
+        Lo que hizo viable la traducción fue que yo mantenía los archivos fuente en ruso en Markdown. Ese fue el
+        factor decisivo, y además el libro es breve, unas 60 páginas, así que pude avanzar rápido.
+    </p>
+
+    <p>
+        Esto continúa la <a href="/es/blog/2026/20260421-01-adsm-leanpub-russian-book.html">nota anterior</a> sobre
+        la edición rusa en Leanpub. El resultado me parece bastante sólido, aunque no me considero un gran escritor
+        en inglés. Si alguien de los suscriptores quiere una copia gratuita, puede pedírmela por mensaje directo en
+        mis canales de Telegram:
+        <a href="https://t.me/alexgusev_lab_ru" target="_blank" rel="noopener">ru</a>,
+        <a href="https://t.me/alexgusev_lab_en" target="_blank" rel="noopener">en</a>,
+        <a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener">es</a>.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2026/20260422-01-adsm-leanpub-english-book.html"></a>
+        <img src="/img/blog/2026/20260422-01-adsm-leanpub-english-book.jpg"
+            alt="La versión en inglés de mi libro sobre ADSM ya está en Leanpub" />
+        <div>
+            <h4>La versión en inglés de mi libro sobre ADSM ya está en Leanpub</h4>
+            <p>
+                Ya está en Leanpub la <a href="https://leanpub.com/adsm-en" target="_blank" rel="noopener">versión
+                en inglés</a> de mi libro sobre ADSM. La traduje con un agente de Codex y consumió alrededor del 10%
+                de mi cuota semanal de Codex en GPT Plus. Las copias gratuitas están disponibles por mensaje directo
+                en mis canales de Telegram <a href="https://t.me/alexgusev_lab_ru" target="_blank"
+                rel="noopener">ru</a>, <a href="https://t.me/alexgusev_lab_en" target="_blank"
+                rel="noopener">en</a>, <a href="https://t.me/alexgusev_lab_es" target="_blank"
+                rel="noopener">es</a>.
+            </p>
+            <time datetime="2026-04-22">22 de abril de 2026</time>
+        </div>
+    </li>
+{% endblock %}

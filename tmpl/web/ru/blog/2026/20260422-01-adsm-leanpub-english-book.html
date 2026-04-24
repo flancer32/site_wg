@@ -1,0 +1,61 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Английская версия моей книги по ADSM на Leanpub{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Английская версия моей книги по ADSM на Leanpub</h1>
+    <time datetime="2026-04-22">22 апреля 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260422-01-adsm-leanpub-english-book.jpg"
+        alt="Английская версия книги по ADSM на Leanpub" width="100px"></zoom-img>
+
+    <p>
+        На Leanpub выложена <a href="https://leanpub.com/adsm-en" target="_blank" rel="noopener">английская версия</a>
+        моей книги по ADSM. Перевод был сделан через Codex-агента и занял около 10% от недельной квоты Codex в
+        подписке GPT Plus.
+    </p>
+
+    <p>
+        По содержанию книга остаётся практическим изложением подхода, в котором документация задаёт контекст, а код
+        становится производным результатом этого контекста. Для перевода оказалось удобно, что исходники книги я вёл
+        на русском языке в Markdown. Это и стало решающим фактором, а небольшой объём книги, примерно 60 страниц,
+        помог быстро довести перевод до конца.
+    </p>
+
+    <p>
+        Это продолжение <a href="/ru/blog/2026/20260421-01-adsm-leanpub-russian-book.html">предыдущей заметки</a> о
+        русской версии книги на Leanpub.
+        Для меня это ещё и проверка того, как далеко можно довести редактуру и локализацию с помощью агента без
+        ручной пересборки всего текста. Итог выглядит достаточно аккуратно, хотя английский я сам не считаю своей
+        сильной стороной.
+    </p>
+
+    <p>
+        Бесплатная версия книги доступна по запросу подписчикам моих телеграм-каналов:
+        <a href="https://t.me/alexgusev_lab_ru" target="_blank" rel="noopener">ru</a>,
+        <a href="https://t.me/alexgusev_lab_en" target="_blank" rel="noopener">en</a>,
+        <a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener">es</a>.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/ru/blog/2026/20260422-01-adsm-leanpub-english-book.html"></a>
+        <img src="/img/blog/2026/20260422-01-adsm-leanpub-english-book.jpg"
+            alt="Английская версия книги по ADSM на Leanpub" />
+        <div>
+            <h4>Английская версия моей книги по ADSM на Leanpub</h4>
+            <p>
+                На Leanpub опубликована <a href="https://leanpub.com/adsm-en" target="_blank" rel="noopener">английская
+                версия</a> моей книги по ADSM. Перевод сделан Codex-агентом и уложился примерно в 10% недельной
+                квоты Codex на GPT Plus. Бесплатная версия доступна по запросу в телеграм-каналах
+                <a href="https://t.me/alexgusev_lab_ru" target="_blank" rel="noopener">ru</a>,
+                <a href="https://t.me/alexgusev_lab_en" target="_blank" rel="noopener">en</a>,
+                <a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener">es</a>.
+            </p>
+            <time datetime="2026-04-22">22 апреля 2026</time>
+        </div>
+    </li>
+{% endblock %}
