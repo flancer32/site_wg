@@ -1,0 +1,49 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}ADSM book published on Leanpub{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>ADSM book published on Leanpub</h1>
+    <time datetime="2026-04-21">April 21, 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260421-01-leanpub-adsm-book.jpg" alt="ADSM book published on Leanpub"
+        width="100px"></zoom-img>
+
+    <p>
+        My Russian-language book on ADSM is now published on Leanpub:
+        <a href="https://leanpub.com/adsm-ru" target="_blank" rel="noopener">my electronic book</a>.
+        The approach has matured to the point where its parts could be set down clearly in prose, one by one, without
+        losing the shape of the whole.
+    </p>
+
+    <p>
+        The book offers a practical view of development with an AI agent. Documentation sets the working context,
+        and code follows from that context. In this form, ADSM describes a controlled way of working: the human
+        defines the meaning, constraints, and structure, and the agent turns them into code.
+    </p>
+
+    <p>
+        The PDF version is available to subscribers of my Telegram channels:
+        <a href="https://t.me/alexgusev_lab_ru" target="_blank" rel="noopener">ru</a>,
+        <a href="https://t.me/alexgusev_lab_en" target="_blank" rel="noopener">en</a>,
+        <a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener">es</a>.
+        It is shared free of charge on request by direct message.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2026/20260421-01-adsm-leanpub-russian-book.html"></a>
+        <img src="/img/blog/2026/20260421-01-leanpub-adsm-book.jpg" alt="ADSM book published on Leanpub" />
+        <div>
+            <h4>ADSM book published on Leanpub</h4>
+            <p>
+                My Russian-language book on ADSM is now on Leanpub. The PDF version is available free of charge to
+                subscribers of my Telegram channels by direct message.
+            </p>
+            <time datetime="2026-04-21">April 21, 2026</time>
+        </div>
+    </li>
+{% endblock %}

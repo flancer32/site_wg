@@ -20,7 +20,7 @@
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/</loc>
-        <lastmod>2026-04-16</lastmod>
+        <lastmod>2026-04-24</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/"/>
@@ -795,6 +795,28 @@
     <url>
         <loc>https://wiredgeese.com/ru/blog/2026/20260416-01-cost-of-ai-code/</loc>
         <lastmod>2026-04-16</lastmod>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2026/20260421-01-adsm-leanpub-russian-book/</loc>
+        <lastmod>2026-04-21</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260421-01-adsm-leanpub-russian-book/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260421-01-adsm-leanpub-russian-book/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260421-01-adsm-leanpub-russian-book/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/es/blog/2026/20260421-01-adsm-leanpub-russian-book/</loc>
+        <lastmod>2026-04-21</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260421-01-adsm-leanpub-russian-book/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260421-01-adsm-leanpub-russian-book/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260421-01-adsm-leanpub-russian-book/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/ru/blog/2026/20260421-01-adsm-leanpub-russian-book/</loc>
+        <lastmod>2026-04-21</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
     </url>

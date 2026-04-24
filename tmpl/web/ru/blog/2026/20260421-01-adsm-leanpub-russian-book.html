@@ -1,0 +1,53 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Книга по ADSM вышла на Leanpub{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Книга по ADSM вышла на Leanpub</h1>
+    <time datetime="2026-04-21">21 апреля 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260421-01-leanpub-adsm-book.jpg" alt="Русская книга по ADSM на Leanpub"
+        width="100px"></zoom-img>
+
+    <p>
+        На Leanpub опубликована <a href="https://leanpub.com/adsm-ru" target="_blank" rel="noopener">моя
+        электронная книга</a> на русском языке об ADSM.
+        Это был момент, когда подход сложился в достаточно ясную форму, чтобы его отдельные части можно было спокойно
+        и последовательно сформулировать текстом.
+    </p>
+
+    <p>
+        В книге собран практический взгляд на разработку с ИИ-агентом. Документация задаёт контекст работы, а код
+        становится производным результатом этого контекста. Сам ADSM здесь описан как способ управляемой разработки,
+        в котором человек формулирует смысл, ограничения и структуру, а агент реализует их в коде.
+    </p>
+
+    <p>
+        PDF-версия книги доступна подписчикам моих телеграм-каналов: <a href="https://t.me/alexgusev_lab_ru"
+            target="_blank" rel="noopener">ru</a>, <a href="https://t.me/alexgusev_lab_en" target="_blank"
+            rel="noopener">en</a>, <a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener">es</a>.
+        Передача бесплатная, по прямому запросу.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/ru/blog/2026/20260421-01-adsm-leanpub-russian-book.html"></a>
+        <img src="/img/blog/2026/20260421-01-leanpub-adsm-book.jpg"
+            alt="Русская книга по ADSM на Leanpub" />
+        <div>
+            <h4>Книга по ADSM вышла на Leanpub</h4>
+            <p>
+                Опубликована <a href="https://leanpub.com/adsm-ru" target="_blank" rel="noopener">моя электронная
+                книга</a> на русском языке об ADSM. PDF-версия доступна подписчикам моих телеграм-каналов
+                <a href="https://t.me/alexgusev_lab_ru" target="_blank" rel="noopener">ru</a>,
+                <a href="https://t.me/alexgusev_lab_en" target="_blank" rel="noopener">en</a>,
+                <a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener">es</a> по прямому запросу
+                без оплаты.
+            </p>
+            <time datetime="2026-04-21">21 апреля 2026</time>
+        </div>
+    </li>
+{% endblock %}
