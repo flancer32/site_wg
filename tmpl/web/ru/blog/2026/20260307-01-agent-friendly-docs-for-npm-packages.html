@@ -1,0 +1,65 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Agent-friendly документация для npm-пакетов{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Agent-friendly документация для npm-пакетов</h1>
+    <time datetime="2026-03-07">7 марта 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260307-01-photo-2026-03-07-13-13-51.jpg"
+        alt="Заметка про agent-friendly документацию для пакетов" width="100px"></zoom-img>
+
+    <p>
+        7 марта я написал в Reddit-подтред Codex вопрос о том, есть ли уже устоявшиеся практики, как объяснять
+        агентам, каким образом нужно использовать пакет: Maven, Composer, npm и другие.
+    </p>
+
+    <p>
+        Ответов по сути не было. По крайней мере, у меня сложилось впечатление, что в этой области пока нет
+        общепринятой практики. Поэтому пришлось вместе с GPT-чатиком собирать свой вариант с нуля.
+    </p>
+
+    <p>
+        В качестве эксперимента я оформил для <code>@teqfw/di</code> компактный агентский интерфейс в виде
+        <code>ai/AGENTS.md</code> и набора коротких тематических файлов. Идея простая: <code>README.md</code>
+        остаётся для людей, а <code>AGENTS.md</code> и соседние документы дают агенту концентрированный контекст
+        о том, как именно использовать пакет.
+    </p>
+
+    <p>
+        Исходный Reddit-пост: <a href="https://www.reddit.com/r/codex/comments/1rmdaxp/agentfriendly_documentation_for_npm_packages_how/"
+            target="_blank" rel="noopener">Agent-friendly documentation for npm packages</a>.
+        Результат эксперимента в репозитории:
+        <a href="https://github.com/teqfw/di/blob/2.0.3/ai/AGENTS.md"
+            target="_blank" rel="noopener">teqfw/di: ai/AGENTS.md</a>.
+    </p>
+
+    <p>
+        В итоге в документации для <code>di</code> получилось шесть файлов и 4,164K токенов, включая индексный
+        <code>AGENTS.md</code>. Документ можно было бы сделать и одним файлом, но я сознательно разбил его по
+        темам, чтобы агенту было проще читать контекст по шагам.
+    </p>
+
+    <p>
+        Пока это выглядит как рабочий паттерн: маленький входной файл, дальше - чтение по маршруту и только потом
+        углубление в детали. Буду смотреть, насколько такая схема окажется устойчивой на практике.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/ru/blog/2026/20260307-01-agent-friendly-docs-for-npm-packages.html"></a>
+        <img alt="Agent-friendly документация для npm-пакетов"
+            src="/img/blog/2026/20260307-01-photo-2026-03-07-13-13-51.jpg" />
+        <div>
+            <h4>Agent-friendly документация для npm-пакетов</h4>
+            <p>
+                Разобрал Reddit-дискуссию и собственный эксперимент с `ai/AGENTS.md` для @teqfw/di: как дать
+                агенту компактный, но полезный контекст по пакету.
+            </p>
+            <time datetime="2026-03-07">7 марта 2026</time>
+        </div>
+    </li>
+{% endblock %}

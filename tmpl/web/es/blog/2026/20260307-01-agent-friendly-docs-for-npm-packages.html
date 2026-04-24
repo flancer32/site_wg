@@ -1,0 +1,67 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Documentación pensada para agentes en paquetes npm{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Documentación pensada para agentes en paquetes npm</h1>
+    <time datetime="2026-03-07">7 de marzo de 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260307-01-photo-2026-03-07-13-13-51.jpg"
+        alt="Una nota sobre documentación de paquetes pensada para agentes" width="100px"></zoom-img>
+
+    <p>
+        El 7 de marzo publiqué en el subreddit de Codex una pregunta sobre si ya existen prácticas consolidadas para
+        explicar a los agentes cómo debe usarse un paquete, ya sea en Maven, Composer, npm u otros entornos
+        parecidos.
+    </p>
+
+    <p>
+        No hubo respuestas de fondo. Al menos a mí me quedó la impresión de que todavía no existe una práctica común
+        en este terreno. Así que terminé armando mi propio enfoque junto con GPT.
+    </p>
+
+    <p>
+        Como experimento, organicé para <code>@teqfw/di</code> una interfaz compacta para agentes en forma de
+        <code>ai/AGENTS.md</code> y varios archivos breves, cada uno centrado en un tema. La idea es sencilla:
+        <code>README.md</code> queda para las personas, mientras que <code>AGENTS.md</code> y los documentos
+        cercanos le dan al agente una visión concentrada de cómo se usa el paquete.
+    </p>
+
+    <p>
+        Hilo original en Reddit:
+        <a href="https://www.reddit.com/r/codex/comments/1rmdaxp/agentfriendly_documentation_for_npm_packages_how/"
+            target="_blank" rel="noopener">Agent-friendly documentation for npm packages</a>.
+        Resultado del experimento en el repositorio:
+        <a href="https://github.com/teqfw/di/blob/2.0.3/ai/AGENTS.md"
+            target="_blank" rel="noopener">teqfw/di: ai/AGENTS.md</a>.
+    </p>
+
+    <p>
+        Al final, la documentación de <code>di</code> quedó en seis archivos y 4,164K tokens en total, incluido el
+        <code>AGENTS.md</code> índice. Podría haberse quedado en un único documento, pero la dividí por temas a
+        propósito para que el agente lea el contexto paso a paso.
+    </p>
+
+    <p>
+        Por ahora me parece un patrón que funciona: un archivo de entrada pequeño, luego una ruta de lectura guiada
+        y, solo después, el detalle más fino. Seguiré viendo qué tan estable resulta este enfoque en la práctica.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2026/20260307-01-agent-friendly-docs-for-npm-packages.html"></a>
+        <img alt="Documentación pensada para agentes en paquetes npm"
+            src="/img/blog/2026/20260307-01-photo-2026-03-07-13-13-51.jpg" />
+        <div>
+            <h4>Documentación pensada para agentes en paquetes npm</h4>
+            <p>
+                Revisé una discusión en Reddit y mi propio experimento con <code>ai/AGENTS.md</code> para
+                <code>@teqfw/di</code>: cómo darle a un agente un contexto compacto pero útil sobre un paquete.
+            </p>
+            <time datetime="2026-03-07">7 de marzo de 2026</time>
+        </div>
+    </li>
+{% endblock %}

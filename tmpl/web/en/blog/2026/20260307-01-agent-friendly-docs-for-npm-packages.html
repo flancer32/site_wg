@@ -1,0 +1,66 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Agent-friendly documentation for npm packages{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Agent-friendly documentation for npm packages</h1>
+    <time datetime="2026-03-07">March 7, 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260307-01-photo-2026-03-07-13-13-51.jpg"
+        alt="A note about agent-friendly package documentation" width="100px"></zoom-img>
+
+    <p>
+        On March 7 I posted a question in the Codex subreddit asking whether there are already established practices
+        for explaining to agents how a package should be used: Maven, Composer, npm, and similar ecosystems.
+    </p>
+
+    <p>
+        There were no real answers. At least to me, it looked like there is still no shared practice in this area.
+        So I ended up building my own approach together with GPT.
+    </p>
+
+    <p>
+        As an experiment, I shaped a compact agent interface for <code>@teqfw/di</code> in the form of
+        <code>ai/AGENTS.md</code> plus a set of short topic-focused files. The idea is simple: <code>README.md</code>
+        stays for humans, while <code>AGENTS.md</code> and the neighboring docs give the agent a concentrated view of
+        how the package is meant to be used.
+    </p>
+
+    <p>
+        Original Reddit thread:
+        <a href="https://www.reddit.com/r/codex/comments/1rmdaxp/agentfriendly_documentation_for_npm_packages_how/"
+            target="_blank" rel="noopener">Agent-friendly documentation for npm packages</a>.
+        Experiment result in the repository:
+        <a href="https://github.com/teqfw/di/blob/2.0.3/ai/AGENTS.md"
+            target="_blank" rel="noopener">teqfw/di: ai/AGENTS.md</a>.
+    </p>
+
+    <p>
+        In the end, the <code>di</code> documentation came to six files and 4,164K tokens in total, including the
+        index <code>AGENTS.md</code>. I could have made it a single document, but I intentionally split it by topic
+        so the agent can read the context step by step.
+    </p>
+
+    <p>
+        For now this feels like a workable pattern: a small entry file, then a guided reading path, and only after
+        that the deeper details. I’ll keep watching how stable this approach turns out to be in practice.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2026/20260307-01-agent-friendly-docs-for-npm-packages.html"></a>
+        <img alt="Agent-friendly documentation for npm packages"
+            src="/img/blog/2026/20260307-01-photo-2026-03-07-13-13-51.jpg" />
+        <div>
+            <h4>Agent-friendly documentation for npm packages</h4>
+            <p>
+                I went through a Reddit discussion and my own <code>ai/AGENTS.md</code> experiment for
+                <code>@teqfw/di</code>: how to give an agent a compact but useful package context.
+            </p>
+            <time datetime="2026-03-07">March 7, 2026</time>
+        </div>
+    </li>
+{% endblock %}
