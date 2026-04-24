@@ -1,0 +1,56 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Codex y una incidencia en GitHub{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Codex y una incidencia en GitHub</h1>
+    <time datetime="2026-03-16">16 de marzo de 2026</time>
+
+    <zoom-img src="/img/brand/codex.png"
+        alt="Codex y una incidencia en GitHub" width="100px"></zoom-img>
+
+    <p>
+        El 16 de marzo un agente Codex que trabajaba en la configuración en tiempo de ejecución para el paquete npm
+        <code>@flancer32/teq-web</code> primero contrastó la tarea con el ejemplo de la especificación y después
+        explicó por qué una copia directa rompería las pruebas por restricciones en otro paquete,
+        <code>@teqfw/di</code>, donde ya se habían añadido comprobaciones extra.
+    </p>
+
+    <p>
+        La tarea pasó entonces a una incidencia de GitHub:
+        <a href="https://github.com/teqfw/di/issues/33" target="_blank" rel="noopener">
+            teqfw/di#33
+        </a>.
+        Ese formato conservó el contexto y evitó un traspaso manual entre agentes.
+    </p>
+
+    <p>
+        En términos prácticos, el coste fue una aclaración y una formulación precisa de la tarea. El agente detectó
+        la restricción, explicó la causa y convirtió la corrección en una incidencia aparte sin necesitar un intercambio
+        largo de mensajes.
+    </p>
+
+    <p>
+        La conclusión es sencilla: las incidencias de GitHub funcionan bien como interfaz entre agentes cuando los
+        agentes pueden escribir código y también formular con claridad el trabajo técnico. El siguiente paso es
+        automatizar la recepción en un agente Codex en el servidor y cerrar el ciclo de principio a fin.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2026/20260316-01-codex-agent-issue-handoff.html"></a>
+        <img alt="Codex y un issue en GitHub" src="/img/brand/codex.png" />
+        <div>
+        <h4>Codex y una incidencia en GitHub</h4>
+            <p>
+                Un agente Codex explicó un conflicto de configuración en tiempo de ejecución en @teqfw/di,
+                convirtió la corrección en la incidencia #33 de GitHub y eliminó el traspaso manual extra entre
+                agentes.
+            </p>
+            <time datetime="2026-03-16">16 de marzo de 2026</time>
+        </div>
+    </li>
+{% endblock %}

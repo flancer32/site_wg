@@ -1,0 +1,55 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Codex agent and a GitHub issue{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Codex agent and a GitHub issue</h1>
+    <time datetime="2026-03-16">March 16, 2026</time>
+
+    <zoom-img src="/img/brand/codex.png"
+        alt="Codex agent and a GitHub issue" width="100px"></zoom-img>
+
+    <p>
+        On March 16, a Codex agent working on runtime configuration for the npm package
+        <code>@flancer32/teq-web</code> first compared the task with the example in the specification and then
+        explained why a direct copy would break the tests because of constraints in another package,
+        <code>@teqfw/di</code>, where extra checks had already been added.
+    </p>
+
+    <p>
+        The task was then filed as a GitHub issue:
+        <a href="https://github.com/teqfw/di/issues/33" target="_blank" rel="noopener">
+            teqfw/di#33
+        </a>.
+        That format kept the context intact and removed the need for a manual handoff between agents.
+    </p>
+
+    <p>
+        In practical terms, the cost was one clarification and one proper task write-up. The agent identified the
+        constraint, explained the cause, and turned the fix into a separate issue without requiring a long round of
+        back-and-forth.
+    </p>
+
+    <p>
+        The takeaway is simple: GitHub issues work well as an interface between agents when the agents can both
+        write code and frame technical work clearly. The next step is to automate the intake on a server-side Codex
+        agent and close the loop end to end.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2026/20260316-01-codex-agent-issue-handoff.html"></a>
+        <img alt="Codex agent and a GitHub issue" src="/img/brand/codex.png" />
+        <div>
+            <h4>Codex agent and a GitHub issue</h4>
+            <p>
+                A Codex agent explained a runtime-configuration conflict in @teqfw/di, turned the fix into GitHub
+                issue #33, and removed the extra manual handoff between agents.
+            </p>
+            <time datetime="2026-03-16">March 16, 2026</time>
+        </div>
+    </li>
+{% endblock %}

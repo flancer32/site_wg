@@ -20,7 +20,7 @@
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/</loc>
-        <lastmod>2026-03-12</lastmod>
+        <lastmod>2026-03-16</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/"/>
@@ -644,6 +644,15 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/03/12-01-codex-agent-autonomous-server/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/03/12-01-codex-agent-autonomous-server/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/03/12-01-codex-agent-autonomous-server/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2026/03/16-01-codex-agent-issue-handoff/</loc>
+        <lastmod>2026-03-16</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/03/16-01-codex-agent-issue-handoff/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/03/16-01-codex-agent-issue-handoff/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/03/16-01-codex-agent-issue-handoff/"/>
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/2025/12/24-01-js-vscode-analysis/</loc>

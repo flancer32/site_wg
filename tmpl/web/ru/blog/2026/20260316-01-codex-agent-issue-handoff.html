@@ -1,0 +1,56 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Codex-агент и GitHub issue{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Codex-агент и GitHub issue</h1>
+    <time datetime="2026-03-16">16 марта 2026</time>
+
+    <zoom-img src="/img/brand/codex.png"
+        alt="Codex-агент и GitHub issue" width="100px"></zoom-img>
+
+    <p>
+        16 марта Codex-агент, работавший над runtime-конфигурацией для npm-пакета
+        <code>@flancer32/teq-web</code>, сначала сверил задачу с примером из спецификации, а затем показал,
+        что прямое копирование схемы ломает тесты из-за ограничений в другом пакете
+        <code>@teqfw/di</code>, где уже были добавлены лишние проверки.
+    </p>
+
+    <p>
+        После этого задача была оформлена как GitHub issue:
+        <a href="https://github.com/teqfw/di/issues/33" target="_blank" rel="noopener">
+            teqfw/di#33
+        </a>.
+        Такой формат сохранил контекст и убрал лишний ручной пересказ между агентами.
+    </p>
+
+    <p>
+        По затратам это стоило только одного уточнения и одной нормальной постановки задачи. В остальном работа
+        свелась к тому, что агент сам обнаружил ограничение, сам сформулировал причину и сам вынес исправление в
+        отдельную задачу.
+    </p>
+
+    <p>
+        Вывод получился простой: GitHub issue удобно работает как интерфейс между агентами, если они умеют
+        не только писать код, но и формулировать техническую задачу. Дальше остаётся автоматизировать приём
+        таких задач серверным Codex-агентом и замкнуть цикл до конца.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/ru/blog/2026/20260316-01-codex-agent-issue-handoff.html"></a>
+        <img alt="Codex-агент передал задачу другому агенту через GitHub" src="/img/brand/codex.png" />
+        <div>
+        <h4>Codex-агент и GitHub issue</h4>
+            <p>
+                Codex-агент сам объяснил несовместимость с @teqfw/di, оформил исправление в GitHub issue и
+                убрал лишний ручной пересказ между агентами. Ссылка на задачу:
+                teqfw/di#33.
+            </p>
+            <time datetime="2026-03-16">16 марта 2026</time>
+        </div>
+    </li>
+{% endblock %}
