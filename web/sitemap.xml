@@ -20,7 +20,7 @@
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/</loc>
-        <lastmod>2026-03-23</lastmod>
+        <lastmod>2026-04-10</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/"/>
@@ -679,6 +679,30 @@
         <changefreq>weekly</changefreq>
     </url>
     <url>
+        <loc>https://wiredgeese.com/en/blog/2026/20260325-01-github-flows-repository-creation/</loc>
+        <lastmod>2026-03-25</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260325-01-github-flows-repository-creation/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260325-01-github-flows-repository-creation/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260325-01-github-flows-repository-creation/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/es/blog/2026/20260325-01-github-flows-repository-creation/</loc>
+        <lastmod>2026-03-25</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260325-01-github-flows-repository-creation/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260325-01-github-flows-repository-creation/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260325-01-github-flows-repository-creation/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/ru/blog/2026/20260325-01-github-flows-repository-creation/</loc>
+        <lastmod>2026-03-25</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
         <loc>https://wiredgeese.com/en/blog/2026/20260326-01-agent-skill-teqfw-esm-validator/</loc>
         <lastmod>2026-03-26</lastmod>
         <priority>1.0</priority>
@@ -723,6 +747,30 @@
     <url>
         <loc>https://wiredgeese.com/ru/blog/2026/20260330-01-agent-skill-teqfw-esm-validator-4-version/</loc>
         <lastmod>2026-03-30</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2026/20260410-01-github-flows-app/</loc>
+        <lastmod>2026-04-10</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260410-01-github-flows-app/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260410-01-github-flows-app/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260410-01-github-flows-app/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/es/blog/2026/20260410-01-github-flows-app/</loc>
+        <lastmod>2026-04-10</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260410-01-github-flows-app/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260410-01-github-flows-app/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260410-01-github-flows-app/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/ru/blog/2026/20260410-01-github-flows-app/</loc>
+        <lastmod>2026-04-10</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
     </url>

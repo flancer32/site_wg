@@ -1,0 +1,56 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}@teqfw/github-flows is packaged as a reusable library{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>@teqfw/github-flows is packaged as a reusable library</h1>
+    <time datetime="2026-03-25">March 25, 2026</time>
+
+    <zoom-img src="/img/brand/github.png" alt="GitHub" width="100px"></zoom-img>
+
+    <p>
+        Together with Viktor Gusev, a separate repository was created for
+        <a href="https://www.npmjs.com/package/@teqfw/github-flows" target="_blank" rel="noopener">@teqfw/github-flows</a>.
+        Viktor's profile is here:
+        <a href="https://github.com/viktor-gusev" target="_blank" rel="noopener">viktor-gusev</a>.
+    </p>
+
+    <p>
+        The package extends the earlier gateway from
+        <a href="/en/blog/2026/20260323-01-codex-github-issues-gateway.html">
+            Gateway from GitHub issues to Codex
+        </a>
+        and turns it into a library foundation for web applications that build agent-based workflows. It intercepts
+        GitHub webhooks, extracts the event, prepares the input data, and launches agents in Docker
+        containers to process those events.
+    </p>
+
+    <p>
+        Our experiments showed the practical side of the approach. A human or another agent can start production
+        chains that change code and carry the result through to a new release. This is no longer a prototype in
+        the strict sense. It is a repeatable model for building workflows around GitHub events and agent execution.
+    </p>
+
+    <p>
+        <a href="https://www.npmjs.com/package/@teqfw/github-flows" target="_blank" rel="noopener">@teqfw/github-flows</a>
+        packages this approach as a reusable solution. The package stays a library, while lifecycle and runtime
+        remain the host application's responsibility.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2026/20260325-01-github-flows-repository-creation.html"></a>
+        <img alt="GitHub" src="/img/brand/github.png" />
+        <div>
+            <h4>@teqfw/github-flows is packaged as a reusable library</h4>
+            <p>
+                The package is a library for intercepting GitHub webhooks, launching agents in Docker, and
+                building workflows that can carry code to new releases.
+            </p>
+            <time datetime="2026-03-25">March 25, 2026</time>
+        </div>
+    </li>
+{% endblock %}

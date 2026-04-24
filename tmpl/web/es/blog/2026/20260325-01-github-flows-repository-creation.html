@@ -1,0 +1,57 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}@teqfw/github-flows se presenta como biblioteca reutilizable{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>@teqfw/github-flows se presenta como biblioteca reutilizable</h1>
+    <time datetime="2026-03-25">25 de marzo de 2026</time>
+
+    <zoom-img src="/img/brand/github.png" alt="GitHub" width="100px"></zoom-img>
+
+    <p>
+        Junto con Viktor Gusev se creó un repositorio independiente para
+        <a href="https://www.npmjs.com/package/@teqfw/github-flows" target="_blank" rel="noopener">@teqfw/github-flows</a>.
+        El perfil de Viktor está aquí:
+        <a href="https://github.com/viktor-gusev" target="_blank" rel="noopener">viktor-gusev</a>.
+    </p>
+
+    <p>
+        El paquete amplía la puerta de enlace anterior de
+        <a href="/es/blog/2026/20260323-01-codex-github-issues-gateway.html">
+            Puerta de enlace de incidencias de GitHub para Codex
+        </a>
+        y la convierte en una base bibliotecaria para aplicaciones web que construyen flujos de trabajo sobre
+        agentes. Intercepta los webhooks de GitHub, extrae el evento, prepara los datos de entrada y pone en marcha
+        agentes en contenedores Docker para procesar esos eventos.
+    </p>
+
+    <p>
+        Nuestros experimentos mostraron la parte práctica del enfoque. Una persona o incluso otro agente puede
+        poner en marcha cadenas de producción que modifican el código y lo llevan hasta un nuevo lanzamiento. Ya no
+        se trata de un prototipo en sentido estricto. Es un modelo repetible para construir flujos de trabajo sobre
+        eventos de GitHub y ejecución de agentes.
+    </p>
+
+    <p>
+        <a href="https://www.npmjs.com/package/@teqfw/github-flows" target="_blank" rel="noopener">@teqfw/github-flows</a>
+        empaqueta ese enfoque como una solución reutilizable. El paquete sigue siendo una biblioteca, mientras que
+        el ciclo de vida y el entorno de ejecución quedan en manos de la aplicación anfitriona.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2026/20260325-01-github-flows-repository-creation.html"></a>
+        <img alt="GitHub" src="/img/brand/github.png" />
+        <div>
+            <h4>@teqfw/github-flows se presenta como biblioteca reutilizable</h4>
+            <p>
+                El paquete es una biblioteca para interceptar webhooks de GitHub, lanzar agentes en
+                Docker y construir flujos de trabajo capaces de llevar código a nuevos lanzamientos.
+            </p>
+            <time datetime="2026-03-25">25 de marzo de 2026</time>
+        </div>
+    </li>
+{% endblock %}

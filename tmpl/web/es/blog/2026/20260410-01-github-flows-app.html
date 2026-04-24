@@ -1,0 +1,60 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}@teqfw/github-flows recibe una aplicación anfitriona{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>@teqfw/github-flows recibe una aplicación anfitriona</h1>
+    <time datetime="2026-04-10">10 de abril de 2026</time>
+
+    <zoom-img src="/img/brand/github.png" alt="GitHub" width="100px"></zoom-img>
+
+    <p>
+        Para
+        <strong><a href="https://www.npmjs.com/package/@teqfw/github-flows" target="_blank" rel="noopener">@teqfw/github-flows</a></strong>
+        se preparó la aplicación anfitriona
+        <a href="https://github.com/flancer32/github-flows-app" target="_blank" rel="noopener">github-flows-app</a>.
+        Aporta la capa operativa alrededor del servidor, el acceso a los datos desde el navegador y las tareas de
+        servicio, y se mantiene por encima de la biblioteca.
+    </p>
+
+    <p>
+        La biblioteca está pensada como núcleo común. Recibe eventos de GitHub, reúne los datos necesarios para la
+        ejecución y pone en marcha al agente en Docker. El comportamiento de los agentes y la lógica de los
+        flujos se definen aparte, en archivos JSON y MD organizados en una jerarquía de directorios. Esos archivos
+        deciden cuándo arrancan los agentes y qué instrucciones reciben.
+    </p>
+
+    <p>
+        La aplicación anfitriona sirve para arrancar el servidor, ver los registros y las configuraciones en el
+        navegador, y ejecutar tareas de mantenimiento como limpiar datos antiguos. Con esas mismas
+        configuraciones también se definen los flujos: se puede permitir que los activen usuarios anónimos o solo
+        cuentas concretas; el agente puede trabajar directamente en <code>main</code> o crear una rama para cada
+        evento y abrir luego una solicitud de extracción.
+    </p>
+
+    <p>
+        En este momento, el acceso a GitHub usa un token de acceso personal, y Codex funciona con tokens OAuth de
+        una suscripción Plus. Ya se ve como una configuración de servicio reproducible para un VPS: un servidor
+        separado, gestión de configuraciones y visibilidad clara de cada ejecución. El proyecto avanza precisamente
+        hacia ese estado, en el que el procesamiento de eventos de GitHub puede reconfigurarse mediante reglas
+        guiadas por agentes.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2026/20260410-01-github-flows-app.html"></a>
+        <img alt="GitHub" src="/img/brand/github.png" />
+        <div>
+            <h4>@teqfw/github-flows recibe una aplicación anfitriona</h4>
+            <p>
+                Se preparó una aplicación anfitriona para @teqfw/github-flows, con servidor, registros y
+                configuraciones en el navegador, y apoyada en tokens de acceso personal de GitHub y tokens OAuth
+                de Codex.
+            </p>
+            <time datetime="2026-04-10">10 de abril de 2026</time>
+        </div>
+    </li>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Вместе с Виктором Гусевым собран репозиторий @teqfw/github-flows{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Вместе с Виктором Гусевым собран репозиторий @teqfw/github-flows</h1>
+    <time datetime="2026-03-25">25 марта 2026</time>
+
+    <zoom-img src="/img/brand/github.png" alt="GitHub" width="100px"></zoom-img>
+
+    <p>
+        Вместе с Виктором Гусевым был собран отдельный репозиторий
+        <a href="https://github.com/viktor-gusev/github-flows" target="_blank" rel="noopener">github-flows</a>
+        для пакета <strong><a href="https://www.npmjs.com/package/@teqfw/github-flows" target="_blank" rel="noopener">@teqfw/github-flows</a></strong>. Профиль Виктора доступен здесь:
+        <a href="https://github.com/viktor-gusev" target="_blank" rel="noopener">viktor-gusev</a>.
+    </p>
+
+    <p>
+        Пакет развивает идею предыдущего шлюза
+        <a href="/ru/blog/2026/20260323-01-codex-github-issues-gateway.html">
+            Шлюз между GitHub Issues и Codex-агентом
+        </a>
+        и оформляет её как библиотечную основу для веб-приложений, строящих рабочие процессы на базе агентов.
+        Теперь речь идёт о перехвате вебхуков с GitHub, извлечении события, подготовке входных данных и запуске
+        агентов в Docker-контейнере для обработки этих событий.
+    </p>
+
+    <p>
+        Совместные эксперименты с Виктором показали практическую сторону схемы: человек или другой агент может
+        запускать производственные цепочки, которые меняют код и доводят его до нового релиза. Это уже не
+        исследовательский прототип, а воспроизводимая модель для сборки рабочих процессов.
+    </p>
+
+    <p>
+        <a href="https://www.npmjs.com/package/@teqfw/github-flows" target="_blank" rel="noopener">@teqfw/github-flows</a>
+        упаковывает этот подход в отдельное переиспользуемое решение. Сам пакет остаётся библиотекой, а
+        ответственность за жизненный цикл и окружение лежит на хостовом приложении.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/ru/blog/2026/20260325-01-github-flows-repository-creation.html"></a>
+        <img alt="GitHub" src="/img/brand/github.png" />
+        <div>
+            <h4>Вместе с Виктором Гусевым собран репозиторий @teqfw/github-flows</h4>
+            <p>
+                Библиотека для перехвата GitHub webhook-событий, запуска агентов в Docker и построения рабочих
+                процессов, которые могут доводить код до новых релизов.
+            </p>
+            <time datetime="2026-03-25">25 марта 2026</time>
+        </div>
+    </li>
+{% endblock %}
