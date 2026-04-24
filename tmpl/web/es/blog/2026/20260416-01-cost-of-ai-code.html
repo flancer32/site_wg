@@ -1,0 +1,44 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Hablar cuesta poco. También el código{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Hablar cuesta poco. También el código</h1>
+    <time datetime="2026-04-16">16 de abril de 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260416-01-cost-of-ai-code.png" alt="Hablar cuesta poco. También el código"
+        width="100px"></zoom-img>
+
+    <p>
+        Hice un experimento práctico con ADSM. Primero construí un ayudante para crear listas de reproducción
+        de Spotify con unas cien canciones; después borré el código y las pruebas y regeneré la aplicación
+        dos veces únicamente a partir del contexto. El resultado fue claro: el contexto mantiene el
+        comportamiento del proyecto incluso cuando se elimina la implementación.
+    </p>
+
+    <p>
+        Después publiqué el artículo completo en Habr:
+        <a href="https://habr.com/ru/articles/1023900/" target="_blank" rel="noopener">Hablar cuesta poco. También el código</a>.
+        También hay una copia en la biblioteca del sitio:
+        <a href="/es/library/adsm/20260415-01-conversations-code-cost.html">Hablar cuesta poco. También el código</a>.
+        La conclusión breve es sencilla: el contexto importa más que el código, y el código se puede regenerar.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2026/20260416-01-cost-of-ai-code.html"></a>
+        <img src="/img/blog/2026/20260416-01-cost-of-ai-code.png" alt="Hablar cuesta poco. También el código" />
+        <div>
+            <h4>Hablar cuesta poco. También el código</h4>
+            <p>
+                Un experimento práctico mostró que el contexto conserva el comportamiento del proyecto,
+                mientras que el código se puede regenerar. El texto completo está en Habr y la copia está
+                en la biblioteca del sitio.
+            </p>
+            <time datetime="2026-04-16">16 de abril de 2026</time>
+        </div>
+    </li>
+{% endblock %}

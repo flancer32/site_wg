@@ -1,0 +1,24 @@
+# Report
+
+- Iteration goal: add and localize the `@teqfw/github-flows` host-application post, update the sitemap, publish all repository changes, and trigger production deployment.
+- Completed actions:
+  - created the Russian post for the host application:
+    - `tmpl/web/ru/blog/2026/20260410-01-github-flows-app.html`
+  - created English and Spanish versions and adapted them to local style:
+    - `tmpl/web/en/blog/2026/20260410-01-github-flows-app.html`
+    - `tmpl/web/es/blog/2026/20260410-01-github-flows-app.html`
+  - added the earlier GitHub Flows repository-creation posts in RU/EN/ES
+  - updated `web/sitemap.xml` with the new blog URLs and refreshed the blog index `lastmod`
+  - committed all current repository changes in one commit:
+    - `03e3432` `publish github flows app and sitemap updates`
+  - pushed the commit to `main`
+  - triggered `.github/workflows/publish.yml` for production publication
+- Artifacts:
+  - `web/sitemap.xml`
+  - `web/img/brand/github.png`
+  - `tmpl/web/ru/blog/2026/20260325-01-github-flows-repository-creation.html`
+  - `tmpl/web/ru/blog/2026/20260410-01-github-flows-app.html`
+  - `tmpl/web/en/blog/2026/20260325-01-github-flows-repository-creation.html`
+  - `tmpl/web/en/blog/2026/20260410-01-github-flows-app.html`
+  - `tmpl/web/es/blog/2026/20260325-01-github-flows-repository-creation.html`
+  - `tmpl/web/es/blog/2026/20260410-01-github-flows-app.html`

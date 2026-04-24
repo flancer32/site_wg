@@ -1,0 +1,43 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Talk is cheap. So is code{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Talk is cheap. So is code</h1>
+    <time datetime="2026-04-16">April 16, 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260416-01-cost-of-ai-code.png" alt="Talk is cheap. So is code"
+        width="100px"></zoom-img>
+
+    <p>
+        I ran a practical ADSM experiment. First I built a Spotify playlist helper for roughly one hundred
+        songs, then I deleted the code and tests and regenerated the application twice from the context
+        alone. The result was clear: the context keeps the behavior of the project intact even after the
+        implementation is removed.
+    </p>
+
+    <p>
+        After that, I published the full article on Habr:
+        <a href="https://habr.com/ru/articles/1023900/" target="_blank" rel="noopener">Talk is cheap. So is code</a>.
+        A copy is also available in the site library:
+        <a href="/en/library/adsm/20260415-01-conversations-code-cost.html">Talk is cheap. So is code</a>.
+        The short conclusion is simple: context matters more than code, and code can be regenerated.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2026/20260416-01-cost-of-ai-code.html"></a>
+        <img src="/img/blog/2026/20260416-01-cost-of-ai-code.png" alt="Talk is cheap. So is code" />
+        <div>
+            <h4>Talk is cheap. So is code</h4>
+            <p>
+                A practical experiment showed that context preserves the behavior of the project, while code
+                can be regenerated. The full text is on Habr and a copy is in the site library.
+            </p>
+            <time datetime="2026-04-16">April 16, 2026</time>
+        </div>
+    </li>
+{% endblock %}

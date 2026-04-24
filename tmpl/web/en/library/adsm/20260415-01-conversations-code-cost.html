@@ -1,0 +1,230 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Talk is cheap. So is code{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Talk is cheap. So is code</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2026-04-15
+    </span>
+
+    <zoom-img src="/img/blog/2026/20260416-01-cost-of-ai-code.png"
+        alt="Talk is cheap. So is code" width="100px"></zoom-img>
+
+    <p>
+        Linus Torvalds&apos;s well-known line, "Talk is cheap. Show me the code.", can be rewritten today as
+        "Code is cheap. Show me the spec." In this article I explain why I think so.
+    </p>
+
+    <p>
+        I have several Habr articles connected by one theme: ADSM (Agent Driven Software Management).
+        In practice, it is my attempt to turn my personal experience with Spec-Driven Development (SDD)
+        into something close to a methodology. This article presents the results of applying that
+        SDD approach, in its ADSM form, to a simple application: a Spotify playlist helper
+        (<a href="https://www.npmjs.com/package/@flancer32/spotify-playlist" target="_blank" rel="noopener">@flancer32/spotify-playlist</a>).
+        It also shows what happens when the same agent (Codex, GPT-5.4) regenerates code from the same
+        context under different reasoning levels: high, medium, and low.
+    </p>
+
+    <h2>Background</h2>
+
+    <p>
+        We needed a playlist for one family event, roughly four to five hours long, on a specific theme.
+        ChatGPT handled the task well and produced a list of 100 tracks with titles and artists. The next
+        step was to turn that list into a Spotify playlist. We used to do this manually, which took a fair
+        amount of time, but now these tasks are easy to automate with AI agents.
+    </p>
+
+    <p>
+        Someone else might build a similar app in half an hour, or even ten minutes. I do not build that
+        way; I work with SDD. So the first version of the application took me about two hours of focused work.
+    </p>
+
+    <h2>Story</h2>
+
+    <p>
+        Before starting this project, I had no practical experience integrating Spotify with external
+        applications. ChatGPT pointed me to <a href="https://developer.spotify.com/" target="_blank" rel="noopener">developer.spotify.com</a>
+        and explained what needed to be registered to create my own app.
+    </p>
+
+    <p>
+        It turned out that Spotify authentication uses OAuth, which in turn requires a domain and a TLS
+        certificate. I already had a domain, and the certificate comes from Let&apos;s Encrypt. I have been
+        writing only in JavaScript for a long time, so the language choice was obvious. The platform choice
+        was just as obvious: TeqFW, nothing else.
+    </p>
+
+    <p>
+        I created a private GitHub repository and cloned it locally. Then I added the typical Node.js
+        application code based on my <code>@teqfw/di</code> library into the context
+        <code>(./ctx/spec/)</code>. For a little more than an hour I discussed the implementation details
+        with the Codex agent in VSCode: how to start it, how to configure it, what dependencies to use.
+        The agent recorded all of that in the project context <code>(./ctx/docs/)</code>. Then I asked it to
+        create <code>./package.json</code>, the bootstrap file <code>./bin/cli.mjs</code>, and the main
+        application file <code>./src/Main.mjs</code>. After that I asked for two iterations: 1) integration
+        tests and code for obtaining and storing the authentication token through the web server;
+        2) loading and parsing the text file with tracks, searching Spotify for tracks, and building the
+        playlist, again with integration tests and source code. I verified the ES module format against
+        <a href="https://www.npmjs.com/package/@flancer32/skill-teqfw-esm-validator" target="_blank" rel="noopener">teq-esm-validator</a>.
+    </p>
+
+    <p>
+        I checked the app step by step: the skeleton, token acquisition, file parsing and track lookup,
+        playlist creation, and adding the tracks that were found. In a little more than two hours of focused
+        work, this application created a new Spotify playlist with 80+ tracks. The remaining tracks from the
+        list were not found on Spotify.
+    </p>
+
+    <h2>Consequences</h2>
+
+    <p>
+        I often see comments on Habr claiming that LLM agents are not useful in development because they
+        do not produce deterministic results. For me, programming is still partly an art. If Leonardo da
+        Vinci painted the Mona Lisa ten times, he would have produced ten different paintings depicting
+        the same woman. If any programmer implements a sufficiently complex application ten times, the
+        result will also be ten different applications with the same intended behavior.
+    </p>
+
+    <p>
+        "deterministic output" != "deterministic code"
+    </p>
+
+    <p>
+        To demonstrate this, I published the original code generated by the Codex agent
+        (GPT-5.4, high reasoning) as version 1.0.0. I published only the code; I deliberately removed
+        the context. Then I asked Codex (GPT-5.4, medium reasoning) to delete <code>./src/</code> and
+        <code>./test/</code> and regenerate tests and source code from scratch using the same unchanged
+        context from <code>./ctx/</code> (for simplicity I kept <code>package.json</code> and the
+        bootstrap file). That produced version 2.0.0. I repeated the same process with GPT-5.4 at low
+        reasoning, which produced version 3.0.0.
+    </p>
+
+    <h2>Prompt for regeneration</h2>
+
+    <p>Here is the summary of the generated source code produced by the agent:</p>
+
+    <pre><code>Version    Files in src   Folders in src   Total lines   Code   Comments   Blank
+1.0.0      23             9                1546          983    404        159
+2.0.0      18             10               1436          844    462        130
+3.0.0      20             10               993           665    274        54
+</code></pre>
+
+    <p>
+        You can follow the links and inspect the resulting code: it is not identical. Any of the three
+        versions can be installed, a Spotify auth token can be obtained, and playlists can be created -
+        <a href="https://www.npmjs.com/package/@flancer32/spotify-playlist" target="_blank" rel="noopener">@flancer32/spotify-playlist</a>
+        behaves the same.
+    </p>
+
+    <h2>Notes</h2>
+
+    <p>
+        I spent months building the specifications for my development style
+        <code>(./ctx/spec/code/platform/teqfw/)</code>, and I am still evolving that documentation.
+        But it is part of the context reused across all my projects. It took me a couple of hours to
+        describe the product itself by writing the documents in <code>./ctx/docs/</code>. Generating the
+        tests and code for each version took the agent about ten minutes. And interestingly, regardless
+        of reasoning level, each generation used roughly 4% of my weekly ChatGPT Plus quota.
+    </p>
+
+    <p>
+        All three versions stumbled on Spotify playlist creation. They handled dry runs and track search,
+        but when adding tracks to the playlist, the agent used an outdated API each time and I had to point
+        out the error repeatedly. If I had not tried to keep the experiment reasonably clean, I would have
+        added a context requirement to use the new Spotify API, but I intentionally kept the generation on
+        the same context. So along with the determinism of the resulting functionality, the determinism of
+        the agent&apos;s context-reading mistakes also showed up.
+    </p>
+
+    <p>
+        The third version, generated by the low-reasoning agent, failed to keep the web server running.
+        More precisely, it did start the server, but the application immediately shut it down before
+        waiting for the Spotify auth token. That problem did not appear with the high and medium versions.
+    </p>
+
+    <p>
+        To make the size ratio between context documents and generated code clear:
+    </p>
+
+    <pre><code>Files in ctx   53
+Folders in ctx 27
+Total lines    5378
+Blank          1869
+</code></pre>
+
+    <p>
+        By byte size the breakdown is:
+    </p>
+
+    <pre><code>Files in ctx      152Kb
+src v1 (high)     48Kb
+src v2 (medium)   42Kb
+src v3 (low)      36Kb
+</code></pre>
+
+    <p>
+        Yes, that is my deliberate position: context documents should be several times larger than the
+        resulting code.
+    </p>
+
+    <h2>Skills</h2>
+
+    <p>
+        Skills deserve a separate mention. My platform uses late binding of source files at runtime.
+        All dependencies are injected through the constructor, which means there are no static imports in
+        any file under <code>./src/</code>. None. That is a rather unconventional way to write JavaScript,
+        and agents are very poor at handling it.
+    </p>
+
+    <p>
+        When I ran into agents stubbornly trying to create classic source code with static imports, I had to
+        create my own skill - <a href="https://www.npmjs.com/package/@flancer32/skill-teqfw-esm-validator" target="_blank" rel="noopener"><code>teqesm-validator</code></a>.
+        The Codex agent also built that skill using the same ADSM methodology. Once I could mention this skill
+        in the prompt for source validation, the binding problem dropped dramatically. At least in this Spotify
+        playlist project, it did not appear at all.
+    </p>
+
+    <h2>Conclusion</h2>
+
+    <p>
+        I compare LLM agents generating code to rainwater that, following the shape of the terrain, collects
+        into streams, creeks, rivers, and finally heads toward the ocean. An agent generates code the same way:
+        it follows the path of least resistance. In that analogy, context documents act as dams and channels,
+        while skills and tests are the pumps that move the water to another level. From there it can flow down
+        again, but along a different path.
+    </p>
+
+    <p>
+        The main cost in this approach is the infrastructure: those dams, channels, and locks. But once that
+        infrastructure exists, the water usually ends up where the builders intended. In my view, code is not
+        the final artifact but a derivative one - the result of the interaction between cognitive context and
+        the agent.
+    </p>
+
+    <p>
+        That is why I believe the project context (those 53 files in <code>./ctx/</code>) matters more than
+        the code itself (18-23 files in <code>./src/</code>). Once you have the context, the agent can produce
+        the code you need in minutes. Even something as unusual as TeqFW.
+    </p>
+
+    <p>
+        You are free to inspect the code of all three versions - it is cheap. But if you want to see the
+        project context, send me a message. I will share the context for free in exchange for feedback on
+        whether this approach could be useful in your projects.
+    </p>
+
+    <p>
+        P.S. A bit of beauty. AI agents are perfectly capable of handling boilerplate and making multiple
+        <code>node_modules</code> dependencies unnecessary:
+    </p>
+
+    <p>
+        They have no trouble hardcoding a Web API and then re-hardcoding it when the API changes. In my
+        application there are only two runtime dependencies (my own libraries) and two dev dependencies
+        (for Node.js type resolution).
+    </p>
+</div>
+{% endblock %}
