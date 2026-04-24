@@ -1,0 +1,52 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}@teqfw/di переехал в LLM-first режим{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>@teqfw/di переехал в LLM-first режим</h1>
+    <time datetime="2026-02-25">25 февраля 2026</time>
+
+    <zoom-img src="/img/brand/teqfw.webp" alt="@teqfw/di в LLM-first режиме" width="100px"></zoom-img>
+
+    <p>
+        Неделю назад я перевёл развитие <strong>@teqfw/di</strong> на новую схему: теперь я пишу не только код и
+        правила для себя, а в первую очередь документацию для LLM-агента, который затем применяет эти правила к
+        большим объёмам небольших файлов.
+    </p>
+
+    <p>
+        Этот переход затронул не только стиль работы, но и саму архитектуру пакета. Версия
+        <a href="https://www.npmjs.com/package/@teqfw/di/v/2.0.0" target="_blank" rel="noopener">@teqfw/di 2.0.0</a>
+        несовместима с веткой <code>1.2.0</code>, потому что в ней меняется концепция декларации зависимостей.
+    </p>
+
+    <p>
+        Подробный разбор того, почему я на это решился, как Codex-агент переписал библиотеку и как меняются
+        правила для людей и агентов, собран в отдельной библиотечной публикации:
+        <a href="/ru/library/teqfw/20260225-01-deklaratsiya-ne-zavisimostey-dlya-esm.html">
+            Декларация (не)зависимостей для ESM
+        </a>.
+    </p>
+
+    <p>
+        Если коротко, то человек теперь формулирует границы, а агент заполняет их рабочим кодом. Для небольших
+        и повторяемых изменений это уже практичнее, чем пытаться удерживать весь проект в ручном режиме.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/ru/blog/2026/20260225-01-teqfw-di-llm-first-transition.html"></a>
+        <img alt="@teqfw/di в LLM-first режиме" src="/img/brand/teqfw.webp" />
+        <div>
+            <h4>@teqfw/di переехал в LLM-first режим</h4>
+            <p>
+                Перевёл развитие @teqfw/di на схему, где документация для агента важнее ручного удержания всего
+                контекста. Отдельно пересобрал статью об этом переходе в библиотеке.
+            </p>
+            <time datetime="2026-02-25">25 февраля 2026</time>
+        </div>
+    </li>
+{% endblock %}

@@ -619,6 +619,15 @@
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/02/20-01-teqfw-guide-jsdoc-onboarding/"/>
     </url>
     <url>
+        <loc>https://wiredgeese.com/en/blog/2026/02/25-01-teqfw-di-llm-first-transition/</loc>
+        <lastmod>2026-02-25</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/02/25-01-teqfw-di-llm-first-transition/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/02/25-01-teqfw-di-llm-first-transition/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/02/25-01-teqfw-di-llm-first-transition/"/>
+    </url>
+    <url>
         <loc>https://wiredgeese.com/en/blog/2025/12/24-01-js-vscode-analysis/</loc>
         <lastmod>2025-12-24</lastmod>
         <priority>1.0</priority>
@@ -712,6 +721,15 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/teqfw/20251224-01-js-vscode-analysis/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/teqfw/20251224-01-js-vscode-analysis/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/teqfw/20251224-01-js-vscode-analysis/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/library/teqfw/20260225-01-deklaratsiya-ne-zavisimostey-dlya-esm/</loc>
+        <lastmod>2026-02-25</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/teqfw/20260225-01-deklaratsiya-ne-zavisimostey-dlya-esm/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/teqfw/20260225-01-deklaratsiya-ne-zavisimostey-dlya-esm/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/teqfw/20260225-01-deklaratsiya-ne-zavisimostey-dlya-esm/"/>
     </url>
     <url>
         <loc>https://wiredgeese.com/en/library/concepts/20260108-knowledge-attention/</loc>

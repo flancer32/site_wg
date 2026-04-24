@@ -95,6 +95,16 @@ pre {
   font-family: "Courier New", Courier, monospace;
 }
 
+pre code {
+  display: inline;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  white-space: inherit;
+  font: inherit;
+  tab-size: 2;
+}
+
 code {
   background-color: #eeeeee;
   padding: 0 4px;

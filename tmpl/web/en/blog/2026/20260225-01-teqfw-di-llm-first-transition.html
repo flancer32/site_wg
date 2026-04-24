@@ -1,0 +1,52 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}@teqfw/di switches to an LLM-first workflow{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>@teqfw/di switches to an LLM-first workflow</h1>
+    <time datetime="2026-02-25">February 25, 2026</time>
+
+    <zoom-img src="/img/brand/teqfw.webp" alt="@teqfw/di in an LLM-first workflow" width="100px"></zoom-img>
+
+    <p>
+        About a week ago I changed the development of <strong>@teqfw/di</strong> to a new workflow: I now write not
+        only code and my own rules, but first of all documentation for an LLM agent, which then applies those rules
+        across large numbers of small files.
+    </p>
+
+    <p>
+        This shift affected not only the way I work, but also the package architecture itself. Version
+        <a href="https://www.npmjs.com/package/@teqfw/di/v/2.0.0" target="_blank" rel="noopener">@teqfw/di 2.0.0</a>
+        is incompatible with the <code>1.2.0</code> line because the dependency declaration concept changes there.
+    </p>
+
+    <p>
+        A detailed explanation of why I made this move, how the Codex agent rewrote the library, and how the rules for
+        people and agents are changing is collected on a separate library page:
+        <a href="/en/library/teqfw/20260225-01-deklaratsiya-ne-zavisimostey-dlya-esm.html">
+            Declaration of (Non)Dependencies for ESM
+        </a>.
+    </p>
+
+    <p>
+        In short, a person now defines the boundaries, and the agent fills them with working code. For small,
+        repeatable changes, that is already more practical than trying to keep the whole project in manual mode.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2026/20260225-01-teqfw-di-llm-first-transition.html"></a>
+        <img alt="@teqfw/di in an LLM-first workflow" src="/img/brand/teqfw.webp" />
+        <div>
+            <h4>@teqfw/di switches to an LLM-first workflow</h4>
+            <p>
+                I moved @teqfw/di to a workflow where documentation for the agent matters more than keeping all the
+                context in my head. I also republished the article about this transition as a separate library page.
+            </p>
+            <time datetime="2026-02-25">February 25, 2026</time>
+        </div>
+    </li>
+{% endblock %}
