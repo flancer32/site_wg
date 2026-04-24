@@ -1,0 +1,57 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Puerta de enlace de incidencias de GitHub para Codex{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Puerta de enlace de incidencias de GitHub para Codex</h1>
+    <time datetime="2026-03-23">23 de marzo de 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260323-01-codex-github-issues-gateway.jpg"
+        alt="Puerta de enlace de incidencias de GitHub para Codex" width="100px"></zoom-img>
+
+    <p>
+        Se montó una puerta de enlace entre incidencias de GitHub y un agente Codex como prueba de concepto. El
+        flujo ya funcionaba. Se conecta a GitHub con la cuenta <code>adsm-agent</code> y tiene enlazados tres
+        repositorios: la propia puerta de enlace, <code>teqfw.com</code> y el traductor de publicaciones de
+        Telegram al inglés y al español. El perfil del agente está disponible en GitHub:
+        <a href="https://github.com/adsm-agent" target="_blank" rel="noopener">github.com/adsm-agent</a>.
+    </p>
+
+    <p>
+        A través de esta configuración se crearon varias incidencias que luego procesó el agente. En algunas el
+        resultado fue muy bueno y rápido. En otras aparecieron límites de contexto y de manejo de restricciones.
+        El balance general quedó claro: el concepto funciona, pero todavía hay que llevar su comportamiento a un
+        estado estable de trabajo.
+    </p>
+
+    <p>
+        En la práctica, esto ya da una vía cómoda para pasar tareas al agente desde GitHub. El siguiente paso
+        consiste en ajustar las reglas, afinar la entrada y dar un tratamiento más uniforme a los distintos tipos
+        de incidencias.
+    </p>
+
+    <p>
+        Una tarea aparte que el agente ya procesó:
+        <a href="https://github.com/teqfw/di/issues/44" target="_blank" rel="noopener">
+            teqfw/di#44
+        </a>.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2026/20260323-01-codex-github-issues-gateway.html"></a>
+        <img alt="Puerta de enlace entre GitHub Issues y Codex" src="/img/blog/2026/20260323-01-codex-github-issues-gateway.jpg" />
+        <div>
+            <h4>Puerta de enlace entre GitHub Issues y Codex</h4>
+            <p>
+                Se montó una prueba de concepto para pasar incidencias de GitHub a un agente Codex. La puerta de
+                enlace funciona con la cuenta adsm-agent y ya cubre varios repositorios, aunque todavía necesita
+                más trabajo para quedar estable.
+            </p>
+            <time datetime="2026-03-23">23 de marzo de 2026</time>
+        </div>
+    </li>
+{% endblock %}
