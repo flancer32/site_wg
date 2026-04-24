@@ -1,0 +1,64 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Fourth version of the agent-skill for ESM code checks{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Fourth version of the agent-skill for ESM code checks</h1>
+    <time datetime="2026-03-30">March 30, 2026</time>
+
+    <zoom-img src="/img/brand/agent-skills-cover.png"
+        alt="Fourth version of the agent-skill for ESM code checks" width="100px"></zoom-img>
+
+    <p>
+        The fourth version of <strong>@flancer32/skill-teqfw-esm-validator</strong> was built to pin down the
+        overall shape of source code in TeqFW projects. Most of the work ran through the VSCode extension,
+        and the result was a set of 12 checks that serves as a portable specification layer. This format
+        keeps shared code rules out of manual memory, moves them into skills step by step, and saves tokens
+        for agents.
+    </p>
+
+    <p>
+        The checks cover default export presence, CommonJS bans, static import and re-export bans, the
+        position of <code>__deps__</code> among top-level exports, the shape of <code>__deps__</code>, the
+        name of the structured parameter in the DI constructor, and the behavior-class constraints. The list
+        is:
+    </p>
+
+    <ul>
+        <li><code>RequireDefaultExport</code> — the module must have <code>export default</code>.</li>
+        <li><code>NoCommonjs</code> — <code>require()</code>, <code>module.exports</code>, and <code>exports.*</code> are forbidden.</li>
+        <li><code>NoStaticImports</code> — static <code>import</code> statements and static re-exports are forbidden.</li>
+        <li><code>DependencyPosition</code> — <code>__deps__</code> must be the last top-level export.</li>
+        <li><code>ValidateDepsExport</code> — <code>__deps__</code> must be a frozen descriptor object and match the constructor parameters.</li>
+        <li><code>ConstructorClosureBehavior</code> — an exported behavior class must have a constructor.</li>
+        <li><code>ExportedClassBehaviorScope</code> — class-behavior checks apply only to exported classes.</li>
+        <li><code>NoClassFieldBehavior</code> — exported classes must not have class fields.</li>
+        <li><code>NoPrototypeMethodBehavior</code> — exported classes must not have prototype methods.</li>
+        <li><code>NoClassInheritanceBehavior</code> — exported behavior classes must not inherit from other classes.</li>
+        <li><code>ModuleTopBlock</code> — the module must start with exactly one leading JSDoc block.</li>
+        <li><code>ConstructorDepsParameterName</code> — the structured parameter in the DI constructor must be named <code>deps</code>.</li>
+    </ul>
+
+    <p>
+        The practical takeaway is simple: skills like this already work as a transportable rule set. They let
+        agents check the common shape of the code without holding every rule in memory and make it realistic
+        to move cross-project specifications into a skill library.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2026/20260330-01-agent-skill-teqfw-esm-validator-4-version.html"></a>
+        <img alt="Fourth version of the agent-skill for ESM code checks" src="/img/brand/agent-skills-cover.png" />
+        <div>
+            <h4>Fourth version of the agent-skill for ESM code checks</h4>
+            <p>
+                The fourth version of @flancer32/skill-teqfw-esm-validator adds 12 checks for TeqFW code and
+                shows that skills are already useful for moving shared rules into a portable layer.
+            </p>
+            <time datetime="2026-03-30">March 30, 2026</time>
+        </div>
+    </li>
+{% endblock %}

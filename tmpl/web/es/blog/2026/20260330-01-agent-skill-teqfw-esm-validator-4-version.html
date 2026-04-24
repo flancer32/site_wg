@@ -1,0 +1,65 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Cuarta versión de la habilidad de agente para validar código ESM{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Cuarta versión de la habilidad de agente para validar código ESM</h1>
+    <time datetime="2026-03-30">30 de marzo de 2026</time>
+
+    <zoom-img src="/img/brand/agent-skills-cover.png"
+        alt="Cuarta versión de la habilidad de agente para validar código ESM" width="100px"></zoom-img>
+
+    <p>
+        La cuarta versión de <strong>@flancer32/skill-teqfw-esm-validator</strong> quedó orientada a fijar la
+        forma general del código fuente en proyectos TeqFW. La mayor parte del trabajo la realizó el agente
+        a través de la extensión de VSCode, y el resultado fue un conjunto de 12 comprobaciones que ya
+        funciona como una capa portátil de especificación. Este formato permite sacar las reglas comunes de
+        la memoria manual, ir trasladando reglas compartidas a habilidades y ahorrar tokens al agente.
+    </p>
+
+    <p>
+        Las comprobaciones cubren la presencia de <code>export default</code>, la prohibición de CommonJS, la
+        prohibición de importaciones estáticas y de reexportaciones estáticas, la posición de
+        <code>__deps__</code> entre los exportados de nivel superior, la forma de <code>__deps__</code>, el
+        nombre del parámetro estructurado en el constructor de inyección de dependencias y las restricciones
+        de las clases de comportamiento. La lista es:
+    </p>
+
+    <ul>
+        <li><code>RequireDefaultExport</code> — el módulo debe tener <code>export default</code>.</li>
+        <li><code>NoCommonjs</code> — se prohíben <code>require()</code>, <code>module.exports</code> y <code>exports.*</code>.</li>
+        <li><code>NoStaticImports</code> — se prohíben las importaciones estáticas y las re-exportaciones estáticas.</li>
+        <li><code>DependencyPosition</code> — <code>__deps__</code> debe ser el último exportado de nivel superior.</li>
+        <li><code>ValidateDepsExport</code> — <code>__deps__</code> debe ser un objeto descriptor congelado y coincidir con los parámetros del constructor.</li>
+        <li><code>ConstructorClosureBehavior</code> — una clase de comportamiento exportada debe tener un constructor.</li>
+        <li><code>ExportedClassBehaviorScope</code> — las comprobaciones de comportamiento de clase se aplican solo a las clases exportadas.</li>
+        <li><code>NoClassFieldBehavior</code> — las clases exportadas no deben tener campos de clase.</li>
+        <li><code>NoPrototypeMethodBehavior</code> — las clases exportadas no deben tener métodos en el prototipo.</li>
+        <li><code>NoClassInheritanceBehavior</code> — las clases de comportamiento exportadas no deben heredar de otras clases.</li>
+        <li><code>ModuleTopBlock</code> — el módulo debe empezar con exactamente un bloque JSDoc inicial.</li>
+        <li><code>ConstructorDepsParameterName</code> — el parámetro estructurado del constructor de inyección de dependencias debe llamarse <code>deps</code>.</li>
+    </ul>
+
+    <p>
+        La conclusión práctica es sencilla: habilidades de este tipo ya funcionan como una capa transportable
+        de reglas. Permiten comprobar la forma común del código sin cargar todas las reglas en la cabeza y
+        hacen viable mover especificaciones entre proyectos hacia una biblioteca de habilidades.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2026/20260330-01-agent-skill-teqfw-esm-validator-4-version.html"></a>
+        <img alt="Cuarta versión de la habilidad de agente para validar código ESM" src="/img/brand/agent-skills-cover.png" />
+        <div>
+            <h4>Cuarta versión de la habilidad de agente para validar código ESM</h4>
+            <p>
+                La cuarta versión de @flancer32/skill-teqfw-esm-validator añade 12 comprobaciones para código
+                TeqFW y muestra que las habilidades ya sirven para mover reglas compartidas a una capa portátil.
+            </p>
+            <time datetime="2026-03-30">30 de marzo de 2026</time>
+        </div>
+    </li>
+{% endblock %}

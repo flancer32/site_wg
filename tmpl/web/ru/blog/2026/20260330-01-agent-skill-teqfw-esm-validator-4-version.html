@@ -1,0 +1,69 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Четвёртая версия agent-skill для проверки ESM-кода{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Четвёртая версия agent-skill для проверки ESM-кода</h1>
+    <time datetime="2026-03-30">30 марта 2026</time>
+
+    <zoom-img src="/img/brand/agent-skills-cover.png"
+        alt="Четвёртая версия agent-skill для проверки ESM-кода" width="100px"></zoom-img>
+
+    <p>
+        Для <strong>@flancer32/skill-teqfw-esm-validator</strong> была собрана четвёртая версия скила, которая
+        фиксирует общий вид исходного кода в TeqFW-проектах. Основная работа была выполнена агентом через
+        VSCode-плагин, а результатом стал набор из 12 проверок, который уже работает как переносимый слой
+        спецификации. Такой формат позволяет проверять общий вид кода без ручного удержания всех правил в
+        голове и постепенно выносить межпроектные правила в библиотеку скилов, экономя токены агентам.
+    </p>
+
+    <p>
+        В итоговый набор вошли проверки на наличие `export default`, запрет CommonJS, запрет статических
+        импортов и re-export'ов, положение `__deps__` в списке export'ов, структуру `__deps__`, имя
+        structured parameter для DI-конструктора, а также ограничения для behavior-классов. Список проверок
+        получился таким:
+    </p>
+
+    <ul>
+        <li><code>RequireDefaultExport</code> — у модуля должен быть <code>export default</code>.</li>
+        <li><code>NoCommonjs</code> — запрещены <code>require()</code>, <code>module.exports</code> и <code>exports.*</code>.</li>
+        <li><code>NoStaticImports</code> — запрещены статические <code>import</code> и статические re-export'ы.</li>
+        <li><code>DependencyPosition</code> — <code>__deps__</code> должен быть последним top-level export.</li>
+        <li><code>ValidateDepsExport</code> — <code>__deps__</code> должен быть frozen descriptor object и совпадать с параметрами конструктора.</li>
+        <li><code>ConstructorClosureBehavior</code> — у экспортируемого behavior-класса должен быть constructor.</li>
+        <li><code>ExportedClassBehaviorScope</code> — проверки class-behavior применяются только к экспортируемым классам.</li>
+        <li><code>NoClassFieldBehavior</code> — у экспортируемых классов не должно быть class fields.</li>
+        <li><code>NoPrototypeMethodBehavior</code> — у экспортируемых классов не должно быть prototype-методов.</li>
+        <li><code>NoClassInheritanceBehavior</code> — экспортируемые behavioral-классы не должны наследоваться от других классов.</li>
+        <li><code>ModuleTopBlock</code> — модуль должен начинаться ровно с одного leading JSDoc-блока.</li>
+        <li><code>ConstructorDepsParameterName</code> — для DI-конструктора structured parameter должен называться <code>deps</code>.</li>
+    </ul>
+
+    <p>
+        Этот набор покрывает общий вид исходного кода в TeqFW-проектах и задаёт для агентов понятную точку
+        контроля: модульную форму, DI-подпись и базовые ограничения на поведение экспортируемых классов.
+    </p>
+
+    <p>
+        Практический вывод здесь простой: такие скилы уже работают как переносимый слой спецификации. Они
+        позволяют агентам проверять общий вид кода без ручного удержания всех правил в голове и дают основу
+        для постепенного выноса межпроектных правил в библиотеку скилов.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/ru/blog/2026/20260330-01-agent-skill-teqfw-esm-validator-4-version.html"></a>
+        <img alt="Четвёртая версия agent-skill для проверки ESM-кода" src="/img/brand/agent-skills-cover.png" />
+        <div>
+            <h4>Четвёртая версия agent-skill для проверки ESM-кода</h4>
+            <p>
+                Собрана четвёртая версия @flancer32/skill-teqfw-esm-validator: 12 проверок для TeqFW-кода и
+                подтверждение, что скилы уже подходят для переноса межпроектных правил.
+            </p>
+            <time datetime="2026-03-30">30 марта 2026</time>
+        </div>
+    </li>
+{% endblock %}
