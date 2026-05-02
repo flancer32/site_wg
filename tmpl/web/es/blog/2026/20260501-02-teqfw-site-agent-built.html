@@ -1,0 +1,60 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Actualicé teqfw.com con Codex{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Actualicé teqfw.com con Codex</h1>
+    <time datetime="2026-05-01">1 de mayo de 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260501-02-teqfw-site.png"
+        alt="Actualicé teqfw.com con Codex" width="100px"></zoom-img>
+
+    <p>
+        Actualicé mi <a href="https://teqfw.com/" target="_blank" rel="noopener">sitio teqfw.com</a>, empezando por
+        la portada y el material relacionado.
+    </p>
+
+    <p>
+        El sitio está construido sobre <strong>TeqFW</strong>. Un agente Codex preparó por completo el código, los
+        textos, el diseño y la maquetación de la página.
+    </p>
+
+    <p>
+        El trabajo se hizo junto con el agente Codex siguiendo mi metodología ADSM,
+        <code>Agent-Driven Software Management</code>.
+    </p>
+
+    <p>
+        El material de esta actualización se repartió así:
+    </p>
+
+    <p>
+        <code>440 KB</code> - contexto del proyecto, es decir, documentación;<br>
+        <code>512 KB</code> - especificaciones de TeqFW y del sitio SSR;<br>
+        <code>77 KB</code> - código de la aplicación para procesar plantillas con Nunjucks;<br>
+        <code>80 KB</code> - texto de las plantillas, es decir, maquetación y páginas;<br>
+        <code>160 KB</code> - estática, incluidas las imágenes.
+    </p>
+
+    <p>
+        La conclusión práctica es clara: en este tipo de trabajo, la documentación tiene que superar con margen al
+        código. Así el agente dispone de un marco más claro y puede ir construyendo el resultado paso a paso.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2026/20260501-02-teqfw-site-agent-built.html"></a>
+        <img alt="Actualicé teqfw.com con un agente Codex" src="/img/blog/2026/20260501-02-teqfw-site.png" />
+        <div>
+            <h4>Actualicé teqfw.com con Codex</h4>
+            <p>
+                El sitio está construido sobre TeqFW. Trabajé en la página con Codex usando ADSM. La actualización
+                necesitó bastante contexto, especificaciones, código, plantillas y estática.
+            </p>
+            <time datetime="2026-05-01">1 de mayo de 2026</time>
+        </div>
+    </li>
+{% endblock %}

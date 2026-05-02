@@ -1,0 +1,60 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}I updated teqfw.com with Codex{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>I updated teqfw.com with Codex</h1>
+    <time datetime="2026-05-01">May 1, 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260501-02-teqfw-site.png"
+        alt="I updated teqfw.com with Codex" width="100px"></zoom-img>
+
+    <p>
+        I updated my <a href="https://teqfw.com/" target="_blank" rel="noopener">teqfw.com</a> site, starting with
+        the home page and the related materials.
+    </p>
+
+    <p>
+        The site runs on <strong>TeqFW</strong>. A Codex agent assembled the page code, copy, layout, and markup.
+    </p>
+
+    <p>
+        The work was done together with the Codex agent using my ADSM method,
+        <code>Agent-Driven Software Management</code>.
+    </p>
+
+    <p>
+        The source material for this update came to:
+    </p>
+
+    <p>
+        <code>440 KB</code> - project context, that is, documentation;<br>
+        <code>512 KB</code> - TeqFW and SSR site specifications;<br>
+        <code>77 KB</code> - application code for processing templates with Nunjucks;<br>
+        <code>80 KB</code> - template text, that is, markup and pages;<br>
+        <code>160 KB</code> - static assets, including images.
+    </p>
+
+    <p>
+        The practical takeaway is simple: with this kind of workflow, documentation needs to outweigh code by a
+        noticeable margin. That gives the agent a clearer frame and makes it easier to build the result step by
+        step.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2026/20260501-02-teqfw-site-agent-built.html"></a>
+        <img alt="I updated teqfw.com with a Codex agent" src="/img/blog/2026/20260501-02-teqfw-site.png" />
+        <div>
+            <h4>I updated teqfw.com with Codex</h4>
+            <p>
+                The site runs on TeqFW. I worked on the page with Codex using ADSM. The update required a lot of
+                context, specifications, code, templates, and static assets.
+            </p>
+            <time datetime="2026-05-01">May 1, 2026</time>
+        </div>
+    </li>
+{% endblock %}

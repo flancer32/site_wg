@@ -1,0 +1,60 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}teqfw.com собран Codex-агентом{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>teqfw.com собран Codex-агентом</h1>
+    <time datetime="2026-05-01">1 мая 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260501-02-teqfw-site.png"
+        alt="Обновление сайта teqfw.com" width="100px"></zoom-img>
+
+    <p>
+        Я обновил <a href="https://teqfw.com/" target="_blank" rel="noopener">свой сайт teqfw.com</a>: главную
+        страницу и связанные с ней материалы.
+    </p>
+
+    <p>
+        Сайт собран на базе <strong>TeqFW</strong>. Код, тексты, дизайн и разметка страницы были полностью
+        подготовлены Codex-агентом.
+    </p>
+
+    <p>
+        Работа над сайтом велась вместе с Codex-агентом по моей методологии <strong>ADSM</strong>,
+        <code>Agent-Driven Software Management</code>.
+    </p>
+
+    <p>
+        Объёмы материалов для этого обновления такие:
+    </p>
+
+    <p>
+        <code>440Кб</code> - контекст проекта, то есть документация;<br>
+        <code>512Кб</code> - спецификации для TeqFW и SSR-сайта;<br>
+        <code>77Кб</code> - код приложения для обработки шаблонов через Nunjucks;<br>
+        <code>80Кб</code> - текст шаблонов, то есть разметка и страницы;<br>
+        <code>160Кб</code> - статика, включая изображения.
+    </p>
+
+    <p>
+        Вывод здесь практический: при таком способе работы документация должна заметно превосходить код по объёму.
+        Тогда агенту проще удерживать рамку и последовательно собирать результат.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/ru/blog/2026/20260501-02-teqfw-site-agent-built.html"></a>
+        <img alt="teqfw.com собран Codex-агентом" src="/img/blog/2026/20260501-02-teqfw-site.png" />
+        <div>
+            <h4>teqfw.com собран Codex-агентом</h4>
+            <p>
+                Главная страница и материалы сайта TeqFW были подготовлены Codex-агентом по методологии ADSM. Для
+                этого потребовались заметные объёмы контекста, спецификаций, кода, шаблонов и статики.
+            </p>
+            <time datetime="2026-05-01">1 мая 2026</time>
+        </div>
+    </li>
+{% endblock %}

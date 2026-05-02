@@ -20,12 +20,24 @@
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/</loc>
-        <lastmod>2026-04-24</lastmod>
+        <lastmod>2026-05-01</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2026/05/01-02-teqfw-site-agent-built/</loc>
+        <lastmod>2026-05-01</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en"
+                    href="https://wiredgeese.com/en/blog/2026/05/01-02-teqfw-site-agent-built/"/>
+        <xhtml:link rel="alternate" hreflang="ru"
+                    href="https://wiredgeese.com/ru/blog/2026/05/01-02-teqfw-site-agent-built/"/>
+        <xhtml:link rel="alternate" hreflang="es"
+                    href="https://wiredgeese.com/es/blog/2026/05/01-02-teqfw-site-agent-built/"/>
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/2022/04/07-01-joined-select-knex/</loc>
