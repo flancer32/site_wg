@@ -1,0 +1,75 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}GitHub Issues и Codex-агенты сведены в единый workflow{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>GitHub Issues и Codex-агенты сведены в единый workflow</h1>
+    <time datetime="2026-05-19">19 мая 2026</time>
+
+    <zoom-img src="/img/library/concepts/20260519-controlled-product-evolution/04-parts.png"
+        alt="Архитектура событийного рабочего процесса для агентов" width="100px"></zoom-img>
+
+    <p>
+        У меня появился важный практический результат в разработке при помощи ИИ-агентов.
+    </p>
+
+    <p>
+        Некоторое время я работал над тем, чтобы свести <strong>GitHub Issues</strong> и
+        <strong>Codex-агентов</strong> в единый управляемый workflow. Идея простая: задача создаётся как обычный issue в
+        GitHub, а дальше её движение обеспечивается не ручным переключением между людьми и чатами, а набором агентных
+        конфигураций, правил и промптов.
+    </p>
+
+    <p>
+        Внутри этого процесса разные агенты последовательно обрабатывают постановку задачи, допуск к работе,
+        планирование, реализацию, создание pull request, проверку, решение о слиянии и финализацию issue.
+    </p>
+
+    <p>
+        Я подключил этот workflow к репозиторию
+        <a href="https://github.com/viktor-gusev/dnd-game-master" target="_blank" rel="noopener">viktor-gusev/dnd-game-master</a>.
+        Сейчас задачи этого репозитория уже проходят через такой процесс. На конкретные примеры можно посмотреть прямо в
+        GitHub:
+        <a href="https://github.com/viktor-gusev/dnd-game-master/issues/17" target="_blank" rel="noopener">#17</a>,
+        <a href="https://github.com/viktor-gusev/dnd-game-master/issues/19" target="_blank" rel="noopener">#19</a>,
+        <a href="https://github.com/viktor-gusev/dnd-game-master/issues/21" target="_blank" rel="noopener">#21</a>.
+    </p>
+
+    <p>
+        Для меня это важно не только как технический эксперимент. С февраля я вынашивал идею дать пользователям
+        возможность напрямую влиять на код своих приложений, но не через хаотичный поток запросов к модели, а через
+        управляемый процесс, в котором владелец продукта заранее задаёт допустимые границы изменений.
+    </p>
+
+    <p>
+        Сейчас эта идея впервые сложилась в рабочую систему, которую уже можно потрогать руками. Она подтверждает моё
+        понимание того, как люди и языковые модели могут взаимодействовать в разработке ПО: не как случайные собеседники
+        в отдельных диалогах, а как участники воспроизводимого процесса с ролями, ограничениями и проверяемыми
+        результатами.
+    </p>
+
+    <p>
+        Общую схему этого подхода я отдельно описал в публикации
+        <a href="/ru/library/concepts/20260519-controlled-product-evolution.html">«Как превратить намерение пользователя в управляемую эволюцию продукта»</a>.
+        Именно она и служит здесь иллюстрацией: то, что ещё недавно было общей концепцией, теперь начало работать на
+        практике.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/ru/blog/2026/20260519-01-github-issues-codex-workflow.html"></a>
+        <img alt="GitHub Issues и Codex-агенты сведены в единый workflow"
+            src="/img/library/concepts/20260519-controlled-product-evolution/04-parts.png" />
+        <div>
+            <h4>GitHub Issues и Codex-агенты сведены в единый workflow</h4>
+            <p>
+                Рабочий процесс, связывающий GitHub Issues и Codex-агентов, запущен на реальном репозитории. Идея
+                управляемой эволюции продукта через агентный workflow впервые сложилась в практическую систему.
+            </p>
+            <time datetime="2026-05-19">19 мая 2026</time>
+        </div>
+    </li>
+{% endblock %}

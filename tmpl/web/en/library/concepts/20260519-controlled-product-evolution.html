@@ -1,0 +1,324 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Turning User Intent Into Controlled Product Evolution{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Turning User Intent Into Controlled Product Evolution</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2026-05-19
+    </span>
+
+    <p><em>AI agents should not replace product ownership. They can help product owners open controlled channels through
+        which user intent becomes product change.</em></p>
+
+    <p>A user request is usually treated as feedback. Someone reports a bug, asks for a small improvement, describes a
+        missing feature, or points out that the product does not behave as expected.</p>
+
+    <p>In an agent-driven product workflow, that request can become something more: the beginning of a controlled product
+        change.</p>
+
+    <p>This does not mean that users should directly control the product. It also does not mean that every user request
+        should automatically become code. The idea is more careful than that.</p>
+
+    <p>A product owner can define approved paths for change. Inside those paths, AI agents may act with limited
+        authority. Outside those paths, the request still goes through normal human review.</p>
+
+    <p>This creates a different way to think about product development.</p>
+
+    <p style="text-align: center;">
+        <zoom-img
+                src="/img/library/concepts/20260519-controlled-product-evolution/01-common-scheme.png"
+                alt="Controlled path from user intent to product change"
+                width="100%"
+        ></zoom-img>
+    </p>
+    <p style="text-align: center;"><em>Figure 1. Controlled path from user intent to product change.</em></p>
+
+    <p>The user becomes more than a passive source of feedback. The agent becomes more than a coding assistant. The
+        product owner keeps control by defining the rules, limits, and review points.</p>
+
+    <hr />
+
+    <h2>1. User Intent Is an Underused Source of Product Change</h2>
+
+    <p>Every product changes because someone wants it to change.</p>
+
+    <p>A user notices a bug. A customer needs a missing feature. A tester sees confusing behavior. A developer notices
+        that the documentation no longer matches the product. These observations are not just noise around the product.
+        They are signals about how the product could evolve.</p>
+
+    <p>Today, most of these signals follow a long manual path.</p>
+
+    <p>A user writes feedback, sends a message, opens a ticket, or creates an issue. Someone from the team reads it,
+        interprets it, decides whether it matters, turns it into a task, sends it to development, waits for
+        implementation, reviews the result, and finally accepts or rejects the change.</p>
+
+    <p>This process works, but it is slow. Many small useful changes never reach the product. They are not necessarily
+        rejected. They are delayed, forgotten, deprioritized, or lost in the normal pressure of product work.</p>
+
+    <p>AI agents can shorten this path.</p>
+
+    <p>If an agent can read a task, inspect a repository, change files, run checks, and prepare a pull request, then
+        some user requests no longer need to wait for the full manual cycle. They can enter a controlled workflow where
+        the agent handles the routine work.</p>
+
+    <p>The important word is controlled.</p>
+
+    <p>The goal is not to let users change the product directly. The goal is to create a reliable channel through which
+        user intent can become product change when the product owner has already allowed that kind of change.</p>
+
+    <h2>2. The Product Owner Must Not Lose Control</h2>
+
+    <p>A product is not just a list of features. It has direction, constraints, architecture, security rules, user
+        experience principles, business goals, and many trade-offs that are not visible from a single user request.</p>
+
+    <p>Users often see real problems, but they do not always see the whole product.</p>
+
+    <p>One request may improve one scenario and damage another. A small change may break an architectural rule. A good
+        idea may conflict with the product strategy. A valid request may simply not be the right next step.</p>
+
+    <p>For this reason, not every user request should become code.</p>
+
+    <blockquote>
+        <p>A user opens an issue, and an AI agent automatically changes the product.</p>
+    </blockquote>
+
+    <p>This is the unsafe version of the idea. The safer model is different:</p>
+
+    <blockquote>
+        <p>A user opens an issue. The workflow checks whether the request belongs to an area where the product owner has
+            already allowed agent action. If it does, an AI agent may process it. If it does not, the request follows
+            the normal human review path.</p>
+    </blockquote>
+
+    <p style="text-align: center;">
+        <zoom-img
+                src="/img/library/concepts/20260519-controlled-product-evolution/02-basic-paths.png"
+                alt="Request routing after boundary check"
+                width="100%"
+        ></zoom-img>
+    </p>
+    <p style="text-align: center;"><em>Figure 2. Request routing after boundary check.</em></p>
+
+    <p>This distinction matters.</p>
+
+    <p>Delegation is not giving up control. Delegation means deciding in advance which decisions an agent may make
+        without asking, and which decisions must be escalated to a human.</p>
+
+    <p>The product owner remains responsible for the product. AI agents do not remove that responsibility. They only
+        make it possible to delegate part of the operational work.</p>
+
+    <h2>3. Approved Paths for Change</h2>
+
+    <p>For agents to be useful and safe, the product owner needs to define approved paths for change.</p>
+
+    <blockquote>
+        <p>Changes of this kind are allowed if they stay within these limits and pass these checks.</p>
+    </blockquote>
+
+    <p>Examples may include fixing obvious bugs, improving documentation, adding missing tests, correcting small
+        interface problems, updating examples, or implementing behavior that is already described in the product
+        specification.</p>
+
+    <p>This does not mean that every change is automatically merged. It means that the agent is allowed to start working
+        without asking for a separate decision every time.</p>
+
+    <p>The guardrails must be clear enough for the agent to act.</p>
+
+    <p>An approved path may define what kind of request is allowed, which files or modules may be changed, what behavior
+        must not be changed, which product documents must be followed, which checks must pass, what evidence must be
+        recorded, and when the agent must stop and ask for a human decision.</p>
+
+    <p>This is where documentation becomes more than a passive description of the product. It becomes an operational
+        control surface.</p>
+
+    <p>The better the product owner describes the product, the safer it becomes to delegate work to agents.</p>
+
+    <p>Without clear guardrails, agent autonomy is risky. With clear guardrails, autonomy becomes a practical tool.</p>
+
+    <h2>4. AI Agents as Delegated Intermediaries</h2>
+
+    <p>In this model, an AI agent is not simply a coding assistant.</p>
+
+    <p>It acts as a delegated intermediary between users and the product owner.</p>
+
+    <p>The user expresses intent. The product owner defines the guardrails. The agent works between them. It reads the
+        request, checks it against the product context, and decides which path the request should follow.</p>
+
+    <p style="text-align: center;">
+        <zoom-img
+                src="/img/library/concepts/20260519-controlled-product-evolution/03-roles.png"
+                alt="The agent as a delegated intermediary"
+                width="100%"
+        ></zoom-img>
+    </p>
+    <p style="text-align: center;"><em>Figure 3. The agent as a delegated intermediary.</em></p>
+
+    <p>If the request is inside the approved guardrails, the agent can process it. It can analyze the issue, prepare a
+        plan, change the code, create a pull request, and record what it has done.</p>
+
+    <p>If the request is unclear, risky, or changes the boundaries of the product, the agent should not guess. It should
+        stop, summarize the situation, and ask the product owner for a decision.</p>
+
+    <p>If the request clearly goes against the product direction, the agent should reject it or mark it for discussion.</p>
+
+    <p>This gives the agent a precise role.</p>
+
+    <p>The agent is not working for the user directly. It must not blindly satisfy every request.</p>
+
+    <p>The agent is not replacing the product owner. It must not redefine the product.</p>
+
+    <p>The agent is a limited representative of the product owner, allowed to act only where the owner has already
+        defined the rules.</p>
+
+    <p>This is the key shift.</p>
+
+    <p>The creative role of the user becomes more active, but only through a controlled channel. The user can initiate
+        product change. The agent can process allowed changes. The owner keeps control through guardrails, evidence, and
+        review.</p>
+
+    <h2>5. Event-Driven Workflow as the Execution Model</h2>
+
+    <p>To make this practical, agent work should not depend only on manual chat sessions.</p>
+
+    <p>Chat is useful for discussion, exploration, and thinking. But product change needs something more stable. It
+        needs a process that can be observed, repeated, checked, and audited.</p>
+
+    <p>Software repositories already provide a good foundation for this.</p>
+
+    <p>A user creates an issue. A label is added. A comment is posted. A pull request is opened. A review is submitted.
+        A merge happens. Each of these actions can generate an event.</p>
+
+    <p>An event-driven workflow uses these events to move the task through a controlled process. The issue captures the
+        user's intent. The repository event starts the process. The workflow engine checks the rules and chooses the next
+        step. If the request is allowed, an AI agent is started in a restricted working environment. The agent performs
+        the task and records the result back into the repository.</p>
+
+    <p style="text-align: center;">
+        <zoom-img
+                src="/img/library/concepts/20260519-controlled-product-evolution/04-parts.png"
+                alt="Event-driven agent workflow architecture"
+                width="100%"
+        ></zoom-img>
+    </p>
+    <p style="text-align: center;"><em>Figure 4. Event-driven agent workflow architecture.</em></p>
+
+    <p>The result may be a pull request, a comment, a label, a validation result, or another visible trace.</p>
+
+    <p>This is different from asking a model to "fix this" in a chat window.</p>
+
+    <p>In an event-driven workflow, the agent does not act in isolation. It acts as part of a process. The process can
+        include admission, planning, implementation, validation, human review, merge, and finalization.</p>
+
+    <p>Each step has a meaning. Each transition can be checked. Each decision can be recorded.</p>
+
+    <p>This is how delegation becomes engineering instead of wishful thinking.</p>
+
+    <h2>6. Evidence Keeps Autonomy Accountable</h2>
+
+    <p>Agent autonomy is acceptable only when agent actions remain visible.</p>
+
+    <p>If an AI agent changes a product, the owner should be able to answer basic questions:</p>
+
+    <ul>
+        <li>Why was the agent started?</li>
+        <li>What user request triggered the work?</li>
+        <li>What rules allowed the agent to proceed?</li>
+        <li>What files did the agent change?</li>
+        <li>What result did it produce?</li>
+        <li>What checks were performed?</li>
+        <li>Who accepted the final change?</li>
+    </ul>
+
+    <p>This is why evidence matters.</p>
+
+    <p>An issue records the original request. A label can show the current state. A comment can explain the agent's
+        decision. A pull request shows the actual code change. A validation result shows whether checks passed. A review
+        records human acceptance or rejection.</p>
+
+    <p>Without this trace, agent work is difficult to trust.</p>
+
+    <p>With this trace, the product owner can let agents act more freely inside approved guardrails, because every
+        important action remains visible and reviewable.</p>
+
+    <p>The owner does not need to manually perform every small task. But the owner must be able to inspect the process,
+        change the rules, stop unsafe behavior, and decide what enters the product.</p>
+
+    <blockquote>
+        <p>Agents may act autonomously only to the extent that their actions are observable, bounded, and reviewable.</p>
+    </blockquote>
+
+    <p>The purpose of the workflow is not only to automate work. It is to make delegated work accountable.</p>
+
+    <h2>7. ADSM and github-flows: From Idea to a Working System</h2>
+
+    <p>This approach needs two layers.</p>
+
+    <p>The first layer is methodological. The product owner must describe the product, its boundaries, its architecture,
+        its allowed changes, and its validation rules. Without this, agents have no stable ground for autonomous
+        decisions.</p>
+
+    <p>This is the role of
+        <a href="https://teqfw.com/method" target="_blank" rel="noopener">ADSM, Agent Driven Software Management</a>.
+    </p>
+
+    <p>ADSM treats documentation as the source of truth for agent-driven development. Documentation is not just a
+        human-readable description. It defines the context in which agents can work. It explains what the product is,
+        what it should become, and where the limits of autonomous change are.</p>
+
+    <p>The second layer is technical. The process must be executable.</p>
+
+    <p>This is the role of
+        <a href="https://www.npmjs.com/package/@teqfw/github-flows" target="_blank" rel="noopener">@teqfw/github-flows</a>.
+    </p>
+
+    <p><a href="https://www.npmjs.com/package/@teqfw/github-flows" target="_blank" rel="noopener">@teqfw/github-flows</a>
+        is an experimental Node.js library for agent-driven software development. It reacts to repository events, checks
+        workflow rules, starts CLI agents in isolated runtime environments, and records results back into the
+        repository through issues, pull requests, labels, comments, and evidence.</p>
+
+    <p>This base library provides the core workflow functionality, but it intentionally does not provide service
+        functions such as log viewing or configuration management.</p>
+
+    <p>Those service capabilities are implemented at a minimal level in
+        <a href="https://github.com/flancer32/github-flows-app" target="_blank" rel="noopener">github-flows-app</a>,
+        which is a simple web application wrapper that makes the base functionality runnable in practice.</p>
+
+    <p>This split is deliberate. It is still not clear what the right long-term shape of agent orchestration and
+        workflow configuration should be. Because of that, I prefer to keep the base library focused and allow others to
+        experiment with it and build their own wrappers in the form they consider most practical.</p>
+
+    <p>In the current implementation, GitHub issues can move through a controlled process: admission, planning,
+        implementation, pull request creation, validation, merge decision, and issue finalization. Agents such as Codex
+        can run in Docker-based environments. Labels and comments are used to record state and decisions.</p>
+
+    <p>I currently use this approach in a real GitHub repository:
+        <a href="https://github.com/viktor-gusev/dnd-game-master/issues?q=is%3Aissue%20state%3Aclosed">viktor-gusev/dnd-game-master</a>.
+        Issues <a href="https://github.com/viktor-gusev/dnd-game-master/issues/17">#17</a>,
+        <a href="https://github.com/viktor-gusev/dnd-game-master/issues/19">#19</a>, and
+        <a href="https://github.com/viktor-gusev/dnd-game-master/issues/21">#21</a> were processed by agents through
+        this workflow.</p>
+
+    <p>This is still experimental, but it is already more than a concept. It is an executable workflow that connects
+        user intent, repository events, delegated AI agents, pull requests, validation, and finalization.</p>
+
+    <p>The specific implementation uses GitHub, CLI agents, and Docker. The broader model is not limited to these
+        tools.</p>
+
+    <p>AI agents are not important only because they can write code. They become more important when they can act as
+        controlled intermediaries between users and product owners.</p>
+
+    <p>They can help transform user creativity into product change. But they can do so only when the owner defines the
+        guardrails, the workflow enforces the process, and every important action leaves evidence.</p>
+
+    <p>The future of agent-driven development is not only about making agents more powerful.</p>
+
+    <p>It is about making their power governable.</p>
+
+    <p>If you are experimenting with AI coding agents, GitHub Issues, or automated pull request workflows, I would be
+        interested to compare approaches and discuss practical use cases. You can reach me through the
+        <a href="/en/contact.html">contact page</a>.</p>
+</div>
+{% endblock %}
