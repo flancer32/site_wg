@@ -27,6 +27,8 @@ and move the article illustrations into the site image tree.
     broader controlled product evolution publication.
 11. Added English and Spanish adaptations of that blog post, each linked to the corresponding localized controlled
     product evolution publication.
+12. Re-read the English and Spanish workflow-launch blog posts and refined them toward more native wording, reducing
+    literal turns of phrase and cleaning up translation artifacts.
 
 ## Artifacts
 
@@ -40,3 +42,4 @@ and move the article illustrations into the site image tree.
 - Published the full Spanish version of the article.
 - Added a new Russian blog post about the workflow launch.
 - Added English and Spanish versions of the workflow-launch blog post.
+- Refined the English and Spanish workflow-launch blog posts for more native style.
