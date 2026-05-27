@@ -1,20 +1,96 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Contactos — Alex Gusev{% endblock %}
+{% block title %}Hablar de un piloto ADSM / GitHub Flows — Alex Gusev{% endblock %}
 
 {% block content %}
-<h1>Contactos</h1>
+<div class="card hero">
+    <p class="eyebrow">Contacto comercial</p>
+    <h1>Hablar de un piloto ADSM / GitHub Flows</h1>
+    <p class="lead">
+        Ayudo a responsables de producto y desarrolladores independientes a probar el desarrollo controlado con
+        agentes de IA sobre repositorios reales mediante proyectos piloto pequeños y acotados.
+    </p>
+</div>
 
-<!-- Contact cards: rendered in one row on desktop -->
+<section class="card">
+    <h2>Mejores primeros pasos</h2>
+    <div class="service-grid">
+        <article class="service-card">
+            <h3>Revisión ADSM del repositorio</h3>
+            <p>
+                Una revisión escrita de tu repositorio, documentación, flujo de trabajo y grado de preparación para un
+                desarrollo controlado impulsado por agentes.
+            </p>
+            <p><strong>Rango inicial habitual:</strong> €150–€300</p>
+        </article>
+        <article class="service-card">
+            <h3>Piloto GitHub Flows</h3>
+            <p>
+                Un repositorio, un flujo de trabajo, un tipo de tarea, una ruta de ejecución para el agente y un resultado
+                revisable.
+            </p>
+            <p><strong>Rango inicial habitual:</strong> €500–€700</p>
+        </article>
+        <article class="service-card">
+            <h3>Preparación del repositorio para agentes</h3>
+            <p>
+                Estructura de contexto, <code>AGENTS.md</code>, etiquetas, perfiles de flujo de trabajo, entorno de ejecución y
+                proceso inicial de trabajo.
+            </p>
+            <p><strong>Suele definirse después de la revisión o del piloto.</strong> Los proyectos iniciales pueden empezar desde €900.</p>
+        </article>
+    </div>
+    <p class="note">
+        Estos son rangos iniciales para pilotos, no precios cerrados de paquete. El alcance final se acuerda antes de
+        empezar.
+    </p>
+</section>
+
+<section class="card warn">
+    <h2>Qué incluye un piloto</h2>
+    <p>
+        Un piloto está limitado a propósito. No es consultoría ilimitada ni una promesa de automatizar todo el
+        producto.
+    </p>
+    <ul class="scope-list">
+        <li>un repositorio;</li>
+        <li>un flujo de trabajo;</li>
+        <li>un tipo de tarea;</li>
+        <li>uno o dos intentos de ejecución por agente;</li>
+        <li>un resultado revisable;</li>
+        <li>notas finales breves con hallazgos y siguientes pasos.</li>
+    </ul>
+    <p>
+        Si el repositorio todavía no está listo para este flujo, el resultado puede ser una explicación clara de qué
+        conviene cambiar primero.
+    </p>
+</section>
+
+<section class="card">
+    <h2>Qué incluir en tu mensaje</h2>
+    <ul class="scope-list">
+        <li>tipo de repositorio: público, privado, nuevo o existente;</li>
+        <li>qué tipo de tareas quieres que procesen los agentes;</li>
+        <li>si ya utilizas solicitudes en GitHub y propuestas de cambio;</li>
+        <li>si buscas una revisión, un piloto o la preparación del repositorio;</li>
+        <li>si el resultado puede describirse públicamente como un caso anonimizado.</li>
+    </ul>
+</section>
+
 <div class="contacts-grid">
-    <!-- Card 1: Email & Messengers -->
     <article class="card links">
-        <h2>Email y mensajeros</h2>
+        <h2>Contacto directo</h2>
         <ul>
             <li>
                 <a href="mailto:alex@wiredgeese.com">
                     <img src="/img/contacts/email.svg" alt="Email">
                     <span>alex@wiredgeese.com</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://t.me/wiredgeese" target="_blank" rel="noopener noreferrer">
+                    <img src="/img/contacts/telegram.svg" alt="Telegram">
+                    <span>@wiredgeese</span>
                 </a>
             </li>
             <li>
@@ -24,106 +100,137 @@
                 </a>
             </li>
             <li>
-                <a href="https://t.me/wiredgeese" target="_blank">
-                    <img src="/img/contacts/telegram.svg" alt="Telegram">
-                    <span>@wiredgeese</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://t.me/alexgusev_lab_en" target="_blank">
-                    <img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (EN)">
-                    <span>Alex Gusev Lab (EN)</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://t.me/alexgusev_lab_es" target="_blank">
-                    <img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (ES)">
-                    <span>Alex Gusev Lab (ES)</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://t.me/alexgusev_lab_ru" target="_blank">
-                    <img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (RU)">
-                    <span>Alex Gusev Lab (RU)</span>
+                <a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/" target="_blank" rel="noopener noreferrer">
+                    <img src="/img/contacts/linkedin.svg" alt="LinkedIn">
+                    <span>LinkedIn</span>
                 </a>
             </li>
         </ul>
     </article>
 
-    <!-- Card 2: Profiles -->
     <article class="card links">
-        <h2>Perfiles y plataformas</h2>
+        <h2>Sigue mi trabajo</h2>
         <ul>
-            <li><a href="https://github.com/flancer64"><img src="/img/contacts/github.svg"
-                                                            alt="GitHub"><span>GitHub</span></a></li>
-            <li><a href="https://stackoverflow.com/users/4073821/alex-gusev"><img src="/img/contacts/stackoverflow.svg"
-                                                                                  alt="StackOverflow"><span>StackOverflow</span></a>
-            </li>
-            <li><a href="https://flancer32.com/"><img src="/img/contacts/medium.svg"
-                                                      alt="Medium"><span>Medium</span></a></li>
-            <li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/"><img src="/img/contacts/linkedin.svg"
-                                                                                       alt="LinkedIn"><span>LinkedIn</span></a>
-            </li>
-            <li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497"><img src="/img/contacts/upwork.svg"
-                                                                                      alt="Upwork"><span>Upwork</span></a>
-            </li>
-            <li><a href="https://www.fiverr.com/users/wiredgeese"><img src="/img/contacts/fiverr.svg"
-                                                                       alt="Fiverr"><span>Fiverr</span></a></li>
+            <li><a href="https://github.com/flancer64" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/github.svg" alt="GitHub"><span>GitHub</span></a></li>
+            <li><a href="https://flancer32.com/" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/medium.svg" alt="Blog"><span>Blog</span></a></li>
+            <li><a href="https://t.me/alexgusev_lab_en" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (EN)"><span>Canal de Telegram (EN)</span></a></li>
+            <li><a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (ES)"><span>Canal de Telegram (ES)</span></a></li>
+            <li><a href="https://t.me/alexgusev_lab_ru" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (RU)"><span>Canal de Telegram (RU)</span></a></li>
+            <li><a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/doc.svg" alt="Libro Leanpub"><span>Libro en Leanpub</span></a></li>
         </ul>
     </article>
 
-    <!-- Card 3: Company Info -->
-    <article class="card company">
-        <h2>Empresa</h2>
-        <div class="table">
-            <div>Nombre:</div>
-            <div>F. Lancer</div>
-            <div>Número de registro:</div>
-            <div>40103303120 <span class="since">(desde 29.06.2010)</span></div>
-            <div>ID SEPA:</div>
-            <div>LV82ZZZ40103303120</div>
-            <div>Número de IVA:</div>
-            <div>LV40103303120 <span class="since">(desde 27.09.2023)</span></div>
-            <div>Cuenta bancaria:</div>
-            <div>LV83HABA0551028650868</div>
-        </div>
+    <article class="card links">
+        <h2>Plataformas freelance</h2>
+        <ul>
+            <li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/upwork.svg" alt="Upwork"><span>Upwork</span></a></li>
+            <li><a href="https://www.fiverr.com/users/wiredgeese" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/fiverr.svg" alt="Fiverr"><span>Fiverr</span></a></li>
+            <li><a href="https://stackoverflow.com/users/4073821/alex-gusev" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/stackoverflow.svg" alt="StackOverflow"><span>StackOverflow</span></a></li>
+        </ul>
     </article>
 </div>
 
-<!-- Presentation card: structured text sections -->
-<div class="card">
-    <h2>Sobre mí</h2>
+<section class="card">
+    <h2>Antes de escribirme, puedes leer el método</h2>
+    <p>
+        Mi libro explica la metodología ADSM en la que se apoya este servicio. Puede ayudarte a decidir si este enfoque
+        encaja con tu proyecto.
+    </p>
+    <p class="action-links">
+        <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer">Edición en inglés</a>
+        <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-ru/" target="_blank" rel="noopener noreferrer">Edición en ruso</a>
+    </p>
+</section>
 
-    <section class="block">
+<section class="card">
+    <h2>Datos del negocio</h2>
+    <div class="table">
+        <div>Nombre:</div>
+        <div>F. Lancer</div>
+        <div>Número de registro:</div>
+        <div>40103303120 <span class="since">(desde 29.06.2010)</span></div>
+        <div>ID SEPA:</div>
+        <div>LV82ZZZ40103303120</div>
+        <div>Número de IVA:</div>
+        <div>LV40103303120 <span class="since">(desde 27.09.2023)</span></div>
+        <div>Cuenta bancaria:</div>
+        <div>LV83HABA0551028650868</div>
+    </div>
+</section>
+
+<section class="card">
+    <h2>Perfil técnico</h2>
+    <div class="block">
         <img src="/img/avatar.jpg" alt="Avatar"
              style="width: 100px; float: left; margin: 14px 15px 0 0; border-radius: 10%;">
-        <p>Me llamo Alex Gusev, soy desarrollador web de Letonia. Mi carrera comenzó en 1998 con sistemas bancarios y pasó por fintech y e-commerce. Desde 2010 trabajo bajo mi propia marca, desarrollando aplicaciones web personalizadas.</p>
-        <p>Desde 2019 he estado trabajando casi exclusivamente con JavaScript. Al enfrentarme a las limitaciones de soluciones predefinidas, comencé a desarrollar mis propios principios arquitectónicos que formaron la base de Tequila Framework — para sistemas web modulares y gestionables.</p>
-    </section>
+        <p>
+            Alex Gusev es un desarrollador web independiente en Letonia con más de 25 años de experiencia, centrado en
+            JavaScript / Node.js, con experiencia en sistemas en producción y trabajo continuo en ADSM, GitHub Flows,
+            Tequila Framework y pruebas públicas de flujos de trabajo con agentes de IA.
+        </p>
+    </div>
+    <div class="block">
+        <h3>Foco tecnológico</h3>
+        <p>
+            JavaScript, Node.js, HTML/CSS, JSDoc, Vue, PostgreSQL, MariaDB, SQLite, GitHub, Docker y servidores Linux.
+        </p>
+    </div>
+</section>
 
-    <section class="block">
-        <h3>Tecnologías</h3>
-        <p>JavaScript (ES6+) con JSDoc, Node.js, Vue.js, Quasar, Knex.js. Bases de datos: PostgreSQL, MariaDB, SQLite. CI/CD mediante GitHub Actions. Creo tanto PWA/SPA que funcionan directamente en el navegador sin lógica de servidor, como servicios backend completos en Node.js — todo en un stack unificado, con responsabilidad total sobre el sistema.</p>
-    </section>
-
-    <section class="block">
-        <h3>Enfoque de desarrollo</h3>
-        <p>Utilizo un monolito modular y evito TypeScript y bundlers. Me baso en DI y late binding. Todos los proyectos son compatibles con LLM y diseñados para desarrollo distribuido.</p>
-    </section>
-</div>
-
-<!-- Local styles specific to contact page -->
 <style>
+    .hero {
+        text-align: center;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .eyebrow {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #005a40;
+    }
+
+    .lead {
+        max-width: 700px;
+        margin: 0 auto 1rem;
+        font-size: 1.05rem;
+    }
+
+    .service-grid,
     .contacts-grid {
         display: grid;
         gap: 1.5rem;
         margin-bottom: 2rem;
     }
 
-    @media (min-width: 769px) {
-        .contacts-grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
+    .service-card {
+        padding: 1rem;
+        border: 1px solid #d8e6df;
+        border-radius: 10px;
+        background: #fbfdfc;
+    }
+
+    .service-card h3 {
+        margin-top: 0;
+    }
+
+    .note {
+        margin-top: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .scope-list {
+        list-style: disc;
+        padding-left: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .scope-list li {
+        display: list-item;
+        align-items: initial;
     }
 
     .card ul {
@@ -157,27 +264,42 @@
 
     .card ul li a:hover {
         transform: scale(1.05);
-        color: #007B5E;
+        color: #007b5e;
     }
 
-    .card .table {
+    .action-links {
+        margin-top: 1.25rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .action-links a {
+        display: inline-block;
+        padding: 0.65rem 1.1rem;
+        border-radius: 6px;
+        border: 1px solid #007b5e;
+    }
+
+    .table {
         display: grid;
         grid-template-columns: auto 1fr;
         gap: 0.5rem 1rem;
         font-size: 0.95rem;
     }
 
-    .card .since {
+    .since {
         font-size: 0.85rem;
         color: #666;
     }
 
-    .card .block {
+    .block {
         margin-bottom: 1.25rem;
         overflow: hidden;
     }
 
-    .card .block:last-child {
+    .block:last-child {
         margin-bottom: 0;
     }
 
@@ -185,7 +307,17 @@
         margin-top: 1rem;
         margin-bottom: 0.5rem;
         font-size: 1.25rem;
-        color: #007B5E;
+        color: #007b5e;
+    }
+
+    @media (min-width: 769px) {
+        .service-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .contacts-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 </style>
 {% endblock %}

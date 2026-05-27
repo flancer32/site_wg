@@ -1,20 +1,94 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Контакты — Алекс Гусев{% endblock %}
+{% block title %}Обсудить пилот ADSM / GitHub Flows — Алекс Гусев{% endblock %}
 
 {% block content %}
-<h1>Контакты</h1>
+<div class="card hero">
+    <p class="eyebrow">Коммерческий контакт</p>
+    <h1>Обсудить пилот ADSM / GitHub Flows</h1>
+    <p class="lead">
+        Я помогаю владельцам продуктов и независимым разработчикам проверить управляемую агентную разработку с ИИ на
+        реальных репозиториях через небольшие, ограниченные пилотные проекты.
+    </p>
+</div>
 
-<!-- Contact cards: rendered in one row on desktop -->
+<section class="card">
+    <h2>С чего лучше начать</h2>
+    <div class="service-grid">
+        <article class="service-card">
+            <h3>ADSM-аудит репозитория</h3>
+            <p>
+                Письменный разбор вашего репозитория, документации, рабочего процесса и пригодности к управляемой
+                агентной разработке.
+            </p>
+            <p><strong>Типичный ранний диапазон:</strong> €150–€300</p>
+        </article>
+        <article class="service-card">
+            <h3>Пилот GitHub Flows</h3>
+            <p>
+                Один репозиторий, один процесс, один тип задач, один маршрут агентного исполнения и один проверяемый
+                результат.
+            </p>
+            <p><strong>Типичный ранний диапазон:</strong> €500–€700</p>
+        </article>
+        <article class="service-card">
+            <h3>Подготовка репозитория к работе с агентами</h3>
+            <p>
+                Структура контекста, <code>AGENTS.md</code>, метки, профили процессов, среда выполнения и начальный
+                рабочий процесс.
+            </p>
+            <p><strong>Обычно обсуждается после аудита или пилота.</strong> Ранние проекты могут начинаться от €900.</p>
+        </article>
+    </div>
+    <p class="note">
+        Это ранние пилотные диапазоны, а не фиксированные пакетные цены. Финальный объём работ согласуется до старта.
+    </p>
+</section>
+
+<section class="card warn">
+    <h2>Что входит в пилот</h2>
+    <p>
+        Пилот намеренно ограничен. Это не безлимитный консалтинг и не обещание автоматизировать весь продукт.
+    </p>
+    <ul class="scope-list">
+        <li>один репозиторий;</li>
+        <li>один процесс;</li>
+        <li>один тип задач;</li>
+        <li>одна или две попытки агентного исполнения;</li>
+        <li>один проверяемый результат;</li>
+        <li>краткие итоговые выводы и следующие шаги.</li>
+    </ul>
+    <p>
+        Если репозиторий ещё не готов к такому процессу, результатом может стать ясное объяснение, что нужно изменить
+        в первую очередь.
+    </p>
+</section>
+
+<section class="card">
+    <h2>Что написать в первом сообщении</h2>
+    <ul class="scope-list">
+        <li>тип репозитория: публичный, приватный, новый или существующий;</li>
+        <li>какие задачи вы хотите передавать агентам;</li>
+        <li>используете ли вы уже задачи GitHub и запросы на изменение;</li>
+        <li>что вам нужно: аудит, пилот или подготовка репозитория;</li>
+        <li>можно ли описать результат публично как анонимизированный кейс.</li>
+    </ul>
+</section>
+
 <div class="contacts-grid">
-    <!-- Card 1: Email & Messengers -->
     <article class="card links">
-        <h2>Email и мессенджеры</h2>
+        <h2>Прямой контакт</h2>
         <ul>
             <li>
                 <a href="mailto:alex@wiredgeese.com">
                     <img src="/img/contacts/email.svg" alt="Email">
                     <span>alex@wiredgeese.com</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://t.me/wiredgeese" target="_blank" rel="noopener noreferrer">
+                    <img src="/img/contacts/telegram.svg" alt="Telegram">
+                    <span>@wiredgeese</span>
                 </a>
             </li>
             <li>
@@ -24,114 +98,137 @@
                 </a>
             </li>
             <li>
-                <a href="https://t.me/wiredgeese" target="_blank">
-                    <img src="/img/contacts/telegram.svg" alt="Telegram">
-                    <span>@wiredgeese</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://t.me/alexgusev_lab_en" target="_blank">
-                    <img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (EN)">
-                    <span>Alex Gusev Lab (EN)</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://t.me/alexgusev_lab_es" target="_blank">
-                    <img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (ES)">
-                    <span>Alex Gusev Lab (ES)</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://t.me/alexgusev_lab_ru" target="_blank">
-                    <img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (RU)">
-                    <span>Alex Gusev Lab (RU)</span>
+                <a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/" target="_blank" rel="noopener noreferrer">
+                    <img src="/img/contacts/linkedin.svg" alt="LinkedIn">
+                    <span>LinkedIn</span>
                 </a>
             </li>
         </ul>
     </article>
 
-    <!-- Card 2: Profiles -->
     <article class="card links">
-        <h2>Профили и платформы</h2>
+        <h2>Где следить за моей работой</h2>
         <ul>
-            <li><a href="https://github.com/flancer64"><img src="/img/contacts/github.svg"
-                        alt="GitHub"><span>GitHub</span></a></li>
-            <li><a href="https://stackoverflow.com/users/4073821/alex-gusev"><img src="/img/contacts/stackoverflow.svg"
-                        alt="StackOverflow"><span>StackOverflow</span></a>
-            </li>
-            <li><a href="https://flancer32.com/"><img src="/img/contacts/medium.svg"
-                        alt="Medium"><span>Medium</span></a></li>
-            <li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/"><img src="/img/contacts/linkedin.svg"
-                        alt="LinkedIn"><span>LinkedIn</span></a>
-            </li>
-            <li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497"><img src="/img/contacts/upwork.svg"
-                        alt="Upwork"><span>Upwork</span></a>
-            </li>
-            <li><a href="https://www.fiverr.com/users/wiredgeese"><img src="/img/contacts/fiverr.svg"
-                        alt="Fiverr"><span>Fiverr</span></a></li>
+            <li><a href="https://github.com/flancer64" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/github.svg" alt="GitHub"><span>GitHub</span></a></li>
+            <li><a href="https://flancer32.com/" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/medium.svg" alt="Блог"><span>Блог</span></a></li>
+            <li><a href="https://t.me/alexgusev_lab_en" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (EN)"><span>Telegram-канал (EN)</span></a></li>
+            <li><a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (ES)"><span>Telegram-канал (ES)</span></a></li>
+            <li><a href="https://t.me/alexgusev_lab_ru" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (RU)"><span>Telegram-канал (RU)</span></a></li>
+            <li><a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-ru/" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/doc.svg" alt="Книга Leanpub"><span>Книга Leanpub</span></a></li>
         </ul>
     </article>
 
-    <!-- Card 3: Company Info -->
-    <article class="card company">
-        <h2>Компания</h2>
-        <div class="table">
-            <div>Название:</div>
-            <div>F. Lancer</div>
-            <div>Регистрационный номер:</div>
-            <div>40103303120 <span class="since">(с 29.06.2010)</span></div>
-            <div>SEPA ID:</div>
-            <div>LV82ZZZ40103303120</div>
-            <div>НДС номер:</div>
-            <div>LV40103303120 <span class="since">(с 27.09.2023)</span></div>
-            <div>Р/счёт:</div>
-            <div>LV83HABA0551028650868</div>
-        </div>
+    <article class="card links">
+        <h2>Фриланс-платформы</h2>
+        <ul>
+            <li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/upwork.svg" alt="Upwork"><span>Upwork</span></a></li>
+            <li><a href="https://www.fiverr.com/users/wiredgeese" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/fiverr.svg" alt="Fiverr"><span>Fiverr</span></a></li>
+            <li><a href="https://stackoverflow.com/users/4073821/alex-gusev" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/stackoverflow.svg" alt="StackOverflow"><span>StackOverflow</span></a></li>
+        </ul>
     </article>
 </div>
 
-<!-- Presentation card: structured text sections -->
-<div class="card">
-    <h2>О себе</h2>
+<section class="card">
+    <h2>Перед обращением можно познакомиться с методом</h2>
+    <p>
+        В книге описана методология ADSM, на которой основана эта услуга. Она поможет понять, подходит ли такой подход
+        вашему проекту.
+    </p>
+    <p class="action-links">
+        <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-ru/" target="_blank" rel="noopener noreferrer">Русское издание</a>
+        <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer">Английское издание</a>
+    </p>
+</section>
 
-    <section class="block">
+<section class="card">
+    <h2>Реквизиты</h2>
+    <div class="table">
+        <div>Название:</div>
+        <div>F. Lancer</div>
+        <div>Регистрационный номер:</div>
+        <div>40103303120 <span class="since">(с 29.06.2010)</span></div>
+        <div>SEPA ID:</div>
+        <div>LV82ZZZ40103303120</div>
+        <div>Номер НДС:</div>
+        <div>LV40103303120 <span class="since">(с 27.09.2023)</span></div>
+        <div>Банковский счёт:</div>
+        <div>LV83HABA0551028650868</div>
+    </div>
+</section>
+
+<section class="card">
+    <h2>Технический бэкграунд</h2>
+    <div class="block">
         <img src="/img/avatar.jpg" alt="Аватар"
-            style="width: 100px; float: left; margin: 14px 15px 0 0; border-radius: 10%;">
-        <p>Меня зовут Алекс Гусев, я веб-разработчик из Латвии. Моя карьера началась в 1998 году с банковских систем и
-            прошла через финтех и e-commerce. С 2010 года я работаю под собственным брендом, разрабатывая кастомные
-            веб-приложения.</p>
-        <p>С 2019 года я почти полностью перешёл на JavaScript. Столкнувшись с ограничениями готовых решений, я начал
-            формировать собственные архитектурные принципы, которые легли в основу платформы Tequila Framework — для
-            модульных и управляемых веб-систем.</p>
-    </section>
+             style="width: 100px; float: left; margin: 14px 15px 0 0; border-radius: 10%;">
+        <p>
+            Алекс Гусев — независимый веб-разработчик из Латвии с 25+ годами в веб-разработке, фокусом на JavaScript /
+            Node.js, опытом работы с промышленными системами и текущей работой над ADSM, GitHub Flows, Tequila Framework
+            и публичными доказательствами работоспособности ИИ-агентных процессов.
+        </p>
+    </div>
+    <div class="block">
+        <h3>Технологический фокус</h3>
+        <p>
+            JavaScript, Node.js, HTML/CSS, JSDoc, Vue, PostgreSQL, MariaDB, SQLite, GitHub, Docker, Linux-серверы.
+        </p>
+    </div>
+</section>
 
-    <section class="block">
-        <h3>Технологии</h3>
-        <p>JavaScript (ES6+) с JSDoc, Node.js, Vue.js, Quasar, Knex.js. Базы данных: PostgreSQL, MariaDB, SQLite. CI/CD
-            через GitHub Actions. Я создаю как PWA/SPA, работающие прямо в браузере без серверной логики, так и
-            полноценные backend-сервисы на Node.js — всё в едином стеке, с полной ответственностью за систему
-            целиком.</p>
-    </section>
-
-    <section class="block">
-        <h3>Подход к разработке</h3>
-        <p>Использую модульный монолит и избегаю TypeScript и сборщиков. Основываюсь на DI и late binding. Все проекты
-            совместимы с LLM и рассчитаны на распределённую разработку.</p>
-    </section>
-</div>
-
-<!-- Local styles specific to contact page -->
 <style>
+    .hero {
+        text-align: center;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .eyebrow {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #005a40;
+    }
+
+    .lead {
+        max-width: 700px;
+        margin: 0 auto 1rem;
+        font-size: 1.05rem;
+    }
+
+    .service-grid,
     .contacts-grid {
         display: grid;
         gap: 1.5rem;
         margin-bottom: 2rem;
     }
 
-    @media (min-width: 769px) {
-        .contacts-grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
+    .service-card {
+        padding: 1rem;
+        border: 1px solid #d8e6df;
+        border-radius: 10px;
+        background: #fbfdfc;
+    }
+
+    .service-card h3 {
+        margin-top: 0;
+    }
+
+    .note {
+        margin-top: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .scope-list {
+        list-style: disc;
+        padding-left: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .scope-list li {
+        display: list-item;
+        align-items: initial;
     }
 
     .card ul {
@@ -165,27 +262,42 @@
 
     .card ul li a:hover {
         transform: scale(1.05);
-        color: #007B5E;
+        color: #007b5e;
     }
 
-    .card .table {
+    .action-links {
+        margin-top: 1.25rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .action-links a {
+        display: inline-block;
+        padding: 0.65rem 1.1rem;
+        border-radius: 6px;
+        border: 1px solid #007b5e;
+    }
+
+    .table {
         display: grid;
         grid-template-columns: auto 1fr;
         gap: 0.5rem 1rem;
         font-size: 0.95rem;
     }
 
-    .card .since {
+    .since {
         font-size: 0.85rem;
         color: #666;
     }
 
-    .card .block {
+    .block {
         margin-bottom: 1.25rem;
         overflow: hidden;
     }
 
-    .card .block:last-child {
+    .block:last-child {
         margin-bottom: 0;
     }
 
@@ -193,7 +305,17 @@
         margin-top: 1rem;
         margin-bottom: 0.5rem;
         font-size: 1.25rem;
-        color: #007B5E;
+        color: #007b5e;
+    }
+
+    @media (min-width: 769px) {
+        .service-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .contacts-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 </style>
 {% endblock %}

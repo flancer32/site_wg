@@ -1,59 +1,293 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Alex Gusev — desarrollador web, investigador, arquitecto{% endblock %}
+{% block title %}Desarrollo controlado con agentes de IA para aplicaciones web — Alex Gusev{% endblock %}
 
 {% block content %}
 <div class="card hero">
-    <h1>Alex Gusev — desarrollador web, investigador, arquitecto</h1>
-    <p>
-        Más de 25 años en desarrollo de software. Autor de <a href="https://github.com/teqfw">Tequila Framework</a> —
-        una plataforma para crear soluciones modulares, gestionables y extensibles.
-        Desarrollo herramientas donde humanos e IA trabajan como socios.
+    <p class="eyebrow">ADSM / GitHub Flows</p>
+    <h1>Desarrollo controlado con agentes de IA para aplicaciones web</h1>
+    <p class="lead">
+        Diseño procesos basados en GitHub donde un cambio de producto avanza desde una solicitud inicial hasta la
+        ejecución por un agente, la propuesta de cambio, la validación y la publicación bajo control documentado.
     </p>
     <nav class="hero-links">
-        <a href="/{{ locale }}/projects.html">Proyectos</a>
-        <a href="/{{ locale }}/contact.html">Contacto</a>
+        <a class="button-primary" href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Ver demostración pública</a>
+        <a class="button-secondary" href="/{{ locale }}/contact.html">Hablar de un piloto</a>
     </nav>
 </div>
 
-<div class="card">
-    <h2>Qué hago</h2>
-    <ul>
-        <li><strong>IA en práctica:</strong> integración de LLM en flujos de trabajo reales</li>
-        <li><strong>Chats GPT personalizados:</strong> desarrollo de soluciones agentes para tareas específicas</li>
-        <li><strong>Arquitectura de sistemas:</strong> diseño soluciones extensibles y predecibles, adecuadas para
-            desarrollo distribuido y trabajo en equipo
-        </li>
-    </ul>
+<section class="card">
+    <h2>Prueba pública: solicitud en GitHub → agente de IA → página publicada</h2>
     <p>
-        Este sitio es mi experimento y plataforma de demostración. Aquí comparto ideas, código y observaciones.
-        Si te interesa el enfoque ingenieril en la integración de IA — estaré encantado de colaborar.
+        En TeqFW Demo Pages, cualquier usuario de GitHub puede abrir una solicitud acotada para pedir una página de
+        demostración. Si la solicitud encaja en los límites documentados, GitHub Flows activa al agente, el agente
+        crea una página dentro de esos límites y el resultado se publica como artefacto visible.
     </p>
-</div>
+    <p>
+        No es solo una pieza de portafolio. Es una prueba pública de que la evolución controlada de un producto puede
+        apoyarse en solicitudes de GitHub, restricciones documentadas, ejecución por agentes, revisión y publicación.
+    </p>
+    <p class="action-links">
+        <a href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Abrir Demo Pages</a>
+        <a href="https://wiredgeese.com/es/library/concepts/20260519-controlled-product-evolution.html" target="_blank" rel="noopener noreferrer">Leer cómo funciona el proceso</a>
+    </p>
+</section>
+
+<section class="card">
+    <h2>Qué demuestra esto</h2>
+    <ul class="check-list">
+        <li>La intención del usuario puede entrar en el producto a través de solicitudes en GitHub.</li>
+        <li>Los agentes de IA pueden trabajar dentro de restricciones documentadas.</li>
+        <li>GitHub aporta trazabilidad mediante solicitudes, etiquetas, comentarios, propuestas de cambio y evidencia de validación.</li>
+        <li>La persona responsable del producto mantiene el control sobre cambios permitidos, puntos de revisión y publicación.</li>
+    </ul>
+</section>
+
+<section class="card">
+    <h2>Qué ofrezco</h2>
+    <div class="offer-grid">
+        <article class="offer-item">
+            <h3>Piloto ADSM / GitHub Flows</h3>
+            <p>
+                Un piloto acotado para un repositorio, un flujo de trabajo, un tipo de tarea y un resultado revisable. El
+                objetivo es comprobar si el proyecto puede usar desarrollo controlado con agentes de IA en la práctica.
+            </p>
+        </article>
+        <article class="offer-item">
+            <h3>Preparación de repositorios para agentes</h3>
+            <p>
+                Estructura del repositorio, documentación de contexto, <code>AGENTS.md</code>, etiquetas de GitHub,
+                perfiles de flujo de trabajo, entorno de ejecución y reglas básicas de trabajo para agentes.
+            </p>
+        </article>
+        <article class="offer-item">
+            <h3>Desarrollo controlado de aplicaciones web</h3>
+            <p>
+                Aplicaciones web pequeñas, MVP, PWA, herramientas internas y productos autohospedados desarrollados
+                mediante contexto documentado, flujo en GitHub e iteraciones asistidas por agentes.
+            </p>
+        </article>
+    </div>
+</section>
+
+<section class="card info">
+    <h2>Disponibles proyectos piloto tempranos</h2>
+    <p>
+        Actualmente acepto un número limitado de proyectos piloto tempranos. La meta es aplicar ADSM y GitHub Flows a
+        repositorios reales mediante encargos pequeños, acotados y revisables.
+    </p>
+    <p><strong>Empieza en pequeño. Demuestra el flujo. Mejóralo de forma iterativa.</strong></p>
+</section>
+
+<section class="card">
+    <h2>Pila metodológica</h2>
+    <div class="stack-grid">
+        <article class="stack-item">
+            <h3>ADSM es el método.</h3>
+            <p>
+                Agent Driven Software Management define cómo el contexto, la documentación, las restricciones, la
+                revisión y la evidencia mantienen bajo control el desarrollo impulsado por agentes.
+            </p>
+        </article>
+        <article class="stack-item">
+            <h3>GitHub Flows es la capa de ejecución.</h3>
+            <p>
+                Conecta eventos de GitHub, solicitudes, etiquetas, propuestas de cambio, ejecución de agentes en servidor,
+                comentarios y validación dentro de un flujo de trabajo controlado.
+            </p>
+        </article>
+        <article class="stack-item">
+            <h3>Tequila Framework es la plataforma de aplicación.</h3>
+            <p>
+                Proporciona una base en JavaScript para aplicaciones web pensadas para trabajar con agentes: DI, estructura
+                modular, servidor web, configuración, registro, capa de persistencia y componentes relacionados.
+            </p>
+        </article>
+    </div>
+</section>
+
+<section class="card">
+    <h2>Proyectos de prueba seleccionados</h2>
+    <div class="proof-grid">
+        <article class="proof-card">
+            <h3>TeqFW Demo Pages</h3>
+            <p><strong>Qué demuestra:</strong> un flujo público basado en solicitudes, con ejecución por agente y resultado publicado.</p>
+            <p><a href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Abrir proyecto</a></p>
+        </article>
+        <article class="proof-card">
+            <h3>GitHub Flows / GitHub Flows App</h3>
+            <p><strong>Qué demuestra:</strong> la capa de orquestación para ejecutar agentes sobre infraestructura GitHub.</p>
+            <p><a href="/{{ locale }}/blog/2026/20260410-01-github-flows-app.html">Leer la nota del proyecto</a></p>
+        </article>
+        <article class="proof-card">
+            <h3>Tequila Framework</h3>
+            <p><strong>Qué demuestra:</strong> una plataforma JavaScript para aplicaciones pensadas para trabajar con agentes.</p>
+            <p><a href="https://github.com/teqfw" target="_blank" rel="noopener noreferrer">Abrir la organización en GitHub</a></p>
+        </article>
+        <article class="proof-card">
+            <h3>Este sitio / TeqCMS</h3>
+            <p><strong>Qué demuestra:</strong> sitios y sistemas de contenido desarrollados mediante Git, documentación y flujos con agentes de IA.</p>
+            <p><a href="/{{ locale }}/blog/2025/20250603-01-site-on-teq-cms.html">Ver la historia del sitio</a></p>
+        </article>
+    </div>
+</section>
+
+<section class="card">
+    <h2>El libro detrás del método</h2>
+    <p>
+        Mi libro publicado en Leanpub, <em>Agent-Driven Development</em>, explica ADSM: cómo mantener el control mientras se
+        delega parte del desarrollo a agentes de IA.
+    </p>
+    <p class="action-links">
+        <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer">Leer la edición en inglés</a>
+        <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-ru/" target="_blank" rel="noopener noreferrer">Edición en ruso</a>
+    </p>
+</section>
+
+<section class="card">
+    <h2>Sobre Alex</h2>
+    <p>
+        Soy Alex Gusev, desarrollador web independiente en Letonia con más de 25 años de experiencia en desarrollo de
+        aplicaciones web. Mi foco actual es el desarrollo controlado con agentes de IA, ADSM, GitHub Flows y la
+        arquitectura de aplicaciones en JavaScript.
+    </p>
+</section>
+
+<section class="card hero cta-card">
+    <h2>¿Quieres probar el desarrollo controlado con agentes de IA en tu repositorio?</h2>
+    <p>
+        El mejor primer paso es un piloto acotado: un repositorio, un flujo de trabajo, una tarea real y un resultado
+        revisable.
+    </p>
+    <p class="action-links centered">
+        <a class="button-primary" href="/{{ locale }}/contact.html">Contactar</a>
+    </p>
+</section>
 
 <style>
-    .hero-links {
-        margin-top: 1rem;
-        display: flex;
+    .hero {
+        text-align: center;
+        padding-top: 1.5rem;
         padding-bottom: 2rem;
+    }
+
+    .eyebrow {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #005a40;
+    }
+
+    .lead {
+        max-width: 680px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+    }
+
+    .hero-links,
+    .action-links {
+        margin-top: 1.5rem;
+        display: flex;
         gap: 1rem;
         justify-content: center;
         flex-wrap: wrap;
     }
 
-    .hero-links a {
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        border: 1px solid #007B5E;
-        background-color: #fff;
-        color: #007B5E;
-        text-decoration: none;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
+    .hero-links {
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        padding: 0;
+        width: auto;
     }
 
-    .hero-links a:hover {
-        background-color: #e6f2ef;
+    .centered {
+        justify-content: center;
+    }
+
+    .hero-links a,
+    .action-links a {
+        display: inline-block;
+        padding: 0.65rem 1.1rem;
+        border-radius: 6px;
+        border: 1px solid #007b5e;
+    }
+
+    .button-primary {
+        background: #007b5e;
+        color: #fff;
+    }
+
+    .button-primary:hover {
+        color: #fff;
+        background: #005a40;
+    }
+
+    .button-secondary {
+        background: #fff;
+        color: #007b5e;
+    }
+
+    .button-secondary:hover {
+        background: #e6f2ef;
+    }
+
+    .check-list,
+    .offer-grid,
+    .stack-grid,
+    .proof-grid {
+        margin-bottom: 1.5rem;
+    }
+
+    .check-list {
+        padding-left: 1.25rem;
+    }
+
+    .check-list li,
+    .offer-item,
+    .stack-item,
+    .proof-card {
+        margin-bottom: 1rem;
+    }
+
+    .offer-item,
+    .stack-item,
+    .proof-card {
+        padding: 1rem;
+        border: 1px solid #d8e6df;
+        border-radius: 10px;
+        background: #fbfdfc;
+    }
+
+    .offer-item h3,
+    .stack-item h3,
+    .proof-card h3 {
+        margin-top: 0;
+        font-size: 1.2rem;
+    }
+
+    .cta-card {
+        padding-bottom: 1.5rem;
+    }
+
+    @media (min-width: 769px) {
+        .offer-grid,
+        .stack-grid,
+        .proof-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .offer-grid,
+        .stack-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .proof-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 </style>
 {% endblock %}
