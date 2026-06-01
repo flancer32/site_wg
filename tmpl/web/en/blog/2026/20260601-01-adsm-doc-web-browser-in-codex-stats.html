@@ -1,0 +1,54 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Codex analytics started tracking a local skill{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Codex analytics started tracking a local skill</h1>
+    <time datetime="2026-06-01">June 1, 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260601-01-agent-skill-stats.jpg"
+        alt="Stats for the adsm-doc-web-browser skill in Codex" width="100px"></zoom-img>
+
+    <p>
+        A few days earlier, a skill called <strong>adsm-doc-web-browser</strong> was put together to observe
+        how agents use skills when producing documentation inside a project's cognitive context. It is built
+        around a working model of how a typical web application is structured and how its browser-side layer
+        can be described.
+    </p>
+
+    <p>
+        The skill is still an internal working draft. It is being used in ongoing experiments and refined
+        through actual use, without rushing to turn it into a general-purpose package.
+    </p>
+
+    <p>
+        The more interesting part came later: the Codex web interface now shows a skills section under
+        analytics, and <strong>adsm-doc-web-browser</strong> is already listed there. In a short span of
+        time, a local experimental skill reached the point where OpenAI is already collecting usage statistics
+        for it as a distinct part of agent work.
+    </p>
+
+    <p>
+        The practical takeaway is straightforward: skills become visible parts of the workflow very quickly.
+        The gap between testing an idea locally and seeing it show up in platform telemetry turned out to be
+        short. For experiments around structured agent instructions, that is a useful signal.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2026/20260601-01-adsm-doc-web-browser-in-codex-stats.html"></a>
+        <img alt="Stats for the adsm-doc-web-browser skill in Codex"
+            src="/img/blog/2026/20260601-01-agent-skill-stats.jpg" />
+        <div>
+            <h4>Codex analytics started tracking a local skill</h4>
+            <p>
+                A local skill for documenting the browser side of web applications appeared in Codex analytics
+                within days, and OpenAI is already collecting usage stats on it.
+            </p>
+            <time datetime="2026-06-01">June 1, 2026</time>
+        </div>
+    </li>
+{% endblock %}

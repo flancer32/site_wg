@@ -20,12 +20,42 @@
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/</loc>
-        <lastmod>2026-05-19</lastmod>
+        <lastmod>2026-06-01</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2026/20260601-01-adsm-doc-web-browser-in-codex-stats/</loc>
+        <lastmod>2026-06-01</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en"
+                    href="https://wiredgeese.com/en/blog/2026/20260601-01-adsm-doc-web-browser-in-codex-stats/"/>
+        <xhtml:link rel="alternate" hreflang="ru"
+                    href="https://wiredgeese.com/ru/blog/2026/20260601-01-adsm-doc-web-browser-in-codex-stats/"/>
+        <xhtml:link rel="alternate" hreflang="es"
+                    href="https://wiredgeese.com/es/blog/2026/20260601-01-adsm-doc-web-browser-in-codex-stats/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/es/blog/2026/20260601-01-adsm-doc-web-browser-in-codex-stats/</loc>
+        <lastmod>2026-06-01</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en"
+                    href="https://wiredgeese.com/en/blog/2026/20260601-01-adsm-doc-web-browser-in-codex-stats/"/>
+        <xhtml:link rel="alternate" hreflang="ru"
+                    href="https://wiredgeese.com/ru/blog/2026/20260601-01-adsm-doc-web-browser-in-codex-stats/"/>
+        <xhtml:link rel="alternate" hreflang="es"
+                    href="https://wiredgeese.com/es/blog/2026/20260601-01-adsm-doc-web-browser-in-codex-stats/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/ru/blog/2026/20260601-01-adsm-doc-web-browser-in-codex-stats/</loc>
+        <lastmod>2026-06-01</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/2026/05/01-02-teqfw-site-agent-built/</loc>
