@@ -1,0 +1,12 @@
+- Goal: заменить публичные ссылки для продукта `AI-generated SSG-сайты на базе TeqFW`.
+- Completed actions:
+  - обновил ссылку в карточке продукта на `tmpl/web/ru/index.html`;
+  - заменил локальную ссылку на статью на публичную ссылку `https://cms.teqfw.com/ru/`;
+  - зафиксировал предпочтительные публичные ссылки `https://cms.teqfw.com/en/` и `https://cms.teqfw.com/ru/` в `ctx/docs/product/overview.md`;
+  - зафиксировал те же ссылки в `ctx/docs/product/pages/home.md`.
+- Validation:
+  - техническая валидация не запускалась, так как изменялись только ссылки и markdown-документация.
+- Artifacts:
+  - `tmpl/web/ru/index.html`
+  - `ctx/docs/product/overview.md`
+  - `ctx/docs/product/pages/home.md`

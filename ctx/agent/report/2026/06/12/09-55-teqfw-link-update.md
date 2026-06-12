@@ -1,0 +1,12 @@
+- Goal: заменить публичную ссылку для `Tequila Framework` на более подходящую целевую страницу.
+- Completed actions:
+  - обновил ссылку `Tequila Framework` в `tmpl/web/ru/index.html`;
+  - заменил ссылку на `https://teqfw.com/ecosystem/philosophy`;
+  - зафиксировал эту ссылку как предпочтительную в `ctx/docs/product/overview.md`;
+  - зафиксировал ту же рекомендацию в `ctx/docs/product/pages/home.md`.
+- Validation:
+  - техническая валидация не запускалась, так как изменение затронуло только ссылку и сопроводительную markdown-документацию.
+- Artifacts:
+  - `tmpl/web/ru/index.html`
+  - `ctx/docs/product/overview.md`
+  - `ctx/docs/product/pages/home.md`

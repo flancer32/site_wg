@@ -1,0 +1,11 @@
+- Goal: пересобрать русскую домашнюю страницу по новому продуктовому контракту сайта.
+- Completed actions:
+  - переписал `tmpl/web/ru/index.html`;
+  - сократил домашнюю страницу до вводного формата;
+  - собрал новую структуру: hero с пилотом `GitHub Flows`, короткий блок "Кто я", витрина из трёх продуктов, методический слой с книгой, финальный CTA;
+  - убрал длинные промежуточные секции о scope, limitations, workflows и demo mechanics с домашней страницы;
+  - зафиксировал на home только три продуктовых анонса: `Tequila Framework`, `GitHub Flows / GitHub Flows App`, `AI-generated SSG-сайты на базе TeqFW`.
+- Validation:
+  - `npm start` запускает documented SSR entrypoint, но локальный smoke run не завершился из-за `EADDRINUSE` на порту `3000` в текущей среде.
+- Artifacts:
+  - `tmpl/web/ru/index.html`

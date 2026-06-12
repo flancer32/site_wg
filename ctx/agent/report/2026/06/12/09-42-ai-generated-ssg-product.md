@@ -1,0 +1,12 @@
+- Goal: добавить в продуктовую карту сайта новое направление AI-generated SSG-сайтов на базе TeqFW.
+- Completed actions:
+  - обновил `ctx/docs/product/overview.md`;
+  - добавил отдельный продуктовый слой `AI-generated SSG-сайты на базе TeqFW`;
+  - зафиксировал `wiredgeese.com` как трёхъязычный (`es`, `en`, `ru`) пример сайта с генерацией страниц и переводов через AI-агента;
+  - зафиксировал `teqfw.com` как англоязычный (`en`) пример сайта с demo-обработкой пользовательских тикетов через `GitHub Flows`;
+  - обновил `ctx/docs/product/pages/home.md`, чтобы домашняя страница учитывала это направление как отдельный прикладной продукт, а не только как supporting proof.
+- Validation:
+  - техническая валидация не требовалась, так как изменялись только markdown-документы в `ctx/`.
+- Artifacts:
+  - `ctx/docs/product/overview.md`
+  - `ctx/docs/product/pages/home.md`

@@ -1,77 +1,73 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Обсудить пилот ADSM / GitHub Flows — Алекс Гусев{% endblock %}
+{% block title %}GitHub Flows — обсудить подключение и пилот — Алекс Гусев{% endblock %}
 
 {% block content %}
 <div class="card hero">
     <p class="eyebrow">Коммерческий контакт</p>
-    <h1>Обсудить пилот ADSM / GitHub Flows</h1>
+    <h1>GitHub Flows: подключение, развёртывание, настройка процессов</h1>
     <p class="lead">
-        Я помогаю владельцам продуктов и независимым разработчикам проверить управляемую агентную разработку с ИИ на
-        реальных репозиториях через небольшие, ограниченные пилотные проекты.
+        Если вы хотите <a href="/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html">подключить ИИ-агентов</a> к GitHub-процессу и посмотреть, как он работает на вашем
+        репозитории, начните с небольшого пилота. Ниже — текущий трёхшаговый формат работы и контакты для связи.
     </p>
 </div>
 
 <section class="card">
-    <h2>С чего лучше начать</h2>
+    <h2>Горячее предложение</h2>
     <div class="service-grid">
         <article class="service-card">
-            <h3>ADSM-аудит репозитория</h3>
+            <h3>Шаг 1. Тестовое подключение</h3>
             <p>
-                Письменный разбор вашего репозитория, документации, рабочего процесса и пригодности к управляемой
-                агентной разработке.
+                Подключаю ваш репозиторий к своей инфраструктуре, чтобы вы увидели работу GitHub Flows на реальных
+                действиях внутри GitHub.
             </p>
-            <p><strong>Типичный ранний диапазон:</strong> €150–€300</p>
+            <p><strong>€50</strong> за подключение и тестовый прогон.</p>
+            <p class="service-meta">До 5 тестовых тикетов на моей подписке Codex Plus.</p>
         </article>
         <article class="service-card">
-            <h3>Пилот GitHub Flows</h3>
+            <h3>Шаг 2. Развёртывание на вашем VPS</h3>
             <p>
-                Один репозиторий, один процесс, один тип задач, один маршрут агентного исполнения и один проверяемый
-                результат.
+                Разворачиваю аналогичную инфраструктуру на вашем VPS, подключаю ваши учётки и запускаю процесс уже на
+                вашей стороне.
             </p>
-            <p><strong>Типичный ранний диапазон:</strong> €500–€700</p>
+            <p><strong>От €150</strong> за базовое развёртывание.</p>
+            <p class="service-meta">Подходит как следующий шаг после удачного теста.</p>
         </article>
         <article class="service-card">
-            <h3>Подготовка репозитория к работе с агентами</h3>
+            <h3>Шаг 3. Настройка процессов</h3>
             <p>
-                Структура контекста, <code>AGENTS.md</code>, метки, профили процессов, среда выполнения и начальный
-                рабочий процесс.
+                Помогаю собрать ваши маршруты обработки GitHub-событий, выбрать шаги процесса и настроить практическую
+                цепочку работы с агентами.
             </p>
-            <p><strong>Обычно обсуждается после аудита или пилота.</strong> Ранние проекты могут начинаться от €900.</p>
+            <p><strong>€35 / час</strong> консультации и сопровождения.</p>
+            <p class="service-meta">Для донастройки после подключения и развёртывания.</p>
         </article>
     </div>
     <p class="note">
-        Это ранние пилотные диапазоны, а не фиксированные пакетные цены. Финальный объём работ согласуется до старта.
+        Это текущий рабочий формат. Сначала вы видите результат на своём репозитории, затем решаете, нужен ли вам
+        следующий шаг.
     </p>
 </section>
 
-<section class="card warn">
-    <h2>Что входит в пилот</h2>
-    <p>
-        Пилот намеренно ограничен. Это не безлимитный консалтинг и не обещание автоматизировать весь продукт.
-    </p>
+<section class="card">
+    <h2>Что вы увидите на первом шаге</h2>
     <ul class="scope-list">
-        <li>один репозиторий;</li>
-        <li>один процесс;</li>
-        <li>один тип задач;</li>
-        <li>одна или две попытки агентного исполнения;</li>
-        <li>один проверяемый результат;</li>
-        <li>краткие итоговые выводы и следующие шаги.</li>
+        <li>небольшой тестовый шаг без тяжёлого входа в проект;</li>
+        <li>подключение одного репозитория к моей инфраструктуре;</li>
+        <li>до 5 тестовых тикетов или других согласованных действий на моей подписке Codex Plus;</li>
+        <li>наблюдаемый результат внутри GitHub: комментарий, метка, issue, PR или другой видимый след процесса;</li>
+        <li>понимание, стоит ли переносить инфраструктуру на ваш VPS;</li>
+        <li>если тест даёт нужный эффект, следующий шаг — развёртывание на вашей стороне и настройка собственных процессов.</li>
     </ul>
-    <p>
-        Если репозиторий ещё не готов к такому процессу, результатом может стать ясное объяснение, что нужно изменить
-        в первую очередь.
-    </p>
 </section>
 
 <section class="card">
     <h2>Что написать в первом сообщении</h2>
     <ul class="scope-list">
-        <li>тип репозитория: публичный, приватный, новый или существующий;</li>
-        <li>какие задачи вы хотите передавать агентам;</li>
-        <li>используете ли вы уже задачи GitHub и запросы на изменение;</li>
-        <li>что вам нужно: аудит, пилот или подготовка репозитория;</li>
-        <li>можно ли описать результат публично как анонимизированный кейс.</li>
+        <li>публичный или приватный у вас репозиторий;</li>
+        <li>что именно вы хотите проверить через GitHub Flows;</li>
+        <li>готовы ли вы начать с тестового запуска;</li>
+        <li>интересует ли вас только пилот или также развёртывание на VPS и настройка процессов.</li>
     </ul>
 </section>
 
@@ -119,7 +115,7 @@
     </article>
 
     <article class="card links">
-        <h2>Фриланс-платформы</h2>
+        <h2>Дополнительные профили</h2>
         <ul>
             <li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/upwork.svg" alt="Upwork"><span>Upwork</span></a></li>
             <li><a href="https://www.fiverr.com/users/wiredgeese" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/fiverr.svg" alt="Fiverr"><span>Fiverr</span></a></li>
@@ -129,31 +125,15 @@
 </div>
 
 <section class="card">
-    <h2>Перед обращением можно познакомиться с методом</h2>
+    <h2>Если хотите сначала посмотреть метод</h2>
     <p>
-        В книге описана методология ADSM, на которой основана эта услуга. Она поможет понять, подходит ли такой подход
-        вашему проекту.
+        В книге описан подход ADSM, на котором опирается эта работа. Она поможет заранее понять логику разработки с
+        ИИ-агентами и роль процессов GitHub в этом подходе.
     </p>
     <p class="action-links">
         <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-ru/" target="_blank" rel="noopener noreferrer">Русское издание</a>
         <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer">Английское издание</a>
     </p>
-</section>
-
-<section class="card">
-    <h2>Реквизиты</h2>
-    <div class="table">
-        <div>Название:</div>
-        <div>F. Lancer</div>
-        <div>Регистрационный номер:</div>
-        <div>40103303120 <span class="since">(с 29.06.2010)</span></div>
-        <div>SEPA ID:</div>
-        <div>LV82ZZZ40103303120</div>
-        <div>Номер НДС:</div>
-        <div>LV40103303120 <span class="since">(с 27.09.2023)</span></div>
-        <div>Банковский счёт:</div>
-        <div>LV83HABA0551028650868</div>
-    </div>
 </section>
 
 <section class="card">
@@ -172,6 +152,22 @@
         <p>
             JavaScript, Node.js, HTML/CSS, JSDoc, Vue, PostgreSQL, MariaDB, SQLite, GitHub, Docker, Linux-серверы.
         </p>
+    </div>
+</section>
+
+<section class="card">
+    <h2>Реквизиты</h2>
+    <div class="table">
+        <div>Название:</div>
+        <div>F. Lancer</div>
+        <div>Регистрационный номер:</div>
+        <div>40103303120 <span class="since">(с 29.06.2010)</span></div>
+        <div>SEPA ID:</div>
+        <div>LV82ZZZ40103303120</div>
+        <div>Номер НДС:</div>
+        <div>LV40103303120 <span class="since">(с 27.09.2023)</span></div>
+        <div>Банковский счёт:</div>
+        <div>LV83HABA0551028650868</div>
     </div>
 </section>
 
@@ -215,6 +211,12 @@
         margin-top: 0;
     }
 
+    .service-meta {
+        margin-bottom: 0;
+        font-size: 0.92rem;
+        color: #47685d;
+    }
+
     .note {
         margin-top: 1rem;
         font-size: 0.95rem;
@@ -231,19 +233,19 @@
         align-items: initial;
     }
 
-    .card ul {
+    .links ul {
         list-style: none;
         padding: 0;
         margin: 0;
     }
 
-    .card ul li {
+    .links ul li {
         display: flex;
         align-items: center;
         margin-bottom: 0.75rem;
     }
 
-    .card ul li img {
+    .links ul li img {
         width: 28px;
         height: 28px;
         margin-right: 0.75rem;
@@ -252,7 +254,7 @@
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     }
 
-    .card ul li a {
+    .links ul li a {
         display: flex;
         align-items: center;
         text-decoration: none;
@@ -260,7 +262,7 @@
         transition: transform 0.2s ease, color 0.2s ease;
     }
 
-    .card ul li a:hover {
+    .links ul li a:hover {
         transform: scale(1.05);
         color: #007b5e;
     }

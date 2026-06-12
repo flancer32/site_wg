@@ -1,0 +1,16 @@
+- Goal: внедрить выбранный hero-вариант для `GitHub Flows` в продуктовый документ и русскую домашнюю страницу.
+- Completed actions:
+  - обновил `ctx/docs/product/pages/home.md`;
+  - зафиксировал выбранный hero-вариант:
+    - заголовок: `GitHub Flows для автоматической обработки GitHub-событий`
+    - supporting text про исполняемый workflow поверх GitHub;
+  - обновил `tmpl/web/ru/index.html` под этот вариант;
+  - заменил прежний hero про `GitHub-to-agent workflow` на формулировку про автоматическую обработку GitHub-событий;
+  - обновил flow-line под routing / agent step / observable result.
+- Validation:
+  - `npm start` успешно поднял локальный SSR-сервер;
+  - `curl -i http://127.0.0.1:3000/ru/` вернул `HTTP/1.1 200 OK`;
+  - в рендере присутствует новый hero с выбранным wording.
+- Artifacts:
+  - `ctx/docs/product/pages/home.md`
+  - `tmpl/web/ru/index.html`
