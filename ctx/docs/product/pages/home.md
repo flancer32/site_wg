@@ -1,6 +1,7 @@
 # Домашняя страница
 
 - Path: `ctx/docs/product/pages/home.md`
+- Template Version: `20260629`
 - Changed: `20260612`
 
 ## Роль страницы

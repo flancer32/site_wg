@@ -1,6 +1,7 @@
 # Страница контактов
 
 - Path: `ctx/docs/product/pages/contact.md`
+- Template Version: `20260629`
 - Changed: `20260612`
 
 ## Роль страницы

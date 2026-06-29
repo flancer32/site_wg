@@ -1,6 +1,7 @@
 # Продуктовый обзор сайта
 
 - Path: `ctx/docs/product/overview.md`
+- Template Version: `20260605`
 - Changed: `20260612`
 
 ## Назначение сайта

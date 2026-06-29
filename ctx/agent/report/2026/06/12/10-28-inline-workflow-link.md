@@ -1,9 +1,0 @@
-- Goal: встроить ссылку на объяснение `GitHub Flows` прямо в текст горячего предложения.
-- Completed actions:
-  - обновил `tmpl/web/ru/index.html`;
-  - убрал отдельный блок со ссылкой под hero-текстом;
-  - встроил ссылку на `/ru/library/concepts/20260519-controlled-product-evolution.html` прямо в фразу `исполняемый workflow`.
-- Validation:
-  - отдельная техническая валидация не запускалась, так как изменение было минимальным в уже проверенном шаблоне.
-- Artifacts:
-  - `tmpl/web/ru/index.html`

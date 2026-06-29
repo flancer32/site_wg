@@ -1,0 +1,9 @@
+{
+  "schema": "adsm-context",
+  "version": "0.1.0",
+  "notes": [
+    "Baseline ADSM context metadata initialized for wiredgeese.com.",
+    "The project currently has product documentation and agent-operational assets.",
+    "Architecture, environment, and code documentation branches are planned but not yet instantiated."
+  ]
+}
