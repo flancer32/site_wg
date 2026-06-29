@@ -13,9 +13,9 @@ Documents at this level capture reusable task prompts for Codex-driven content a
 ## Level Map
 
 - `AGENTS.md` — level definition for `ctx/agent/prompt/codex/`.
-- `blog.md` — prompt asset for blog-related work.
-- `sitemap.md` — prompt asset for sitemap-related work.
-- `translate.md` — prompt asset for translation-related work.
+- `blog.md` — reusable prompt asset for drafting blog-event pages from source materials.
+- `sitemap.md` — reusable prompt asset for sitemap refresh and publication finalization.
+- `translate.md` — reusable prompt asset for multilingual page translation and adaptation.
 
 ## Level Boundary
 

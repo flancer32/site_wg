@@ -1,29 +1,49 @@
-# Переводы страниц
+# Page Translation Prompt
 
-Хорошо. Делай перевод с русского на английский, а с английского на испанский. После этого проверь переводы и сделай адаптацию для стиля, менталитета и образа мышления английского и испанского читателя соответственно. Старайся удержать объём текста и семантику изложенного.
+- Path: `ctx/agent/prompt/codex/translate.md`
+- Template Version: `20260629`
+- Changed: `20260629`
 
-## Второй проход перевода
+## Purpose
 
-Ещё раз просмотри английский и испанский варианты текстов на отклонение стиля от принятого в соответствующей языковой среде. Убери русизмы из английского и испанского текстов и англицизмы из испанского. Вычитай оба перевода на предмет слишком буквальных мест. Сделай их более нативными без изменения смысла.
+Reusable prompt asset for multilingual page translation in this repository.
 
-## Раздельные языки
+## Default Translation Chain
 
-### EN
+The default chain is:
 
-## Проверка перевода
+- translate from Russian to English;
+- translate from English to Spanish.
 
-Делай переводы соответствующих страниц с русского на английский. Проверь переводы и сделай адаптацию для стиля, менталитета и образа мышления англоязычного читателя соответственно. Старайся удержать объём текста и семантику изложенного.
+This preserves the current repository workflow for multilingual page evolution.
 
-## Второй проход перевода
+## Translation Requirements
 
-Ещё раз просмотри английский вариант текстов на отклонение стиля от принятого в соответствующей языковой среде. Убери русизмы из английского текста. Вычитай оба перевода на предмет слишком буквальных мест. Сделай их более нативными без изменения смысла.
+- Preserve the original meaning and approximate text volume.
+- Adapt the result for the stylistic expectations of the target-language reader.
+- Remove literal calques, russisms in English, and anglicisms in Spanish.
+- Prefer natural phrasing over word-for-word correspondence.
 
-### ES
+## Review Pass
 
-## Проверка перевода
+After the initial translation, run a second editorial pass on each target language.
 
-Делай переводы соответствующих страниц с английского на испанский. Проверь переводы и сделай адаптацию для стиля, менталитета и образа мышления испанского читателя соответственно. Старайся удержать объём текста и семантику изложенного.
+The second pass should:
 
-## Второй проход перевода
+- detect tone drift from normal English or Spanish usage;
+- remove overly literal constructions;
+- improve fluency without changing the meaning.
 
-Ещё раз просмотри испанский вариант текстов на отклонение стиля от принятого в соответствующей языковой среде. Убери англицизмы из испанского текста. Вычитай оба перевода на предмет слишком буквальных мест. Сделай их более нативными без изменения смысла.
+## Language-Specific Rules
+
+### English
+
+Translate the relevant pages from Russian to English.
+
+Adapt the result for an English-speaking reader while preserving meaning.
+
+### Spanish
+
+Translate the relevant pages from English to Spanish.
+
+Adapt the result for a Spanish-speaking reader while preserving meaning.

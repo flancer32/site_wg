@@ -1,30 +1,50 @@
-# Создание постов в блог
+# Blog Event Drafting Prompt
 
-Вот это мой пост в телеграм от 12 марта:
+- Path: `ctx/agent/prompt/codex/blog.md`
+- Template Version: `20260629`
+- Changed: `20260629`
 
-```
-===
-```
+## Purpose
 
-Собери сообщение на русском языке об этом событии в блог по образу tmpl/web/ru/blog/2026/20260225-01-teqfw-di-llm-first-transition.html
+Reusable prompt asset for drafting Russian-language blog event pages from a short source post and a reference example.
 
-В качестве основы для лого возьми {{FILENAME}} из моих Downloads
+## Source Pattern
 
-- Не надо делать сообщение о новой заметке. Должно быть полное описание события и краткое описание события.
-- Не надо указывать дополнительно дату события в тексте. Она уже есть отдельным блоком на странице.
-- Если в тексте есть ссылка, то ссылка должны быть вплетена в текст, а не выделена специально. Подбирай фрагмент текста, наиболее подходящий по смыслу для ссылки и вешай ссылку (тэг `<a>`) на этот фрагмент.
-- Не надо делать отчёт о работе агента. Я дополнительно укажу, когда можно сделать общий отчёт.
+Use this prompt when the human provides:
 
-## Стиль заголовка и текста
+- a short Telegram or note-style source text;
+- a target publication date or filename slot;
+- optionally an image filename to be used as the visual basis.
 
-Нейтральный дневниковый стиль с акцентом на событие, а не на автора. Короткие предметные формулировки, без рекламы и без лишнего «я», но с конкретикой: что произошло, сколько стоило, какой вывод следует. Тон спокойный, наблюдательный, практичный.
+## Task Shape
 
-Заголовок сообщения должен аннонсировать текст сообщения, а текст должен развивать заголовок. Они не должны дублировать друг друга. Особенно по форме.
+Produce a Russian-language blog-event page following the style of an existing repository example such as `tmpl/web/ru/blog/2026/20260225-01-teqfw-di-llm-first-transition.html`.
 
-Постарайся удерживаться от использования в тексте напряжения вида "не А, а Б". Повествование должно быть спокойным и плавно-поступательным, раскрывающимся.
+The expected output should include:
 
-## Каталоги и файлы
+- a full event description;
+- a short event description;
+- copy suitable for a blog-event page rather than a release note.
 
-- `tmpl/web/ru/blog`: nunjucks-шаблоны для страниц событий блога на русском языке;
-- `web/img/blog`: файлы изображений для страниц блога;
-- Имена файлов для шаблонов страниц и изображений начинаются с даты публикации в формате `YYYYMMDD-XX`, где `-XX` - порядковый номер публикации в пределах этой даты;
+## Content Constraints
+
+- Do not restate the event date in body text when the page already displays it separately.
+- When a link is needed, embed it into a semantically relevant fragment instead of exposing a bare URL block.
+- Keep the text focused on the concrete event rather than on self-promotion.
+
+## Style Constraints
+
+Use a neutral diary-like tone with emphasis on the event rather than on the author.
+
+Prefer short concrete formulations, practical observations, and calm narration.
+
+Avoid promotional phrasing and minimize oppositional constructions of the form `не А, а Б`.
+
+The title should announce the event, while the body should develop it without duplicating the title wording.
+
+## Repository Targets
+
+- `tmpl/web/ru/blog/` — Nunjucks templates for Russian-language blog-event pages.
+- `web/img/blog/` — image files for blog pages.
+
+Template and image filenames should start with the publication date in the `YYYYMMDD-XX` format, where `XX` is the sequence number for that date.

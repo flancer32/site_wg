@@ -12,6 +12,8 @@ Documents at this level describe the system as a design object, including meanin
 
 ## Level Map
 
+- `architecture/` — architecture-level documentation that translates product intent into stable engineering structure.
+- `environment/` — environment-level documentation that defines runtime and operational prerequisites.
 - `product/` — product-level documentation that defines the site's commercial meaning and page-level intent.
 - `AGENTS.md` — level definition for `ctx/docs/`.
 - `filesystem.md` — declarative description of top-level repository directories and root-level files, defining repository boundaries and serving as a navigation map.

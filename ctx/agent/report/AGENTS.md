@@ -8,7 +8,7 @@
 
 Defines the local structure for the agent report directory.
 
-The directory is kept as a reserved location for reports when a human explicitly requests them.
+The directory is reserved for agent iteration reports when such reports are created under project rules.
 
 ## Level Map
 
@@ -24,6 +24,6 @@ Defines:
 
 Does NOT define:
 
-- Whether reports are required by higher-level project rules.
+- The reporting policy defined by higher-level project rules.
 - Product meaning, architecture, or implementation constraints.
 - Prompt assets or other operational materials outside this directory.
