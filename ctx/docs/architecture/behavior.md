@@ -20,27 +20,20 @@ The current architecture has three major flows:
 
 ### Content-authoring flow
 
-The flow starts when a human or agent changes product documents, prompt assets, or template sources.
-
-It passes through repository editing under `ctx/` and `tmpl/`.
-
-The flow ends when the durable source material is committed as project truth.
+Starts when a human or agent changes product documents, prompt assets, or template sources under `ctx/` or `tmpl/`.
+Ends when that durable source material is committed as project truth.
 
 ### Publication flow
 
-The flow starts from template, asset, and configuration sources.
-
-TeqCMS translates those sources into publishable artifacts under `web/`.
-
-The flow ends when browser-facing files such as HTML, CSS, images, and `sitemap.xml` exist in the publication block.
+Starts from template, asset, and configuration sources.
+TeqCMS translates them into publishable artifacts under `web/`.
+Ends when browser-facing files such as HTML, CSS, images, and `sitemap.xml` exist in the publication block.
 
 ### Request-time rendering flow
 
-The flow starts from an inbound HTTP request handled by TeqCMS.
-
+Starts from an inbound HTTP request handled by TeqCMS.
 The project adapter resolves locale-aware routing, applies redirect logic, requests render data from the CMS adapter, and conditionally injects blog-index data for blog index routes.
-
-The flow ends when render data is returned for page rendering or when redirect handling terminates the original request path.
+Ends when render data is returned for page rendering or when redirect handling terminates the original request path.
 
 ## Failure And Recovery
 
@@ -52,6 +45,5 @@ Architectural failure handling is intentionally narrow:
 
 ## Product Dependency
 
-These flows exist to realize the product intent of a multilingual site that sells Alex Gusev and his product line through public pages.
-
-If product behavior changes materially, these flows must be revalidated against product documentation before implementation changes proceed.
+These flows exist to realize the documented product behavior of the site.
+If that behavior changes materially, the flows must be revalidated against product documentation before implementation changes proceed.

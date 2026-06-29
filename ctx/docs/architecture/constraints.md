@@ -10,7 +10,7 @@ Record non-negotiable architecture restrictions and trust boundaries.
 
 ## Core Constraints
 
-The architecture must preserve these properties:
+The architecture must preserve:
 
 - cognitive context under `ctx/` remains the authoritative knowledge space above implementation;
 - the site remains primarily a template-driven multilingual publication system rather than a large custom application;
@@ -27,7 +27,7 @@ Architecture must not:
 
 ## Change Constraints
 
-The following changes always require human approval:
+These changes always require human approval:
 
 - introducing new architectural owners or major runtime areas;
 - introducing new persistent state or database-backed authority;

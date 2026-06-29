@@ -1,204 +1,200 @@
-# Домашняя страница
+# Home Page
 
 - Path: `ctx/docs/product/pages/home.md`
 - Template Version: `20260629`
-- Changed: `20260612`
+- Changed: `20260629`
 
-## Роль страницы
+## Page Role
 
-Этот документ подчинён верхнеуровневой роли сайта из `ctx/docs/product/overview.md`.
+This document is subordinate to `ctx/docs/product/overview.md`.
 
-Домашняя страница — короткая вводная продуктовая витрина.
-Её задача — быстро продавать текущее горячее предложение, усиливать доверие к Алексу и переводить посетителя к
-следующему действию.
+The home page is a short introductory product storefront.
+Its role is to sell the current hot offer quickly, strengthen trust in Alex, and move the visitor to the next action.
 
-Страница не должна превращаться:
+The page must not turn into:
 
-- в длинный манифест;
-- в каталог всех продуктов;
-- в техническое объяснение системы;
-- в биографическую страницу.
+- a long manifesto;
+- a catalog of all products;
+- a technical system explanation;
+- a biography page.
 
-## Аудитория
+## Audience
 
-Основная аудитория:
+The main audience is:
 
-- технически компетентные пользователи GitHub;
-- небольшие команды и независимые разработчики;
-- люди, которым нужен практический пилот, а не абстрактная "AI transformation".
+- technically competent GitHub users;
+- small teams and independent developers;
+- people who want a practical pilot rather than an abstract AI-transformation narrative.
 
-## Главный фокус
+## Main Focus
 
-На home должен быть один главный фокус:
+The page should keep one dominant focus: `GitHub Flows` as the current hot offer.
 
-- `GitHub Flows` как текущее горячее предложение;
-- `Tequila Framework` как основной инженерный продукт;
-- AI-generated SSG-сайты на базе TeqFW как третий продукт в витрине;
-- книга `Agent-Driven Development` как supporting product в методическом слое, а не как часть основной тройки.
+The supporting product hierarchy on the page is:
 
-Домашняя страница должна анонсировать не более трёх продуктов.
-Остальные продукты раскрываются на отдельных продуктовых страницах.
+- `GitHub Flows` as the current hot offer;
+- `Tequila Framework` as the main engineering product;
+- AI-generated SSG sites on top of TeqFW as the third showcased product;
+- the book `Agent-Driven Development` as a supporting method product rather than part of the main trio.
 
-## Коммерческий смысл горячего предложения
+The home page should announce no more than three products.
+Everything else should unfold on dedicated pages.
 
-Клиенту не важно название host application.
-Клиенту важно, что `GitHub Flows` позволяет подключить ИИ-агентов к GitHub и выстроить автоматические цепочки
-эволюции ПО внутри уже существующего процесса команды.
+## Hot Offer Meaning
 
-Home должна продавать `GitHub Flows` так:
+The page should sell `GitHub Flows` as:
 
-- это способ подключить ИИ-агентов к GitHub-процессу;
-- это автоматические цепочки эволюции ПО вокруг issue, labels, comments, PR и других GitHub-сигналов;
-- это агентный шаг как часть управляемой цепочки изменений;
-- это наблюдаемый результат внутри GitHub-процесса;
-- это автоматизация с сохранением границ и контроля владельца продукта.
+- a way to connect AI agents to an existing GitHub process;
+- an automated chain around issues, labels, comments, PRs, and other GitHub signals;
+- an agent step inside a controlled change chain;
+- an observable result inside the GitHub process;
+- automation that preserves product-owner boundaries and control.
 
-Главное обещание:
+The central promise is:
 
-`GitHub Flows помогает подключить ИИ-агентов к GitHub и выстроить автоматические цепочки эволюции ПО: от GitHub-события до агентного шага, PR, метки или другого наблюдаемого результата.`
+`GitHub Flows helps connect AI agents to GitHub and build automatic software-evolution chains from a GitHub event to an agent step, a PR, a label, or another observable result.`
 
-Не надо продавать:
+The page should not sell:
 
-- "агентов" как самостоятельную ценность;
-- только экономию ручной рутины;
-- универсальную автоматизацию разработки.
+- agents as standalone value;
+- routine-cost reduction alone;
+- universal development automation.
 
 ## Hero
 
-Hero — главный экран страницы.
-Он должен продавать конкретный первый шаг, а не методологию.
+The hero should sell a concrete first step rather than methodology.
 
-Текущий рабочий вариант:
+Current working variant:
 
-- заголовок: `Автоматические цепочки эволюции ПО на базе GitHub и ИИ-агентов`
-- supporting text: `Я настраиваю GitHub Flows так, чтобы GitHub-события запускали ИИ-агентов и другие шаги workflow, а изменения продукта проходили по управляемой автоматической цепочке внутри GitHub.`
+- heading: `Automated software-evolution chains on top of GitHub and AI agents`
+- supporting text: `I configure GitHub Flows so that GitHub events trigger AI agents and other workflow steps, while product changes move through a controlled automatic chain inside GitHub.`
 
-Требования к hero:
+Hero requirements:
 
-- один главный CTA: обсуждение пилота;
-- рядом допустим secondary CTA: демо;
-- в тексте должна быть встроенная explanatory link на `/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html`;
-- не перегружать первый экран деталями реализации.
+- one primary CTA: discuss a pilot;
+- an optional secondary CTA nearby: demo;
+- an explanatory link to `/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html` embedded in the text;
+- no overload of the first screen with implementation details.
 
-Допустимые технические маркеры:
+Acceptable technical markers:
 
 - GitHub App;
 - webhook;
 - Docker;
-- CLI-agent;
+- CLI agent;
 - VPS.
 
-## Структура страницы
+## Page Structure
 
-Домашняя страница должна сохранять такую последовательность:
+The home page should preserve this sequence:
 
 1. `Hero`
-2. `Кто я`
-3. `Ключевые продукты`
-4. `Методический слой и книга`
-5. `Финальный CTA`
+2. `Who I Am`
+3. `Key Products`
+4. `Method Layer And Book`
+5. `Final CTA`
 
-## Кто я
+## Who I Am
 
-Этот блок должен быстро отвечать на вопрос, почему именно Алекс может продавать такое решение.
+This block should quickly answer why Alex can credibly sell this kind of solution.
 
-Он должен показывать:
+It should show:
 
-- инженерный профиль Алекса;
-- фокус на JavaScript, self-hosted инфраструктуре и agent workflows;
-- что Алекс использует собственные инструменты в собственных продуктах;
-- что эти инструменты применяются и на этом сайте.
+- Alex's engineering profile;
+- a focus on JavaScript, self-hosted infrastructure, and agent workflows;
+- that Alex uses his own tools in his own products;
+- that those tools are also used on this site.
 
-Блок должен быть коротким.
-Это не биография и не резюме.
+The block should stay short.
+It is not a biography or resume.
 
-## Ключевые продукты
+## Key Products
 
-Секция нужна как компактная коммерческая витрина, а не как список всего портфеля.
+This section is a compact commercial storefront, not a full portfolio list.
 
-На home показываются только:
+The home page shows only:
 
 1. `Tequila Framework`
 2. `GitHub Flows`
-3. `AI-generated SSG-сайты на базе TeqFW`
+3. `AI-generated SSG sites on top of TeqFW`
 
 ### Tequila Framework
 
-Позиционирование:
+Positioning:
 
-- основной инженерный продукт;
-- фундаментальная JavaScript-платформа;
-- доказательство архитектурной глубины и системного мышления.
+- the main engineering product;
+- a foundational JavaScript platform;
+- proof of architectural depth and systematic thinking.
 
-Предпочтительная ссылка:
+Preferred link:
 
 - `https://teqfw.com/ecosystem/philosophy`
 
 ### GitHub Flows
 
-Позиционирование:
+Positioning:
 
-- текущее горячее предложение;
-- workflow-подход и software layer вокруг GitHub-событий;
-- инструмент для пилотного внедрения.
+- the current hot offer;
+- a workflow approach and software layer around GitHub events;
+- a product suitable for pilot adoption.
 
-`GitHub Flows App` допустим только как техническое имя host application.
-Это не основной продаваемый лейбл.
+`GitHub Flows App` is acceptable only as the technical name of the host application.
+It is not the primary commercial label.
 
-Предпочтительная объясняющая ссылка:
+Preferred explanatory link:
 
 - `/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html`
 
-### AI-generated SSG-сайты на базе TeqFW
+### AI-Generated SSG Sites On Top Of TeqFW
 
-Позиционирование:
+Positioning:
 
-- отдельный прикладной продукт;
-- сайты на базе TeqFW с AI-генерацией страниц и переводов;
-- доказательство, что инструменты Алекса используются в реальных рабочих продуктах.
+- a separate applied product;
+- sites on top of TeqFW with AI-assisted page generation and translation;
+- proof that Alex's tools are used in real working products.
 
-Предпочтительные ссылки:
+Preferred links:
 
 - `https://cms.teqfw.com/en/`
 - `https://cms.teqfw.com/ru/`
 
-## Методический слой и книга
+## Method Layer And Book
 
-ADSM должен идти ниже практического предложения.
-Он усиливает доверие, но не открывает страницу.
+ADSM should sit below the practical offer.
+It strengthens trust, but it should not open the page.
 
-Роль секции:
+The role of this section is:
 
-- показать, что за практическим предложением стоит дисциплина;
-- дать вход в книгу `Agent-Driven Development`;
-- не спорить за внимание с hero.
+- to show that the practical offer is backed by discipline;
+- to provide an entry to the book `Agent-Driven Development`;
+- to avoid competing with the hero for attention.
 
-Ссылки книги:
+Book links:
 
 - `http://fly.wiredgeese.com/flancer/leanpub/adsm-en/`
 - `http://fly.wiredgeese.com/flancer/leanpub/adsm-ru/`
 
-## Финальный CTA
+## Final CTA
 
-Финальный CTA должен усиливать conversion, но не повторять hero.
+The final CTA should reinforce conversion without repeating the hero.
 
-Hero продаёт сам класс решения.
-Финальный CTA продаёт следующий шаг.
+The hero sells the class of solution.
+The final CTA sells the next step.
 
-Он должен вести к мысли:
+It should lead toward this idea:
 
-- начните с ограниченного пилота;
-- получите наблюдаемый результат;
-- после этого решите, какие GitHub-processes есть смысл автоматизировать дальше.
+- start with a bounded pilot;
+- get an observable result;
+- then decide which GitHub processes are worth automating further.
 
-Финальный CTA должен звучать конкретнее, чем просто `связаться`, но не дублировать формулировки первого экрана.
+The final CTA should sound more concrete than plain `contact`, but it should not duplicate the first-screen wording.
 
-## Проверка качества
+## Quality Check
 
-Новая версия home считается удачной, если:
+A new home-page version is successful if:
 
-- с первого экрана понятен текущий offer;
-- страница продаёт Алекса, а не только инструмент;
-- в блоке `Кто я` видно, что Алекс сам использует свои инструменты;
-- на странице не более трёх продуктовых анонсов;
-- финальный CTA усиливает желание начать пилот, а не повторяет hero.
+- the current offer is clear from the first screen;
+- the page sells Alex rather than only a tool;
+- the `Who I Am` block shows that Alex uses his own tools;
+- the page contains no more than three product announcements;
+- the final CTA strengthens the desire to start a pilot instead of repeating the hero.

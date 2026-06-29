@@ -15,10 +15,6 @@ The project currently assumes two main execution environments:
 - a local Node.js environment for site generation, translation, and repository maintenance;
 - a Linux host environment for long-running site serving through `npx teq-cms web`.
 
-The local environment is used for authoring, translation, validation, and publication preparation.
-
-The host environment is used for running the published site process and related service operations.
-
 ## External Dependencies
 
 The stable external prerequisites are:

@@ -1,234 +1,222 @@
-# Продуктовый обзор сайта
+# Product Overview
 
 - Path: `ctx/docs/product/overview.md`
 - Template Version: `20260605`
-- Changed: `20260612`
+- Changed: `20260629`
 
-## Назначение сайта
+## Site Purpose
 
-Сайт `wiredgeese.com` является персональным продуктовым сайтом Алекса Гусева.
+`wiredgeese.com` is the personal product site of Alex Gusev.
 
-Его основная функция:
+Its primary role is:
 
-- продавать Алекса как инженера;
-- продавать продукты Алекса;
-- превращать интерес посетителя в понятный следующий шаг: контакт, пилот, чтение книги, переход к продукту или
-  изучение релевантного проекта.
+- to sell Alex as an engineer;
+- to sell Alex's products;
+- to convert visitor interest into a clear next step such as contact, a pilot, a book visit, a product visit, or a relevant project review.
 
-Сайт не является нейтральным архивом заметок, технической энциклопедией или личным дневником.
-Даже когда он содержит статьи, заметки, библиотечные страницы или demo-материалы, они должны работать на основную
-задачу: усиливать доверие к Алексу и его продуктам.
+The site is not a neutral archive, a technical encyclopedia, or a personal diary.
+Even when it contains articles, notes, library pages, or demo materials, those materials must strengthen trust in Alex and his products.
 
-## Главный принцип
+## Core Principle
 
-Все основные страницы сайта должны отвечать хотя бы одной из функций:
+Each major page should perform at least one of these product functions:
 
-- напрямую продавать Алекса;
-- напрямую продавать один из его продуктов;
-- создавать доверие к Алексу как к инженеру;
-- создавать доверие к продуктовой линейке;
-- объяснять метод, который повышает ценность его практических предложений;
-- показывать рабочие доказательства, что продукты и подходы не являются чистой теорией.
+- directly sell Alex;
+- directly sell one of his products;
+- strengthen trust in Alex as an engineer;
+- strengthen trust in the product line;
+- explain a method that increases the value of his practical offers;
+- show working proof that the products and approaches are real.
 
-Если страница не делает ничего из перечисленного, её наличие на сайте должно быть пересмотрено.
+If a page performs none of those functions, its presence on the site should be reconsidered.
 
-## Что именно продаёт сайт
+## Product Hierarchy
 
-Сайт должен продавать не одну вещь, а связанную продуктовую линейку.
+The site sells a connected product line rather than a single offer.
 
-В текущем виде она состоит из нескольких уровней.
+The current hierarchy is:
 
-### 1. Алекс как инженер
+### 1. Alex As The Base Product
 
-Базовый объект продажи — сам Алекс.
+The primary object being sold is Alex himself.
 
-Сайт должен помогать посетителю понять:
+The site should help visitors understand:
 
-- кто такой Алекс;
-- какой у него инженерный профиль;
-- какие классы задач он умеет решать;
-- почему ему можно доверить архитектурную, инфраструктурную или агентную работу.
+- who Alex is;
+- what engineering profile he has;
+- which classes of problems he can solve;
+- why he can be trusted with architecture, infrastructure, or agent-driven work.
 
-### 2. Основной инженерный продукт
+### 2. The Main Engineering Product
 
-Основной инженерный продукт — `Tequila Framework`.
+The main engineering product is `Tequila Framework`.
 
-Предпочтительная публичная ссылка для этого продукта:
+Preferred public link:
 
 - `https://teqfw.com/ecosystem/philosophy`
 
-Он должен подаваться как фундаментальный технический актив, который показывает:
+It should be presented as the foundational technical asset that demonstrates:
 
-- архитектурную глубину;
-- системность инженерного мышления;
-- способность строить платформенные компоненты;
-- практическую базу для последующих прикладных решений.
+- architectural depth;
+- systematic engineering thinking;
+- the ability to build platform components;
+- a practical base for later applied products.
 
-### 3. Текущее горячее предложение
+### 3. The Current Hot Offer
 
-Текущее горячее предложение — `GitHub Flows`.
+The current hot offer is `GitHub Flows`.
 
-Это ближний к продаже инфраструктурный продукт:
+It is the nearest-to-sale infrastructure product:
 
-- workflow-подход и software layer для GitHub-событий;
-- self-hosted связка между GitHub webhook-ами и CLI-агентами;
-- практический способ запускать ограниченные agent workflows в инфраструктуре клиента;
-- подходящий объект для пилотного внедрения.
+- a workflow approach and software layer for GitHub events;
+- a self-hosted link between GitHub webhooks and CLI agents;
+- a practical way to run bounded agent workflows in client infrastructure;
+- a suitable object for pilot adoption.
 
-Именно этот продукт может доминировать в hero-блоках и conversion-сценариях, если он является текущим приоритетом.
+This product may dominate hero sections and conversion scenarios while it remains the current priority.
 
-`GitHub Flows App` не должен продвигаться как основной продуктовый лейбл.
-Это host application для исполнения `GitHub Flows`, а не главный объект продажи.
+`GitHub Flows App` must not be promoted as the main product label.
+It is the host application that executes `GitHub Flows`, not the main thing being sold.
 
-### 4. Методический продукт
+### 4. The Method Product
 
-Книга `Agent-Driven Development` является отдельным продуктом.
+The book `Agent-Driven Development` is a separate product.
 
-Она должна рассматриваться не только как supporting text, но и как самостоятельный коммерческий артефакт.
-Её роль:
+It should be treated as both supporting material and a standalone commercial artifact.
+Its role is:
 
-- продавать методическую экспертизу Алекса;
-- объяснять, как сохранять контроль при делегировании разработки AI-агентам;
-- усиливать доверие к практическим предложениям;
-- служить точкой входа для людей, которые сначала хотят понять подход, а потом покупать внедрение или продукт.
+- to sell Alex's methodological expertise;
+- to explain how to keep control while delegating development to AI agents;
+- to strengthen trust in practical offers;
+- to serve as an entry point for people who first want to understand the approach and only then buy a product or implementation.
 
-Canonical links книги:
+Canonical book links:
 
 - `http://fly.wiredgeese.com/flancer/leanpub/adsm-en/`
 - `http://fly.wiredgeese.com/flancer/leanpub/adsm-ru/`
 
-### 5. AI-generated SSG-сайты на базе TeqFW
+### 5. AI-Generated SSG Sites On Top Of TeqFW
 
-Отдельный прикладной продукт Алекса — AI-generated SSG-сайты на базе `Tequila Framework`.
+Another applied product is AI-generated SSG sites built on `Tequila Framework`.
 
-Смысл этого предложения:
+This offer means:
 
-- создание сайтов на базе TeqFW;
-- генерация страниц через AI-агента;
-- поддержка переводов через AI-агента;
-- управляемая публикация и развитие контента без тяжёлой CMS-инфраструктуры;
-- возможность соединять контентный сайт с agent-driven workflow.
+- site creation on top of TeqFW;
+- page generation through an AI agent;
+- translation support through an AI agent;
+- managed content publication and evolution without a heavy CMS stack;
+- the ability to connect a content site with an agent-driven workflow.
 
-Этот продукт должен показывать, что TeqFW — не только инженерная основа, но и практическая платформа для реальных
-сайтов.
+This product should show that TeqFW is not only an engineering foundation but also a practical platform for real sites.
 
-Ключевые примеры:
+Key examples:
 
-- `wiredgeese.com` — персональный сайт на трёх языках (`es`, `en`, `ru`) с генерацией страниц и переводов через
-  AI-агента;
-- `teqfw.com` — англоязычный сайт на одном языке (`en`) с demo-обработкой пользовательских тикетов через
-  `GitHub Flows`.
+- `wiredgeese.com` — a personal site in three languages (`es`, `en`, `ru`) with AI-assisted page generation and translation;
+- `teqfw.com` — an English-language site with demo ticket processing through `GitHub Flows`.
 
-Предпочтительные публичные ссылки для этого продукта:
+Preferred public links:
 
 - `https://cms.teqfw.com/en/`
 - `https://cms.teqfw.com/ru/`
 
-Этот слой должен позиционироваться как отдельный продуктовый сценарий:
+This layer should be positioned as an applied product scenario for:
 
-- для персональных сайтов;
-- для продуктовых сайтов;
-- для технической документации;
-- для сайтов, где AI-поддержка контента и workflow является преимуществом.
+- personal sites;
+- product sites;
+- technical documentation;
+- sites where AI-supported content and workflow are an advantage.
 
-### 6. Supporting proofs
+### 6. Supporting Proofs
 
-Demo-проекты, статьи, заметки, этот сайт и другие публичные материалы должны работать как supporting proofs.
+Demo projects, articles, notes, this site, and other public materials should function as supporting proofs.
 
-Они нужны для того, чтобы посетитель видел:
+They exist so that visitors can see:
 
-- что продукты реальны;
-- что инженерная база существует;
-- что подходы проверены в работе;
-- что за коммерческими формулировками стоят реализованные системы и наблюдаемый опыт.
+- that the products are real;
+- that the engineering base exists;
+- that the approaches have been exercised in practice;
+- that the commercial language is backed by implemented systems and observable experience.
 
-## Роль домашней страницы
+## Home Page Role
 
-Домашняя страница — это главный вход в продуктовую логику сайта.
+The home page is the main entry into the site's product logic.
 
-Её задача:
+Its role is:
 
-- быстро продать текущее горячее предложение;
-- показать Алекса через его продукты;
-- дать короткий персональный контекст;
-- перевести пользователя к следующему действию.
+- to quickly sell the current hot offer;
+- to show Alex through his products;
+- to provide a short personal context;
+- to move the visitor to the next action.
 
-Домашняя страница не должна пытаться вместить в себя весь сайт.
-Она должна оставаться короткой вводной страницей, которая реализует основную коммерческую функцию сайта в сжатом виде.
+It should remain a short introductory page rather than a compressed version of the whole site.
 
-Ограничение:
+Constraints:
 
-- на домашней странице должно анонсироваться не более трёх продуктов Алекса;
-- остальные продукты и продуктовые сценарии должны раскрываться на отдельной продуктовой странице;
-- если продуктов больше трёх, home должна показывать только наиболее приоритетные для текущего периода.
+- the home page should announce no more than three products;
+- the rest of the products and scenarios should be unfolded on dedicated product pages;
+- when the product line exceeds three active offers, the home page should surface only the current priorities.
 
-## Роль остальных типов страниц
+## Other Page Types
 
-Разные типы страниц могут работать на продажу по-разному.
+Different page types may contribute to the sale in different ways.
 
-### Продуктовые страницы
+### Product Pages
 
-Должны прямо объяснять ценность, ограничения, сценарии использования и следующий шаг.
+They should directly explain value, constraints, usage scenarios, and the next step.
 
-### Страницы проектов
+### Project Pages
 
-Должны показывать инженерную состоятельность, архитектурную глубину и связь проекта с продуктовой линейкой Алекса.
+They should show engineering credibility, architectural depth, and the relationship between a project and Alex's product line.
 
-### Статьи и заметки
+### Articles And Notes
 
-Должны либо усиливать доверие к инженерной и методической экспертизе, либо приводить к продукту, книге, контакту
-или пилоту.
+They should either strengthen trust in engineering and method expertise or lead toward a product, the book, contact, or a pilot.
 
-### Demo-страницы
+### Demo Pages
 
-Должны показывать наблюдаемую механику, а не заменять продуктовую формулировку.
-Demo не продаёт само себя; demo помогает продавать Алекса и его продукты.
+They should show observable mechanics rather than replace the product formulation.
+The demo does not sell itself; it helps sell Alex and his products.
 
-## Принцип приоритета
+## Priority Rule
 
-На сайте всегда нужно различать:
+The site should always distinguish between:
 
-- основной инженерный продукт;
-- текущее горячее предложение;
-- методический продукт;
-- прикладные продуктовые сценарии на базе TeqFW;
+- the main engineering product;
+- the current hot offer;
+- the method product;
+- applied product scenarios on top of TeqFW;
 - supporting proofs.
 
-Нельзя позволять supporting proofs вытеснять основные продукты.
-Нельзя позволять методологии вытеснять продаваемое практическое предложение.
-Нельзя позволять текущему offer полностью скрывать существование основной инженерной базы.
-Нельзя перегружать домашнюю страницу анонсами всей продуктовой линейки сразу.
+Supporting proofs must not displace the main products.
+Methodology must not displace the practical offer being sold.
+The current offer must not hide the underlying engineering base.
+The home page must not be overloaded with announcements for the whole product line at once.
 
-## Коммуникационные ограничения
+## Communication Constraints
 
-Сайт не должен:
+The site must not:
 
-- создавать впечатление абстрактного исследовательского проекта без коммерческого выхода;
-- распыляться на слишком много равноправных смыслов;
-- продавать "AI вообще";
-- обещать универсальную автоматизацию разработки;
-- превращать всё содержание в длинный методологический трактат.
+- read like an abstract research project without a commercial path;
+- spread attention across too many equal meanings;
+- sell "AI in general";
+- promise universal software-development automation;
+- turn all content into a long methodological treatise.
 
-Сайт должен:
+The site should:
 
-- держать ясную линию продажи;
-- показывать иерархию продуктов;
-- связывать статьи, demo и проекты с коммерческой функцией;
-- усиливать доверие через конкретику;
-- вести посетителя к осмысленному следующему шагу.
+- keep a clear sales line;
+- show product hierarchy;
+- connect articles, demos, and projects to the commercial function;
+- strengthen trust through specifics;
+- move the visitor toward a meaningful next step.
 
-После генерации текста нужно проводить редактуру на снятие напряжения.
+Public-facing site text should remain calm, confident, and natural rather than polemical.
+Drafting patterns that introduce unnecessary tension should be smoothed out before publication.
 
-В частности:
+## Product Check Rule
 
-- конструкции вида `не А, а Б` допустимы как промежуточный способ сборки мысли;
-- в финальном публичном тексте их нужно по возможности сглаживать, упрощать или убирать;
-- итоговый текст должен звучать спокойно, уверенно и естественно, без избыточного полемического напряжения.
+Any substantial site revision should be checked against this question:
 
-## Правило продуктовой проверки
+`Does this help sell Alex and his products more effectively?`
 
-Любая существенная переработка сайта должна проверяться вопросом:
-
-`Помогает ли это лучше продавать Алекса и его продукты?`
-
-Если ответ неочевиден, изменение требует пересмотра.
+If the answer is unclear, the change should be reconsidered.

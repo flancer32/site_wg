@@ -30,12 +30,10 @@ The stable boundaries are:
 
 ## Boundary Notes
 
-The repository currently keeps the application layer intentionally thin.
-
-Most site behavior is delegated to TeqCMS and template content, while project-specific code exists only where the generic CMS behavior is insufficient.
+The application layer is intentionally thin.
+Most site behavior is delegated to TeqCMS and template content, while project-specific code exists only where generic CMS behavior is insufficient.
 
 ## Optional Expansion
 
 If the project grows, deeper structure documents may be created under `structure/`.
-
 No deeper structure branch is justified at the current scale.

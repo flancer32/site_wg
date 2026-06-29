@@ -53,21 +53,7 @@ Use this level in the following navigation pattern:
 ## Product Dependency
 
 Architecture depends on product documentation.
-
-Product documentation defines what the site is and what it must communicate.
-
-Architecture documentation defines how that site is realized structurally.
-
-The expected dependency is:
-
-```text
-product
-  → architecture
-  → environment
-  → code
-```
-
-Architecture must not redefine product meaning or invent missing public behavior silently.
+It defines how the documented product is realized structurally and must not redefine product meaning or invent missing public behavior silently.
 
 ## Collaboration
 

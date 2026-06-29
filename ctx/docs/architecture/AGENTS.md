@@ -24,9 +24,9 @@ Documents at this level translate product intent into stable engineering structu
 
 ## Architecture Knowledge Model
 
-Architecture knowledge is organized as one coordinated model rather than a set of isolated notes.
+Architecture knowledge is organized as one coordinated model.
 
-Each document answers a different architectural question, and the set is intended to be read together:
+Each document answers a distinct architectural question:
 
 - `structure.md` — what is structurally built.
 - `behavior.md` — how the system behaves internally.
@@ -54,18 +54,5 @@ Does NOT define:
 ## Relationship To Product
 
 Architecture depends on product documentation and refines it. It is not an independent source of product truth.
-
-The dependency order is:
-
-```text
-product
-  → architecture
-  → environment
-  → code
-```
-
-Product documentation defines what the site is selling and which public-page outcomes matter.
-
-Architecture documentation defines how that product is realized structurally.
 
 When product knowledge is missing or contradictory, architecture documents must expose the gap and escalate it instead of creating implicit meaning.

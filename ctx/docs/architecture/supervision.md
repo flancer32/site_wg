@@ -11,13 +11,9 @@ Describe how one human and many agents supervise architecture-level consistency.
 ## Human-Agent Supervision Principle
 
 Humans own architectural direction and guardrails.
-
 Agents operate within documented architectural boundaries.
-
 Architecture documentation is the authoritative medium through which the human direction-setting loop and the agent refinement and execution-support loop coordinate at the architecture level.
-
 Agents must surface architectural drift instead of silently resolving it.
-
 Major architectural boundary changes require human approval.
 
 ## Human Responsibilities
@@ -65,5 +61,4 @@ product
   -> environment
   -> code
 ```
-
-At the current project stage, `environment` and `code` branches are not yet instantiated, so agents must stop at architecture and surface any missing lower-level guidance explicitly.
+If lower-level guidance is still too thin for a concrete change, agents must surface the gap explicitly instead of inventing it downstream.

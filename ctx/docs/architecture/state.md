@@ -36,15 +36,12 @@ The ownership boundaries are:
 ## Ownership Rules
 
 Humans own approval of new state categories and new durable sources of truth.
-
 Agents may update existing durable state inside documented boundaries.
-
 Agents must not implicitly promote generated output into an independent source of truth.
 
 ## State Authority
 
-Durable state change is authorized through repository edits approved by the human workflow.
-
+Durable state changes are authorized through repository edits approved by the human workflow.
 Derived publication state stays valid only when it can be regenerated from authoritative sources.
 
 ## Change Discipline

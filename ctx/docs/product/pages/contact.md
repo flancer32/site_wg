@@ -1,179 +1,180 @@
-# Страница контактов
+# Contact Page
 
 - Path: `ctx/docs/product/pages/contact.md`
 - Template Version: `20260629`
-- Changed: `20260612`
+- Changed: `20260629`
 
-## Роль страницы
+## Page Role
 
-Этот документ подчинён верхнеуровневой роли сайта из `ctx/docs/product/overview.md`.
+This document is subordinate to `ctx/docs/product/overview.md`.
 
-Страница должна продвигать текущее горячее предложение `GitHub Flows` и переводить интерес в прямой контакт с Алексом.
+The page should promote the current hot offer, `GitHub Flows`, and convert interest into direct contact with Alex.
 
-Страница должна быстро отвечать на два вопроса:
+It should answer two questions quickly:
 
-- как быстро связаться с Алексом;
-- по какому практическому предложению имеет смысл написать прямо сейчас.
+- how to contact Alex;
+- which practical offer is most worth discussing right now.
 
-Страница не должна превращаться:
+The page must not turn into:
 
-- в длинную продуктовую страницу;
-- в прайс-лист всех услуг;
-- в методологический текст;
-- в перегруженную коммерческую воронку.
+- a long product page;
+- a full price list of services;
+- a methodological essay;
+- an overloaded commercial funnel.
 
-## Главный фокус
+## Main Focus
 
-Страница визуально в первую очередь продаёт текущее горячее предложение.
-Контакт является следующим шагом после интереса к нему.
+Visually, the page should first sell the current hot offer.
+Contact is the next step after interest in that offer.
 
-`GitHub Flows` нужен на этой странице как главный повод для обращения:
+`GitHub Flows` should function here as the main reason to write:
 
-- это текущее горячее предложение;
-- это самый понятный повод написать сейчас;
-- это практический вход в разговор о workflow и автоматизации GitHub-процесса с ИИ-агентами.
+- it is the current hot offer;
+- it is the clearest reason to start a conversation now;
+- it is the practical entry into a discussion about workflow and GitHub-process automation with AI agents.
 
-Контакты остаются обязательной функцией страницы, но не должны быть главным визуальным акцентом.
+Contact details remain mandatory, but they should not be the primary visual emphasis.
 
 ## Hero
 
-Hero должен быть коротким и сообщать:
+The hero should stay short and communicate:
 
-- что основной текущий предмет обсуждения — `GitHub Flows`;
-- что речь идёт о трёхшаговом предложении: тестовое подключение к инфраструктуре Алекса, развёртывание аналогичной инфраструктуры на VPS клиента, помощь в настройке workflow;
-- что связаться с Алексом можно ниже на странице.
+- that the main current topic is `GitHub Flows`;
+- that the offer is a three-step path: a test connection to Alex's infrastructure, deployment of similar infrastructure on the client's VPS, and help with workflow setup;
+- that contact options appear below on the page.
 
-## Структура страницы
+## Page Structure
 
-Страница контактов должна сохранять такую последовательность:
+The contact page should preserve this sequence:
 
 1. `Hero`
-2. `Горячее предложение`
-3. `Что написать в первом сообщении`
-4. `Прямые контакты`
-5. `Supporting links`
-6. `Краткий технический бэкграунд`
-7. `Реквизиты`
+2. `Hot Offer`
+3. `What To Write In The First Message`
+4. `Direct Contacts`
+5. `Supporting Links`
+6. `Short Technical Background`
+7. `Business Details`
 
-## Горячее предложение
+## Hot Offer
 
-Этот блок коротко объясняет, зачем писать именно сейчас.
+This block should explain briefly why the visitor should write now.
 
-Текущий фокус:
+Current focus:
 
-- `GitHub Flows` как текущее горячее предложение;
-- шаг 1: тестовое подключение клиентского репозитория к инфраструктуре Алекса;
-- шаг 2: развёртывание аналогичной инфраструктуры на VPS клиента с подключением его учёток и рабочим запуском workflow на стороне клиента;
-- шаг 3: помощь в настройке workflow;
-- наблюдаемый результат внутри GitHub.
+- `GitHub Flows` as the current hot offer;
+- step 1: a test connection of the client repository to Alex's infrastructure;
+- step 2: deployment of similar infrastructure on the client's VPS with the client's own accounts and a working workflow run on the client side;
+- step 3: help with workflow setup;
+- an observable result inside GitHub.
 
-Текущие рабочие условия, которые допустимо показать:
+Current working terms that may be shown:
 
-- `$50` за тестовое подключение (до `5` тестовых тикетов на codex-агенте);
-- `от $150` за развёртывание на VPS клиента;
-- `$35 / час` консультации.
+- `$50` for the test connection, up to `5` test tickets on a Codex agent;
+- `from $150` for deployment on the client's VPS;
+- `$35 / hour` for consultation.
 
-Блок не должен разрастаться в подробное описание всех шагов.
+The block should not expand into a detailed explanation of every step.
 
-## Что написать в первом сообщении
+## What To Write In The First Message
 
-Нужно просить только базовую информацию:
+The page should ask only for basic information:
 
-- публичный или приватный репозиторий;
-- что клиент хочет проверить;
-- интересует ли его тестовый запуск `GitHub Flows`;
-- готов ли он обсудить пилот, развёртывание или консультацию.
+- whether the repository is public or private;
+- what the client wants to test;
+- whether the client is interested in a `GitHub Flows` trial run;
+- whether the client wants to discuss a pilot, deployment, or consultation.
 
-## Прямые контакты
+## Direct Contacts
 
-Этот блок должен идти ниже offer и блока первого сообщения.
-Контакты являются постоянной информацией, и пользователь найдёт их, если уже готов писать.
+This block should appear below the offer and the first-message block.
+Contact data is persistent information, and users will find it once they are ready to write.
 
-Приоритет каналов:
+Channel priority:
 
 1. email
 2. Telegram
 3. WhatsApp
 4. LinkedIn
 
-Текущие контактные данные:
+Current contact data:
 
 - email: `alex@wiredgeese.com`
 - Telegram: `https://t.me/wiredgeese`
 - WhatsApp: `https://wa.me/37129181801`
 - LinkedIn: `https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/`
 
-## Supporting links
+## Supporting Links
 
-Этот блок вторичен. Он нужен для доверия и самостоятельного изучения и не должен визуально спорить с offer или контактами.
+This block is secondary.
+It exists for trust and self-study and should not compete visually with the offer or the contacts.
 
-Текущие ссылки, которые нельзя потерять:
+Current links that must be preserved:
 
 - GitHub: `https://github.com/flancer64`
-- блог: `https://flancer32.com/`
+- blog: `https://flancer32.com/`
 - Telegram EN: `https://t.me/alexgusev_lab_en`
 - Telegram ES: `https://t.me/alexgusev_lab_es`
 - Telegram RU: `https://t.me/alexgusev_lab_ru`
-- книга RU: `http://fly.wiredgeese.com/flancer/leanpub/adsm-ru/`
-- книга EN: `http://fly.wiredgeese.com/flancer/leanpub/adsm-en/`
+- book RU: `http://fly.wiredgeese.com/flancer/leanpub/adsm-ru/`
+- book EN: `http://fly.wiredgeese.com/flancer/leanpub/adsm-en/`
 - Upwork: `https://www.upwork.com/freelancers/~0181de0a64c6981497`
 - Fiverr: `https://www.fiverr.com/users/wiredgeese`
 - StackOverflow: `https://stackoverflow.com/users/4073821/alex-gusev`
 
-## Краткий технический бэкграунд
+## Short Technical Background
 
-Этот блок нужен для доверия и должен оставаться кратким.
-Он должен показывать:
+This block exists for trust and should remain short.
+It should show:
 
-- Алекс Гусев — independent web developer из Латвии;
-- опыт: `25+` лет в web development;
-- текущий фокус: `ADSM`, `GitHub Flows`, `Tequila Framework`, публичные proof-материалы;
-- технологический стек: `JavaScript`, `Node.js`, `HTML/CSS`, `JSDoc`, `Vue`, `PostgreSQL`, `MariaDB`, `SQLite`, `GitHub`, `Docker`, `Linux`.
+- Alex Gusev is an independent web developer from Latvia;
+- experience: `25+` years in web development;
+- current focus: `ADSM`, `GitHub Flows`, `Tequila Framework`, and public proof materials;
+- technology stack: `JavaScript`, `Node.js`, `HTML/CSS`, `JSDoc`, `Vue`, `PostgreSQL`, `MariaDB`, `SQLite`, `GitHub`, `Docker`, `Linux`.
 
-На странице сейчас используется фото `/img/avatar.jpg`.
+The page currently uses the photo `/img/avatar.jpg`.
 
-## Реквизиты
+## Business Details
 
-Этот блок допустим как краткий factual appendix.
+This block is acceptable as a short factual appendix.
 
-Текущие данные:
+Current data:
 
-- название: `F. Lancer`
-- регистрационный номер: `40103303120`
-- с: `29.06.2010`
+- name: `F. Lancer`
+- registration number: `40103303120`
+- since: `29.06.2010`
 - SEPA ID: `LV82ZZZ40103303120`
-- НДС: `LV40103303120`
-- с: `27.09.2023`
-- банковский счёт: `LV83HABA0551028650868`
+- VAT: `LV40103303120`
+- since: `27.09.2023`
+- bank account: `LV83HABA0551028650868`
 
-## Коммуникационные ограничения
+## Communication Constraints
 
-Страница не должна:
+The page must not:
 
-- спорить с домашней страницей за роль главной продуктовой витрины;
-- перегружать посетителя деталями before-contact;
-- продавать слишком много разных услуг одновременно;
-- уводить фокус от контакта в сторону методологии;
-- использовать напряжённые формулы вида `не А, а Б` в финальной публичной версии.
+- compete with the home page for the role of the main product storefront;
+- overload the visitor with before-contact details;
+- sell too many unrelated services at once;
+- pull attention away from contact toward methodology;
+- use tense `not A but B` formulas in the final public version.
 
-Страница должна:
+The page should:
 
-- визуально продвигать текущее горячее предложение;
-- объяснять текущий повод написать;
-- давать каналы связи ниже, без потери доступности;
-- звучать спокойно и уверенно;
-- поддерживать продажу `GitHub Flows`;
-- усиливать доверие к Алексу как к инженеру.
+- visually promote the current hot offer;
+- explain the current reason to write;
+- place contact channels below without losing accessibility;
+- sound calm and confident;
+- support the sale of `GitHub Flows`;
+- strengthen trust in Alex as an engineer.
 
-## Проверка качества
+## Quality Check
 
-Новая версия contact считается удачной, если:
+A new contact-page version is successful if:
 
-- сразу понятен текущий повод для обращения;
-- с первого экрана считывается текущее горячее предложение;
-- трёхшаговый offer читается как главный визуальный акцент страницы;
-- контакты находятся ниже и не спорят с offer;
-- `GitHub Flows` читается как актуальное практическое предложение;
-- понятно, зачем писать именно сейчас;
-- страница не перегружена;
-- supporting links и реквизиты сохранены, но не мешают главному действию.
+- the current reason to write is clear immediately;
+- the current hot offer is readable from the first screen;
+- the three-step offer is the main visual emphasis;
+- contacts sit lower and do not compete with the offer;
+- `GitHub Flows` reads as the current practical offer;
+- it is clear why writing now makes sense;
+- the page is not overloaded;
+- supporting links and business details are preserved without interfering with the main action.

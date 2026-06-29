@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "notes": [
     "Baseline ADSM context metadata initialized for wiredgeese.com.",
-    "The project currently has product, architecture, environment, and agent-operational documentation branches.",
-    "The code documentation branch is planned but not yet instantiated."
+    "The project currently has product, architecture, environment, code, and agent-operational documentation branches.",
+    "The code documentation branch is instantiated in a minimal state and reserved for future durable implementation constraints."
   ]
 }

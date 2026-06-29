@@ -13,6 +13,7 @@ Documents at this level describe the system as a design object, including meanin
 ## Level Map
 
 - `architecture/` — architecture-level documentation that translates product intent into stable engineering structure.
+- `code/` — code-level documentation that constrains implementation structure, source-level conventions, and repository-facing engineering rules.
 - `environment/` — environment-level documentation that defines runtime and operational prerequisites.
 - `product/` — product-level documentation that defines the site's commercial meaning and page-level intent.
 - `AGENTS.md` — level definition for `ctx/docs/`.
@@ -24,7 +25,7 @@ Defines:
 
 - System meaning and domain intent through the documentation dependency chain rooted in `product`.
 - Repository-level structural constraints that bound any valid implementation.
-- The documentation dependency order for future architecture, environment, and code branches.
+- The documentation dependency order for the product, architecture, environment, and code branches.
 
 Does NOT define:
 
