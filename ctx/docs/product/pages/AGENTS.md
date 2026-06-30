@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/pages/AGENTS.md`
 - Template Version: `20260629`
-- Changed: `20260629`
+- Changed: `20260630`
 
 ## Purpose
 
@@ -14,6 +14,7 @@ Documents at this level refine the role, commercial intent, and content constrai
 
 - `AGENTS.md` — level definition for `ctx/docs/product/pages/`.
 - `contact.md` — product contract for the contact page.
+- `github-agent-orchestration-poc.md` — product contract for the dedicated GitHub-based landing page of the hosted agent orchestration PoC.
 - `home.md` — product contract for the home page.
 
 ## Level Boundary

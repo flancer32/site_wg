@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/overview.md`
 - Template Version: `20260605`
-- Changed: `20260629`
+- Changed: `20260630`
 
 ## Site Purpose
 
@@ -77,6 +77,37 @@ This product may dominate hero sections and conversion scenarios while it remain
 
 `GitHub Flows App` must not be promoted as the main product label.
 It is the host application that executes `GitHub Flows`, not the main thing being sold.
+
+### 3.1. Narrow Entry Offers Under GitHub Flows
+
+Small entry offers may exist under `GitHub Flows` when they help validate demand and reduce buyer risk.
+
+Current narrow validation offer:
+
+- `Hosted PoC for event-driven AI-agent orchestration` as a GitHub-based proof of concept on a real repository.
+
+This offer is subordinate to `GitHub Flows` and must be positioned as:
+
+- a bounded first commercial step;
+- a ready test bench for repository owners who want practical exposure to orchestration before building infrastructure;
+- a way to test willingness to pay before discussing broader workflow automation.
+
+It must not be presented as:
+
+- a separate large platform;
+- a replacement for the broader `GitHub Flows` concept;
+- a general AI consulting offer.
+
+The core product meaning of this PoC is:
+
+`A hosted PoC for exploring event-driven AI-agent orchestration on a real GitHub repository.`
+
+The core principle that should remain visible in product documents is:
+
+`event -> agent reaction -> new observable event`
+
+GitHub issue triage is the first practical scenario, not the entire product meaning.
+GitHub Issues are the first visible event interface for controlled AI-agent orchestration.
 
 ### 4. The Method Product
 
@@ -164,6 +195,9 @@ Different page types may contribute to the sale in different ways.
 
 They should directly explain value, constraints, usage scenarios, and the next step.
 
+Validation landing pages are a special product-page subtype.
+They may sell a narrow entry offer and measure behavior around it, but they must remain clearly subordinate to the site-wide product hierarchy.
+
 ### Project Pages
 
 They should show engineering credibility, architectural depth, and the relationship between a project and Alex's product line.
@@ -206,6 +240,7 @@ The site should:
 
 - keep a clear sales line;
 - show product hierarchy;
+- allow narrow validation offers under the current hot offer without fragmenting the product line;
 - connect articles, demos, and projects to the commercial function;
 - strengthen trust through specifics;
 - move the visitor toward a meaningful next step.

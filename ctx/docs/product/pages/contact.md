@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/pages/contact.md`
 - Template Version: `20260629`
-- Changed: `20260629`
+- Changed: `20260630`
 
 ## Page Role
 
@@ -69,11 +69,28 @@ Current focus:
 
 Current working terms that may be shown:
 
-- `$50` for the test connection, up to `5` test tickets on a Codex agent;
-- `from $150` for deployment on the client's VPS;
-- `$35 / hour` for consultation.
+- `€50` for the hosted GitHub-based agent orchestration PoC;
+- `from €150` for deployment on the client's VPS;
+- `€35 / hour` for consultation.
 
 The block should not expand into a detailed explanation of every step.
+
+The page may also mention one smaller entry offer under `GitHub Flows`:
+
+- `Hosted PoC for event-driven AI-agent orchestration` for `€50`.
+
+If mentioned, it should appear as:
+
+- the smallest commercial entry step;
+- a validation-oriented test offer;
+- a GitHub-based agent orchestration PoC;
+- a way to start before discussing VPS deployment or custom workflow setup.
+
+For visitors interested in trying AI-agent workflows, the contact page should point first to the localized `Hosted GitHub agent orchestration PoC` landing page for PoC details.
+Broader `GitHub Flows` setup, deployment, and custom workflows remain separate follow-up services after the PoC or a direct inquiry.
+
+It must not duplicate the full landing-page narrative there.
+If the page links to the PoC landing page, that link should resolve in the current visitor locale rather than forcing an English-only route.
 
 ## What To Write In The First Message
 
@@ -81,6 +98,7 @@ The page should ask only for basic information:
 
 - whether the repository is public or private;
 - what the client wants to test;
+- whether the client wants the hosted GitHub-based agent orchestration PoC specifically;
 - whether the client is interested in a `GitHub Flows` trial run;
 - whether the client wants to discuss a pilot, deployment, or consultation.
 

@@ -13,6 +13,7 @@ Documents at this level describe runtime assumptions, operational prerequisites,
 ## Level Map
 
 - `AGENTS.md` — level definition for `ctx/docs/environment/`.
+- `funnel-validation.md` — environment-specific assumptions for manual lead intake and optional first-party funnel support.
 - `overview.md` — compact entry point for runtime assumptions, external prerequisites, and environment constraints.
 
 ## Level Boundary

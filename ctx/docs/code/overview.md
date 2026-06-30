@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/overview.md`
 - Template Version: `20260629`
-- Changed: `20260629`
+- Changed: `20260630`
 
 ## Purpose
 
@@ -22,6 +22,8 @@ Its immediate role is:
 - to prevent source-level rules from being scattered into architecture and environment documents;
 - to provide a stable location for future implementation constraints when they stop being incidental.
 
+The branch now also contains a narrow durable schema for validation-funnel event naming and payload boundaries in `funnel-events.md`.
+
 ## Initial Constraints
 
 Until this branch is expanded further, agents should treat the following as the active boundary:
@@ -38,3 +40,11 @@ The current implementation-facing repository boundaries are:
 - `tmpl/` for page and partial sources rather than runtime logic;
 - `web/` for generated or published output rather than primary authored implementation;
 - `etc/` and `bin/` for environment-facing operational assets rather than product or architecture truth.
+
+## Current Durable Additions
+
+The current code-documentation branch additionally defines:
+
+- stable funnel event names for the GitHub-based agent orchestration PoC validation experiment;
+- payload boundaries separating anonymous funnel evidence from lead data;
+- the rule that client-side or first-party event logs are not, by themselves, commercial truth.

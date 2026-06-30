@@ -15,7 +15,8 @@ This level translates the product intent of a multilingual commercial personal s
 - template-authored public pages;
 - generated static publication artifacts under `web/`;
 - request-time rendering support from TeqCMS;
-- small project-specific backend extensions for routing and blog aggregation.
+- small project-specific backend extensions for routing and blog aggregation;
+- optional narrow validation flows for commercial offers when they stay bounded and explicitly documented.
 
 ## Architectural Style
 

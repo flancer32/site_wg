@@ -30,6 +30,7 @@ Agents may:
 
 - refine existing template, publication, and adapter behavior within documented boundaries;
 - improve architecture documentation when repository evidence clarifies the current model;
+- add narrow validation-funnel support only when it stays within documented data and approval boundaries;
 - prefer documentation updates before code when a new architectural concept appears.
 
 Agents must not silently introduce new architectural owners or hidden state authority.
@@ -41,6 +42,7 @@ Human approval is required for:
 - new architectural owners;
 - new persistent state;
 - new external integrations;
+- new commercial-data owners, automated payment paths, or lead-storage expansion;
 - new major system boundaries.
 
 ## Drift Signals
@@ -49,6 +51,7 @@ Architecture drift is present when:
 
 - generated output under `web/` starts carrying durable meaning unavailable in `tmpl/` or `ctx/`;
 - repository-specific application code grows beyond thin adaptation without architecture updates;
+- validation pages imply data collection or commercial automation not named in architecture documents;
 - product-page behavior depends on integrations or state not named in architecture documents.
 
 ## Pre-Code Check Order

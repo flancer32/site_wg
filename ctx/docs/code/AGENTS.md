@@ -13,6 +13,7 @@ Documents at this level constrain implementation structure, source-level respons
 ## Level Map
 
 - `AGENTS.md` — level definition for `ctx/docs/code/`.
+- `funnel-events.md` — code-level event schema and payload boundaries for validation-funnel instrumentation.
 - `overview.md` — minimal entry point for implementation-facing boundaries and code-documentation scope.
 
 ## Level Boundary

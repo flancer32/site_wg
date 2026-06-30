@@ -12,6 +12,8 @@ Documents at this level describe the site as a product: its meaning, purpose, sc
 
 ## Level Map
 
+- `experiments/` — product-validation experiment documents for testing offer-market fit and conversion evidence.
+- `offers/` — offer-level documents that define concrete commercial entry offers under the site product hierarchy.
 - `pages/` — page-level product documents that refine the role and constraints of specific public pages.
 - `AGENTS.md` — level definition for `ctx/docs/product/`.
 - `overview.md` — semantic entry point that defines site purpose, offer hierarchy, and product-level communication constraints.
@@ -22,7 +24,11 @@ The current product branch is intentionally compact.
 
 `overview.md` defines the product identity and navigation logic for the site.
 
+`offers/` defines bounded commercial offers that sit under the established product hierarchy.
+
 `pages/` refines that meaning into page-level contracts without introducing competing product priorities.
+
+`experiments/` defines explicit product-validation loops for narrow commercial hypotheses.
 
 ## Level Boundary
 

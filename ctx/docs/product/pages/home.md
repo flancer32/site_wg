@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/pages/home.md`
 - Template Version: `20260629`
-- Changed: `20260629`
+- Changed: `20260630`
 
 ## Page Role
 
@@ -145,6 +145,20 @@ Preferred explanatory link:
 
 - `/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html`
 
+Optional concrete first-step link under this product:
+
+- `/{locale}/github-agent-orchestration-poc.html` as the dedicated validation page for the hosted GitHub agent orchestration PoC.
+
+The home page may mention this page as:
+
+- a small hosted PoC;
+- a controlled sandbox for event-driven AI-agent orchestration on a real GitHub repository;
+- the quickest concrete way to test `GitHub Flows` on a real repository without building infrastructure first;
+- the first practical scenario under the broader orchestration pattern;
+- a subordinate entry offer, not a separate main product.
+
+Any CTA or supporting link from the home page should point to the landing page in the current visitor locale rather than forcing a fixed English path.
+
 ### AI-Generated SSG Sites On Top Of TeqFW
 
 Positioning:
@@ -194,6 +208,7 @@ The final CTA should sound more concrete than plain `contact`, but it should not
 A new home-page version is successful if:
 
 - the current offer is clear from the first screen;
+- a visitor can discover a concrete first-step offer under `GitHub Flows` without the home page turning into that landing page;
 - the page sells Alex rather than only a tool;
 - the `Who I Am` block shows that Alex uses his own tools;
 - the page contains no more than three product announcements;
