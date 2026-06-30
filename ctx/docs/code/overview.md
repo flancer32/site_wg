@@ -23,6 +23,7 @@ Its immediate role is:
 - to provide a stable location for future implementation constraints when they stop being incidental.
 
 The branch now also contains a narrow durable schema for validation-funnel event naming and payload boundaries in `funnel-events.md`.
+The branch now also contains a dedicated web-facing SSR documentation branch under `web/ssr/`.
 
 ## Initial Constraints
 
@@ -45,6 +46,7 @@ The current implementation-facing repository boundaries are:
 
 The current code-documentation branch additionally defines:
 
-- stable funnel event names for the GitHub-based agent orchestration PoC validation experiment;
+- an SSR web-application documentation branch under `ctx/docs/code/web/ssr/`;
+- stable funnel event names for the GitHub-based AI-agent trial stand validation experiment;
 - payload boundaries separating anonymous funnel evidence from lead data;
 - the rule that client-side or first-party event logs are not, by themselves, commercial truth.

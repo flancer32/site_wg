@@ -86,31 +86,27 @@ Current narrow validation offer:
 
 - `Agent Orchestration PoC` as a small paid GitHub-based proof of concept on a real repository.
 
-This offer is subordinate to `GitHub Flows` and must be positioned as:
+This offer is subordinate to `GitHub Flows` and must remain:
 
 - a bounded first commercial step;
-- a ready test bench for repository owners who want practical exposure to orchestration before building infrastructure;
-- a way to test willingness to pay before discussing broader workflow automation.
+- a quick trial on a real repository before custom infrastructure work;
+- a guided engineering check with visible GitHub-side results, logs, and a short report.
 
-It must not be presented as:
+It must not read as a separate platform, a replacement for `GitHub Flows`, or a general AI-consulting offer.
 
-- a separate large platform;
-- a replacement for the broader `GitHub Flows` concept;
-- a general AI consulting offer.
+Its canonical definition lives in:
 
-The compact product definition of this PoC is documented in `ctx/docs/product/agent-orchestration-poc.md`.
-The first publishable landing structure is documented in `ctx/docs/product/agent-orchestration-poc-landing.md`.
+- `ctx/docs/product/offers/agent-orchestration-poc/overview.md`
 
-The core product meaning of this PoC is:
+Across product documents, the durable public meaning is:
 
-`A hosted PoC for exploring event-driven AI-agent orchestration on a real GitHub repository.`
+`A ready starter stand for quickly trying AI agents on issues of a real GitHub repository.`
 
-The core principle that should remain visible in product documents is:
+The orchestration principle that should remain visible is:
 
 `event -> agent reaction -> new observable event`
 
-GitHub issue triage is the first practical scenario, not the entire product meaning.
-GitHub Issues are the first visible event interface for controlled AI-agent orchestration.
+GitHub issue triage is the first visible scenario, not the whole product meaning.
 
 ### 4. The Method Product
 
@@ -171,48 +167,20 @@ They exist so that visitors can see:
 - that the approaches have been exercised in practice;
 - that the commercial language is backed by implemented systems and observable experience.
 
-## Home Page Role
+## Public Surfaces
 
-The home page is the main entry into the site's product logic.
+The site may use multiple public surfaces such as the home page, contact page, offer landing pages, project pages, articles, notes, demos, and library materials.
 
-Its role is:
+At product level, those surfaces matter only as roles in the commercial system:
 
-- to quickly sell the current hot offer;
-- to show Alex through his products;
-- to provide a short personal context;
-- to move the visitor to the next action.
+- some surfaces sell the current offer directly;
+- some explain a concrete product or offer;
+- some strengthen trust through proof, method, or engineering depth;
+- some move the visitor to the next commercial step.
 
-It should remain a short introductory page rather than a compressed version of the whole site.
+Detailed page contracts and SSR page structure belong under:
 
-Constraints:
-
-- the home page should announce no more than three products;
-- the rest of the products and scenarios should be unfolded on dedicated product pages;
-- when the product line exceeds three active offers, the home page should surface only the current priorities.
-
-## Other Page Types
-
-Different page types may contribute to the sale in different ways.
-
-### Product Pages
-
-They should directly explain value, constraints, usage scenarios, and the next step.
-
-Validation landing pages are a special product-page subtype.
-They may sell a narrow entry offer and measure behavior around it, but they must remain clearly subordinate to the site-wide product hierarchy.
-
-### Project Pages
-
-They should show engineering credibility, architectural depth, and the relationship between a project and Alex's product line.
-
-### Articles And Notes
-
-They should either strengthen trust in engineering and method expertise or lead toward a product, the book, contact, or a pilot.
-
-### Demo Pages
-
-They should show observable mechanics rather than replace the product formulation.
-The demo does not sell itself; it helps sell Alex and his products.
+- `ctx/docs/code/web/ssr/pages/`
 
 ## Priority Rule
 
@@ -227,7 +195,7 @@ The site should always distinguish between:
 Supporting proofs must not displace the main products.
 Methodology must not displace the practical offer being sold.
 The current offer must not hide the underlying engineering base.
-The home page must not be overloaded with announcements for the whole product line at once.
+No single public surface should try to carry the whole product line at once.
 
 ## Communication Constraints
 

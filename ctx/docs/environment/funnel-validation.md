@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Describe environment-specific assumptions for the GitHub-based agent orchestration PoC validation funnel.
+Describe environment-specific assumptions for the GitHub-based AI-agent trial stand validation funnel.
 
 ## Current Operating Model
 
@@ -26,28 +26,8 @@ If lightweight runtime support is later added, it may include:
 - first-party event logging for early funnel events;
 - lead-notification email dispatch.
 
-For minimal first-party event logging, a future endpoint such as `/funnel/evt` is acceptable as a bounded pattern.
-Such an endpoint may accept background browser requests and return only `204 No Content` or another minimal success status.
-
-For this landing page, the canonical funnel page identifier should be:
-
-- `github-agent-orchestration-poc`
-
-The intended landing-page event set is primitive and low traffic:
-
-- `page_view`
-- `workflow_seen`
-- `scope_seen`
-- `safety_seen`
-- `cta_click`
-- `form_start`
-- `form_submit`
-
-Any such addition must remain:
-
-- small;
-- reviewable;
-- explicitly documented before it becomes durable behavior.
+The canonical endpoint shape, page identifier, and event set for this funnel are defined in `ctx/docs/code/funnel-events.md`.
+Any runtime support added here must stay small, reviewable, and explicitly documented before it becomes durable behavior.
 
 ## Candidate Environment Variables
 
@@ -70,7 +50,7 @@ If funnel logging is introduced:
 - a simple script may later turn those logs into weekly counts;
 - this remains a lightweight evidence trail, not a full analytics system, CRM, or customer database;
 - log rotation or retention must stay compatible with the existing host-level logging model;
-- log payloads must exclude repository contents, issue contents, credentials, tokens, secrets, private code, payment-sensitive data, and long-term visitor identifiers.
+- log payloads must respect the payload boundary defined in `ctx/docs/code/funnel-events.md` and exclude repository contents, issue contents, credentials, tokens, secrets, private code, payment-sensitive data, and long-term visitor identifiers.
 - privacy notice alignment should be reviewed before implementation.
 
 AWStats or server logs may remain the baseline traffic evidence.
@@ -92,7 +72,7 @@ If a future endpoint or logger is added:
 
 - local defaults should be safe and disposable;
 - missing optional environment variables should degrade gracefully;
-- no private lead data should be committed to the repository.
+- no private lead data should be committed to the repository;
 - any `pageViewId` or equivalent correlation token should remain memory-only during the current page execution and should not persist across visits.
 
 Primitive bot handling is acceptable later if it stays conservative:

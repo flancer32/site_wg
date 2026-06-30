@@ -12,8 +12,8 @@ Documents at this level describe concrete sellable entry offers, their scope, pr
 
 ## Level Map
 
+- `agent-orchestration-poc/` — canonical offer branch for the Agent Orchestration PoC.
 - `AGENTS.md` — level definition for `ctx/docs/product/offers/`.
-- `event-driven-agent-orchestration-poc.md` — offer definition for the hosted event-driven AI-agent orchestration PoC.
 
 ## Level Boundary
 

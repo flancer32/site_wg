@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Define stable event names and payload boundaries for the GitHub-based agent orchestration PoC validation funnel.
+Define stable event names and payload boundaries for the GitHub-based AI-agent trial stand validation funnel.
 
 This document defines the event boundary only.
 It does not imply that tracking is already implemented.
@@ -75,15 +75,9 @@ The `pageViewId` must:
 - not be reused across pages or visits;
 - be used only to connect events from one page load.
 
-Illustrative request shapes:
+Illustrative request shape:
 
-- `/funnel/evt?e=page_view&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
-- `/funnel/evt?e=workflow_seen&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
-- `/funnel/evt?e=scope_seen&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
-- `/funnel/evt?e=safety_seen&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
-- `/funnel/evt?e=cta_click&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
-- `/funnel/evt?e=form_start&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
-- `/funnel/evt?e=form_submit&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
+- `/funnel/evt?e=<event>&p=github-agent-orchestration-poc&l=<locale>&v=<pageViewId>`
 
 The exact URL shape is illustrative unless a stricter project convention is defined later.
 
@@ -111,7 +105,6 @@ General funnel events must not include:
 - GitHub repository URL;
 - repository contents;
 - issue contents;
-- repository content;
 - secrets;
 - tokens;
 - credentials;
@@ -173,8 +166,7 @@ Simple indicators may include:
 - `cta_click` or `form_start`: strong human-interest signal;
 - impossible timing, for example all events within a few milliseconds: bot-like.
 
-The goal is not to prove that a visitor is human.
-No CAPTCHA is required at this stage.
+The goal is not to prove that a visitor is human. No CAPTCHA is required at this stage.
 
 ## Commercial Truth Rule
 
