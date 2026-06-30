@@ -1,12 +1,25 @@
 # Page Translation Prompt
 
 - Path: `ctx/agent/prompt/codex/translate.md`
-- Template Version: `20260629`
-- Changed: `20260629`
+- Changed: `20260630`
 
 ## Purpose
 
-Reusable prompt asset for multilingual page translation in this repository.
+This is an execution prompt for an agent that performs multilingual page translation in this repository.
+
+The agent must translate all changed and new documents located under `tmpl/web/ru/**`.
+
+## Pages
+
+- Source page pattern: `tmpl/web/ru/**/*.html`
+- English target pattern: `tmpl/web/en/**/*.html`
+- Spanish target pattern: `tmpl/web/es/**/*.html`
+
+## Task
+
+Translate the requested Russian pages according to the default translation chain defined below.
+
+Preserve the page structure, translate only user-facing text, and keep links, markup, and technical identifiers consistent with the source unless the task explicitly requires changing them.
 
 ## Default Translation Chain
 
@@ -38,12 +51,12 @@ The second pass should:
 
 ### English
 
-Translate the relevant pages from Russian to English.
+Translate the relevant source pages from Russian to English.
 
 Adapt the result for an English-speaking reader while preserving meaning.
 
 ### Spanish
 
-Translate the relevant pages from English to Spanish.
+Translate the corresponding English pages from English to Spanish.
 
 Adapt the result for a Spanish-speaking reader while preserving meaning.

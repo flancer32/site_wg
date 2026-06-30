@@ -1,0 +1,511 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}AI-агенты для задач в GitHub: PoC-стенд за €50 — Алекс Гусев{% endblock %}
+
+{% block content %}
+<div class="card hero">
+    <p class="eyebrow">GitHub Flows / Пробный стенд</p>
+    <h1>Посмотрите, как AI-агенты могут помогать с задачами вашего GitHub-проекта</h1>
+    <p class="lead">
+        Пробный стенд за €50: вы подключаете репозиторий, создаёте до 5 тестовых задач, смотрите результат в GitHub и
+        получаете короткий отчёт с рекомендацией по следующему шагу. Первый сценарий проходит без изменения кода и
+        без создания PR.
+    </p>
+    <ul class="hero-points">
+        <li>1 репозиторий и до 5 тестовых задач;</li>
+        <li>запуск стенда в моём окружении по согласованному сценарию;</li>
+        <li>без изменения кода и без pull request в первом PoC;</li>
+        <li>видимый результат, технические записи запуска, короткий отчёт и рекомендация по продолжению.</li>
+    </ul>
+    <p class="hero-actions">
+        <a class="button-primary" href="#request">Запросить PoC за €50</a>
+    </p>
+</div>
+
+<section class="card">
+    <h2>Зачем начинать с небольшой пробы</h2>
+    <p class="section-intro">
+        Если вам интересны AI-агенты, сначала обычно хочется понять более практичные вещи: где они вообще могут
+        пригодиться в процессе разработки, какие сценарии вокруг задач в GitHub могут дать практическую пользу, сколько контроля и
+        прозрачности можно сохранить и стоит ли потом вкладываться в отдельную настройку.
+    </p>
+    <p>
+        Этот PoC нужен именно для такой первой пробы: на своём репозитории, в понятных границах и с видимым
+        результатом. Не нужно заранее проектировать отдельное окружение, чтобы понять, есть ли в этом практическая
+        ценность. После такой пробы проще принять решение, нужен ли вам следующий шаг и каким он должен быть.
+    </p>
+</section>
+
+<section class="card" id="workflow">
+    <h2>Как работает стенд</h2>
+    <p class="section-intro">
+        Первый сценарий построен вокруг обработки задач в GitHub и остаётся небольшим по масштабу, чтобы можно было
+        спокойно посмотреть, как выглядит такой запуск на практике.
+    </p>
+    <div class="workflow" aria-label="Workflow Agent Orchestration PoC">
+        <div class="workflow-step">GitHub App</div>
+        <div class="workflow-arrow">-&gt;</div>
+        <div class="workflow-step">задача в GitHub</div>
+        <div class="workflow-arrow">-&gt;</div>
+        <div class="workflow-step">запуск агента</div>
+        <div class="workflow-arrow">-&gt;</div>
+        <div class="workflow-step">результат в GitHub</div>
+        <div class="workflow-arrow">-&gt;</div>
+        <div class="workflow-step">логи</div>
+        <div class="workflow-arrow">-&gt;</div>
+        <div class="workflow-step">короткий отчёт</div>
+    </div>
+    <div class="info-grid">
+        <article class="info-tile">
+            <h3>Что видно в GitHub</h3>
+            <p>Комментарии, метки и другие согласованные результаты обработки задачи прямо внутри репозитория.</p>
+        </article>
+        <article class="info-tile">
+            <h3>Что видно в логах</h3>
+            <p>Технические записи запуска, по которым видно, что происходило во время обработки, что сработало и где потребовались уточнения.</p>
+        </article>
+        <article class="info-tile">
+            <h3>Что вы получаете после PoC</h3>
+            <p>Короткий понятный отчёт и инженерную оценку следующего шага: стоит ли продолжать и что имеет смысл делать дальше.</p>
+        </article>
+    </div>
+</section>
+
+<section class="card">
+    <h2>Кому это подойдёт</h2>
+    <ul class="compact-list">
+        <li>владельцам цифровых продуктов;</li>
+        <li>основателям небольших технологических проектов;</li>
+        <li>тем, кто отвечает за развитие продукта;</li>
+        <li>руководителям разработки;</li>
+        <li>командам, которые ведут задачи через GitHub Issues;</li>
+        <li>тем, кто хочет оценить AI-агентов перед внедрением.</li>
+    </ul>
+</section>
+
+<section class="card" id="scope">
+    <h2>Что входит</h2>
+    <ul class="scope-grid positive">
+        <li>цена €50 за первый PoC;</li>
+        <li>1 GitHub-репозиторий;</li>
+        <li>до 5 тестовых задач;</li>
+        <li>запуск стенда в моём окружении по согласованному сценарию;</li>
+        <li>ограниченный сценарий обработки по согласованным правилам;</li>
+        <li>видимый результат в GitHub;</li>
+        <li>технические записи запуска или подготовленные выдержки из них;</li>
+        <li>короткий читаемый отчёт по результату;</li>
+        <li>инженерная оценка следующего шага.</li>
+    </ul>
+</section>
+
+<section class="card">
+    <h2>Что не входит</h2>
+    <ul class="scope-grid negative">
+        <li>изменение кода в первом PoC;</li>
+        <li>создание pull request;</li>
+        <li>выкладка в боевую среду;</li>
+        <li>долгосрочный hosting;</li>
+        <li>SLA и поддержка после PoC;</li>
+        <li>подробное проектирование индивидуального workflow без отдельной договорённости.</li>
+    </ul>
+</section>
+
+<section class="card" id="safety">
+    <h2>Доступ и безопасность</h2>
+    <ul class="compact-list">
+        <li>доступ ограничивается только тем, что нужно для согласованного сценария;</li>
+        <li>для первого PoC предпочтителен публичный или тестовый репозиторий;</li>
+        <li>доступ к приватному репозиторию обсуждается отдельно;</li>
+        <li>в первом PoC код не меняется;</li>
+        <li>каждый запуск ограничен по объёму и длительности, чтобы проба оставалась контролируемой.</li>
+    </ul>
+</section>
+
+<section class="card">
+    <h2>Что можно кастомизировать потом</h2>
+    <p class="section-intro">
+        Если проба показывает пользу, стенд можно развивать под ваше окружение и ваши правила работы.
+    </p>
+    <ul class="compact-list">
+        <li>самостоятельное размещение на вашей стороне;</li>
+        <li>локальная модель вместо hosted-модели;</li>
+        <li>GitLab вместо GitHub;</li>
+        <li>свои prompts и labels;</li>
+        <li>более сложные правила обработки и workflow.</li>
+    </ul>
+</section>
+
+<section class="card request-card" id="request">
+    <h2>Оставить запрос</h2>
+    <p class="section-intro">
+        Для связи в форме используется только email. Не отправляйте секреты, токены и чувствительное содержимое
+        репозитория.
+    </p>
+    <form action="/api/send-email" method="post" class="request-form">
+        <label class="wide">
+            <span>Что вы хотите сейчас?</span>
+            <select name="request_type" required>
+                <option value="">Выберите вариант</option>
+                <option value="request_poc">Запросить PoC за €50</option>
+                <option value="discuss_next_step">Сначала обсудить следующий шаг</option>
+            </select>
+        </label>
+        <label>
+            <span>Имя</span>
+            <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label>
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label>
+            <span>Ссылка на репозиторий</span>
+            <input type="url" name="repository_url" placeholder="https://github.com/owner/repo" required>
+        </label>
+        <label>
+            <span>Тип репозитория</span>
+            <select name="repository_type" required>
+                <option value="">Выберите вариант</option>
+                <option value="public">Публичный</option>
+                <option value="private">Приватный</option>
+                <option value="test">Тестовый</option>
+            </select>
+        </label>
+        <label class="wide">
+            <span>Что вы хотите протестировать</span>
+            <textarea name="test_goal" rows="4" required></textarea>
+        </label>
+        <label>
+            <span>Какой следующий шаг вам ближе?</span>
+            <select name="next_step" required>
+                <option value="">Выберите вариант</option>
+                <option value="hosted_poc">Провести hosted PoC</option>
+                <option value="self_hosted_discussion">Обсудить self-hosted вариант</option>
+                <option value="custom_workflow_discussion">Обсудить индивидуальный workflow</option>
+                <option value="not_sure_yet">Пока не знаю</option>
+            </select>
+        </label>
+        <div class="wide form-actions">
+            <button type="submit" class="button-primary">Отправить запрос</button>
+            <div class="spinner" id="form-spinner" hidden></div>
+        </div>
+    </form>
+    <dialog class="popup" id="form-popup">
+        <div class="popup-body">
+            <p class="popup-icon">✓</p>
+            <p class="popup-title">Запрос отправлен</p>
+            <p class="popup-text">Спасибо! Я свяжусь с вами в ближайшее время.</p>
+            <button class="button-primary popup-close" id="popup-close" type="button">Закрыть</button>
+        </div>
+    </dialog>
+</section>
+
+<section class="card faq">
+    <h2>FAQ</h2>
+    <div class="faq-item">
+        <h3>Можно ли начать с приватного репозитория?</h3>
+        <p>Да, но для первого PoC предпочтительнее публичный или тестовый репозиторий. Вариант с приватным доступом обсуждается отдельно.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Меняет ли агент код в первом PoC?</h3>
+        <p>Нет. Первый сценарий ограничен обработкой задач в GitHub, видимым результатом, техническими записями запуска и коротким отчётом.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Что я получу после PoC?</h3>
+        <p>Видимый результат в GitHub, технические записи запуска или подготовленные выдержки из них, короткий отчёт и инженерную рекомендацию по следующему шагу.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Сколько тестовых задач входит?</h3>
+        <p>До 5 тестовых задач в рамках одного репозитория и первого ограниченного сценария.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Что может быть после PoC?</h3>
+        <p>После первой пробы можно продолжить на моём стенде, обсудить самостоятельное размещение, локальную модель, GitLab или более индивидуальный сценарий.</p>
+    </div>
+</section>
+
+<style>
+    .hero {
+        text-align: center;
+        padding-top: 1.5rem;
+        padding-bottom: 1.75rem;
+    }
+
+    .eyebrow {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #005a40;
+    }
+
+    .lead,
+    .section-intro {
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .lead {
+        font-size: 1.08rem;
+    }
+
+    .hero-points,
+    .compact-list,
+    .scope-grid {
+        list-style: disc;
+        padding-left: 1.25rem;
+        margin-top: 1.25rem;
+        margin-bottom: 0;
+    }
+
+    .hero-points {
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+    }
+
+    .hero-points li,
+    .compact-list li,
+    .scope-grid li {
+        display: list-item;
+        margin-bottom: 0.55rem;
+    }
+
+    .hero-actions,
+    .form-actions {
+        margin-top: 1.25rem;
+    }
+
+    .button-primary {
+        display: inline-block;
+        padding: 0.7rem 1.15rem;
+        border: 1px solid #007b5e;
+        border-radius: 6px;
+        background: #007b5e;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .button-primary:hover {
+        color: #fff;
+        background: #005a40;
+    }
+
+    .button-primary:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    .workflow {
+        display: grid;
+        gap: 0.75rem;
+        align-items: center;
+        margin-top: 1.25rem;
+    }
+
+    .workflow-step,
+    .workflow-arrow {
+        text-align: center;
+    }
+
+    .workflow-step {
+        padding: 0.9rem 1rem;
+        border-radius: 10px;
+        background: #f4faf7;
+        border: 1px solid #d8e6df;
+        font-weight: 600;
+    }
+
+    .workflow-arrow {
+        color: #47685d;
+        font-weight: 700;
+    }
+
+    .info-grid {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .info-tile {
+        padding: 1rem;
+        border: 1px solid #d8e6df;
+        border-radius: 10px;
+        background: #fbfdfc;
+    }
+
+    .info-tile h3 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.05rem;
+    }
+
+    .request-form {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.25rem;
+    }
+
+    .request-form label {
+        display: grid;
+        gap: 0.35rem;
+    }
+
+    .request-form span {
+        font-weight: 600;
+    }
+
+    .request-form input,
+    .request-form select,
+    .request-form textarea {
+        width: 100%;
+        padding: 0.75rem 0.85rem;
+        border: 1px solid #c8d8d0;
+        border-radius: 8px;
+        font: inherit;
+        background: #fff;
+        box-sizing: border-box;
+    }
+
+    .request-card {
+        scroll-margin-top: 1rem;
+    }
+
+    .form-note {
+        margin: 0.75rem 0 0;
+        font-size: 0.95rem;
+        color: #47685d;
+    }
+
+    .faq-item + .faq-item {
+        margin-top: 1.25rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid #e3ece8;
+    }
+
+    .faq-item h3 {
+        margin-bottom: 0.45rem;
+        font-size: 1.05rem;
+    }
+
+    .form-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding-bottom: 0.5rem;
+    }
+    .spinner {
+        width: 1.25rem;
+        height: 1.25rem;
+        border: 2px solid #d8e6df;
+        border-top-color: #007b5e;
+        border-radius: 50%;
+        animation: spin 0.6s linear infinite;
+    }
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    .popup {
+        border: none;
+        border-radius: 12px;
+        padding: 2rem;
+        max-width: 400px;
+        width: 90%;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        text-align: center;
+    }
+    .popup::backdrop {
+        background: rgba(0,0,0,0.35);
+    }
+    .popup-body {
+        display: grid;
+        gap: 0.75rem;
+        justify-items: center;
+    }
+    .popup-icon {
+        font-size: 2.5rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #e8f5ee;
+        color: #007b5e;
+        border-radius: 50%;
+        margin: 0;
+    }
+    .popup-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin: 0;
+    }
+    .popup-text {
+        margin: 0;
+        color: #47685d;
+    }
+
+    @media (min-width: 769px) {
+        .workflow {
+            grid-template-columns: 1fr auto 1fr auto 1.2fr auto 1fr auto 1fr auto 1fr;
+        }
+
+        .info-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .scope-grid {
+            columns: 2;
+            column-gap: 2rem;
+        }
+
+        .request-form {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .request-form .wide {
+            grid-column: 1 / -1;
+        }
+    }
+</style>
+<script>
+    document.getElementById('request')?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const btn = form.querySelector('button[type="submit"]');
+        const spinner = document.getElementById('form-spinner');
+        const popup = document.getElementById('form-popup');
+        btn.disabled = true;
+        spinner.hidden = false;
+        try {
+            const res = await fetch(form.action, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: new URLSearchParams(new FormData(form)),
+            });
+            const data = await res.json();
+            if (data.ok) {
+                form.reset();
+                popup.showModal();
+            } else {
+                alert('Ошибка: ' + (data.error || 'неизвестная ошибка'));
+            }
+        } catch (err) {
+            alert('Ошибка соединения: ' + err.message);
+        } finally {
+            btn.disabled = false;
+            spinner.hidden = true;
+        }
+    });
+    document.getElementById('popup-close')?.addEventListener('click', () => {
+        document.getElementById('form-popup')?.close();
+    });
+    document.getElementById('form-popup')?.addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) e.currentTarget.close();
+    });
+</script>
+{% endblock %}

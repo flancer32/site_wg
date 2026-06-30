@@ -39,10 +39,11 @@ Ends when render data is returned for page rendering or when redirect handling t
 ### Conversion-validation flow
 
 Starts when a visitor arrives on a validation landing page or follows a CTA toward a bounded commercial next step.
-In the current minimal model, the page communicates the offer, may direct the visitor toward a manual request path, and may later emit bounded first-party funnel events if such logging is explicitly added.
-Ends when the visitor leaves, starts a request, submits a request, or enters a manually handled commercial follow-up path outside the static page itself.
+In the current model, the page communicates the offer and may direct the visitor to a programmatic form submission handled by the backend.
+The form POSTs to `/api/send-email`; the email handler (`App_Back_Web_Handler_SendEmail`) composes the form data into an HTML email and delivers it via SMTP to the site owner.
+Ends when the email is queued for delivery, the visitor receives a success confirmation, or an error is returned to the browser.
 
-The dominant product meaning behind the current validation flow is a hosted PoC for event-driven AI-agent orchestration.
+The dominant product meaning behind the current validation flow is a hosted PoC for event-driven AI-agent orchestration, with the Agent Orchestration PoC landing page as the first live form submission surface.
 The site does not execute that orchestration loop itself, but it must describe the loop consistently:
 
 `GitHub issue event -> webhook -> github-flows-app -> workflow decision -> containerized agent runtime -> LLM/tools/prompt -> GitHub label/comment result -> new observable GitHub event -> run report`

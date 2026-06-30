@@ -1,0 +1,478 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Agentes de IA para tareas en GitHub: prueba guiada por €50 — Alex Gusev{% endblock %}
+
+{% block content %}
+<div class="card hero">
+    <p class="eyebrow">GitHub Flows / Prueba guiada</p>
+    <h1>Mira cómo los agentes de IA pueden ayudar con las tareas de tu proyecto en GitHub</h1>
+    <p class="lead">
+        Una prueba guiada por €50: conectas un repositorio, creas hasta 5 tareas de prueba, revisas el resultado en
+        GitHub y recibes un informe breve con una recomendación para el siguiente paso. El primer escenario se ejecuta
+        sin cambiar el código y sin abrir un PR.
+    </p>
+    <ul class="hero-points">
+        <li>1 repositorio y hasta 5 tareas de prueba;</li>
+        <li>lo ejecuto en mi infraestructura según el escenario acordado;</li>
+        <li>sin cambios de código ni pull request en el primer PoC;</li>
+        <li>resultados visibles, registros técnicos de ejecución, un informe breve y una recomendación sobre el siguiente paso.</li>
+    </ul>
+    <p class="hero-actions">
+        <a class="button-primary" href="#request">Solicitar un PoC por €50</a>
+    </p>
+</div>
+
+<section class="card">
+    <h2>Por qué empezar con una prueba pequeña</h2>
+    <p class="section-intro">
+        Si te interesan los agentes de IA, las primeras preguntas suelen ser muy prácticas: dónde pueden ayudar de
+        verdad dentro de tu proceso de desarrollo, qué escenarios alrededor de las tareas en GitHub pueden aportar un
+        beneficio útil, cuánto control y transparencia puedes conservar y si después merece la pena invertir en una
+        configuración específica.
+    </p>
+    <p>
+        Este PoC está pensado precisamente para esa primera prueba: en tu propio repositorio, con límites claros y un
+        resultado visible. No hace falta diseñar un entorno aparte de antemano para entender si el enfoque tiene valor
+        práctico. Después de una prueba así, es mucho más fácil decidir si quieres dar el siguiente paso y cuál debe ser.
+    </p>
+</section>
+
+<section class="card" id="workflow">
+    <h2>Cómo funciona la prueba</h2>
+    <p class="section-intro">
+        El primer escenario gira en torno a la gestión de tareas en GitHub y se mantiene deliberadamente acotado, para
+        que puedas ver con calma cómo es una ejecución de este tipo en la práctica.
+    </p>
+    <div class="workflow" aria-label="Workflow Agent Orchestration PoC">
+        <div class="workflow-step">GitHub App</div>
+        <div class="workflow-arrow">-&gt;</div>
+        <div class="workflow-step">issue de GitHub</div>
+        <div class="workflow-arrow">-&gt;</div>
+        <div class="workflow-step">ejecución del agente</div>
+        <div class="workflow-arrow">-&gt;</div>
+        <div class="workflow-step">resultado en GitHub</div>
+        <div class="workflow-arrow">-&gt;</div>
+        <div class="workflow-step">logs técnicos</div>
+        <div class="workflow-arrow">-&gt;</div>
+        <div class="workflow-step">informe breve</div>
+    </div>
+    <div class="info-grid">
+        <article class="info-tile">
+            <h3>Qué se ve en GitHub</h3>
+            <p>Comentarios, etiquetas y otros resultados acordados del procesamiento de tareas directamente dentro del repositorio.</p>
+        </article>
+        <article class="info-tile">
+            <h3>Qué se ve en los logs</h3>
+            <p>Registros técnicos de ejecución que muestran qué ocurrió durante el proceso, qué funcionó y dónde hicieron falta aclaraciones.</p>
+        </article>
+        <article class="info-tile">
+            <h3>Qué recibes después del PoC</h3>
+            <p>Un informe breve y claro, junto con una recomendación técnica sobre el siguiente paso: si merece la pena continuar y qué tendría más sentido hacer.</p>
+        </article>
+    </div>
+</section>
+
+<section class="card">
+    <h2>Para quién encaja</h2>
+    <ul class="compact-list">
+        <li>propietarios de productos digitales;</li>
+        <li>fundadores de proyectos tecnológicos pequeños;</li>
+        <li>personas responsables del desarrollo del producto;</li>
+        <li>responsables de desarrollo;</li>
+        <li>equipos que gestionan el trabajo mediante GitHub Issues;</li>
+        <li>quienes quieren evaluar agentes de IA antes de implantarlos.</li>
+    </ul>
+</section>
+
+<section class="card" id="scope">
+    <h2>Qué incluye</h2>
+    <ul class="scope-grid positive">
+        <li>precio de €50 para el primer PoC;</li>
+        <li>1 repositorio de GitHub;</li>
+        <li>hasta 5 tareas de prueba;</li>
+        <li>lo ejecuto en mi infraestructura según el escenario acordado;</li>
+        <li>un escenario limitado de procesamiento basado en reglas acordadas;</li>
+        <li>resultados visibles en GitHub;</li>
+        <li>registros técnicos de ejecución o extractos preparados de esos registros;</li>
+        <li>un informe breve y legible;</li>
+        <li>una recomendación técnica para el siguiente paso.</li>
+    </ul>
+</section>
+
+<section class="card">
+    <h2>Qué no incluye</h2>
+    <ul class="scope-grid negative">
+        <li>cambios de código en el primer PoC;</li>
+        <li>creación de un pull request;</li>
+        <li>despliegue en producción;</li>
+        <li>hosting a largo plazo;</li>
+        <li>SLA o soporte después del PoC;</li>
+        <li>diseño detallado de un workflow personalizado sin un acuerdo aparte.</li>
+    </ul>
+</section>
+
+<section class="card" id="safety">
+    <h2>Acceso y seguridad</h2>
+    <ul class="compact-list">
+        <li>el acceso se limita a lo necesario para el escenario acordado;</li>
+        <li>para el primer PoC se prefiere un repositorio público o de prueba;</li>
+        <li>el acceso a un repositorio privado se trata por separado;</li>
+        <li>en el primer PoC no se modifica el código;</li>
+        <li>cada ejecución está limitada en alcance y duración para que la prueba siga siendo controlable.</li>
+    </ul>
+</section>
+
+<section class="card">
+    <h2>Qué puede personalizarse después</h2>
+    <p class="section-intro">
+        Si la prueba demuestra utilidad, puede adaptarse a tu infraestructura y a tus reglas de trabajo.
+    </p>
+    <ul class="compact-list">
+        <li>alojamiento propio;</li>
+        <li>un modelo local en lugar de uno alojado;</li>
+        <li>GitLab en vez de GitHub;</li>
+        <li>tus propios prompts y etiquetas;</li>
+        <li>reglas de procesamiento y flujos de trabajo más complejos.</li>
+    </ul>
+</section>
+
+<section class="card request-card" id="request">
+    <h2>Enviar una solicitud</h2>
+    <p class="section-intro">
+        El formulario usa solo email. No envíes secretos, tokens ni contenido sensible del repositorio.
+    </p>
+    <form action="/api/send-email" method="post" class="request-form">
+        <label class="wide">
+            <span>¿Qué te gustaría hacer ahora?</span>
+            <select name="request_type" required>
+                <option value="">Elige una opción</option>
+                <option value="request_poc">Solicitar un PoC por €50</option>
+                <option value="discuss_next_step">Hablar primero del siguiente paso</option>
+            </select>
+        </label>
+        <label>
+            <span>Nombre</span>
+            <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label>
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label>
+            <span>Enlace al repositorio</span>
+            <input type="url" name="repository_url" placeholder="https://github.com/owner/repo" required>
+        </label>
+        <label>
+            <span>Tipo de repositorio</span>
+            <select name="repository_type" required>
+                <option value="">Elige una opción</option>
+                <option value="public">Público</option>
+                <option value="private">Privado</option>
+                <option value="test">De prueba</option>
+            </select>
+        </label>
+        <label class="wide">
+            <span>Qué quieres poner a prueba</span>
+            <textarea name="test_goal" rows="4" required></textarea>
+        </label>
+        <label>
+            <span>¿Qué siguiente paso te encaja más?</span>
+            <select name="next_step" required>
+                <option value="">Elige una opción</option>
+                <option value="hosted_poc">Hacer un PoC alojado</option>
+                <option value="self_hosted_discussion">Hablar de una opción de alojamiento propio</option>
+                <option value="custom_workflow_discussion">Hablar de un flujo de trabajo a medida</option>
+                <option value="not_sure_yet">Todavía no lo sé</option>
+            </select>
+        </label>
+        <div class="wide form-actions">
+            <button type="submit" class="button-primary">Enviar solicitud</button>
+            <div class="spinner" id="form-spinner" hidden></div>
+        </div>
+    </form>
+    <dialog class="popup" id="form-popup">
+        <div class="popup-body">
+            <p class="popup-icon">✓</p>
+            <p class="popup-title">Solicitud enviada</p>
+            <p class="popup-text">Gracias. Me pondré en contacto contigo pronto.</p>
+            <button class="button-primary popup-close" id="popup-close" type="button">Cerrar</button>
+        </div>
+    </dialog>
+</section>
+
+<section class="card faq">
+    <h2>FAQ</h2>
+    <div class="faq-item">
+        <h3>¿Puedo empezar con un repositorio privado?</h3>
+        <p>Sí, pero para el primer PoC se prefiere un repositorio público o de prueba. El acceso privado se acuerda aparte.</p>
+    </div>
+    <div class="faq-item">
+        <h3>¿El agente modifica código en el primer PoC?</h3>
+        <p>No. El primer escenario se limita a procesar tareas en GitHub, generar resultados visibles, producir registros técnicos de ejecución y entregar un informe breve.</p>
+    </div>
+    <div class="faq-item">
+        <h3>¿Qué recibiré después del PoC?</h3>
+        <p>Resultados visibles en GitHub, registros técnicos de ejecución o extractos preparados, un informe breve y una recomendación técnica para el siguiente paso.</p>
+    </div>
+    <div class="faq-item">
+        <h3>¿Cuántas tareas de prueba se incluyen?</h3>
+        <p>Hasta 5 tareas de prueba dentro de un solo repositorio y del primer escenario limitado.</p>
+    </div>
+    <div class="faq-item">
+        <h3>¿Qué puede venir después del PoC?</h3>
+        <p>Después de la primera prueba, puedes continuar en mi entorno, hablar de alojamiento propio, usar un modelo local, usar GitLab o definir un escenario más personalizado.</p>
+    </div>
+</section>
+
+<style>
+    .hero {
+        text-align: center;
+        padding-top: 1.5rem;
+        padding-bottom: 1.75rem;
+    }
+
+    .eyebrow {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #005a40;
+    }
+
+    .lead,
+    .section-intro {
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .lead {
+        font-size: 1.08rem;
+    }
+
+    .hero-points,
+    .compact-list,
+    .scope-grid {
+        list-style: disc;
+        padding-left: 1.25rem;
+        margin-top: 1.25rem;
+        margin-bottom: 0;
+    }
+
+    .hero-points {
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+    }
+
+    .hero-actions,
+    .form-actions {
+        margin-top: 1.5rem;
+    }
+
+    .form-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .button-primary,
+    .request-form button {
+        display: inline-block;
+        padding: 0.7rem 1.2rem;
+        border: 1px solid #007b5e;
+        border-radius: 6px;
+        background: #007b5e;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .button-primary:hover,
+    .request-form button:hover {
+        background: #005a40;
+        color: #fff;
+    }
+
+    .button-primary:disabled,
+    .request-form button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    .workflow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+        margin: 1.5rem 0;
+    }
+
+    .workflow-step,
+    .workflow-arrow {
+        font-weight: 600;
+    }
+
+    .workflow-step {
+        padding: 0.55rem 0.8rem;
+        border-radius: 999px;
+        background: #eef6f2;
+        border: 1px solid #d2e6dd;
+    }
+
+    .info-grid {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .info-tile {
+        border: 1px solid #d8e6df;
+        border-radius: 10px;
+        background: #fbfdfc;
+        padding: 1rem;
+    }
+
+    .scope-grid.positive li::marker {
+        color: #007b5e;
+    }
+
+    .scope-grid.negative li::marker {
+        color: #9d3b2f;
+    }
+
+    .request-form {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.25rem;
+    }
+
+    .request-form label {
+        display: grid;
+        gap: 0.4rem;
+    }
+
+    .request-form .wide {
+        grid-column: 1 / -1;
+    }
+
+    .request-form input,
+    .request-form select,
+    .request-form textarea {
+        width: 100%;
+        padding: 0.75rem 0.85rem;
+        border: 1px solid #cfdcd6;
+        border-radius: 8px;
+        font: inherit;
+        box-sizing: border-box;
+        background: #fff;
+    }
+
+    .request-card,
+    .faq {
+        scroll-margin-top: 1rem;
+    }
+
+    .faq-item + .faq-item {
+        margin-top: 1.25rem;
+    }
+
+    .popup {
+        border: 0;
+        border-radius: 14px;
+        padding: 0;
+        max-width: 380px;
+        width: calc(100% - 2rem);
+    }
+
+    .popup::backdrop {
+        background: rgba(17, 24, 39, 0.35);
+    }
+
+    .popup-body {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .popup-icon {
+        font-size: 2rem;
+        margin: 0 0 0.5rem;
+        color: #007b5e;
+    }
+
+    .popup-title {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .popup-text {
+        margin-bottom: 1rem;
+    }
+
+    .spinner {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 2px solid #c9ddd5;
+        border-top-color: #007b5e;
+        animation: spin 0.8s linear infinite;
+        margin: 0 auto;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @media (min-width: 769px) {
+        .info-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .request-form {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+</style>
+<script>
+    document.getElementById('request')?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const btn = form.querySelector('button[type="submit"]');
+        const spinner = document.getElementById('form-spinner');
+        const popup = document.getElementById('form-popup');
+        btn.disabled = true;
+        spinner.hidden = false;
+        try {
+            const res = await fetch(form.action, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: new URLSearchParams(new FormData(form)),
+            });
+            const data = await res.json();
+            if (data.ok) {
+                form.reset();
+                popup.showModal();
+            } else {
+                alert('Error: ' + (data.error || 'error desconocido'));
+            }
+        } catch (err) {
+            alert('Error de conexión: ' + err.message);
+        } finally {
+            btn.disabled = false;
+            spinner.hidden = true;
+        }
+    });
+    document.getElementById('popup-close')?.addEventListener('click', () => {
+        document.getElementById('form-popup')?.close();
+    });
+    document.getElementById('form-popup')?.addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) e.currentTarget.close();
+    });
+</script>
+{% endblock %}

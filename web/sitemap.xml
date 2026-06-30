@@ -2,13 +2,32 @@
 <urlset xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://wiredgeese.com/en/</loc>
-        <lastmod>2026-06-12</lastmod>
+        <lastmod>2026-06-30</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/"/>
     </url>
+    <url>
+        <loc>https://wiredgeese.com/es/</loc>
+        <lastmod>2026-06-30</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/ru/</loc>
+        <lastmod>2026-06-30</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/"/>
+    </url>
+
     <url>
         <loc>https://wiredgeese.com/en/about/</loc>
         <lastmod>2025-07-03</lastmod>
@@ -1112,5 +1131,33 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/projects/custom-gpt/solo-teqfw-guide-enum/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/projects/custom-gpt/solo-teqfw-guide-enum/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/projects/custom-gpt/solo-teqfw-guide-enum/"/>
+    </url>
+
+    <url>
+        <loc>https://wiredgeese.com/en/land/agent-orchestration-poc/</loc>
+        <lastmod>2026-06-30</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/land/agent-orchestration-poc/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/land/agent-orchestration-poc/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/land/agent-orchestration-poc/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/es/land/agent-orchestration-poc/</loc>
+        <lastmod>2026-06-30</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/land/agent-orchestration-poc/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/land/agent-orchestration-poc/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/land/agent-orchestration-poc/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/ru/land/agent-orchestration-poc/</loc>
+        <lastmod>2026-06-30</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/land/agent-orchestration-poc/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/land/agent-orchestration-poc/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/land/agent-orchestration-poc/"/>
     </url>
 </urlset>

@@ -16,6 +16,7 @@ The architecturally significant external integrations are:
 - Node.js as the runtime for local execution and publication commands;
 - public external sites linked as product destinations;
 - optional manual commercial surfaces such as email contact and Fiverr for payment or escrow paths;
+- SMTP email delivery for programmatic form submission from commercial landing pages;
 - host-level deployment surfaces implied by `bin/` and `etc/`, including service and redirect configuration artifacts.
 
 ## Internal Contracts
@@ -28,6 +29,8 @@ The major internal contract surfaces are:
 - the contract between the landing page and funnel-event naming, where the stable page identifier for this offer is `github-agent-orchestration-poc`;
 - the contract between browser-side page interactions and any future first-party event endpoint such as `/funnel/evt`, where requests may be fire-and-forget and return only a minimal success status;
 - the contract between first-party event requests and ordinary web-server access logs, where raw log lines may later be parsed into weekly aggregate counts;
+- the contract between the landing-page form and the email delivery endpoint (`POST /api/send-email`), where the browser sends form data as `application/x-www-form-urlencoded` and expects a JSON response with `{ok: boolean}`;
+- the contract between the email handler and the SMTP server, where `nodemailer` delivers a composed HTML email using `EMAIL_*` environment variables for transport authentication and recipient routing;
 - the contract between template sources and the publication block, where TeqCMS materializes browser-facing output into `web/`.
 
 The product-level integration chain described by the landing page is also architecturally significant as a documented boundary model:
@@ -46,6 +49,7 @@ That does not imply the site repository already implements alternative event pla
 ## Boundary Rules
 
 - New runtime integrations must be documented here before they become durable implementation assumptions.
+- SMTP credentials and recipient addresses are configured via environment variables (`EMAIL_*` prefix) and must not be tracked in the repository.
 - Internal contract descriptions must stay at boundary level rather than module-by-module API detail.
 - Manual commercial integrations are acceptable as bounded links or operator workflows; automated payment or CRM integrations require explicit review.
 - Product destinations may evolve, but new categories of external dependency require architectural review.

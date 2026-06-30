@@ -10,4 +10,5 @@ const ROOT = dirname(fileURLToPath(import.meta.url));
 export default async function configure({ resolver, replace }) {
     resolver.addNamespaceRoot('App_', resolve(ROOT, 'src'));
     replace.add('Fl32_Cms_Back_Api_Adapter', 'App_Back_Di_Replace_Adapter');
+    replace.add('Fl32_Cms_Back_Cli_Command_Web', 'App_Back_Di_Replace_WebCommand');
 }

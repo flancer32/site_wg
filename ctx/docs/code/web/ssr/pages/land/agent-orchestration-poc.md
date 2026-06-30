@@ -18,14 +18,6 @@ The current authored page file is:
 
 - `tmpl/web/ru/land/agent-orchestration-poc/index.html`
 
-## Current Language Scope
-
-The current implementation scope is:
-
-- Russian only.
-
-No English or Spanish implementation is currently required for this landing page.
-
 ## Semantic Source Of Truth
 
 The semantic source of truth for this page is:
@@ -47,8 +39,6 @@ The page belongs to the SSR landing-page family under the locale-prefixed `land/
 The current route shape is:
 
 - `/{locale}/land/agent-orchestration-poc/`
-
-The current implementation exists only for `ru`.
 
 ## AFKP Page Flow
 
@@ -124,8 +114,6 @@ This page document does not require tracking implementation.
 
 The page must preserve these implementation boundaries:
 
-- Russian public content only for the current version;
-- no English or Spanish implementation in this page branch yet;
 - no product redefinition inside the SSR page document;
 - no drift from the canonical offer scope;
 - no page expansion into a large essay;

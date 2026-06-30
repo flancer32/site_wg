@@ -36,5 +36,8 @@ The current SSR web branch is anchored in these repository areas:
 
 - `tmpl/web/` — authored locale-specific templates, shared partials, and page families;
 - `src/Back/Web/Cms/Handler/` — custom SSR request enrichment and redirect handling;
+- `src/Back/Web/Handler/SendEmail.js` — web request handler for programmatic form-to-email delivery via SMTP;
 - `src/Back/Di/Replace/Adapter.js` — project-specific render-data adaptation around the CMS renderer;
+- `src/Back/Di/Replace/WebCommand.js` — DI replacement that registers project-specific web handlers alongside the standard CMS pipeline;
+- `teqcms.config.mjs` — DI container configuration binding project namespace roots and replacements;
 - `etc/redirect-map.json` — declarative redirect source used by SSR request normalization.

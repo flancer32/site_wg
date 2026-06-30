@@ -5,15 +5,15 @@
 {% block content %}
 <div class="card hero">
     <p class="eyebrow">Горячее предложение / GitHub Flows</p>
-    <h1>Автоматические цепочки эволюции ПО на базе GitHub и ИИ-агентов</h1>
+    <h1>Управляемые GitHub-процессы с ИИ-агентами</h1>
     <p class="lead">
-        Я настраиваю GitHub Flows как <a href="/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html">исполняемый процесс</a>
-        поверх GitHub, где GitHub-события запускают ИИ-агентов и другие шаги, а изменения продукта проходят
-        по заданной цепочке внутри репозитория.
+        Я настраиваю GitHub Flows как <a href="/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html">управляемый процесс</a>
+        поверх GitHub: события в репозитории запускают ИИ-агентов, проверки и публикацию результата. Это можно
+        увидеть в публичном демо GitHub Flows или попробовать на своём репозитории через пробный стенд за €50.
     </p>
     <nav class="hero-links">
-        <a class="button-primary" href="/{{ locale }}/contact.html">Обсудить пилот</a>
-        <a class="button-secondary" href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Посмотреть демо</a>
+        <a class="button-primary" href="/{{ locale }}/land/agent-orchestration-poc/">Пробный стенд за €50</a>
+        <a class="button-secondary" href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Публичное демо GitHub Flows</a>
     </nav>
 </div>
 
@@ -43,11 +43,15 @@
         <article class="product-card">
             <h3>GitHub Flows</h3>
             <p>
-                Текущее горячее предложение: подход к построению процессов вокруг GitHub-событий и агентной обработке
-                issue, PR, меток и комментариев в инфраструктуре клиента. Хост-приложение здесь играет служебную роль; в центре —
-                сам процесс.
+                Текущее горячее предложение: управляемые цепочки вокруг GitHub-событий, где задачи, проверки и
+                агентные реакции складываются в наблюдаемый процесс. Для первого шага есть два отдельных пути:
+                публичное демо для просмотра механизма и небольшой PoC на вашем репозитории.
             </p>
-            <p><a href="/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html">Как устроен GitHub Flows</a></p>
+            <p class="product-links">
+                <a href="/{{ locale }}/land/agent-orchestration-poc/">Пробный стенд за €50</a>
+                <a href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Публичное демо GitHub Flows</a>
+                <a href="/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html">Как устроен GitHub Flows</a>
+            </p>
         </article>
         <article class="product-card">
             <h3>AI-generated SSG-сайты на базе TeqFW</h3>
@@ -73,13 +77,15 @@
 </section>
 
 <section class="card hero cta-card">
-    <h2>Сделайте первый шаг к автоматизации эволюции вашего ПО</h2>
+    <h2>Начать можно с публичного демо или небольшого PoC</h2>
     <p>
-        Небольшой пилот помогает собрать первый рабочий процесс в вашем GitHub-процессе, увидеть результат в
-        репозитории и спокойно решить, какие шаги стоит автоматизировать дальше.
+        Можно начать с публичного демо, чтобы увидеть механизм в работе, или перейти к небольшому PoC на своём
+        репозитории: до 5 тестовых задач, видимый результат, логи запуска и инженерная рекомендация по следующему
+        шагу.
     </p>
     <p class="action-links centered">
-        <a class="button-primary" href="/{{ locale }}/contact.html">Связаться и обсудить пилот</a>
+        <a class="button-primary" href="/{{ locale }}/land/agent-orchestration-poc/">Пробный стенд за €50</a>
+        <a class="button-secondary" href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Публичное демо GitHub Flows</a>
     </p>
 </section>
 
@@ -179,6 +185,12 @@
     .product-card h3 {
         margin-top: 0;
         font-size: 1.2rem;
+    }
+
+    .product-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
     }
 
     .cta-card {

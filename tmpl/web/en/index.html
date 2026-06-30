@@ -4,16 +4,16 @@
 
 {% block content %}
 <div class="card hero">
-    <p class="eyebrow">Current Offer / GitHub Flows</p>
-    <h1>Automated software evolution workflows on GitHub with AI agents</h1>
+    <p class="eyebrow">Featured Offer / GitHub Flows</p>
+    <h1>Controlled GitHub workflows with AI agents</h1>
     <p class="lead">
-        I set up GitHub Flows as an <a href="/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html">executable workflow</a>
-        on top of GitHub: GitHub events trigger AI agents and other process steps, and product changes move through a
-        defined chain inside the repository.
+        I set up GitHub Flows as a <a href="/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html">controlled workflow</a>
+        on top of GitHub: repository events trigger AI agents, checks, and publication steps. You can see it in the
+        public GitHub Flows demo or try it on your own repository through a €50 trial setup.
     </p>
     <nav class="hero-links">
-        <a class="button-primary" href="/{{ locale }}/contact.html">Discuss a pilot</a>
-        <a class="button-secondary" href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">View demo</a>
+        <a class="button-primary" href="/{{ locale }}/land/agent-orchestration-poc/">€50 trial setup</a>
+        <a class="button-secondary" href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Public GitHub Flows demo</a>
     </nav>
 </div>
 
@@ -23,8 +23,8 @@
         <img src="/img/avatar.jpg" alt="Alex Gusev" class="about-photo"/>
         <p>
             I am Alex Gusev, an independent web developer from Latvia. My focus is JavaScript architecture,
-            self-hosted infrastructure, and agent-driven workflows. I use them in my own products: Tequila
-            Framework, GitHub Flows, AI-generated websites built on TeqFW, and this website.
+            self-managed infrastructure, and agent-driven processes. I use these tools in my own products:
+            Tequila Framework, GitHub Flows, AI-generated websites built on TeqFW, and this website.
         </p>
     </div>
 </section>
@@ -36,24 +36,28 @@
             <h3>Tequila Framework</h3>
             <p>
                 My core engineering product: a JavaScript platform and architectural foundation for systems that need
-                to stay clear and structured as they grow.
+                to keep a clear structure as they grow.
             </p>
             <p><a href="https://teqfw.com/ecosystem/philosophy" target="_blank" rel="noopener noreferrer">Tequila Framework philosophy</a></p>
         </article>
         <article class="product-card">
             <h3>GitHub Flows</h3>
             <p>
-                My current offer: a workflow layer built around GitHub events and agent-based handling of issues, PRs,
-                labels, and comments inside the client's infrastructure. The host application is secondary; the real
-                product is the process itself.
+                My current featured offer: controlled workflows around GitHub events, where tasks, checks, and agent
+                reactions come together as an observable process. There are two entry points for a first look:
+                a public demo to see the mechanism and a small PoC on your own repository.
             </p>
-            <p><a href="/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html">How GitHub Flows works</a></p>
+            <p class="product-links">
+                <a href="/{{ locale }}/land/agent-orchestration-poc/">€50 trial setup</a>
+                <a href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Public GitHub Flows demo</a>
+                <a href="/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html">How GitHub Flows works</a>
+            </p>
         </article>
         <article class="product-card">
             <h3>AI-generated SSG websites built on TeqFW</h3>
             <p>
-                Websites built on TeqFW with AI-assisted page generation and translation. Examples include
-                <code>wiredgeese.com</code> in three languages and <code>teqfw.com</code> with demo issue handling
+                TeqFW websites with page generation and translation handled by an AI agent. Examples include
+                <code>wiredgeese.com</code> in three languages and <code>teqfw.com</code> with demo ticket handling
                 through GitHub Flows.
             </p>
             <p><a href="https://cms.teqfw.com/en/" target="_blank" rel="noopener noreferrer">English example</a></p>
@@ -62,25 +66,27 @@
 </section>
 
 <section class="card">
-    <h2>Method and book</h2>
+    <h2>Method layer and book</h2>
     <p>
-        I use ADSM to give agent work clear context, roles, constraints, verification, and evidence. A short
-        introduction to the approach is available in the book <em>Agent-Driven Development</em>.
+        I use ADSM as a way to give agent-based work context, roles, constraints, verification, and an evidence
+        trail. A concise overview of the approach is available in the book <em>Agent-Driven Development</em>.
     </p>
     <p class="action-links">
-        <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer">English edition</a>
         <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-ru/" target="_blank" rel="noopener noreferrer">Russian edition</a>
+        <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer">English edition</a>
     </p>
 </section>
 
 <section class="card hero cta-card">
-    <h2>Take the first step toward automating your software evolution</h2>
+    <h2>Start with a public demo or a small PoC</h2>
     <p>
-        A small pilot helps you set up your first working workflow in GitHub, see the result in the
-        repository, and decide which steps are worth automating next.
+        You can start with the public demo to see the mechanism in action, or move straight to a small PoC on your
+        own repository: up to 5 test tasks, visible results, execution logs, and an engineering recommendation for
+        the next step.
     </p>
     <p class="action-links centered">
-        <a class="button-primary" href="/{{ locale }}/contact.html">Get in touch and discuss a pilot</a>
+        <a class="button-primary" href="/{{ locale }}/land/agent-orchestration-poc/">€50 trial setup</a>
+        <a class="button-secondary" href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Public GitHub Flows demo</a>
     </p>
 </section>
 
@@ -180,6 +186,12 @@
     .product-card h3 {
         margin-top: 0;
         font-size: 1.2rem;
+    }
+
+    .product-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
     }
 
     .cta-card {
