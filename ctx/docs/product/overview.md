@@ -84,7 +84,7 @@ Small entry offers may exist under `GitHub Flows` when they help validate demand
 
 Current narrow validation offer:
 
-- `Hosted PoC for event-driven AI-agent orchestration` as a GitHub-based proof of concept on a real repository.
+- `Agent Orchestration PoC` as a small paid GitHub-based proof of concept on a real repository.
 
 This offer is subordinate to `GitHub Flows` and must be positioned as:
 
@@ -97,6 +97,9 @@ It must not be presented as:
 - a separate large platform;
 - a replacement for the broader `GitHub Flows` concept;
 - a general AI consulting offer.
+
+The compact product definition of this PoC is documented in `ctx/docs/product/agent-orchestration-poc.md`.
+The first publishable landing structure is documented in `ctx/docs/product/agent-orchestration-poc-landing.md`.
 
 The core product meaning of this PoC is:
 

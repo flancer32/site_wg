@@ -8,9 +8,15 @@
 
 `Hosted PoC for event-driven AI-agent orchestration`
 
+Compact product-level public label:
+
+`Agent Orchestration PoC`
+
 Multilingual public variants may use a localized equivalent name where needed, but they must preserve the same product identity and must remain recognizably the same offer.
 The public offer name is `Hosted PoC for event-driven AI-agent orchestration`.
 GitHub issue triage may appear only as the first narrow scenario inside the PoC.
+
+This detailed offer document refines the compact definition in `ctx/docs/product/agent-orchestration-poc.md`.
 
 ## Parent Offer Family
 
@@ -68,6 +74,8 @@ The visible first implementation uses GitHub Issues, but the product meaning is 
 `event -> agent reaction -> new observable event`
 
 GitHub Issues are used as the visible event interface for controlled AI-agent orchestration.
+
+The first publishable landing structure is defined separately in `ctx/docs/product/agent-orchestration-poc-landing.md`.
 
 ## Market Fit Boundary
 

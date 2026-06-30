@@ -15,17 +15,13 @@ It does not imply that tracking is already implemented.
 
 The allowed funnel event names are:
 
-- `landing_view`
-- `principle_seen`
-- `chain_seen`
+- `page_view`
+- `workflow_seen`
 - `scope_seen`
-- `logs_seen`
-- `limits_seen`
+- `safety_seen`
 - `cta_click`
 - `form_start`
-- `repo_field_focus`
 - `form_submit`
-- `secondary_cta_click`
 - `qualified_lead`
 - `payment_link_sent`
 - `paid_poc`
@@ -37,20 +33,13 @@ These names should remain stable once used in code or operational reporting.
 
 Only these primitive landing-page events are suitable for automatic browser-side emission if that work is later approved:
 
-- `landing_view`
-- `principle_seen`
-- `chain_seen`
+- `page_view`
+- `workflow_seen`
 - `scope_seen`
-- `logs_seen`
-- `limits_seen`
+- `safety_seen`
 - `cta_click`
 - `form_start`
-- `repo_field_focus`
 - `form_submit`
-
-Optional automatic event:
-
-- `secondary_cta_click`
 
 Later-stage events must remain manual or trusted commercial state.
 
@@ -88,22 +77,19 @@ The `pageViewId` must:
 
 Illustrative request shapes:
 
-- `/funnel/evt?e=landing_view&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
-- `/funnel/evt?e=principle_seen&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
-- `/funnel/evt?e=chain_seen&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
+- `/funnel/evt?e=page_view&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
+- `/funnel/evt?e=workflow_seen&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
 - `/funnel/evt?e=scope_seen&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
-- `/funnel/evt?e=logs_seen&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
-- `/funnel/evt?e=limits_seen&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
+- `/funnel/evt?e=safety_seen&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
 - `/funnel/evt?e=cta_click&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
 - `/funnel/evt?e=form_start&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
-- `/funnel/evt?e=repo_field_focus&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
 - `/funnel/evt?e=form_submit&p=github-agent-orchestration-poc&l=en&v=<pageViewId>`
 
 The exact URL shape is illustrative unless a stricter project convention is defined later.
 
 The intended primitive landing-page path is:
 
-`page opened -> principle seen -> chain seen -> scope seen -> logs seen -> limits seen -> CTA clicked -> form started -> repo field focused -> form submitted`
+`page viewed -> workflow seen -> scope seen -> safety seen -> CTA clicked -> form started -> form submitted`
 
 ## Funnel Event Payload Boundary
 
@@ -183,8 +169,8 @@ Simple indicators may include:
 
 - page view without any JavaScript funnel events: bot-like or unknown;
 - known bot user-agent: likely bot;
-- realistic sequence such as `principle_seen -> chain_seen -> scope_seen`: likely human;
-- `cta_click`, `form_start`, or `repo_field_focus`: strong human-interest signal;
+- realistic sequence such as `workflow_seen -> scope_seen -> safety_seen`: likely human;
+- `cta_click` or `form_start`: strong human-interest signal;
 - impossible timing, for example all events within a few milliseconds: bot-like.
 
 The goal is not to prove that a visitor is human.
@@ -231,15 +217,12 @@ Even minimal first-party event collection must avoid:
 
 The first useful report may be a simple weekly table such as:
 
-- landing views: `120`
-- principle seen: `34`
-- chain seen: `18`
+- page views: `120`
+- workflow seen: `34`
 - scope seen: `12`
-- logs seen: `9`
-- limits seen: `7`
+- safety seen: `9`
 - CTA clicks: `3`
 - form starts: `2`
-- repo field focus: `1`
 - form submits: `0`
 
 The purpose is not precision.

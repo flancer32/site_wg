@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/AGENTS.md`
 - Template Version: `20260605`
-- Changed: `20260629`
+- Changed: `20260630`
 
 ## Purpose
 
@@ -16,6 +16,8 @@ Documents at this level describe the site as a product: its meaning, purpose, sc
 - `offers/` — offer-level documents that define concrete commercial entry offers under the site product hierarchy.
 - `pages/` — page-level product documents that refine the role and constraints of specific public pages.
 - `AGENTS.md` — level definition for `ctx/docs/product/`.
+- `agent-orchestration-poc-landing.md` — compact landing-page contract for the first publishable Agent Orchestration PoC page.
+- `agent-orchestration-poc.md` — product-level definition of the Agent Orchestration PoC as a paid validation offer under GitHub Flows.
 - `overview.md` — semantic entry point that defines site purpose, offer hierarchy, and product-level communication constraints.
 
 ## Product Knowledge Model
@@ -23,6 +25,10 @@ Documents at this level describe the site as a product: its meaning, purpose, sc
 The current product branch is intentionally compact.
 
 `overview.md` defines the product identity and navigation logic for the site.
+
+`agent-orchestration-poc.md` defines the promoted validation offer in compact product terms before lower-level offer details.
+
+`agent-orchestration-poc-landing.md` defines the first publishable landing structure before lower-level page contracts.
 
 `offers/` defines bounded commercial offers that sit under the established product hierarchy.
 

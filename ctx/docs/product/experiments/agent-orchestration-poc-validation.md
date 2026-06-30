@@ -35,36 +35,31 @@ The period may be extended if traffic is too low to interpret results.
 
 The experiment funnel is:
 
-1. landing page view;
-2. principle seen;
-3. chain seen;
-4. scope seen;
+1. page view;
+2. workflow seen;
+3. scope seen;
+4. safety seen;
 5. CTA click;
 6. form start;
-7. repository field focus;
-8. form submit;
-9. qualified lead;
-10. payment link sent;
-11. paid PoC;
-12. PoC delivered;
-13. positive feedback;
-14. upsell requested.
+7. form submit;
+8. qualified lead;
+9. payment link sent;
+10. paid PoC;
+11. PoC delivered;
+12. positive feedback;
+13. upsell requested.
 
 ## Measurable Events
 
 The event names associated with the funnel are:
 
-- `landing_view`
-- `principle_seen`
-- `chain_seen`
+- `page_view`
+- `workflow_seen`
 - `scope_seen`
-- `logs_seen`
-- `limits_seen`
+- `safety_seen`
 - `cta_click`
 - `form_start`
-- `repo_field_focus`
 - `form_submit`
-- `secondary_cta_click`
 - `qualified_lead`
 - `payment_link_sent`
 - `paid_poc`
@@ -77,40 +72,30 @@ Commercial truth must still be confirmed manually for later-stage events.
 
 Only the following primitive landing-page events are suitable for future automatic collection:
 
-- `landing_view`
-- `principle_seen`
-- `chain_seen`
+- `page_view`
+- `workflow_seen`
 - `scope_seen`
-- `logs_seen`
-- `limits_seen`
+- `safety_seen`
 - `cta_click`
 - `form_start`
-- `repo_field_focus`
 - `form_submit`
-
-Optional automatic event:
-
-- `secondary_cta_click`
 
 All later stages remain manual or trusted commercial evidence even if early event logging is later implemented.
 
 Where event capture is later approved, locale should be retained as a comparison dimension so the experiment can compare:
 
-- landing views by locale;
-- principle-seen counts by locale;
-- chain-seen counts by locale;
+- page views by locale;
+- workflow-seen counts by locale;
 - scope-seen counts by locale;
-- logs-seen counts by locale;
-- limits-seen counts by locale;
+- safety-seen counts by locale;
 - CTA clicks by locale;
 - form starts by locale;
-- repository field focus by locale;
 - form submissions by locale;
 - paid PoCs by locale.
 
 For landing-page validation, the first practical question is where the path breaks:
 
-`page opened -> principle seen -> chain seen -> scope seen -> logs seen -> limits seen -> CTA clicked -> form started -> repo field focused -> form submitted`
+`page viewed -> workflow seen -> scope seen -> safety seen -> CTA clicked -> form started -> form submitted`
 
 ## Success Criteria
 
@@ -134,7 +119,7 @@ Strong signals are especially meaningful when they come from:
 Interpret failures using this first-pass model:
 
 - page views but no CTA clicks: the offer, page, or visible result is unclear or weak;
-- principle seen but weak chain or scope movement: the orchestration loop is not legible enough;
+- workflow seen but weak scope or safety movement: the orchestration loop is not legible enough;
 - CTA clicks but no form submissions: there is a trust, repository-access, or form-friction problem;
 - submissions but no payments: there is a price, trust, payment-flow, or value problem;
 - paid PoCs but no continuation: the demo is interesting but not valuable enough as a business product.
@@ -160,7 +145,7 @@ Useful evidence includes:
 - meaningful repository submissions;
 - paid PoCs;
 - follow-up questions that expand scope;
-- requests for self-hosted or recurring use.
+- requests for self-hosted or recurring use;
 - submissions tied to real issue flow rather than generic curiosity.
 
 For early page-level movement, raw first-party event requests or normal web-server access logs may serve as aggregate evidence.

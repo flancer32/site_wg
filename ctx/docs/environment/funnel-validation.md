@@ -13,7 +13,7 @@ Describe environment-specific assumptions for the GitHub-based agent orchestrati
 The first implementation should default to a manual operating model:
 
 - the landing page may exist without a backend form endpoint;
-- lead intake may happen through manual email submission or another direct contact step;
+- lead intake may happen through manual email handling or another direct contact step;
 - payment confirmation and PoC-delivery confirmation remain manual business operations.
 
 This keeps the validation experiment lightweight and consistent with the current static-site architecture.
@@ -35,20 +35,13 @@ For this landing page, the canonical funnel page identifier should be:
 
 The intended landing-page event set is primitive and low traffic:
 
-- `landing_view`
-- `principle_seen`
-- `chain_seen`
+- `page_view`
+- `workflow_seen`
 - `scope_seen`
-- `logs_seen`
-- `limits_seen`
+- `safety_seen`
 - `cta_click`
 - `form_start`
-- `repo_field_focus`
 - `form_submit`
-
-Optional event:
-
-- `secondary_cta_click`
 
 Any such addition must remain:
 
