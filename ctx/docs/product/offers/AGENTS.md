@@ -2,13 +2,23 @@
 
 - Path: `ctx/docs/product/offers/AGENTS.md`
 - Template Version: `20260629`
-- Changed: `20260630`
+- Changed: `20260701`
 
 ## Purpose
 
 Defines the offer-level refinement branch for bounded commercial offers under the site product hierarchy.
 
 Documents at this level describe concrete sellable entry offers, their scope, price logic, exclusions, and relationship to parent products.
+
+## Terminology Rule
+
+Within this branch, an `offer` is:
+
+- a commercial object sold or validated through the site product;
+- not the site product itself;
+- subordinate to a promoted product or product direction already defined in `ctx/docs/product/overview.md`.
+
+Agents must keep the distinction explicit: `wiredgeese.com` is the site product of the repository, while an offer such as `Agent Orchestration PoC` is a promoted commercial object within that site.
 
 ## Level Map
 

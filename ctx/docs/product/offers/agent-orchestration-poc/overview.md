@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/offers/agent-orchestration-poc/overview.md`
 - Template Version: `20260630`
-- Changed: `20260630`
+- Changed: `20260701`
 
 ## Purpose
 
@@ -26,7 +26,9 @@ It is a narrow entry offer under the broader GitHub-based workflow product direc
 
 ## Customer Pain
 
-The intended buyer is interested in AI agents for development workflows, but does not yet know:
+The intended buyer is interested in AI agents for development workflows, but still needs a safe first trial on a real repository.
+
+Key open questions for that buyer are:
 
 - how to try agents safely on a real repository;
 - which issue-processing scenario is actually useful;
@@ -34,8 +36,6 @@ The intended buyer is interested in AI agents for development workflows, but doe
 - which visible outputs and logs will be available;
 - whether deeper customization is worth the effort;
 - which technical direction should follow if the trial is useful.
-
-The PoC solves this with a small bounded trial on a real repository.
 
 ## Target Audience
 
@@ -53,10 +53,10 @@ The buyer is expected to be technically literate and to prefer a concrete engine
 
 The offer is:
 
-- a typical starting solution for trial;
-- a guided engineering check;
-- a practical way to understand agent workflows before building custom infrastructure;
-- a bounded first commercial step before deeper customization work.
+- a bounded first paid trial on a real GitHub repository;
+- a practical way to test an AI issue workflow on selected issues;
+- a low-risk engineering check before deeper workflow customization;
+- a small inspectable first commercial step rather than a broad consulting engagement.
 
 The current public price is:
 
@@ -71,20 +71,20 @@ The `€50` PoC includes:
 - hosted PoC execution;
 - bounded agent analysis;
 - visible GitHub labels and comments;
-- visible execution logs or sanitized log excerpts;
+- execution logs or sanitized log excerpts;
 - a short report;
-- engineering assessment and recommendation about next steps.
+- an engineering recommendation about next steps.
 
 ## Excluded Scope
 
 The `€50` PoC does not include:
 
 - code changes;
-- PR creation;
+- pull requests;
 - production deployment;
 - long-term hosting;
 - SLA;
-- unlimited custom workflow design.
+- unlimited workflow customization.
 
 It is not sold as a full infrastructure setup or as open-ended AI consulting.
 
@@ -94,35 +94,24 @@ The buyer should receive observable outputs rather than only a conclusion:
 
 - visible GitHub-side results such as labels and comments;
 - execution status of the containerized run;
-- visible logs or sanitized log excerpts;
+- accepted request handling through the site backend before manual engineering review begins;
+- logs or sanitized log excerpts;
 - a short report summarizing what happened;
 - a recommendation about what deserves deeper work, if anything.
 
-Logs and the report are part of the offer value because they make the PoC inspectable and clarify what worked, what failed, which limits mattered, and what next technical direction is most reasonable.
+Logs and the report make the PoC inspectable and help explain what worked, what failed, which limits mattered, and what next technical direction is most reasonable.
 
-## Differentiator And Follow-Up Path
+## Differentiator
 
 Unlike generic managed-tool usage, this PoC gives the buyer a small observable stand for testing how an agent workflow fits a specific repository process.
 
 Its differentiators are:
 
-- a small guided trial;
-- visible container execution logs;
+- a small bounded repository trial;
 - visible GitHub-side outcomes;
-- an engineering assessment after the run;
+- logs or sanitized log excerpts;
+- a short engineering report;
 - a customizable follow-up path if the trial shows value.
-
-Possible follow-up directions include:
-
-- self-hosted setup;
-- local model usage;
-- GitLab instead of GitHub;
-- custom prompts;
-- custom labels;
-- more complex agent workflows;
-- another agent CLI such as Codex, OpenCode, or Claude Code where applicable.
-
-These are possible next directions, not included features of the `€50` PoC.
 
 ## Access And Safety Boundary
 
@@ -133,6 +122,13 @@ The offer remains explicitly bounded:
 - private repositories require explicit discussion;
 - the agent does not modify code in the first PoC;
 - execution is bounded in scope and duration.
+
+Safety should be communicated as a trust-building part of the offer:
+
+- the buyer can inspect visible GitHub outputs instead of trusting a vague claim;
+- the first PoC keeps the repository object narrow: `1` repository and up to `5` agreed issues;
+- the first PoC avoids code changes and production deployment risk;
+- access should stay limited to the agreed repository scenario only.
 
 ## Next Step Rule
 

@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/environment/overview.md`
 - Template Version: `20260605`
-- Changed: `20260630`
+- Changed: `20260701`
 
 ## Purpose
 
@@ -17,8 +17,9 @@ The project currently assumes two main execution environments:
 
 For the hosted orchestration PoC validation flow, the current site-environment assumption should remain minimal:
 
-- the first landing-page version may remain manual-only with no dedicated backend endpoint;
-- any later first-party event logging or form endpoint must remain subordinate to the static-site architecture and approval boundaries documented above this level.
+- the site already includes backend support for form submission;
+- first-party funnel events should be delivered to the backend through a local endpoint rather than through third-party analytics by default;
+- backend-side logging for form submission and funnel events must remain subordinate to the static-site architecture and approval boundaries documented above this level.
 
 The product context may describe a broader hosted PoC environment involving GitHub webhooks, `github-flows-app`, containerized agent execution, and bounded model usage.
 Within this repository, those elements remain documented product and architecture context unless and until this site itself needs runtime support for them.
@@ -39,6 +40,8 @@ Optional commercial-path dependencies may include:
 - email delivery through the operator's normal contact channel;
 - Fiverr as an optional escrow or payment-link path.
 
+Third-party analytics platforms are not an environment requirement for this funnel.
+
 ## Environment Constraints
 
 The environment must respect these stable constraints:
@@ -46,4 +49,5 @@ The environment must respect these stable constraints:
 - runtime assumptions must remain compatible with Node.js and the TeqCMS-based execution model;
 - operational configuration under `etc/` must stay environment-specific and must not replace product or architecture truth;
 - new lead-capture or funnel-logging runtime pieces must remain small, reviewable, and justified by the validation experiment;
+- local-first analytics is preferred: first-party backend intake plus local logs before any external analytics dependency is considered;
 - deployment-specific paths, service users, and host logging behavior may vary by host, but any new class of runtime dependency should be documented before it becomes a durable requirement.

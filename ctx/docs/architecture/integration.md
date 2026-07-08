@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/integration.md`
 - Template Version: `20260605`
-- Changed: `20260630`
+- Changed: `20260701`
 
 ## Purpose
 
@@ -25,9 +25,10 @@ The major internal contract surfaces are:
 
 - the contract between `teqcms.config.mjs` and `src/`, where the project replaces the generic CMS adapter with repository-specific behavior;
 - the contract between request routing and multilingual template content, where locale extraction selects the rendered content branch;
-- the contract between validation landing-page content and any future first-party funnel logging, where event payloads must stay bounded and non-sensitive;
+- the contract between validation landing-page content and first-party funnel logging, where event payloads must stay bounded and non-sensitive;
 - the contract between the landing page and funnel-event naming, where the stable page identifier for this offer is `github-agent-orchestration-poc`;
-- the contract between browser-side page interactions and any future first-party event endpoint such as `/funnel/evt`, where requests may be fire-and-forget and return only a minimal success status;
+- the contract between browser-side page interactions and a first-party event endpoint such as `/funnel/evt`, where requests should be fire-and-forget and return only a minimal success status;
+- the contract between browser-side event delivery and the backend, where `navigator.sendBeacon()` is preferred for non-blocking event delivery and `fetch(..., {keepalive: true})` is the fallback;
 - the contract between first-party event requests and ordinary web-server access logs, where raw log lines may later be parsed into weekly aggregate counts;
 - the contract between the landing-page form and the email delivery endpoint (`POST /api/send-email`), where the browser sends form data as `application/x-www-form-urlencoded` and expects a JSON response with `{ok: boolean}`;
 - the contract between the email handler and the SMTP server, where `nodemailer` delivers a composed HTML email using `EMAIL_*` environment variables for transport authentication and recipient routing;
@@ -53,4 +54,4 @@ That does not imply the site repository already implements alternative event pla
 - Internal contract descriptions must stay at boundary level rather than module-by-module API detail.
 - Manual commercial integrations are acceptable as bounded links or operator workflows; automated payment or CRM integrations require explicit review.
 - Product destinations may evolve, but new categories of external dependency require architectural review.
-- Access logs may be used later as raw funnel evidence for approved first-party event requests, but that does not authorize a full analytics or customer-data platform.
+- Access logs may be used as raw funnel evidence for approved first-party event requests, but that does not authorize a full analytics or customer-data platform.

@@ -2,11 +2,14 @@
 
 - Path: `ctx/docs/product/overview.md`
 - Template Version: `20260605`
-- Changed: `20260630`
+- Changed: `20260701`
 
 ## Site Purpose
 
 `wiredgeese.com` is the personal product site of Alex Gusev.
+
+At this level, the site itself is the product of the repository.
+Its role is to present and sell Alex Gusev, his products, and his offers.
 
 Its primary role is:
 
@@ -15,7 +18,7 @@ Its primary role is:
 - to convert visitor interest into a clear next step such as contact, a pilot, a book visit, a product visit, or a relevant project review.
 
 The site is not a neutral archive, a technical encyclopedia, or a personal diary.
-Even when it contains articles, notes, library pages, or demo materials, those materials must strengthen trust in Alex and his products.
+Articles, notes, library pages, and demos must strengthen trust in Alex and his products.
 
 ## Core Principle
 
@@ -32,7 +35,7 @@ If a page performs none of those functions, its presence on the site should be r
 
 ## Product Hierarchy
 
-The site sells a connected product line rather than a single offer.
+The site product sells and organizes a connected promoted product line rather than a single offer.
 
 The current hierarchy is:
 
@@ -50,10 +53,6 @@ The site should help visitors understand:
 ### 2. The Main Engineering Product
 
 The main engineering product is `Tequila Framework`.
-
-Preferred public link:
-
-- `https://teqfw.com/ecosystem/philosophy`
 
 It should be presented as the foundational technical asset that demonstrates:
 
@@ -90,7 +89,8 @@ This offer is subordinate to `GitHub Flows` and must remain:
 
 - a bounded first commercial step;
 - a quick trial on a real repository before custom infrastructure work;
-- a guided engineering check with visible GitHub-side results, logs, and a short report.
+- a guided engineering check with visible GitHub-side results, logs or sanitized excerpts, and a short report;
+- a low-risk way to test an AI issue workflow before deeper customization.
 
 It must not read as a separate platform, a replacement for `GitHub Flows`, or a general AI-consulting offer.
 
@@ -112,18 +112,13 @@ GitHub issue triage is the first visible scenario, not the whole product meaning
 
 The book `Agent-Driven Development` is a separate product.
 
-It should be treated as both supporting material and a standalone commercial artifact.
+It is both supporting material and a standalone commercial artifact.
 Its role is:
 
 - to sell Alex's methodological expertise;
 - to explain how to keep control while delegating development to AI agents;
 - to strengthen trust in practical offers;
 - to serve as an entry point for people who first want to understand the approach and only then buy a product or implementation.
-
-Canonical book links:
-
-- `http://fly.wiredgeese.com/flancer/leanpub/adsm-en/`
-- `http://fly.wiredgeese.com/flancer/leanpub/adsm-ru/`
 
 ### 5. AI-Generated SSG Sites On Top Of TeqFW
 
@@ -139,16 +134,6 @@ This offer means:
 
 This product should show that TeqFW is not only an engineering foundation but also a practical platform for real sites.
 
-Key examples:
-
-- `wiredgeese.com` — a personal site in three languages (`es`, `en`, `ru`) with AI-assisted page generation and translation;
-- `teqfw.com` — an English-language site with demo ticket processing through `GitHub Flows`.
-
-Preferred public links:
-
-- `https://cms.teqfw.com/en/`
-- `https://cms.teqfw.com/ru/`
-
 This layer should be positioned as an applied product scenario for:
 
 - personal sites;
@@ -159,8 +144,7 @@ This layer should be positioned as an applied product scenario for:
 ### 6. Supporting Proofs
 
 Demo projects, articles, notes, this site, and other public materials should function as supporting proofs.
-
-They exist so that visitors can see:
+Their role is to show:
 
 - that the products are real;
 - that the engineering base exists;
@@ -170,7 +154,6 @@ They exist so that visitors can see:
 ## Public Surfaces
 
 The site may use multiple public surfaces such as the home page, contact page, offer landing pages, project pages, articles, notes, demos, and library materials.
-
 At product level, those surfaces matter only as roles in the commercial system:
 
 - some surfaces sell the current offer directly;
@@ -178,9 +161,7 @@ At product level, those surfaces matter only as roles in the commercial system:
 - some strengthen trust through proof, method, or engineering depth;
 - some move the visitor to the next commercial step.
 
-Detailed page contracts and SSR page structure belong under:
-
-- `ctx/docs/code/web/ssr/pages/`
+Detailed page contracts and SSR page structure belong under `ctx/docs/code/web/ssr/pages/`.
 
 ## Priority Rule
 
@@ -217,7 +198,7 @@ The site should:
 - move the visitor toward a meaningful next step.
 
 Public-facing site text should remain calm, confident, and natural rather than polemical.
-Drafting patterns that introduce unnecessary tension should be smoothed out before publication.
+Unnecessary tension in wording should be smoothed out before publication.
 
 ## Product Check Rule
 

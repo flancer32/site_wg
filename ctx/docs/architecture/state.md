@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/state.md`
 - Template Version: `20260605`
-- Changed: `20260630`
+- Changed: `20260701`
 
 ## Purpose
 
@@ -24,6 +24,8 @@ State is divided into:
 - anonymous funnel evidence when such logging is explicitly approved and implemented;
 - locale as a permitted dimension within anonymous funnel evidence when that evidence is explicitly approved and implemented;
 - per-page ephemeral correlation state such as a memory-only `pageViewId`, if such logging is explicitly approved and implemented;
+- anonymous session identifiers for current-session funnel correlation, if such identifiers are first-party, non-sensitive, and explicitly approved;
+- anonymous visitor identifiers only when such identifiers already exist locally for a separate approved first-party purpose and are not introduced solely for this funnel;
 - coarse bot-likelihood classification such as `likely human`, `likely bot`, or `unknown`, if such interpretation is later added from raw event patterns;
 - lead data and commercial follow-up state when a visitor requests a bounded offer;
 - documented PoC delivery truth such as issue-count limits, processed-event limits, run-limit rules, and promised deliverables within the cognitive context;
@@ -39,6 +41,7 @@ The ownership boundaries are:
 - `src/` and configuration own runtime adaptation logic;
 - anonymous funnel events, if added, remain operational evidence rather than product truth;
 - single-page funnel correlation state, if added, must remain ephemeral and must not become cross-visit identity state;
+- anonymous session or visitor identifiers used in funnel payloads must remain bounded, first-party, and non-sensitive;
 - bot classification, if added, must remain coarse operational interpretation rather than durable identity truth;
 - lead qualification, payment, delivery, and upsell states remain human-reviewed commercial state rather than autonomous page state;
 - the exact internal runtime caps of the hosted PoC remain documented context truth until a separate operational system owns them explicitly;
@@ -58,6 +61,7 @@ Derived publication state stays valid only when it can be regenerated from autho
 Anonymous funnel evidence may help interpret behavior, but it must not be promoted into commercial truth automatically.
 Payment and delivery truth require manual confirmation or a trusted commercial source.
 Single-page correlation state may connect events within one page load, but it must not be stored as durable visitor identity.
+Any anonymous visitor identifier reused across visits requires separate approval and must not be invented solely to make funnel reporting easier.
 Coarse bot-likelihood labels may support weekly reading of the funnel, but they must remain heuristic and reversible.
 
 ## Change Discipline
