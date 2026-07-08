@@ -66,12 +66,42 @@
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/</loc>
-        <lastmod>2026-06-01</lastmod>
+        <lastmod>2026-07-08</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/"/>
         <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/blog/2026/20260708-01-types-of-intelligence-human-llm/</loc>
+        <lastmod>2026-07-08</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en"
+                    href="https://wiredgeese.com/en/blog/2026/20260708-01-types-of-intelligence-human-llm/"/>
+        <xhtml:link rel="alternate" hreflang="ru"
+                    href="https://wiredgeese.com/ru/blog/2026/20260708-01-types-of-intelligence-human-llm/"/>
+        <xhtml:link rel="alternate" hreflang="es"
+                    href="https://wiredgeese.com/es/blog/2026/20260708-01-types-of-intelligence-human-llm/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/es/blog/2026/20260708-01-types-of-intelligence-human-llm/</loc>
+        <lastmod>2026-07-08</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en"
+                    href="https://wiredgeese.com/en/blog/2026/20260708-01-types-of-intelligence-human-llm/"/>
+        <xhtml:link rel="alternate" hreflang="ru"
+                    href="https://wiredgeese.com/ru/blog/2026/20260708-01-types-of-intelligence-human-llm/"/>
+        <xhtml:link rel="alternate" hreflang="es"
+                    href="https://wiredgeese.com/es/blog/2026/20260708-01-types-of-intelligence-human-llm/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/ru/blog/2026/20260708-01-types-of-intelligence-human-llm/</loc>
+        <lastmod>2026-07-08</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
     </url>
     <url>
         <loc>https://wiredgeese.com/en/blog/2026/20260601-01-adsm-doc-web-browser-in-codex-stats/</loc>
@@ -1069,6 +1099,30 @@
     <url>
         <loc>https://wiredgeese.com/ru/library/adsm/20260415-01-conversations-code-cost/</loc>
         <lastmod>2026-04-15</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/en/library/adsm/20260708-01-types-of-intelligence-human-llm/</loc>
+        <lastmod>2026-07-08</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/adsm/20260708-01-types-of-intelligence-human-llm/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/adsm/20260708-01-types-of-intelligence-human-llm/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/adsm/20260708-01-types-of-intelligence-human-llm/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/es/library/adsm/20260708-01-types-of-intelligence-human-llm/</loc>
+        <lastmod>2026-07-08</lastmod>
+        <priority>1.0</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/adsm/20260708-01-types-of-intelligence-human-llm/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/adsm/20260708-01-types-of-intelligence-human-llm/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/adsm/20260708-01-types-of-intelligence-human-llm/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/ru/library/adsm/20260708-01-types-of-intelligence-human-llm/</loc>
+        <lastmod>2026-07-08</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
     </url>
