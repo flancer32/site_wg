@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+        <loc>https://wiredgeese.com/en/library/</loc>
+        <lastmod>2026-07-08</lastmod>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/ru/library/</loc>
+        <lastmod>2026-07-08</lastmod>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/"/>
+    </url>
+    <url>
+        <loc>https://wiredgeese.com/es/library/</loc>
+        <lastmod>2026-07-08</lastmod>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/"/>
+    </url>
+    <url>
         <loc>https://wiredgeese.com/en/</loc>
-        <lastmod>2026-06-30</lastmod>
+        <lastmod>2026-07-08</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/"/>
@@ -11,7 +38,7 @@
     </url>
     <url>
         <loc>https://wiredgeese.com/es/</loc>
-        <lastmod>2026-06-30</lastmod>
+        <lastmod>2026-07-08</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/"/>
@@ -20,7 +47,7 @@
     </url>
     <url>
         <loc>https://wiredgeese.com/ru/</loc>
-        <lastmod>2026-06-30</lastmod>
+        <lastmod>2026-07-08</lastmod>
         <priority>1.0</priority>
         <changefreq>weekly</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/"/>
