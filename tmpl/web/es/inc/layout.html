@@ -22,6 +22,22 @@
 {% include "inc/nav.html" %}
 <main>
     {% block content %}{% endblock %}
+    {% if canonicalUrl and ((canonicalUrl.indexOf('/blog/') !== -1 and not canonicalUrl.endsWith('/blog/')) or (canonicalUrl.indexOf('/library/') !== -1 and not canonicalUrl.endsWith('/library/'))) %}
+    <section class="card" style="margin-top: 1.5rem;">
+        <h2>Comentar esta publicación</h2>
+        <p>
+            Si quieres comentar este material, hacer una pregunta o continuar la conversación,
+            te invito a mi canal de Telegram.
+        </p>
+        <p>
+            En el canal publico nuevos materiales, notas de trabajo y anuncios, mientras que en el
+            sitio reúno las versiones completas de los textos y publicaciones más estructuradas.
+        </p>
+        <p>
+            <a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener"><strong>Canal de Telegram Alex Gusev Lab (ES)</strong></a>
+        </p>
+    </section>
+    {% endif %}
 </main>
 {% include "inc/footer.html" %}
 </body>

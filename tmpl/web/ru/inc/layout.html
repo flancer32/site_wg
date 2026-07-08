@@ -22,6 +22,22 @@
 {% include "inc/nav.html" %}
 <main>
     {% block content %}{% endblock %}
+    {% if canonicalUrl and ((canonicalUrl.indexOf('/blog/') !== -1 and not canonicalUrl.endsWith('/blog/')) or (canonicalUrl.indexOf('/library/') !== -1 and not canonicalUrl.endsWith('/library/'))) %}
+    <section class="card" style="margin-top: 1.5rem;">
+        <h2>Обсудить публикацию</h2>
+        <p>
+            Если хотите обсудить этот материал, задать вопрос или продолжить разговор по теме,
+            присоединяйтесь к моему телеграм-каналу.
+        </p>
+        <p>
+            В канале я публикую новые материалы, рабочие заметки и анонсы, а на сайте собираю
+            полные версии текстов и структурированные публикации.
+        </p>
+        <p>
+            <a href="https://t.me/alexgusev_lab_ru" target="_blank" rel="noopener"><strong>Телеграм-канал Alex Gusev Lab (RU)</strong></a>
+        </p>
+    </section>
+    {% endif %}
 </main>
 {% include "inc/footer.html" %}
 </body>
