@@ -10,7 +10,7 @@ Describe the current SSR request-to-render path and project-specific render enri
 
 ## Project Wiring
 
-The project registers a namespace root under `src/` and replaces the CMS adapter through [teqcms.config.mjs](/home/alex/work/wg/teqcms.config.mjs:1) and [src/Back/Di/Replace/Adapter.js](/home/alex/work/wg/src/Back/Di/Replace/Adapter.js:1).
+The project registers a namespace root under `src/` and replaces the CMS adapter through [teqcms.config.mjs](../../../../../teqcms.config.mjs:1) and [src/Back/Di/Replace/Adapter.js](../../../../../src/Back/Di/Replace/Adapter.js:1).
 
 This makes the project adapter the code-level hook point around normal CMS render-data generation.
 

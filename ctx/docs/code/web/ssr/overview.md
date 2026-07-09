@@ -26,10 +26,10 @@ It may include light browser-side JavaScript, but the primary delivery model is 
 
 The current SSR model is anchored in:
 
-- [teqcms.config.mjs](/home/alex/work/wg/teqcms.config.mjs:1) for project wiring into the CMS runtime;
-- [src/Back/Di/Replace/Adapter.js](/home/alex/work/wg/src/Back/Di/Replace/Adapter.js:1) for render-data interception;
-- [src/Back/Web/Cms/Handler/Blog.js](/home/alex/work/wg/src/Back/Web/Cms/Handler/Blog.js:1) for blog-index enrichment;
-- [src/Back/Web/Cms/Handler/Redirect.js](/home/alex/work/wg/src/Back/Web/Cms/Handler/Redirect.js:1) for request-path normalization and redirect-map application;
+- [teqcms.config.mjs](../../../../../teqcms.config.mjs:1) for project wiring into the CMS runtime;
+- [src/Back/Di/Replace/Adapter.js](../../../../../src/Back/Di/Replace/Adapter.js:1) for render-data interception;
+- [src/Back/Web/Cms/Handler/Blog.js](../../../../../src/Back/Web/Cms/Handler/Blog.js:1) for blog-index enrichment;
+- [src/Back/Web/Cms/Handler/Redirect.js](../../../../../src/Back/Web/Cms/Handler/Redirect.js:1) for request-path normalization and redirect-map application;
 - `tmpl/web/{locale}/` for locale-specific layouts, partials, and pages.
 
 ## SSR Chain
