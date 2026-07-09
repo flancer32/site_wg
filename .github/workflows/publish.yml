@@ -98,6 +98,10 @@ jobs:
             mv ./prod ./prod.old
             mv ./prod.new ./prod
             cp ./prod.old/.env ./prod/.env
+            if [ -f ./prod.old/var/app/form-token-secret ]; then
+              mkdir -p ./prod/var/app
+              cp ./prod.old/var/app/form-token-secret ./prod/var/app/form-token-secret
+            fi
 
             # Start the service
             sudo /bin/systemctl start ${{ env.SERVICE }}

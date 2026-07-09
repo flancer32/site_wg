@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/environment/overview.md`
 - Template Version: `20260605`
-- Changed: `20260701`
+- Changed: `20260709`
 
 ## Purpose
 
@@ -33,6 +33,11 @@ The stable external prerequisites are:
 - shell access sufficient to run `npx teq-cms web` and `npx teq-cms translate`;
 - a Linux service environment compatible with the current `systemd` unit and log rotation assets under `etc/`.
 
+The current lead-form protection also assumes one of these secret sources:
+
+- `WG_FORM_TOKEN_SECRET` provided through the host environment; or
+- writable local runtime storage under `var/` for a generated fallback secret.
+
 The development helper script under `bin/deploy/dev.sh` additionally assumes GitHub network access for cloning linked development dependencies.
 
 Optional commercial-path dependencies may include:
@@ -50,4 +55,5 @@ The environment must respect these stable constraints:
 - operational configuration under `etc/` must stay environment-specific and must not replace product or architecture truth;
 - new lead-capture or funnel-logging runtime pieces must remain small, reviewable, and justified by the validation experiment;
 - local-first analytics is preferred: first-party backend intake plus local logs before any external analytics dependency is considered;
+- runtime secret files under `var/` must stay outside version control and remain readable only to the service user where practical;
 - deployment-specific paths, service users, and host logging behavior may vary by host, but any new class of runtime dependency should be documented before it becomes a durable requirement.

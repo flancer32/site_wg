@@ -142,6 +142,7 @@
         El formulario usa solo email. No envíes secretos, tokens ni contenido sensible del repositorio.
     </p>
     <form action="/api/send-email" method="post" class="request-form">
+        <input type="hidden" name="form_token" value="{{ formToken }}">
         <label class="wide">
             <span>¿Qué te gustaría hacer ahora?</span>
             <select name="request_type" required>

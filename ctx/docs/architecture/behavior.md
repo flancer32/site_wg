@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/behavior.md`
 - Template Version: `20260605`
-- Changed: `20260701`
+- Changed: `20260709`
 
 ## Purpose
 
@@ -40,7 +40,8 @@ Ends when render data is returned for page rendering or when redirect handling t
 
 Starts when a visitor arrives on a validation landing page or follows a CTA toward a bounded commercial next step.
 In the current model, the page communicates the offer, may emit local-first funnel events to the backend, and may submit the request form to the backend.
-The form POSTs to `/api/send-email`; the email handler (`App_Back_Web_Handler_SendEmail`) composes the form data into an HTML email and delivers it via SMTP to the site owner.
+Before submission, the landing page receives a server-generated signed `form_token` during SSR render.
+The form POSTs to `/api/send-email`; the email handler (`App_Back_Web_Handler_SendEmail`) verifies the token, validates `repository_url` as a GitHub repository URL, composes the accepted form data into an HTML email, and delivers it via SMTP to the site owner.
 Funnel events should use a fire-and-forget browser delivery pattern such as `navigator.sendBeacon()` where appropriate, with `fetch(..., {keepalive: true})` as a fallback when Beacon is unavailable or unsuitable.
 Ends when accepted form submission is acknowledged by the backend, event logging completes on a best-effort basis, or an error is returned to the browser for the submission path.
 

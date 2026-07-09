@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/rendering.md`
 - Template Version: `20260630`
-- Changed: `20260630`
+- Changed: `20260709`
 
 ## Purpose
 
@@ -52,6 +52,21 @@ For locale-aware clean paths matching `/blog` or `/blog.html`, the project:
 
 The blog index template then renders those prepared fragments directly.
 
+## Landing Form Token Enrichment
+
+The current `land/agent-orchestration-poc` page is enriched dynamically as well.
+
+For locale-aware clean paths matching:
+
+- `/land/agent-orchestration-poc`
+- `/land/agent-orchestration-poc/index.html`
+
+the project:
+
+- issues a server-generated signed `formToken`;
+- signs it with a server-side secret resolved from `WG_FORM_TOKEN_SECRET` or a runtime fallback file;
+- exposes the token as `data.formToken` for the landing-page template only.
+
 ## Render Data Expectations
 
 The current SSR templates rely on CMS-provided and project-enriched fields such as:
@@ -61,6 +76,7 @@ The current SSR templates rely on CMS-provided and project-enriched fields such 
 - `canonicalUrl`
 - `alternateUrls`
 - `blogIndex`
+- `formToken`
 
 The current branch documents these only as named render-time dependencies.
 It does not redefine the full CMS-internal data model.

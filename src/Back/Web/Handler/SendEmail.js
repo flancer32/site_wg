@@ -1,5 +1,8 @@
-// @ts-nocheck
+// @ts-check
+
 /**
+ * @namespace App_Back_Web_Handler_SendEmail
+ * @description Accepts landing-page form submissions and delivers them through SMTP.
  * @implements Fl32_Web_Back_Api_Handler
  */
 export default class App_Back_Web_Handler_SendEmail {
@@ -7,12 +10,14 @@ export default class App_Back_Web_Handler_SendEmail {
      * @param {typeof import('node:http2')} http2
      * @param {Fl32_Web_Back_Helper_Respond} respond
      * @param {Fl32_Cms_Back_Logger} logger
+     * @param {App_Back_Web_Helper_FormProtection} formProtection
      */
     constructor(
         {
             'node:http2': http2,
             Fl32_Web_Back_Helper_Respond$: respond,
             Fl32_Cms_Back_Logger$: logger,
+            App_Back_Web_Helper_FormProtection$: formProtection,
         }
     ) {
         const {constants: H2} = http2;
@@ -84,6 +89,32 @@ export default class App_Back_Web_Handler_SendEmail {
             try {
                 const raw = await collectBody(req);
                 const data = Object.fromEntries(new URLSearchParams(raw));
+                const tokenVerification = await formProtection.verifyFormToken({
+                    token: data.form_token,
+                    form: formProtection.getFormIdAgentOrchestrationPoc(),
+                });
+                if (!tokenVerification.ok) {
+                    logger.warn(`Rejected form submission: invalid form token (${tokenVerification.code}).`);
+                    respond.code403_Forbidden({
+                        res,
+                        headers: {[HTTP2_HEADER_CONTENT_TYPE]: 'application/json; charset=utf-8'},
+                        body: JSON.stringify({ok: false, error: 'invalid form token'}),
+                    });
+                    return true;
+                }
+
+                const repositoryUrl = formProtection.normalizeGithubRepositoryUrl(data.repository_url);
+                if (!repositoryUrl) {
+                    logger.warn(`Rejected form submission: invalid repository URL (${data.repository_url || 'empty'}).`);
+                    respond.code400_BadRequest({
+                        res,
+                        headers: {[HTTP2_HEADER_CONTENT_TYPE]: 'application/json; charset=utf-8'},
+                        body: JSON.stringify({ok: false, error: 'invalid repository url'}),
+                    });
+                    return true;
+                }
+                data.repository_url = repositoryUrl;
+                delete data.form_token;
                 const html = composeHtml(data);
                 const text = Object.entries(data).map(([k, v]) => `${k}: ${v}`).join('\n');
                 await sendMail(text, html);

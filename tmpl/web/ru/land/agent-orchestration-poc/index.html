@@ -142,6 +142,7 @@
         репозитория.
     </p>
     <form action="/api/send-email" method="post" class="request-form">
+        <input type="hidden" name="form_token" value="{{ formToken }}">
         <label class="wide">
             <span>Что вы хотите сейчас?</span>
             <select name="request_type" required>

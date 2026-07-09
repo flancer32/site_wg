@@ -7,4 +7,5 @@
 /**/tmp/
 /http-client.env.json
 /tmp/
+/var/app/
 /var/teq-cms/

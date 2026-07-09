@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/environment/funnel-validation.md`
 - Template Version: `20260629`
-- Changed: `20260701`
+- Changed: `20260709`
 
 ## Purpose
 
@@ -84,7 +84,8 @@ Raw logs and human-filtered funnel statistics should remain separate reporting l
 
 The backend form and any local funnel endpoint should start with simple controls:
 
-- honeypot field;
+- signed server-generated form token;
+- strict server-side validation of `repository_url` as a GitHub repository URL;
 - basic rate limiting;
 - server-side validation of required fields;
 - no expansion into a heavy anti-spam platform unless separately justified.

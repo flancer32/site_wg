@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/state.md`
 - Template Version: `20260605`
-- Changed: `20260701`
+- Changed: `20260709`
 
 ## Purpose
 
@@ -21,6 +21,7 @@ The architecturally important sources of truth are:
 State is divided into:
 
 - authoritative durable state in version-controlled context, templates, code, and configuration;
+- local runtime secret state under `var/` when approved server-side fallback secrets are generated for form-token signing;
 - anonymous funnel evidence when such logging is explicitly approved and implemented;
 - locale as a permitted dimension within anonymous funnel evidence when that evidence is explicitly approved and implemented;
 - per-page ephemeral correlation state such as a memory-only `pageViewId`, if such logging is explicitly approved and implemented;
@@ -39,6 +40,7 @@ The ownership boundaries are:
 - `ctx/` owns project meaning and must not be re-owned by runtime code;
 - `tmpl/` owns page-source composition and multilingual copy inputs;
 - `src/` and configuration own runtime adaptation logic;
+- generated runtime form-token secrets under `var/` remain operational server state rather than durable repository truth;
 - anonymous funnel events, if added, remain operational evidence rather than product truth;
 - single-page funnel correlation state, if added, must remain ephemeral and must not become cross-visit identity state;
 - anonymous session or visitor identifiers used in funnel payloads must remain bounded, first-party, and non-sensitive;

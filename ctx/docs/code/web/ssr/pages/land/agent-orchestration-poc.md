@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/land/agent-orchestration-poc.md`
 - Template Version: `20260630`
-- Changed: `20260701`
+- Changed: `20260709`
 
 ## Purpose
 
@@ -127,6 +127,12 @@ It should not ask for:
 The page may submit the request form to the existing backend form endpoint.
 Manual human review may still follow backend acceptance of the request.
 
+The current implementation additionally requires:
+
+- a server-generated hidden `form_token` field;
+- backend rejection of missing, malformed, expired, or tampered tokens;
+- backend validation of `repository_url` as a canonical GitHub repository URL only.
+
 ## FAQ Scope
 
 The page FAQ should stay short.
@@ -197,4 +203,5 @@ The page should:
 - extend the shared locale layout;
 - remain inside the current SSR landing-page family under `tmpl/web/{locale}/land/...`;
 - use the existing shared navigation and footer shell;
-- keep page-local styles and copy local to the landing template unless a higher-level SSR rule changes later.
+- keep page-local styles and copy local to the landing template unless a higher-level SSR rule changes later;
+- keep the signed form token browser-visible but keep the signing secret server-side only.

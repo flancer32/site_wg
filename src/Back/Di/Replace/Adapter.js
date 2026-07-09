@@ -1,5 +1,8 @@
-// @ts-nocheck
+// @ts-check
+
 /**
+ * @namespace App_Back_Di_Replace_Adapter
+ * @description Enriches CMS render data with project-specific page payloads.
  * @implements Fl32_Cms_Back_Api_Adapter
  */
 export default class App_Back_Di_Replace_Adapter {
@@ -12,6 +15,7 @@ export default class App_Back_Di_Replace_Adapter {
      * @param {Fl32_Cms_Back_Logger} logger
      * @param {App_Back_Web_Cms_Handler_Blog} blogHandler
      * @param {App_Back_Web_Cms_Handler_Redirect} redirectHandler
+     * @param {App_Back_Web_Helper_FormProtection} formProtection
      */
     constructor(
         {
@@ -23,6 +27,7 @@ export default class App_Back_Di_Replace_Adapter {
             Fl32_Cms_Back_Logger$: logger,
             App_Back_Web_Cms_Handler_Blog$: blogHandler,
             App_Back_Web_Cms_Handler_Redirect$: redirectHandler,
+            App_Back_Web_Helper_FormProtection$: formProtection,
         }
     ) {
         const self = this;
@@ -41,6 +46,12 @@ export default class App_Back_Di_Replace_Adapter {
         const isBlogIndexRoute = (cleanPath) => {
             const normalized = (cleanPath || '').replace(/\/+$/, '');
             return normalized === '/blog' || normalized === '/blog.html';
+        };
+
+        const isAgentOrchestrationPocRoute = (cleanPath) => {
+            const normalized = (cleanPath || '').replace(/\/+$/, '');
+            return normalized === '/land/agent-orchestration-poc'
+                || normalized === '/land/agent-orchestration-poc/index.html';
         };
 
         self.getRenderData = async function ({req}) {
@@ -66,6 +77,12 @@ export default class App_Back_Di_Replace_Adapter {
                 data.blogIndex = {
                     items,
                 };
+            }
+
+            if (routeInfo?.cleanPath && isAgentOrchestrationPocRoute(routeInfo.cleanPath)) {
+                data.formToken = await formProtection.issueFormToken({
+                    form: formProtection.getFormIdAgentOrchestrationPoc(),
+                });
             }
 
             return renderData;

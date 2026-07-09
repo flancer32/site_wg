@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/integration.md`
 - Template Version: `20260605`
-- Changed: `20260701`
+- Changed: `20260709`
 
 ## Purpose
 
@@ -30,8 +30,9 @@ The major internal contract surfaces are:
 - the contract between browser-side page interactions and a first-party event endpoint such as `/funnel/evt`, where requests should be fire-and-forget and return only a minimal success status;
 - the contract between browser-side event delivery and the backend, where `navigator.sendBeacon()` is preferred for non-blocking event delivery and `fetch(..., {keepalive: true})` is the fallback;
 - the contract between first-party event requests and ordinary web-server access logs, where raw log lines may later be parsed into weekly aggregate counts;
-- the contract between the landing-page form and the email delivery endpoint (`POST /api/send-email`), where the browser sends form data as `application/x-www-form-urlencoded` and expects a JSON response with `{ok: boolean}`;
+- the contract between the landing-page form and the email delivery endpoint (`POST /api/send-email`), where the browser sends form data as `application/x-www-form-urlencoded`, includes a server-generated signed `form_token`, and expects a JSON response with `{ok: boolean}`;
 - the contract between the email handler and the SMTP server, where `nodemailer` delivers a composed HTML email using `EMAIL_*` environment variables for transport authentication and recipient routing;
+- the contract between form-token signing and runtime configuration, where `WG_FORM_TOKEN_SECRET` is preferred and a local runtime fallback file under `var/` may be used when that environment variable is absent;
 - the contract between template sources and the publication block, where TeqCMS materializes browser-facing output into `web/`.
 
 The product-level integration chain described by the landing page is also architecturally significant as a documented boundary model:
