@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/behavior.md`
 - Template Version: `20260605`
-- Changed: `20260709`
+- Changed: `20260716`
 
 ## Purpose
 
@@ -33,8 +33,8 @@ Ends when browser-facing files such as HTML, CSS, images, and `sitemap.xml` exis
 ### Request-time rendering flow
 
 Starts from an inbound HTTP request handled by TeqCMS.
-The project adapter resolves locale-aware routing, applies redirect logic, requests render data from the CMS adapter, and conditionally injects blog-index data for blog index routes.
-Ends when render data is returned for page rendering or when redirect handling terminates the original request path.
+The project adapter resolves locale-aware routing, applies redirect logic, requests render data from the CMS adapter, derives trusted-origin localized metadata, classifies route state, and conditionally injects blog-index or form-token data.
+Ends when render data is returned for page rendering or when the final site handler returns a localized not-found surface with HTTP status `404`.
 
 ### Conversion-validation flow
 
@@ -56,6 +56,8 @@ Architectural failure handling is intentionally narrow:
 
 - missing blog index input is tolerated when it results only in `ENOENT`;
 - unexpected blog aggregation failures are logged rather than normalized silently;
+- malformed or unresolved HTML routes fail into a localized noindex 404 surface rather than an empty or host-dependent response;
+- public canonical metadata trusts only validated runtime configuration and never inbound host or forwarding headers;
 - validation-funnel evidence must fail safely by omission rather than by over-collecting sensitive repository or payment data;
 - public product wording must fail toward narrower claims rather than overpromising unsupported integrations or unlimited runtime;
 - redirect and route-normalization logic must fail visibly rather than fork product meaning into duplicate routes.

@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>{% block title %}Alex Gusev | IA y mensajería, aplicaciones web y frameworks{% endblock %}</title>
-    {# --- SEO Canonical & Alternate URLs --- #}
+    <title>{% block title %}Alex Gusev — sistemas controlados para trabajar con agentes de IA{% endblock %}</title>
+    <meta name="description" content="{% block description %}Ingeniero de sistemas independiente y creador de TeqFW, GitHub Flows y productos con agentes de IA bajo control humano.{% endblock %}"/>
+    <meta name="theme-color" content="#f2f5f2"/>
+    {% if isNotFound %}<meta name="robots" content="noindex,follow"/>{% endif %}
+    <meta property="og:site_name" content="Alex Gusev — Wired Geese"/>
     {% if canonicalUrl %}
         <link rel="canonical" href="{{ canonicalUrl }}">
     {% endif %}
@@ -12,31 +15,29 @@
         {% for lang, url in alternateUrls %}
             <link rel="alternate" hreflang="{{ lang }}" href="{{ url }}">
         {% endfor %}
+        {% if alternateUrls.en %}<link rel="alternate" hreflang="x-default" href="{{ alternateUrls.en }}">{% endif %}
     {% endif %}
+    <link rel="icon" href="/favicon.ico" sizes="any"/>
     <link rel="stylesheet" href="/styles/main.css"/>
     {% block style %}{% endblock %}
+    <script type="module" src="/js/site.js"></script>
     <script type="module" src="/js/comp/zoom-img.js"></script>
     {% block html_head_extra %}{% endblock %}
 </head>
 <body>
+<a class="skip-link" href="#main-content">Ir al contenido</a>
 {% include "inc/nav.html" %}
-<main>
+<main class="site-main" id="main-content" tabindex="-1">
     {% block content %}{% endblock %}
-    {% if canonicalUrl and ((canonicalUrl.indexOf('/blog/') !== -1 and not canonicalUrl.endsWith('/blog/')) or (canonicalUrl.indexOf('/library/') !== -1 and not canonicalUrl.endsWith('/library/'))) %}
-    <section class="card" style="margin-top: 1.5rem;">
-        <h2>Comentar esta publicación</h2>
-        <p>
-            Si quieres comentar este material, hacer una pregunta o continuar la conversación,
-            te invito a mi canal de Telegram.
-        </p>
-        <p>
-            En el canal publico nuevos materiales, notas de trabajo y anuncios, mientras que en el
-            sitio reúno las versiones completas de los textos y publicaciones más estructuradas.
-        </p>
-        <p>
-            <a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener"><strong>Canal de Telegram Alex Gusev Lab (ES)</strong></a>
-        </p>
-    </section>
+    {% if isPublication %}
+    <aside class="discussion-cta">
+        <div>
+            <p class="eyebrow">Continuemos la conversación</p>
+            <h2>¿Tienes una pregunta o un punto de vista diferente?</h2>
+            <p>Publico notas de trabajo y materiales nuevos en el canal de Telegram Alex Gusev Lab.</p>
+        </div>
+        <a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener">Abrir Telegram →</a>
+    </aside>
     {% endif %}
 </main>
 {% include "inc/footer.html" %}

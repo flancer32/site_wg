@@ -1,13 +1,16 @@
 {% extends "inc/layout.html" %}
 
 {% block title %}Библиотека — Алекс Гусев{% endblock %}
+{% block description %}Большие статьи и технические материалы об ADSM, TeqFW, разработке с агентами и архитектуре программных систем.{% endblock %}
 
 {% block content %}
 <div class="card">
-    <h1>Мои мысли</h1>
-    <p>Статьи, эссе и заметки — от ADSM и TeqFW до концепций и методологии.</p>
+    <p class="eyebrow">Библиотека</p>
+    <h1>Идеи, к которым стоит возвращаться</h1>
+    <p class="lead">Большие статьи и технические материалы об ADSM, TeqFW, разработке с агентами и архитектуре программных систем.</p>
 </div>
 
+<div class="library-grid">
 <section class="card">
     <h2>ADSM</h2>
     <ul>
@@ -45,8 +48,9 @@
 <section class="card">
     <h2>TeqFW</h2>
     <ul>
-        <li><a href="/ru/library/teqfw/20251224-01-js-vscode-analysis.html">JavaScript в VSCode: язык, инструмент и модель анализа</a></li>
+        <li><a href="/ru/library/teqfw/20251224-01-js-vscode-analysis.html">JavaScript в VS Code: язык, инструмент и модель анализа</a></li>
         <li><a href="/ru/library/teqfw/20260225-01-deklaratsiya-ne-zavisimostey-dlya-esm.html">Декларация (не)зависимостей для ESM</a></li>
     </ul>
 </section>
+</div>
 {% endblock %}

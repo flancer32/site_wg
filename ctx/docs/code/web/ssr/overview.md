@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/overview.md`
 - Template Version: `20260630`
-- Changed: `20260630`
+- Changed: `20260716`
 
 ## Purpose
 
@@ -30,26 +30,31 @@ The current SSR model is anchored in:
 - [src/Back/Di/Replace/Adapter.js](../../../../../src/Back/Di/Replace/Adapter.js:1) for render-data interception;
 - [src/Back/Web/Cms/Handler/Blog.js](../../../../../src/Back/Web/Cms/Handler/Blog.js:1) for blog-index enrichment;
 - [src/Back/Web/Cms/Handler/Redirect.js](../../../../../src/Back/Web/Cms/Handler/Redirect.js:1) for request-path normalization and redirect-map application;
+- [src/Back/Web/Handler/NotFound.js](../../../../../src/Back/Web/Handler/NotFound.js:1) for localized unresolved-route responses;
+- [bin/generate-sitemap.mjs](../../../../../bin/generate-sitemap.mjs:1) for generated public route metadata;
 - `tmpl/web/{locale}/` for locale-specific layouts, partials, and pages.
 
 ## SSR Chain
 
 The current render chain is:
 
-`HTTP request -> locale-aware route extraction -> redirect-map normalization -> CMS render-data assembly -> optional project-specific enrichment -> locale template render -> HTML response`
+`HTTP request -> locale-aware route extraction -> redirect-map normalization -> CMS render-data assembly -> project metadata and optional route enrichment -> locale template render -> HTML response or localized 404 fallback`
 
-The only explicit project-specific enrichments visible in the current code are:
+The explicit project-specific enrichments visible in the current code are:
 
 - redirect rewriting from `etc/redirect-map.json`;
-- `blogIndex` injection for locale blog-index routes.
+- validated-origin canonical and alternate metadata;
+- publication and not-found route classification;
+- `blogIndex` injection for locale blog-index routes;
+- signed form-token injection for the Agent Orchestration PoC landing page.
 
 ## Current Surface Model
 
 The current SSR site surface is organized around:
 
-- localized top-level pages such as home, contact, projects, about, and posts;
-- blog index pages and dated blog article pages;
-- library article pages;
+- localized top-level pages such as home, contact, projects, and about;
+- journal index pages and dated journal article pages;
+- library index and article pages;
 - project-detail pages;
 - shared locale-specific layout partials under `inc/`;
 - a locale-aware navigation shell.

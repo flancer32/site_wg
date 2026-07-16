@@ -1,6 +1,8 @@
-// @ts-nocheck
+// @ts-check
+
 /**
- * Replaces Fl32_Cms_Back_Cli_Command_Web to register the email handler.
+ * @namespace App_Back_Di_Replace_WebCommand
+ * @description Registers the site HTTP handlers and starts the CMS web server.
  */
 export default class App_Back_Di_Replace_WebCommand {
     /**
@@ -11,6 +13,7 @@ export default class App_Back_Di_Replace_WebCommand {
      * @param {Fl32_Web_Back_Handler_Static} handStatic
      * @param {Fl32_Cms_Back_Web_Handler_Template} handTmpl
      * @param {App_Back_Web_Handler_SendEmail} handEmail
+     * @param {App_Back_Web_Handler_NotFound} handNotFound
      * @param {Fl32_Web_Back_Dto_Handler_Source} dtoSource
      * @param {Fl32_Web_Back_Server} server
      */
@@ -23,6 +26,7 @@ export default class App_Back_Di_Replace_WebCommand {
             Fl32_Web_Back_Handler_Static$: handStatic,
             Fl32_Cms_Back_Web_Handler_Template$: handTmpl,
             App_Back_Web_Handler_SendEmail$: handEmail,
+            App_Back_Web_Handler_NotFound$: handNotFound,
             Fl32_Web_Back_Dto_Handler_Source$: dtoSource,
             Fl32_Web_Back_Server$: server,
         }
@@ -43,6 +47,7 @@ export default class App_Back_Di_Replace_WebCommand {
             dispatcher.addHandler(handStatic);
             dispatcher.addHandler(handTmpl);
             dispatcher.addHandler(handEmail);
+            dispatcher.addHandler(handNotFound);
 
             const cfg = config.getWebServerConfigDto();
             await server.start(cfg);

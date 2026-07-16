@@ -1,13 +1,18 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Eventos y publicaciones{% endblock %}
+{% block title %}Bitácora — Alex Gusev{% endblock %}
+{% block description %}Novedades de proyectos, notas de trabajo y anuncios de publicaciones de Alex Gusev.{% endblock %}
 
 {% block html_head_extra %}
 <link rel="stylesheet" href="/styles/blog.css">
 {% endblock %}
 
 {% block content %}
-<h1>Eventos y publicaciones</h1>
+<div class="card">
+    <p class="eyebrow">Bitácora</p>
+    <h1>Notas del trabajo en curso</h1>
+    <p class="lead">Novedades de proyectos, experimentos y anuncios breves. Los ensayos y materiales técnicos de consulta están en la <a href="/{{ locale }}/library/">biblioteca</a>.</p>
+</div>
 
 <div class="blog-container">
     <ul class="blog-list">

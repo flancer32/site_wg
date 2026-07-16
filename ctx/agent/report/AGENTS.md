@@ -2,7 +2,7 @@
 
 - Path: `ctx/agent/report/AGENTS.md`
 - Template Version: `20260629`
-- Changed: `20260629`
+- Changed: `20260716`
 
 ## Purpose
 
@@ -12,6 +12,7 @@ The directory is reserved for agent iteration reports when such reports are crea
 
 ## Level Map
 
+- `20260716-site-refactor.md` — audit, design decisions, implementation scope, and validation record for the multilingual site refactor.
 - `AGENTS.md` — level definition for `ctx/agent/report/`.
 
 ## Level Boundary

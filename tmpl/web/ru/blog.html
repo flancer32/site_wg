@@ -1,13 +1,18 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}События и публикации{% endblock %}
+{% block title %}Журнал — Алекс Гусев{% endblock %}
+{% block description %}Новости проектов, рабочие заметки и анонсы публикаций Алекса Гусева.{% endblock %}
 
 {% block html_head_extra %}
 <link rel="stylesheet" href="/styles/blog.css">
 {% endblock %}
 
 {% block content %}
-<h1>События и публикации</h1>
+<div class="card">
+    <p class="eyebrow">Журнал</p>
+    <h1>Заметки из текущей работы</h1>
+    <p class="lead">Новости проектов, эксперименты и короткие анонсы. Большие статьи и материалы, к которым стоит возвращаться, собраны в <a href="/{{ locale }}/library/">библиотеке</a>.</p>
+</div>
 
 <div class="blog-container">
     <ul class="blog-list">

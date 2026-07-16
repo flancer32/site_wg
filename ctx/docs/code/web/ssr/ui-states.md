@@ -2,55 +2,54 @@
 
 - Path: `ctx/docs/code/web/ssr/ui-states.md`
 - Template Version: `20260630`
-- Changed: `20260630`
+- Changed: `20260716`
 
 ## Purpose
 
-Describe the main visible SSR-facing states and exceptional outcomes that are explicit in the current code and templates.
+Describe visible request outcomes and browser-enhanced states delivered by the SSR site.
 
-## Common Delivered States
+## Request-Visible States
 
-The current SSR surface visibly supports these common states:
+- `ready page` — localized SSR content is delivered inside the shared shell.
+- `populated journal index` — extracted localized `blog_item` fragments are rendered.
+- `empty journal index` — the journal heading remains available when no fragments can be collected.
+- `internal legacy redirect` — a legacy clean path is normalized to the current template before rendering, while query data is preserved.
+- `not found` — the final GET/HEAD fallback returns the localized 404 surface with HTTP status `404`, no canonical metadata, and recovery links to primary sections.
 
-- normal rendered page state for standard locale pages;
-- localized blog index state with rendered article items;
-- localized article/detail page state;
-- redirected route state where the incoming legacy path resolves to a canonical target;
-- not-found state through locale `404.html`.
+## Shared Shell States
 
-## Blog Index State
+### Header
 
-The blog index has at least two practical SSR states:
+- `at top` — transparent-soft shell without elevation.
+- `scrolled` — a subtle elevation separates the sticky header from content.
 
-- populated index state when `blogIndex.items` contains extracted article fragments;
-- empty index state when no entries are collected or the locale blog directory is missing.
+### Compact Navigation
 
-The current code treats missing blog directories quietly when the failure is `ENOENT`.
+- `closed` — menu content is hidden and the toggle exposes `aria-expanded="false"`.
+- `open` — menu content is visible, first-link focus is available, and the toggle exposes `aria-expanded="true"`.
+- `dismissed` — link activation, outside activation, or `Escape` closes the menu; Escape returns focus to the toggle.
 
-## Navigation State
+### Locale Navigation
 
-The shared navigation shell includes a visible mobile toggle state:
+- `current locale` — rendered as current, non-link text.
+- `equivalent locale target` — route path, query, and fragment are preserved when switching locale.
 
-- closed menu;
-- opened menu after client-side toggle.
+## Zoomable Image States
 
-This is a small browser-side enhancement layered onto the SSR-delivered shell.
+The thumbnail and expanded states are defined in `components/zoom-img.md`.
 
-## Exceptional Outcomes
+## Offer Form States
 
-The current SSR branch makes these exceptional outcomes explicit:
+The Agent Orchestration PoC form keeps these visible states:
 
-- legacy-path normalization through redirect-map application;
-- HTML-route versus static-resource differentiation in redirect logic;
-- locale-preserving redirect overlay;
-- locale `404.html` for not-found rendering.
+- initial editable form;
+- submitting with disabled submit action and spinner;
+- success dialog;
+- validation or connection failure with a recoverable message;
+- restored editable state after completion or failure.
 
-## Current Boundary
+## Motion And Print
 
-The current project does not expose a broader client-side async state model in repository-visible code.
+Reduced-motion preference shortens non-essential transitions.
 
-This SSR state document therefore stays focused on:
-
-- request-visible route outcomes;
-- rendered content availability;
-- small delivered-shell interaction states.
+Print output removes navigation-only surfaces while keeping primary authored content available.

@@ -1,21 +1,52 @@
 {% extends "inc/layout.html" %}
 
 {% block title %}Проекты — Алекс Гусев{% endblock %}
+{% block description %}Продукты, клиентские системы, инструменты и эксперименты Алекса Гусева.{% endblock %}
 
 {% block content %}
 <div class="card">
-    <h1>Мои проекты</h1>
-
-    <p>С 2019 года я развиваю архитектуру <strong>Tequila Framework (TeqFW)</strong> — платформу на JavaScript для
-        создания модульных web-приложений с внедрением зависимостей, SSR и чёткой файловой структурой. Эта философия
-        родилась из практического опыта с Magento и была реализована в ряде собственных и клиентских
-        проектов. Ниже — ретроспектива моих значимых решений.</p>
+    <p class="eyebrow">Избранные работы</p>
+    <h1>Продукты, системы и эксперименты</h1>
+    <p class="lead">Практическая история систем, которые я создаю для себя и клиентов. В начале — нынешнее направление,
+        ниже — инженерный путь, который к нему привёл.</p>
 </div>
 
+<section class="featured-work">
+    <div class="section-heading">
+        <h2>Сейчас в фокусе</h2>
+        <p>Продукты, которые лучше всего отражают мою нынешнюю работу с управляемыми агентами и модульными JavaScript-системами.</p>
+    </div>
+    <div class="featured-work-grid">
+        <article class="featured-work-card">
+            <p class="eyebrow">Текущий формат</p>
+            <h3>GitHub Flows</h3>
+            <p>Наблюдаемые и ограниченные сценарии с агентами, запускаемые событиями GitHub.</p>
+            <p><a href="/{{ locale }}/land/agent-orchestration-poc/">Попробовать в репозитории →</a></p>
+        </article>
+        <article class="featured-work-card">
+            <p class="eyebrow">Инженерная основа</p>
+            <h3>Tequila Framework</h3>
+            <p>JavaScript-архитектура, на которой работают мои нынешние продукты и сайты.</p>
+            <p><a href="https://teqfw.com/" target="_blank" rel="noopener">Познакомиться с TeqFW →</a></p>
+        </article>
+        <article class="featured-work-card">
+            <p class="eyebrow">В разработке</p>
+            <h3>Alarisa</h3>
+            <p>Личный цифровой двойник для сохранения контекста и координации работы агентов.</p>
+            <p><a href="/{{ locale }}/projects/alarisa.html">Познакомиться с Alarisa →</a></p>
+        </article>
+    </div>
+</section>
+
+<div class="archive-heading">
+    <h2>Архив проектов</h2>
+    <p>Продукты, утилиты, клиентские системы и эксперименты с 2016 года до наших дней.</p>
+</div>
+<div class="project-archive">
 <div class="card">
     <h2>Alarisa</h2>
     <p>Личный цифровой двойник в разработке: инструмент для сохранения контекста и непрерывности работы с ИИ-агентами
-        при сохранении контроля за человеком.</p>
+        при этом человек сохраняет контроль.</p>
     <p><a href="/ru/projects/alarisa.html">Подробнее об Alarisa...</a></p>
 </div>
 
@@ -23,7 +54,7 @@
     <h2>TG-WA Blog Post</h2>
     <p><strong>Дата начала:</strong> февраль 2026</p>
     <p><strong>Описание:</strong> Консольное приложение на Node.js, созданное за один день в сотрудничестве с агентом
-        Codex по методологии ADSM (Agent Driven Software Management). После запуска приложение получает последний пост
+        Codex по методологии ADSM (Agent-Driven Software Management). После запуска приложение получает последний пост
         из русскоязычного Telegram-канала, переводит его на английский и испанский языки и автоматически публикует
         переводы в соответствующие каналы. Проект реализован как практическая проверка разбиения когнитивного контекста
         ADSM на 7 типовых уровней документации и управления разработкой.</p>
@@ -287,6 +318,6 @@
     <p><strong>Сайт:</strong> <a href="https://santegra.com/" target="_blank">santegra.com</a></p>
     <p><strong>Репозиторий:</strong> приватный</p>
 </div>
-
+</div>
 
 {% endblock %}

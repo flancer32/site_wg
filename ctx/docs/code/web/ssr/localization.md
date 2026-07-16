@@ -2,56 +2,56 @@
 
 - Path: `ctx/docs/code/web/ssr/localization.md`
 - Template Version: `20260630`
-- Changed: `20260630`
+- Changed: `20260716`
 
 ## Purpose
 
-Describe the current locale-aware SSR behavior visible in code and templates.
+Describe locale-aware SSR routes, metadata, shared-shell copy, and locale switching.
 
 ## Supported Locales
 
-The current authored locale trees are:
+The authored locale trees are:
 
-- `en`
-- `es`
-- `ru`
+- `en` — plain international English with concrete outcomes before method language;
+- `ru` — respectful Russian using `ИИ` in ordinary copy and avoiding unnecessary marketing calques;
+- `es` — neutral international Spanish using consistent `tú`, sentence case, and Spanish price typography.
 
-Each locale has its own `tmpl/web/{locale}/` subtree with:
-
-- top-level pages;
-- locale navigation and footer partials;
-- locale article and library content;
-- locale-specific layout shell.
+Each tree contains localized pages plus `inc/layout.html`, `inc/nav.html`, and `inc/footer.html`.
 
 ## Route Localization
 
-The current site localizes routes by prefix:
+Public routes use the `/{locale}/...` prefix.
 
-`/{locale}/...`
+The project adapter derives the effective locale after legacy-route normalization and supplies:
 
-The project adapter and redirect handler both depend on locale-aware route extraction from the CMS helper.
+- a canonical URL for that locale and canonical clean path;
+- equivalent alternate URLs for all allowed locales;
+- an `x-default` alternate that resolves to the English branch when English is available.
+
+Directory-index routes retain trailing slashes. Authored standalone and detail templates retain `.html` canonical paths.
+
+## Shared-Shell Vocabulary
+
+The primary navigation maps these meanings:
+
+- `Home / Главная / Inicio`;
+- `Projects / Проекты / Proyectos`;
+- `Library / Библиотека / Biblioteca`;
+- `Journal / Журнал / Bitácora`;
+- `Contact / Контакты / Contacto`.
+
+Blog announcements and durable library material remain distinct content types even though both belong to the broader writing surface.
+
+## Locale Switcher
+
+The SSR fallback target is the target-locale root.
+
+When browser JavaScript is available, switching locale preserves the current route, query, and fragment. Active maintained routes must exist in every locale. Obsolete EN-only routes normalize to localized current routes before rendering.
 
 ## Metadata Localization
 
-The shared layout renders:
+The layout supplies localized default title and description content. Page templates may override those blocks.
 
-- a canonical link when `canonicalUrl` is present;
-- alternate locale links when `alternateUrls` are present.
+Canonical and alternate links are rendered by the shared shell from adapter-provided absolute URLs and must match the requested effective locale rather than the configured translation-source locale.
 
-This makes locale switching and search-facing alternate-route signaling part of the SSR shell rather than a page-by-page manual concern.
-
-## Client-Side Locale Switcher
-
-The shared navigation includes a light browser-side locale switcher.
-
-Its current behavior:
-
-- detect the current locale prefix from `window.location.pathname`;
-- preserve the remainder of the path;
-- navigate to the equivalent path under the chosen locale.
-
-This is a browser-side helper around an SSR-localized route tree, not a separate SPA router.
-
-## Redirect Localization
-
-When a legacy path is normalized through `etc/redirect-map.json`, the redirect handler overlays the incoming locale onto the destination path when the destination is not already locale-prefixed.
+Their public origin comes only from a validated `TEQ_CMS_BASE_URL` using `http` or `https`, with `https://wiredgeese.com` as the stable fallback. Request host and forwarding headers are not trusted as metadata sources.

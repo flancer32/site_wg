@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/AGENTS.md`
 - Template Version: `20260630`
-- Changed: `20260630`
+- Changed: `20260716`
 
 ## Purpose
 
@@ -12,6 +12,7 @@ Documents at this level describe the code-facing SSR model: route resolution, re
 
 ## Level Map
 
+- `components/` — shared SSR-delivered widget and Web Component documentation.
 - `pages/` — page-level SSR implementation documents for concrete page families such as landing pages.
 - `AGENTS.md` — level definition for `ctx/docs/code/web/ssr/`.
 - `assets.md` — browser-facing asset model used by the SSR site.

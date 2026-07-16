@@ -1,18 +1,48 @@
 {% extends "inc/layout.html" %}
 
 {% block title %}Projects — Alex Gusev{% endblock %}
+{% block description %}Selected products, client systems, tools, and experiments built by Alex Gusev.{% endblock %}
 
 {% block content %}
 <div class="card">
-    <h1>My Projects</h1>
-
-    <p>Since 2019, I've been developing the <strong>Tequila Framework (TeqFW)</strong> architecture — a JavaScript
-        platform for
-        creating modular web applications with dependency injection, SSR, and a clear file structure. This philosophy
-        emerged from practical experience with Magento and has been implemented in several personal and client
-        projects. Below is a retrospective of my significant solutions.</p>
+    <p class="eyebrow">Selected work</p>
+    <h1>Products, systems, and experiments</h1>
+    <p class="lead">A practical record of the systems I build for myself and clients. The featured work shows my
+        current direction; the archive traces the engineering path that led here.</p>
 </div>
 
+<section class="featured-work">
+    <div class="section-heading">
+        <h2>Current focus</h2>
+        <p>The products that best represent my current work with controlled agents and modular JavaScript systems.</p>
+    </div>
+    <div class="featured-work-grid">
+        <article class="featured-work-card">
+            <p class="eyebrow">Current offer</p>
+            <h3>GitHub Flows</h3>
+            <p>Observable, bounded agent workflows triggered by GitHub events.</p>
+            <p><a href="/{{ locale }}/land/agent-orchestration-poc/">Try it in a repository →</a></p>
+        </article>
+        <article class="featured-work-card">
+            <p class="eyebrow">Engineering foundation</p>
+            <h3>Tequila Framework</h3>
+            <p>The JavaScript architecture beneath my current products and sites.</p>
+            <p><a href="https://teqfw.com/" target="_blank" rel="noopener">Explore TeqFW →</a></p>
+        </article>
+        <article class="featured-work-card">
+            <p class="eyebrow">In development</p>
+            <h3>Alarisa</h3>
+            <p>A private digital counterpart for maintaining context and coordinating agent work.</p>
+            <p><a href="/{{ locale }}/projects/alarisa.html">Meet Alarisa →</a></p>
+        </article>
+    </div>
+</section>
+
+<div class="archive-heading">
+    <h2>Project archive</h2>
+    <p>Products, utilities, client systems, and experiments from 2016 to the present.</p>
+</div>
+<div class="project-archive">
 <div class="card">
     <h2>Alarisa</h2>
     <p>A private digital counterpart in development: a tool for keeping personal context and work continuous while
@@ -24,7 +54,7 @@
     <h2>TG-WA Blog Post</h2>
     <p><strong>Start date:</strong> February 2026</p>
     <p><strong>Description:</strong> A Node.js CLI app built in one day in collaboration with the Codex agent using the
-        ADSM (Agent Driven Software Management) methodology. After startup, the app fetches the latest post from a
+        ADSM (Agent-Driven Software Management) methodology. After startup, the app fetches the latest post from a
         Russian-language Telegram channel, translates it into English and Spanish, and automatically publishes the
         translations to the corresponding channels. The project serves as a practical validation of splitting ADSM’s
         cognitive context into seven standard levels for documentation and development management.</p>
@@ -279,6 +309,7 @@
     </ul>
     <p><strong>Website:</strong> <a href="https://santegra.com/" target="_blank">santegra.com</a></p>
     <p><strong>Repository:</strong> private</p>
+</div>
 </div>
 
 {% endblock %}

@@ -1,324 +1,134 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}GitHub Flows — hablar de conexión y piloto — Alex Gusev{% endblock %}
+{% block title %}Contactar con Alex Gusev — GitHub Flows y sistemas con agentes de IA{% endblock %}
+{% block description %}Hablemos de un piloto con GitHub Flows, un despliegue o un flujo controlado con agentes de IA con el ingeniero de sistemas Alex Gusev.{% endblock %}
 
 {% block content %}
-<div class="card hero">
-    <p class="eyebrow">Contacto comercial</p>
-    <h1>GitHub Flows: conexión, despliegue y ajuste de los flujos de trabajo</h1>
-    <p class="lead">
-        Si quieres <a href="/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html">conectar agentes de IA</a> a tu proceso en GitHub y ver cómo funciona ese flujo en tu repositorio,
-        empieza con un piloto pequeño. Aquí tienes la oferta actual en tres pasos y los datos de contacto.
-    </p>
-</div>
+<div class="contact-page">
+    <section class="contact-hero">
+        <div class="contact-intro">
+            <p class="eyebrow">Hablemos de tu proyecto</p>
+            <h1>Partamos de un flujo de trabajo real.</h1>
+            <p class="lead">Si quieres conectar agentes de IA con GitHub sin perder el control del proceso, cuéntame
+                qué debería ocurrir en tu repositorio. Podemos empezar con un piloto pequeño y utilizar sus resultados
+                para decidir el siguiente paso.</p>
+            <p><a href="/{{ locale }}/land/agent-orchestration-poc/">Ver el piloto por 50 € →</a></p>
+        </div>
+        <aside class="contact-direct" aria-labelledby="direct-contact-title">
+            <h2 id="direct-contact-title">Escríbeme directamente</h2>
+            <p>El correo es mejor para dar contexto; Telegram, para un primer intercambio rápido.</p>
+            <ul class="contact-list">
+                <li><a href="mailto:alex@wiredgeese.com"><img src="/img/contacts/email.svg" alt=""/><span>alex@wiredgeese.com</span></a></li>
+                <li><a href="https://t.me/wiredgeese" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/telegram.svg" alt=""/><span>@wiredgeese</span></a></li>
+                <li><a href="https://wa.me/37129181801" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/whatsapp.svg" alt=""/><span>+371 29181801</span></a></li>
+                <li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/linkedin.svg" alt=""/><span>LinkedIn</span></a></li>
+            </ul>
+        </aside>
+    </section>
 
-<section class="card">
-    <h2>Oferta actual</h2>
-    <div class="service-grid">
-        <article class="service-card">
-            <h3>Paso 1. Conexión de prueba</h3>
-            <p>
-                Conecto tu repositorio a mi infraestructura para que veas GitHub Flows actuar sobre actividad real
-                dentro de GitHub.
-            </p>
-            <p><strong>€50</strong> por la conexión y la prueba inicial.</p>
-            <p class="service-meta">Hasta 5 incidencias de prueba con mi suscripción Codex Plus.</p>
-        </article>
-        <article class="service-card">
-            <h3>Paso 2. Despliegue en tu VPS</h3>
-            <p>
-                Despliego la misma infraestructura en tu VPS, conecto tus cuentas y pongo el flujo en marcha en tu
-                entorno.
-            </p>
-            <p><strong>Desde €150</strong> por un despliegue básico.</p>
-            <p class="service-meta">El siguiente paso natural cuando la prueba funciona.</p>
-        </article>
-        <article class="service-card">
-            <h3>Paso 3. Configuración del flujo de trabajo</h3>
-            <p>
-                Te ayudo a definir las rutas de eventos en GitHub, elegir los pasos del proceso y montar flujos de trabajo
-                prácticos con agentes.
-            </p>
-            <p><strong>€35 / hora</strong> por consultoría y trabajo de seguimiento.</p>
-            <p class="service-meta">Para ajustar el sistema después de la conexión y el despliegue.</p>
-        </article>
-    </div>
-    <p class="note">
-        Este es el formato de trabajo actual. Primero ves el resultado en tu repositorio y después decides si quieres
-        avanzar al siguiente paso.
-    </p>
-</section>
-
-<section class="card">
-    <h2>Qué te da el primer paso</h2>
-    <ul class="scope-list">
-        <li>una prueba pequeña, sin entrar de lleno en el proyecto;</li>
-        <li>un repositorio conectado a mi infraestructura;</li>
-        <li>hasta 5 incidencias de prueba u otras acciones acordadas con mi suscripción Codex Plus;</li>
-        <li>un resultado visible dentro de GitHub: comentario, etiqueta, incidencia, PR u otra huella del flujo de trabajo;</li>
-        <li>una idea clara de si merece la pena mover la infraestructura a tu VPS;</li>
-        <li>si la prueba da el resultado esperado, el siguiente paso es el despliegue en tu entorno y la configuración de tus propios flujos de trabajo.</li>
-    </ul>
-</section>
-
-<section class="card">
-    <h2>Qué incluir en el primer mensaje</h2>
-    <ul class="scope-list">
-        <li>si tu repositorio es público o privado;</li>
-        <li>qué quieres probar exactamente con GitHub Flows;</li>
-        <li>si estás listo para empezar con una prueba;</li>
-        <li>si te interesa solo el piloto o también el despliegue en VPS y la configuración de los flujos de trabajo.</li>
-    </ul>
-</section>
-
-<div class="contacts-grid">
-    <article class="card links">
-        <h2>Contacto directo</h2>
-        <ul>
-            <li>
-                <a href="mailto:alex@wiredgeese.com">
-                    <img src="/img/contacts/email.svg" alt="Email">
-                    <span>alex@wiredgeese.com</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://t.me/wiredgeese" target="_blank" rel="noopener noreferrer">
-                    <img src="/img/contacts/telegram.svg" alt="Telegram">
-                    <span>@wiredgeese</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://wa.me/37129181801" target="_blank" rel="noopener noreferrer">
-                    <img src="/img/contacts/whatsapp.svg" alt="WhatsApp">
-                    <span>+371 29181801</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/" target="_blank" rel="noopener noreferrer">
-                    <img src="/img/contacts/linkedin.svg" alt="LinkedIn">
-                    <span>LinkedIn</span>
-                </a>
-            </li>
-        </ul>
-    </article>
-
-    <article class="card links">
-        <h2>Dónde seguir mi trabajo</h2>
-        <ul>
-            <li><a href="https://github.com/flancer64" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/github.svg" alt="GitHub"><span>GitHub</span></a></li>
-            <li><a href="https://flancer32.com/" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/medium.svg" alt="Blog"><span>Blog</span></a></li>
-            <li><a href="https://t.me/alexgusev_lab_en" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (EN)"><span>Canal de Telegram (EN)</span></a></li>
-            <li><a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (ES)"><span>Canal de Telegram (ES)</span></a></li>
-            <li><a href="https://t.me/alexgusev_lab_ru" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/telegram.svg" alt="Telegram: Alex Gusev Lab (RU)"><span>Canal de Telegram (RU)</span></a></li>
-            <li><a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/doc.svg" alt="Libro en Leanpub"><span>Libro en Leanpub</span></a></li>
-        </ul>
-    </article>
-
-    <article class="card links">
-        <h2>Perfiles adicionales</h2>
-        <ul>
-            <li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/upwork.svg" alt="Upwork"><span>Upwork</span></a></li>
-            <li><a href="https://www.fiverr.com/users/wiredgeese" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/fiverr.svg" alt="Fiverr"><span>Fiverr</span></a></li>
-            <li><a href="https://stackoverflow.com/users/4073821/alex-gusev" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/stackoverflow.svg" alt="StackOverflow"><span>StackOverflow</span></a></li>
-        </ul>
-    </article>
-</div>
-
-<section class="card">
-    <h2>Si prefieres revisar primero el método</h2>
-    <p>
-        El libro describe el enfoque ADSM que sustenta este trabajo. Ayuda a entender la lógica del desarrollo
-        con agentes de IA y el papel que juegan los flujos de trabajo de GitHub.
-    </p>
-    <p class="action-links">
-        <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer">Edición en inglés</a>
-        <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-ru/" target="_blank" rel="noopener noreferrer">Edición en ruso</a>
-    </p>
-</section>
-
-<section class="card">
-    <h2>Base técnica</h2>
-    <div class="block">
-        <img src="/img/avatar.jpg" alt="Avatar"
-             style="width: 100px; float: left; margin: 14px 15px 0 0; border-radius: 10%;">
-        <p>
-            Alex Gusev es un desarrollador web independiente en Letonia con más de 25 años de experiencia en
-            desarrollo web, centrado en JavaScript / Node.js, con experiencia en sistemas en producción y trabajo continuo en
-            ADSM, GitHub Flows, Tequila Framework y pruebas públicas de que los flujos de trabajo con agentes de IA funcionan
-            en la práctica.
+    <section class="contact-section">
+        <div class="section-heading">
+            <p class="eyebrow">Un recorrido práctico</p>
+            <h2>Empieza por algo pequeño y lleva después el sistema a tu entorno.</h2>
+        </div>
+        <div class="service-grid">
+            <article class="service-card">
+                <span class="product-index">Paso 01</span>
+                <h3>Piloto en un repositorio</h3>
+                <p>Conecto un repositorio a mi entorno, ejecuto hasta cinco tareas de prueba acordadas y entrego resultados visibles en GitHub.</p>
+                <p class="price">50 €</p>
+            </article>
+            <article class="service-card">
+                <span class="product-index">Paso 02</span>
+                <h3>Despliegue en tu VPS</h3>
+                <p>Despliego la misma infraestructura controlada en tu entorno y conecto tus propias cuentas.</p>
+                <p class="price">Desde 150 €</p>
+            </article>
+            <article class="service-card">
+                <span class="product-index">Paso 03</span>
+                <h3>Diseño de flujos</h3>
+                <p>Definimos juntos las rutas de eventos, los límites de los agentes, las comprobaciones y los siguientes flujos útiles.</p>
+                <p class="price">35 € por hora</p>
+            </article>
+        </div>
+        <p class="action-links">
+            <a class="button-primary" href="/{{ locale }}/land/agent-orchestration-poc/">Ver el alcance del piloto</a>
+            <a class="button-secondary" href="mailto:alex@wiredgeese.com?subject=Piloto%20GitHub%20Flows">Escríbeme para hablar del piloto</a>
         </p>
-    </div>
-    <div class="block">
-        <h3>Foco técnico</h3>
-        <p>
-            JavaScript, Node.js, HTML/CSS, JSDoc, Vue, PostgreSQL, MariaDB, SQLite, GitHub, Docker y servidores Linux.
-        </p>
-    </div>
-</section>
+    </section>
 
-<section class="card">
-    <h2>Datos del negocio</h2>
-    <div class="table">
-        <div>Nombre:</div>
-        <div>F. Lancer</div>
-        <div>Número de registro:</div>
-        <div>40103303120 <span class="since">(desde 29.06.2010)</span></div>
-        <div>ID SEPA:</div>
-        <div>LV82ZZZ40103303120</div>
-        <div>Número de IVA:</div>
-        <div>LV40103303120 <span class="since">(desde 27.09.2023)</span></div>
-        <div>Cuenta bancaria:</div>
-        <div>LV83HABA0551028650868</div>
-    </div>
-</section>
+    <section class="contact-section">
+        <div class="next-step-grid">
+            <div>
+                <h2>Qué conviene incluir</h2>
+                <ul>
+                    <li>si el repositorio es público o privado;</li>
+                    <li>qué evento y qué resultado quieres probar;</li>
+                    <li>si buscas solo el piloto o también el despliegue;</li>
+                    <li>qué límites de acceso, privacidad o ejecución existen.</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Qué recibirás</h2>
+                <ul>
+                    <li>una prueba acotada sin comprometerte con un proyecto grande;</li>
+                    <li>resultados visibles en GitHub y datos de ejecución;</li>
+                    <li>una valoración técnica breve;</li>
+                    <li>una recomendación concreta para el siguiente paso.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<style>
-    .hero {
-        text-align: center;
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
+    <section class="contact-section">
+        <div class="section-heading">
+            <p class="eyebrow">Experiencia y confianza</p>
+            <h2>Conoce mi trabajo antes de escribirme.</h2>
+        </div>
+        <div class="support-grid">
+            <article class="support-card">
+                <h3>Proyectos y publicaciones</h3>
+                <ul>
+                    <li><a href="https://github.com/flancer64" target="_blank" rel="noopener noreferrer">Perfil de GitHub</a></li>
+                    <li><a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener noreferrer">Canal de Telegram en español</a></li>
+                    <li><a href="https://t.me/alexgusev_lab_en" target="_blank" rel="noopener noreferrer">Canal de Telegram en inglés</a></li>
+                    <li><a href="https://t.me/alexgusev_lab_ru" target="_blank" rel="noopener noreferrer">Canal de Telegram en ruso</a></li>
+                    <li><a href="https://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer">Libro Agent-Driven Development</a></li>
+                </ul>
+            </article>
+            <article class="support-card">
+                <h3>Perfiles profesionales</h3>
+                <ul>
+                    <li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497" target="_blank" rel="noopener noreferrer">Upwork</a></li>
+                    <li><a href="https://www.fiverr.com/users/wiredgeese" target="_blank" rel="noopener noreferrer">Fiverr</a></li>
+                    <li><a href="https://stackoverflow.com/users/4073821/alex-gusev" target="_blank" rel="noopener noreferrer">Stack Overflow</a></li>
+                    <li><a href="https://flancer32.com/" target="_blank" rel="noopener noreferrer">Archivo del blog anterior</a></li>
+                </ul>
+            </article>
+        </div>
+    </section>
 
-    .eyebrow {
-        margin-bottom: 0.5rem;
-        font-size: 0.95rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #005a40;
-    }
+    <details class="disclosure">
+        <summary>Trayectoria técnica</summary>
+        <div class="disclosure-content">
+            <p>Soy desarrollador independiente en Letonia y llevo más de 25 años trabajando en ingeniería web. Hoy me
+                centro en arquitectura JavaScript y Node.js, infraestructura Linux, TeqFW, ADSM y flujos controlados con agentes.</p>
+            <p><strong>Tecnologías:</strong> JavaScript, Node.js, HTML/CSS, JSDoc, Vue, PostgreSQL, MariaDB, SQLite,
+                GitHub, Docker y servidores Linux.</p>
+        </div>
+    </details>
 
-    .lead {
-        max-width: 700px;
-        margin: 0 auto 1rem;
-        font-size: 1.05rem;
-    }
-
-    .service-grid,
-    .contacts-grid {
-        display: grid;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-    }
-
-    .service-card {
-        padding: 1rem;
-        border: 1px solid #d8e6df;
-        border-radius: 10px;
-        background: #fbfdfc;
-    }
-
-    .service-card h3 {
-        margin-top: 0;
-    }
-
-    .service-meta {
-        margin-bottom: 0;
-        font-size: 0.92rem;
-        color: #47685d;
-    }
-
-    .note {
-        margin-top: 1rem;
-        font-size: 0.95rem;
-    }
-
-    .scope-list {
-        list-style: disc;
-        padding-left: 1.25rem;
-        margin-bottom: 1rem;
-    }
-
-    .scope-list li {
-        display: list-item;
-        align-items: initial;
-    }
-
-    .links ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .links ul li {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0.75rem;
-    }
-
-    .links ul li img {
-        width: 28px;
-        height: 28px;
-        margin-right: 0.75rem;
-        border-radius: 50%;
-        background-color: #fff;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .links ul li a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: inherit;
-        transition: transform 0.2s ease, color 0.2s ease;
-    }
-
-    .links ul li a:hover {
-        transform: scale(1.05);
-        color: #007b5e;
-    }
-
-    .action-links {
-        margin-top: 1.25rem;
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .action-links a {
-        display: inline-block;
-        padding: 0.65rem 1.1rem;
-        border-radius: 6px;
-        border: 1px solid #007b5e;
-    }
-
-    .table {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 0.5rem 1rem;
-        font-size: 0.95rem;
-    }
-
-    .since {
-        font-size: 0.85rem;
-        color: #666;
-    }
-
-    .block {
-        margin-bottom: 1.25rem;
-        overflow: hidden;
-    }
-
-    .block:last-child {
-        margin-bottom: 0;
-    }
-
-    .card h3 {
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
-        font-size: 1.25rem;
-        color: #007b5e;
-    }
-
-    @media (min-width: 769px) {
-        .service-grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .contacts-grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-</style>
+    <details class="disclosure">
+        <summary>Datos de la empresa</summary>
+        <div class="disclosure-content">
+            <dl class="business-details">
+                <dt>Razón social</dt><dd>F. Lancer</dd>
+                <dt>Número de registro</dt><dd>40103303120 · desde el 29 de junio de 2010</dd>
+                <dt>SEPA ID</dt><dd>LV82ZZZ40103303120</dd>
+                <dt>Número de IVA</dt><dd>LV40103303120 · desde el 27 de septiembre de 2023</dd>
+                <dt>Cuenta bancaria</dt><dd>LV83HABA0551028650868</dd>
+            </dl>
+        </div>
+    </details>
+</div>
 {% endblock %}

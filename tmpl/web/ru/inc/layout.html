@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>{% block title %}Алекс Гусев | AI и мессенджеры, веб-приложения и фреймворки{% endblock %}</title>
-    {# --- SEO Canonical & Alternate URLs --- #}
+    <title>{% block title %}Алекс Гусев — управляемые системы для работы с ИИ-агентами{% endblock %}</title>
+    <meta name="description" content="{% block description %}Независимый системный инженер, автор TeqFW, GitHub Flows и управляемых продуктов с ИИ-агентами.{% endblock %}"/>
+    <meta name="theme-color" content="#f2f5f2"/>
+    {% if isNotFound %}<meta name="robots" content="noindex,follow"/>{% endif %}
+    <meta property="og:site_name" content="Алекс Гусев — Wired Geese"/>
     {% if canonicalUrl %}
         <link rel="canonical" href="{{ canonicalUrl }}">
     {% endif %}
@@ -12,31 +15,29 @@
         {% for lang, url in alternateUrls %}
             <link rel="alternate" hreflang="{{ lang }}" href="{{ url }}">
         {% endfor %}
+        {% if alternateUrls.en %}<link rel="alternate" hreflang="x-default" href="{{ alternateUrls.en }}">{% endif %}
     {% endif %}
+    <link rel="icon" href="/favicon.ico" sizes="any"/>
     <link rel="stylesheet" href="/styles/main.css"/>
     {% block style %}{% endblock %}
+    <script type="module" src="/js/site.js"></script>
     <script type="module" src="/js/comp/zoom-img.js"></script>
     {% block html_head_extra %}{% endblock %}
 </head>
 <body>
+<a class="skip-link" href="#main-content">Перейти к содержанию</a>
 {% include "inc/nav.html" %}
-<main>
+<main class="site-main" id="main-content" tabindex="-1">
     {% block content %}{% endblock %}
-    {% if canonicalUrl and ((canonicalUrl.indexOf('/blog/') !== -1 and not canonicalUrl.endsWith('/blog/')) or (canonicalUrl.indexOf('/library/') !== -1 and not canonicalUrl.endsWith('/library/'))) %}
-    <section class="card" style="margin-top: 1.5rem;">
-        <h2>Обсудить публикацию</h2>
-        <p>
-            Если хотите обсудить этот материал, задать вопрос или продолжить разговор по теме,
-            присоединяйтесь к моему телеграм-каналу.
-        </p>
-        <p>
-            В канале я публикую новые материалы, рабочие заметки и анонсы, а на сайте собираю
-            полные версии текстов и структурированные публикации.
-        </p>
-        <p>
-            <a href="https://t.me/alexgusev_lab_ru" target="_blank" rel="noopener"><strong>Телеграм-канал Alex Gusev Lab (RU)</strong></a>
-        </p>
-    </section>
+    {% if isPublication %}
+    <aside class="discussion-cta">
+        <div>
+            <p class="eyebrow">Продолжить разговор</p>
+            <h2>Есть вопрос или другой взгляд?</h2>
+            <p>Рабочие заметки и новые материалы я публикую в Telegram-канале Alex Gusev Lab.</p>
+        </div>
+        <a href="https://t.me/alexgusev_lab_ru" target="_blank" rel="noopener">Открыть Telegram →</a>
+    </aside>
     {% endif %}
 </main>
 {% include "inc/footer.html" %}

@@ -15,10 +15,16 @@ jobs:
       - name: Check out the repository on the GitHub environment.
         uses: actions/checkout@v3
 
-      - name: Install dependencies and build the project.
+      - name: Install dependencies.
+        run: npm ci --omit=optional
+
+      - name: Validate the site and refresh generated metadata.
         run: |
-          npm install --omit=optional 
-          npm prune --omit=dev
+          npm run sitemap
+          npm test
+
+      - name: Remove development dependencies.
+        run: npm prune --omit=dev
 
       - name: Add application files to the archive.
         uses: montudor/action-zip@v1

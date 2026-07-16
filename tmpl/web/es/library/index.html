@@ -1,13 +1,16 @@
 {% extends "inc/layout.html" %}
 
 {% block title %}Biblioteca — Alex Gusev{% endblock %}
+{% block description %}Ensayos y materiales técnicos de consulta sobre ADSM, TeqFW, desarrollo con agentes y arquitectura de software.{% endblock %}
 
 {% block content %}
 <div class="card">
-    <h1>Mis Pensamientos</h1>
-    <p>Artículos, ensayos y notas — desde ADSM y TeqFW hasta conceptos y metodología.</p>
+    <p class="eyebrow">Biblioteca</p>
+    <h1>Ideas a las que vale la pena volver</h1>
+    <p class="lead">Ensayos y materiales técnicos de consulta sobre ADSM, TeqFW, desarrollo con agentes y arquitectura de software.</p>
 </div>
 
+<div class="library-grid">
 <section class="card">
     <h2>ADSM</h2>
     <ul>
@@ -45,8 +48,9 @@
 <section class="card">
     <h2>TeqFW</h2>
     <ul>
-        <li><a href="/es/library/teqfw/20251224-01-js-vscode-analysis.html">JavaScript en VSCode: lenguaje, herramienta y modelo de análisis</a></li>
-        <li><a href="/es/library/teqfw/20260225-01-deklaratsiya-ne-zavisimostey-dlya-esm.html">Declaración de (No)Dependencias para ESM</a></li>
+        <li><a href="/es/library/teqfw/20251224-01-js-vscode-analysis.html">JavaScript en VS Code: lenguaje, herramienta y modelo de análisis</a></li>
+        <li><a href="/es/library/teqfw/20260225-01-deklaratsiya-ne-zavisimostey-dlya-esm.html">Declaración de (no) dependencias para ESM</a></li>
     </ul>
 </section>
+</div>
 {% endblock %}

@@ -1,213 +1,125 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}GitHub Flows, Tequila Framework, AI-generated websites — Alex Gusev{% endblock %}
+{% block title %}Alex Gusev — controlled systems for working with AI agents{% endblock %}
+{% block description %}I build controlled GitHub workflows, TeqFW systems, and agent-driven products that keep people in charge.{% endblock %}
 
 {% block content %}
-<div class="card hero">
-    <p class="eyebrow">Featured Offer / GitHub Flows</p>
-    <h1>Controlled GitHub workflows with AI agents</h1>
-    <p class="lead">
-        I set up GitHub Flows as a <a href="/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html">controlled workflow</a>
-        on top of GitHub: repository events trigger AI agents, checks, and publication steps. You can see it in the
-        public GitHub Flows demo or try it on your own repository through a €50 trial setup.
-    </p>
-    <nav class="hero-links">
-        <a class="button-primary" href="/{{ locale }}/land/agent-orchestration-poc/">€50 trial setup</a>
-        <a class="button-secondary" href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Public GitHub Flows demo</a>
-    </nav>
+<div class="home-page">
+    <section class="card hero--home">
+        <div class="hero-copy">
+            <p class="eyebrow">Independent systems engineer · Latvia</p>
+            <h1>Controlled systems for work with AI agents.</h1>
+            <p class="lead">I build practical infrastructure where intent becomes bounded agent work and every result
+                stays observable. Start with GitHub Flows on a real repository, then decide how far to take it.</p>
+            <div class="hero-links">
+                <a class="button-primary" href="/{{ locale }}/land/agent-orchestration-poc/">Start a €50 repository pilot</a>
+                <a class="button-secondary" href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">See the public demo</a>
+            </div>
+            <ul class="proof-strip" aria-label="Experience and approach">
+                <li>25+ years in web engineering</li>
+                <li>JavaScript and Node.js</li>
+                <li>Self-hosted by design</li>
+                <li>Multilingual delivery</li>
+            </ul>
+        </div>
+        <div class="system-map" aria-label="A controlled GitHub Flows process">
+            <p class="system-map-label">GitHub Flows / controlled path</p>
+            <div class="system-flow">
+                <div class="system-node"><span>01</span><strong>Intent and boundary</strong></div>
+                <div class="system-connector" aria-hidden="true"></div>
+                <div class="system-node"><span>02</span><strong>GitHub event</strong></div>
+                <div class="system-connector" aria-hidden="true"></div>
+                <div class="system-node"><span>03</span><strong>Bounded agent action</strong></div>
+                <div class="system-connector" aria-hidden="true"></div>
+                <div class="system-node"><span>04</span><strong>Observable result</strong></div>
+            </div>
+            <code>event → agent reaction → new observable event</code>
+        </div>
+    </section>
+
+    <section class="home-section profile-split">
+        <div class="profile-card">
+            <img src="/img/avatar.jpg" alt="Alex Gusev in the mountains" width="640" height="480"/>
+            <div class="profile-meta">
+                <strong>Alex Gusev</strong>
+                <span>Engineer · product builder · author</span>
+            </div>
+        </div>
+        <div class="profile-copy">
+            <p class="eyebrow">Who I am</p>
+            <h2>Senior engineering without a black box.</h2>
+            <p>I am an independent web developer and systems engineer. I work at the intersection of JavaScript
+                architecture, self-managed infrastructure, and agent-driven development.</p>
+            <p>My products are also my working tools: I use TeqFW to build them, ADSM to maintain their context, and
+                GitHub Flows to make agent activity bounded and visible.</p>
+            <p><a href="/{{ locale }}/about.html">More about my experience and approach →</a></p>
+        </div>
+    </section>
+
+    <section class="home-section">
+        <div class="section-heading">
+            <p class="eyebrow">What I build</p>
+            <h2>One engineering base, three practical products.</h2>
+            <p>Each product solves a different part of the same problem: keeping digital work structured while agents
+                take on more of the execution.</p>
+        </div>
+        <div class="product-grid">
+            <article class="product-card product-card--featured">
+                <span class="product-index">01 / Current focus</span>
+                <h3>GitHub Flows</h3>
+                <p>Controlled workflows triggered by GitHub events. Agents, checks, and publication steps become one
+                    observable process instead of a hidden automation chain.</p>
+                <p class="product-links">
+                    <a href="/{{ locale }}/land/agent-orchestration-poc/">€50 repository pilot</a>
+                    <a href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Public demo</a>
+                    <a href="/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html">How the model works</a>
+                </p>
+            </article>
+            <article class="product-card">
+                <span class="product-index">02 / Engineering base</span>
+                <h3>Tequila Framework</h3>
+                <p>My modular JavaScript platform and architectural foundation for systems that must remain legible,
+                    replaceable, and under control as they grow.</p>
+                <p><a href="https://teqfw.com/ecosystem/philosophy" target="_blank" rel="noopener noreferrer">Explore the TeqFW philosophy →</a></p>
+            </article>
+            <article class="product-card">
+                <span class="product-index">03 / Applied product</span>
+                <h3>AI-generated multilingual sites</h3>
+                <p>Fast, lightweight content sites on TeqFW and TeqCMS, with pages, translations, and publication
+                    maintained through an agent-driven workflow.</p>
+                <p><a href="https://cms.teqfw.com/en/" target="_blank" rel="noopener noreferrer">See a working example →</a></p>
+            </article>
+        </div>
+    </section>
+
+    <section class="home-section method-split">
+        <div class="method-copy">
+            <p class="eyebrow">How I work</p>
+            <h2>Agents need context, limits, and evidence.</h2>
+            <p>ADSM is my method for keeping product meaning, architecture, constraints, and verification available to
+                both people and agents. It turns agent-driven work into a managed engineering process.</p>
+            <p>The book <em>Agent-Driven Development</em> explains the method; the projects and publications show it in practice.</p>
+            <p class="action-links">
+                <a href="https://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer">Read the English edition</a>
+                <a href="/{{ locale }}/projects.html">Browse projects</a>
+                <a href="/{{ locale }}/library/">Explore the library</a>
+            </p>
+        </div>
+        <ul class="method-points">
+            <li>Intent remains with the person.</li>
+            <li>Context survives beyond one chat.</li>
+            <li>Authority is explicit and bounded.</li>
+            <li>Results are checked and observable.</li>
+        </ul>
+    </section>
+
+    <section class="cta-panel">
+        <div>
+            <p class="eyebrow">A small first step</p>
+            <h2>Try one controlled agent workflow on your repository.</h2>
+            <p>Up to five test tasks, visible GitHub results, execution evidence, and a concise engineering recommendation.</p>
+        </div>
+        <a class="button-primary" href="/{{ locale }}/land/agent-orchestration-poc/">Start the €50 pilot →</a>
+    </section>
 </div>
-
-<section class="card">
-    <h2>About me</h2>
-    <div class="about-block">
-        <img src="/img/avatar.jpg" alt="Alex Gusev" class="about-photo"/>
-        <p>
-            I am Alex Gusev, an independent web developer from Latvia. My focus is JavaScript architecture,
-            self-managed infrastructure, and agent-driven processes. I use these tools in my own products:
-            Tequila Framework, GitHub Flows, AI-generated websites built on TeqFW, and this website.
-        </p>
-    </div>
-</section>
-
-<section class="card">
-    <h2>Key products</h2>
-    <div class="product-grid">
-        <article class="product-card">
-            <h3>Tequila Framework</h3>
-            <p>
-                My core engineering product: a JavaScript platform and architectural foundation for systems that need
-                to keep a clear structure as they grow.
-            </p>
-            <p><a href="https://teqfw.com/ecosystem/philosophy" target="_blank" rel="noopener noreferrer">Tequila Framework philosophy</a></p>
-        </article>
-        <article class="product-card">
-            <h3>GitHub Flows</h3>
-            <p>
-                My current featured offer: controlled workflows around GitHub events, where tasks, checks, and agent
-                reactions come together as an observable process. There are two entry points for a first look:
-                a public demo to see the mechanism and a small PoC on your own repository.
-            </p>
-            <p class="product-links">
-                <a href="/{{ locale }}/land/agent-orchestration-poc/">€50 trial setup</a>
-                <a href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Public GitHub Flows demo</a>
-                <a href="/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html">How GitHub Flows works</a>
-            </p>
-        </article>
-        <article class="product-card">
-            <h3>AI-generated SSG websites built on TeqFW</h3>
-            <p>
-                TeqFW websites with page generation and translation handled by an AI agent. Examples include
-                <code>wiredgeese.com</code> in three languages and <code>teqfw.com</code> with demo ticket handling
-                through GitHub Flows.
-            </p>
-            <p><a href="https://cms.teqfw.com/en/" target="_blank" rel="noopener noreferrer">English example</a></p>
-        </article>
-    </div>
-</section>
-
-<section class="card">
-    <h2>Method layer and book</h2>
-    <p>
-        I use ADSM as a way to give agent-based work context, roles, constraints, verification, and an evidence
-        trail. A concise overview of the approach is available in the book <em>Agent-Driven Development</em>.
-    </p>
-    <p class="action-links">
-        <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-ru/" target="_blank" rel="noopener noreferrer">Russian edition</a>
-        <a href="http://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer">English edition</a>
-    </p>
-</section>
-
-<section class="card hero cta-card">
-    <h2>Start with a public demo or a small PoC</h2>
-    <p>
-        You can start with the public demo to see the mechanism in action, or move straight to a small PoC on your
-        own repository: up to 5 test tasks, visible results, execution logs, and an engineering recommendation for
-        the next step.
-    </p>
-    <p class="action-links centered">
-        <a class="button-primary" href="/{{ locale }}/land/agent-orchestration-poc/">€50 trial setup</a>
-        <a class="button-secondary" href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Public GitHub Flows demo</a>
-    </p>
-</section>
-
-<style>
-    .hero {
-        text-align: center;
-        padding-top: 1.5rem;
-        padding-bottom: 2rem;
-    }
-
-    .eyebrow {
-        margin-bottom: 0.5rem;
-        font-size: 0.95rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #005a40;
-    }
-
-    .lead {
-        max-width: 760px;
-        margin: 0 auto;
-        font-size: 1.1rem;
-    }
-
-    .hero-links,
-    .action-links {
-        margin-top: 1.5rem;
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .hero-links {
-        background: transparent;
-        border: 0;
-        box-shadow: none;
-        padding: 0;
-        width: auto;
-    }
-
-    .centered {
-        justify-content: center;
-    }
-
-    .hero-links a,
-    .action-links a {
-        display: inline-block;
-        padding: 0.65rem 1.1rem;
-        border-radius: 6px;
-        border: 1px solid #007b5e;
-    }
-
-    .button-primary {
-        background: #007b5e;
-        color: #fff;
-    }
-
-    .button-primary:hover {
-        color: #fff;
-        background: #005a40;
-    }
-
-    .button-secondary {
-        background: #fff;
-        color: #007b5e;
-    }
-
-    .button-secondary:hover {
-        background: #e6f2ef;
-    }
-
-    .product-grid {
-        margin-bottom: 1.5rem;
-    }
-
-    .about-block {
-        display: grid;
-        gap: 1rem;
-        align-items: start;
-    }
-
-    .about-photo {
-        width: 110px;
-        border-radius: 10%;
-    }
-
-    .product-card {
-        margin-bottom: 1rem;
-        padding: 1rem;
-        border: 1px solid #d8e6df;
-        border-radius: 10px;
-        background: #fbfdfc;
-    }
-
-    .product-card h3 {
-        margin-top: 0;
-        font-size: 1.2rem;
-    }
-
-    .product-links {
-        display: flex;
-        flex-direction: column;
-        gap: 0.45rem;
-    }
-
-    .cta-card {
-        padding-bottom: 1.5rem;
-    }
-
-    @media (min-width: 769px) {
-        .about-block {
-            grid-template-columns: 110px 1fr;
-        }
-
-        .product-grid {
-            display: grid;
-            gap: 1rem;
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-</style>
 {% endblock %}

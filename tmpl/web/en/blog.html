@@ -1,13 +1,18 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Events and Publications{% endblock %}
+{% block title %}Journal — Alex Gusev{% endblock %}
+{% block description %}Project updates, working notes, and publication announcements from Alex Gusev.{% endblock %}
 
 {% block html_head_extra %}
 <link rel="stylesheet" href="/styles/blog.css">
 {% endblock %}
 
 {% block content %}
-<h1>Events and Publications</h1>
+<div class="card">
+    <p class="eyebrow">Journal</p>
+    <h1>Notes from active work</h1>
+    <p class="lead">Project updates, experiments, and short publication announcements. Longer essays and technical reference material live in the <a href="/{{ locale }}/library/">library</a>.</p>
+</div>
 
 <div class="blog-container">
     <ul class="blog-list">

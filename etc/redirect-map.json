@@ -1,4 +1,7 @@
 {
+  "/contacts.html": "/contact.html",
+  "/posts.html": "/about.html",
+  "/products.html": "/projects.html",
   "/blog/2022/04/07-01-joined-select-knex.html": "/blog/2022/20220407-01-joined-select-knex.html",
   "/blog/2022/05/08-01-export-as-brick.html": "/blog/2022/20220508-01-export-as-brick.html",
   "/blog/2024/09/25-01-launch-the-site.html": "/blog/2024/20240925-01-launch-the-site.html",

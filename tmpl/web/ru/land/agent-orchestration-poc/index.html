@@ -188,13 +188,16 @@
         </label>
         <div class="wide form-actions">
             <button type="submit" class="button-primary">Отправить запрос</button>
-            <div class="spinner" id="form-spinner" hidden></div>
+            <div class="spinner" id="form-spinner" role="status" aria-live="polite" hidden>
+                <span class="visually-hidden">Запрос отправляется…</span>
+            </div>
         </div>
+        <p class="form-message wide" id="form-message" role="alert" tabindex="-1" hidden></p>
     </form>
-    <dialog class="popup" id="form-popup">
+    <dialog class="popup" id="form-popup" aria-labelledby="form-popup-title">
         <div class="popup-body">
             <p class="popup-icon">✓</p>
-            <p class="popup-title">Запрос отправлен</p>
+            <p class="popup-title" id="form-popup-title">Запрос отправлен</p>
             <p class="popup-text">Спасибо! Я свяжусь с вами в ближайшее время.</p>
             <button class="button-primary popup-close" id="popup-close" type="button">Закрыть</button>
         </div>
@@ -480,8 +483,12 @@
         const btn = form.querySelector('button[type="submit"]');
         const spinner = document.getElementById('form-spinner');
         const popup = document.getElementById('form-popup');
+        const message = document.getElementById('form-message');
         btn.disabled = true;
         spinner.hidden = false;
+        form.setAttribute('aria-busy', 'true');
+        message.hidden = true;
+        message.textContent = '';
         try {
             const res = await fetch(form.action, {
                 method: 'POST',
@@ -493,13 +500,18 @@
                 form.reset();
                 popup.showModal();
             } else {
-                alert('Ошибка: ' + (data.error || 'неизвестная ошибка'));
+                message.textContent = 'Не удалось отправить запрос: ' + (data.error || 'неизвестная ошибка') + '. Проверьте форму или напишите мне по электронной почте.';
+                message.hidden = false;
+                message.focus();
             }
         } catch (err) {
-            alert('Ошибка соединения: ' + err.message);
+            message.textContent = 'Ошибка соединения: ' + err.message + '. Попробуйте снова или напишите мне по электронной почте.';
+            message.hidden = false;
+            message.focus();
         } finally {
             btn.disabled = false;
             spinner.hidden = true;
+            form.setAttribute('aria-busy', 'false');
         }
     });
     document.getElementById('popup-close')?.addEventListener('click', () => {

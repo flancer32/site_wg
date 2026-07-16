@@ -1,34 +1,43 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Projects — Alarisa{% endblock %}
+{% block title %}Alarisa — private digital counterpart{% endblock %}
+{% block description %}Alarisa is a private digital counterpart in development for maintaining context and coordinating controlled work with AI agents.{% endblock %}
 
 {% block content %}
-<div class="card">
-    <h1>Alarisa</h1>
+<article class="card project-detail">
+    <header class="project-detail-hero">
+        <img src="/img/projects/alarisa/avatar.webp" alt="Alarisa avatar" width="512" height="512"/>
+        <div>
+            <p class="eyebrow">Personal tool · In development</p>
+            <h1>Alarisa</h1>
+            <p class="lead">A private digital counterpart that preserves context and intent across work with AI agents.</p>
+        </div>
+    </header>
 
-    <img src="/img/projects/alarisa/avatar.webp" alt="Alarisa avatar"
-         style="width: 128px; float: left; margin: 0 1.25rem 1rem 0; border-radius: 50%;"/>
-
-    <p><strong>Alarisa is a private digital counterpart for one person.</strong> It is being developed to help turn
-        intent into coherent digital work — now with AI agents as practical capabilities, not as a replacement for
-        judgment.</p>
-
+    <h2>Why I am building it</h2>
     <p>Digital life is scattered across messages, notes, files, services, and short-lived chats. Context disappears,
-        priorities drift, and an agent that acts without enough understanding can easily do the wrong thing. Alarisa is
-        intended to keep the useful context and continuity around a person’s real work, so that the next step starts
-        from more than a blank prompt.</p>
+        priorities drift, and an agent that acts without enough understanding can easily do the wrong thing. Alarisa
+        is meant to keep useful context and continuity around one person’s real work, so the next step starts with more
+        than a blank prompt.</p>
+
+    <div class="project-principles">
+        <div><strong>One person</strong><span>Each private instance belongs to one person.</span></div>
+        <div><strong>Durable context</strong><span>Confirmed context persists beyond a single conversation.</span></div>
+        <div><strong>Bounded action</strong><span>The person keeps authority over consequential work.</span></div>
+    </div>
 
     <h2>What it is meant to do</h2>
-
     <p>Alarisa will help clarify goals, keep related work connected over time, and prepare or delegate digital tasks
-        through approved tools and agents. The person remains in charge: consequential actions should be visible,
-        bounded, and confirmed when the authority or risk is unclear.</p>
+        through approved tools and agents. Consequential actions should be visible, bounded, and confirmed whenever
+        authority or risk is unclear.</p>
 
     <p>The project is built with my own <strong>TeqFW</strong> framework and <strong>ADSM</strong> methodology. They
         provide the engineering structure and living project context needed to develop an agent-based tool deliberately
         rather than as a collection of prompts.</p>
 
-    <p>Alarisa is still in development. If you are interested in trying it or following its progress, please find a
-        way to reach me on the <a href="/en/contact.html">contacts page</a>.</p>
-</div>
+    <div class="project-status">
+        <strong>Alarisa is still in development.</strong>
+        <p>Interested in trying it or following its progress? <a href="/{{ locale }}/contact.html">Get in touch →</a></p>
+    </div>
+</article>
 {% endblock %}

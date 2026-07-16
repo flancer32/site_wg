@@ -1,13 +1,16 @@
 {% extends "inc/layout.html" %}
 
 {% block title %}Library — Alex Gusev{% endblock %}
+{% block description %}Long-form essays and technical reference material about ADSM, TeqFW, agent-driven work, and software architecture.{% endblock %}
 
 {% block content %}
 <div class="card">
-    <h1>My Thoughts</h1>
-    <p>Articles, essays, and notes — from ADSM and TeqFW to concepts and methodology.</p>
+    <p class="eyebrow">Library</p>
+    <h1>Ideas worth returning to</h1>
+    <p class="lead">Long-form essays and technical reference material about ADSM, TeqFW, agent-driven work, and software architecture.</p>
 </div>
 
+<div class="library-grid">
 <section class="card">
     <h2>ADSM</h2>
     <ul>
@@ -45,8 +48,9 @@
 <section class="card">
     <h2>TeqFW</h2>
     <ul>
-        <li><a href="/en/library/teqfw/20251224-01-js-vscode-analysis.html">JavaScript in VSCode: language, tool, and analysis model</a></li>
+        <li><a href="/en/library/teqfw/20251224-01-js-vscode-analysis.html">JavaScript in VS Code: language, tool, and analysis model</a></li>
         <li><a href="/en/library/teqfw/20260225-01-deklaratsiya-ne-zavisimostey-dlya-esm.html">Declaration of (Non)Dependencies for ESM</a></li>
     </ul>
 </section>
+</div>
 {% endblock %}

@@ -30,7 +30,8 @@
   },
   "scripts": {
     "start": "npx teq-cms web",
-    "test": "node --test test/unit/FormProtection.test.mjs",
+    "test": "node --test test/unit/*.test.mjs",
+    "sitemap": "node bin/generate-sitemap.mjs",
     "translate": "npx teq-cms translate"
   },
   "dependencies": {

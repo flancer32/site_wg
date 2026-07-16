@@ -188,13 +188,16 @@
         </label>
         <div class="wide form-actions">
             <button type="submit" class="button-primary">Send request</button>
-            <div class="spinner" id="form-spinner" hidden></div>
+            <div class="spinner" id="form-spinner" role="status" aria-live="polite" hidden>
+                <span class="visually-hidden">Sending request…</span>
+            </div>
         </div>
+        <p class="form-message wide" id="form-message" role="alert" tabindex="-1" hidden></p>
     </form>
-    <dialog class="popup" id="form-popup">
+    <dialog class="popup" id="form-popup" aria-labelledby="form-popup-title">
         <div class="popup-body">
             <p class="popup-icon">✓</p>
-            <p class="popup-title">Request sent</p>
+            <p class="popup-title" id="form-popup-title">Request sent</p>
             <p class="popup-text">Thank you. I will get back to you soon.</p>
             <button class="button-primary popup-close" id="popup-close" type="button">Close</button>
         </div>
@@ -447,8 +450,12 @@
         const btn = form.querySelector('button[type="submit"]');
         const spinner = document.getElementById('form-spinner');
         const popup = document.getElementById('form-popup');
+        const message = document.getElementById('form-message');
         btn.disabled = true;
         spinner.hidden = false;
+        form.setAttribute('aria-busy', 'true');
+        message.hidden = true;
+        message.textContent = '';
         try {
             const res = await fetch(form.action, {
                 method: 'POST',
@@ -460,13 +467,18 @@
                 form.reset();
                 popup.showModal();
             } else {
-                alert('Error: ' + (data.error || 'unknown error'));
+                message.textContent = 'The request could not be sent: ' + (data.error || 'unknown error') + '. Please review the form or contact me by email.';
+                message.hidden = false;
+                message.focus();
             }
         } catch (err) {
-            alert('Connection error: ' + err.message);
+            message.textContent = 'Connection error: ' + err.message + '. Please try again or contact me by email.';
+            message.hidden = false;
+            message.focus();
         } finally {
             btn.disabled = false;
             spinner.hidden = true;
+            form.setAttribute('aria-busy', 'false');
         }
     });
     document.getElementById('popup-close')?.addEventListener('click', () => {

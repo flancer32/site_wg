@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/routes.md`
 - Template Version: `20260630`
-- Changed: `20260630`
+- Changed: `20260716`
 
 ## Purpose
 
@@ -26,7 +26,7 @@ The locale list is provided by CMS configuration and consumed by the project ada
 The current SSR route families visible in `tmpl/web/{locale}/` are:
 
 - locale home page: `/{locale}/`
-- top-level content pages: `/{locale}/about.html`, `/{locale}/contact.html`, `/{locale}/posts.html`, `/{locale}/projects.html`
+- top-level content pages: `/{locale}/about.html`, `/{locale}/contact.html`, `/{locale}/projects.html`
 - blog index: `/{locale}/blog/` and `/{locale}/blog.html`
 - blog article pages: `/{locale}/blog/{year}/{slug}.html`
 - library article pages: `/{locale}/library/{section}/{slug}.html`
@@ -49,9 +49,18 @@ Visible redirect families include:
 
 - old dated blog URL shapes redirected to the current flat dated slug shape;
 - old `/doc/...` paths redirected into `/library/...`;
-- selected `/post/...` aliases redirected into canonical blog or library targets.
+- selected `/post/...` aliases redirected into canonical blog or library targets;
+- former top-level aliases `/contacts.html`, `/posts.html`, and `/products.html` normalized to `/contact.html`, `/about.html`, and `/projects.html` respectively.
 
 Locale overlay is preserved when redirect targets are applied to locale-prefixed incoming routes.
+
+## Canonical Route Shapes
+
+Public metadata and the generated sitemap use:
+
+- trailing slashes for locale roots and directory indexes such as `/blog/`, `/library/`, and `/land/agent-orchestration-poc/`;
+- `.html` for standalone pages and content-detail pages;
+- the same canonical route shape across all three locale branches.
 
 ## Non-HTML Boundary
 

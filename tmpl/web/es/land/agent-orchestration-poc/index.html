@@ -188,13 +188,16 @@
         </label>
         <div class="wide form-actions">
             <button type="submit" class="button-primary">Enviar solicitud</button>
-            <div class="spinner" id="form-spinner" hidden></div>
+            <div class="spinner" id="form-spinner" role="status" aria-live="polite" hidden>
+                <span class="visually-hidden">Enviando la solicitud…</span>
+            </div>
         </div>
+        <p class="form-message wide" id="form-message" role="alert" tabindex="-1" hidden></p>
     </form>
-    <dialog class="popup" id="form-popup">
+    <dialog class="popup" id="form-popup" aria-labelledby="form-popup-title">
         <div class="popup-body">
             <p class="popup-icon">✓</p>
-            <p class="popup-title">Solicitud enviada</p>
+            <p class="popup-title" id="form-popup-title">Solicitud enviada</p>
             <p class="popup-text">Gracias. Me pondré en contacto contigo pronto.</p>
             <button class="button-primary popup-close" id="popup-close" type="button">Cerrar</button>
         </div>
@@ -447,8 +450,12 @@
         const btn = form.querySelector('button[type="submit"]');
         const spinner = document.getElementById('form-spinner');
         const popup = document.getElementById('form-popup');
+        const message = document.getElementById('form-message');
         btn.disabled = true;
         spinner.hidden = false;
+        form.setAttribute('aria-busy', 'true');
+        message.hidden = true;
+        message.textContent = '';
         try {
             const res = await fetch(form.action, {
                 method: 'POST',
@@ -460,13 +467,18 @@
                 form.reset();
                 popup.showModal();
             } else {
-                alert('Error: ' + (data.error || 'error desconocido'));
+                message.textContent = 'No se pudo enviar la solicitud: ' + (data.error || 'error desconocido') + '. Revisa el formulario o escríbeme por correo electrónico.';
+                message.hidden = false;
+                message.focus();
             }
         } catch (err) {
-            alert('Error de conexión: ' + err.message);
+            message.textContent = 'Error de conexión: ' + err.message + '. Inténtalo de nuevo o escríbeme por correo electrónico.';
+            message.hidden = false;
+            message.focus();
         } finally {
             btn.disabled = false;
             spinner.hidden = true;
+            form.setAttribute('aria-busy', 'false');
         }
     });
     document.getElementById('popup-close')?.addEventListener('click', () => {

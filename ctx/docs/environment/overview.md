@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/environment/overview.md`
 - Template Version: `20260605`
-- Changed: `20260709`
+- Changed: `20260716`
 
 ## Purpose
 
@@ -37,6 +37,8 @@ The current lead-form protection also assumes one of these secret sources:
 
 - `WG_FORM_TOKEN_SECRET` provided through the host environment; or
 - writable local runtime storage under `var/` for a generated fallback secret.
+
+Public canonical and alternate metadata uses `TEQ_CMS_BASE_URL` when it is a valid `http` or `https` origin. Production should set it to `https://wiredgeese.com`; invalid or absent values fall back to that public origin rather than trusting request headers.
 
 The development helper script under `bin/deploy/dev.sh` additionally assumes GitHub network access for cloning linked development dependencies.
 
