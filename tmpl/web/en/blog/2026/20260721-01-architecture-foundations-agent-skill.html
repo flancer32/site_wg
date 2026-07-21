@@ -1,0 +1,97 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}An Agent Skill for Exploring Architecture Foundations{% endblock %}
+
+{% block html_head_extra %}
+    <meta property="og:title" content="An Agent Skill for Exploring Architecture Foundations"/>
+    <meta property="og:description" content="A first experimental skill for examining architectural complexity, boundaries, ownership, authority, and change in software systems."/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://wiredgeese.com/en/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
+    <meta property="og:image" content="https://wiredgeese.com/img/brand/agent-skills-cover.png"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="An Agent Skill for Exploring Architecture Foundations"/>
+    <meta name="twitter:description" content="A first experimental skill for examining architectural complexity, boundaries, ownership, authority, and change in software systems."/>
+    <meta name="twitter:image" content="https://wiredgeese.com/img/brand/agent-skills-cover.png"/>
+{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>An Agent Skill for Exploring Architecture Foundations</h1>
+    <time datetime="2026-07-21">July 21, 2026</time>
+
+    <zoom-img src="/img/brand/agent-skills-cover.png"
+        alt="An agent skill for exploring software architecture foundations" width="100px"></zoom-img>
+
+    <p>
+        I came across a Habr article, <a href="https://habr.com/ru/articles/1061112/" target="_blank" rel="noopener">Programming as Experimental Metaphysics</a>,
+        written by <a href="https://habr.com/ru/users/nifigase/" target="_blank" rel="noopener">nifigase</a>.
+        It is a fascinating, demanding read: it looks at software architecture through a collection of
+        philosophical distinctions. I asked a Codex agent to turn its practical core into an agent skill
+        for examining real projects. The result is <strong>architecture-foundations</strong>, now available
+        as an experimental public release.
+    </p>
+
+    <p>
+        The skill is not meant to prove that a particular architecture is universally right. Its job is to
+        help an agent expose the questions that are usually hidden inside a design decision: where state and
+        identity live, who owns and may change state, what a boundary actually guarantees, how components
+        coordinate, and where authority and goals are represented.
+    </p>
+
+    <p>
+        One useful conclusion is that concurrency becomes difficult when several executors share mutable
+        state. There are two independent ways to reduce that difficulty: share immutable values freely, or
+        give mutable state a single owner and communicate through explicit messages. The same lens helps
+        distinguish an interface as a narrow contract from inheritance that transfers a chunk of ready-made
+        implementation and coupling.
+    </p>
+
+    <p>
+        It is especially relevant to AI-agent systems. With a language model, instructions, data, and goals
+        may all arrive as text. A message can therefore affect not only stored state but also the
+        interpretation of rules and objectives. For internal agent boundaries, message passing alone is not
+        enough: systems need explicit message types, separated instructions and data, validated payloads,
+        limited capabilities, audit trails, and a deliberate process for changing authority or goals.
+    </p>
+
+    <p>
+        The skill has three modes: analysis of an existing system, synthesis of a target operating model,
+        and transformation from the current model to the target one. It is designed to state evidence,
+        assumptions, unknowns, trade-offs, and reconsideration conditions so that people can review the
+        conclusion rather than accept a hidden verdict.
+    </p>
+
+    <p>
+        You can install it with a compatible skill manager:
+    </p>
+
+    <pre><code>npx skills add flancer32/skill-architecture-foundations --skill architecture-foundations</code></pre>
+
+    <p>
+        Or copy the <code>architecture-foundations</code> directory into your agent's skill path, such as
+        <code>~/.agents/skills/</code>. The canonical source, installation details, examples, and limitations
+        are in the <a href="https://github.com/flancer32/skill-architecture-foundations" target="_blank" rel="noopener">GitHub repository</a>.
+    </p>
+
+    <p>
+        This is version 0.1.0: an operational baseline rather than a finished theory. The next useful step is
+        to try it on real projects, compare work with and without the skill, and find out whether these
+        architectural axes help reveal genuine opportunities to simplify further development.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/en/blog/2026/20260721-01-architecture-foundations-agent-skill.html"></a>
+    <img src="/img/brand/agent-skills-cover.png" alt="An agent skill for exploring software architecture foundations" />
+    <div>
+        <h4>An Agent Skill for Exploring Architecture Foundations</h4>
+        <p>
+            A first experimental skill for examining architectural complexity, boundaries, ownership,
+            authority, and change in software systems.
+        </p>
+        <time datetime="2026-07-21">July 21, 2026</time>
+    </div>
+</li>
+{% endblock %}

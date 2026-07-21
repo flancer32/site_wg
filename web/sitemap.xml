@@ -1681,6 +1681,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260708-01-types-of-intelligence-human-llm.html"/>
   </url>
   <url>
+    <loc>https://wiredgeese.com/en/blog/2026/20260721-01-architecture-foundations-agent-skill.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/ru/blog/2026/20260721-01-architecture-foundations-agent-skill.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/es/blog/2026/20260721-01-architecture-foundations-agent-skill.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
+  </url>
+  <url>
     <loc>https://wiredgeese.com/en/land/agent-orchestration-poc/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/land/agent-orchestration-poc/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/land/agent-orchestration-poc/"/>

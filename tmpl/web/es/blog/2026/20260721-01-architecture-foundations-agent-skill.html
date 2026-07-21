@@ -1,0 +1,96 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Una habilidad para agentes sobre fundamentos de arquitectura{% endblock %}
+
+{% block html_head_extra %}
+    <meta property="og:title" content="Una habilidad para agentes sobre fundamentos de arquitectura"/>
+    <meta property="og:description" content="Una primera versión experimental para examinar la complejidad arquitectónica, los límites, la responsabilidad, la autoridad y el cambio en sistemas informáticos."/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://wiredgeese.com/es/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
+    <meta property="og:image" content="https://wiredgeese.com/img/brand/agent-skills-cover.png"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Una habilidad para agentes sobre fundamentos de arquitectura"/>
+    <meta name="twitter:description" content="Una primera versión experimental para examinar la complejidad arquitectónica, los límites, la responsabilidad, la autoridad y el cambio en sistemas informáticos."/>
+    <meta name="twitter:image" content="https://wiredgeese.com/img/brand/agent-skills-cover.png"/>
+{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Una habilidad para agentes sobre fundamentos de arquitectura</h1>
+    <time datetime="2026-07-21">21 de julio de 2026</time>
+
+    <zoom-img src="/img/brand/agent-skills-cover.png"
+        alt="Una habilidad para agentes para explorar la arquitectura de sistemas informáticos" width="100px"></zoom-img>
+
+    <p>
+        Encontré un artículo de Habr, <a href="https://habr.com/ru/articles/1061112/" target="_blank" rel="noopener">Programación como metafísica experimental</a>,
+        escrito por <a href="https://habr.com/ru/users/nifigase/" target="_blank" rel="noopener">nifigase</a>.
+        Es una lectura fascinante y exigente: observa la arquitectura de los programas a través de varias distinciones
+        filosóficas. Pedí a un agente de Codex que convirtiera sus ideas prácticas en una habilidad para examinar
+        proyectos reales. El resultado es <strong>architecture-foundations</strong>, una primera versión pública y
+        experimental.
+    </p>
+
+    <p>
+        La habilidad no pretende demostrar que una arquitectura concreta sea siempre la correcta. Ayuda al agente a
+        hacer visibles las preguntas que suelen quedar ocultas en las decisiones de diseño: dónde están el estado y la
+        identidad, quién se responsabiliza del estado y puede modificarlo, qué garantiza realmente un límite, cómo se
+        coordinan los componentes y dónde se definen la autoridad y los objetivos.
+    </p>
+
+    <p>
+        Una conclusión útil es que la concurrencia se vuelve difícil cuando varios ejecutores comparten un estado que
+        todos pueden modificar. Hay dos maneras independientes de reducir esa dificultad: compartir libremente valores
+        que no cambian, o dejar el estado modificable bajo la responsabilidad de un único componente y comunicarse
+        mediante mensajes explícitos. La
+        misma perspectiva ayuda a distinguir una interfaz como contrato acotado de una herencia que transmite
+        implementación y dependencia entre componentes.
+    </p>
+
+    <p>
+        Es especialmente relevante para sistemas de agentes de IA. En un modelo de lenguaje, las instrucciones, los
+        datos y los objetivos pueden llegar todos como texto. Por tanto, un mensaje puede afectar no solo al estado
+        almacenado, sino también a la interpretación de reglas y objetivos. El paso de mensajes no basta en los límites
+        internos: hacen falta tipos de mensaje explícitos, instrucciones y datos separados, contenido validado,
+        permisos limitados, un registro de auditoría y un procedimiento deliberado para cambiar la autoridad o los objetivos.
+    </p>
+
+    <p>
+        La habilidad tiene tres modos: análisis de un sistema existente, definición de un modelo de funcionamiento
+        deseado y transición del modelo actual a ese modelo. Expone las evidencias, los supuestos, las incógnitas,
+        los compromisos y las condiciones para revisar la decisión, de modo que una persona pueda valorar la conclusión
+        en vez de aceptar un dictamen opaco.
+    </p>
+
+    <p>Se puede instalar con una herramienta compatible para gestionar habilidades:</p>
+
+    <pre><code>npx skills add flancer32/skill-architecture-foundations --skill architecture-foundations</code></pre>
+
+    <p>
+        También puede copiar el directorio <code>architecture-foundations</code> al lugar donde el agente busca sus
+        habilidades, por ejemplo <code>~/.agents/skills/</code>. El código fuente, las instrucciones de instalación,
+        los ejemplos y las limitaciones están en el <a href="https://github.com/flancer32/skill-architecture-foundations" target="_blank" rel="noopener">repositorio de GitHub</a>.
+    </p>
+
+    <p>
+        Esta es la versión 0.1.0: una base de trabajo, no una teoría acabada. El siguiente paso es probarla en proyectos
+        reales, comparar el trabajo con y sin la habilidad y comprobar si estas perspectivas ayudan a descubrir formas
+        concretas de simplificar su evolución.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/es/blog/2026/20260721-01-architecture-foundations-agent-skill.html"></a>
+    <img src="/img/brand/agent-skills-cover.png" alt="Una habilidad para agentes para explorar la arquitectura de sistemas informáticos" />
+    <div>
+        <h4>Una habilidad para agentes sobre fundamentos de arquitectura</h4>
+        <p>
+            Una primera versión experimental para examinar la complejidad arquitectónica, los límites,
+            la responsabilidad, la autoridad y el cambio en sistemas informáticos.
+        </p>
+        <time datetime="2026-07-21">21 de julio de 2026</time>
+    </div>
+</li>
+{% endblock %}
