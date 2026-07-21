@@ -1,0 +1,537 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}¿Para qué sirve la inyección de dependencias en JavaScript?{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>¿Para qué sirve la inyección de dependencias en JavaScript?</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2026-07-21
+    </span>
+
+    <p style="text-align: center;">
+        <zoom-img
+                src="/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp"
+                alt="Inyección de dependencias en JavaScript"
+                width="100%"
+        ></zoom-img>
+    </p>
+
+{% raw %}
+<p>De vez en cuando encuentro afirmaciones según las cuales la inyección de dependencias no tiene demasiado sentido en JavaScript.</p>
+<p>El argumento suele ser el siguiente: JavaScript es un lenguaje dinámico, los objetos pueden modificarse durante la ejecución y la inyección de dependencias es una técnica orientada a objetos importada del mundo de Java.</p>
+<blockquote>
+<p>¿Qué problema resuelve la inyección de dependencias si, de todos modos, en JavaScript se puede sustituir casi cualquier cosa durante la ejecución?</p>
+</blockquote>
+<p>Por ejemplo, el siguiente código puede ejecutarse directamente en la consola del navegador. Modifica <code>console.log()</code> para que cada mensaje también se envíe a un servidor:</p>
+<pre class="js"><code>const originalLog = console.log.bind(console);
+
+console.log = (...args) =&gt; {
+  navigator.sendBeacon(&quot;/api/log&quot;, JSON.stringify(args));
+  originalLog(...args);
+};</code></pre>
+<p>No hay ningún contenedor, ninguna interfaz declarada ni ninguna construcción arquitectónica especial. Simplemente hemos sustituido un método de un objeto.</p>
+<p>Mi respuesta es que la inyección de dependencias ayuda a mantener bajo control el costo de verificar una aplicación compleja.</p>
+<p>Permite separar un componente de la elección de su entorno concreto. De esta forma, podemos comprobar el componente respecto a unas expectativas explícitas sin tener que construir cada vez todo el grafo de dependencias reales.</p>
+<p>La inyección de dependencias, por sí sola, no garantiza una verificación independiente. Para conseguirla también hacen falta contratos suficientemente completos y pruebas separadas para los componentes que utilizan esos contratos y para sus implementaciones. La inyección de dependencias proporciona la frontera que permite establecer esa separación.</p>
+<p>Podemos llegar a esta conclusión a partir de unas pocas líneas de JavaScript corriente, sin clases, herencia, decoradores ni contenedores de DI.</p>
+<h2 id="código-sin-dependencias-externas">Código sin dependencias externas</h2>
+<p>Comencemos con una función pura:</p>
+<pre class="js"><code>export function normalizeName(name) {
+  return name.trim().toLowerCase();
+}</code></pre>
+<p>La función depende únicamente de su argumento, por lo que puede comprobarse directamente:</p>
+<pre class="js"><code>import assert from &quot;node:assert/strict&quot;;
+import { normalizeName } from &quot;./normalizeName.mjs&quot;;
+
+assert.equal(normalizeName(&quot; Alex &quot;), &quot;alex&quot;);
+assert.equal(normalizeName(&quot;BOB&quot;), &quot;bob&quot;);</code></pre>
+<p>Todo lo necesario para ejecutarla ya está contenido en sus argumentos. No existe ningún entorno externo que debamos sustituir, por lo que aplicar inyección de dependencias aquí no aportaría nada.</p>
+<h2 id="una-dependencia-del-mundo-exterior">Una dependencia del mundo exterior</h2>
+<p>Añadamos ahora un módulo de almacenamiento:</p>
+<pre class="js"><code>// storage.mjs
+const values = [];
+
+export async function save(value) {
+  values.push(value);
+}
+
+export async function loadAll() {
+  return [...values];
+}</code></pre>
+<p>La función <code>saveName()</code> normaliza un nombre y almacena el resultado:</p>
+<pre class="js"><code>// saveName.mjs
+import { save } from &quot;./storage.mjs&quot;;
+
+export async function saveName(name) {
+  const value = name.trim().toLowerCase();
+  await save(value);
+  return value;
+}</code></pre>
+<p>Podemos comprobar la normalización de forma aislada:</p>
+<pre class="js"><code>assert.equal(await saveName(&quot; Alex &quot;), &quot;alex&quot;);</code></pre>
+<p>También podemos comprobar el módulo de almacenamiento por separado:</p>
+<pre class="js"><code>await save(&quot;alex&quot;);
+
+assert.deepEqual(await loadAll(), [&quot;alex&quot;]);</code></pre>
+<p>Sin embargo, estas dos pruebas no verifican la conexión entre ambos componentes.</p>
+<p>Es fácil introducir el siguiente error:</p>
+<pre class="js"><code>export async function saveName(name) {
+  const value = name.trim().toLowerCase();
+  await save(name);
+  return value;
+}</code></pre>
+<p>La normalización sigue funcionando. El almacenamiento también guarda correctamente el valor que recibe. Sin embargo, cuando ambos componentes trabajan juntos, el resultado es incorrecto: se almacena <code>" Alex "</code> en lugar de <code>"alex"</code>.</p>
+<p>Para detectar el problema tenemos que comprobarlos como una unidad conectada:</p>
+<pre class="js"><code>await saveName(&quot; Alex &quot;);
+
+assert.deepEqual(await loadAll(), [&quot;alex&quot;]);</code></pre>
+<p>A partir de este momento, la unidad que estamos verificando ya no es únicamente <code>saveName()</code>. Es la combinación de <code>saveName()</code> con esta implementación concreta de <code>storage.mjs</code>.</p>
+<p>Si el módulo de almacenamiento depende a su vez del sistema de archivos, de la configuración y de un logger, la prueba del componente superior empieza a construir todo el grafo transitivo de dependencias.</p>
+<p>Imaginemos un componente que depende de tres módulos y que cada uno de ellos depende de otros tres:</p>
+<pre class="text"><code>1 + 3 + 9 = 13 módulos</code></pre>
+<p>Todavía no estamos ante un crecimiento multiplicativo del número de configuraciones. Lo primero que aumenta es el tamaño de la unidad sometida a prueba. Una comprobación local de un componente se convierte gradualmente en una prueba de integración de todo el grafo conectado.</p>
+<p>El segundo problema aparece más adelante, cuando las dependencias adquieren implementaciones alternativas. Entonces el número de configuraciones posibles empieza a crecer como un producto.</p>
+<h2 id="de-dónde-surge-la-interfaz">De dónde surge la interfaz</h2>
+<p>Consideremos esta expresión:</p>
+<pre class="js"><code>await storage.save(value);</code></pre>
+<p>Aquí ya existe una interfaz.</p>
+<p>El componente espera que el objeto externo proporcione un método <code>save()</code>. Espera que ese método acepte un valor y que su resultado pueda utilizarse con <code>await</code>.</p>
+<p>JavaScript no obliga a declarar formalmente esa interfaz. Pero la ausencia de una declaración no significa que las expectativas entre los componentes no existan.</p>
+<p>Desde el punto de vista del componente que utiliza la dependencia, la interfaz se define en el lugar de uso. Un objeto puede exponer decenas de métodos, aunque un componente concreto solo necesite uno o dos. Esos requisitos forman la interfaz de esa relación específica.</p>
+<blockquote>
+<p>Una interfaz describe las expectativas de un componente en la frontera con una dependencia.</p>
+</blockquote>
+<p>Por esa razón, el <em>duck typing</em> no debería entenderse como una clasificación completa del objeto.</p>
+<p>Distintos componentes pueden esperar comportamientos diferentes del mismo pato. A un ornitólogo pueden interesarle sus características biológicas. A un granjero, su alimentación y su capacidad para poner huevos. El objeto es el mismo, pero las interfaces son distintas porque las expectativas también lo son.</p>
+<p>La expresión <code>storage.save(value)</code> define la parte estructural de la interfaz: el nombre del método, sus argumentos y la forma de invocarlo.</p>
+<p>Sin embargo, un contrato útil también debe incluir el significado del comportamiento.</p>
+<p>¿Qué significa exactamente «guardar»? ¿Cuándo se considera terminada la operación? ¿Debe el valor almacenado devolverse después mediante <code>loadAll()</code>? ¿Qué errores están permitidos?</p>
+<p>La estructura puede describirse mediante tipos y anotaciones. El significado del comportamiento debe documentarse y comprobarse mediante pruebas.</p>
+<h2 id="inyección-de-la-dependencia">Inyección de la dependencia</h2>
+<p>Para volver a convertir <code>saveName()</code> en una unidad independiente, podemos eliminar su conocimiento sobre el <code>storage.mjs</code> concreto.</p>
+<p>La dependencia no desaparece. La función sigue teniendo que almacenar el nombre normalizado. Lo único que cambia es la forma de conectar los componentes.</p>
+<pre class="js"><code>// saveName.mjs
+export function createSaveName({ storage }) {
+  return async function saveName(name) {
+    const value = name.trim().toLowerCase();
+    await storage.save(value);
+    return value;
+  };
+}</code></pre>
+<p>El módulo ya no importa una implementación concreta del almacenamiento. Solo declara una expectativa: al crear la función debe proporcionarse un objeto que tenga un método <code>save()</code>.</p>
+<p>La aplicación real conecta los componentes en otro lugar:</p>
+<pre class="js"><code>// bootstrap.mjs
+import * as storage from &quot;./storage.mjs&quot;;
+import { createSaveName } from &quot;./saveName.mjs&quot;;
+
+const saveName = createSaveName({ storage });
+
+await saveName(&quot; Alex &quot;);</code></pre>
+<p>Este es el <em>Composition Root</em> de la aplicación: el lugar donde los componentes independientes se combinan para formar un sistema operativo.</p>
+<p>La implementación concreta del almacenamiento se elige aquí y no dentro de <code>saveName.mjs</code>.</p>
+<p>Una prueba puede construir el mismo componente con una implementación mínima:</p>
+<pre class="js"><code>import assert from &quot;node:assert/strict&quot;;
+import { createSaveName } from &quot;./saveName.mjs&quot;;
+
+const saved = [];
+
+const storage = {
+  async save(value) {
+    saved.push(value);
+  },
+};
+
+const saveName = createSaveName({ storage });
+
+assert.equal(await saveName(&quot; Alex &quot;), &quot;alex&quot;);
+assert.deepEqual(saved, [&quot;alex&quot;]);</code></pre>
+<p>Esta prueba verifica únicamente el comportamiento de <code>saveName()</code>:</p>
+<pre class="text"><code>el nombre se normaliza;
+el valor normalizado se pasa a storage.save();
+la función devuelve el resultado correcto.</code></pre>
+<p>No necesitamos el almacenamiento real ni sus propias dependencias. La prueba construye el entorno mínimo necesario para ejecutar el componente.</p>
+<p>También es posible sustituir durante una prueba una dependencia importada de forma estática. Sin embargo, para hacerlo el runner debe interceptar la carga del módulo, transformar el código fuente o proporcionar una API específica de mocks.</p>
+<p>Con una inyección de dependencias explícita no hace falta intervenir en el sistema de módulos. La prueba entrega la implementación necesaria como un argumento corriente de la función.</p>
+<blockquote>
+<p>Un <code>import</code> estático fija una conexión concreta dentro del componente. La inyección de dependencias traslada la elección de la implementación al punto de composición.</p>
+</blockquote>
+<p>La inyección de dependencias no crea una posibilidad de prueba completamente nueva. Convierte la verificación independiente en una propiedad normal de la arquitectura, en lugar de depender de un mecanismo especial proporcionado por la infraestructura de pruebas.</p>
+<h2 id="interfaces-en-javascript">Interfaces en JavaScript</h2>
+<p>ECMAScript no dispone de una construcción activa <code>interface</code>. Sin embargo, el lenguaje efectivo de un proyecto suele ser más amplio que la sintaxis comprendida por el motor de JavaScript.</p>
+<p>También puede incluir convenciones, documentación, análisis estático, pruebas, reglas de CI y requisitos estructurales.</p>
+<p>En este ejemplo podemos definir el lenguaje del proyecto de la siguiente manera:</p>
+<blockquote>
+<p>JavaScript + JSDoc + convenciones para las interfaces y sus implementaciones.</p>
+</blockquote>
+<p>Podemos describir la interfaz del almacenamiento como un tipo estructural:</p>
+<pre class="js"><code>// NameStorage.mjs
+
+/**
+ * Almacenamiento de valores de texto.
+ *
+ * @typedef {object} NameStorage
+ * @property {(value: string) =&gt; Promise&lt;void&gt;} save
+ *   Guarda un valor.
+ * @property {() =&gt; Promise&lt;string[]&gt;} loadAll
+ *   Devuelve los valores almacenados.
+ */
+
+export {};</code></pre>
+<p>Las expectativas que antes eran implícitas ahora tienen un nombre y una descripción estructural.</p>
+<p>Como el ejemplo no utiliza clases, las implementaciones pueden expresarse mediante fábricas de objetos:</p>
+<pre class="js"><code>// MemoryStorage.mjs
+
+/** @import {NameStorage} from &quot;./NameStorage.mjs&quot; */
+
+/**
+ * @returns {NameStorage}
+ */
+export function createMemoryStorage() {
+  const values = [];
+
+  return {
+    async save(value) {
+      values.push(value);
+    },
+
+    async loadAll() {
+      return [...values];
+    },
+  };
+}</code></pre>
+<p>Una implementación basada en archivos podría tener este aspecto:</p>
+<pre class="js"><code>// FileStorage.mjs
+import { appendFile, readFile } from &quot;node:fs/promises&quot;;
+
+/** @import {NameStorage} from &quot;./NameStorage.mjs&quot; */
+
+/**
+ * @param {string} path
+ * @returns {NameStorage}
+ */
+export function createFileStorage(path) {
+  return {
+    async save(value) {
+      await appendFile(path, `${value}\n`);
+    },
+
+    async loadAll() {
+      const content = await readFile(path, &quot;utf8&quot;);
+      return content.split(&quot;\n&quot;).filter(Boolean);
+    },
+  };
+}</code></pre>
+<p>Para una implementación basada en una base de datos podemos describir el contrato más reducido que necesita este componente:</p>
+<pre class="js"><code>// DatabaseStorage.mjs
+
+/** @import {NameStorage} from &quot;./NameStorage.mjs&quot; */
+
+/**
+ * @typedef {object} NameRow
+ * @property {string} value
+ */
+
+/**
+ * @typedef {object} Database
+ * @property {(sql: string, params?: unknown[]) =&gt; Promise&lt;void&gt;} execute
+ * @property {(sql: string, params?: unknown[]) =&gt; Promise&lt;NameRow[]&gt;} select
+ */
+
+/**
+ * @param {Database} database
+ * @returns {NameStorage}
+ */
+export function createDatabaseStorage(database) {
+  return {
+    async save(value) {
+      await database.execute(&quot;INSERT INTO names (value) VALUES (?)&quot;, [value]);
+    },
+
+    async loadAll() {
+      const rows = await database.select(&quot;SELECT value FROM names ORDER BY id&quot;);
+
+      return rows.map((row) =&gt; row.value);
+    },
+  };
+}</code></pre>
+<p>La dependencia de <code>saveName()</code> también puede declararse explícitamente:</p>
+<pre class="js"><code>// saveName.mjs
+
+/** @import {NameStorage} from &quot;./NameStorage.mjs&quot; */
+
+/**
+ * @param {{storage: NameStorage}} dependencies
+ * @returns {(name: string) =&gt; Promise&lt;string&gt;}
+ */
+export function createSaveName({ storage }) {
+  return async function saveName(name) {
+    const value = name.trim().toLowerCase();
+    await storage.save(value);
+    return value;
+  };
+}</code></pre>
+<p>Para el motor de JavaScript, las tres implementaciones siguen siendo objetos corrientes. Sin embargo, dentro del lenguaje del proyecto son implementaciones del mismo contrato.</p>
+<pre class="js"><code>const memoryStorage = createMemoryStorage();
+const fileStorage = createFileStorage(&quot;./names.txt&quot;);
+const databaseStorage = createDatabaseStorage(database);
+
+const saveToMemory = createSaveName({
+  storage: memoryStorage,
+});
+
+const saveToFile = createSaveName({
+  storage: fileStorage,
+});
+
+const saveToDatabase = createSaveName({
+  storage: databaseStorage,
+});</code></pre>
+<p>Las anotaciones JSDoc, por sí solas, no imponen ninguna regla. Para que <code>JavaScript + JSDoc</code> funcione como un verdadero lenguaje de proyecto, sus convenciones deben comprobarse.</p>
+<p>Un proyecto puede exigir que las dependencias inyectadas tengan interfaces declaradas, que los resultados de las fábricas estén tipados, que se prohíban dependencias externas ocultas y que el análisis estático y las pruebas de contrato se ejecuten en CI.</p>
+<p>Por ejemplo, los tipos JSDoc pueden comprobarse mediante el analizador de TypeScript:</p>
+<pre class="text"><code>tsc --allowJs --checkJs --noEmit</code></pre>
+<p>JSDoc no crea las interfaces. Esas interfaces ya existen en las fronteras entre los componentes. Las anotaciones las trasladan desde la cabeza del desarrollador hasta el lenguaje explícito del proyecto, donde quedan disponibles para las personas, los IDE, los analizadores y los agentes de programación.</p>
+<h2 id="verificación-del-contrato">Verificación del contrato</h2>
+<p>La compatibilidad estructural no garantiza la compatibilidad del comportamiento.</p>
+<p>Un objeto puede proporcionar tanto <code>save()</code> como <code>loadAll()</code> y, aun así, implementarlos de manera incorrecta:</p>
+<pre class="js"><code>const brokenStorage = {
+  async save(value) {
+    // No guarda nada.
+  },
+
+  async loadAll() {
+    return [];
+  },
+};</code></pre>
+<p>La forma es correcta. El comportamiento no lo es.</p>
+<p>Por tanto, las implementaciones necesitan una prueba de contrato común:</p>
+<pre class="js"><code>import assert from &quot;node:assert/strict&quot;;
+
+/** @import {NameStorage} from &quot;./NameStorage.mjs&quot; */
+
+/**
+ * @param {() =&gt; NameStorage | Promise&lt;NameStorage&gt;} createStorage
+ */
+export async function verifyNameStorage(createStorage) {
+  const storage = await createStorage();
+
+  await storage.save(&quot;alex&quot;);
+
+  assert.deepEqual(await storage.loadAll(), [&quot;alex&quot;]);
+}</code></pre>
+<p>Las mismas comprobaciones pueden aplicarse a cada implementación:</p>
+<pre class="js"><code>await verifyNameStorage(createMemoryStorage);
+
+await verifyNameStorage(() =&gt; createFileStorage(&quot;./temporary-test-file.txt&quot;));
+
+await verifyNameStorage(() =&gt; createDatabaseStorage(testDatabase));</code></pre>
+<p>En una suite de pruebas real, la implementación basada en archivos debería recibir un archivo temporal nuevo. La implementación de base de datos debería utilizar un esquema aislado o una transacción independiente. De lo contrario, el estado de una ejecución podría filtrarse a la siguiente.</p>
+<p>El trabajo de verificación queda ahora dividido en dos tareas independientes.</p>
+<p>El componente <code>saveName()</code> se comprueba respecto a la interfaz <code>NameStorage</code>.</p>
+<p>Cada implementación concreta se comprueba por separado respecto al mismo contrato de comportamiento.</p>
+<p>La inyección de dependencias traslada la elección de la implementación fuera del componente que la utiliza. La interfaz describe la frontera. Las pruebas de contrato verifican las implementaciones. En conjunto, estos mecanismos proporcionan una base para la sustitución segura de unas implementaciones por otras.</p>
+<h2 id="varias-dependencias">Varias dependencias</h2>
+<p>Una sola dependencia todavía no permite ver con claridad la rapidez con la que puede crecer el espacio de configuraciones.</p>
+<p>Ampliemos el ejemplo. Además del almacenamiento, la función necesita ahora un reloj y un logger.</p>
+<pre class="js"><code>/**
+ * @typedef {object} NameRecord
+ * @property {string} name
+ * @property {string} createdAt
+ */
+
+/**
+ * @typedef {object} NameRecordStorage
+ * @property {(value: NameRecord) =&gt; Promise&lt;void&gt;} save
+ */
+
+/**
+ * @typedef {object} Clock
+ * @property {() =&gt; string} now
+ */
+
+/**
+ * @typedef {object} Logger
+ * @property {(message: string) =&gt; void} write
+ */</code></pre>
+<p>El componente recibe las tres dependencias:</p>
+<pre class="js"><code>/**
+ * @param {{
+ *   storage: NameRecordStorage,
+ *   clock: Clock,
+ *   logger: Logger
+ * }} dependencies
+ * @returns {(name: string) =&gt; Promise&lt;NameRecord&gt;}
+ */
+export function createSaveName({ storage, clock, logger }) {
+  return async function saveName(name) {
+    const record = {
+      name: name.trim().toLowerCase(),
+      createdAt: clock.now(),
+    };
+
+    logger.write(&quot;Saving name&quot;);
+    await storage.save(record);
+
+    return record;
+  };
+}</code></pre>
+<p>Supongamos que cada interfaz tiene tres implementaciones:</p>
+<pre class="text"><code>Storage:
+MemoryStorage
+FileStorage
+DatabaseStorage
+
+Clock:
+SystemClock
+FixedClock
+OffsetClock
+
+Logger:
+ConsoleLogger
+FileLogger
+RemoteLogger</code></pre>
+<p>El número de configuraciones posibles se calcula como un producto:</p>
+<pre class="text"><code>3 × 3 × 3 = 27</code></pre>
+<p>Si añadimos una cuarta dependencia con otras tres implementaciones, el número aumenta hasta 81:</p>
+<pre class="text"><code>3 × 3 × 3 × 3 = 81</code></pre>
+<p>La inyección de dependencias no reduce el número de configuraciones posibles. Las 27 o 81 combinaciones siguen existiendo.</p>
+<p>Lo que cambia es la forma de verificarlas.</p>
+<p>Podemos comprobar una sola vez el componente <code>createSaveName()</code> respecto a sus tres interfaces, proporcionándole implementaciones mínimas para la prueba:</p>
+<pre class="js"><code>import assert from &quot;node:assert/strict&quot;;
+import { createSaveName } from &quot;./saveName.mjs&quot;;
+
+const saved = [];
+const messages = [];
+
+const storage = {
+  async save(value) {
+    saved.push(value);
+  },
+};
+
+const clock = {
+  now() {
+    return &quot;2026-07-21T12:00:00.000Z&quot;;
+  },
+};
+
+const logger = {
+  write(message) {
+    messages.push(message);
+  },
+};
+
+const saveName = createSaveName({
+  storage,
+  clock,
+  logger,
+});
+
+const result = await saveName(&quot; Alex &quot;);
+
+assert.deepEqual(result, {
+  name: &quot;alex&quot;,
+  createdAt: &quot;2026-07-21T12:00:00.000Z&quot;,
+});
+
+assert.deepEqual(saved, [result]);
+assert.deepEqual(messages, [&quot;Saving name&quot;]);</code></pre>
+<p>Esta prueba cubre la lógica propia del componente y sus interacciones con las tres interfaces. No depende de <code>MemoryStorage</code>, <code>SystemClock</code> ni <code>ConsoleLogger</code>.</p>
+<p>Las implementaciones reales de cada interfaz se verifican por separado.</p>
+<p>Si intentamos demostrar la corrección del sistema probando cada configuración concreta, el número de combinaciones crece como un producto:</p>
+<pre class="text"><code>k₁ × k₂ × ... × kₙ</code></pre>
+<p>Con una descomposición basada en interfaces, el costo básico de verificación adopta otra forma:</p>
+<pre class="text"><code>pruebas de los componentes consumidores
++ pruebas de las implementaciones
++ escenarios de integración seleccionados</code></pre>
+<p>Para un componente y tres interfaces con tres implementaciones cada una, la descomposición sería aproximadamente la siguiente:</p>
+<pre class="text"><code>1 componente consumidor
++ 3 implementaciones de Storage
++ 3 implementaciones de Clock
++ 3 implementaciones de Logger
++ combinaciones de integración significativas</code></pre>
+<p>Esto no significa que existan literalmente diez funciones de prueba. Un solo componente o contrato puede necesitar muchos escenarios.</p>
+<p>El cambio importante es estructural. Una parte considerable del esfuerzo combinatorio puede sustituirse por pruebas independientes de los componentes y de las implementaciones. El costo básico se aproxima más a una suma que a un producto.</p>
+<p>Algunas configuraciones concretas siguen necesitando pruebas de integración. Una implementación <code>DatabaseStorage</code> debe probarse con el driver real de la base de datos. Un <code>RemoteLogger</code> debe comprobarse contra el servicio remoto o contra un sustituto suficientemente realista.</p>
+<p>También existen defectos que solo aparecen en determinadas combinaciones de implementaciones. La inyección de dependencias no elimina las pruebas de integración.</p>
+<p>Sin embargo, permite seleccionar deliberadamente las combinaciones más importantes o de mayor riesgo, en lugar de recorrer mecánicamente todo el espacio de configuraciones.</p>
+<blockquote>
+<p>Con contratos suficientemente completos, la inyección de dependencias permite sustituir una parte significativa de la verificación combinatoria por comprobaciones independientes de los componentes y de las implementaciones.</p>
+</blockquote>
+<p>Cuantos más componentes e implementaciones alternativas contenga una aplicación, mayor será el valor de esta separación.</p>
+<h2 id="cuándo-no-hace-falta-di">Cuándo no hace falta DI</h2>
+<p>La inyección de dependencias resulta útil cuando reduce el costo de verificación o permite seleccionar explícitamente el entorno de la aplicación.</p>
+<p>También se cumple la afirmación inversa: si una dependencia concreta no dificulta la verificación de un componente, extraerla detrás de una interfaz puede aportar muy poco.</p>
+<p>Las funciones puras son el ejemplo más sencillo:</p>
+<pre class="js"><code>export function normalizeName(name) {
+  return name.trim().toLowerCase();
+}</code></pre>
+<p>Todo lo necesario para la ejecución ya se proporciona como entrada. No existe ningún entorno externo que debamos sustituir.</p>
+<p>Inyectar una dependencia aquí no tendría sentido.</p>
+<p>Lo mismo ocurre con muchas utilidades internas:</p>
+<pre class="js"><code>import { normalizeName } from &quot;./normalizeName.mjs&quot;;
+
+export function createUserRecord(name, createdAt) {
+  return {
+    name: normalizeName(name),
+    createdAt,
+  };
+}</code></pre>
+<p><code>normalizeName()</code> es una función estable, sin estado y sin efectos externos. Su importación estática no introduce un grafo de integración costoso ni impide comprobar <code>createUserRecord()</code> de forma independiente.</p>
+<p>Aun así, podríamos inyectarla:</p>
+<pre class="js"><code>export function createUserRecordFactory({ normalizeName }) {
+  return function createUserRecord(name, createdAt) {
+    return {
+      name: normalizeName(name),
+      createdAt,
+    };
+  };
+}</code></pre>
+<p>Pero la utilidad práctica sería mínima. El diseño contiene ahora un punto de composición adicional, mientras que el costo de verificación no ha disminuido.</p>
+<p>La inyección de dependencias también puede ser innecesaria dentro de un pequeño grupo de componentes que siempre se utilizan y evolucionan juntos.</p>
+<p>Si la conexión es estable, resulta barata de construir durante las pruebas y no existe una necesidad práctica de sustituirla, una importación estática sigue siendo una decisión razonable.</p>
+<p>El número de implementaciones utilizadas en producción tampoco determina por sí solo si DI resulta útil.</p>
+<p>Una interfaz puede tener una única implementación de producción y, al mismo tiempo, varios contextos significativos para las pruebas:</p>
+<pre class="text"><code>DatabaseStorage — producción
+MemoryStorage — pruebas ordinarias
+FailingStorage — pruebas de rutas de error</code></pre>
+<p>Solo existe una implementación en producción, pero desde el punto de vista de la verificación la dependencia ya es variable.</p>
+<p>La frontera relevante está determinada por el costo de la conexión.</p>
+<blockquote>
+<p>DI no hace falta cuando una dependencia concreta es estable, transparente y no impide verificar el componente de forma independiente.</p>
+</blockquote>
+<p>Las importaciones estáticas suelen ser apropiadas para funciones puras, transformaciones locales, operaciones matemáticas y pequeñas utilidades internas.</p>
+<p>La inyección resulta más útil para las conexiones con el mundo exterior, los entornos variables y los componentes que evolucionan de forma independiente: sistemas de almacenamiento, relojes, loggers, sistemas de archivos, redes, colas y servicios de terceros.</p>
+<p>El objetivo no consiste en inyectar todas las dependencias. La aplicación solo debe dividirse en aquellas fronteras donde esa separación reduzca realmente el costo de verificación o facilite el control de la configuración.</p>
+<h2 id="conclusión">Conclusión</h2>
+<p>La inyección de dependencias no está vinculada necesariamente con las clases, la herencia ni ningún lenguaje de programación concreto.</p>
+<p>En JavaScript funcional, una función corriente puede recibir objetos corrientes que proporcionen los métodos que espera:</p>
+<pre class="js"><code>const saveName = createSaveName({
+  storage,
+  clock,
+  logger,
+});</code></pre>
+<p>Eso ya es inyección de dependencias.</p>
+<p>El componente define sus expectativas.</p>
+<p>Las implementaciones se proporcionan desde el exterior.</p>
+<p>La configuración concreta se elige en el punto de composición.</p>
+<p>No hace falta un contenedor de DI. Puede automatizar la composición de una aplicación grande, pero no crea la inyección de dependencias.</p>
+<p>Primero aparecen las fronteras explícitas y las reglas de composición. Solo después puede resultar útil una herramienta que mantenga esas reglas a medida que el sistema crece.</p>
+<p>Por tanto, la pregunta práctica no debería ser:</p>
+<blockquote>
+<p>¿Es posible sustituir esta dependencia?</p>
+</blockquote>
+<p>En un lenguaje dinámico casi siempre existe alguna forma de hacerlo.</p>
+<p>Una pregunta más útil es:</p>
+<blockquote>
+<p>¿Esta conexión dificulta la verificación independiente del componente?</p>
+</blockquote>
+<p>Si la dificulta, la dependencia es una buena candidata para trasladarse fuera del componente y proporcionarse explícitamente.</p>
+<p>Si no la dificulta, una importación estática suele ser la solución más sencilla.</p>
+<p>La inyección de dependencias no garantiza por sí sola una arquitectura sólida. Sin embargo, combinada con interfaces explícitas, pruebas de contratos de comportamiento y pruebas de integración selectivas, ayuda a mantener bajo control el costo de verificación a medida que la aplicación crece.</p>
+{% endraw %}
+
+</div>
+{% endblock %}

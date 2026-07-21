@@ -1,0 +1,537 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Why Dependency Injection Matters in JavaScript{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Why Dependency Injection Matters in JavaScript</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2026-07-21
+    </span>
+
+    <p style="text-align: center;">
+        <zoom-img
+                src="/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp"
+                alt="Dependency injection in JavaScript"
+                width="100%"
+        ></zoom-img>
+    </p>
+
+{% raw %}
+<p>Every now and then, I come across claims that dependency injection does not make much sense in JavaScript.</p>
+<p>The argument usually goes like this: JavaScript is dynamic, objects can be modified at runtime, and DI is an object-oriented technique imported from the Java world.</p>
+<blockquote>
+<p>What problem does dependency injection solve if you can replace almost anything at runtime anyway?</p>
+</blockquote>
+<p>For example, the following browser code can be pasted directly into the console. It modifies <code>console.log()</code> so that every message is also sent to a server:</p>
+<pre class="js"><code>const originalLog = console.log.bind(console);
+
+console.log = (...args) =&gt; {
+  navigator.sendBeacon(&quot;/api/log&quot;, JSON.stringify(args));
+  originalLog(...args);
+};</code></pre>
+<p>There is no container, no declared interface, and no special architectural machinery. We simply replaced a method on an object.</p>
+<p>My answer is that dependency injection helps keep the cost of verifying a complex application under control.</p>
+<p>It separates a component from the choice of its concrete environment. This allows us to verify the component against explicit expectations without constructing the entire graph of real dependencies every time.</p>
+<p>DI alone does not guarantee independent verification. That also requires sufficiently complete contracts and separate tests for consumers and implementations. Dependency injection provides the boundary that makes this separation possible.</p>
+<p>We can derive this conclusion from a few lines of ordinary JavaScript, without classes, inheritance, decorators, or a DI container.</p>
+<h2 id="code-without-external-dependencies">Code Without External Dependencies</h2>
+<p>Let us begin with a pure function:</p>
+<pre class="js"><code>export function normalizeName(name) {
+  return name.trim().toLowerCase();
+}</code></pre>
+<p>The function depends only on its input, so it can be tested directly:</p>
+<pre class="js"><code>import assert from &quot;node:assert/strict&quot;;
+import { normalizeName } from &quot;./normalizeName.mjs&quot;;
+
+assert.equal(normalizeName(&quot; Alex &quot;), &quot;alex&quot;);
+assert.equal(normalizeName(&quot;BOB&quot;), &quot;bob&quot;);</code></pre>
+<p>Everything required for execution is already present in the function arguments. There is no external environment to replace, so dependency injection would add nothing useful here.</p>
+<h2 id="a-dependency-on-the-outside-world">A Dependency on the Outside World</h2>
+<p>Now let us add a storage module:</p>
+<pre class="js"><code>// storage.mjs
+const values = [];
+
+export async function save(value) {
+  values.push(value);
+}
+
+export async function loadAll() {
+  return [...values];
+}</code></pre>
+<p>The <code>saveName()</code> function normalizes a name and stores the result:</p>
+<pre class="js"><code>// saveName.mjs
+import { save } from &quot;./storage.mjs&quot;;
+
+export async function saveName(name) {
+  const value = name.trim().toLowerCase();
+  await save(value);
+  return value;
+}</code></pre>
+<p>The normalization can be checked independently:</p>
+<pre class="js"><code>assert.equal(await saveName(&quot; Alex &quot;), &quot;alex&quot;);</code></pre>
+<p>The storage module can also be checked independently:</p>
+<pre class="js"><code>await save(&quot;alex&quot;);
+
+assert.deepEqual(await loadAll(), [&quot;alex&quot;]);</code></pre>
+<p>But these two tests do not verify the connection between the components.</p>
+<p>It is easy to introduce the following error:</p>
+<pre class="js"><code>export async function saveName(name) {
+  const value = name.trim().toLowerCase();
+  await save(name);
+  return value;
+}</code></pre>
+<p>The normalization still works. The storage module still stores whatever value it receives. Yet the components behave incorrectly when used together: <code>" Alex "</code> is stored instead of <code>"alex"</code>.</p>
+<p>To detect the problem, we have to test them as a connected unit:</p>
+<pre class="js"><code>await saveName(&quot; Alex &quot;);
+
+assert.deepEqual(await loadAll(), [&quot;alex&quot;]);</code></pre>
+<p>At this point, the unit being verified is no longer just <code>saveName()</code>. It is the combination of <code>saveName()</code> and this particular <code>storage.mjs</code>.</p>
+<p>If the storage module itself depends on the file system, configuration, and logging, then a test of the higher-level component begins to construct the entire transitive dependency graph.</p>
+<p>Imagine a component that depends on three modules, each of which depends on three more:</p>
+<pre class="text"><code>1 + 3 + 9 = 13 modules</code></pre>
+<p>This is not yet multiplicative growth in the number of configurations. What grows first is the size of the unit under test. A local component test gradually becomes an integration test of the connected graph.</p>
+<p>A second problem appears later, once dependencies acquire alternative implementations. At that point, the number of possible assemblies begins to grow as a product.</p>
+<h2 id="where-the-interface-comes-from">Where the Interface Comes From</h2>
+<p>Consider this expression:</p>
+<pre class="js"><code>await storage.save(value);</code></pre>
+<p>An interface is already present here.</p>
+<p>The component expects the external object to provide a <code>save()</code> method. It expects that method to accept a value, and it expects the result to be awaitable.</p>
+<p>JavaScript does not require this interface to be declared. But the absence of a declaration does not mean that the expectations between the components do not exist.</p>
+<p>From the consumer's perspective, the interface is defined at the point of use. An object may expose dozens of methods, while a particular consumer needs only one or two. Those requirements form the interface of that specific relationship.</p>
+<blockquote>
+<p>An interface describes a consumer's expectations at the boundary with a dependency.</p>
+</blockquote>
+<p>This is also why duck typing should not be understood as a complete classification of an object.</p>
+<p>Different consumers may care about different aspects of the same duck. An ornithologist may care about identifying characteristics. A farmer may care about feeding and egg production. The object is the same, but the interfaces differ because the consumers have different expectations.</p>
+<p>The expression <code>storage.save(value)</code> defines the structural part of the interface: the method name, its arguments, and the way it is called.</p>
+<p>A useful contract must also include semantics.</p>
+<p>What does “save” mean? When is the operation considered complete? Must the stored value later be returned by <code>loadAll()</code>? Which errors are allowed?</p>
+<p>Structure can be described with types and annotations. Behavioral meaning must be documented and verified with tests.</p>
+<h2 id="injecting-the-dependency">Injecting the Dependency</h2>
+<p>To make <code>saveName()</code> an independent unit again, we can remove its knowledge of the concrete <code>storage.mjs</code>.</p>
+<p>The dependency does not disappear. The function still has to store the normalized name. Only the way the components are connected changes.</p>
+<pre class="js"><code>// saveName.mjs
+export function createSaveName({ storage }) {
+  return async function saveName(name) {
+    const value = name.trim().toLowerCase();
+    await storage.save(value);
+    return value;
+  };
+}</code></pre>
+<p>The module no longer imports a concrete storage implementation. It only states an expectation: when the function is created, it must receive an object with a <code>save()</code> method.</p>
+<p>The real application connects the components elsewhere:</p>
+<pre class="js"><code>// bootstrap.mjs
+import * as storage from &quot;./storage.mjs&quot;;
+import { createSaveName } from &quot;./saveName.mjs&quot;;
+
+const saveName = createSaveName({ storage });
+
+await saveName(&quot; Alex &quot;);</code></pre>
+<p>This is the application's Composition Root: the place where independent components are assembled into a working system.</p>
+<p>The concrete storage implementation is selected here rather than inside <code>saveName.mjs</code>.</p>
+<p>A test can assemble the same component with a minimal test implementation:</p>
+<pre class="js"><code>import assert from &quot;node:assert/strict&quot;;
+import { createSaveName } from &quot;./saveName.mjs&quot;;
+
+const saved = [];
+
+const storage = {
+  async save(value) {
+    saved.push(value);
+  },
+};
+
+const saveName = createSaveName({ storage });
+
+assert.equal(await saveName(&quot; Alex &quot;), &quot;alex&quot;);
+assert.deepEqual(saved, [&quot;alex&quot;]);</code></pre>
+<p>This test verifies only the behavior of <code>saveName()</code>:</p>
+<pre class="text"><code>the name is normalized;
+the normalized value is passed to storage.save();
+the correct result is returned.</code></pre>
+<p>The real storage implementation and its dependencies are not needed. The test assembles the smallest environment required to exercise the component.</p>
+<p>A statically imported dependency can also be replaced in a test. However, the test runner must then intercept module loading, transform the source code, or provide a dedicated mocking API.</p>
+<p>With explicit dependency injection, no intervention in the module system is required. The test supplies the desired implementation as a regular function argument.</p>
+<blockquote>
+<p>A static <code>import</code> fixes a concrete connection inside the component. DI moves the choice of implementation to the composition point.</p>
+</blockquote>
+<p>Dependency injection does not create a fundamentally new testing capability. It makes independent verification a normal property of the architecture rather than a special trick performed by the testing infrastructure.</p>
+<h2 id="interfaces-in-javascript">Interfaces in JavaScript</h2>
+<p>ECMAScript has no active <code>interface</code> syntax. However, the effective language of a project is usually broader than the syntax understood by the JavaScript engine.</p>
+<p>It may include conventions, documentation, static analysis, tests, CI rules, and structural requirements.</p>
+<p>For this example, we can define the project language as:</p>
+<blockquote>
+<p>JavaScript + JSDoc + conventions for interfaces and their implementations.</p>
+</blockquote>
+<p>We can describe the storage interface as a structural type:</p>
+<pre class="js"><code>// NameStorage.mjs
+
+/**
+ * Storage for string values.
+ *
+ * @typedef {object} NameStorage
+ * @property {(value: string) =&gt; Promise&lt;void&gt;} save
+ *   Stores a value.
+ * @property {() =&gt; Promise&lt;string[]&gt;} loadAll
+ *   Returns the stored values.
+ */
+
+export {};</code></pre>
+<p>The previously implicit expectations now have a name and a structural description.</p>
+<p>Because the example does not use classes, implementations can be expressed as object factories:</p>
+<pre class="js"><code>// MemoryStorage.mjs
+
+/** @import {NameStorage} from &quot;./NameStorage.mjs&quot; */
+
+/**
+ * @returns {NameStorage}
+ */
+export function createMemoryStorage() {
+  const values = [];
+
+  return {
+    async save(value) {
+      values.push(value);
+    },
+
+    async loadAll() {
+      return [...values];
+    },
+  };
+}</code></pre>
+<p>A file-based implementation may look like this:</p>
+<pre class="js"><code>// FileStorage.mjs
+import { appendFile, readFile } from &quot;node:fs/promises&quot;;
+
+/** @import {NameStorage} from &quot;./NameStorage.mjs&quot; */
+
+/**
+ * @param {string} path
+ * @returns {NameStorage}
+ */
+export function createFileStorage(path) {
+  return {
+    async save(value) {
+      await appendFile(path, `${value}\n`);
+    },
+
+    async loadAll() {
+      const content = await readFile(path, &quot;utf8&quot;);
+      return content.split(&quot;\n&quot;).filter(Boolean);
+    },
+  };
+}</code></pre>
+<p>For a database implementation, we can describe the narrower database contract that this component needs:</p>
+<pre class="js"><code>// DatabaseStorage.mjs
+
+/** @import {NameStorage} from &quot;./NameStorage.mjs&quot; */
+
+/**
+ * @typedef {object} NameRow
+ * @property {string} value
+ */
+
+/**
+ * @typedef {object} Database
+ * @property {(sql: string, params?: unknown[]) =&gt; Promise&lt;void&gt;} execute
+ * @property {(sql: string, params?: unknown[]) =&gt; Promise&lt;NameRow[]&gt;} select
+ */
+
+/**
+ * @param {Database} database
+ * @returns {NameStorage}
+ */
+export function createDatabaseStorage(database) {
+  return {
+    async save(value) {
+      await database.execute(&quot;INSERT INTO names (value) VALUES (?)&quot;, [value]);
+    },
+
+    async loadAll() {
+      const rows = await database.select(&quot;SELECT value FROM names ORDER BY id&quot;);
+
+      return rows.map((row) =&gt; row.value);
+    },
+  };
+}</code></pre>
+<p>The dependency of <code>saveName()</code> can also be declared explicitly:</p>
+<pre class="js"><code>// saveName.mjs
+
+/** @import {NameStorage} from &quot;./NameStorage.mjs&quot; */
+
+/**
+ * @param {{storage: NameStorage}} dependencies
+ * @returns {(name: string) =&gt; Promise&lt;string&gt;}
+ */
+export function createSaveName({ storage }) {
+  return async function saveName(name) {
+    const value = name.trim().toLowerCase();
+    await storage.save(value);
+    return value;
+  };
+}</code></pre>
+<p>To the JavaScript engine, all three storage implementations are still ordinary objects. In the language of the project, however, they are implementations of the same contract.</p>
+<pre class="js"><code>const memoryStorage = createMemoryStorage();
+const fileStorage = createFileStorage(&quot;./names.txt&quot;);
+const databaseStorage = createDatabaseStorage(database);
+
+const saveToMemory = createSaveName({
+  storage: memoryStorage,
+});
+
+const saveToFile = createSaveName({
+  storage: fileStorage,
+});
+
+const saveToDatabase = createSaveName({
+  storage: databaseStorage,
+});</code></pre>
+<p>JSDoc annotations alone do not enforce anything. For <code>JavaScript + JSDoc</code> to function as a real project language, its conventions must be checked.</p>
+<p>A project may require injected dependencies to have declared interfaces, factory return values to be typed, hidden external dependencies to be prohibited, and static analysis and contract tests to run in CI.</p>
+<p>For example, JSDoc types can be checked with the TypeScript analyzer:</p>
+<pre class="text"><code>tsc --allowJs --checkJs --noEmit</code></pre>
+<p>JSDoc does not create the interfaces. Those interfaces already exist at component boundaries. The annotations move them from the developer's head into the explicit language of the project, where they become available to people, IDEs, analyzers, and coding agents.</p>
+<h2 id="verifying-the-contract">Verifying the Contract</h2>
+<p>Structural compatibility does not guarantee behavioral compatibility.</p>
+<p>An object may provide both <code>save()</code> and <code>loadAll()</code> while implementing them incorrectly:</p>
+<pre class="js"><code>const brokenStorage = {
+  async save(value) {
+    // Stores nothing.
+  },
+
+  async loadAll() {
+    return [];
+  },
+};</code></pre>
+<p>The shape is correct. The behavior is not.</p>
+<p>Implementations therefore need a shared contract test:</p>
+<pre class="js"><code>import assert from &quot;node:assert/strict&quot;;
+
+/** @import {NameStorage} from &quot;./NameStorage.mjs&quot; */
+
+/**
+ * @param {() =&gt; NameStorage | Promise&lt;NameStorage&gt;} createStorage
+ */
+export async function verifyNameStorage(createStorage) {
+  const storage = await createStorage();
+
+  await storage.save(&quot;alex&quot;);
+
+  assert.deepEqual(await storage.loadAll(), [&quot;alex&quot;]);
+}</code></pre>
+<p>The same checks can be applied to each implementation:</p>
+<pre class="js"><code>await verifyNameStorage(createMemoryStorage);
+
+await verifyNameStorage(() =&gt; createFileStorage(&quot;./temporary-test-file.txt&quot;));
+
+await verifyNameStorage(() =&gt; createDatabaseStorage(testDatabase));</code></pre>
+<p>In a real test suite, the file implementation should receive a fresh temporary file, while the database implementation should use an isolated schema or transaction. Otherwise, state from one test run may leak into another.</p>
+<p>The verification work is now divided into two independent tasks.</p>
+<p>The <code>saveName()</code> component is tested against the <code>NameStorage</code> interface.</p>
+<p>Each concrete implementation is separately tested against the same behavioral contract.</p>
+<p>DI moves the choice of implementation out of the consumer. The interface describes the boundary. Contract tests verify the implementations. Together, these mechanisms provide a basis for substitutability.</p>
+<h2 id="multiple-dependencies">Multiple Dependencies</h2>
+<p>A single dependency does not yet show how quickly the configuration space can grow.</p>
+<p>Let us extend the example. In addition to storage, the function now needs a clock and a logger.</p>
+<pre class="js"><code>/**
+ * @typedef {object} NameRecord
+ * @property {string} name
+ * @property {string} createdAt
+ */
+
+/**
+ * @typedef {object} NameRecordStorage
+ * @property {(value: NameRecord) =&gt; Promise&lt;void&gt;} save
+ */
+
+/**
+ * @typedef {object} Clock
+ * @property {() =&gt; string} now
+ */
+
+/**
+ * @typedef {object} Logger
+ * @property {(message: string) =&gt; void} write
+ */</code></pre>
+<p>The component receives all three dependencies:</p>
+<pre class="js"><code>/**
+ * @param {{
+ *   storage: NameRecordStorage,
+ *   clock: Clock,
+ *   logger: Logger
+ * }} dependencies
+ * @returns {(name: string) =&gt; Promise&lt;NameRecord&gt;}
+ */
+export function createSaveName({ storage, clock, logger }) {
+  return async function saveName(name) {
+    const record = {
+      name: name.trim().toLowerCase(),
+      createdAt: clock.now(),
+    };
+
+    logger.write(&quot;Saving name&quot;);
+    await storage.save(record);
+
+    return record;
+  };
+}</code></pre>
+<p>Assume that each interface has three implementations:</p>
+<pre class="text"><code>Storage:
+MemoryStorage
+FileStorage
+DatabaseStorage
+
+Clock:
+SystemClock
+FixedClock
+OffsetClock
+
+Logger:
+ConsoleLogger
+FileLogger
+RemoteLogger</code></pre>
+<p>The number of possible assemblies is the product:</p>
+<pre class="text"><code>3 × 3 × 3 = 27</code></pre>
+<p>Adding a fourth dependency with three implementations increases the number to 81:</p>
+<pre class="text"><code>3 × 3 × 3 × 3 = 81</code></pre>
+<p>Dependency injection does not reduce the number of possible assemblies. All 27 or 81 configurations still exist.</p>
+<p>What changes is how they can be verified.</p>
+<p>The <code>createSaveName()</code> component can be tested once against its three interfaces by supplying minimal test implementations:</p>
+<pre class="js"><code>import assert from &quot;node:assert/strict&quot;;
+import { createSaveName } from &quot;./saveName.mjs&quot;;
+
+const saved = [];
+const messages = [];
+
+const storage = {
+  async save(value) {
+    saved.push(value);
+  },
+};
+
+const clock = {
+  now() {
+    return &quot;2026-07-21T12:00:00.000Z&quot;;
+  },
+};
+
+const logger = {
+  write(message) {
+    messages.push(message);
+  },
+};
+
+const saveName = createSaveName({
+  storage,
+  clock,
+  logger,
+});
+
+const result = await saveName(&quot; Alex &quot;);
+
+assert.deepEqual(result, {
+  name: &quot;alex&quot;,
+  createdAt: &quot;2026-07-21T12:00:00.000Z&quot;,
+});
+
+assert.deepEqual(saved, [result]);
+assert.deepEqual(messages, [&quot;Saving name&quot;]);</code></pre>
+<p>This test covers the component's own logic and its interactions with the three interfaces. It does not depend on <code>MemoryStorage</code>, <code>SystemClock</code>, or <code>ConsoleLogger</code>.</p>
+<p>The real implementations of each interface are verified separately.</p>
+<p>If correctness is established by testing every concrete assembly, the number of combinations grows as a product:</p>
+<pre class="text"><code>k₁ × k₂ × ... × kₙ</code></pre>
+<p>With interface-based decomposition, the baseline verification cost has a different shape:</p>
+<pre class="text"><code>consumer tests
++ implementation tests
++ selected integration scenarios</code></pre>
+<p>For one consumer and three interfaces with three implementations each, the decomposition looks approximately like this:</p>
+<pre class="text"><code>1 consumer
++ 3 Storage implementations
++ 3 Clock implementations
++ 3 Logger implementations
++ significant integration combinations</code></pre>
+<p>This does not mean there will literally be ten test functions. A single component or contract may require many scenarios.</p>
+<p>The important change is structural. A large portion of the combinatorial verification effort can be replaced with independent tests of consumers and implementations. The baseline cost grows more like a sum than a product.</p>
+<p>Some concrete assemblies still need integration testing. A <code>DatabaseStorage</code> implementation should be tested with the real database driver. A <code>RemoteLogger</code> should be tested against the remote service or a sufficiently realistic substitute.</p>
+<p>Some defects also appear only in particular combinations of implementations. DI does not eliminate integration testing.</p>
+<p>It does, however, allow the most important and highest-risk combinations to be selected deliberately instead of requiring a mechanical traversal of the entire configuration space.</p>
+<blockquote>
+<p>With sufficiently complete contracts, DI allows a significant part of combinatorial verification to be replaced with independent verification of consumers and implementations.</p>
+</blockquote>
+<p>The more components and alternative implementations an application contains, the more valuable this distinction becomes.</p>
+<h2 id="when-di-is-unnecessary">When DI Is Unnecessary</h2>
+<p>DI is useful when it reduces verification cost or allows the application environment to be selected explicitly.</p>
+<p>The inverse is also true: if a concrete dependency does not make a component harder to verify, extracting it behind an interface may provide little value.</p>
+<p>Pure functions are the simplest example:</p>
+<pre class="js"><code>export function normalizeName(name) {
+  return name.trim().toLowerCase();
+}</code></pre>
+<p>Everything required for execution is already supplied as input. There is no external environment to replace.</p>
+<p>Injecting anything here would be pointless.</p>
+<p>The same is true for many internal utilities:</p>
+<pre class="js"><code>import { normalizeName } from &quot;./normalizeName.mjs&quot;;
+
+export function createUserRecord(name, createdAt) {
+  return {
+    name: normalizeName(name),
+    createdAt,
+  };
+}</code></pre>
+<p><code>normalizeName()</code> is stable, stateless, and free of external effects. Its static import does not pull in an expensive integration graph, and it does not prevent <code>createUserRecord()</code> from being tested independently.</p>
+<p>It could still be injected:</p>
+<pre class="js"><code>export function createUserRecordFactory({ normalizeName }) {
+  return function createUserRecord(name, createdAt) {
+    return {
+      name: normalizeName(name),
+      createdAt,
+    };
+  };
+}</code></pre>
+<p>But there is little practical benefit. The design now contains an additional composition point, while the verification cost has not decreased.</p>
+<p>DI may also be unnecessary inside a small group of components that are always used and changed together.</p>
+<p>If the connection is stable, inexpensive to construct in tests, and has no practical need for substitution, a static import remains a reasonable choice.</p>
+<p>The number of production implementations does not determine whether DI is useful.</p>
+<p>An interface may have only one production implementation and still require several meaningful testing contexts:</p>
+<pre class="text"><code>DatabaseStorage — production
+MemoryStorage — ordinary tests
+FailingStorage — error-path tests</code></pre>
+<p>There is only one production implementation, but the dependency is already variable from the perspective of verification.</p>
+<p>The relevant boundary is the cost of the connection.</p>
+<blockquote>
+<p>DI is unnecessary when a concrete dependency is stable, transparent, and does not prevent the component from being verified independently.</p>
+</blockquote>
+<p>Static imports are usually appropriate for pure functions, local transformations, mathematical operations, and small internal utilities.</p>
+<p>Injection becomes more useful for connections to the outside world, mutable environments, and independently evolving components: storage systems, clocks, loggers, file systems, networks, queues, and third-party services.</p>
+<p>The goal is not to inject every dependency. The application should be divided only at boundaries where doing so genuinely reduces verification cost or makes system configuration easier to control.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Dependency injection is not inherently tied to classes, inheritance, or any particular programming language.</p>
+<p>In functional JavaScript, an ordinary function can receive ordinary objects that provide the methods it expects:</p>
+<pre class="js"><code>const saveName = createSaveName({
+  storage,
+  clock,
+  logger,
+});</code></pre>
+<p>That is already dependency injection.</p>
+<p>The consumer defines its expectations.</p>
+<p>Implementations are supplied from the outside.</p>
+<p>The concrete configuration is selected at the composition point.</p>
+<p>A DI container is not required. It may automate the assembly of a large application, but it does not create dependency injection itself.</p>
+<p>Explicit boundaries and composition rules come first. Only then may a tool become useful for maintaining those rules at scale.</p>
+<p>The practical question is therefore not:</p>
+<blockquote>
+<p>Can this dependency be replaced?</p>
+</blockquote>
+<p>In a dynamic language, almost anything can be replaced somehow.</p>
+<p>A better question is:</p>
+<blockquote>
+<p>Does this connection make the component harder to verify independently?</p>
+</blockquote>
+<p>If it does, the dependency is a good candidate for being moved outside the component and supplied explicitly.</p>
+<p>If it does not, a static import is usually the simpler design.</p>
+<p>DI does not guarantee a sound architecture by itself. Combined with explicit interfaces, behavioral contract tests, and selective integration testing, however, it helps keep verification cost manageable as an application grows.</p>
+{% endraw %}
+
+</div>
+{% endblock %}

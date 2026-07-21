@@ -1,0 +1,529 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Для чего нужно внедрение зависимостей в JavaScript?{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Для чего нужно внедрение зависимостей в JavaScript?</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2026-07-21
+    </span>
+
+    <p style="text-align: center;">
+        <zoom-img
+                src="/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp"
+                alt="Внедрение зависимостей в JavaScript"
+                width="100%"
+        ></zoom-img>
+    </p>
+
+{% raw %}
+<p>Я время от времени сталкиваюсь в Сети с непониманием, для чего нужна такая технология, как внедрение зависимостей, в таком языке, как JavaScript. Мол, в JS всё строится на прототипах, объекты можно изменять во время выполнения, а DI — какая-то ООП-технология из мира Java.</p>
+<blockquote>
+<p>Какую проблему решает DI, если нужный объект можно изменить как угодно прямо в процессе выполнения?</p>
+</blockquote>
+<p>Вот браузерный код, который можно выполнить прямо в консоли и заставить <code>console.log()</code> дополнительно отправлять сообщения на сервер:</p>
+<pre class="js"><code>const originalLog = console.log.bind(console);
+
+console.log = (...args) =&gt; {
+  navigator.sendBeacon(&quot;/api/log&quot;, JSON.stringify(args));
+  originalLog(...args);
+};</code></pre>
+<p>Никакого контейнера, интерфейсов или специальных архитектурных конструкций. Мы просто заменили метод объекта.</p>
+<p>Мой ответ такой: внедрение зависимостей помогает снизить стоимость верификации сложного приложения. Оно отделяет компонент от выбора конкретного окружения и позволяет проверять его относительно явных ожиданий, не поднимая каждый раз весь граф реальных зависимостей.</p>
+<p>Само по себе DI ещё не гарантирует независимую проверку. Для этого нужны достаточно полные контракты и отдельная верификация потребителей и имплементаций. Но именно DI создаёт границу, на которой такое разделение становится возможным.</p>
+<p>Попробуем получить этот вывод из нескольких строк обычного JavaScript. Без классов, наследования, декораторов и DI-контейнера.</p>
+<h2 id="код-без-внешних-зависимостей">Код без внешних зависимостей</h2>
+<p>Начнём с чистой функции:</p>
+<pre class="js"><code>export function normalizeName(name) {
+  return name.trim().toLowerCase();
+}</code></pre>
+<p>Она зависит только от входного значения и проверяется напрямую:</p>
+<pre class="js"><code>import assert from &quot;node:assert/strict&quot;;
+import { normalizeName } from &quot;./normalizeName.mjs&quot;;
+
+assert.equal(normalizeName(&quot; Alex &quot;), &quot;alex&quot;);
+assert.equal(normalizeName(&quot;BOB&quot;), &quot;bob&quot;);</code></pre>
+<p>Все условия выполнения находятся в аргументах. Внешнего окружения нет, поэтому внедрение зависимостей здесь ничего не даст.</p>
+<h2 id="зависимость-от-внешнего-мира">Зависимость от внешнего мира</h2>
+<p>Добавим хранилище:</p>
+<pre class="js"><code>// storage.mjs
+const values = [];
+
+export async function save(value) {
+  values.push(value);
+}
+
+export async function loadAll() {
+  return [...values];
+}</code></pre>
+<p>Функция <code>saveName()</code> будет нормализовывать имя и сохранять результат:</p>
+<pre class="js"><code>// saveName.mjs
+import { save } from &quot;./storage.mjs&quot;;
+
+export async function saveName(name) {
+  const value = name.trim().toLowerCase();
+  await save(value);
+  return value;
+}</code></pre>
+<p>Нормализацию можно проверить отдельно:</p>
+<pre class="js"><code>assert.equal(await saveName(&quot; Alex &quot;), &quot;alex&quot;);</code></pre>
+<p>Хранилище тоже можно проверить отдельно:</p>
+<pre class="js"><code>await save(&quot;alex&quot;);
+
+assert.deepEqual(await loadAll(), [&quot;alex&quot;]);</code></pre>
+<p>Но два таких теста ещё не проверяют связь между компонентами.</p>
+<p>В <code>saveName()</code> легко допустить ошибку:</p>
+<pre class="js"><code>export async function saveName(name) {
+  const value = name.trim().toLowerCase();
+  await save(name);
+  return value;
+}</code></pre>
+<p>Нормализация работает. Хранилище корректно сохраняет переданное ему значение. Однако вместе компоненты ведут себя неправильно: вместо <code>"alex"</code> сохраняется <code>" Alex "</code>.</p>
+<p>Чтобы обнаружить ошибку, приходится проверять их в связке:</p>
+<pre class="js"><code>await saveName(&quot; Alex &quot;);
+
+assert.deepEqual(await loadAll(), [&quot;alex&quot;]);</code></pre>
+<p>С этого момента единицей верификации становится уже не одна функция, а связка <code>saveName()</code> и конкретного <code>storage.mjs</code>.</p>
+<p>Если хранилище само зависит от файловой системы, конфигурации и логгера, тест верхнего компонента начинает поднимать весь транзитивный граф.</p>
+<p>Представим компонент, который зависит от трёх модулей, а каждый из них — ещё от трёх:</p>
+<pre class="text"><code>1 + 3 + 9 = 13 модулей</code></pre>
+<p>Пока это не мультипликативный рост числа конфигураций. Растёт сама единица тестирования: локальная проверка одного компонента постепенно превращается в интеграционную проверку связанного графа.</p>
+<p>Позже, когда у зависимостей появятся альтернативные имплементации, начнёт расти и пространство возможных сборок.</p>
+<h2 id="где-возникает-интерфейс">Где возникает интерфейс</h2>
+<p>Посмотрим на выражение:</p>
+<pre class="js"><code>await storage.save(value);</code></pre>
+<p>В нём уже присутствует интерфейс зависимости.</p>
+<p>Компонент ожидает, что внешний объект имеет метод <code>save()</code>, этот метод принимает значение, а результат его работы можно ожидать через <code>await</code>.</p>
+<p>JavaScript не требует объявлять такой интерфейс отдельно. Но отсутствие объявления не означает отсутствия ожиданий между компонентами.</p>
+<p>С точки зрения потребителя интерфейс определяется в месте использования. Объект может предоставлять десятки методов, но конкретному компоненту нужны только некоторые из них. Эти требования и образуют интерфейс данной связи.</p>
+<blockquote>
+<p>Интерфейс — это описание ожиданий потребителя на границе с зависимостью.</p>
+</blockquote>
+<p>Именно поэтому duck typing не следует понимать как классификацию объекта целиком. Разные потребители могут ожидать от одного объекта разного поведения. Для одного важна способность утки плавать, для другого — нести яйца. Объект остаётся тем же, но интерфейсы связей различаются.</p>
+<p>Выражение <code>storage.save(value)</code> задаёт структурную часть интерфейса: имя метода, аргументы и способ вызова. Но контракт включает и поведение.</p>
+<p>Что значит «сохранить»? Когда операция считается завершённой? Должно ли значение затем возвращаться через <code>loadAll()</code>? Какие ошибки допустимы?</p>
+<p>Структуру можно описать типами и аннотациями. Поведение приходится фиксировать документацией и проверять тестами.</p>
+<h2 id="внедрение-зависимости">Внедрение зависимости</h2>
+<p>Чтобы снова сделать <code>saveName()</code> самостоятельной единицей верификации, уберём из неё знание о конкретном <code>storage.mjs</code>.</p>
+<p>Сама зависимость не исчезает. Функция по-прежнему должна сохранить нормализованное имя. Меняется способ связывания компонентов.</p>
+<pre class="js"><code>// saveName.mjs
+export function createSaveName({ storage }) {
+  return async function saveName(name) {
+    const value = name.trim().toLowerCase();
+    await storage.save(value);
+    return value;
+  };
+}</code></pre>
+<p>Теперь <code>saveName.mjs</code> не импортирует конкретное хранилище. Он только объявляет ожидание: при создании функции ему должен быть передан объект с методом <code>save()</code>.</p>
+<p>В работающем приложении связь устанавливается отдельно:</p>
+<pre class="js"><code>// bootstrap.mjs
+import * as storage from &quot;./storage.mjs&quot;;
+import { createSaveName } from &quot;./saveName.mjs&quot;;
+
+const saveName = createSaveName({ storage });
+
+await saveName(&quot; Alex &quot;);</code></pre>
+<p>Это точка композиции приложения: место, где отдельные компоненты собираются в работающую систему.</p>
+<p>Конкретная имплементация выбирается здесь, а не внутри <code>saveName.mjs</code>.</p>
+<p>Для теста тот же компонент можно собрать с минимальной тестовой имплементацией:</p>
+<pre class="js"><code>import assert from &quot;node:assert/strict&quot;;
+import { createSaveName } from &quot;./saveName.mjs&quot;;
+
+const saved = [];
+
+const storage = {
+  async save(value) {
+    saved.push(value);
+  },
+};
+
+const saveName = createSaveName({ storage });
+
+assert.equal(await saveName(&quot; Alex &quot;), &quot;alex&quot;);
+assert.deepEqual(saved, [&quot;alex&quot;]);</code></pre>
+<p>Этот тест проверяет только поведение <code>saveName()</code>:</p>
+<pre class="text"><code>имя нормализовано;
+нормализованное значение передано в storage.save();
+возвращён правильный результат.</code></pre>
+<p>Настоящее хранилище и его собственные зависимости поднимать не требуется. Тест сам собирает минимальное окружение, необходимое для проверки компонента.</p>
+<p>Статическую зависимость тоже можно подменить. Но тогда тестовый раннер должен перехватить загрузку модуля, преобразовать исходный код или предоставить специальный механизм моков.</p>
+<p>При явном внедрении зависимости вмешательство в модульную систему не требуется. Тест передаёт нужную имплементацию обычным аргументом функции.</p>
+<blockquote>
+<p>Статический <code>import</code> фиксирует конкретную связь внутри компонента. DI переносит выбор имплементации в точку сборки.</p>
+</blockquote>
+<p>Внедрение зависимостей не создаёт принципиально новую возможность тестирования. Оно делает независимую верификацию штатным свойством архитектуры, а не специальным трюком тестовой инфраструктуры.</p>
+<h2 id="интерфейсы-в-javascript">Интерфейсы в JavaScript</h2>
+<p>В ECMAScript нет действующей синтаксической конструкции <code>interface</code>. Но реальный язык проекта обычно шире спецификации, которую понимает JavaScript-движок.</p>
+<p>Он включает соглашения, документацию, статический анализ, тесты, правила CI и требования к структуре кода.</p>
+<p>В нашем случае язык проекта можно определить так:</p>
+<blockquote>
+<p>JavaScript + JSDoc + соглашения об интерфейсах и их имплементациях.</p>
+</blockquote>
+<p>Опишем интерфейс хранилища как структурный тип:</p>
+<pre class="js"><code>// NameStorage.mjs
+
+/**
+ * Хранилище строковых значений.
+ *
+ * @typedef {object} NameStorage
+ * @property {(value: string) =&gt; Promise&lt;void&gt;} save
+ *   Сохраняет значение.
+ * @property {() =&gt; Promise&lt;string[]&gt;} loadAll
+ *   Возвращает сохранённые значения.
+ */
+
+export {};</code></pre>
+<p>Теперь ранее неявные ожидания получили имя и структурное описание.</p>
+<p>Поскольку мы работаем без классов, имплементации удобно оформлять как фабрики объектов:</p>
+<pre class="js"><code>// MemoryStorage.mjs
+
+/** @import {NameStorage} from &quot;./NameStorage.mjs&quot; */
+
+/**
+ * @returns {NameStorage}
+ */
+export function createMemoryStorage() {
+  const values = [];
+
+  return {
+    async save(value) {
+      values.push(value);
+    },
+
+    async loadAll() {
+      return [...values];
+    },
+  };
+}</code></pre>
+<p>Файловая имплементация:</p>
+<pre class="js"><code>// FileStorage.mjs
+import { appendFile, readFile } from &quot;node:fs/promises&quot;;
+
+/** @import {NameStorage} from &quot;./NameStorage.mjs&quot; */
+
+/**
+ * @param {string} path
+ * @returns {NameStorage}
+ */
+export function createFileStorage(path) {
+  return {
+    async save(value) {
+      await appendFile(path, `${value}\n`);
+    },
+
+    async loadAll() {
+      const content = await readFile(path, &quot;utf8&quot;);
+      return content.split(&quot;\n&quot;).filter(Boolean);
+    },
+  };
+}</code></pre>
+<p>Для работы с базой данных тоже опишем используемый контракт:</p>
+<pre class="js"><code>// DatabaseStorage.mjs
+
+/** @import {NameStorage} from &quot;./NameStorage.mjs&quot; */
+
+/**
+ * @typedef {object} NameRow
+ * @property {string} value
+ */
+
+/**
+ * @typedef {object} Database
+ * @property {(sql: string, params?: unknown[]) =&gt; Promise&lt;void&gt;} execute
+ * @property {(sql: string, params?: unknown[]) =&gt; Promise&lt;NameRow[]&gt;} select
+ */
+
+/**
+ * @param {Database} database
+ * @returns {NameStorage}
+ */
+export function createDatabaseStorage(database) {
+  return {
+    async save(value) {
+      await database.execute(&quot;INSERT INTO names (value) VALUES (?)&quot;, [value]);
+    },
+
+    async loadAll() {
+      const rows = await database.select(&quot;SELECT value FROM names ORDER BY id&quot;);
+
+      return rows.map((row) =&gt; row.value);
+    },
+  };
+}</code></pre>
+<p>Зависимость <code>saveName()</code> также можно описать явно:</p>
+<pre class="js"><code>// saveName.mjs
+
+/** @import {NameStorage} from &quot;./NameStorage.mjs&quot; */
+
+/**
+ * @param {{storage: NameStorage}} dependencies
+ * @returns {(name: string) =&gt; Promise&lt;string&gt;}
+ */
+export function createSaveName({ storage }) {
+  return async function saveName(name) {
+    const value = name.trim().toLowerCase();
+    await storage.save(value);
+    return value;
+  };
+}</code></pre>
+<p>Для JavaScript-движка все три хранилища остаются обычными объектами. Но на языке проекта они являются имплементациями одного контракта.</p>
+<pre class="js"><code>const memoryStorage = createMemoryStorage();
+const fileStorage = createFileStorage(&quot;./names.txt&quot;);
+const databaseStorage = createDatabaseStorage(database);
+
+const saveToMemory = createSaveName({
+  storage: memoryStorage,
+});
+
+const saveToFile = createSaveName({
+  storage: fileStorage,
+});
+
+const saveToDatabase = createSaveName({
+  storage: databaseStorage,
+});</code></pre>
+<p>Само наличие JSDoc-аннотаций ещё ничего не гарантирует. Чтобы <code>JavaScript + JSDoc</code> действительно стал языком проекта, соглашения должны проверяться.</p>
+<p>Проект может требовать описывать интерфейсы внедряемых зависимостей, указывать тип результата фабрик, запрещать скрытые внешние зависимости, запускать статический анализ и контрактные тесты, а CI — блокировать интеграцию кода при нарушении этих правил.</p>
+<p>Например, JSDoc можно проверять через TypeScript-анализатор:</p>
+<pre class="text"><code>tsc --allowJs --checkJs --noEmit</code></pre>
+<p>JSDoc не добавляет интерфейсы в программу. Они уже возникли на границах между компонентами. Аннотации только переносят их из головы разработчика в явный язык проекта, доступный людям, IDE, анализаторам и агентам.</p>
+<h2 id="верификация-интерфейса">Верификация интерфейса</h2>
+<p>Структурное соответствие интерфейсу ещё не означает поведенческого соответствия.</p>
+<p>Объект может иметь методы <code>save()</code> и <code>loadAll()</code>, но реализовывать их неправильно:</p>
+<pre class="js"><code>const brokenStorage = {
+  async save(value) {
+    // Ничего не сохраняет.
+  },
+
+  async loadAll() {
+    return [];
+  },
+};</code></pre>
+<p>Форма интерфейса соблюдена. Поведение — нет.</p>
+<p>Поэтому имплементации должны проходить общий контрактный тест:</p>
+<pre class="js"><code>import assert from &quot;node:assert/strict&quot;;
+
+/**
+ * @param {() =&gt; NameStorage | Promise&lt;NameStorage&gt;} createStorage
+ */
+export async function verifyNameStorage(createStorage) {
+  const storage = await createStorage();
+
+  await storage.save(&quot;alex&quot;);
+
+  assert.deepEqual(await storage.loadAll(), [&quot;alex&quot;]);
+}</code></pre>
+<p>Один и тот же набор проверок выполняется для разных имплементаций:</p>
+<pre class="js"><code>await verifyNameStorage(createMemoryStorage);
+
+await verifyNameStorage(() =&gt; createFileStorage(&quot;./temporary-test-file.txt&quot;));
+
+await verifyNameStorage(() =&gt; createDatabaseStorage(testDatabase));</code></pre>
+<p>В реальном тесте файловая имплементация должна получать новый временный файл, а база данных — изолированную тестовую схему или транзакцию. Иначе состояние одного запуска может повлиять на следующий.</p>
+<p>Теперь верификация разделена на две задачи.</p>
+<p>Компонент <code>saveName()</code> проверяется относительно интерфейса <code>NameStorage</code>.</p>
+<p>Каждая конкретная имплементация отдельно проверяется на соответствие тому же контракту.</p>
+<p>DI выносит выбор реализации за пределы компонента. Интерфейс описывает границу. Контрактные тесты проверяют поведение имплементаций. Только вместе эти механизмы создают основание для взаимозаменяемости.</p>
+<h2 id="множественные-зависимости">Множественные зависимости</h2>
+<p>Одна зависимость ещё не показывает, насколько быстро растёт пространство возможных конфигураций.</p>
+<p>Расширим пример. Кроме хранилища, функции понадобятся часы и логгер.</p>
+<pre class="js"><code>/**
+ * @typedef {object} NameRecord
+ * @property {string} name
+ * @property {string} createdAt
+ */
+
+/**
+ * @typedef {object} NameRecordStorage
+ * @property {(value: NameRecord) =&gt; Promise&lt;void&gt;} save
+ */
+
+/**
+ * @typedef {object} Clock
+ * @property {() =&gt; string} now
+ */
+
+/**
+ * @typedef {object} Logger
+ * @property {(message: string) =&gt; void} write
+ */</code></pre>
+<p>Компонент получает три зависимости:</p>
+<pre class="js"><code>/**
+ * @param {{
+ *   storage: NameRecordStorage,
+ *   clock: Clock,
+ *   logger: Logger
+ * }} dependencies
+ * @returns {(name: string) =&gt; Promise&lt;NameRecord&gt;}
+ */
+export function createSaveName({ storage, clock, logger }) {
+  return async function saveName(name) {
+    const record = {
+      name: name.trim().toLowerCase(),
+      createdAt: clock.now(),
+    };
+
+    logger.write(&quot;Saving name&quot;);
+    await storage.save(record);
+
+    return record;
+  };
+}</code></pre>
+<p>Допустим, у каждого интерфейса есть по три имплементации:</p>
+<pre class="text"><code>Storage:
+MemoryStorage
+FileStorage
+DatabaseStorage
+
+Clock:
+SystemClock
+FixedClock
+OffsetClock
+
+Logger:
+ConsoleLogger
+FileLogger
+RemoteLogger</code></pre>
+<p>Количество возможных сборок определяется произведением:</p>
+<pre class="text"><code>3 × 3 × 3 = 27</code></pre>
+<p>Если появляется четвёртая зависимость с тремя имплементациями, количество вариантов увеличивается до 81:</p>
+<pre class="text"><code>3 × 3 × 3 × 3 = 81</code></pre>
+<p>DI не уменьшает пространство возможных сборок. Все 27 или 81 вариант продолжают существовать.</p>
+<p>Изменяется способ их верификации.</p>
+<p>Компонент <code>createSaveName()</code> можно проверить относительно трёх интерфейсов, передав ему минимальные тестовые имплементации:</p>
+<pre class="js"><code>import assert from &quot;node:assert/strict&quot;;
+import { createSaveName } from &quot;./saveName.mjs&quot;;
+
+const saved = [];
+const messages = [];
+
+const storage = {
+  async save(value) {
+    saved.push(value);
+  },
+};
+
+const clock = {
+  now() {
+    return &quot;2026-07-21T12:00:00.000Z&quot;;
+  },
+};
+
+const logger = {
+  write(message) {
+    messages.push(message);
+  },
+};
+
+const saveName = createSaveName({
+  storage,
+  clock,
+  logger,
+});
+
+const result = await saveName(&quot; Alex &quot;);
+
+assert.deepEqual(result, {
+  name: &quot;alex&quot;,
+  createdAt: &quot;2026-07-21T12:00:00.000Z&quot;,
+});
+
+assert.deepEqual(saved, [result]);
+assert.deepEqual(messages, [&quot;Saving name&quot;]);</code></pre>
+<p>Этот тест проверяет собственную логику компонента и его взаимодействие с тремя интерфейсами. Конкретные <code>MemoryStorage</code>, <code>SystemClock</code> и <code>ConsoleLogger</code> в нём не участвуют.</p>
+<p>Затем отдельно проверяются реальные имплементации каждого интерфейса.</p>
+<p>Если пытаться доказать корректность системы через перебор реальных сборок, количество комбинаций растёт как произведение:</p>
+<pre class="text"><code>k₁ × k₂ × ... × kₙ</code></pre>
+<p>При интерфейсном разложении базовая стоимость проверки выглядит иначе:</p>
+<pre class="text"><code>проверки потребителей
++ проверки имплементаций
++ выбранные интеграционные сценарии</code></pre>
+<p>Для одного потребителя и трёх интерфейсов с тремя имплементациями это приблизительно:</p>
+<pre class="text"><code>1 проверка компонента
++ 3 Storage
++ 3 Clock
++ 3 Logger
++ значимые интеграционные связки</code></pre>
+<p>Речь не идёт буквально о десяти тестовых функциях. Один компонент или контракт может потребовать много сценариев.</p>
+<p>Важно другое: значительную часть полного перебора можно заменить независимой проверкой компонентов и имплементаций. Базовая стоимость такой проверки растёт ближе к сумме, а не к произведению.</p>
+<p>Некоторые реальные сборки всё равно необходимо проверять интеграционно. Например, связку <code>DatabaseStorage</code> с конкретным драйвером базы данных или <code>RemoteLogger</code> с удалённым сервисом.</p>
+<p>Ошибки также могут возникать только в определённых сочетаниях реализаций. Поэтому интеграционные тесты не исчезают. Но выбирать можно наиболее рискованные и значимые комбинации, а не механически перебирать всё пространство конфигураций.</p>
+<blockquote>
+<p>При достаточно полных контрактах DI позволяет заменить значительную часть комбинаторной верификации независимой проверкой потребителей и имплементаций.</p>
+</blockquote>
+<p>Чем больше в приложении компонентов и вариантов их реализации, тем заметнее становится эта разница.</p>
+<h2 id="когда-di-не-нужен">Когда DI не нужен</h2>
+<p>DI полезно там, где оно снижает стоимость верификации или позволяет управлять выбором окружения.</p>
+<p>Из этого следует и обратное: если конкретная связь не мешает проверять компонент, выносить её в отдельный интерфейс необязательно.</p>
+<p>Проще всего это видно на чистых функциях:</p>
+<pre class="js"><code>export function normalizeName(name) {
+  return name.trim().toLowerCase();
+}</code></pre>
+<p>Все условия выполнения уже находятся в аргументах. У функции нет внешнего окружения, которое пришлось бы подменять.</p>
+<p>Внедрять сюда зависимости бессмысленно.</p>
+<p>То же относится ко многим внутренним утилитам:</p>
+<pre class="js"><code>import { normalizeName } from &quot;./normalizeName.mjs&quot;;
+
+export function createUserRecord(name, createdAt) {
+  return {
+    name: normalizeName(name),
+    createdAt,
+  };
+}</code></pre>
+<p><code>normalizeName()</code> — стабильная функция без состояния и внешних эффектов. Её статический импорт не разрастается в дорогую интеграцию и не мешает независимо проверить <code>createUserRecord()</code>.</p>
+<p>Можно формально внедрить и её:</p>
+<pre class="js"><code>export function createUserRecordFactory({ normalizeName }) {
+  return function createUserRecord(name, createdAt) {
+    return {
+      name: normalizeName(name),
+      createdAt,
+    };
+  };
+}</code></pre>
+<p>Но практической пользы почти нет. Появилась дополнительная точка сборки, а стоимость проверки не уменьшилась.</p>
+<p>DI может быть лишним и внутри небольшой связки компонентов, которая всегда используется и изменяется как единое целое. Если связь стабильна, её легко поднять в тесте, а отдельная подмена не имеет практического смысла, статический импорт остаётся нормальным решением.</p>
+<p>Количество production-имплементаций само по себе не определяет необходимость DI.</p>
+<p>У интерфейса может быть одна рабочая имплементация, но несколько значимых контекстов подстановки:</p>
+<pre class="text"><code>DatabaseStorage — production
+MemoryStorage — обычные тесты
+FailingStorage — проверка ошибок</code></pre>
+<p>Формально в приложении одна production-имплементация, но для верификации связь уже вариативна.</p>
+<p>Граница проходит по стоимости связи.</p>
+<blockquote>
+<p>DI не нужен там, где конкретная зависимость стабильна, прозрачна и не мешает независимой проверке компонента.</p>
+</blockquote>
+<p>Статическими импортами обычно можно оставлять чистые функции, локальные преобразования, математические операции и небольшие внутренние утилиты.</p>
+<p>Во внедряемые зависимости имеет смысл превращать связи с внешним миром, изменяемым окружением и самостоятельными компонентами: хранилища, часы, логгеры, файловую систему, сеть, очереди и сторонние сервисы.</p>
+<p>Задача не в том, чтобы внедрять все зависимости подряд. Нужно разрезать приложение только по тем границам, где это действительно уменьшает стоимость верификации или позволяет управлять конфигурацией системы.</p>
+<h2 id="заключение">Заключение</h2>
+<p>Внедрение зависимостей не связано напрямую ни с классами, ни с наследованием, ни с конкретным языком программирования.</p>
+<p>В функциональном JavaScript обычная функция может получить обычные объекты с ожидаемыми методами:</p>
+<pre class="js"><code>const saveName = createSaveName({
+  storage,
+  clock,
+  logger,
+});</code></pre>
+<p>В этом коде уже есть всё необходимое для DI.</p>
+<p>Компонент формулирует ожидания к зависимостям.</p>
+<p>Имплементации передаются снаружи.</p>
+<p>Конкретная конфигурация выбирается в точке сборки.</p>
+<p>DI-контейнер здесь не требуется. Он может автоматизировать сборку большого приложения, но не создаёт само внедрение зависимостей.</p>
+<p>Сначала в архитектуре появляются явные границы и правила связывания компонентов. Только потом может возникнуть потребность в инструменте, который обслуживает эти правила.</p>
+<p>Поэтому вопрос о применении DI стоит формулировать не так:</p>
+<blockquote>
+<p>Можно ли подменить эту зависимость?</p>
+</blockquote>
+<p>В динамическом языке подменить можно почти всё.</p>
+<p>Полезнее спросить:</p>
+<blockquote>
+<p>Мешает ли эта связь независимо проверить компонент?</p>
+</blockquote>
+<p>Если мешает, зависимость имеет смысл вынести за границу компонента и передавать извне.</p>
+<p>Если не мешает, статический импорт обычно остаётся более простым решением.</p>
+<p>DI не гарантирует корректность архитектуры само по себе. Но вместе с явными интерфейсами, контрактными тестами и выборочной интеграционной проверкой оно позволяет удерживать стоимость верификации под контролем по мере роста приложения.</p>
+{% endraw %}
+
+</div>
+{% endblock %}

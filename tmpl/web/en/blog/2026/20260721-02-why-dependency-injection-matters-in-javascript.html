@@ -1,0 +1,58 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Why Dependency Injection Matters in JavaScript{% endblock %}
+
+{% block html_head_extra %}
+    <meta property="og:title" content="Why Dependency Injection Matters in JavaScript"/>
+    <meta property="og:description" content="A new article on DI as a way to keep the cost of independently verifying JavaScript components under control."/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://wiredgeese.com/en/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+    <meta property="og:image" content="https://wiredgeese.com/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Why Dependency Injection Matters in JavaScript"/>
+    <meta name="twitter:description" content="A new article on DI as a way to keep the cost of independently verifying JavaScript components under control."/>
+    <meta name="twitter:image" content="https://wiredgeese.com/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp"/>
+{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Why Dependency Injection Matters in JavaScript</h1>
+    <time datetime="2026-07-21">July 21, 2026</time>
+
+    <zoom-img src="/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp"
+        alt="Dependency injection in JavaScript" width="100px"></zoom-img>
+
+    <p>
+        A new library article explains why dependency injection can matter in JavaScript. Its value is not in
+        classes, containers, or merely being able to replace an object at runtime. It is in verifying a component
+        independently without constructing the entire graph of real dependencies.
+    </p>
+
+    <p>
+        Using small examples, the article examines implicit JavaScript interfaces, the application's composition point,
+        contract verification for consumers and implementations, and the boundaries where DI is genuinely useful.
+        The practical question is simple: does this connection make the component harder to verify independently?
+        If it does, move the dependency outside the component; if it does not, a static import is usually simpler.
+    </p>
+
+    <p>
+        Direct link to the full text:
+        <a href="/en/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html">/en/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html</a>.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/en/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"></a>
+    <img src="/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp" alt="Dependency injection in JavaScript" />
+    <div>
+        <h4>Why Dependency Injection Matters in JavaScript</h4>
+        <p>
+            A new article on DI as a way to reduce the cost of independently verifying components,
+            rather than an obligatory pattern or an OOP feature.
+        </p>
+        <time datetime="2026-07-21">July 21, 2026</time>
+    </div>
+</li>
+{% endblock %}

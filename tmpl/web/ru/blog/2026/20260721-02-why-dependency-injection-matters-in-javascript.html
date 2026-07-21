@@ -1,0 +1,58 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Для чего нужно внедрение зависимостей в JavaScript?{% endblock %}
+
+{% block html_head_extra %}
+    <meta property="og:title" content="Для чего нужно внедрение зависимостей в JavaScript?"/>
+    <meta property="og:description" content="Новая статья о DI как способе снизить стоимость независимой верификации компонентов JavaScript-приложения."/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://wiredgeese.com/ru/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+    <meta property="og:image" content="https://wiredgeese.com/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Для чего нужно внедрение зависимостей в JavaScript?"/>
+    <meta name="twitter:description" content="Новая статья о DI как способе снизить стоимость независимой верификации компонентов JavaScript-приложения."/>
+    <meta name="twitter:image" content="https://wiredgeese.com/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp"/>
+{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Для чего нужно внедрение зависимостей в JavaScript?</h1>
+    <time datetime="2026-07-21">21 июля 2026</time>
+
+    <zoom-img src="/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp"
+        alt="Внедрение зависимостей в JavaScript" width="100px"></zoom-img>
+
+    <p>
+        В библиотеку добавлена новая статья о том, зачем внедрение зависимостей нужно в JavaScript.
+        Его смысл не в классах, контейнерах или самой возможности подменить объект во время выполнения, а в том,
+        чтобы независимо проверять компонент без сборки всего графа реальных зависимостей.
+    </p>
+
+    <p>
+        В статье на простых примерах разобраны неявные интерфейсы JavaScript, точка композиции приложения,
+        контрактная проверка потребителя и имплементации, а также границы, на которых DI действительно оправдан.
+        Главный практический вопрос: мешает ли конкретная связь независимо проверить компонент? Если да, зависимость
+        стоит вынести за его границу; если нет, статический импорт обычно остаётся более простым решением.
+    </p>
+
+    <p>
+        Полный текст доступен по прямой ссылке:
+        <a href="/ru/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html">/ru/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html</a>.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/ru/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"></a>
+    <img src="/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp" alt="Внедрение зависимостей в JavaScript" />
+    <div>
+        <h4>Для чего нужно внедрение зависимостей в JavaScript?</h4>
+        <p>
+            Новая статья о DI как способе снизить стоимость независимой верификации компонентов,
+            а не как об обязательном шаблоне или свойстве ООП.
+        </p>
+        <time datetime="2026-07-21">21 июля 2026</time>
+    </div>
+</li>
+{% endblock %}

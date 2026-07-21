@@ -1,0 +1,59 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}¿Para qué sirve la inyección de dependencias en JavaScript?{% endblock %}
+
+{% block html_head_extra %}
+    <meta property="og:title" content="¿Para qué sirve la inyección de dependencias en JavaScript?"/>
+    <meta property="og:description" content="Un nuevo artículo sobre DI como forma de mantener bajo control el costo de verificar componentes JavaScript de manera independiente."/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://wiredgeese.com/es/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+    <meta property="og:image" content="https://wiredgeese.com/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="¿Para qué sirve la inyección de dependencias en JavaScript?"/>
+    <meta name="twitter:description" content="Un nuevo artículo sobre DI como forma de mantener bajo control el costo de verificar componentes JavaScript de manera independiente."/>
+    <meta name="twitter:image" content="https://wiredgeese.com/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp"/>
+{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>¿Para qué sirve la inyección de dependencias en JavaScript?</h1>
+    <time datetime="2026-07-21">21 de julio de 2026</time>
+
+    <zoom-img src="/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp"
+        alt="Inyección de dependencias en JavaScript" width="100px"></zoom-img>
+
+    <p>
+        La biblioteca incorpora un nuevo artículo sobre por qué la inyección de dependencias puede ser útil en JavaScript.
+        Su valor no está en las clases, los contenedores ni en la mera posibilidad de sustituir un objeto durante la
+        ejecución, sino en verificar un componente de forma independiente sin construir todo el grafo de dependencias reales.
+    </p>
+
+    <p>
+        Con ejemplos pequeños, el artículo analiza las interfaces implícitas de JavaScript, el punto de composición de
+        la aplicación, la verificación de contratos de consumidores e implementaciones y las fronteras donde DI resulta
+        realmente útil. La pregunta práctica es simple: ¿esta conexión dificulta la verificación independiente del
+        componente? Si la dificulta, conviene mover la dependencia fuera del componente; si no, una importación estática
+        suele ser más sencilla.
+    </p>
+
+    <p>
+        Enlace directo al texto completo:
+        <a href="/es/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html">/es/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html</a>.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/es/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"></a>
+    <img src="/img/library/concepts/20260721-why-dependency-injection-matters-in-javascript/kdpv.webp" alt="Inyección de dependencias en JavaScript" />
+    <div>
+        <h4>¿Para qué sirve la inyección de dependencias en JavaScript?</h4>
+        <p>
+            Un nuevo artículo sobre DI como forma de reducir el costo de verificar componentes de manera independiente,
+            y no como un patrón obligatorio ni una característica de la POO.
+        </p>
+        <time datetime="2026-07-21">21 de julio de 2026</time>
+    </div>
+</li>
+{% endblock %}

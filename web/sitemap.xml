@@ -1702,6 +1702,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260721-01-architecture-foundations-agent-skill.html"/>
   </url>
   <url>
+    <loc>https://wiredgeese.com/en/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/ru/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/es/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
+  </url>
+  <url>
     <loc>https://wiredgeese.com/en/land/agent-orchestration-poc/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/land/agent-orchestration-poc/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/land/agent-orchestration-poc/"/>
@@ -1847,6 +1868,27 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/concepts/20260519-controlled-product-evolution.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/concepts/20260519-controlled-product-evolution.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/library/concepts/20260519-controlled-product-evolution.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/en/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/ru/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/es/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/library/concepts/20260721-why-dependency-injection-matters-in-javascript.html"/>
   </url>
   <url>
     <loc>https://wiredgeese.com/en/library/methodology/doc-principles.html</loc>
