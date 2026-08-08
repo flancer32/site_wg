@@ -2,11 +2,24 @@
   "compilerOptions": {
     "checkJs": true,
     "forceConsistentCasingInFileNames": true,
+    "maxNodeModuleJsDepth": 0,
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "noEmit": true,
     "skipLibCheck": true,
+    "types": ["node"],
     "target": "ESNext"
   },
-  "include": ["src", "test", "web/js", "types.d.ts"]
+  "files": [
+    "types.d.ts",
+    "node_modules/@flancer32/teq-cms/types.d.ts",
+    "node_modules/@flancer32/teq-tmpl/types.d.ts",
+    "node_modules/@flancer32/teq-web/types.d.ts",
+    "node_modules/@teqfw/cfg/types.d.ts",
+    "node_modules/@teqfw/cli/types.d.ts",
+    "node_modules/@teqfw/di/types.d.ts",
+    "node_modules/@teqfw/log/types.d.ts"
+  ],
+  "include": ["src"],
+  "exclude": ["node_modules", "test", "web"]
 }

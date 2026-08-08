@@ -4,30 +4,42 @@
  * @namespace App_Back_Web_Helper_FormProtection
  * @description Issues and verifies signed form tokens and validates GitHub repository URLs.
  */
-export default class App_Back_Web_Helper_FormProtection {
+export default class FormProtection {
     /**
-     * @param {typeof import('node:crypto')} crypto
-     * @param {typeof import('node:fs/promises')} fs
-     * @param {typeof import('node:path')} path
-     * @param {Fl32_Cms_Back_Config} config
+     * @param {object} deps
+     * @param {typeof import('node:crypto')} deps.crypto
+     * @param {typeof import('node:fs/promises')} deps.fs
+     * @param {typeof import('node:path')} deps.path
+     * @param {TeqFw_Cli_Config} deps.cliConfig
      */
     constructor({
-        'node:crypto': crypto,
-        'node:fs/promises': fs,
-        'node:path': path,
-        Fl32_Cms_Back_Config$: config,
+        crypto,
+        fs,
+        path,
+        cliConfig,
     }) {
         const FORM_ID_AGENT_ORCHESTRATION_POC = 'agent-orchestration-poc';
         const FORM_TOKEN_SECRET_FILE_RELATIVE_PATH = 'var/app/form-token-secret';
         const FORM_TOKEN_TTL_SEC = 2 * 60 * 60;
         const secretCache = new Map();
-        const rootPath = path.resolve(config.getRootPath?.() || process.cwd());
+        const rootPath = path.resolve(cliConfig.applicationRoot);
 
+        /**
+         * @param {object} deps
+         * @param {string} deps.encodedPayload
+         * @param {string} deps.secret
+         * @returns {string}
+         */
         const signToken = ({encodedPayload, secret}) => crypto
             .createHmac('sha256', secret)
             .update(encodedPayload)
             .digest('base64url');
 
+        /**
+         * @param {string} left
+         * @param {string} right
+         * @returns {boolean}
+         */
         const isSafeEqual = (left, right) => {
             const leftBuffer = Buffer.from(left);
             const rightBuffer = Buffer.from(right);
@@ -37,11 +49,13 @@ export default class App_Back_Web_Helper_FormProtection {
             return crypto.timingSafeEqual(leftBuffer, rightBuffer);
         };
 
+        /** @param {string} encodedPayload @returns {any} */
         const decodePayload = (encodedPayload) => {
             const raw = Buffer.from(encodedPayload, 'base64url').toString('utf-8');
             return JSON.parse(raw);
         };
 
+        /** @returns {Promise<string>} */
         const getSecret = async () => {
             const envSecret = process.env.WG_FORM_TOKEN_SECRET?.trim();
             if (envSecret) {
@@ -96,7 +110,10 @@ export default class App_Back_Web_Helper_FormProtection {
         this.getFormIdAgentOrchestrationPoc = () => FORM_ID_AGENT_ORCHESTRATION_POC;
 
         /**
-         * @param {{ form: string, ttlSec?: number, nowSec?: number }} params
+         * @param {object} deps
+         * @param {string} deps.form
+         * @param {number} [deps.ttlSec]
+         * @param {number} [deps.nowSec]
          * @returns {Promise<string>}
          */
         this.issueFormToken = async ({
@@ -116,8 +133,11 @@ export default class App_Back_Web_Helper_FormProtection {
         };
 
         /**
-         * @param {{ token: string, form: string, nowSec?: number }} params
-         * @returns {Promise<{ok: boolean, code?: string, payload?: object}>}
+         * @param {object} deps
+         * @param {string} deps.token
+         * @param {string} deps.form
+         * @param {number} [deps.nowSec]
+         * @returns {Promise<any>}
          */
         this.verifyFormToken = async ({
             token,
@@ -219,3 +239,10 @@ export default class App_Back_Web_Helper_FormProtection {
         };
     }
 }
+
+export const __deps__ = Object.freeze({
+    crypto: 'node:crypto',
+    fs: 'node:fs/promises',
+    path: 'node:path',
+    cliConfig: 'TeqFw_Cli_Config$',
+});

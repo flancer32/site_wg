@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/overview.md`
 - Template Version: `20260630`
-- Changed: `20260716`
+- Changed: `20260808`
 
 ## Purpose
 
@@ -39,7 +39,7 @@ The current SSR web branch is anchored in these repository areas:
 - `src/Back/Web/Handler/SendEmail.js` — web request handler for programmatic form-to-email delivery via SMTP;
 - `src/Back/Web/Handler/NotFound.js` — final localized HTML fallback for unresolved GET and HEAD requests;
 - `src/Back/Di/Replace/Adapter.js` — project-specific render-data adaptation around the CMS renderer;
-- `src/Back/Di/Replace/WebCommand.js` — DI replacement that registers project-specific web handlers alongside the standard CMS pipeline;
+- `src/Back/Cli/Plugin.js` — application lifecycle plugin that registers project-specific web handlers before the standard web command starts;
 - `bin/generate-sitemap.mjs` — deterministic multilingual sitemap generation from authored template routes;
-- `teqcms.config.mjs` — DI container configuration binding project namespace roots and replacements;
+- `teqcms.config.mjs` — pre-DI host configuration selecting the project CMS adapter and template engine provider;
 - `etc/redirect-map.json` — declarative redirect source used by SSR request normalization.

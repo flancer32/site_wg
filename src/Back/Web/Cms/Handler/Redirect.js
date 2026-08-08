@@ -1,43 +1,52 @@
+// @ts-check
+
+/**
+ * @namespace App_Back_Web_Cms_Handler_Redirect
+ * @description Normalizes legacy HTML routes before CMS rendering.
+ */
+
 const HTML_EXTENSION_PATTERN = /\.html$/i;
 const STATIC_RESOURCE_PATTERN = /\.(?:avif|bmp|css|gif|ico|jpeg?|jpg|js|json|map|mjs|mp4|mov|pdf|png|svg|ts|txt|webmanifest|woff2?|woff|xml)$/i;
 
-export default class App_Back_Web_Cms_Handler_Redirect {
+export default class Redirect {
     /**
-     * @param {typeof import('node:fs/promises')} fs
-     * @param {typeof import('node:path')} path
-     * @param {Fl32_Cms_Back_Config} config
-     * @param {Fl32_Cms_Back_Logger} logger
-     * @param {Fl32_Cms_Back_Helper_Web} helpWeb
+     * @param {object} deps
+     * @param {typeof import('node:fs/promises')} deps.fs
+     * @param {typeof import('node:path')} deps.path
+     * @param {Fl32_Tmpl_Back_Config} deps.tmplConfig
+     * @param {TeqFw_Log_Provider} deps.logger
+     * @param {Fl32_Cms_Back_Helper_Web} deps.helpWeb
      */
     constructor(
         {
-            'node:fs/promises': fs,
-            'node:path': path,
-            Fl32_Cms_Back_Config$: config,
-            Fl32_Cms_Back_Logger$: logger,
-            Fl32_Cms_Back_Helper_Web$: helpWeb,
+            fs,
+            path,
+            tmplConfig,
+            logger,
+            helpWeb,
         }
     ) {
         const self = this;
         const fsModule = fs;
         const pathModule = path;
-        const configRef = config;
-        const loggerRef = logger;
+        const log = logger.forSource('App_Back_Web_Cms_Handler_Redirect');
         const posix = pathModule.posix;
         const allowedLocaleList = (() => {
-            const raw = configRef?.getLocaleAllowed?.();
+            const raw = tmplConfig.getAvailableLocales();
             return Array.isArray(raw) ? raw : [];
         })();
         const localeSet = new Set(allowedLocaleList);
 
+        /** @returns {string|null} */
         const getRedirectMapPath = () => {
-            const root = configRef?.getRootPath?.();
+            const root = tmplConfig.getRootPath();
             if (!root) {
                 return null;
             }
             return pathModule.join(root, 'etc', 'redirect-map.json');
         };
 
+        /** @param {string} value @returns {string} */
         const normalizeRoute = (value) => {
             const raw = typeof value === 'string' ? value.trim() : '';
             if (!raw) {
@@ -49,6 +58,7 @@ export default class App_Back_Web_Cms_Handler_Redirect {
             return cleaned === '' ? '/' : cleaned;
         };
 
+        /** @param {string} value @returns {boolean} */
         const isHtmlRoute = (value) => {
             const normalized = normalizeRoute(value);
             if (!normalized) {
@@ -66,6 +76,7 @@ export default class App_Back_Web_Cms_Handler_Redirect {
             return !normalized.includes('.');
         };
 
+        /** @param {string} value @returns {any} */
         const splitLocalePath = (value) => {
             const trimmed = (value ?? '').replace(/^\/+|\/+$/g, '');
             if (!trimmed) {
@@ -83,6 +94,11 @@ export default class App_Back_Web_Cms_Handler_Redirect {
             return {locale: null, path: normalizeRoute(value)};
         };
 
+        /**
+         * @param {string} targetPath
+         * @param {string} locale
+         * @returns {string}
+         */
         const overlayLocale = (targetPath, locale) => {
             if (!locale) {
                 return normalizeRoute(targetPath);
@@ -98,12 +114,18 @@ export default class App_Back_Web_Cms_Handler_Redirect {
             return normalizeRoute(`/${locale}${normalizedTarget}`);
         };
 
+        /** @param {any} raw @returns {any} */
         const buildRedirectMap = (raw) => {
             const result = new Map();
             if (!raw || typeof raw !== 'object') {
                 return result;
             }
 
+            /**
+             * @param {unknown} fromValue
+             * @param {unknown} toValue
+             * @returns {void}
+             */
             const register = (fromValue, toValue) => {
                 if (typeof fromValue !== 'string' || typeof toValue !== 'string') {
                     return;
@@ -139,8 +161,10 @@ export default class App_Back_Web_Cms_Handler_Redirect {
             return result;
         };
 
+        /** @type {Promise<any>|null} */
         let redirectMapPromise = null;
 
+        /** @returns {Promise<any>} */
         const loadRedirectMap = () => {
             if (redirectMapPromise) {
                 return redirectMapPromise;
@@ -155,7 +179,7 @@ export default class App_Back_Web_Cms_Handler_Redirect {
                     try {
                         return JSON.parse(content);
                     } catch (error) {
-                        loggerRef?.error?.('Failed to parse redirect map:', error);
+                        log.error('Failed to parse redirect map.', {err: error});
                         return {};
                     }
                 })
@@ -163,14 +187,14 @@ export default class App_Back_Web_Cms_Handler_Redirect {
                     if (error?.code === 'ENOENT') {
                         return {};
                     }
-                    loggerRef?.error?.('Unable to read redirect map:', error);
+                    log.error('Unable to read redirect map.', {err: error});
                     return {};
                 })
                 .then((raw) => {
                     try {
                         return buildRedirectMap(raw);
                     } catch (error) {
-                        loggerRef?.error?.('Failed to normalize redirect map:', error);
+                        log.error('Failed to normalize redirect map.', {err: error});
                         return new Map();
                     }
                 });
@@ -178,13 +202,15 @@ export default class App_Back_Web_Cms_Handler_Redirect {
         };
 
         const allowedLocales = allowedLocaleList;
-        const fallbackLocale = configRef?.getLocaleBaseWeb?.() || '';
+        const fallbackLocale = tmplConfig.getDefaultLocale();
+        /** @param {string} value @returns {any} */
         const resolveRouting = (value) => helpWeb?.extractRoutingInfo?.({
             path: value,
             allowedLocales,
             fallbackLocale,
         }) ?? {locale: fallbackLocale, cleanPath: value};
 
+        /** @param {string} value @returns {string} */
         const decodePath = (value) => {
             if (typeof value !== 'string') {
                 return '';
@@ -196,6 +222,7 @@ export default class App_Back_Web_Cms_Handler_Redirect {
             }
         };
 
+        /** @param {string} value @returns {any} */
         const splitUrl = (value) => {
             const delimiter = value.indexOf('?');
             if (delimiter === -1) {
@@ -207,8 +234,19 @@ export default class App_Back_Web_Cms_Handler_Redirect {
             };
         };
 
+        /**
+         * @param {string} pathValue
+         * @param {string} query
+         * @returns {string}
+         */
         const buildUrlWithQuery = (pathValue, query) => (query ? `${pathValue}?${query}` : pathValue);
 
+        /**
+         * @param {object} deps
+         * @param {any} deps.req
+         * @param {any} deps.routeInfo
+         * @returns {Promise<void>}
+         */
         const tryRedirect = async ({req, routeInfo}) => {
             if (!req || typeof req.url !== 'string') {
                 return;
@@ -240,23 +278,35 @@ export default class App_Back_Web_Cms_Handler_Redirect {
             }
 
             const finalUrl = buildUrlWithQuery(destination, query);
-            loggerRef?.info?.(
-                'Redirect applied:',
-                normalizedCleanPath,
-                '→',
-                destination,
-                query ? `(query: ${query})` : '(no query)',
-                resolved?.locale ? `(locale: ${resolved.locale})` : '(no locale)'
-            );
+            log.info('Redirect applied.', {
+                from: normalizedCleanPath,
+                to: destination,
+                query: query || undefined,
+                locale: resolved?.locale || undefined,
+            });
             req.url = finalUrl;
         };
 
+        /**
+         * @param {object} params
+         * @param {any} params.req
+         * @param {any} params.routeInfo
+         * @returns {Promise<void>}
+         */
         self.applyRedirect = async function ({req, routeInfo}) {
             try {
                 await tryRedirect({req, routeInfo});
             } catch (error) {
-                loggerRef?.error?.('Redirect handler failure:', error);
+                log.error('Redirect handler failure.', {err: error});
             }
         };
     }
 }
+
+export const __deps__ = Object.freeze({
+    fs: 'node:fs/promises',
+    path: 'node:path',
+    tmplConfig: 'Fl32_Tmpl_Back_Config$',
+    logger: 'TeqFw_Log_Provider$',
+    helpWeb: 'Fl32_Cms_Back_Helper_Web$',
+});

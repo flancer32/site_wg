@@ -1,5 +1,4 @@
 import assert from 'node:assert/strict';
-import fs from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
 
@@ -10,8 +9,10 @@ const locales = ['en', 'ru', 'es'];
 function createAdapter({baseUrl, redirect} = {}) {
     const config = {
         getBaseUrl: () => baseUrl,
-        getLocaleAllowed: () => locales,
-        getLocaleBaseWeb: () => 'en',
+    };
+    const tmplConfig = {
+        getAvailableLocales: () => locales,
+        getDefaultLocale: () => 'en',
     };
     const helpWeb = {
         extractRoutingInfo({path: requestPath, fallbackLocale}) {
@@ -23,19 +24,19 @@ function createAdapter({baseUrl, redirect} = {}) {
         },
     };
     return new Adapter({
-        'node:fs/promises': fs,
-        'node:path': path,
-        Fl32_Cms_Back_Di_Replace_Adapter$: {
+        path,
+        cmsAdapter: {
             getRenderData: async () => ({target: {}, data: {}, options: {}}),
         },
-        Fl32_Cms_Back_Helper_Web$: helpWeb,
-        Fl32_Cms_Back_Config$: config,
-        Fl32_Cms_Back_Logger$: {error() {}, warn() {}},
-        App_Back_Web_Cms_Handler_Blog$: {collectBlogIndex: async () => []},
-        App_Back_Web_Cms_Handler_Redirect$: {
+        helpWeb,
+        config,
+        tmplConfig,
+        logger: {forSource: () => ({error() {}, warn() {}})},
+        blogHandler: {collectBlogIndex: async () => []},
+        redirectHandler: {
             applyRedirect: async ({req}) => redirect?.(req),
         },
-        App_Back_Web_Helper_FormProtection$: {
+        formProtection: {
             getFormIdAgentOrchestrationPoc: () => 'poc',
             issueFormToken: async () => 'token',
         },

@@ -11,22 +11,30 @@ const HTML_EXTENSION_PATTERN = /\.html$/i;
 const BLOG_ITEM_TITLE_PATTERN = /<h4\b[^>]*>([\s\S]*?)<\/h4>/i;
 const BLOG_ITEM_LINK_PATTERN = /<a(\s+class=["'][^"']*\bcard-link\b[^"']*["'])/i;
 
+/** @param {string} a @param {string} b @returns {number} */
 const sortNumericDesc = (a, b) => Number(b) - Number(a);
 
+/** @param {string} a @param {string} b @returns {number} */
 const sortHtmlFilesDesc = (a, b) =>
     b.localeCompare(a, undefined, { numeric: true, sensitivity: 'base' });
 
-export default class App_Back_Web_Cms_Handler_Blog {
+export default class Blog {
     /**
      * @param {object} deps
      * @param {typeof import('node:fs/promises')} deps.fs
      * @param {typeof import('node:path')} deps.path
-     * @param {Fl32_Cms_Back_Config} deps.config
+     * @param {Fl32_Tmpl_Back_Config} deps.tmplConfig
      */
-    constructor({ 'node:fs/promises': fs, 'node:path': path, Fl32_Cms_Back_Config$: config }) {
+    constructor({fs, path, tmplConfig}) {
+        /** @param {string} locale @returns {string} */
         const resolveBlogRoot = (locale) =>
-            path.join(config.getRootPath(), 'tmpl', 'web', locale, 'blog');
+            path.join(tmplConfig.getRootPath(), 'tmpl', 'web', locale, 'blog');
 
+        /**
+         * @param {string} target
+         * @param {RegExp} pattern
+         * @returns {Promise<string[]>}
+         */
         const listDirectoryNames = async (target, pattern) => {
             const dirents = await fs.readdir(target, {withFileTypes: true});
             return dirents
@@ -35,9 +43,11 @@ export default class App_Back_Web_Cms_Handler_Blog {
                 .sort(sortNumericDesc);
         };
 
+        /** @param {string} target @returns {Promise<string[]>} */
         const listYearDirectories = (target) =>
             listDirectoryNames(target, YEAR_DIRECTORY_PATTERN);
 
+        /** @param {string} target @returns {Promise<string[]>} */
         const listHtmlFiles = async (target) => {
             const dirents = await fs.readdir(target, {withFileTypes: true});
             return dirents
@@ -46,6 +56,7 @@ export default class App_Back_Web_Cms_Handler_Blog {
                 .sort(sortHtmlFilesDesc);
         };
 
+        /** @param {string} html @returns {string} */
         const normalizeBlogItemHtml = (html) => {
             const titleMatch = BLOG_ITEM_TITLE_PATTERN.exec(html);
             const title = titleMatch?.[1]
@@ -63,6 +74,11 @@ export default class App_Back_Web_Cms_Handler_Blog {
             return result;
         };
 
+        /**
+         * @param {string} dir
+         * @param {string} fileName
+         * @returns {Promise<string|null>}
+         */
         const extractBlogItemHtml = async (dir, fileName) => {
             const filePath = path.join(dir, fileName);
             const content = await fs.readFile(filePath, 'utf-8');
@@ -70,6 +86,12 @@ export default class App_Back_Web_Cms_Handler_Blog {
             return match ? normalizeBlogItemHtml(match[1]) : null;
         };
 
+        /**
+         * @param {string} locale
+         * @param {string} year
+         * @param {string} yearPath
+         * @returns {Promise<object[]>}
+         */
         const collectEntriesFromYear = async (locale, year, yearPath) => {
             const entries = [];
             const files = await listHtmlFiles(yearPath);
@@ -85,6 +107,12 @@ export default class App_Back_Web_Cms_Handler_Blog {
             return entries;
         };
 
+        /**
+         * @param {string} locale
+         * @param {string} blogRoot
+         * @param {string[]} years
+         * @returns {Promise<object[]>}
+         */
         const collectEntriesFromYears = async (locale, blogRoot, years) => {
             const entries = [];
             for (const year of years) {
@@ -97,7 +125,7 @@ export default class App_Back_Web_Cms_Handler_Blog {
         /**
          * Builds journal cards in reverse chronological order.
          * @param {string} locale
-         * @returns {Promise<Array<{slug:string,url:string,html:string}>>}
+         * @returns {Promise<object[]>}
          */
         this.collectBlogIndex = async function (locale) {
             const blogRoot = resolveBlogRoot(locale);
@@ -106,3 +134,9 @@ export default class App_Back_Web_Cms_Handler_Blog {
         };
     }
 }
+
+export const __deps__ = Object.freeze({
+    fs: 'node:fs/promises',
+    path: 'node:path',
+    tmplConfig: 'Fl32_Tmpl_Back_Config$',
+});

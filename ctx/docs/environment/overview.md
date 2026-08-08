@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/environment/overview.md`
 - Template Version: `20260605`
-- Changed: `20260716`
+- Changed: `20260808`
 
 ## Purpose
 
@@ -13,7 +13,7 @@ Describe the runtime and operational environment required by the system.
 The project currently assumes two main execution environments:
 
 - a local Node.js environment for site generation, translation, and repository maintenance;
-- a Linux host environment for long-running site serving through `npx teq-cms web`.
+- a Linux host environment for long-running site serving through `npm start` and the `@teqfw/cli` host.
 
 For the hosted orchestration PoC validation flow, the current site-environment assumption should remain minimal:
 
@@ -30,7 +30,7 @@ The stable external prerequisites are:
 
 - Node.js `>=20`, as declared in `package.json`;
 - npm-compatible dependency installation for `@flancer32/teq-cms` and `nunjucks`;
-- shell access sufficient to run `npx teq-cms web` and `npx teq-cms translate`;
+- shell access sufficient to run `npm start` and `npm run translate`;
 - a Linux service environment compatible with the current `systemd` unit and log rotation assets under `etc/`.
 
 The current lead-form protection also assumes one of these secret sources:
@@ -38,7 +38,9 @@ The current lead-form protection also assumes one of these secret sources:
 - `WG_FORM_TOKEN_SECRET` provided through the host environment; or
 - writable local runtime storage under `var/` for a generated fallback secret.
 
-Public canonical and alternate metadata uses `TEQ_CMS_BASE_URL` when it is a valid `http` or `https` origin. Production should set it to `https://wiredgeese.com`; invalid or absent values fall back to that public origin rather than trusting request headers.
+Public canonical and alternate metadata uses `TEQ_CMS__BASE_URL` when it is a valid `http` or `https` origin. Production should set it to `https://wiredgeese.com`; invalid or absent values fall back to that public origin rather than trusting request headers.
+
+Template locale settings use the `TEQFW_TMPL__*` namespace, web transport settings use `TEQFW_WEB__*`, and CMS-specific settings use `TEQ_CMS__*`.
 
 The development helper script under `bin/deploy/dev.sh` additionally assumes GitHub network access for cloning linked development dependencies.
 

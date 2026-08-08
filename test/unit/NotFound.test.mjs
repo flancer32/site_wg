@@ -8,33 +8,35 @@ function createHandler() {
     const calls = [];
     const renderData = {canonicalUrl: 'unsafe', alternateUrls: {en: 'unsafe'}};
     const handler = new NotFound({
-        'node:http2': http2,
-        Fl32_Web_Back_Helper_Respond$: {
+        http2,
+        respond: {
             isWritable: () => true,
             code404_NotFound: (payload) => calls.push(payload),
         },
-        Fl32_Cms_Back_Api_Adapter$: {
+        dtoInfo: {create: (data) => Object.freeze(data)},
+        adapter: {
             getRenderData: async ({req}) => {
                 assert.match(req.url, /^\/(en|ru|es)\/404\.html$/);
                 return {target: {name: '404.html'}, data: renderData, options: {}};
             },
         },
-        Fl32_Cms_Back_Config$: {
-            getLocaleAllowed: () => ['en', 'ru', 'es'],
-            getLocaleBaseWeb: () => 'en',
+        tmplConfig: {
+            getAvailableLocales: () => ['en', 'ru', 'es'],
+            getDefaultLocale: () => 'en',
         },
-        Fl32_Cms_Back_Helper_Web$: {
+        helpWeb: {
             extractRoutingInfo: ({path}) => ({locale: path.startsWith('/ru/') ? 'ru' : 'en'}),
         },
-        Fl32_Tmpl_Back_Service_Load$: {
+        servTmplLoad: {
             perform: async () => ({template: 'template'}),
         },
-        Fl32_Tmpl_Back_Service_Render$: {
+        servTmplRender: {
             perform: async ({data}) => {
                 assert.equal(data.isNotFound, true);
                 return {content: '<!doctype html><html lang="ru">404</html>'};
             },
         },
+        STAGE: {PROCESS: 'process'},
     });
     return {handler, calls, renderData};
 }
@@ -42,9 +44,10 @@ function createHandler() {
 test('renders a localized HTML 404 and restores the original request URL', async () => {
     const {handler, calls, renderData} = createHandler();
     const req = {method: 'GET', url: '/ru/missing.html?source=test'};
-    const handled = await handler.handle(req, {});
+    const context = {request: req, response: {}, completed: false};
+    await handler.handle(context);
 
-    assert.equal(handled, true);
+    assert.equal(context.completed, true);
     assert.equal(req.url, '/ru/missing.html?source=test');
     assert.equal(calls.length, 1);
     assert.equal(calls[0].body, '<!doctype html><html lang="ru">404</html>');
@@ -58,9 +61,10 @@ test('renders a localized HTML 404 and restores the original request URL', async
 test('handles malformed escapes safely and sends no body for HEAD', async () => {
     const {handler, calls} = createHandler();
     const req = {method: 'HEAD', url: '/ru/%ZZ'};
-    const handled = await handler.handle(req, {});
+    const context = {request: req, response: {}, completed: false};
+    await handler.handle(context);
 
-    assert.equal(handled, true);
+    assert.equal(context.completed, true);
     assert.equal(req.url, '/ru/%ZZ');
     assert.equal(calls[0].body, '');
     assert.ok(calls[0].headers['content-length'] > 0);

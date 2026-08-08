@@ -20,18 +20,21 @@ The source code of the personal website [wiredgeese.com](https://wiredgeese.com)
 The site is configured via environment variables. Set these before starting the server:
 
 ```env
-TEQ_CMS_BASE_URL=https://wiredgeese.com
-TEQ_CMS_LOCALE_ALLOWED=en,ru,es
-TEQ_CMS_LOCALE_BASE_DISPLAY=en
-TEQ_CMS_LOCALE_BASE_TRANSLATE=ru
-TEQ_CMS_TMPL_ENGINE=nunjucks
+TEQ_CMS__BASE_URL=https://wiredgeese.com
+TEQFW_TMPL__ALLOWED_LOCALES=en,ru,es
+TEQFW_TMPL__DEFAULT_LOCALE=en
+TEQ_CMS__LOCALE_BASE_TRANSLATE=ru
+TEQFW_TMPL__ENGINE=nunjucks
+TEQFW_WEB__PORT=3000
+TEQFW_WEB__TYPE=http
 ```
 
-- `TEQ_CMS_BASE_URL` — trusted public origin used for canonical and alternate links.
-- `TEQ_CMS_LOCALE_ALLOWED` — comma-separated list of supported locales.
-- `TEQ_CMS_LOCALE_BASE_DISPLAY` — default locale for URL redirection.
-- `TEQ_CMS_LOCALE_BASE_TRANSLATE` — source locale for translations.
-- `TEQ_CMS_TMPL_ENGINE` — template engine to use (`nunjucks` is recommended here).
+- `TEQ_CMS__BASE_URL` — trusted public origin used for canonical and alternate links.
+- `TEQFW_TMPL__ALLOWED_LOCALES` — comma-separated list of supported locales.
+- `TEQFW_TMPL__DEFAULT_LOCALE` — default locale for URL redirection.
+- `TEQ_CMS__LOCALE_BASE_TRANSLATE` — source locale for translations.
+- `TEQFW_TMPL__ENGINE` — template engine to use (`nunjucks` is recommended here).
+- `TEQFW_WEB__PORT` and `TEQFW_WEB__TYPE` — web-server transport settings.
 
 ## File structure
 

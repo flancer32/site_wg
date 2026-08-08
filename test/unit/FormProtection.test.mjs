@@ -15,10 +15,10 @@ function createHelper(rootPath, env = process.env) {
         delete process.env.WG_FORM_TOKEN_SECRET;
     }
     const helper = new FormProtection({
-        'node:crypto': crypto,
-        'node:fs/promises': fs,
-        'node:path': path,
-        Fl32_Cms_Back_Config$: {getRootPath: () => rootPath},
+        crypto,
+        fs,
+        path,
+        cliConfig: {applicationRoot: rootPath},
     });
     return {
         helper,

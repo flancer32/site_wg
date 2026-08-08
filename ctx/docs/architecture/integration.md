@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/integration.md`
 - Template Version: `20260605`
-- Changed: `20260709`
+- Changed: `20260808`
 
 ## Purpose
 
@@ -12,7 +12,7 @@ Describe external integrations and major internal contracts between architectura
 
 The architecturally significant external integrations are:
 
-- TeqCMS as the site engine used for rendering and translation-oriented workflows;
+- TeqCMS as the site engine used for rendering and translation-oriented workflows under the `@teqfw/cli` process host;
 - Node.js as the runtime for local execution and publication commands;
 - public external sites linked as product destinations;
 - optional manual commercial surfaces such as email contact and Fiverr for payment or escrow paths;
@@ -23,7 +23,7 @@ The architecturally significant external integrations are:
 
 The major internal contract surfaces are:
 
-- the contract between `teqcms.config.mjs` and `src/`, where the project replaces the generic CMS adapter with repository-specific behavior;
+- the contract between root `package.json`, `teqcms.config.mjs`, and `src/`, where the host declares the application namespace and lifecycle plugin, selects DI replacements before container resolution, and registers project-specific handlers before the web command starts;
 - the contract between request routing and multilingual template content, where locale extraction selects the rendered content branch;
 - the contract between validation landing-page content and first-party funnel logging, where event payloads must stay bounded and non-sensitive;
 - the contract between the landing page and funnel-event naming, where the stable page identifier for this offer is `github-agent-orchestration-poc`;

@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "Sources for Alex Gusev’s personal website wiredgeese.com powered by TeqCMS — a minimal multilingual CMS with SSR and AI localization.",
   "type": "module",
+  "types": "./types.d.ts",
   "keywords": [
     "teqcms",
     "teqfw",
@@ -29,13 +30,15 @@
     "url": "git+https://github.com/flancer32/site_wg.git"
   },
   "scripts": {
-    "start": "npx teq-cms web",
+    "start": "teq fl32:web:start",
     "test": "node --test test/unit/*.test.mjs",
+    "typecheck": "tsc -p jsconfig.json",
     "sitemap": "node bin/generate-sitemap.mjs",
-    "translate": "npx teq-cms translate"
+    "translate": "teq cms:translate"
   },
   "dependencies": {
-    "@flancer32/teq-cms": "^0.5.4",
+    "@flancer32/teq-cms": "<=1.0.0",
+    "@teqfw/cli": "^2.1.0",
     "nodemailer": "^9.0.3",
     "nunjucks": "^3.2.4"
   },
@@ -48,5 +51,31 @@
   "funding": {
     "type": "individual",
     "url": "https://github.com/sponsors/teqfw"
+  },
+  "teqfw": {
+    "fw": {
+      "di": {
+        "namespaces": [
+          {
+            "prefix": "App_",
+            "path": "./src",
+            "ext": ".js"
+          }
+        ]
+      },
+      "cli": {
+        "command": {
+          "default": "fl32:web:start"
+        },
+        "container": {
+          "configurator": "./teqcms.config.mjs"
+        },
+        "plugin": "App_Back_Cli_Plugin$"
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "typescript": "^5.9.3"
   }
 }

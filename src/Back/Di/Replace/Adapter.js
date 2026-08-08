@@ -5,33 +5,39 @@
  * @description Enriches CMS render data with project-specific page payloads.
  * @implements Fl32_Cms_Back_Api_Adapter
  */
-export default class App_Back_Di_Replace_Adapter {
+export default class Adapter {
     /**
-     * @param {typeof import('node:fs/promises')} fs
-     * @param {typeof import('node:path')} path
-     * @param {Fl32_Cms_Back_Di_Replace_Adapter} cmsAdapter
-     * @param {Fl32_Cms_Back_Helper_Web} helpWeb
-     * @param {Fl32_Cms_Back_Config} config
-     * @param {Fl32_Cms_Back_Logger} logger
-     * @param {App_Back_Web_Cms_Handler_Blog} blogHandler
-     * @param {App_Back_Web_Cms_Handler_Redirect} redirectHandler
-     * @param {App_Back_Web_Helper_FormProtection} formProtection
+     * @param {object} deps
+     * @param {typeof import('node:path')} deps.path
+     * @param {Fl32_Cms_Back_Di_Replace_Adapter} deps.cmsAdapter
+     * @param {Fl32_Cms_Back_Helper_Web} deps.helpWeb
+     * @param {Fl32_Cms_Back_Config} deps.config
+     * @param {Fl32_Tmpl_Back_Config} deps.tmplConfig
+     * @param {TeqFw_Log_Provider} deps.logger
+     * @param {App_Back_Web_Cms_Handler_Blog} deps.blogHandler
+     * @param {App_Back_Web_Cms_Handler_Redirect} deps.redirectHandler
+     * @param {App_Back_Web_Helper_FormProtection} deps.formProtection
      */
     constructor(
         {
-            'node:fs/promises': fs,
-            'node:path': path,
-            Fl32_Cms_Back_Di_Replace_Adapter$: cmsAdapter,
-            Fl32_Cms_Back_Helper_Web$: helpWeb,
-            Fl32_Cms_Back_Config$: config,
-            Fl32_Cms_Back_Logger$: logger,
-            App_Back_Web_Cms_Handler_Blog$: blogHandler,
-            App_Back_Web_Cms_Handler_Redirect$: redirectHandler,
-            App_Back_Web_Helper_FormProtection$: formProtection,
+            path,
+            cmsAdapter,
+            helpWeb,
+            config,
+            tmplConfig,
+            logger,
+            blogHandler,
+            redirectHandler,
+            formProtection,
         }
     ) {
         const self = this;
+        const log = logger.forSource('App_Back_Di_Replace_Adapter');
 
+        /**
+         * @param {any} req
+         * @returns {object}
+         */
         const resolveRouting = (req) => {
             const encodedPath = req?.url?.split('?')[0] || '';
             let rawPath = encodedPath;
@@ -40,8 +46,8 @@ export default class App_Back_Di_Replace_Adapter {
             } catch {
                 // Keep malformed input inert so the request reaches the localized 404 handler.
             }
-            const allowedLocales = config.getLocaleAllowed?.() || [];
-            const fallbackLocale = config.getLocaleBaseWeb?.() || '';
+            const allowedLocales = tmplConfig.getAvailableLocales();
+            const fallbackLocale = tmplConfig.getDefaultLocale();
             return helpWeb.extractRoutingInfo({
                 path: rawPath,
                 allowedLocales,
@@ -49,6 +55,10 @@ export default class App_Back_Di_Replace_Adapter {
             });
         };
 
+        /**
+         * @param {any} req
+         * @returns {void}
+         */
         const normalizeMalformedUrl = (req) => {
             const rawUrl = req?.url || '';
             const separator = rawUrl.indexOf('?');
@@ -61,11 +71,13 @@ export default class App_Back_Di_Replace_Adapter {
             }
         };
 
+        /** @param {string} cleanPath @returns {boolean} */
         const isBlogIndexRoute = (cleanPath) => {
             const normalized = (cleanPath || '').replace(/\/+$/, '');
             return normalized === '/blog' || normalized === '/blog.html';
         };
 
+        /** @param {string} cleanPath @returns {boolean} */
         const isPublicationRoute = (cleanPath) => {
             const normalized = (cleanPath || '').replace(/\/+$/, '');
             const indexRoutes = new Set([
@@ -80,17 +92,20 @@ export default class App_Back_Di_Replace_Adapter {
             return normalized.startsWith('/blog/') || normalized.startsWith('/library/');
         };
 
+        /** @param {string} cleanPath @returns {boolean} */
         const isNotFoundRoute = (cleanPath) => {
             const normalized = (cleanPath || '').replace(/\/+$/, '');
             return normalized === '/404' || normalized === '/404.html';
         };
 
+        /** @param {string} cleanPath @returns {boolean} */
         const isAgentOrchestrationPocRoute = (cleanPath) => {
             const normalized = (cleanPath || '').replace(/\/+$/, '');
             return normalized === '/land/agent-orchestration-poc'
                 || normalized === '/land/agent-orchestration-poc/index.html';
         };
 
+        /** @param {string} cleanPath @returns {string} */
         const toCanonicalCleanPath = (cleanPath) => {
             const raw = cleanPath || '/';
             const normalized = raw.startsWith('/') ? raw : `/${raw}`;
@@ -119,6 +134,7 @@ export default class App_Back_Di_Replace_Adapter {
             return `${withoutTrailingSlash}.html`;
         };
 
+        /** @returns {string} */
         const requestOrigin = () => {
             const fallback = 'https://wiredgeese.com';
             const configured = config.getBaseUrl?.() || fallback;
@@ -130,18 +146,24 @@ export default class App_Back_Di_Replace_Adapter {
             } catch {
                 // Fall through to the stable public origin.
             }
-            logger?.warn?.(`Ignored invalid TEQ_CMS_BASE_URL: ${configured}`);
+            log.warn(`Ignored invalid TEQ_CMS__BASE_URL: ${configured}`);
             return fallback;
         };
 
+        /**
+         * @param {object} deps
+         * @param {any} deps.data
+         * @param {any} deps.routeInfo
+         * @returns {void}
+         */
         const applyLocalizedMetadata = ({data, routeInfo}) => {
-            const locale = routeInfo?.locale || config.getLocaleBaseWeb();
+            const locale = routeInfo?.locale || tmplConfig.getDefaultLocale();
             const cleanPath = toCanonicalCleanPath(routeInfo?.cleanPath);
             const origin = requestOrigin();
             const localizedPath = cleanPath === '/' ? `/${locale}/` : `/${locale}${cleanPath}`;
             data.canonicalUrl = `${origin}${localizedPath}`;
             data.alternateUrls = Object.fromEntries(
-                (config.getLocaleAllowed?.() || []).map((targetLocale) => {
+                tmplConfig.getAvailableLocales().map((targetLocale) => {
                     const targetPath = cleanPath === '/'
                         ? `/${targetLocale}/`
                         : `/${targetLocale}${cleanPath}`;
@@ -150,6 +172,11 @@ export default class App_Back_Di_Replace_Adapter {
             );
         };
 
+        /**
+         * @param {object} deps
+         * @param {any} deps.req
+         * @returns {Promise<any>}
+         */
         self.getRenderData = async function ({req}) {
             normalizeMalformedUrl(req);
             // @LLM-DOC: `resolveRouting` returns `{ locale, cleanPath }` and we rely on `cleanPath`
@@ -171,13 +198,14 @@ export default class App_Back_Di_Replace_Adapter {
             }
 
             if (effectiveRouteInfo?.cleanPath && isBlogIndexRoute(effectiveRouteInfo.cleanPath)) {
-                const targetLocale = effectiveRouteInfo.locale || config.getLocaleBaseWeb();
+                const targetLocale = effectiveRouteInfo.locale || tmplConfig.getDefaultLocale();
+                /** @type {object[]} */
                 let items = [];
                 try {
                     items = await blogHandler.collectBlogIndex(targetLocale);
                 } catch (error) {
                     if (error?.code !== 'ENOENT') {
-                        logger?.error?.(error);
+                        log.error('Failed to build the blog index.', {err: error});
                     }
                 }
                 data.blogIndex = {
@@ -196,3 +224,15 @@ export default class App_Back_Di_Replace_Adapter {
 
     }
 }
+
+export const __deps__ = Object.freeze({
+    path: 'node:path',
+    cmsAdapter: 'Fl32_Cms_Back_Di_Replace_Adapter$',
+    helpWeb: 'Fl32_Cms_Back_Helper_Web$',
+    config: 'Fl32_Cms_Back_Config$',
+    tmplConfig: 'Fl32_Tmpl_Back_Config$',
+    logger: 'TeqFw_Log_Provider$',
+    blogHandler: 'App_Back_Web_Cms_Handler_Blog$',
+    redirectHandler: 'App_Back_Web_Cms_Handler_Redirect$',
+    formProtection: 'App_Back_Web_Helper_FormProtection$',
+});

@@ -22,9 +22,9 @@ test('builds accessible, lazy journal cards in reverse chronological order', asy
     await fs.writeFile(path.join(blogRoot, '2026', '20260102-new.html'), fragment('New "entry"'));
 
     const blog = new Blog({
-        'node:fs/promises': fs,
-        'node:path': path,
-        Fl32_Cms_Back_Config$: {getRootPath: () => root},
+        fs,
+        path,
+        tmplConfig: {getRootPath: () => root},
     });
     const items = await blog.collectBlogIndex('en');
 

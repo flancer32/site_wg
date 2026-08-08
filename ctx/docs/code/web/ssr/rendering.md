@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/rendering.md`
 - Template Version: `20260630`
-- Changed: `20260716`
+- Changed: `20260808`
 
 ## Purpose
 
@@ -10,7 +10,7 @@ Describe the current SSR request-to-render path and project-specific render enri
 
 ## Project Wiring
 
-The project registers a namespace root under `src/` and replaces the CMS adapter through [teqcms.config.mjs](../../../../../teqcms.config.mjs:1) and [src/Back/Di/Replace/Adapter.js](../../../../../src/Back/Di/Replace/Adapter.js:1).
+The project declares its `App_` namespace and CLI lifecycle plugin in `package.json`, then replaces the CMS adapter through [teqcms.config.mjs](../../../../../teqcms.config.mjs:1) and [src/Back/Di/Replace/Adapter.js](../../../../../src/Back/Di/Replace/Adapter.js:1).
 
 This makes the project adapter the code-level hook point around normal CMS render-data generation.
 
@@ -45,7 +45,7 @@ The adapter derives localized metadata from the effective route after redirect n
 
 For every HTML route it:
 
-- builds `canonicalUrl` from the validated `TEQ_CMS_BASE_URL` origin, active locale, and canonical route shape;
+- builds `canonicalUrl` from the validated `TEQ_CMS__BASE_URL` origin, active locale, and canonical route shape;
 - builds `alternateUrls` for every configured locale using the same route shape;
 - normalizes directory indexes to trailing-slash URLs and standalone or detail templates to `.html` URLs;
 - identifies blog and library detail routes through `isPublication` so the shared layout can add publication-only navigation without affecting archive indexes.

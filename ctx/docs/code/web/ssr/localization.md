@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/localization.md`
 - Template Version: `20260630`
-- Changed: `20260716`
+- Changed: `20260808`
 
 ## Purpose
 
@@ -54,4 +54,4 @@ The layout supplies localized default title and description content. Page templa
 
 Canonical and alternate links are rendered by the shared shell from adapter-provided absolute URLs and must match the requested effective locale rather than the configured translation-source locale.
 
-Their public origin comes only from a validated `TEQ_CMS_BASE_URL` using `http` or `https`, with `https://wiredgeese.com` as the stable fallback. Request host and forwarding headers are not trusted as metadata sources.
+Their public origin comes only from a validated `TEQ_CMS__BASE_URL` using `http` or `https`, with `https://wiredgeese.com` as the stable fallback. Request host and forwarding headers are not trusted as metadata sources.
