@@ -1,0 +1,57 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}New article: Agent Skills inside TeqFW packages{% endblock %}
+
+{% block html_head_extra %}
+    <meta property="og:title" content="New article: Agent Skills inside TeqFW packages"/>
+    <meta property="og:description" content="A new publication on how TeqFW packages provide AI coding agents with guidance matched to the installed code version."/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://wiredgeese.com/en/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+    <meta property="og:image" content="https://wiredgeese.com/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="New article: Agent Skills inside TeqFW packages"/>
+    <meta name="twitter:description" content="A new publication on how TeqFW packages provide AI coding agents with guidance matched to the installed code version."/>
+    <meta name="twitter:image" content="https://wiredgeese.com/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"/>
+{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>New article: Agent Skills inside TeqFW packages</h1>
+    <time datetime="2026-08-10">August 10, 2026</time>
+
+    <zoom-img src="/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"
+        alt="A TeqFW package provides code to the application and a skill to the AI agent" width="100px"></zoom-img>
+
+    <p>
+        The library now includes an article on how <a href="https://teqfw.com/" target="_blank" rel="noopener">TeqFW</a>
+        packages ship instructions for AI coding agents alongside their code. A skill describes the component boundaries, contracts, and integration rules, and its version
+        matches the installed dependency version.
+    </p>
+
+    <p>
+        The package provides the skill, while the project decides whether to expose it to its agent environment. This
+        keeps the application owner in control and lets the agent work from local rules instead of an arbitrary version
+        of documentation found online.
+    </p>
+
+    <p>
+        The mechanism, examples from TeqFW platform packages, and the Dependency-bound Agent Skills model are covered in
+        <a href="/en/library/teqfw/20260810-01-teqfw-agent-skills.html">“TeqFW: A Framework That Explains Itself to AI Coding Agents”</a>.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/en/blog/2026/20260810-01-teqfw-agent-skills.html"></a>
+    <img src="/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"
+        alt="A TeqFW package provides code to the application and a skill to the AI agent" />
+    <div>
+        <h4>New article: Agent Skills inside TeqFW packages</h4>
+        <p>
+            How to ship instructions for an AI coding agent with a package and keep them aligned with the installed code version.
+        </p>
+        <time datetime="2026-08-10">August 10, 2026</time>
+    </div>
+</li>
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}TeqFW: un framework que sabe explicarse a los agentes de IA{% endblock %}
+{% block description %}Cómo los paquetes de TeqFW distribuyen Agent Skills versionadas para que los agentes trabajen con instrucciones alineadas con el código instalado.{% endblock %}
+
+{% block html_head_extra %}
+    <meta property="og:title" content="TeqFW: un framework que sabe explicarse a los agentes de IA"/>
+    <meta property="og:description" content="Cómo los paquetes de TeqFW distribuyen Agent Skills versionadas para que los agentes trabajen con instrucciones alineadas con el código instalado."/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://wiredgeese.com/es/library/teqfw/20260810-01-teqfw-agent-skills.html"/>
+    <meta property="og:image" content="https://wiredgeese.com/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="TeqFW: un framework que sabe explicarse a los agentes de IA"/>
+    <meta name="twitter:description" content="Cómo los paquetes de TeqFW distribuyen Agent Skills versionadas para que los agentes trabajen con instrucciones alineadas con el código instalado."/>
+    <meta name="twitter:image" content="https://wiredgeese.com/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"/>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>TeqFW: un framework que sabe explicarse a los agentes de IA</h1>
+
+    <span style="display: block; text-align: right;">
+        <strong>Fecha de publicación:</strong> 2026-08-10
+    </span>
+
+    <p style="text-align: center;">
+        <zoom-img
+                src="/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"
+                alt="Un paquete de TeqFW proporciona código a la aplicación y una skill al agente de IA"
+                width="100%"
+        ></zoom-img>
+    </p>
+
+<p>Un agente de programación puede leer código fuente. Con tiempo suficiente, llegará a entender una biblioteca desconocida: encontrará el punto de entrada, revisará los tipos, comparará ejemplos y reconstruirá las convenciones principales.</p>
+<p>La cuestión es cuánto tiempo y cuánto espacio de la ventana de contexto consumirá esa investigación, y qué versión de la documentación encontrará el agente durante el proceso.</p>
+<p>En <a href="https://teqfw.com/" target="_blank" rel="noopener">TeqFW</a> resuelvo este problema desde los propios paquetes npm. Cada paquete puede distribuir, junto con el código, una Agent Skill con instrucciones para el agente:</p>
+<pre class="text"><code>@teqfw/package/
+├── src/
+├── types.d.ts
+└── skills/
+    └── teqfw-package/
+        ├── SKILL.md
+        └── references/</code></pre>
+<p>Una vez instalado el paquete, el agente puede acceder a instrucciones escritas para la versión exacta del componente presente en <code>node_modules</code>.</p>
+<h2 id="qué-contiene-una-skill-incluida-en-un-paquete">Qué contiene una skill incluida en un paquete</h2>
+<p><a href="https://agentskills.io/">Agent Skills</a> es un formato abierto para empaquetar instrucciones dirigidas a agentes de IA. El punto de entrada de cada skill es el archivo <code>SKILL.md</code>. Este archivo puede indicar al agente:</p>
+<ul>
+<li>de qué es responsable el paquete;</li>
+<li>cuándo debe usar la skill;</li>
+<li>cómo están organizados los contratos públicos;</li>
+<li>cómo integrar el componente en una aplicación;</li>
+<li>qué convenciones de TeqFW debe respetar;</li>
+<li>qué debe comprobar en el código fuente y las pruebas de la versión actual.</li>
+</ul>
+<p>El formato Agent Skills no está vinculado a Codex. Otros entornos para agentes de programación también lo admiten, aunque las rutas de descubrimiento y los mecanismos de conexión varían. Por eso, el paquete de TeqFW distribuye la skill y el proyecto consumidor la expone de la forma que espera el entorno elegido.</p>
+<p>Los materiales de referencia y los ejemplos se encuentran junto a <code>SKILL.md</code> y forman parte del mismo paquete npm.</p>
+<p>No se trata de reescribir el README para otro lector. El README ayuda al desarrollador a empezar. La skill ofrece al agente una ruta por el paquete: qué documentos leer, qué límites respetar y en qué contratos apoyarse antes de modificar el código.</p>
+<h2 id="cómo-se-aplica-en-teqfw">Cómo se aplica en TeqFW</h2>
+<p>TeqFW está compuesto por paquetes independientes. Los componentes de la plataforma distribuyen sus propias skills:</p>
+<pre class="text"><code>@teqfw/di           → teqfw-di
+@teqfw/cfg          → teqfw-cfg
+@teqfw/cli          → teqfw-cli
+@teqfw/log          → teqfw-log
+@teqfw/db           → teqfw-db
+@flancer32/teq-web  → teqfw-web</code></pre>
+<p>Por ejemplo, la skill <code>teqfw-di</code> explica al agente el modelo de enlace entre módulos y las reglas para trabajar con el contenedor de inyección de dependencias. <code>teqfw-cfg</code> describe las fuentes y el ciclo de vida de la configuración. <code>teqfw-db</code> define los límites del trabajo con el modelo de datos distribuido (DEM), los dialectos SQL, las transacciones y la reconstrucción de la base de datos. <code>teqfw-web</code> describe el flujo de solicitudes del servidor y los recursos estáticos.</p>
+<p>Estas instrucciones pertenecen a paquetes concretos. Una skill no sustituye la documentación del proyecto ni toma decisiones arquitectónicas por su propietario. Explica cómo utilizar el componente instalado dentro de las reglas de una aplicación determinada.</p>
+<h2 id="instrucciones-que-se-mantienen-alineadas-con-el-código">Instrucciones que se mantienen alineadas con el código</h2>
+<p>Supongamos que una aplicación utiliza la versión <code>2.4</code> de un paquete, pero el agente encuentra en Internet documentación para la versión <code>3.0</code> o recuerda un ejemplo de una versión anterior. El código resultante puede parecer correcto y, aun así, no corresponderse con la API instalada.</p>
+<p>Cuando la skill forma parte del paquete, el código y las instrucciones se versionan juntos:</p>
+<pre class="text"><code>package 2.4
+├── code 2.4
+└── skill 2.4</code></pre>
+<p><code>package-lock.json</code> fija la versión de la dependencia y, con ella, la versión de las instrucciones para el agente.</p>
+<p>Al actualizar el paquete, se actualiza también su skill. Al volver a una versión anterior, regresan las instrucciones correspondientes. En lugar de depender de una «documentación más reciente» en abstracto, el agente puede usar las instrucciones incluidas en la dependencia realmente instalada.</p>
+<h2 id="los-paquetes-distribuyen-skills-los-proyectos-deciden-cuáles-usar">Los paquetes distribuyen skills; los proyectos deciden cuáles usar</h2>
+<p>Distribuir una skill y ponerla a disposición del agente son acciones diferentes.</p>
+<p>Después de <code>npm install</code>, la skill se encuentra dentro del paquete:</p>
+<pre class="text"><code>node_modules/@teqfw/di/skills/teqfw-di</code></pre>
+<p>El paquete no modifica la configuración del proyecto ni activa la skill automáticamente. El proyecto da al agente acceso explícito a las skills que necesita. En Codex puede hacerse mediante un enlace simbólico:</p>
+<pre class="text"><code>.agents/skills/teqfw-di
+    → ../../node_modules/@teqfw/di/skills/teqfw-di</code></pre>
+<p>Por ejemplo:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> .agents/skills</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> <span class="dt">\</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  ../../node_modules/@teqfw/di/skills/teqfw-di <span class="dt">\</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  .agents/skills/teqfw-di</span></code></pre></div>
+<p>El enlace puede guardarse en Git. De este modo, el repositorio registra qué skills ha habilitado el proyecto, mientras que el lockfile registra qué versiones de los paquetes las proporcionan.</p>
+<p>Esta separación importa especialmente en aplicaciones con grandes árboles de dependencias. Que un paquete esté presente en <code>node_modules</code> no significa que sus instrucciones deban estar disponibles para el agente. El propietario del proyecto elige el conjunto de skills con el que se trabajará.</p>
+<p><a href="https://developers.openai.com/codex/build-skills">Codex admite skills conectadas mediante enlaces simbólicos</a>, por lo que no es necesario copiarlas en el proyecto. El paquete instalado sigue siendo la única fuente de referencia.</p>
+<h2 id="por-qué-resulta-útil-en-la-práctica">Por qué resulta útil en la práctica</h2>
+<p>Una skill reduce el trabajo de investigación previo a un cambio de código. El autor del paquete proporciona al agente respuestas que, de otro modo, tendría que reconstruir:</p>
+<ul>
+<li>dónde se encuentra el límite público del componente;</li>
+<li>qué convenciones son obligatorias;</li>
+<li>qué decisiones pertenecen al paquete y cuáles siguen correspondiendo a la aplicación;</li>
+<li>qué mecanismos obsoletos no deben trasladarse al código nuevo;</li>
+<li>cómo verificar el resultado.</li>
+</ul>
+<p>Esto no garantiza un resultado correcto. El agente todavía debe revisar los contratos y las pruebas actuales, y un desarrollador debe evaluar los cambios. Sí hace reproducible el punto de partida: dos agentes que trabajan con la misma versión de una dependencia reciben las mismas instrucciones de su autor.</p>
+<p>Para mí, esta preparación forma parte del trabajo de ingeniería necesario para desarrollar con agentes. No basta con dar acceso al repositorio a un modelo capaz. El repositorio y sus dependencias deben exponer con claridad las reglas locales, para que el agente pueda distinguirlas del conocimiento general sobre JavaScript y Node.js.</p>
+<h2 id="teqfw-como-plataforma-preparada-para-agentes">TeqFW como plataforma preparada para agentes</h2>
+<p>TeqFW está construido alrededor de dependencias explícitas, límites entre módulos y contratos accesibles para las herramientas de análisis de código. Las skills incluidas en los paquetes añaden otra representación: instrucciones operativas para el agente de IA.</p>
+<p>Un mismo paquete puede ofrecer distintas representaciones a los participantes del proceso de desarrollo:</p>
+<pre class="text"><code>código fuente       → entorno de ejecución
+JSDoc y types.d.ts  → IDE y análisis estático
+README              → desarrollador
+SKILL.md            → agente de IA</code></pre>
+<p>Todas se publican juntas y corresponden a la misma versión del componente.</p>
+<p>Esto significa que desarrollo algo más que un conjunto de bibliotecas JavaScript. También construyo un entorno de trabajo que proporciona a los agentes de IA reglas explícitas para utilizarlas. Aplico el mismo enfoque al preparar otros paquetes y aplicaciones para el desarrollo con agentes: defino límites, formalizo convenciones, creo skills y las vinculo a las versiones de los componentes.</p>
+<p>Mi nombre de trabajo para este enfoque es <strong>Dependency-bound Agent Skills</strong>: skills para agentes vinculadas a dependencias de software. No es un estándar independiente. Es un modelo de distribución en el que el código y las instrucciones necesarias para trabajar con él viajan a través del mismo gestor de paquetes y se versionan juntos.</p>
+<p>Fuera de TeqFW también se están explorando modelos parecidos. El repositorio de Agent Skills contiene <a href="https://github.com/agentskills/agentskills/issues/81">una propuesta para distribuir skills mediante paquetes npm</a>, mientras que el proyecto <a href="https://github.com/antfu/skills-npm">skills-npm</a> estudia el descubrimiento de skills dentro de las dependencias instaladas.</p>
+<p>TeqFW ya utiliza este enfoque: los paquetes distribuyen las instrucciones, las aplicaciones seleccionan las skills que necesitan y los agentes trabajan con información alineada con el código instalado.</p>
+<hr />
+<h3 id="referencias">Referencias</h3>
+<ul>
+<li><a href="https://agentskills.io/">Agent Skills</a></li>
+<li><a href="https://agentskills.io/specification">Agent Skills Specification</a></li>
+<li><a href="https://developers.openai.com/codex/build-skills">OpenAI Codex: Agent Skills</a></li>
+<li><a href="https://github.com/agentskills/agentskills/issues/81">RFC: Standardize npm/JavaScript Package Distribution</a></li>
+<li><a href="https://github.com/antfu/skills-npm/blob/main/PROPOSAL.md">npm-based Agent Skills Convention</a></li>
+<li><a href="https://github.com/antfu/skills-npm">skills-npm</a></li>
+</ul>
+</div>
+{% endblock %}

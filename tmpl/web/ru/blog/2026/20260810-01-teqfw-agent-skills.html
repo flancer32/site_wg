@@ -1,0 +1,58 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Опубликована статья о навыках внутри пакетов TeqFW{% endblock %}
+
+{% block html_head_extra %}
+    <meta property="og:title" content="Опубликована статья о навыках внутри пакетов TeqFW"/>
+    <meta property="og:description" content="Новая публикация о том, как пакеты TeqFW поставляют ИИ-агентам инструкции, соответствующие установленной версии кода."/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://wiredgeese.com/ru/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+    <meta property="og:image" content="https://wiredgeese.com/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Опубликована статья о навыках внутри пакетов TeqFW"/>
+    <meta name="twitter:description" content="Новая публикация о том, как пакеты TeqFW поставляют ИИ-агентам инструкции, соответствующие установленной версии кода."/>
+    <meta name="twitter:image" content="https://wiredgeese.com/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"/>
+{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Опубликована статья о навыках внутри пакетов TeqFW</h1>
+    <time datetime="2026-08-10">10 августа 2026</time>
+
+    <zoom-img src="/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"
+        alt="Пакет TeqFW передаёт код приложению и навык ИИ-агенту" width="100px"></zoom-img>
+
+    <p>
+        В библиотеке появился материал о том, как пакеты <a href="https://teqfw.com/" target="_blank" rel="noopener">TeqFW</a>
+        поставляют инструкции для ИИ-агентов вместе с кодом.
+        Навык описывает границы компонента, его контракты и правила подключения, а его версия совпадает с версией
+        установленной зависимости.
+    </p>
+
+    <p>
+        Пакет предоставляет навык, но проект сам решает, подключать ли его к своей агентской среде. Такой порядок
+        сохраняет контроль за владельцем приложения и помогает агенту работать с локальными правилами вместо случайной
+        версии документации из интернета.
+    </p>
+
+    <p>
+        Механизм, примеры из платформенных пакетов и рабочая модель Dependency-bound Agent Skills разобраны в статье
+        <a href="/ru/library/teqfw/20260810-01-teqfw-agent-skills.html">«TeqFW: фреймворк, который объясняет себя ИИ-агенту»</a>.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/ru/blog/2026/20260810-01-teqfw-agent-skills.html"></a>
+    <img src="/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"
+        alt="Пакет TeqFW передаёт код приложению и навык ИИ-агенту" />
+    <div>
+        <h4>Опубликована статья о навыках внутри пакетов TeqFW</h4>
+        <p>
+            Как поставлять инструкции для ИИ-агента вместе с пакетом и сохранять их соответствие установленной версии кода.
+        </p>
+        <time datetime="2026-08-10">10 августа 2026</time>
+    </div>
+</li>
+{% endblock %}

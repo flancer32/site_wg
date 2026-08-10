@@ -1,0 +1,57 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Nuevo artículo: Agent Skills dentro de los paquetes de TeqFW{% endblock %}
+
+{% block html_head_extra %}
+    <meta property="og:title" content="Nuevo artículo: Agent Skills dentro de los paquetes de TeqFW"/>
+    <meta property="og:description" content="Una nueva publicación sobre cómo los paquetes de TeqFW proporcionan a los agentes instrucciones alineadas con la versión instalada del código."/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="https://wiredgeese.com/es/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+    <meta property="og:image" content="https://wiredgeese.com/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Nuevo artículo: Agent Skills dentro de los paquetes de TeqFW"/>
+    <meta name="twitter:description" content="Una nueva publicación sobre cómo los paquetes de TeqFW proporcionan a los agentes instrucciones alineadas con la versión instalada del código."/>
+    <meta name="twitter:image" content="https://wiredgeese.com/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"/>
+{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Nuevo artículo: Agent Skills dentro de los paquetes de TeqFW</h1>
+    <time datetime="2026-08-10">10 de agosto de 2026</time>
+
+    <zoom-img src="/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"
+        alt="Un paquete de TeqFW proporciona código a la aplicación y una skill al agente de IA" width="100px"></zoom-img>
+
+    <p>
+        La biblioteca incorpora un artículo sobre cómo los paquetes de <a href="https://teqfw.com/" target="_blank" rel="noopener">TeqFW</a>
+        distribuyen instrucciones para agentes de programación junto con el código. Una skill describe los límites del componente, sus contratos y las reglas de
+        integración, y su versión coincide con la versión de la dependencia instalada.
+    </p>
+
+    <p>
+        El paquete proporciona la skill y el proyecto decide si la expone a su entorno de agentes. Este orden mantiene
+        el control en manos del propietario de la aplicación y permite que el agente trabaje con reglas locales en vez
+        de una versión cualquiera de la documentación encontrada en Internet.
+    </p>
+
+    <p>
+        El mecanismo, los ejemplos de paquetes de la plataforma y el modelo Dependency-bound Agent Skills se explican en
+        <a href="/es/library/teqfw/20260810-01-teqfw-agent-skills.html">«TeqFW: un framework que sabe explicarse a los agentes de IA»</a>.
+    </p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+<li class="blog-item">
+    <a class="card-link" href="/es/blog/2026/20260810-01-teqfw-agent-skills.html"></a>
+    <img src="/img/library/teqfw/20260810-01-teqfw-agent-skills.webp"
+        alt="Un paquete de TeqFW proporciona código a la aplicación y una skill al agente de IA" />
+    <div>
+        <h4>Nuevo artículo: Agent Skills dentro de los paquetes de TeqFW</h4>
+        <p>
+            Cómo distribuir instrucciones para un agente junto con el paquete y mantenerlas alineadas con la versión instalada del código.
+        </p>
+        <time datetime="2026-08-10">10 de agosto de 2026</time>
+    </div>
+</li>
+{% endblock %}

@@ -1723,6 +1723,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
   </url>
   <url>
+    <loc>https://wiredgeese.com/en/blog/2026/20260810-01-teqfw-agent-skills.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/ru/blog/2026/20260810-01-teqfw-agent-skills.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/es/blog/2026/20260810-01-teqfw-agent-skills.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+  </url>
+  <url>
     <loc>https://wiredgeese.com/en/land/agent-orchestration-poc/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/land/agent-orchestration-poc/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/land/agent-orchestration-poc/"/>
@@ -2015,6 +2036,27 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/teqfw/20260225-01-deklaratsiya-ne-zavisimostey-dlya-esm.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/teqfw/20260225-01-deklaratsiya-ne-zavisimostey-dlya-esm.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/library/teqfw/20260225-01-deklaratsiya-ne-zavisimostey-dlya-esm.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/en/library/teqfw/20260810-01-teqfw-agent-skills.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/teqfw/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/teqfw/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/teqfw/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/library/teqfw/20260810-01-teqfw-agent-skills.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/ru/library/teqfw/20260810-01-teqfw-agent-skills.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/teqfw/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/teqfw/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/teqfw/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/library/teqfw/20260810-01-teqfw-agent-skills.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/es/library/teqfw/20260810-01-teqfw-agent-skills.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/teqfw/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/teqfw/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/teqfw/20260810-01-teqfw-agent-skills.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/library/teqfw/20260810-01-teqfw-agent-skills.html"/>
   </url>
   <url>
     <loc>https://wiredgeese.com/en/projects/alarisa.html</loc>
