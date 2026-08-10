@@ -27,6 +27,12 @@ TEQ_CMS__LOCALE_BASE_TRANSLATE=ru
 TEQFW_TMPL__ENGINE=nunjucks
 TEQFW_WEB__PORT=3000
 TEQFW_WEB__TYPE=http
+APP__EMAIL_HOST=smtp.example.com
+APP__EMAIL_PORT=465
+APP__EMAIL_SECURE=true
+APP__EMAIL_TO=recipient@example.com
+APP__EMAIL_AUTH_USER=sender@example.com
+APP__EMAIL_AUTH_PASS=app-password
 ```
 
 - `TEQ_CMS__BASE_URL` — trusted public origin used for canonical and alternate links.
@@ -35,6 +41,7 @@ TEQFW_WEB__TYPE=http
 - `TEQ_CMS__LOCALE_BASE_TRANSLATE` — source locale for translations.
 - `TEQFW_TMPL__ENGINE` — template engine to use (`nunjucks` is recommended here).
 - `TEQFW_WEB__PORT` and `TEQFW_WEB__TYPE` — web-server transport settings.
+- `APP__EMAIL_*` — SMTP transport and recipient settings for form submissions. The `@teqfw/cfg` reader projects these values from the `APP` namespace; do not commit real credentials. Use port `465` with `APP__EMAIL_SECURE=true`, or usually port `587` with `APP__EMAIL_SECURE=false` for STARTTLS.
 
 ## File structure
 

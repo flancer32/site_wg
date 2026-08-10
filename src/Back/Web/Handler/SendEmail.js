@@ -14,9 +14,10 @@ export default class SendEmail {
      * @param {Fl32_Web_Back_Dto_Info__Factory} deps.dtoInfo
      * @param {TeqFw_Log_Provider} deps.logger
      * @param {App_Back_Web_Helper_FormProtection} deps.formProtection
+     * @param {TeqFw_Cfg_Reader} deps.reader
      * @param {Fl32_Web_Back_Enum_Stage} deps.STAGE
      */
-    constructor({http2, respond, dtoInfo, logger, formProtection, STAGE}) {
+    constructor({http2, respond, dtoInfo, logger, formProtection, reader, STAGE}) {
         const {constants: H2} = http2;
         const {HTTP2_HEADER_CONTENT_TYPE} = H2;
         const log = logger.forSource('App_Back_Web_Handler_SendEmail');
@@ -25,12 +26,13 @@ export default class SendEmail {
             stage: STAGE.PROCESS,
         });
 
-        const EMAIL_HOST = process.env.EMAIL_HOST || '';
-        const EMAIL_PORT = parseInt(process.env.EMAIL_PORT || '465', 10);
-        const EMAIL_SECURE = process.env.EMAIL_SECURE === 'true';
-        const EMAIL_TO = process.env.EMAIL_TO || '';
-        const EMAIL_AUTH_USER = process.env.EMAIL_AUTH_USER || '';
-        const EMAIL_AUTH_PASS = process.env.EMAIL_AUTH_PASS || '';
+        const appConfig = reader.get('APP');
+        const EMAIL_HOST = typeof appConfig.EMAIL_HOST === 'string' ? appConfig.EMAIL_HOST : '';
+        const EMAIL_PORT = parseInt(typeof appConfig.EMAIL_PORT === 'string' ? appConfig.EMAIL_PORT : '465', 10);
+        const EMAIL_SECURE = appConfig.EMAIL_SECURE === 'true';
+        const EMAIL_TO = typeof appConfig.EMAIL_TO === 'string' ? appConfig.EMAIL_TO : '';
+        const EMAIL_AUTH_USER = typeof appConfig.EMAIL_AUTH_USER === 'string' ? appConfig.EMAIL_AUTH_USER : '';
+        const EMAIL_AUTH_PASS = typeof appConfig.EMAIL_AUTH_PASS === 'string' ? appConfig.EMAIL_AUTH_PASS : '';
 
         /** @param {any} req @returns {Promise<string>} */
         const collectBody = (req) => new Promise((resolve, reject) => {
@@ -151,5 +153,6 @@ export const __deps__ = Object.freeze({
     dtoInfo: 'Fl32_Web_Back_Dto_Info__Factory$',
     logger: 'TeqFw_Log_Provider$',
     formProtection: 'App_Back_Web_Helper_FormProtection$',
+    reader: 'TeqFw_Cfg_Reader$',
     STAGE: 'Fl32_Web_Back_Enum_Stage$',
 });
