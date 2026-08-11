@@ -1,0 +1,104 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Namespace: scope or address?{% endblock %}
+{% block description %}In this post I’ll compare the namespace concept in Java/PHP/JS and I’ll try to answer the question in the title.{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Namespace: scope or address?</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2022-11-03
+    </span>
+    {% raw %}
+<p>In this post I’ll compare the <code>namespace</code> concept in Java/PHP/JS and I’ll try to answer the question in the title.</p>
+<p>First of all, what is <code>namespace</code> in common? Wiki <a href="https://en.wikipedia.org/wiki/Namespace">says</a>:</p>
+<blockquote>
+<p>In computing, a namespace is a set of signs (names) that are used to identify and refer to objects of various kinds. A namespace ensures that all of a given set of objects have unique names so that they can be easily identified.</p>
+</blockquote>
+<p>So, in a common <code>namespace</code> is something related to identification and referencing (i.e. addressing).</p>
+<blockquote>
+<p>A namespace name may provide context (scope in computer science) to a name, and the terms are sometimes used interchangeably.</p>
+</blockquote>
+<p>… and is something related to scopes too.</p>
+<h2 id="java">Java</h2>
+<p>I guess <code>namespaces</code> in Java were from the beginning — they already were when I first time learned to write Java code many years ago. <code>Namespace</code> in Java <a href="https://en.wikipedia.org/wiki/Java_package">is called</a> a <code>package</code>:</p>
+<p>package java.awt.event; Each Java class is placed in a separate file and each file should contain a <code>package</code> declaration. All files (and packages) form a hierarchy:</p>
+<p>|- java</p>
+<p>|– applet</p>
+<p>|— AppletContext</p>
+<p>|— …</p>
+<p>|– awt</p>
+<p>|— event</p>
+<p>|—- ActionListener</p>
+<p>|… It is very easy to navigate Java code — sources for<code>java.applet.AppletContext</code> class will be in <code>./java/applet/AppletContext.java</code>, sources for<code>java.awt.event.ActionListener</code> class will be in <code>./java/awt/event/ActionListener.java</code>.</p>
+<p>The uniqueness of identifiers within a <code>namespace</code> is provided by a file system. Each <code>package</code> (<code>namespace</code>) forms its own context where all classes without explicit access control modifiers are available to each other (see <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html">package-private</a>).</p>
+<p>For global coverage of all Java code with <code>namespaces</code>, the language designers have proposed using <a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS</a> to ensure that identifiers are unique throughout the all Java code. You should use package <code>com.company</code> if you are an owner of domain <code>company.com</code>.</p>
+<p>So, I consider that <code>namespaces</code> in Java are firstly about identification (addressing) and only secondly about scopes (contexts).</p>
+<h2 id="php">PHP</h2>
+<p><code>Namespaces</code> appeared in PHP since <a href="https://www.php.net/manual/en/language.namespaces.rationale.php">version 5.3</a> and they are closer to the filesystem than <code>namespaces</code> in Java:</p>
+<p>namespace Zend; Unlike the Java, it is possible to have <a href="https://www.php.net/manual/en/language.namespaces.definitionmultiple.php">more than one</a><code>namespace</code> in a file:</p>
+<p>namespace Space1;</p>
+<p>…</p>
+<p>namespace Space2;</p>
+<p>… But “<em>It is strongly discouraged as a coding practice to combine multiple namespaces into the same file</em>” ©</p>
+<p><code>Namespaces</code> in PHP can be <a href="https://www.php.net/manual/en/language.namespaces.nested.php">nested</a>:</p>
+<p>namespace Project; … and can be addressed <a href="https://www.php.net/manual/en/language.namespaces.rules.php">absolutely or relatively</a>, just like in a filesystem (alias == symbolic link):</p>
+<p>&lt;?php namespace Project</p>
+<p>namespace Project</p>
+<p>namespace {</p>
+<p>use Projectas ModA;</p>
+<p>$modA = new ();</p>
+<p>$modB = new ();</p>
+<p>$modB2 = new Demo();</p>
+<p>$modA2 = new ModA();</p>
+<pre>}</pre>
+<p>PHP <code>namespaces</code> have more flexible options for addressing code elements than Java <code>packages</code> but both languages allow IDE (and the developer) to find source code by <a href="https://en.wikipedia.org/wiki/Fully_qualified_name">FQN</a>.</p>
+<p>Of cause, each <code>namespace</code> in PHP sets its own scope, just like a <code>package</code> in Java. I believe it’s a natural ability of the <code>namespace</code>.</p>
+<h2 id="javascript">JavaScript</h2>
+<p><code>Namespace</code> in JS is not a concept of language itself. JS does not contain any statements like <code>namespace</code> or <code>package</code> and the question “<a href="https://stackoverflow.com/questions/881515/how-do-i-declare-a-namespace-in-javascript">How do I declare a namespace in JavaScript?</a>” is a very-very old question that has more than one <a href="https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch13s15.html">right answer</a>. The most popular answer I know — “<em>just create named scope</em>”:</p>
+<pre>const MyNamespace = (function() {…})(); Unlike Java/PHP ‘<em>namespace</em>’ in JS is firstly about scopes and not about identification (addressing) at all. We can create nested ‘<em>namespaces</em>’ and all will be fine in runtime — all nested scopes will be isolated (e.g., we can have function <code>myFunc</code> in every scope):
+const MyNamespace = (function () {
+function myFunc() {
+console.log(‘Main space.’);
+} return {</pre>
+<p>fn: myFunc</p>
+<pre>}
+})();(function (mainSpace) {
+function myFunc() {
+console.log(‘Nested space.’);
+} mainSpace.subSpace = {</pre>
+<p>fn: myFunc</p>
+<pre>}})(MyNamespace);MyNamespace.fn();
+MyNamespace.subSpace.fn();</pre>
+<p>But different <code>myFunc</code>s still cannot be addressed uniquely. An IDE’s <em>Copy Reference</em> action returns only <code>myFunc</code>, without a namespace.</p>
+<p>It is a big problem of this language — we don’t have one commonly used rule to address code elements (constants, objects, functions, classes) globally. To address for developer, not for computer. Try to launch the ‘<em>Find Usage</em>’ action for any of <code>myFunc</code>s in any IDE. This action is almost useless in a big (a really big!) projects. Perhaps, this moment is a one of the reasons for the <a href="https://www.typescriptlang.org/">TypeScript</a> appearance many years ago.</p>
+<p>Of cause, modern JS with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">ES6 modules</a> and with <a href="https://en.wikipedia.org/wiki/Npm_(software)">npm</a> is closer to enterprise level language than it was in 2012 (when <code>TypeScript</code> first appeared). But JS is not as convenient for large projects as Java/PHP because of the lack of the right <code>namespaces</code>.</p>
+<h2 id="resume">Resume</h2>
+<p>So, what is the answer to the question in the title? I’m sure, the <code>namespace</code> is an address <strong><em>and</em></strong> is a scope. It’s like a regular post address and a real place.</p>
+<figure>
+<img src="/medium/img/9037fada36f2/image-01.jpg" alt="Image 2" />
+</figure>
+<p>Every post address matches a real place but not every real place has its own address. But more importantly, <code>namespace</code> is about addressing in source code (for developers), not about addressing in runtime (for computers). In my opinion of course :)</p>
+<p>If you enjoyed this article, please give it a clap and follow me for more content!</p>
+<p>Stay connected:</p>
+<ul>
+<li><a href="https://github.com/flancer64">GitHub</a></li>
+<li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/">LinkedIn</a></li>
+<li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497">Upwork</a></li>
+</ul>
+<p>Thank you for your support!</p>
+
+    
+<h2>Additional source-code excerpts</h2>
+<pre><code class="language-js">const MyNamespace = (() =&gt; {
+  function myFunc() { console.log('Main space.'); }
+  return { fn: myFunc };
+})();
+((mainSpace) =&gt; {
+  function myFunc() { console.log('Nested space.'); }
+  mainSpace.subSpace = { fn: myFunc };
+})(MyNamespace);</code></pre>
+
+{% endraw %}
+</div>
+{% endblock %}

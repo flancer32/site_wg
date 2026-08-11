@@ -1,0 +1,214 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}TeqFW: Web server{% endblock %}
+{% block description %}Web-сервер на [платформе TeqFW](https://wiredgeese.com/%D1%87%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-teqfw-208d5938205) может работать в одном из трёх режимов: HTTP/1, HTTP/2 и{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>TeqFW: Web server</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2021-12-15
+    </span>
+    {% raw %}
+<p>Web-сервер на <a href="https://wiredgeese.com/%D1%87%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-teqfw-208d5938205">платформе TeqFW</a> может работать в одном из трёх режимов: HTTP/1, HTTP/2 и HTTPS (over HTTP/2). Первый режим (HTTP/1) применяется для разработки — запуск приложения локально и доступ к нему из браузера напрямую, второй — для работы в связке с другими серверами (например, доступ через nginx-прокси), третий — в качестве отдельного сервера в live-режиме.</p>
+<h2 id="основы-http">Основы HTTP</h2>
+<p>HTTP всегда работает по схеме “<em>запрос</em> — <em>ответ</em>”. Вначале отправляется стартовая строка с адресом ресурса на сервере, за ней следуют HTTP-заголовки, потом — тело запроса (опционально). При ответе сервер сначала посылает HTTP-заголовки, а затем — тело ответа. Тело ответа может быть растянуто во времени (как в <a href="https://en.wikipedia.org/wiki/Server-sent_events">Server Sent Events</a> — заголовки, событие, событие, …).</p>
+<p>В nodejs есть две библиотеки для запуска web-сервера: <a href="https://nodejs.org/api/http.html">http</a> и <a href="https://nodejs.org/api/http2.html">http2</a>. Сервера в обеих библиотеках построены по <a href="https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/">общему принципу</a> — на каждый HTTP-запрос генерируется ряд событий, на которые можно повесить собственные функции-обработчики (<em>listeners</em>, “<em>прослушки</em>”):</p>
+<pre>server.on(‘connect’, onConnect);
+server.on(‘error’, onError);
+server.on(‘request’, onRequest);
+server.on(‘close’, onClose);</pre>
+<p>… HTTP-сервера на каждый запрос формируют структуры для работы с входными и выходными данными и предоставляют разработчику возможность прослушивать событие <code>request</code> для доступа к ним:</p>
+<pre>server.on(‘request’, (req, res) =&gt; {}); Структуры <code>req</code> и <code>res</code> являются также потоками, за чтение/запись данных в которые отвечает прослушка (listener), т.е. — разработчик приложения.</pre>
+<p>Важным является то, что сообщения в HTTP состоят из двух частей: заголовков и тела. Все заголовки всегда отправляются перед телом (после начала отправки тела запроса/ответа заголовки отправлять более нельзя).</p>
+<h2 id="основы-обработки-запроса-в-teqfw">Основы обработки запроса в TeqFW</h2>
+<p>Прослушка события <code>request</code> выполняет предварительный анализ поступившего запроса, оставляя только те запросы, которые соответствуют допустимым HTTP-методам (для TeqFW — HEAD, GET &amp; POST). На все другие запросы прослушка возвращает код 405 (<a href="https://developer.mozilla.org/ru/docs/Web/HTTP/Status/405">Method Not Allowed</a>).</p>
+<p>Для POST-запросов, у которых <code>Content-Type</code> начинается с <code>text/plain</code> или с <code>application/json</code>, прослушка считывает тело запроса и преобразует его в текст или в JSON-объект, который затем прикрепляется к структуре <code>req</code>. Во всех остальных случаях прослушка входной поток не трогает.</p>
+<p>Разработчики <code>teq</code>-плагинов могут создавать собственные обработчики web-запросов, которые <code>request</code>-прослушка использует для обработки поступившего запроса и формирования ответа. Обработчики по очереди анализируют запрос и, если запрос находится в их зоне ответственности, выполняют соответствующие действия. Если в результате этих действий формируются HTTP-заголовки для их отправки клиенту, то они добавляются к структуре <code>res</code> (через <code>response.setHeader(name, value)</code>). Если обработчик считает, что ответом должно быть содержимое некоего файла, то он указывает имя файла в <code>res[‘teqFile’]</code>, если ответом должен быть текст, то он указывается в <code>res[‘teqBody’]</code>.</p>
+<p>Последним <code>request</code>-прослушка запускает обработчик <code>TeqFw_Web_Back_Handler_Final</code>, который анализирует <code>res</code>-структуру и формирует ответ (сначала все заголовки, затем отдаёт файл или текст тела сообщения). Если ни один из обработчиков запрос не обработал, то финальный обработчик возвращает код 404 (<a href="https://developer.mozilla.org/ru/docs/Web/HTTP/Status/404">Not Found</a>).</p>
+<p>Если какой-то обработчик считает, что он должен сам полностью ответить на сообщение, то он может это сделать. Другие обработчики, включая финальный, должны учитывать такую возможность.</p>
+<h2 id="диспетчер-запросов">Диспетчер запросов</h2>
+<p>В TeqFW прослушка для <code>request</code>-события создаётся в модуле <code>TeqFw_Web_Back_Server_Dispatcher</code> (метод <code>getListener()</code>). Перед подключением прослушки Диспетчер сканирует все плагины в поисках обработчиков web-запросов и инициализирует их:</p>
+<pre>await dispatcher.createHandlers();
+const onRequest = dispatcher.getListener();
+server.on(‘request’, onRequest);</pre>
+<h2>Обработчики запросов</h2>
+<p>Обработчик web-запросов — это объект, имплементирующий интерфейс <code>TeqFw_Web_Back_Api_Request_IHandler</code>:</p>
+<pre>class TeqFw_Web_Back_Api_Request_IHandler {
+getProcessor() { }
+async init() { }
+requestIsMine({method, address, headers} = {}) {}
+} Метод <code>init()</code> предназначен для асинхронной инициализации обработчика Диспетчером, метод <code>requestIsMine()</code> сообщает Диспетчеру, что обработчик признаёт запрос “своим”, метод <code>getProcessor()</code> возвращает Диспетчеру функцию — процессор запроса:
+/**</pre>
+<ul>
+<li><p><a href="http://twitter.com/param"><span class="citation" data-cites="param">@param</span></a> {http.IncomingMessage|http2.Http2ServerRequest}req</p></li>
+<li><p><a href="http://twitter.com/param"><span class="citation" data-cites="param">@param</span></a> {http.ServerResponse|http2.Http2ServerResponse} res</p></li>
+</ul>
+<p>*/</p>
+<pre>function process(req, res) {} Подключение обработчиков происходит в дескрипторе <code>teq</code>-плагина (<code>teqfw.json</code>):
+{</pre>
+<p>“<a href="http://twitter.com/teqfw/web"><span class="citation" data-cites="teqfw/web">@teqfw/web</span></a>”: {</p>
+<p>“handlers”: {</p>
+<p>“TeqFw_Web_Back_Handler_Upload”: {</p>
+<p>“after”: [“TeqFw_Web_Back_Handler_WAPI”],</p>
+<p>“before”: [“TeqFw_Web_Back_Handler_Static”],</p>
+<p>“space”: [“upload”]</p>
+<pre>}
+}
+}
+}</pre>
+<p>Порядок подключения обработчиков определяется на основании данных в узлах <code>after</code> и <code>before</code>. Узел <code>space</code> позволяет обработчику зарезервировать адресное пространство для “своих” запросов (см. “<a href="https://wiredgeese.com/teqfw-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D1%8B-ffdf439a1079#1469">Адресация ресурсов</a>”).</p>
+<h2 id="обработка-запроса-диспетчером">Обработка запроса Диспетчером</h2>
+<p>При обработке HTTP-запроса Диспетчер проверяет метод запроса (HEAD, GET, POST) и считывает тело запроса (если тип содержимого <code>text/plain</code> или <code>application/json</code>). После чего проверяет очередь обработчиков и выбирает те, кто готов обработать запрос основываясь на данных заголовков и адресе запроса. Отобранные обработчики запускаются по-очереди в асинхронном режиме:</p>
+<pre>/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {TeqFw_Web_Back_Model_Address} */
+const mAddress = spec[‘TeqFw_Web_Back_Model_Address$’];
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {TeqFw_Web_Back_Server_Respond.respond405|function} */
+const respond405 = spec[‘TeqFw_Web_Back_Server_Respond.respond405’];
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {TeqFw_Web_Back_Api_Request_IHandler[]} */
+const handlers = [];
+async function onRequest(req, res) {
+function isMethodAllowed(method) { }
+async function parseBody(method, headers, req) { } const {headers, method, url} = req;
+if (isMethodAllowed(method)) {
+await parseBody(method, headers, req);
+const address = mAddress.parsePath(url);
+// collect processors
+const active = [];
+for (const one of handlers)
+if (one.requestIsMine({method, address, headers}))
+active.push(one.getProcessor());
+// run processors one by one
+for (const one of active)
+await one(req, res);
+} else respond405(res);
+} В общем случае обработчик не должен сам отправлять ответ — ему неизвестно, какие ещё обработчики есть в очереди после него. Так как результатом обработки запроса является сообщение, состоящее из заголовков и тела запроса, то каждый обработчик может добавить свои заголовки в <code>res</code> (через <code>response.setHeader(name, value)</code>), а тело ответа или имя файла для отправки клиенту сохранить в <code>res[‘teqBody’]</code> или в <code>res[‘teqFile’]</code> соответственно. Если обработчик считает, что его данных достаточно для формирования ответа, он добавляет код ответа в <code>res[‘teqStatus’]</code>.</pre>
+<p>Таким образом, каждый обработчик из очереди может поучаствовать в обработке запроса, добавить какие-либо данные в <code>req</code>-структуру (будут доступны для следующих обработчиков) или посмотреть в <code>res</code>-структуре, был ли запрос обработан предыдущими обработчиками и с каким результатом.</p>
+<h2 id="финальный-обработчик">Финальный обработчик</h2>
+<p>В общем случае за формирование ответа на запрос отвечает финальный обработчик — <code>TeqFw_Web_Back_Handler_Final</code>. Он проверяет, что запрос не был обработан полностью каким-либо обработчиком (<code>res.headersSent</code>), смотрит, что нужно отправить в качестве ответа (файл или текст), формирует и отправляет ответ.</p>
+<pre>function process(req, res) {
+if (!res.headersSent) {
+const headers = res.getHeaders();
+const statusCode = res[DEF.RES_STATUS] ?? HTTP_STATUS_OK;
+const file = res[DEF.RES_FILE];
+const body = res[DEF.RES_BODY];
+let stat;
+if (file) {
+if (
+existsSync(file)</pre>
+<p>&amp;&amp; (stat = statSync(file))</p>
+<p>&amp;&amp; stat.isFile()</p>
+<pre>) {
+// …
+const readStream = createReadStream(file);
+res.writeHead(statusCode, headers);
+pipeline(readStream, res);
+}
+} else if (body) {
+res.writeHead(statusCode, headers);
+res.end(body);
+} else respond404(res);
+}
+}</pre>
+<p>Если запрос вообще не был обработан ни одним обработчиком, то финальный обработчик отправляет клиенту ответ со статусом 404 (<a href="https://developer.mozilla.org/ru/docs/Web/HTTP/Status/404">Not Found</a>).</p>
+<h2 id="доступные-обработчики">Доступные обработчики</h2>
+<p>На момент написания публикации в плагине <code>@teqfw/web</code> определены следующие обработчики:</p>
+<ul>
+<li><code>TeqFw_Web_Back_Handler_SSE</code>: для использования <a href="https://ru.wikipedia.org/wiki/Server-sent_events">Server Sent Events</a>;</li>
+<li><code>TeqFw_Web_Back_Handler_WAPI</code>: Web API, позволяющий клиенту получать JSON-данные через GET-запросы или обмениваться с сервером JSON-данными через POST-запросы;</li>
+<li><code>TeqFw_Web_Back_Handler_Upload</code>: загрузка файлов на сервер;</li>
+<li><code>TeqFw_Web_Back_Handler_Static</code>: раздача статики;</li>
+<li><code>TeqFw_Web_Back_Handler_Final</code>: финальный обработчик;</li>
+</ul>
+<p>Обработчики задают <a href="https://wiredgeese.com/teqfw-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D1%8B-ffdf439a1079#1469">пространства адресов</a>, очерчивая свою “зону ответственности” (<code>sse</code>, <code>api</code>, <code>upload</code>, <code>src</code> и <code>web</code>):</p>
+<pre>{</pre>
+<p>“<span class="citation" data-cites="teqfw/web">@teqfw/web</span>”: {</p>
+<p>“handlers”: {</p>
+<p>“TeqFw_Web_Back_Handler_Static”: {</p>
+<p>“spaces”: [“src”, “web”]</p>
+<pre>}
+}
+}
+}</pre>
+<p>Модель адреса в платформе (<code>TeqFw_Web_Back_Model_Address</code>) способна определять, к какому пространству относится запрашиваемый ресурс:</p>
+<pre>/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {TeqFw_Web_Back_Model_Address} */
+const mAddress = await container.get(‘TeqFw_Web_Back_Model_Address$’);
+//…
+const address = mAddress.parsePath(url);
+if (address?.space === ‘api’) { /* … */}</pre>
+<h2>Раздача статики</h2>
+<p>За раздачу статики отвечает обработчик <code>TeqFw_Web_Back_Handler_Static</code>. Вся статика делится на две группы:</p>
+<ul>
+<li>пространство <code>src</code>: исходные коды <code>npm</code>-пакетов из <code>./node_modules/</code>;</li>
+<li>пространство <code>web</code>: произвольные файлы из каталогов <code>./web/``teq</code>-плагинов;</li>
+</ul>
+<h3 id="пространство-src">Пространство ’<code>src’</code></h3>
+<p>Каждый <code>teq</code>-плагин прописывает в дескрипторе <code>./teqfw.json</code> настройки для автозагрузки кода <a href="https://wiredgeese.com/%D0%B2%D0%BD%D0%B5%D0%B4%D1%80%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9-%D0%B2-teqfw-b1beb319ca56">контейнером объектов</a>. Например, для <code>teq</code>-плагина с именем <code>@vnd/pkg</code> указана такая настройка автозагрузки:</p>
+<pre>{</pre>
+<p>“<span class="citation" data-cites="teqfw/di">@teqfw/di</span>”: {</p>
+<p>“autoload”: {</p>
+<p>“ns”: “Vnd_Pkg”,</p>
+<pre>“path”: “./sources”
+}
+}
+}</pre>
+<p>Обработчик статики использует эту настройку, чтобы в пространстве <code>./src/</code> предоставлять доступ к исходникам. Например, адрес:</p>
+<p>https://host.com/src/<span class="citation" data-cites="vnd/pkg/Path/To/Module.mjs">@vnd/pkg/Path/To/Module.mjs</span> соответствует такому пути к файлу внутри проекта:</p>
+<p>./node_modules/<span class="citation" data-cites="vnd/pkg/sources/Path/To/Module.mjs">@vnd/pkg/sources/Path/To/Module.mjs</span> Если <code>npm</code>-пакет не является <code>teq</code>-плагином (нет дескриптора <code>./teqfw.json</code> в корне пакета), то для таких пакетов маппинг исходников можно указать вручную в дескрипторе того плагина, который использует этот <code>npm</code>-пакет. Вот, например, маппинг статики для плагина <code>@teqfw/vue</code> :</p>
+<pre>{</pre>
+<p>“<span class="citation" data-cites="teqfw/web">@teqfw/web</span>”: {</p>
+<p>“statics”: {</p>
+<p>“/vue-router/”: “/vue-router/dist/”,</p>
+<pre>“/vue/”: “/vue/dist/”
+}
+}
+}</pre>
+<p>Таким образом, подобный маппинг позволяет перенаправить все адреса:</p>
+<p>https://host.com/src/vue/… на файловую систему:</p>
+<p>./node_modules/vue/dist/… ### Пространство ‘web’</p>
+<p>Каждый <code>teq</code>-плагин может иметь в корне каталог <code>./web/</code>, всё содержимое которого может быть доступным через web-сервер. Обработчик статики при инициализации сканирует все <code>teq</code>-плагины и составляет карту для доступа к таким ресурсам. Так, адрес:</p>
+<p>https://host.com/web/<span class="citation" data-cites="vnd/pkg/css/style.css">@vnd/pkg/css/style.css</span> соответствует такому пути к файлу внутри проекта:</p>
+<pre>./node_modules/<span class="citation" data-cites="vnd/pkg/web/css/style.css">@vnd/pkg/web/css/style.css</span></pre>
+<h2>Web API (сервисы)</h2>
+<p>Обработчик <code>TeqFw_Web_Back_Handler_WAPI</code> отвечает за пространство <code>./api/</code> и реагирует на <code>GET</code>&amp;<code>POST</code> методы. Если <code>POST</code>-запрос содержит какие-то данные, то ожидается, что это будет валидный JSON.</p>
+<p>Сервисы внутри <code>api</code>-пространства адресуются маршрутами (<em>routes</em>, <em>endpoints</em>) без учёта метода запроса (один и тот же сервис и для <code>GET</code>, и для <code>POST</code>). Каждый <code>teq</code>-плагин определяет собственное подпространство в соответствии со своим <code>npm</code>-именем и уже внутри собственного подпространства определяет имя маршрута, по которому располагается соответствующий <code>wapi</code>-сервис:</p>
+<p>http://localhost/api/<span class="citation" data-cites="teqfw/web/load/namespaces">@teqfw/web/load/namespaces</span> Результатом работы сервиса также является JSON.</p>
+<p><code>WAPI</code>-сервисы teq-плагина регистрируются в его дескрипторе:</p>
+<pre>{</pre>
+<p>“<span class="citation" data-cites="teqfw/web">@teqfw/web</span>”: {</p>
+<p>“wapi”: [</p>
+<p>“TeqFw_Web_Back_WAPI_Load_Config”,</p>
+<p>“TeqFw_Web_Back_WAPI_Load_FilesToCache”,</p>
+<pre>“TeqFw_Web_Back_WAPI_Load_Namespaces”
+]
+}
+}</pre>
+<p>Подробное описание данного обработчика выходит за рамки этой статьи и требует отдельной публикации.</p>
+<h2 id="server-sent-events-и-files-upload">Server Sent Events и Files Upload</h2>
+<p>Эти обработчики принципиально реализованы, но на данной стадии создавать описание было бы преждевременным. В SSE непонятен механизм группового использования канала связи с клиентом (когда различные <code>teq</code>-плагины пишут в канал свои события) — сейчас возможен только один сервис на канал. А в <code>upload</code>-обработчике пока непонятно, каким образом, без аутентификации и авторизации, обеспечить ограниченный доступ к загрузке файлов на сервер.</p>
+<p>Поэтому для отключения обработчиков, которые не предполагается использовать в приложении, в дескрипторе <code>./teqfw.json</code> приложения можно прописать:</p>
+<pre>{</pre>
+<p>“<span class="citation" data-cites="teqfw/web">@teqfw/web</span>”: {</p>
+<p>“excludes”: {</p>
+<p>“handlers”: [“TeqFw_Web_Back_Handler_Upload”]</p>
+<pre>}
+}
+}</pre>
+<h2>Резюме</h2>
+<p>Web-сервер платформы TeqFW может запускаться в одном из трёх режимов:</p>
+<ul>
+<li>HTTP/1</li>
+<li>HTTP/2</li>
+<li>HTTPS</li>
+</ul>
+<p>В нём реализованы обработка:</p>
+<ul>
+<li>статики;</li>
+<li>запросы к сервисам Web API;</li>
+<li>загрузка файлов на сервер;</li>
+<li>генерация событий сервером (Server Sent Events);</li>
+</ul>
+<p>При необходимости возможно добавление дополнительных обработчиков (аутентификация, логирование и т.п.).</p>
+
+    {% endraw %}
+</div>
+{% endblock %}

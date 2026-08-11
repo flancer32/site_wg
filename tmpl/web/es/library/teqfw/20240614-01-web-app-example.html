@@ -1,0 +1,52 @@
+{% extends "inc/layout.html" %}
+{% block title %}Ejemplo de aplicación web basada en TeqFW{% endblock %}
+{% block description %}Cómo montar una aplicación ToDo de navegador con módulos ES y el contenedor de dependencias @teqfw/di.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Ejemplo de aplicación web basada en TeqFW</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2024-06-14</span>
+<p>La <a href="https://github.com/flancer64/demo_web_app_di">demostración</a> muestra el uso del contenedor de objetos e inyección de dependencias <a href="https://github.com/teqfw/di">@teqfw/di</a> en una aplicación de navegador. Es una ToDo List conocida, sin parte de servidor: un conjunto de archivos estáticos que se carga y ejecuta en el navegador.</p>
+<p><zoom-img src="/medium/img/add155627b58/image-01.png" alt="Aplicación ToDo de demostración" width="100%"></zoom-img></p>
+<p>JavaScript puro con módulos ES aporta una ventaja importante al depurar: en el navegador se ven los mismos archivos que en el IDE.</p>
+<p><zoom-img src="/medium/img/add155627b58/image-02.png" alt="Fuentes de la aplicación en el navegador" width="100%"></zoom-img></p>
+<p><zoom-img src="/medium/img/add155627b58/image-03.png" alt="Las mismas fuentes en el IDE" width="100%"></zoom-img></p>
+<h2>Conectar el contenedor</h2>
+<p>La biblioteca está disponible como módulo ES, por ejemplo desde unpkg:</p>
+<pre><code class="language-html">&lt;script type="module"&gt;
+  import Container from 'https://unpkg.com/@teqfw/di';
+&lt;/script&gt;</code></pre>
+<h2>Crear y configurar</h2>
+<p>El contenedor no guarda objetos preparados de antemano. Su Resolver calcula la ruta del archivo fuente a partir de un identificador de dependencia. Tras crearlo, asociamos el espacio de nombres <code>Demo</code> con <code>./js</code>:</p>
+<pre><code class="language-js">const container = new Container();
+const root = new URL(location.href).href.replace('index.html', '');
+const resolver = container.getResolver();
+resolver.addNamespaceRoot('Demo', root + '/js');</code></pre>
+<p>Así los nombres se convierten en direcciones de módulos:</p>
+<ul><li><code>Demo_App</code> → <code>…/js/App.js</code>;</li><li><code>Demo_Defs</code> → <code>…/js/Defs.js</code>;</li><li><code>Demo_ToDo_Item</code> → <code>…/js/ToDo/Item.js</code>;</li><li><code>Demo_ToDo_List</code> → <code>…/js/ToDo/List.js</code>.</li></ul>
+<h2>Inicializar la aplicación</h2>
+<p>El símbolo <code>$</code> al final del identificador pide un singleton: el contenedor lo crea una vez y devuelve siempre el mismo objeto.</p>
+<pre><code class="language-js">const app = await container.get('Demo_App$');
+app.run();</code></pre>
+<p>Las formas básicas son:</p>
+<ul><li><code>Demo_App</code>: default export tal cual;</li><li><code>Demo_App$</code>: singleton del default export;</li><li><code>Demo_App$I</code>: instancia nueva;</li><li><code>Demo_App.</code>: objeto módulo;</li><li><code>Demo_App.export</code>: export nombrado;</li><li>los sufijos <code>$</code> y <code>$I</code> también funcionan con exports nombrados.</li></ul>
+<h2>Describir dependencias</h2>
+<p>Solo el contenedor se importa estáticamente; los demás módulos se enlazan mediante identificadores en el constructor:</p>
+<pre><code class="language-js">export default class Demo_App {
+  constructor({
+    Demo_Defs$: defs,
+    Demo_ToDo_List$: list,
+  }) {
+    this.defs = defs;
+    this.list = list;
+  }
+}</code></pre>
+<p>El contenedor carga los módulos, crea los singleton requeridos y los entrega a la aplicación. Si se necesita la clase, no el objeto, la petición es más simple:</p>
+<pre><code class="language-js">export default class Demo_ToDo_List {
+  constructor({ Demo_ToDo_Item: ToDoItem }) {
+    this.item = new ToDoItem();
+  }
+}</code></pre>
+<h2>Conclusión</h2>
+<p><a href="https://github.com/teqfw/di">@teqfw/di</a> lleva prácticas enterprise —contenedor de objetos y espacios de nombres— a SPA y PWA. Para ejecutar la demo basta con publicar la carpeta <code>web/</code> en alojamiento estático. El enlace tardío es excesivo para una página estática pequeña, pero resulta útil en aplicaciones grandes y conjuntos de paquetes; el mismo enfoque también permite compartir planteamientos entre frontend y backend Node.js.</p>
+</div>
+{% endblock %}

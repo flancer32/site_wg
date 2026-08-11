@@ -1,0 +1,204 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Launching Web Apps Without Own Servers: How ESM and CDNs Are Changing the Game{% endblock %}
+{% block description %}With the advent of modern web technologies, developers of small web applications no longer need complex infrastructure to deploy them. ES modules and the distribution of libraries {% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Launching Web Apps Without Own Servers: How ESM and CDNs Are Changing the Game</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2024-07-04
+    </span>
+    {% raw %}
+<p>With the advent of modern web technologies, developers of small web applications no longer need complex infrastructure to deploy them. ES modules and the distribution of libraries through CDNs allow applications to run directly in end-user browsers without the need for virtual servers or cloud services. Let me show you how it works with a simple example.</p>
+<p>The <a href="https://flancer64.github.io/demo-wa-esm-openai/#/">web application</a> I’m demonstrating is an example of using the OpenAI API directly from the user’s browser:</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-01.png" alt="Image 2" />
+</figure>
+<p>A sample conversation.</p>
+<p>This web application “lives” on the client side, loads the necessary libraries from the CDN (<a href="https://www.jsdelivr.com/">jsDelivr</a>), and communicates directly with the <a href="https://platform.openai.com/docs/api-reference/introduction">OpenAI API</a>. The main application file (<code>index.html</code>) is hosted on <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-02.png" alt="Image 3" />
+</figure>
+<p>The principal schema</p>
+<p>In the modern world, web developers only need to publish their package in the <a href="https://www.npmjs.com/">npm registry</a> for it to be accessible to any user through <a href="https://www.jsdelivr.com/">jsDelivr</a> or <a href="https://unpkg.com/">Unpkg</a> websites.</p>
+<h2 id="application-description">Application Description</h2>
+<p>The application interface is created using the following libraries:</p>
+<ul>
+<li><a href="https://vuejs.org/">Vue</a></li>
+<li><a href="https://router.vuejs.org/">VueRouter</a></li>
+<li><a href="https://quasar.dev/">Quasar UI</a></li>
+</ul>
+<p>The application connects to the OpenAI API using the corresponding library (<a href="https://www.npmjs.com/package/openai">openai</a>) and allows a conversation with one of the available ChatGPT models. The application navigation is very simple:</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-03.png" alt="Image 4" />
+</figure>
+<p>The navigation</p>
+<p>The application configuration involves specifying the access key for the OpenAI API, selecting the model, and the system prompt to start the conversation:</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-04.png" alt="Image 5" />
+</figure>
+<p>The configuration</p>
+<p>Each user must generate their own API key on the OpenAI website. The key is stored in the browser’s local storage and is not shared with third parties. However, it is recommended to invalidate the key on the OpenAI website after using it in the demo application.</p>
+<p>The main mode of operation for the application is a standard chat:</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-05.png" alt="Image 6" />
+</figure>
+<p>The chat</p>
+<p>The “Delete” button resets the current dialogue and returns it to its initial state.</p>
+<h2 id="key-points-in-development">Key Points in Development</h2>
+<h2 id="index.html">index.html</h2>
+<p>The launchpad for the application is very compact:</p>
+<p>&lt;!DOCTYPE html&gt;</p>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<p><link rel="icon" type="image/svg+xml" href="https://www.svgrepo.com/show/306500/openai.svg"></p>
+<title>
+OpenAI API
+</title>
+<p><link href="https://cdn.jsdelivr.net/npm/quasar@2.16.4/dist/quasar.prod.css" rel="stylesheet"></p>
+<p><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></p>
+<p><link href="./web/styles.css" rel="stylesheet"></p>
+<script type="importmap">
+
+ {
+
+ "imports": {
+
+ "@vue/devtools-api": "https://cdn.jsdelivr.net/npm/@vue/devtools-api@6.6.3/lib/esm/index.min.js",
+
+ "openai/_shims/auto/runtime": "https://cdn.jsdelivr.net/npm/openai@4.52.2/_shims/auto/runtime.mjs",
+
+ "openai/core": "https://cdn.jsdelivr.net/npm/openai@4.52.2/core.mjs",
+
+ "openai/error": "https://cdn.jsdelivr.net/npm/openai@4.52.2/error.mjs",
+
+ "openai/streaming": "https://cdn.jsdelivr.net/npm/openai@4.52.2/streaming.mjs",
+
+ "vue": "https://cdn.jsdelivr.net/npm/vue@3.4.31/dist/vue.esm-browser.prod.js"
+
+ }
+
+ }
+
+ </script>
+<script type="module">
+
+ import app from 'https://cdn.jsdelivr.net/npm/@flancer64/demo-wa-esm-openai@0.1.0/src/App.mjs';
+app.mount('#app');
+
+</script>
+</head>
+<body>
+<div id="app">
+
+</div>
+</body>
+</html>
+<p>The <code>index.html</code> file solves the following tasks:</p>
+<ul>
+<li>Configures the <code>importmap</code> so that the browser can handle imports in nodejs style: <code>import * as Core from ‘openai/core’</code>.</li>
+<li>Loads additional resources (styles, fonts) used in the application.</li>
+<li>Loads the application source code (<code>@flancer64/demo-wa-esm-openai</code> package) from jsDelivr CDN, creates the application, and mounts it to the page.</li>
+</ul>
+<h2 id="flancer64demo-wa-esm-openai"><span class="citation" data-cites="flancer64/demo-wa-esm-openai">@flancer64/demo-wa-esm-openai</span></h2>
+<p>The main code of the web application is in the <a href="https://www.npmjs.com/package/@flancer64/demo-wa-esm-openai"><span class="citation" data-cites="flancer64/demo-wa-esm-openai">@flancer64/demo-wa-esm-openai</span></a> package. Each JavaScript source file in the package is an ES module:</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-06.png" alt="Image 7" />
+</figure>
+<p>The sources of the app package</p>
+<p>Files in the <code>./Mod/</code> directory are models that perform certain actions in the application. Files in the <code>./Ui/</code> directory are Vue components.</p>
+<p>The most interesting file is <code>./src/App.mjs</code>, as it is where the libraries are loaded and the application is initialized.</p>
+<pre>import * as Vue from ‘https://cdn.jsdelivr.net/npm/vue@3.4.31/dist/vue.esm-browser.prod.js’;
+import {</pre>
+<p>createRouter,</p>
+<p>createWebHashHistory</p>
+<pre>} from ‘https://cdn.jsdelivr.net/npm/vue-router@4.4.0/dist/vue-router.esm-browser.js’; The <a href="https://www.npmjs.com/package/vue">vue</a> and <a href="https://www.npmjs.com/package/vue-router">vue-router</a> libraries have their ESM versions, so they are loaded through a static import.</pre>
+<p>The <a href="https://www.npmjs.com/package/quasar">quasar</a> library has only a UMD version, so we load it through a dynamic import after preparing the global environment:</p>
+<pre>window.Vue = Vue;
+await import ( ‘https://cdn.jsdelivr.net/npm/quasar@2.16.4/dist/quasar.umd.prod.js’);
+const Quasar = window.Quasar; Next, we initialize the router, create the Vue application, and export it via <code>export default</code> for mounting in <code>index.html</code> to the corresponding DOM element:
+const {createApp} = Vue;
+const routes = [
+{path: DEF.ROUTE_ABOUT, component: () =&gt; import(‘./Ui/Route/About.mjs’)},
+{path: DEF.ROUTE_CONFIG, component: () =&gt; import(‘./Ui/Route/Config.mjs’)},
+{path: DEF.ROUTE_HOME, component: () =&gt; import(‘./Ui/Route/Chat.mjs’)},
+];
+const router = createRouter({</pre>
+<p>history: createWebHashHistory(),</p>
+<p>routes,</p>
+<pre>});
+const app = createApp(Main);
+app.use(router);
+app.use(Quasar, {</pre>
+<p>config: {</p>
+<p>dark: false,</p>
+<pre>}
+});
+export default app;</pre>
+<p>Interestingly, we use lazy loading of the source code for Vue components when configuring the router:</p>
+<pre>{path: …, component: () =&gt; import(‘./Ui/Route/About.mjs’)}</pre>
+<p>This loads a route’s ES modules and dependencies when the user navigates there, rather than at application startup.</p>
+<h2 id="view-from-the-browser">View from the Browser</h2>
+<p>As seen in the <code>Sources</code> tab of the ‘Developer Tools’ panel in Chrome, all resources on the page are obtained from public sources:</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-07.png" alt="Image 8" />
+</figure>
+<p>The resource sources</p>
+<h3 id="github-pages">GitHub Pages</h3>
+<p>There are only 2 resources hosted on this site: styles and <code>index.html</code>:</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-08.png" alt="Image 9" />
+</figure>
+<p>GitHub Pages</p>
+<h3 id="cdn-for-npm-packages">CDN for NPM Packages</h3>
+<p>The sources loaded through jsDelivr mirror the directory/file structure seen in the IDE:</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-09.png" alt="Image 10" />
+</figure>
+<p>Own ESM sources</p>
+<p>Note the <code>./Ui/Route/</code> directory — I have not navigated to routes other than <code>./</code>, so only <code>./Chat.mjs</code> (the Vue component for this route) is loaded in the browser. The remaining Vue components and their ES modules will be loaded as the user navigates to the corresponding routes.</p>
+<p>Here’s an example of loading the sources for a third-party package that supports ES modules:</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-10.png" alt="Image 11" />
+</figure>
+<p>The 3rd party ESM resources</p>
+<p>And here’s an example of sources from a package that supports UMD modules:</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-11.png" alt="Image 12" />
+</figure>
+<p>The 3rd party UMD resources</p>
+<p>The remaining resources (fonts and images) are also loaded from public sites:</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-12.png" alt="Image 13" />
+</figure>
+<p>The fonts and images</p>
+<p>User configuration data is stored in the browser’s local storage:</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-13.png" alt="Image 14" />
+</figure>
+<p>The local storage</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Using modern technologies, it is not necessary to have your own resources (virtual servers or cloud space) to create and distribute small web applications that run on user devices and use third-party service APIs. Application code can be hosted and distributed through public services.</p>
+<p>The resource load speed is quite decent, with public services using modern technologies (protocols h2 and h3):</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-14.png" alt="Image 15" />
+</figure>
+<p>The Network stats</p>
+<p>On repeated launches of the web application, resources are used from the browser cache:</p>
+<figure>
+<img src="/medium/img/a68e6632999f/image-15.png" alt="Image 16" />
+</figure>
+<p>The cache usage</p>
+<p>As noted earlier, only the resources directly related to user actions in the browser are loaded. This allows for staggered loading over time or even skipping the loading of certain ES modules if, for example, the user does not have the rights to perform certain actions. There is no need to assemble custom bundles and perform tree-shaking — only the modules actually used by the user are loaded from the network.</p>
+<p>Developers of your application have access to all the code stored in the npm registry. Any public ES module can be obtained through a CDN. The application can be extended on-the-fly directly in the user’s browser based on their needs. Unfortunately, the downside of such flexibility is the increased likelihood of malicious code ending up in your application.</p>
+<p>However, if your web application is not too large, if you can afford open code, and if your user data is not valuable enough to be specifically targeted, you can host your web applications on public resources like GitHub Pages and jsDelivr.</p>
+<p>Even if your web applications do not meet the above criteria, you can still benefit from using ES modules during development, loading the required functionality with high granularity directly into the browser from your own resources (servers or cloud).</p>
+<p>Thank you for reading and have a great day!</p>
+<p>Alex Gusev.</p>
+
+    {% endraw %}
+</div>
+{% endblock %}

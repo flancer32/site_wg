@@ -1,0 +1,26 @@
+{% extends "inc/layout.html" %}
+{% block title %}Los tres tipos de datos de usuario en aplicaciones web{% endblock %}
+{% block description %}Datos públicos, personales y de grupo: cómo la arquitectura web condiciona su almacenamiento y acceso.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Los tres tipos de datos de usuario en aplicaciones web</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2024-03-14</span>
+<p>Los datos de una aplicación web tienen tres modos básicos de acceso: público, personal y de grupo. Es un modelo útil para diseñar un producto y explicar con claridad quién puede ver la información de cada persona.</p>
+<p><zoom-img src="/medium/img/1317d7cb80df/image-01.png" alt="Tres tipos de datos de usuario" width="100%"></zoom-img></p>
+<h2>Cómo surgió el modelo</h2>
+<p>Las primeras aplicaciones web giraban alrededor de servidor y navegador. Al principio todos los datos, incluido HTML, estaban disponibles en el servidor. Después apareció la necesidad de limitar el acceso y nacieron los datos de grupo, accesibles para un conjunto de personas. Más tarde, las cookies y CGI hicieron posible personalizar las páginas.</p>
+<ul><li><strong>Públicos</strong>: pueden leerlos y modificarlos quienes tengan permiso según las reglas del servicio.</li><li><strong>Personales</strong>: solo debe acceder la persona concreta.</li><li><strong>De grupo</strong>: pertenecen a un grupo determinado de participantes.</li></ul>
+<h2>La arquitectura cambia los datos</h2>
+<p>La arquitectura cliente-servidor clásica guardaba todo en el servidor. Con ancho de banda limitado aparecieron cachés en servidor, proxy, CDN y navegador. Los datos personales se cachean con menos dificultades; los públicos y de grupo exigen actualizaciones coherentes para muchas personas. SSE y WebSocket permiten al servidor enviar cambios a los navegadores y reducen esa demora.</p>
+<p>El almacenamiento central de datos personales creó un mercado para su tratamiento: empresas analizan comportamientos, preferencias y relaciones. Como respuesta, creció la demanda de control. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">localStorage</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB</a>, nubes seguras y proyectos como <a href="https://solidproject.org/about">Solid</a> devuelven más autonomía a quien posee los datos.</p>
+<h2>Descentralización</h2>
+<p>Hoy un navegador o un almacenamiento independiente del servidor puede conservar y procesar una cantidad apreciable de datos personales. El servidor pasa a distribuir y actualizar el código de la aplicación, además de atender la información pública.</p>
+<p>Los datos de un grupo pequeño pueden intercambiarse directamente, por ejemplo con <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API">WebRTC</a>. Para un grupo grande el servidor suele seguir siendo preferible, pues reparte los cambios de modo fiable entre todos. Descentralizar no es eliminar el servidor, sino repartir las responsabilidades con criterio.</p>
+<h2>El efecto Stracey Barbrand</h2>
+<p>El efecto Barbra Streisand describe cómo intentar ocultar información puede volverla más visible. También existe el proceso inverso: un meme, vídeo o imagen aparece por todas partes durante un tiempo y, al pasar la moda, deja de encontrarse. Lo llamo «efecto Stracey Barbrand»: el desvanecimiento gradual de la información pública.</p>
+<p>Por eso el almacenamiento personal importa incluso para datos abiertos. Algo que hoy está disponible y parece corriente puede ser imposible de recuperar mañana, aunque siga teniendo valor para alguien.</p>
+<h2>Conclusión</h2>
+<p>Para datos públicos, de grupo y personales aumenta la necesidad de almacenamiento en el cliente. IndexedDB, Cache Storage y Service Worker permiten mantener parte de los datos en el navegador; el servidor conserva la distribución de código, actualizaciones y coordinación. WebRTC, redes móviles más rápidas y dispositivos potentes amplían estas posibilidades, incluido el cifrado local.</p>
+<p>Sin embargo, dónde se guarda un dato no elimina la responsabilidad: hay que definir propiedad, control de acceso, copias de seguridad, sincronización y qué ocurre si se pierde un dispositivo. Así una arquitectura más personal y parcialmente descentralizada da control real, y no solo traslada riesgos a la persona usuaria.</p>
+</div>
+{% endblock %}

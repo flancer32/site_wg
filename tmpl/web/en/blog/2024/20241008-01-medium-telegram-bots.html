@@ -1,53 +1,216 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}New Medium Article: First Steps with Telegram Bots{% endblock %}
+{% block title %}Telegram Bots: The First Steps{% endblock %}
+{% block description %}Telegram bots have become [a popular tool](https://flancer32.com/what-is-a-telegram-bot-a-simple-introduction-for-new-users-9d9a675b27b9) for automating tasks, integrating services{% endblock %}
 
 {% block content %}
 <div class="card">
-    <h1>New Medium Article: First Steps with Telegram Bots</h1>
-
+    <h1>Telegram Bots: The First Steps</h1>
     <span style="display: block; text-align: right;">
         <strong>Publication date:</strong> 2024-10-08
     </span>
+    {% raw %}
+<p>Telegram bots have become <a href="https://flancer32.com/what-is-a-telegram-bot-a-simple-introduction-for-new-users-9d9a675b27b9">a popular tool</a> for automating tasks, integrating services, and even creating new experiences for users. In this post, I’ll walk you through how to set up your first Telegram bot using the <a href="https://grammy.dev/"><em>grammY</em></a> library, a powerful and easy-to-use Node.js framework for building Telegram bots. This guide is for developers who want to get started with Telegram bot development using modern tools and frameworks.</p>
+<h2 id="why-grammy">Why grammY?</h2>
+<p><em>grammY</em> is a lightweight, modern framework that allows developers to create bots quickly and efficiently. It supports modern JavaScript (ES6+), has excellent documentation, and provides flexibility for both simple and complex bots. Whether you’re creating a small bot for personal use or a scalable bot for thousands of users, <em>grammY</em> has you covered.</p>
+<p>Since <em>grammY</em> primarily handles communication with the Telegram API, additional packages are needed to create a fully functional bot application. These packages could include tools for parsing command-line arguments, running the bot as a web server, loading configuration parameters, logging, and more. To address these needs, I use my own toolkit based on dependency injection (<code>@teqfw/di</code>). The entry point for this toolkit when building Telegram bots is the package <code>@flancer32/teq-telegram-bot</code>.</p>
+<h2 id="setting-up-your-development-environment">Setting Up Your Development Environment</h2>
+<p>Before building your Telegram bot, ensure that you have the following:</p>
+<ul>
+<li><strong>Node.js</strong> and <strong>npm</strong> installed.</li>
+<li><strong>Git</strong> for version control.</li>
+<li>A code editor of your choice (e.g., <strong>VS Code</strong> or <strong>PhpStorm</strong>).</li>
+</ul>
+<p>You will also need to <a href="https://core.telegram.org/bots/tutorial#obtain-your-bot-token">register your bot</a> with Telegram and obtain an access token for the Telegram API. The token will look something like this:</p>
+<p>4839574812:AAFD39kkdpWt3ywyRZergyOLMaJhac60qc</p>
+<h2>Initializing Your Bot Project</h2>
+<p>Now that your development environment is ready, it’s time to set up the project for your Telegram bot. In this section, we will create a new directory for your bot, initialize a Node.js project, configure some basic settings, and install the necessary dependencies. Follow the commands below to get started:</p>
+<pre>$ mkdir ./my-bot
+$ cd ./my-bot
+$ git init
+$ git config –global init.defaultBranch main
+$ npm init -y
+$ npm pkg set name=“my-bot”
+$ npm pkg set version=“0.1.0”
+$ npm pkg set type=“module”
+$ npm pkg set description=“Telegram Bots: The First Steps”
+$ npm pkg set author=“Your Name <a href="mailto:your@email.com" class="email">your@email.com</a>”
+$ npm install <span class="citation" data-cites="flancer32/teq-telegram-bot">@flancer32/teq-telegram-bot</span> –save This will set the foundation for building your Telegram bot using the <em>grammY</em> framework and other tools we will introduce later.</pre>
+<h3 id="creating-the-entry-point">Creating the Entry Point</h3>
+<p>Create the entry point for your application by adding the following content to the <code>./bin/tequila.mjs file</code>:</p>
+<p>#!/usr/bin/env node</p>
+<p>‘use strict’;</p>
+<pre>import {dirname, join} from ‘node:path’;
+import {fileURLToPath} from ‘node:url’;
+import teq from ‘<span class="citation" data-cites="teqfw/core">@teqfw/core</span>’; const url = new URL(import.meta.url);
+const script = fileURLToPath(url);
+const bin = dirname(script);
+const path = join(bin, ‘..’);
+teq({path}).catch((e) =&gt; console.error(e));</pre>
+<p>Then, make the script executable:</p>
+<pre>$ chmod a+x ./bin/tequila.mjs To verify that the application is working, run the script:
+$ ./bin/tequila.mjs Expected output:</pre>
+<p>10/07 10:30:09.627 (info TeqFw_Core_Back_App): Starting teq-app</p>
+<p>…</p>
+<p>Usage: [options] [command] Options:</p>
+<p>-h, –help display help for command</p>
+<p>Commands:</p>
+<p>core-version get version of the application</p>
+<p>web-server-start [options] start the web server</p>
+<p>web-server-stop stop web server</p>
+<p>tg-bot-start start the bot in the long polling mode</p>
+<p>tg-bot-stop stop the bot has been started in the long polling mode</p>
+<p>help [command] display help for command</p>
+<p>10/07 10:30:09.710 (info TeqFw_Core_Back_App): Stopping the teq-plugins for</p>
+<p>10/07 10:30:09.710 (info TeqFw_Core_Back_App): The teq-app</p>
+<p>You can see the list of default commands, including starting and stopping the bot in <a href="https://grammy.dev/guide/deployment-types">long polling</a> mode and managing the web server (<a href="https://core.telegram.org/bots/webhooks">webhook</a> mode).</p>
+<h3 id="configuring-the-bot">Configuring the Bot</h3>
+<p>In my applications, I prefer loading configuration parameters through JSON files. JSON files (along with YAML and XML) have an internal structure, which is convenient for storing configuration data in modular architectures and when dealing with a large number of parameters.</p>
+<p>For a basic bot, we only need to pass the Telegram API access token to the <code>@flancer32/teq-telegram-bot</code> package. Create the file <code>./cfg/local.json</code> with the following content:</p>
+<pre>{</pre>
+<p>“<span class="citation" data-cites="flancer32/teq-telegram-bot">@flancer32/teq-telegram-bot</span>”: {</p>
+<p>“apiKeyTelegram”: “4839574812:AAFD39kkdpWt3ywyRZergyOLMaJhac60qc”</p>
+<pre>}
+} ### Configuring Git</pre>
+<p>It’s important to ensure that configuration files and npm packages are not included in version control. Let’s create a <code>./.gitignore</code> file with the following content:</p>
+<pre>/**/node_modules/
+/**/package-lock.json
+/**/tmp/</pre>
+<p>/.idea/</p>
+<p>/.vscode/</p>
+<p>/cfg/local.* Now we can add our code to the project’s Git repository:</p>
+<pre>$ git add .
+$ git status</pre>
+<p>On branch main No commits yet</p>
+<p>Changes to be committed:</p>
+<p>(use “git rm –cached <file>…” to unstage)</p>
+<p>new file: .gitignore</p>
+<p>new file: bin/tequila.mjs</p>
+<p>new file: package.json</p>
+<pre>$ git commit -m “Initial commit: setup project structure and configuration”</pre>
+<h3 id="verifying-the-initialization">Verifying the Initialization</h3>
+<p>If everything has been set up correctly, attempting to start the bot in long polling mode should display a message indicating that the corresponding methods need to be implemented:</p>
+<pre>$ ./bin/tequila.mjs tg-bot-start</pre>
+<p>…</p>
+<p>10/07 13:15:21.223 (error Telegram_Bot_Back_Cli_Start): Please implement this method.</p>
+<p>Error: Please implement this method.</p>
+<p>at Telegram_Bot_Back_Api_Setup.commands (file:///…)</p>
+<pre>…</pre>
+<h2>Customizing Your Bot</h2>
+<p>The <code>@flancer32/teq-telegram-bot</code> package provides the foundation for running your bot in both <code>long polling</code> and <code>webhook</code> modes, as well as basic bot configuration. However, adding commands to the bot and handling those commands is the responsibility of the developer. For this purpose, the package includes the <code>Telegram_Bot_Back_Api_Setup</code> interface (a standard JavaScript class where all methods throw an exception with the message “<em>Please implement this method.</em>”).</p>
+<p>Since I use IoC (Inversion of Control) for development, which involves creating and injecting dependencies into a container of objects, the task of customization involves implementing this interface and configuring the dependency container to use the implementation instead of the interface. This sounds more complicated than it actually is.</p>
+<p>To add custom logic to your bot, you need to create an ES6 module that exports a class implementing the <code>Telegram_Bot_Back_Api_Setup</code> interface. Let’s create a directory <code>./src/Back/Bot</code> and a file <code>./Setup.js</code> within it:</p>
+<pre>$ mkdir -p ./src/Back/Bot
+$ touch ./src/Back/Bot/Setup.js Now, add the following content to the <code>./src/Back/Bot/Setup.js</code> file:
+export default class MyBot_Back_Bot_Setup {
+constructor() { this.commands = async function (bot) {
+return bot;
+};
+this.handlers = function (bot) {
+return bot;
+};
+}
+}</pre>
+<p>Next, you need to configure the IoC so that the dependency container can find and use the implementation of the interface. This configuration is part of the project code and is set up in the <code>./teqfw.json</code> file instead of the <code>./cfg/local.json</code> file. Both files (<code>./src/Back/Bot/Setup.js</code> and <code>./teqfw.json</code>) are part of the project’s codebase and should be included in version control.</p>
+<p>Here is the content of the <code>./teqfw.json</code> file:</p>
+<pre>{</pre>
+<p>“<span class="citation" data-cites="teqfw/di">@teqfw/di</span>”: {</p>
+<p>“autoload”: {</p>
+<p>“ns”: “MyBot”,</p>
+<p>“path”: “./src”</p>
+<pre>},</pre>
+<p>“replaces”: {</p>
+<p>“Telegram_Bot_Back_Api_Setup”: {</p>
+<p>“back”: “MyBot_Back_Bot_Setup”</p>
+<pre>}
+}
+}
+} The <code>@teqfw/di</code> dependency container locates the source code in a manner similar to PHP’s <a href="https://www.php-fig.org/psr/psr-4/">PSR-4 standard</a>. In our case, the <code>MyBot</code> namespace maps to the <code>./src</code> directory. Additionally, there is an instruction for the container to replace the <code>Telegram_Bot_Back_Api_Setup</code> interface with its implementation <code>MyBot_Back_Bot_Setup</code>.</pre>
+<p>Now, when you start the bot, you will no longer receive error messages:</p>
+<pre>$ ./bin/tequila.mjs tg-bot-start</pre>
+<p>…</p>
+<p>10/07 13:19:01.381 (info Telegram_Bot_Back_Mod_Bot): All command handlers are set for the bot.</p>
+<p>10/07 13:19:01.381 (info Telegram_Bot_Back_Mod_Bot): The Telegram bot is initialized.</p>
+<p>10/07 13:19:01.420 (info Telegram_Bot_Back_Cli_Start): The bot is started in the long polling mode. ### Creating Basic Bot Commands</p>
+<p>There are three basic commands that should be present in every Telegram bot:</p>
+<ul>
+<li><strong>/start</strong>: Initiates the user’s interaction with the bot (connecting to the bot).</li>
+<li><strong>/help</strong>: Allows the user to request information on how to use the bot.</li>
+<li><strong>/settings</strong>: Lets the user configure the bot’s settings.</li>
+</ul>
+<p>Let’s add these commands to our <code>MyBot_Back_Bot_Setup</code> class:</p>
+<pre>export default class MyBot_Back_Bot_Setup {
+constructor() {
+this.commands = async function (bot) {
+await bot.api.setMyCommands([
+{command: ‘help’, description: ‘Display this text.’},
+{command: ‘settings’, description: ‘Configure bot settings.’},
+{command: ‘start’, description: ‘Start using the bot.’},
+]);
+return bot;
+};
+}
+} In this code, the <code>bot</code> parameter in the <code>commands</code> method is a <a href="https://github.com/grammyjs/grammY/blob/v1.29.0/src/bot.ts#L151"><em>grammY</em> object</a> with the <a href="https://grammy.dev/guide/api">appropriate API</a>. This method is called when the bot starts (both in long polling mode and webhook mode) and creates the list of commands for the user.</pre>
+<figure>
+<img src="/medium/img/c1688e572abe/image-01.png" alt="Image 2" />
+</figure>
+<p>The commands in desktop Telegram</p>
+<p>The commands in Telegram will appear as a quick-access menu, making it easier for users to interact with your bot.</p>
+<h3 id="creating-command-handlers-for-your-bot">Creating Command Handlers for Your Bot</h3>
+<p>In this example, we’ll consider the simplest case where the command handler simply sends a message to the user. Let’s add handlers for all three commands to our <code>MyBot_Back_Bot_Setup</code> class:</p>
+<pre>export default class MyBot_Back_Bot_Setup {
+constructor() {
+this.handlers = function (bot) {
+bot.command(‘help’, (ctx) =&gt; {
+const msg = `</pre>
+<p>Available commands: <b>/help</b> - Display this text.</p>
+<p><b>/settings</b> - Configure bot settings.</p>
+<p><b>/start</b> - Start using the bot.</p>
+<p>`</p>
+<pre>;
+ctx.reply(msg, {</pre>
+<p>parse_mode: ‘HTML’,</p>
+<pre>});
+});
+bot.command(‘settings’, (ctx) =&gt; {
+ctx.reply(‘Configure bot settings.’);
+});
+bot.command(‘start’, (ctx) =&gt; {
+ctx.reply(‘Start using the bot.’);
+});
+return bot;
+};
+}
+}</pre>
+<p>Here you can see all three commands in action:</p>
+<figure>
+<img src="/medium/img/c1688e572abe/image-02.png" alt="Image 3" />
+</figure>
+<p>All commands in action</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Congratulations! You’ve successfully set up a basic Telegram bot using the <em>grammY</em> framework. With this solid foundation, you can continue to expand your bot’s capabilities, adding new features and commands to enhance user interaction.</p>
+<p>You can find the code for this project in the <code>@flancer64/tg-demo-base</code> repository.</p>
+<p>Happy coding!</p>
+<p>If you enjoyed this article, please give it a clap and follow me for more content!</p>
+<p>Stay connected:</p>
+<ul>
+<li><a href="https://github.com/flancer64">GitHub</a></li>
+<li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/">LinkedIn</a></li>
+<li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497">Upwork</a></li>
+</ul>
+<p>Thank you for your support!</p>
 
-    <zoom-img
-            src="/img/blog/2024/10/08-01.png"
-            alt="New Medium Article: First Steps with Telegram Bots"
-            width="100px"
-            style="float: left; margin: 15px 15px 0 0;"
-    ></zoom-img>
-
-    <p>Published a new article on Medium titled <strong>"Telegram Bots: First Steps"</strong>. This is a detailed
-        step-by-step guide for beginners on creating Telegram bots using the <strong>grammY</strong> framework
-        and Node.js platform.</p>
-
-    <p>If you're just starting with bots, the article will help you quickly dive into the topic with practical examples.</p>
-
-    <p>Read the article:
-        <a href="https://link.medium.com/s1OcU4hPwNb" target="_blank">
-            Telegram Bots: First Steps
-        </a>
-    </p>
-
-    <p>Also available is a demo repository with code for all examples:
-        <a href="https://github.com/flancer64/tg-demo-base" target="_blank">
-            @flancer64/tg-demo-base
-        </a>
-    </p>
+    {% endraw %}
 </div>
 {% endblock %}
 
 {% block blog_item %}
     <li class="blog-item">
         <a class="card-link" href="/en/blog/2024/20241008-01-medium-telegram-bots.html"></a>
-        <img src="/img/blog/2024/10/08-01.png" alt="New article about Telegram bots"/>
         <div>
-            <h4>New article about Telegram bots</h4>
-            <p>
-                Published a detailed beginner's guide to creating Telegram bots with grammY and Node.js.
-            </p>
-            <time datetime="2024-10-08">October 8, 2024</time>
+            <h4>Telegram Bots: The First Steps</h4>
+            <p>Telegram bots have become [a popular tool](https://flancer32.com/what-is-a-telegram-bot-a-simple-introduction-for-new-users-9d9a675b27b9) for automating tasks, integrating services</p>
+            <time datetime="2024-10-08">2024-10-08</time>
         </div>
     </li>
 {% endblock %}
-

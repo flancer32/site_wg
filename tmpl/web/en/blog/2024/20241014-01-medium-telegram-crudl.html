@@ -1,45 +1,150 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}New Article: Telegram Bot with Command Arguments and CRUD-L{% endblock %}
+{% block title %}Telegram Bot with Node.js: Implementing CRUD-L Operations Using Command Arguments{% endblock %}
+{% block description %}In this post, I’ll share my journey into Telegram bot development, following up on a [previous post](https://flancer32.com/telegram-bots-the-first-steps-c1688e572abe) where I creat{% endblock %}
 
 {% block content %}
 <div class="card">
-    <h1>New Article: Telegram Bot with Command Arguments and CRUD-L</h1>
-
+    <h1>Telegram Bot with Node.js: Implementing CRUD-L Operations Using Command Arguments</h1>
     <span style="display: block; text-align: right;">
         <strong>Publication date:</strong> 2024-10-14
     </span>
+    {% raw %}
+<p>In this post, I’ll share my journey into Telegram bot development, following up on a <a href="https://flancer32.com/telegram-bots-the-first-steps-c1688e572abe">previous post</a> where I created a basic Node.js bot with standard commands like <code>/start</code>, <code>/help</code>, and <code>/settings</code> using the <a href="https://grammy.dev/">grammY</a> library. This time, we’ll go a step further by building a bot capable of managing data in a database using the <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a>-L pattern (Create, Read, Update, Delete, and List) through command arguments. While this approach is simple, it offers a great starting point for personal projects.</p>
+<p>The demo bot, <a href="http://twitter.com/flancer64/tg-demo-crudl"><span class="citation" data-cites="flancer64/tg-demo-crudl">@flancer64/tg-demo-crudl</span></a>, allows users to manage a list of contacts and phone numbers in a database using the following commands:</p>
+<ul>
+<li><code>/create &lt;name&gt; &lt;phone number&gt;</code>: Adds a new contact to the list (e.g., <code>/create John 123456789</code>)</li>
+<li><code>/read &lt;id&gt;</code>: Retrieves information about a specific contact (e.g., <code>/read 1</code>)</li>
+<li><code>/update &lt;id&gt; &lt;new name&gt; &lt;new phone number&gt;</code>: Updates an existing contact (e.g., <code>/update 1 Jane 987654321</code>)</li>
+<li><code>/delete &lt;id&gt;</code>: Deletes a contact (e.g., <code>/delete 1</code>)</li>
+<li><code>/list</code>: Displays all saved contacts</li>
+</ul>
+<h2 id="technologies-used">Technologies Used</h2>
+<ul>
+<li><a href="https://grammy.dev/"><strong>grammY</strong></a>: A modern JavaScript framework for interacting with the Telegram API.</li>
+<li><a href="https://knexjs.org/"><strong>Knex.js</strong></a>: A database abstraction layer (DBAL) for Node.js that supports multiple databases such as SQLite, PostgreSQL, and MySQL.</li>
+<li><a href="https://www.npmjs.com/package/@teqfw/di"><strong><span class="citation" data-cites="teqfw/di">@teqfw/di</span></strong></a>: A dependency injection package to manage the flexibility and scalability of the application.</li>
+<li><a href="https://www.npmjs.com/package/@flancer32/teq-telegram-bot"><strong><span class="citation" data-cites="flancer32/teq-telegram-bot">@flancer32/teq-telegram-bot</span></strong></a>: A package that handles common operations like long polling, webhook management, and bot configuration.</li>
+</ul>
+<h2 id="creating-a-typical-command-for-the-bot">Creating a Typical Command for the Bot</h2>
+<p>In this section, I won’t go into the details of how to set up the bot itself. If you need help setting up a basic bot, you can refer to my <a href="https://github.com/flancer64/tg-demo-crudl">previous article</a>. Instead, we’ll focus on how to create a typical command for handling CRUD operations. We’ll use <code>/create</code> as an example, and this approach can be easily extended to implement other commands.</p>
+<h3 id="dependency-injection">Dependency Injection</h3>
+<p>The ES6 module (<code>./src/Back/Bot/Cmd/Create.js</code>) is written in a way that allows the Object Container to manage dependencies based on the instructions in the module. The following dependencies are injected:</p>
+<pre>export default class Demo_Crudl_Back_Bot_Cmd_Create {
+constructor(
+{</pre>
+<p>TeqFw_Core_Shared_Api_Logger$$: logger,</p>
+<p>TeqFw_Db_Back_RDb_IConnect$: conn,</p>
+<p>TeqFw_Db_Back_Api_RDb_CrudEngine$: crud,</p>
+<p>Demo_Crudl_Back_Store_RDb_Schema_Phone$: rdbPhone,</p>
+<pre>}
+) {}
+} * <strong>Logger</strong> (<code>TeqFw_Core_Shared_Api_Logger</code>): For logging the execution of commands. * <strong>Database Connection</strong> (<code>TeqFw_Db_Back_RDb_IConnect</code>): To handle database transactions. * <strong>CRUD Engine</strong> (<code>TeqFw_Db_Back_Api_RDb_CrudEngine</code>): To perform basic database operations. * <strong>DTO for Database Structure</strong> (<code>Demo_Crudl_Back_Store_RDb_Schema_Phone</code>): A Data Transfer Object (DTO) that defines the database structure.</pre>
+<p>The first three dependencies are standard tools from my TeqFW toolkit, while the last one is specific to the domain of the project.</p>
+<h3 id="dto-for-the-database">DTO for the Database</h3>
+<p>The <code>Demo_Crudl_Back_Store_RDb_Schema_Phone</code> DTO describes a simple structure with four fields:</p>
+<pre>class Dto {
+date_created;
+id;
+name;
+phone;
+}</pre>
+<p>This DTO corresponds to the following table in an SQLite database:</p>
+<p>CREATE TABLE main.phone</p>
+<p>(</p>
+<p>id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,</p>
+<p>name VARCHAR(255) NOT NULL,</p>
+<p>phone VARCHAR(255) NOT NULL,</p>
+<p>date_created DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL</p>
+<pre>); This structure is sufficient to give you an idea of how the data is organized in the database. While the demo bot uses SQLite, Knex.js, a database abstraction layer (DBAL), allows you <a href="https://knexjs.org/guide/#node-js">to work</a> with PostgreSQL, MariaDB/MySQL, MS SQL, and Oracle as well. You just need to install the appropriate npm package for the desired database system.</pre>
+<p>The Knex.js connection settings for the specific database are configured in the <code>./cfg/local.json</code> file (the configuration template can be found in <code>./cfg/init.json</code>). In the demo version, SQLite is used, with the database file located at <code>./var/data.db</code>. The following commands are used to interact with the database:</p>
+<pre>$ ./bin/tequila.mjs db-init
+$ ./bin/tequila.mjs db-export -f ./var/data.json
+$ ./bin/tequila.mjs db-import -f ./var/data.json The command names are self-explanatory: <code>db-init</code> initializes the database structure (table), while <code>db-export</code> and <code>db-import</code> handle data export and import in JSON format, respectively.</pre>
+<h2 id="template-for-handling-telegram-commands">Template for Handling Telegram Commands</h2>
+<p>Since our bot uses the grammY framework, a typical command handler works with the platform’s <code>ctx</code> object. Here’s a skeleton of the handler:</p>
+<pre>const handler = async (ctx) =&gt; {
+let msg = ‘The command has failed.’;
+const from = ctx.message.from;
+logger.info(<code>Command has been received from user '${from.username}' (id:${from.id})</code>);
+const trx = await conn.startTransaction();</pre>
+<p>try {</p>
+<pre>// const parts = ctx.message.text.split(’ ’);
+// …
+await trx.commit();
+} catch (e) {
+await trx.rollback();</pre>
+<p>msg = e.toString();</p>
+<pre>logger.error(msg);
+}
+// https://core.telegram.org/bots/api#sendmessage
+await ctx.reply(msg, {</pre>
+<p>parse_mode: ‘HTML’,</p>
+<pre>});
+};</pre>
+<p>The algorithm for the handler’s execution is as follows:</p>
+<ul>
+<li>Log the received command.</li>
+<li>Start a transaction for working with the database.</li>
+<li>Perform the necessary database operations within the transaction and form a response to the received command.</li>
+<li>Commit the changes to the database.</li>
+<li>Form a message for the user indicating the successful completion of the command.</li>
+<li>In case of errors, return an error message to the user.</li>
+</ul>
+<h3 id="executing-the-command">Executing the Command</h3>
+<p>The following code demonstrates how the <code>/create</code> command is processed — extracting the data from the command and saving it to the database:</p>
+<p>try {</p>
+<pre>const parts = ctx.message.text.split(’ ’);
+const dto = rdbPhone.createDto();
+dto.name = parts[1];
+dto.phone = parts[2];
+const {[A_PHONE.ID]: id} = await crud.create(trx, rdbPhone, dto);
+await trx.commit();</pre>
+<p>msg = <code>New record #${id} has been created.</code>;</p>
+<pre>logger.info(msg);
+} catch (e) {…}</pre>
+<p>I use my own wrapper for the DBAL Knex.js, which allows me to perform basic operations (CRUD) with DTOs. If you are using a different library for working with the database (e.g., Sequelize or Prisma), the code here will be different. However, the rest of the surrounding logic can remain the same (except for transaction handling).</p>
+<h2 id="example-of-bot-operation">Example of Bot Operation</h2>
+<p>After creating the bot in BotFather, obtaining the API key, and configuring the bot (<code>./cfg/local.json</code>), you need to create the database tables:</p>
+<pre>$ ./bin/tequila.mjs db-init Start the bot in long polling mode:
+$ ./bin/tequila.mjs tg-bot-start or
+$ npm start ### Get the Help</pre>
+<p>Accessing bot commands</p>
+<h3 id="create">Create</h3>
+<p>Adding a new record</p>
+<h3 id="read">Read</h3>
+<p>Retrieving a record</p>
+<h3 id="update">Update</h3>
+<p>Modifying a record</p>
+<h3 id="list">List</h3>
+<p>Listing all records</p>
+<h3 id="delete">Delete</h3>
+<p>Deleting a record</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this article, I covered the process of creating a simple Telegram bot using Node.js and the grammY library, which supports CRUD-L operations (Create, Read, Update, Delete, and List). We explored how command arguments can be used to manipulate data in a database. Despite its simplicity, this approach opens up opportunities for personal projects where complex business logic isn’t required, but ease of implementation is key.</p>
+<p>If you are looking for a simple yet powerful solution for working with databases through Telegram bots, this project can be a great starting point for bringing your ideas to life.</p>
+<p>Happy coding!</p>
+<p>If you enjoyed this article, please give it a clap and follow me for more content!</p>
+<p>Stay connected:</p>
+<ul>
+<li><a href="https://github.com/flancer64">GitHub</a></li>
+<li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/">LinkedIn</a></li>
+<li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497">Upwork</a></li>
+<li><a href="https://www.fiverr.com/wiredgeese">Fiverr</a></li>
+</ul>
+<p>Thank you for your support!</p>
 
-    <zoom-img
-            src="/img/blog/2024/10/14-01.png"
-            alt="Telegram bot with command arguments and CRUD-L"
-            width="100px"
-            style="float: left; margin: 15px 15px 0 0;"
-    ></zoom-img>
-
-    <p>Published a new article on <a
-            href="https://flancer32.com/telegram-bot-with-node-js-implementing-crud-l-operations-using-command-arguments-fcfb38991efa"
-            target="_blank">Medium</a> and <a href="https://habr.com/ru/articles/850294/" target="_blank">Habr</a> — this time about creating a Telegram bot that supports command arguments for <strong>CRUD-L</strong> operations (create, read, update, delete, list).</p>
-
-    <p>The article provides a detailed breakdown of how to implement command argument processing on the Node.js platform using <a href="https://grammy.dev/" target="_blank">grammY</a>. The step-by-step guide is suitable for both beginners and those already working with bots.</p>
-
-    <p>All code examples are collected in the demo repository:
-        <a href="https://github.com/flancer64/tg-demo-crudl" target="_blank">@flancer64/tg-demo-crudl</a>
-    </p>
+    {% endraw %}
 </div>
 {% endblock %}
 
 {% block blog_item %}
     <li class="blog-item">
         <a class="card-link" href="/en/blog/2024/20241014-01-medium-telegram-crudl.html"></a>
-        <img src="/img/blog/2024/10/14-01.png" alt="New article about CRUD-L for Telegram bot"/>
         <div>
-            <h4>New article about CRUD-L for Telegram bot</h4>
-            <p>
-                Explained how to implement command arguments and CRUD-L in Telegram bot using Node.js and grammY.
-            </p>
-            <time datetime="2024-10-14">October 14, 2024</time>
+            <h4>Telegram Bot with Node.js: Implementing CRUD-L Operations Using Command Arguments</h4>
+            <p>In this post, I’ll share my journey into Telegram bot development, following up on a [previous post](https://flancer32.com/telegram-bots-the-first-steps-c1688e572abe) where I creat</p>
+            <time datetime="2024-10-14">2024-10-14</time>
         </div>
     </li>
 {% endblock %}
-

@@ -1,0 +1,105 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Example of a Web App Based on TeqFW{% endblock %}
+{% block description %}In [this example](https://github.com/flancer64/demowebappdi), I will demonstrate how to use the object container and dependency injection in a browser application. The example uses{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Example of a Web App Based on TeqFW</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2024-06-14
+    </span>
+    {% raw %}
+<p>In <a href="https://github.com/flancer64/demo_web_app_di">this example</a>, I will demonstrate how to use the object container and dependency injection in a browser application. The example uses my own library, <a href="https://github.com/teqfw/di"><span class="citation" data-cites="teqfw/di">@teqfw/di</span></a>.</p>
+<p>Unlike the previous example with a <a href="https://flancer32.com/example-of-a-console-application-based-on-teqfw-e038e31766dd">console application</a>, here we will not have a server-side part at all. Our entire application consists of static files that are loaded into the browser and executed there. I will base my example on the familiar ToDo List application.</p>
+<figure>
+<img src="/medium/img/add155627b58/image-01.png" alt="Image 2" />
+</figure>
+<p>The ToDo List app</p>
+<p>An application written in pure JS using ES6 modules has a significant advantage, at least for me, over applications written in TS - in the browser, I see the same files as in the IDE:</p>
+<figure>
+<img src="/medium/img/add155627b58/image-02.png" alt="Image 3" />
+</figure>
+<p>The sources in a browser</p>
+<figure>
+<img src="/medium/img/add155627b58/image-03.png" alt="Image 4" />
+</figure>
+<p>The sources in an IDE</p>
+<p>Below, I will describe the most important points.</p>
+<h2 id="connecting-the-object-container">Connecting the Object Container</h2>
+<p>The <span class="citation" data-cites="teqfw/di">@teqfw/di</span> library can be connected as ES6 modules by loading the sources, for example, from unpkg.com:</p>
+<p>&lt;!DOCTYPE html&gt;</p>
+<html lang="en">
+<head>
+<script type="module">
+
+ import Container from 'https://unpkg.com/@teqfw/di';
+
+ </script>
+</head>
+<body>
+</body>
+</html>
+<h2 id="creating-and-configuring-the-container">Creating and Configuring the Container</h2>
+<p>A feature of my Object Container is that you cannot pre-store objects in it. The container itself computes the path to the source files based on the dependency identifier using a Resolver.</p>
+<p>After creating a new instance of the Container, you need to configure the Resolver so that it loads ES6 modules from the <code>./js</code> directory for the <code>Demo</code> namespace:</p>
+<pre>const container = new Container();
+const url = new URL(location.href);
+const root = url.href.replace(‘index.html’, ’’);
+const pathApp = root + ‘/js’;
+const resolver = container.getResolver();
+resolver.addNamespaceRoot(‘Demo’, pathApp);</pre>
+<p>Thus, dependency identifiers resolve to the following paths:</p>
+<ul>
+<li>Demo_App =&gt; https://…/js/App.js</li>
+<li>Demo_Defs =&gt; https://…/js/Defs.js</li>
+<li>Demo_ToDo_Item =&gt; https://…/js/ToDo/Item.js</li>
+<li>Demo_ToDo_List =&gt; https://…/js/ToDo/List.js</li>
+</ul>
+<h2 id="initializing-the-application">Initializing the Application</h2>
+<p>To obtain a singleton instance of the application from the container, you need to specify its identifier <code>Demo_App$</code>. The <code>$</code> symbol at the end of the identifier indicates that a singleton object is needed:</p>
+<pre>const app = await container.get(‘Demo_App$’);
+app.run();</pre>
+<p>The <span class="citation" data-cites="teqfw/di">@teqfw/di</span> container supports several identifier schemes and path-resolution rules:</p>
+<ul>
+<li><a href="https://github.com/teqfw/di/blob/main/src/Api/Container/Parser.js">TeqFw_Di_Api_Container_Parser</a></li>
+<li><a href="https://github.com/teqfw/di/blob/main/src/Api/Container/Resolver.js">TeqFw_Di_Api_Container_Resolver</a></li>
+</ul>
+<p>“Out of the box,” the following dependency identifier structures are supported</p>
+<ul>
+<li><code>Demo_App</code> =&gt; the default export as-is;</li>
+<li><code>Demo_App$</code> =&gt; the singleton made from the default export (the container returns the same object each time);</li>
+<li><code>Demo_App$I</code> =&gt; the instance made from the default export (the container creates a new object each time);</li>
+<li><code>Demo_App.</code> =&gt; the Module object;</li>
+<li><code>Demo_App.export</code> =&gt; the named export as-is;</li>
+<li><code>Demo_App.export$</code> =&gt; the singleton made from the named export;</li>
+<li><code>Demo_App.export$I</code> =&gt; the instance made from the named export;</li>
+</ul>
+<h2 id="describing-dependencies">Describing Dependencies</h2>
+<p>In the application code, static import is used only to load the object container itself. The linking of other application modules is done through dependency identifiers.</p>
+<h3 id="the-singleton">The Singleton</h3>
+<p>Dependencies of an object are set in its constructor:</p>
+<pre>export default class Demo_App {
+constructor({Demo_Defs<span class="math inline"> : <em>d</em><em>e</em><em>f</em><em>s</em>, <em>D</em><em>e</em><em>m</em><em>o</em><sub><em>T</em></sub><em>o</em><em>D</em><em>o</em><sub><em>L</em></sub><em>i</em><em>s</em><em>t</em></span>: list}) {}
+} The object container will load the source files for <code>Demo_Defs</code> and <code>Demo_ToDo_List</code>, create the corresponding singleton objects, and pass them to the constructor to create the <code>Demo_App</code> object.</pre>
+<h3 id="the-class-as-is">The Class (as-is)</h3>
+<pre>export default class Demo_ToDo_List {
+constructor({Demo_ToDo_Item: TItem}) { }
+} In this case, the object container will load the corresponding ES6 module and return its default export as-is. The <code>Demo_ToDo_Item</code> class constructor does not have parameters, so in <code>Demo_ToDo_List</code> you can write:
+const item = new TItem();</pre>
+<h2>Summary</h2>
+<p>The <a href="https://github.com/teqfw/di"><span class="citation" data-cites="teqfw/di">@teqfw/di</span></a> library is intended for using enterprise-level technologies (object container, namespaces) when creating browser applications (SPA, PWA). To run the demo application, you need to upload the <code>./web/</code> folder to any web server or open the folder in a browser with local file access enabled via the <code>file://</code> URL.</p>
+<p>The main advantage of using the object container is the late binding of objects in the program during its execution, rather than at the time of writing. This practice is clearly redundant for static web applications and small-sized applications. Its benefits are revealed when developing large applications or applications consisting of a large number of modules (packages). An additional bonus is the ability to use the same code both on the front end (in the browser) and on the back end (nodejs).</p>
+<p>If you are interested in the Tequila Framework platform and have a commercial proposal, I will be happy to develop an application for you at 30 euros/hour. If you have an educational or humanitarian project, I will help you for free.</p>
+
+    
+<h2>Additional source-code excerpts</h2>
+<pre><code class="language-js">export default class Demo_ToDo_List {
+  constructor({ Demo_ToDo_Item: ToDoItem }) {
+    this.item = new ToDoItem();
+  }
+}</code></pre>
+
+{% endraw %}
+</div>
+{% endblock %}

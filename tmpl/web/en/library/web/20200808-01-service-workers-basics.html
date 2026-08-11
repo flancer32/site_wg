@@ -1,0 +1,134 @@
+{% extends "inc/layout.html" %}
+{% block title %}Service Worker Basics{% endblock %}
+{% block description %}An introduction to registering a Service Worker, its lifecycle, offline caches, fetch handling, and safe update behaviour in a web app.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Service Worker Basics</h1>
+<span style="display:block;text-align:right;"><strong>Publication date:</strong> 2020-08-08</span>
+<p>A Service Worker is a browser worker that sits between a web application and the network. Its central job is caching remote resources: making the application faster and allowing it to keep working when the connection disappears.</p>
+<h2>Registration</h2>
+<p>The main application page registers the worker:</p>
+<pre><code class="language-js">navigator.serviceWorker
+  .register('sw.js', { scope })
+  .then(onSuccess, onFail);</code></pre>
+<p>A minimal <code>sw.js</code> can log that it has started. Its global context is <code>self</code>. A browser may stop an inactive worker and start a new instance whenever an event needs it, so code must not rely on in-memory state surviving.</p>
+<h2>Lifecycle states</h2>
+<p>A worker moves through <code>parsed</code>, <code>installing</code>, <code>installed</code>, <code>activating</code>, <code>activated</code>, and eventually <code>redundant</code>. Listening for <code>statechange</code> is an excellent way to observe this lifecycle while learning or debugging:</p>
+<pre><code class="language-js">const sw = reg.installing ?? reg.active;
+sw.addEventListener('statechange', (event) =&gt; {
+  console.log('State changed:', event.target.state);
+});</code></pre>
+<p>Unregistering an activated worker demonstrates the full route to <code>redundant</code>.</p>
+<p><zoom-img src="/medium/img/c7cda44c1c98/image-01.png" alt="The complete Service Worker lifecycle" width="100%"></zoom-img></p>
+<p>On a repeat registration there may be no installing worker: the previous one is already active. Developer Tools can also make a worker redundant manually.</p>
+<p><zoom-img src="/medium/img/c7cda44c1c98/image-02.png" alt="Service Worker controls in browser developer tools" width="100%"></zoom-img></p>
+<h2>Events that shape a PWA</h2>
+<p>Registration is commonly postponed until the first page finishes loading, so cache work does not slow first render:</p>
+<pre><code class="language-js">window.addEventListener('load', () =&gt; {
+  navigator.serviceWorker.register('sw.js').catch(console.error);
+});</code></pre>
+<p>The core events are:</p>
+<ul><li><code>install</code> — populate a cache;</li><li><code>activate</code> — remove obsolete caches;</li><li><code>fetch</code> — respond to requests from cache or network.</li></ul>
+<p>Other useful events include <code>push</code>, notification interactions, background <code>sync</code>, and payment-handler events.</p>
+<h2>Install and activate</h2>
+<p>An install handler waits for a versioned cache to be ready before installation completes:</p>
+<pre><code class="language-js">self.addEventListener('install', (event) =&gt; {
+  event.waitUntil(
+    caches.open('static-v2').then((cache) =&gt;
+      cache.addAll(['./index.html', './pwa.webmanifest'])
+    )
+  );
+});</code></pre>
+<p>On activation, delete caches other than the current version:</p>
+<pre><code class="language-js">self.addEventListener('activate', (event) =&gt; {
+  event.waitUntil(caches.keys().then((names) =&gt;
+    Promise.all(names.map((name) =&gt;
+      name === 'static-v2' ? undefined : caches.delete(name)
+    ))
+  ));
+});</code></pre>
+<p>Real cache policy is more nuanced than this tutorial pattern. Individual application resources change more often than the worker, so a production app needs a deliberate cache-version and reset strategy rather than relying only on worker reinstallation.</p>
+<h2>Fetch and the first page</h2>
+<p>A simple cache-first handler returns a matching response, otherwise reaches the network:</p>
+<pre><code class="language-js">self.addEventListener('fetch', (event) =&gt; {
+  event.respondWith(
+    caches.match(event.request).then((cached) =&gt;
+      cached || fetch(event.request)
+    )
+  );
+});</code></pre>
+<p>A worker normally does not control the very page that registered it until the page reloads. You can claim clients deliberately, or reload after activation when that is truly appropriate. Avoid forcing a reload without communicating what changed: update behaviour is part of the product experience.</p>
+<p><zoom-img src="/medium/img/c7cda44c1c98/image-03.png" alt="Network requests during initial load, caching, and cache reload" width="100%"></zoom-img></p>
+<p>Service Worker examples tend to show only the simple path. A real PWA must decide which resources can be stale, how to recover from an interrupted update, how to invalidate caches, and how to work without network access. The best way to understand it is to implement and test these choices in a real application.</p>
+<h2>Additional source-code excerpts</h2>
+<pre>sw.addEventListener(“statechange”, (e) =&gt; {
+console.log(“State is changed:”, e.target.state);</pre>
+<pre>// console.log(“Uninstall SW after activation.”);
+// reg.unregister();
+// }_}); то вывод на консоль для первой загрузки выглядит так:
+index.html:12 before SW registration.
+index.html:30 after SW registration.
+index.html:44 end of body.
+sw.js:1 registering itself, state: parsed
+index.html:18 SW registration done, state: installing
+index.html:21 SW state is changed: installed
+index.html:21 SW state is changed: activating
+index.html:21 SW state is changed: activated Service worker доходит до своего рабочего состояния (“<em>activated</em>”) и остаётся в нём. При повторной загрузке страницы вывод на консоль уже такой:
+index.html:12 before SW registration.
+index.html:30 after SW registration.
+index.html:44 end of body.
+index.html:18 SW registration done, state: activated Правда для этого нужно изменить строку:
+// const sw = reg.installing;
+const sw = reg.installing ?? reg.active; так как при попытке повторной регистрации того же самого service worker’а возвращается уже установленный (<em>active</em>).</pre>
+<pre>window.addEventListener(‘load’, function () {
+navigator.serviceWorker.register(‘sw.js’)</pre>
+<pre>});</pre>
+<pre>self.addEventListener(“install”, (event) =&gt; {
+event.waitUntil(
+caches.open(“static-v2”)</pre>
+<pre>return cache.addAll(
+[</pre>
+<pre>“./pwa.webmanifest”
+]
+);
+})</pre>
+<pre>console.log(“Cache is loaded.”);
+})
+);
+}); Диспетчер событий ожидает выполнения промиса, переданного в <code>event.waitUntil</code>, и только после загрузки кэша переводит service worker из состояния <code>installing</code> в <code>installed</code>.</pre>
+<pre>self.addEventListener(“activate”, (event) =&gt; {
+event.waitUntil(
+caches.keys().then((cacheNames) =&gt; {
+return Promise.all(
+cacheNames.map((cacheName) =&gt; {
+<em>// delete all caches except “static-v2”</em> if (cacheName !== “static-v2”) {
+return caches.delete(cacheName);
+}
+})
+);
+})
+);
+}); Вообще-то правила работы с кэшем в web-приложении могут быть довольно разнообразны. В примерах, как правило, приводится самый простой вариант: при регистрации заполнили новый кэш, при активации — удалили старый. Но service worker обладает меньшей изменчивостью, чем всё приложение в целом (вернее, отдельные его ресурсы — <a href="https://medium.com/@alex_gusev/html-css-js-%D0%B2-web-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%D1%85-2f3fc8c9b00e">HTML/CSS/JS</a>). Поэтому web-приложение должно обладать возможностью принудительной ре-инициализации кэша (например, при переходе по ссылке <code>/sw/cache/reset</code>) без переинсталляции service worker’а.</pre>
+<pre>self.addEventListener(“fetch”, (event) =&gt; {
+event.respondWith(
+caches.match(event.request)</pre>
+<pre>if (response) {
+return response;
+}
+return fetch(event.request)
+})
+);
+}); Примеры кода также выложены на <a href="https://github.com/flancer64/demo_pwa_sw/tree/master/02_events">github</a>.</pre>
+<pre>await clients.claim(); или просто повесить обработчик на событие смены статуса service worker’а в <code>index.html</code>:
+window.addEventListener(‘load’, function () {
+navigator.serviceWorker.register(‘sw.js’)</pre>
+<pre>sw.addEventListener(“statechange”, (e) =&gt; {
+console.log(“State is changed:”, e.target.state);
+if (e.target.state === “activated”) {
+location.reload();
+}
+});
+});
+});</pre>
+</div>
+{% endblock %}

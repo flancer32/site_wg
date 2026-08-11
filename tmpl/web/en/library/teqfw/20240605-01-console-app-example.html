@@ -1,0 +1,186 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Example of a console application based on TeqFW{% endblock %}
+{% block description %}Here, I describe a very simple yet functional [console application](https://github.com/flancer64/autobaltacleaner) made using the [Tequila Framework](https://flancer32.com/what-is-{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Example of a console application based on TeqFW</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2024-06-05
+    </span>
+    {% raw %}
+<p>Here, I describe a very simple yet functional <a href="https://github.com/flancer64/autobalta_cleaner">console application</a> made using the <a href="https://flancer32.com/what-is-teqfw-f84ab4c66abf">Tequila Framework</a> platform. The application is used in the <a href="https://autobalta.com/">autobalta.com</a> store to clean up outdated information from the database that remains after data exchange with external systems, as well as outdated user session data.</p>
+<figure>
+<img src="/medium/img/e038e31766dd/image-01.png" alt="Image 2" />
+</figure>
+<p>IDE with the project</p>
+<p>The primary and sole task of the application is to delete data older than a specified date from the following tables:</p>
+<ul>
+<li>oc_latakko_api_log</li>
+<li>oc_latakko_api_queue</li>
+<li>oc_latakko_log</li>
+<li>oc_session</li>
+</ul>
+<p>The application runs daily using a cron job.</p>
+<h2 id="package.json">package.json</h2>
+<h3 id="es6-module">ES6 Module</h3>
+<p>TeqFW is a platform existing within the npm/nodejs ecosystem. Therefore, the entry point of the application is the <code>package.json</code> file. Key points to note:</p>
+<p>“type”: “module” In teq-applications, TypeScript and transpilation are not used. All source files are ES6 modules.</p>
+<h3 id="dependencies">Dependencies</h3>
+<p>“dependencies”: {</p>
+<p>“<span class="citation" data-cites="teqfw/core">@teqfw/core</span>”: “0.24.0”,</p>
+<p>“<span class="citation" data-cites="teqfw/db">@teqfw/db</span>”: “0.21.0”,</p>
+<p>“<span class="citation" data-cites="teqfw/di">@teqfw/di</span>”: “0.22.0”,</p>
+<p>“mysql”: “^2.18.1”</p>
+<pre>}</pre>
+<p>Because the platform was under active development, this example fixes the package versions it uses. Their roles are:</p>
+<ul>
+<li><strong><span class="citation" data-cites="teqfw/di">@teqfw/di</span></strong>: The most basic package of the platform, containing an object container that allows loading ES6 modules, creating necessary objects (singletons and transient), and injecting them as dependencies into other objects.</li>
+<li><strong><span class="citation" data-cites="teqfw/core">@teqfw/core</span></strong>: A layer on top of the dependency container that sets the rules for forming and resolving dependency identifiers. It also wraps the <a href="https://github.com/tj/commander.js">commander</a> library.</li>
+<li><strong><span class="citation" data-cites="teqfw/db">@teqfw/db</span></strong>: A layer on top of the <a href="https://knexjs.org/">knex.js</a> library, allowing (almost) uniform access to different databases.</li>
+<li><a href="https://github.com/mysqljs/mysql"><strong>mysql</strong></a>: A Node.js driver for MySQL/MariaDB.</li>
+</ul>
+<h3 id="commands">Commands</h3>
+<p>“scripts”: {</p>
+<p>“start”: “node ./bin/tequila.mjs app-clean”</p>
+<pre>}</pre>
+<p>The application contains only one command, which is run through npm:</p>
+<pre>$ npm start</pre>
+<h2>./bin/tequila.mjs</h2>
+<p>This file is the entry point for all teq-applications in the Node.js environment, and its code is the same for all backend applications:</p>
+<p>#!/usr/bin/env node</p>
+<p>‘use strict’;</p>
+<pre>import {dirname, join} from ‘node:path’;
+import {fileURLToPath} from ‘node:url’;
+import teq from ‘<span class="citation" data-cites="teqfw/core">@teqfw/core</span>’; const url = new URL(import.meta.url);
+const script = fileURLToPath(url);
+const bin = dirname(script);
+const path = join(bin, ‘..’);
+teq({path}).catch((e) =&gt; console.error(e));</pre>
+<p>The main task of the <code>./bin/tequila.mjs</code> file is to determine the root directory where the application is located, so that the platform core script (<code>TeqFw_Core_Back_Launcher</code> from <span class="citation" data-cites="teqfw/core">@teqfw/core</span>) can scan the file system (<code>./node_modules/</code>), find all teq-plugins (npm modules supporting the <span class="citation" data-cites="teqfw/di">@teqfw/di</span> object container), configure the object container, and create and run the main application (<code>TeqFw_Core_Back_App</code>), which is a wrapper around the regular <code>commander</code> (npm package).</p>
+<p>Other plugins, including our application, can specify which commands each plugin adds to commander. In our case, only one command is added — <code>app-clean</code>.</p>
+<h2 id="teqfw.json">./teqfw.json</h2>
+<p>A teq-plugin is a regular npm package with a <code>./teqfw.json</code> file at its root, describing the rules for connecting the plugin to the platform. Each teq-plugin can set its own rules for interaction with other teq-plugins. Our application is a teq-plugin and interacts with two other teq-plugins:</p>
+<ul>
+<li><strong><span class="citation" data-cites="teqfw/di">@teqfw/di</span></strong>: Specifies which namespace is used by our application and where the source files are located.</li>
+<li><strong><span class="citation" data-cites="teqfw/core">@teqfw/core</span></strong>: Specifies which commands our application adds to commander.</li>
+</ul>
+<p>Here is the descriptor text:</p>
+<pre>{</pre>
+<p>“<span class="citation" data-cites="teqfw/di">@teqfw/di</span>”: {</p>
+<p>“autoload”: {</p>
+<p>“ns”: “Ab_Clean”,</p>
+<p>“path”: “./src”</p>
+<pre>}
+},</pre>
+<p>“<span class="citation" data-cites="teqfw/core">@teqfw/core</span>”: {</p>
+<p>“commands”: [</p>
+<p>“Ab_Clean_Back_Cli_Clean”</p>
+<pre>]
+}
+}</pre>
+<h2>Configuration Structures</h2>
+<p>Interaction rules description structures with plugins:</p>
+<ul>
+<li><strong><span class="citation" data-cites="teqfw/di">@teqfw/di</span></strong>: TeqFw_Core_Back_Plugin_Dto_Desc_Di</li>
+<li><strong><span class="citation" data-cites="teqfw/core">@teqfw/core</span></strong>: TeqFw_Core_Back_Plugin_Dto_Desc</li>
+</ul>
+<h3 id="cfglocal.json">./cfg/local.json</h3>
+<p>Each plugin may require configuration parameters for its operation. The teq-application uses one configuration file, common to all teq-plugins. The platform core (<code>TeqFw_Core_Back_Config</code>) is responsible for loading and parsing the configuration file. In our application, only one teq-plugin requires configuration — <span class="citation" data-cites="teqfw/db">@teqfw/db</span>:</p>
+<pre>{</pre>
+<p>“<span class="citation" data-cites="teqfw/db">@teqfw/db</span>”: {</p>
+<p>“client”: “mysql”,</p>
+<p>“connection”: {</p>
+<p>“database”: “…”,</p>
+<p>“host”: “127.0.0.1”,</p>
+<p>“password”: “…”,</p>
+<p>“user”: “…”</p>
+<pre>}
+}
+} The local configuration description structure follows the configuration parameters for the <a href="https://knexjs.org/">knexjs</a> library:</pre>
+<ul>
+<li><strong><span class="citation" data-cites="teqfw/db">@teqfw/db</span></strong>: TeqFw_Db_Back_Dto_Config_Local</li>
+</ul>
+<h2 id="command-app-clean">Command ‘<code>app-clean</code>’</h2>
+<p>When the application starts, the platform core scans all plugin descriptors <code>./teqfw.json</code> and initializes the teq-application. In our case, our plugin <a href="https://github.com/flancer64/autobalta_cleaner"><span class="citation" data-cites="flancer64/autobalta_cleaner">@flancer64/autobalta_cleaner</span></a> adds one command, which is defined in the script <code>Ab_Clean_Back_Cli_Clean</code>:</p>
+<p>“<span class="citation" data-cites="teqfw/core">@teqfw/core</span>”: {</p>
+<p>“commands”: [</p>
+<p>“Ab_Clean_Back_Cli_Clean”</p>
+<pre>]
+} The result of the <code>Ab_Clean_Back_Cli_Clean</code> function is an object whose structure matches that specified in the script <code>TeqFw_Core_Back_Api_Dto_Command</code>. The platform core sequentially connects all commands described in the descriptors of all used teq-plugins to the <code>commander</code>. In our case, it looks something like this:
+const res = fCommand.create();
+res.realm = DEF.CLI_PREFIX;
+res.name = ‘clean’;
+res.desc = ‘clean up the expired data’;
+res.action = action;
+return res; The command name is prefixed (realm) common to all commands of one plugin. In our case, <code>DEF.CLI_PREFIX = ‘app’.</code> When running the application with the parameter:
+$ ./bin/tequila.mjs app-clean the <code>action</code> function will be called. The realm is needed to separate commands of one plugin from commands of another. As a rule, the name of the teq-plugin serves as the realm. If the teq-plugin is not intended for use by other teq-plugins, the prefix <code>app</code> is a good option.</pre>
+<h2 id="database-interaction">Database Interaction</h2>
+<p>Database interaction is provided by the teq-plugin <span class="citation" data-cites="teqfw/db">@teqfw/db</span>. Its main role in the platform is to allow assembling a single relational database structure from separate fragments belonging to different plugins, and to allow the teq-application to work with it as a whole. However, in this case, we already have a database external to our application (OpenCart), so it is enough for us to describe in our code the tables and columns we use in our application.</p>
+<ul>
+<li><code>Ab_Clean_Back_Store_RDb_Schema_Latakko_Api_Log</code></li>
+<li><code>Ab_Clean_Back_Store_RDb_Schema_Latakko_Api_Queue</code></li>
+<li><code>Ab_Clean_Back_Store_RDb_Schema_Latakko_Log</code></li>
+<li><code>Ab_Clean_Back_Store_RDb_Schema_Session</code></li>
+</ul>
+<p>Each of these files describes the structure of a separate table:</p>
+<ul>
+<li>oc_latakko_api_log</li>
+<li>oc_latakko_api_queue</li>
+<li>oc_latakko_log</li>
+<li>oc_session</li>
+</ul>
+<p>and implements the interface <code>TeqFw_Db_Back_RDb_Meta_IEntity</code>.</p>
+<h2 id="working-with-the-database">Working with the Database</h2>
+<p>Two main scripts are used to work with the database:</p>
+<ul>
+<li><code>TeqFw_Db_Back_RDb_IConnect</code>: Allows opening connections to the database and initiating transactions.</li>
+<li><code>TeqFw_Db_Back_Api_RDb_CrudEngine</code>: Allows performing CRUD operations on individual entities (tables) in the database schema.</li>
+</ul>
+<p>Typical code for interacting with the database in a teq-application:</p>
+<pre>const trx = await conn.startTransaction();</pre>
+<p>try {</p>
+<p>…</p>
+<pre>await trx.commit();
+} catch (e) {
+await trx.rollback();
+}
+await conn.disconnect();</pre>
+<p>A specific operation (in our case, deletion) is performed like this:</p>
+<pre>async function cleanSessions(trx) {
+const from = util.subtractDays(45);
+const date = util.formatDate(from);
+logger.info(<code>Clean up the sessions started before '${date}'.</code>);
+const where = function () {
+this.where(A_SESS.EXPIRE, ‘&lt;’, date);
+};
+const rows = await crud.deleteSet(trx, rdbSession, where);
+logger.info(<code>Total '${rows}' sessions were deleted.</code>);
+return rows;
+} Note the functional style of performing CRUD operations. All necessary information is passed to the corresponding method of the <code>crud</code> object:</pre>
+<ul>
+<li><strong>trx</strong>: The transaction within which actions are performed.</li>
+<li><strong>rdbSession</strong>: The description of the entity over which actions are performed (metadata).</li>
+<li><strong>where</strong>: Additional information depending on the action performed.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Tequila Framework is a platform for creating JavaScript applications using technologies typical for enterprise-level languages (like Java, C#, PHP Zend 1). In particular, teq-plugins use dynamic object linking through dependency injection during runtime instead of static linking through import at the code writing level (as seen in the example of the <code>TeqFw_Db_Back_Api_RDb_CrudEngine</code> interface and its implementation <code>TeqFw_Db_Back_RDb_CrudEngine</code>). This allows building more complex applications from individual components, overriding component behavior depending on application execution conditions, and increasing the reusability of individual components.</p>
+<p>The transition from file module linking (physical addressing) to namespaces (logical addressing) enhances documentation convenience and allows developers to better focus on their application’s architecture, ultimately speeding up project modifications. I hope that after reading this post, you can somewhat imagine the application architecture based solely on logical module names (I intentionally did not link to Github to the corresponding files so you can reverse map the logical name to the file name).</p>
+<p>Overall, I am pleased with the result. I am confident that pure JavaScript can be used to create web projects of a scale comparable to platforms like Magento, WordPress, Drupal, Laravel. Considering that browsers do not understand other languages except JavaScript (and a little Web Assembly), this approach has a good chance to surpass the mentioned platforms.</p>
+<p>If you are interested in the Tequila Framework platform and have a commercial proposal, I will be happy to develop an application for you at 30 euros/hour. If you have an educational or humanitarian project, I will help you for free.</p>
+<ul>
+<li><a href="https://flancer32.com/example-of-a-web-app-based-on-teqfw-add155627b58">Example of a Web App Based on TeqFW</a></li>
+</ul>
+<p>If you enjoyed this article, please give it a clap and follow me for more content!</p>
+<p>Stay connected:</p>
+<ul>
+<li><a href="https://github.com/flancer64">GitHub</a></li>
+<li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/">LinkedIn</a></li>
+<li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497">Upwork</a></li>
+</ul>
+<p>Thank you for your support!</p>
+
+    {% endraw %}
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Understanding the Three Types of User Data in WebApps{% endblock %}
+{% block description %}When it comes to user data in web applications, there are three main types that you should be familiar with: personal, public, and group. In this brief overview, we’ll explore each{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Understanding the Three Types of User Data in WebApps</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2024-03-14
+    </span>
+    {% raw %}
+<p>When it comes to user data in web applications, there are three main types that you should be familiar with: personal, public, and group. In this brief overview, we’ll explore each type and discuss some current trends shaping the way web apps handle user data.</p>
+<figure>
+<img src="/medium/img/1317d7cb80df/image-01.png" alt="Image 2" />
+</figure>
+<p>The attention-grabbing image.</p>
+<h2 id="the-evolution-of-user-data">The evolution of user data</h2>
+<p>In the early days of web applications, a simple architecture ruled supreme: a back end (server) and a front end (browser). Initially, all data — including HTML pages — was publicly available on the server. Users could connect to the server using a web browser and navigate from page to page. However, it didn’t take long for the need to restrict access to certain information to arise. This is how ‘group information’ was born: through the use of secure connections like HTTP basic authentication (http://user:pass@site.com/). The next major milestone came with the advent of personalization, as web apps began to adapt pages for individual users through technologies like cookies and Common Gateway Interface (CGI).</p>
+<p>Thus, three distinct types of user data access were formed:</p>
+<ul>
+<li><strong>Public</strong>: Data that could be read and written by everyone.</li>
+<li><strong>Private</strong>: Data that should only be accessible to a specific user.</li>
+<li><strong>Group</strong>: Data that was meant for a designated group of users.</li>
+</ul>
+<h2 id="the-impact-of-web-application-architecture-on-data">The impact of web application architecture on data</h2>
+<p>Due to the client-server architecture, all data was initially stored on servers. With limited internet bandwidth, data caching was introduced at various levels (server, proxy, <a href="https://en.wikipedia.org/wiki/Content_delivery_network">CDN</a>, browser). While private data posed fewer challenges since users accessed their own information, caching became problematic for public and group data. Updates to data on the server took time to propagate before all users received the same data. However, with the advent of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events">Server-Sent Events</a> (SSE) and <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">WebSockets</a>, this situation improved significantly. Now, servers can directly push updated information to users’ browsers, enhancing responsiveness and ensuring consistent data across users.</p>
+<p>As all data, including private data, was initially stored centrally on servers, companies emerged that capitalized on processing users’ personal data. These corporations analyzed user behavior, preferences, and social connections to deliver targeted advertising and improve overall user experiences. However, as users became increasingly concerned about their privacy, they demanded limitations on global corporations’ access to their personal data.</p>
+<p>To address these concerns, solutions were developed on the browser side for storing and managing personal data locally. Technologies like <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">localStorage</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB</a> allowed users to store their information directly in their browsers, giving them more control over their data. Additionally, cloud storage options with robust security measures and decentralized platforms like <a href="https://solidproject.org/about">Solid</a> have emerged to provide users with greater autonomy over their personal information.</p>
+<h2 id="the-decentralization">The decentralization</h2>
+<p>At present, users can comfortably store and process substantial amounts of personal data in their browsers or external storage facilities that are inaccessible to the server directly. This ability allows data to be decoupled from the server’s control, which primarily focuses on distributing and updating web application code and managing public information.</p>
+<p>Moreover, users can now also store group information by circumventing the server through various means. For smaller groups, like pairs, data can be exchanged directly between users using <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API">WebRTC</a> (Web Real-Time Communication). However, for larger groups, processing such group information aligns more closely with handling public information. In these cases, transmission through the server becomes a preferable option due to its ability to manage and distribute data efficiently to all group members.</p>
+<h2 id="the-stracey-barbrand-effect">The Stracey Barbrand effect</h2>
+<p><a href="https://en.wikipedia.org/wiki/Streisand_effect">The Barbra Streisand effect</a> is a well-known phenomenon in the field of internet culture. It refers to the unintended consequences that can arise when an attempt is made to hide, remove, or censor information. The effect occurs when efforts to suppress information lead to increased public interest and awareness of that information.</p>
+<p>The reverse process is when unused information disappears from the Internet. It often happens that some meme, video, or picture constantly comes across on public resources, and after some time the fashion passes, and the relevant information becomes impossible to find. I call it “<em>The Stracey Barbrand effect</em>” — a term that refers to the phenomenon of public information fading away over time.</p>
+<p>This trend highlights the importance of personal storage for users. Even if data is publicly available, there may be instances where it holds significant value or sentiment to an individual. By storing such information locally in a personal storage, users can ensure that their cherished memories and valuable data remain accessible, regardless of its popularity or relevance on the wider web.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Regardless of the data type (public, group, or private), there’s a growing demand for personal data storage on the client side in modern conditions. Presently, it’s feasible to store all data on the browser side, leveraging technologies like IndexedDB, <a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage">Cache Storage</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">Service Workers</a>. This shift leaves the server primarily responsible for distributing and updating application code while reducing its load and facilitating the transition to more sustainable, partially decentralized architectures.</p>
+<p>Technologies such as WebRTC, which benefit from the increasing mobile internet channel bandwidth, will further alleviate server loads and enable seamless communication between users without relying on intermediaries. The increasingly powerful capabilities of end devices, particularly smartphones, enable not only the storage of substantial data but also the execution of resource-intensive tasks like encryption.</p>
+<p>In my view, these developments will significantly reshape our conventional web applications in the next 5–10 years, leading to more personalized and decentralized experiences that prioritize user privacy, control, and autonomy.</p>
+<p>If you enjoyed this article, please give it a clap and follow me for more content!</p>
+<p>Stay connected:</p>
+<ul>
+<li><a href="https://github.com/flancer64">GitHub</a></li>
+<li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/">LinkedIn</a></li>
+<li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497">Upwork</a></li>
+</ul>
+<p>Thank you for your support!</p>
+
+    {% endraw %}
+</div>
+{% endblock %}

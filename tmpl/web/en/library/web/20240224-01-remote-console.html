@@ -1,0 +1,47 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Remote Console for Web App Log Monitoring{% endblock %}
+{% block description %}What does a developer do when they need to read logs from a web application running on a mobile phone? In desktop browser versions, you can open the Dev Tools panel and access the {% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Remote Console for Web App Log Monitoring</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2024-02-24
+    </span>
+    {% raw %}
+<p>What does a developer do when they need to read logs from a web application running on a mobile phone? In desktop browser versions, you can open the Dev Tools panel and access the console, but what about smartphones?</p>
+<p>The simplest solution is to send logs to some server or log aggregator. All you need to do is write something like this at the very beginning of the application:</p>
+<pre>const orig = console.log;
+console.log = function () {
+orig.apply(console, arguments);
+navigator.sendBeacon(URL, arguments[0]);
+}; And that’s it — everything logged to the console using <code>console.log(...)</code> will be sent to the specified URL. I use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API">Beacon API</a> because in this case, the browser does not expect a response from the server — the messages go in one direction.</pre>
+<p>Now all that’s left is to collect the logs and present them in a readable format. This is precisely what the small web application <a href="https://github.com/flancer64/spa-remote-console">Remote Console</a> does, which I wrote for collecting and reading logs. It accepts all incoming messages from any address:</p>
+<pre>navigator.sendBeacon(‘https://console.wiredgeese.com/log/’, ‘any message’);</pre>
+<p>The server then broadcasts messages through WebSockets to everyone currently viewing the console:</p>
+<p>Here’s a diagram of how it works:</p>
+<p>The server does not store logs in any form. Everything received is immediately forwarded to recipients if they exist. Of course, if there is confidential information in the logs, it’s safer to host Remote Console on a local network or even on the developer’s machine:</p>
+<pre>$ git clone https://github.com/flancer64/spa-remote-console.git
+$ cd spa-remote-console/
+$ npm install
+$ npm start</pre>
+<h2>Channels</h2>
+<p>To separate one set of logs from another, “channels” are used. So if you’re sending logs to the address:</p>
+<p>https://console.wiredgeese.com/log/any-chars/ then you can only view them at:</p>
+<p>https://console.wiredgeese.com/any-chars/ This way, by simply adding some “channel” like <code>/49bce4eb9e135c3580278b/</code> to the server address, you don’t have to worry too much that someone else will see your logs. Only those who know the channel name can monitor the logs.</p>
+<p>The number of users simultaneously viewing logs from any channel is unlimited.</p>
+<h2 id="merging-logs">Merging Logs</h2>
+<p>If you need messages from multiple browsers to appear in the console, simply pour the logs into one channel. It’s very convenient if there is interaction between applications in two different browsers or between a browser and a server (the server can also pour logs into the console).</p>
+<h2 id="sorting-logs">Sorting Logs</h2>
+<p>If logs are sent to the address <code>https://console.wiredgeese.com/log/</code>, the current time is automatically added to them on the server in the format <code>mm/dd hh:mm:ss.mmm</code>. If logs are sent to the address <code>https://console.wiredgeese.com/timed/</code>, they are redirected to browsers as-is.</p>
+<p>Sorting of entries in the browser occurs in reverse order assuming that the first characters represent the time of the logged event.</p>
+<h2 id="number-of-entries">Number of Entries</h2>
+<p>By default, the number of displayed entries is set to 64. This value can be changed to any other positive number. There are no upper limits. Each user can set this value independently of others.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Remote Console was planned as a developer tool, the main task of which is to allow a developer to see what is happening on the console of a mobile phone browser. But it also has additional functionality (relaying logs from one source to multiple browsers, separating logs by channels, merging logs from different sources in one channel) which has proven useful in everyday development.</p>
+<p>It is entirely possible that this tool could also be applied to support existing web applications if the ability to duplicate logs to a remote console is added to the application. In this case, a support team member could observe what is happening on a client’s smartphone.</p>
+
+    {% endraw %}
+</div>
+{% endblock %}

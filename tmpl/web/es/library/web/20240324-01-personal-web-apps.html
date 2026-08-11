@@ -1,0 +1,33 @@
+{% extends "inc/layout.html" %}
+{% block title %}Aplicaciones web personales{% endblock %}
+{% block description %}Cómo una aplicación web puede guardar datos personales en los dispositivos de su propietario, sincronizarlos y reducir el papel del servidor central.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Aplicaciones web personales</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2024-03-24</span>
+<p>Antes de la web, las aplicaciones solían guardar los datos en el ordenador de su dueño. Con la web, los datos pasaron a servidores corporativos y la privacidad se redujo. ¿Qué ocurriría si los datos personales de una aplicación web vivieran principalmente en el teléfono u ordenador de la propia persona usuaria?</p>
+<h2>Qué distingue a una aplicación web</h2>
+<p>Las diferencias principales son sencillas: se ejecuta en el navegador y normalmente necesita un servidor para distribuirse. El navegador se ha convertido en una especie de sistema operativo para estas aplicaciones: ofrece Web API, reglas de seguridad y acceso a pantalla, teclado, ratón, cámara y otras capacidades. Es un acceso más limitado que el de una OS nativa, pero basta para conectar persona, dispositivo y otros programas.</p>
+<p>Antes el software llegaba en disquetes y CD; ahora llega casi siempre por red. Sin embargo, las restricciones del navegador aún impiden ejecutar una aplicación web completa simplemente desde una memoria USB: necesita un origen seguro desde el que obtener el código.</p>
+<p><zoom-img src="/medium/img/3787d028d653/image-01.png" alt="Aplicación web convencional con servidor y navegador" width="100%"></zoom-img></p>
+<p>En el esquema habitual, tanto el código como los principales datos de usuarios están en el servidor.</p>
+<h2>Almacenamiento personal</h2>
+<p>Los navegadores modernos pueden guardar y procesar volúmenes considerables de datos en el cliente mediante <a href="https://en.wikipedia.org/wiki/Indexed_Database_API">IndexedDB</a>. Los límites dependen de dispositivo y navegador, y pueden alcanzar decenas de gigabytes. Por ello, la información personal de una aplicación puede residir directamente en el dispositivo de su propietaria o propietario.</p>
+<p><zoom-img src="/medium/img/3787d028d653/image-02.png" alt="Aplicación web personal con datos en el dispositivo" width="100%"></zoom-img></p>
+<p>Algunos datos, por ejemplo para la autenticación inicial, pueden seguir en el servidor. Pero mover el procesamiento personal principal al dispositivo reduce las exigencias de la infraestructura central y la cantidad de información que esta ve.</p>
+<h2>El papel del servidor</h2>
+<p>El servidor todavía distribuye el código y ayuda a trasladar datos entre personas. Si la destinataria está conectada, el mensaje puede llegar al instante. Si no, el servidor conserva temporalmente un mensaje cifrado hasta la siguiente conexión. Se parece al correo POP3 temprano, donde el servidor guardaba el mensaje hasta que lo recogía el cliente.</p>
+<p><zoom-img src="/medium/img/3787d028d653/image-03.png" alt="El servidor transmite temporalmente datos entre personas" width="100%"></zoom-img></p>
+<h2>WebRTC</h2>
+<p>Si ambas partes están conectadas, <a href="https://webrtc.org/?hl=en">WebRTC</a> puede transferir datos de forma directa; el servidor solo coordina el contacto inicial. La carga se distribuye entonces entre pares en vez de atravesar un único nodo central.</p>
+<p><zoom-img src="/medium/img/3787d028d653/image-04.png" alt="Transferencia directa mediante WebRTC" width="100%"></zoom-img></p>
+<p>Con cifrado asimétrico, las partes intercambian claves públicas, cifran y verifican mensajes. El servidor puede reenviar un búfer cifrado a quien estaba desconectado sin conocer el contenido. En la práctica también hay que diseñar protección de claves, verificación de identidad, copias de seguridad y recuperación de acceso.</p>
+<h2>Nubes y pods</h2>
+<p>Una persona suele tener varios dispositivos con la misma aplicación. Si cada uno conserva su propia base de datos, hace falta replicación: una nube personal o pod que sincronice portátil y teléfono.</p>
+<p><zoom-img src="/medium/img/3787d028d653/image-05.png" alt="La misma aplicación en varios dispositivos" width="100%"></zoom-img></p>
+<p><zoom-img src="/medium/img/3787d028d653/image-06.png" alt="Replicación de datos mediante nube o pod" width="100%"></zoom-img></p>
+<p>Dropbox, Google Drive, OneDrive y planteamientos como <a href="https://solidproject.org/about">Solid</a> ya pueden cumplir esa función. Incluso con un solo dispositivo, un almacenamiento externo sirve como copia de seguridad si se pierde el teléfono u ordenador.</p>
+<h2>Conclusión</h2>
+<p>Una aplicación web personal no elimina el servidor: redistribuye responsabilidades. El dispositivo guarda y procesa datos personales; el servidor entrega código y coordina el intercambio; un almacenamiento elegido por la persona usuaria sincroniza y respalda los datos. Esta arquitectura es prometedora si, junto a la privacidad, se diseñan sincronización fiable, cifrado y recuperación de información.</p>
+</div>
+{% endblock %}

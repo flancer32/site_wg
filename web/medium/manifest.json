@@ -1,0 +1,1601 @@
+{
+  "source": "/home/alex/work/medium_articles.md",
+  "generatedAt": "2026-08-11T05:32:27.784Z",
+  "articles": [
+    {
+      "date": "2024-12-07",
+      "title": "Thank You and Farewell, Medium!",
+      "url": "https://flancer32.com/thank-you-and-farewell-medium-f3ab329b9c01",
+      "id": "f3ab329b9c01",
+      "file": "2024-12-07--f3ab329b9c01.md",
+      "images": []
+    },
+    {
+      "date": "2024-11-25",
+      "title": "Debugging `before` Hooks in Mocha",
+      "url": "https://flancer32.com/debugging-before-hooks-in-mocha-cbbe4d0c4666",
+      "id": "cbbe4d0c4666",
+      "file": "2024-11-25--cbbe4d0c4666.md",
+      "images": []
+    },
+    {
+      "date": "2024-11-12",
+      "title": "Understanding Early vs. Late Binding in JavaScript",
+      "url": "https://flancer32.com/understanding-early-vs-late-binding-in-javascript-d80c6b985f4b",
+      "id": "d80c6b985f4b",
+      "file": "2024-11-12--d80c6b985f4b.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:700/0*xqU9tohVNgq0oAYh",
+          "file": "img/d80c6b985f4b/image-01.jpg"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*cxQdMqjYVpmgKUsvArHK_g.png",
+          "file": "img/d80c6b985f4b/image-02.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-10-28",
+      "title": "Telegram Bot with Node.js: Using Error Handling to Boost Resilience",
+      "url": "https://flancer32.com/telegram-bot-with-node-js-using-error-handling-to-boost-resilience-cd04f99074fc",
+      "id": "cd04f99074fc",
+      "file": "2024-10-28--cd04f99074fc.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*OiQaiPrbO-LkesnyxOnDGA.png",
+          "file": "img/cd04f99074fc/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-10-22",
+      "title": "Telegram Bot with Node.js: Conversations",
+      "url": "https://flancer32.com/telegram-bot-with-node-js-conversations-6d03ffb4059c",
+      "id": "6d03ffb4059c",
+      "file": "2024-10-22--6d03ffb4059c.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:659/0*M3--5EzqAKd0XGHK.png",
+          "file": "img/6d03ffb4059c/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-10-14",
+      "title": "Telegram Bot with Node.js: Implementing CRUD-L Operations Using Command Arguments",
+      "url": "https://flancer32.com/telegram-bot-with-node-js-implementing-crud-l-operations-using-command-arguments-fcfb38991efa",
+      "id": "fcfb38991efa",
+      "file": "2024-10-14--fcfb38991efa.md",
+      "images": []
+    },
+    {
+      "date": "2024-10-08",
+      "title": "Telegram Bots: The First Steps",
+      "url": "https://flancer32.com/telegram-bots-the-first-steps-c1688e572abe",
+      "id": "c1688e572abe",
+      "file": "2024-10-08--c1688e572abe.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:380/1*DOYkJARPGIR4J7_RltB_Ag.png",
+          "file": "img/c1688e572abe/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:616/1*nYhJ44LNTV76FYBZVIewfw.png",
+          "file": "img/c1688e572abe/image-02.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-09-03",
+      "title": "What is a Telegram Bot? A Simple Introduction for New Users",
+      "url": "https://flancer32.com/what-is-a-telegram-bot-a-simple-introduction-for-new-users-9d9a675b27b9",
+      "id": "9d9a675b27b9",
+      "file": "2024-09-03--9d9a675b27b9.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:401/1*Zz1UjPAiJVNpIRpa6D8rjA.png",
+          "file": "img/9d9a675b27b9/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*tgbvSVcqMerOPgz3D1WjBw.png",
+          "file": "img/9d9a675b27b9/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:375/1*eXz-6aoebI8Uo7NRT78o1g.png",
+          "file": "img/9d9a675b27b9/image-03.png"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*hEp71YnmBNKapoAIb5PUXg.png",
+          "file": "img/9d9a675b27b9/image-04.png"
+        },
+        {
+          "alt": "Image 6",
+          "source": "https://miro.medium.com/v2/resize:fit:318/1*sr1k2nygJM3cQ_zD94u0og.png",
+          "file": "img/9d9a675b27b9/image-05.png"
+        },
+        {
+          "alt": "Image 7",
+          "source": "https://miro.medium.com/v2/resize:fit:417/1*CqUKLRsjU2GNQia6l4c70g.png",
+          "file": "img/9d9a675b27b9/image-06.png"
+        },
+        {
+          "alt": "Image 8",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*FV1yc1i405O8TUtbLhlQsg.png",
+          "file": "img/9d9a675b27b9/image-07.png"
+        },
+        {
+          "alt": "Image 9",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*OyJPSR1IoRHjH4E0vNgUYw.png",
+          "file": "img/9d9a675b27b9/image-08.png"
+        },
+        {
+          "alt": "Image 10",
+          "source": "https://miro.medium.com/v2/resize:fit:591/1*Bli0d79fFQWQoIZsQPki0A.png",
+          "file": "img/9d9a675b27b9/image-09.png"
+        },
+        {
+          "alt": "Image 11",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*iUaOQZ2i889HcwD13wQHuw.png",
+          "file": "img/9d9a675b27b9/image-10.png"
+        },
+        {
+          "alt": "Image 12",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*1fG4pBVi1E-CDlM3_inUWw.png",
+          "file": "img/9d9a675b27b9/image-11.png"
+        },
+        {
+          "alt": "Image 13",
+          "source": "https://miro.medium.com/v2/resize:fit:567/1*M4x0XJ6q9r4sixgGVhDaRA.png",
+          "file": "img/9d9a675b27b9/image-12.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-08-14",
+      "title": "The Right Way to Get a Singleton in ES6+",
+      "url": "https://flancer32.com/the-right-way-to-get-a-singleton-in-es6-1ed58ac7989a",
+      "id": "1ed58ac7989a",
+      "file": "2024-08-14--1ed58ac7989a.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*5gqicgfMr0xt2z5YfMi1AA.png",
+          "file": "img/1ed58ac7989a/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-08-07",
+      "title": "Simulating Interfaces in JavaScript with JSDoc Annotations",
+      "url": "https://flancer32.com/simulating-interfaces-in-javascript-with-jsdoc-annotations-f4fbd41a3500",
+      "id": "f4fbd41a3500",
+      "file": "2024-08-07--f4fbd41a3500.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:700/0*1GRBBjzvDj259_bG.png",
+          "file": "img/f4fbd41a3500/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:556/1*itAoPsGFFpGuaj-Uxnh_AQ.png",
+          "file": "img/f4fbd41a3500/image-02.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-07-31",
+      "title": "A Personal Perspective on File Structuring in SPA Development",
+      "url": "https://flancer32.com/a-personal-perspective-on-file-structuring-in-spa-development-7a05701bf3b1",
+      "id": "7a05701bf3b1",
+      "file": "2024-07-31--7a05701bf3b1.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:531/0*5T01U8oC96m4HCTJ.png",
+          "file": "img/7a05701bf3b1/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:438/0*oiu_hj6Vt06bS4Qf.png",
+          "file": "img/7a05701bf3b1/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:301/0*aNAywCWorXirH8BZ.png",
+          "file": "img/7a05701bf3b1/image-03.png"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:317/0*xXx1HL1F3p9Duatq.png",
+          "file": "img/7a05701bf3b1/image-04.png"
+        },
+        {
+          "alt": "Image 6",
+          "source": "https://miro.medium.com/v2/resize:fit:191/0*5ln8HFywyxFJ836F.png",
+          "file": "img/7a05701bf3b1/image-05.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-07-04",
+      "title": "Launching Web Apps Without Own Servers: How ESM and CDNs Are Changing the Game",
+      "url": "https://flancer32.com/launching-web-apps-without-own-servers-how-esm-and-cdns-are-changing-the-game-a68e6632999f",
+      "id": "a68e6632999f",
+      "file": "2024-07-04--a68e6632999f.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:264/1*HEvGxAmjlPg-v1HBu6imBQ.png",
+          "file": "img/a68e6632999f/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:481/1*eRmBK5QS8jtwnDfFZ-QNOA.png",
+          "file": "img/a68e6632999f/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:263/1*DeKsq2yHUQhd7AU_pi5hbw.png",
+          "file": "img/a68e6632999f/image-03.png"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:271/1*EdVGcvYfqDOMNJGBpn22kQ.png",
+          "file": "img/a68e6632999f/image-04.png"
+        },
+        {
+          "alt": "Image 6",
+          "source": "https://miro.medium.com/v2/resize:fit:264/1*Lbkbv5vA-4Psy9DpngVTww.png",
+          "file": "img/a68e6632999f/image-05.png"
+        },
+        {
+          "alt": "Image 7",
+          "source": "https://miro.medium.com/v2/resize:fit:490/1*19yhFt-_U0bswXYg4w1vDw.png",
+          "file": "img/a68e6632999f/image-06.png"
+        },
+        {
+          "alt": "Image 8",
+          "source": "https://miro.medium.com/v2/resize:fit:446/1*zEqm43lKWKoFV2dCoce8nA.png",
+          "file": "img/a68e6632999f/image-07.png"
+        },
+        {
+          "alt": "Image 9",
+          "source": "https://miro.medium.com/v2/resize:fit:670/1*LHJwDC6OTClWdI_Wzvoeqg.png",
+          "file": "img/a68e6632999f/image-08.png"
+        },
+        {
+          "alt": "Image 10",
+          "source": "https://miro.medium.com/v2/resize:fit:389/1*TkCuYdCikdsymSFTHyQMqA.png",
+          "file": "img/a68e6632999f/image-09.png"
+        },
+        {
+          "alt": "Image 11",
+          "source": "https://miro.medium.com/v2/resize:fit:385/1*Zsqvb71f9sZdySVT5jHang.png",
+          "file": "img/a68e6632999f/image-10.png"
+        },
+        {
+          "alt": "Image 12",
+          "source": "https://miro.medium.com/v2/resize:fit:385/1*xdnPQW8nFyBcgwSjZrhjiw.png",
+          "file": "img/a68e6632999f/image-11.png"
+        },
+        {
+          "alt": "Image 13",
+          "source": "https://miro.medium.com/v2/resize:fit:374/1*gGjI8-c0xPOnbxYsZKFLIA.png",
+          "file": "img/a68e6632999f/image-12.png"
+        },
+        {
+          "alt": "Image 14",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*f-HGORkIF9Y-bv37EguL1g.png",
+          "file": "img/a68e6632999f/image-13.png"
+        },
+        {
+          "alt": "Image 15",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*PNXXpfUm-AkSzOItj-NTBA.png",
+          "file": "img/a68e6632999f/image-14.png"
+        },
+        {
+          "alt": "Image 16",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*yT-9qpclT6tKYtwKEmkQBw.png",
+          "file": "img/a68e6632999f/image-15.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-06-14",
+      "title": "Example of a Web App Based on TeqFW",
+      "url": "https://flancer32.com/example-of-a-web-app-based-on-teqfw-add155627b58",
+      "id": "add155627b58",
+      "file": "2024-06-14--add155627b58.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:578/1*VWCE-oSyAuAXkJ0PYXOlmQ.png",
+          "file": "img/add155627b58/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:282/1*6E4Te7xCgUUBcxN0vl4ZQA.png",
+          "file": "img/add155627b58/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:430/1*TPP_OAk6Yaw9jM3LaEpmzw.png",
+          "file": "img/add155627b58/image-03.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-06-05",
+      "title": "Example of a console application based on TeqFW",
+      "url": "https://flancer32.com/example-of-a-console-application-based-on-teqfw-e038e31766dd",
+      "id": "e038e31766dd",
+      "file": "2024-06-05--e038e31766dd.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*2oWyqIRG0T0nYlT2BzPASA.png",
+          "file": "img/e038e31766dd/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-05-23",
+      "title": "Why I always use ‘enum’ in JS",
+      "url": "https://flancer32.com/why-i-always-use-enum-in-js-2feb64992e54",
+      "id": "2feb64992e54",
+      "file": "2024-05-23--2feb64992e54.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:578/1*TVumYxFrW48PmlEbcD5Q_A.png",
+          "file": "img/2feb64992e54/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:357/0*oMsDDfEv7obrKNHn.png",
+          "file": "img/2feb64992e54/image-02.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-04-30",
+      "title": "The Functional Objects in JS",
+      "url": "https://flancer32.com/the-functional-objects-in-js-5a9b23e00557",
+      "id": "5a9b23e00557",
+      "file": "2024-04-30--5a9b23e00557.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:700/0*NpL4yWzJrvMOFaSL",
+          "file": "img/5a9b23e00557/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-04-29",
+      "title": "What is TeqFW?",
+      "url": "https://flancer32.com/what-is-teqfw-f84ab4c66abf",
+      "id": "f84ab4c66abf",
+      "file": "2024-04-29--f84ab4c66abf.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:531/0*DrUdd4zxDIA0i2CQ",
+          "file": "img/f84ab4c66abf/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-03-24",
+      "title": "Personal Web Apps",
+      "url": "https://flancer32.com/personal-web-apps-3787d028d653",
+      "id": "3787d028d653",
+      "file": "2024-03-24--3787d028d653.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:651/0*6zYRFq3loTBwcG8l",
+          "file": "img/3787d028d653/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:531/0*fsnkaImBimeG-clE",
+          "file": "img/3787d028d653/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:700/0*jyXqucqclMpaTwEM",
+          "file": "img/3787d028d653/image-03.png"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:491/0*NIfcfeo8YvTKvHWM",
+          "file": "img/3787d028d653/image-04.png"
+        },
+        {
+          "alt": "Image 6",
+          "source": "https://miro.medium.com/v2/resize:fit:542/0*fgNk628SONq5MQA6",
+          "file": "img/3787d028d653/image-05.png"
+        },
+        {
+          "alt": "Image 7",
+          "source": "https://miro.medium.com/v2/resize:fit:571/0*7lCuWA05EfGnMrB-",
+          "file": "img/3787d028d653/image-06.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-03-14",
+      "title": "Understanding the Three Types of User Data in WebApps",
+      "url": "https://flancer32.com/understanding-the-three-types-of-user-data-in-webapps-1317d7cb80df",
+      "id": "1317d7cb80df",
+      "file": "2024-03-14--1317d7cb80df.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*bffz7P7dieihPoDs-5rslA.png",
+          "file": "img/1317d7cb80df/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2024-02-24",
+      "title": "Remote Console for Web App Log Monitoring",
+      "url": "https://flancer32.com/remote-console-for-web-app-log-monitoring-d3237abb712f",
+      "id": "d3237abb712f",
+      "file": "2024-02-24--d3237abb712f.md",
+      "images": []
+    },
+    {
+      "date": "2024-02-19",
+      "title": "So, What Is the Ultimate Goal of Programming?",
+      "url": "https://flancer32.com/so-what-is-the-ultimate-goal-of-programming-0fd5def59fdc",
+      "id": "0fd5def59fdc",
+      "file": "2024-02-19--0fd5def59fdc.md",
+      "images": []
+    },
+    {
+      "date": "2024-02-15",
+      "title": "TeqFW: Organizing the Top Level Code",
+      "url": "https://flancer32.com/teqfw-organizing-the-top-level-code-d65d1b6cea5e",
+      "id": "d65d1b6cea5e",
+      "file": "2024-02-15--d65d1b6cea5e.md",
+      "images": []
+    },
+    {
+      "date": "2024-01-20",
+      "title": "Code Types in TeqFW: Defaults",
+      "url": "https://flancer32.com/code-types-in-teqfw-defaults-513f9cacd64c",
+      "id": "513f9cacd64c",
+      "file": "2024-01-20--513f9cacd64c.md",
+      "images": []
+    },
+    {
+      "date": "2024-01-18",
+      "title": "Code Types in TeqFW: Utilities",
+      "url": "https://flancer32.com/code-types-in-teqfw-utilities-6e24274456d7",
+      "id": "6e24274456d7",
+      "file": "2024-01-18--6e24274456d7.md",
+      "images": []
+    },
+    {
+      "date": "2023-07-31",
+      "title": "Demystifying Dependency Injection: A Simple Object Container for modern JS",
+      "url": "https://flancer32.com/demystifying-dependency-injection-a-simple-object-container-for-es6-4269d161fa40",
+      "id": "4269d161fa40",
+      "file": "2023-07-31--4269d161fa40.md",
+      "images": []
+    },
+    {
+      "date": "2023-07-17",
+      "title": "IoC in regular JavaScript (ES6+)",
+      "url": "https://flancer32.com/ioc-in-vanilla-javascript-es6-1b2e701f331d",
+      "id": "1b2e701f331d",
+      "file": "2023-07-17--1b2e701f331d.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*U9-qj4QgMRnW27Ti-SQxiQ.jpeg",
+          "file": "img/1b2e701f331d/image-01.jpg"
+        }
+      ]
+    },
+    {
+      "date": "2023-05-19",
+      "title": "PublicKeyCredential in Web Apps",
+      "url": "https://flancer32.com/publickeycredential-in-web-apps-e90f59acba45",
+      "id": "e90f59acba45",
+      "file": "2023-05-19--e90f59acba45.md",
+      "images": []
+    },
+    {
+      "date": "2023-05-04",
+      "title": "Rational Web Development is Abnormal",
+      "url": "https://flancer32.com/rational-web-development-is-abnormal-49a2abce583f",
+      "id": "49a2abce583f",
+      "file": "2023-05-04--49a2abce583f.md",
+      "images": []
+    },
+    {
+      "date": "2023-03-10",
+      "title": "Live ‘Speech-To-Text’ Recognition with Deepgram API in PWA",
+      "url": "https://flancer32.com/live-speech-to-text-recognition-with-deepgram-api-in-pwa-6fa4068878e0",
+      "id": "6fa4068878e0",
+      "file": "2023-03-10--6fa4068878e0.md",
+      "images": []
+    },
+    {
+      "date": "2023-02-27",
+      "title": "Minimal PWA",
+      "url": "https://flancer32.com/minimal-pwa-585664286cda",
+      "id": "585664286cda",
+      "file": "2023-02-27--585664286cda.md",
+      "images": []
+    },
+    {
+      "date": "2023-02-07",
+      "title": "What is TeqFW? (deprecated)",
+      "url": "https://flancer32.com/what-is-teqfw-45da7071fdd4",
+      "id": "45da7071fdd4",
+      "file": "2023-02-07--45da7071fdd4.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:626/0*qj77TF-_Cvwa4YGy",
+          "file": "img/45da7071fdd4/image-01.jpg"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:200/1*GzMPAUeqkujzUs7kZ0mWOw.png",
+          "file": "img/45da7071fdd4/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:200/1*whOk5FXT6gIfYsLVC0ToyA.png",
+          "file": "img/45da7071fdd4/image-03.png"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:200/1*30CFumU1_q7HxfWTWYQMtg.png",
+          "file": "img/45da7071fdd4/image-04.png"
+        },
+        {
+          "alt": "Image 6",
+          "source": "https://miro.medium.com/v2/resize:fit:500/1*mtMd9UgXf_uEQv4_7HperA.png",
+          "file": "img/45da7071fdd4/image-05.png"
+        },
+        {
+          "alt": "Image 7",
+          "source": "https://miro.medium.com/v2/resize:fit:500/1*Q7Kt-1sqBYWdeOKPbRTBSw.png",
+          "file": "img/45da7071fdd4/image-06.png"
+        }
+      ]
+    },
+    {
+      "date": "2023-02-06",
+      "title": "DTO in JavaScript",
+      "url": "https://flancer32.com/dto-in-javascript-3274a3063919",
+      "id": "3274a3063919",
+      "file": "2023-02-06--3274a3063919.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:610/1*ZAv3y5mIxLeonVYnBtOYzw.png",
+          "file": "img/3274a3063919/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2023-01-26",
+      "title": "Using PasswordCredentials in Chrome Browser",
+      "url": "https://flancer32.com/using-passwordcredentials-in-chrome-browser-483d175da96d",
+      "id": "483d175da96d",
+      "file": "2023-01-26--483d175da96d.md",
+      "images": [
+        {
+          "alt": "Image 2: login form with inserted username & password",
+          "source": "https://miro.medium.com/v2/resize:fit:386/1*ekS7NUwPF6jeaM6ucr5SRg.png",
+          "file": "img/483d175da96d/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*6LdzMNvLtTl06l3EjBuM5Q.png",
+          "file": "img/483d175da96d/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:431/1*cgoro6FBMpUCLXD2b30vvw.png",
+          "file": "img/483d175da96d/image-03.png"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:438/1*3zbLYui7P5huVEAcTyu0Qg.png",
+          "file": "img/483d175da96d/image-04.png"
+        },
+        {
+          "alt": "Image 6",
+          "source": "https://miro.medium.com/v2/resize:fit:461/1*PsDLE36nN21b6-UIejak9w.png",
+          "file": "img/483d175da96d/image-05.png"
+        }
+      ]
+    },
+    {
+      "date": "2023-01-23",
+      "title": "Obtaining OAuth2 Access Token for Google Cloud API using Browser-Side JavaScript",
+      "url": "https://flancer32.com/obtaining-oauth2-access-token-for-google-cloud-api-using-browser-side-javascript-208e64f14db4",
+      "id": "208e64f14db4",
+      "file": "2023-01-23--208e64f14db4.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:678/1*djvD7o9G30c_jz1PdXaD3g.png",
+          "file": "img/208e64f14db4/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2023-01-10",
+      "title": "Events in Web-Apps (4): Call Requests",
+      "url": "https://flancer32.com/events-in-web-apps-4-call-requests-49b016b6fbfa",
+      "id": "49b016b6fbfa",
+      "file": "2023-01-10--49b016b6fbfa.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:411/1*lsqBWAmS0xmQ9UZd7pgPUg.png",
+          "file": "img/49b016b6fbfa/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:351/1*B6hKY4Dn7vEYK7XLJvN1Yg.png",
+          "file": "img/49b016b6fbfa/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:351/1*oWIIpncOB8DxzWiCHKlbew.png",
+          "file": "img/49b016b6fbfa/image-03.png"
+        }
+      ]
+    },
+    {
+      "date": "2023-01-10",
+      "title": "Events in Web-Apps (3): Delayed Messages",
+      "url": "https://flancer32.com/events-in-web-apps-3-delayed-messages-6985e5d9ae2",
+      "id": "6985e5d9ae2",
+      "file": "2023-01-10--6985e5d9ae2.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:331/1*QpZNsAv364_0lEdWlNr45Q.png",
+          "file": "img/6985e5d9ae2/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*tH-So01oYmW1kE9lKIe0Ug.png",
+          "file": "img/6985e5d9ae2/image-02.png"
+        }
+      ]
+    },
+    {
+      "date": "2023-01-10",
+      "title": "Events in Web-Apps (2): Authentication",
+      "url": "https://flancer32.com/events-in-web-apps-2-authentication-a6b895172aa2",
+      "id": "a6b895172aa2",
+      "file": "2023-01-10--a6b895172aa2.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:451/1*nqlQZ-tDByriRuK8WPxj6A.png",
+          "file": "img/a6b895172aa2/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:451/1*5vJRK5CCAkjHaNpfSpBGaw.png",
+          "file": "img/a6b895172aa2/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:451/1*MpIhkBHY_n1-PnvjbxkH_g.png",
+          "file": "img/a6b895172aa2/image-03.png"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:481/1*x1MuDt7i7sjgwe6gZ3WHfA.png",
+          "file": "img/a6b895172aa2/image-04.png"
+        },
+        {
+          "alt": "Image 6",
+          "source": "https://miro.medium.com/v2/resize:fit:411/1*pzEGg8B9vI-PbtGH_2Wj0A.png",
+          "file": "img/a6b895172aa2/image-05.png"
+        },
+        {
+          "alt": "Image 7",
+          "source": "https://miro.medium.com/v2/resize:fit:471/1*1c4mAZoVEEq3aAvr4JYUXA.png",
+          "file": "img/a6b895172aa2/image-06.png"
+        },
+        {
+          "alt": "Image 8",
+          "source": "https://miro.medium.com/v2/resize:fit:275/1*bJRLW22b4bFl8WOv2ESp_A.png",
+          "file": "img/a6b895172aa2/image-07.png"
+        }
+      ]
+    },
+    {
+      "date": "2023-01-10",
+      "title": "Events in Web-Apps (1): Concept",
+      "url": "https://flancer32.com/events-in-web-apps-1-concept-a2e77a6ed140",
+      "id": "a2e77a6ed140",
+      "file": "2023-01-10--a2e77a6ed140.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:420/1*Kw4R2gahZEKk_R5oLmBoCA.png",
+          "file": "img/a2e77a6ed140/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:371/1*R3nrVnxi7hLm42iOTLF3QQ.png",
+          "file": "img/a2e77a6ed140/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:611/1*XmtTGV5CfsRffugl7TOwcw.png",
+          "file": "img/a2e77a6ed140/image-03.png"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:626/1*OkvICiJAwDwVxf3_VQEOTg.png",
+          "file": "img/a2e77a6ed140/image-04.png"
+        },
+        {
+          "alt": "Image 6",
+          "source": "https://miro.medium.com/v2/resize:fit:371/1*8R3FxuB46yfGxbJFPcXTlg.png",
+          "file": "img/a2e77a6ed140/image-05.png"
+        },
+        {
+          "alt": "Image 7",
+          "source": "https://miro.medium.com/v2/resize:fit:601/1*JXWujyF-G1PDAwPIXgtrzQ.png",
+          "file": "img/a2e77a6ed140/image-06.png"
+        }
+      ]
+    },
+    {
+      "date": "2022-11-16",
+      "title": "AZ-structuring for source code files",
+      "url": "https://flancer32.com/az-structuring-for-source-code-files-8ae5844696ea",
+      "id": "8ae5844696ea",
+      "file": "2022-11-16--8ae5844696ea.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:515/1*OctU_JcQEH6nwwg7tT347g.png",
+          "file": "img/8ae5844696ea/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:576/1*I2RKODpXJ5sMdpl5mrcPVQ.png",
+          "file": "img/8ae5844696ea/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*lU-iSaX7v9EUTo9rwHK-0g.jpeg",
+          "file": "img/8ae5844696ea/image-03.jpg"
+        }
+      ]
+    },
+    {
+      "date": "2022-11-03",
+      "title": "Namespace: scope or address?",
+      "url": "https://flancer32.com/namespace-scope-or-address-9037fada36f2",
+      "id": "9037fada36f2",
+      "file": "2022-11-03--9037fada36f2.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*JMc9ov52aRjsZBFSzGvfBQ.jpeg",
+          "file": "img/9037fada36f2/image-01.jpg"
+        }
+      ]
+    },
+    {
+      "date": "2022-09-27",
+      "title": "Recursive structure of JS code",
+      "url": "https://flancer32.com/recursive-structure-of-js-code-3e9cfb5fb19c",
+      "id": "3e9cfb5fb19c",
+      "file": "2022-09-27--3e9cfb5fb19c.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:330/1*75jvDWbd94QFmqO5BKXkjA.png",
+          "file": "img/3e9cfb5fb19c/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2022-05-08",
+      "title": "ES6 `export` as code ‘brick’",
+      "url": "https://flancer32.com/es6-export-as-code-brick-b33a8efb3510",
+      "id": "b33a8efb3510",
+      "file": "2022-05-08--b33a8efb3510.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:567/1*GcV2JR-OoZ21GB5rbDCpjg.png",
+          "file": "img/b33a8efb3510/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2022-04-07",
+      "title": "Joined select with ‘knex’",
+      "url": "https://flancer32.com/joined-select-with-knex-2b0ea0ef2599",
+      "id": "2b0ea0ef2599",
+      "file": "2022-04-07--2b0ea0ef2599.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:649/0*D6ZPhWv0I116C9tN.png",
+          "file": "img/2b0ea0ef2599/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2022-03-18",
+      "title": "Мониторинг логов при разработке web-приложений",
+      "url": "https://flancer32.com/%D0%BC%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3-%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2-%D0%BF%D1%80%D0%B8-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B5-web-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9-8cffdd920c29",
+      "id": "8cffdd920c29",
+      "file": "2022-03-18--8cffdd920c29.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*wEJk-gLqpTtGMAW-253Sfw.png",
+          "file": "img/8cffdd920c29/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2022-02-07",
+      "title": "TeqFW: идентификация web-приложений",
+      "url": "https://flancer32.com/teqfw-%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F-web-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9-8d951d13becf",
+      "id": "8d951d13becf",
+      "file": "2022-02-07--8d951d13becf.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*hCzK2MZi-b4Rsj2zPzX6Zg.png",
+          "file": "img/8d951d13becf/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:337/1*5HlHu0kh5gRwrENdiNBbRQ.png",
+          "file": "img/8d951d13becf/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:545/1*WWoqUIafhdvr200VL1eJCw.png",
+          "file": "img/8d951d13becf/image-03.png"
+        }
+      ]
+    },
+    {
+      "date": "2022-02-02",
+      "title": "TeqFW: трансграничные события",
+      "url": "https://flancer32.com/teqfw-%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%87%D0%BD%D1%8B%D0%B5-%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F-73579bb1df2",
+      "id": "73579bb1df2",
+      "file": "2022-02-02--73579bb1df2.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:397/1*oYl6S6MQcOYW3_9UHziniQ.png",
+          "file": "img/73579bb1df2/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:562/1*n6QC43JkQ9kbb658kwMmIw.png",
+          "file": "img/73579bb1df2/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:457/1*iNI0jtgzWFhLCVE2aNij6Q.png",
+          "file": "img/73579bb1df2/image-03.png"
+        }
+      ]
+    },
+    {
+      "date": "2022-01-24",
+      "title": "Распределённые мобильные web-приложения",
+      "url": "https://flancer32.com/%D1%80%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D1%91%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-web-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-5d3d2e6bf9da",
+      "id": "5d3d2e6bf9da",
+      "file": "2022-01-24--5d3d2e6bf9da.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:422/1*Q750vC9sQ8DoRxHG-1pL9A.png",
+          "file": "img/5d3d2e6bf9da/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2022-01-05",
+      "title": "TeqFW: Events basic",
+      "url": "https://flancer32.com/teqfw-events-basic-541b01dfbe6b",
+      "id": "541b01dfbe6b",
+      "file": "2022-01-05--541b01dfbe6b.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:457/1*U0sCQv1cqO23dvZQw8_6wA.png",
+          "file": "img/541b01dfbe6b/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:517/1*Wslw0K5QImu84Nz2h711PA.png",
+          "file": "img/541b01dfbe6b/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:577/1*iQqhTgJZbP-lytsu3UuKDQ.png",
+          "file": "img/541b01dfbe6b/image-03.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-12-30",
+      "title": "EDA для PWA",
+      "url": "https://flancer32.com/eda-%D0%B4%D0%BB%D1%8F-pwa-d77d10cc3276",
+      "id": "d77d10cc3276",
+      "file": "2021-12-30--d77d10cc3276.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:397/1*Qckltr8Ha_LHmuTxeja6Rg.png",
+          "file": "img/d77d10cc3276/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:397/1*9VtplqA409FKYFihI5mAOw.png",
+          "file": "img/d77d10cc3276/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:591/1*Iy8-A0UYbUnpdGH819RGSQ.png",
+          "file": "img/d77d10cc3276/image-03.png"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:397/1*OmkwsQeK_Nv3HHLnToA69w.png",
+          "file": "img/d77d10cc3276/image-04.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-12-27",
+      "title": "События сервера для мобильных web-приложений",
+      "url": "https://flancer32.com/%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0-%D0%B4%D0%BB%D1%8F-%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D1%85-web-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9-eb540c7b3f3f",
+      "id": "eb540c7b3f3f",
+      "file": "2021-12-27--eb540c7b3f3f.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:447/1*fAsm9Y4bWYGxX30aG7-2mA.png",
+          "file": "img/eb540c7b3f3f/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:447/1*Kg_53b5uCCavpUQnUe5_jw.png",
+          "file": "img/eb540c7b3f3f/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:447/1*vKYp4tWyjweUxNQ1T0DF7Q.png",
+          "file": "img/eb540c7b3f3f/image-03.png"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:447/1*9YQ-9V-B8Ut6dCHRGDDNZw.png",
+          "file": "img/eb540c7b3f3f/image-04.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-12-15",
+      "title": "TeqFW: Web server",
+      "url": "https://flancer32.com/teqfw-web-server-33a5a903f7d9",
+      "id": "33a5a903f7d9",
+      "file": "2021-12-15--33a5a903f7d9.md",
+      "images": []
+    },
+    {
+      "date": "2021-12-03",
+      "title": "TeqFW: Обёртки для библиотек",
+      "url": "https://flancer32.com/teqfw-%D0%BE%D0%B1%D1%91%D1%80%D1%82%D0%BA%D0%B8-%D0%B4%D0%BB%D1%8F-%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA-46d32995a14e",
+      "id": "46d32995a14e",
+      "file": "2021-12-03--46d32995a14e.md",
+      "images": []
+    },
+    {
+      "date": "2021-10-21",
+      "title": "TeqFW DEM: основные файлы",
+      "url": "https://flancer32.com/teqfw-dem-%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5-%D1%84%D0%B0%D0%B9%D0%BB%D1%8B-4d1b6d942ac5",
+      "id": "4d1b6d942ac5",
+      "file": "2021-10-21--4d1b6d942ac5.md",
+      "images": []
+    },
+    {
+      "date": "2021-10-13",
+      "title": "JavaScript: 3 вида import’ов",
+      "url": "https://flancer32.com/javascript-3-%D0%B2%D0%B8%D0%B4%D0%B0-import%D0%BE%D0%B2-482790d9d93e",
+      "id": "482790d9d93e",
+      "file": "2021-10-13--482790d9d93e.md",
+      "images": []
+    },
+    {
+      "date": "2021-10-12",
+      "title": "PWA: перспективы среды обитания",
+      "url": "https://flancer32.com/pwa-%D0%BF%D0%B5%D1%80%D1%81%D0%BF%D0%B5%D0%BA%D1%82%D0%B8%D0%B2%D1%8B-%D1%81%D1%80%D0%B5%D0%B4%D1%8B-%D0%BE%D0%B1%D0%B8%D1%82%D0%B0%D0%BD%D0%B8%D1%8F-99e8c9e94ee7",
+      "id": "99e8c9e94ee7",
+      "file": "2021-10-12--99e8c9e94ee7.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*ysSBjHdP2MMaNYXKg5kBOg.png",
+          "file": "img/99e8c9e94ee7/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*kMdB7bz6147bUUz8TdWmBg.png",
+          "file": "img/99e8c9e94ee7/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*0BtdhtYhABSy6s75QAgEkQ.png",
+          "file": "img/99e8c9e94ee7/image-03.png"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*4dvnwk6mT0baszfOCXnUkQ.png",
+          "file": "img/99e8c9e94ee7/image-04.png"
+        },
+        {
+          "alt": "Image 6",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*XY-W9qERKZ-OLLezBiKvuw.png",
+          "file": "img/99e8c9e94ee7/image-05.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-10-05",
+      "title": "TeqFW: action",
+      "url": "https://flancer32.com/teqfw-action-8f4f41c8add6",
+      "id": "8f4f41c8add6",
+      "file": "2021-10-05--8f4f41c8add6.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:575/1*AtPdr_GWAFx-2QJ_0B7Bpw.png",
+          "file": "img/8f4f41c8add6/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-09-30",
+      "title": "Коммуникация web-приложения с Service Worker’ом",
+      "url": "https://flancer32.com/%D0%BA%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F-web-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-%D1%81-service-worker%D0%BE%D0%BC-3c719f6f646e",
+      "id": "3c719f6f646e",
+      "file": "2021-09-30--3c719f6f646e.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:395/1*q7X8g3YatLPRAKrQFzr6BQ.png",
+          "file": "img/3c719f6f646e/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-09-22",
+      "title": "Устойчивость JS-кода к изменениям",
+      "url": "https://flancer32.com/%D1%83%D1%81%D1%82%D0%BE%D0%B9%D1%87%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D1%8C-js-%D0%BA%D0%BE%D0%B4%D0%B0-%D0%BA-%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC-e9a0fe4f1e1f",
+      "id": "e9a0fe4f1e1f",
+      "file": "2021-09-22--e9a0fe4f1e1f.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:512/1*4HYquF0GMfmCU_26TJYejA.png",
+          "file": "img/e9a0fe4f1e1f/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:408/1*yFn6c_EwsnvUpGvjfuKqtg.png",
+          "file": "img/e9a0fe4f1e1f/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:700/0*2mUO2Puv6Lk3dvy5.jpg",
+          "file": "img/e9a0fe4f1e1f/image-03.jpg"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:492/1*CZn0QhdYL6xtWtoiEDt6MQ.png",
+          "file": "img/e9a0fe4f1e1f/image-04.png"
+        },
+        {
+          "alt": "Image 6",
+          "source": "https://miro.medium.com/v2/resize:fit:362/1*OJtorYMvwRWYijZZgvtElA.png",
+          "file": "img/e9a0fe4f1e1f/image-05.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-08-27",
+      "title": "JSON-описание реляционных структур данных",
+      "url": "https://flancer32.com/json-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D1%80%D0%B5%D0%BB%D1%8F%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D1%85-%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-285a12c37f43",
+      "id": "285a12c37f43",
+      "file": "2021-08-27--285a12c37f43.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:487/1*FZ5nxLF2nBBnAODIoq0noQ.png",
+          "file": "img/285a12c37f43/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-08-17",
+      "title": "TeqFW: инициализация и останов плагинов",
+      "url": "https://flancer32.com/teqfw-%D0%B8%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F-%D0%B8-%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D0%BE%D0%B2-31b12870d107",
+      "id": "31b12870d107",
+      "file": "2021-08-17--31b12870d107.md",
+      "images": []
+    },
+    {
+      "date": "2021-08-06",
+      "title": "TeqFW: Термины",
+      "url": "https://flancer32.com/teqfw-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D1%8B-ffdf439a1079",
+      "id": "ffdf439a1079",
+      "file": "2021-08-06--ffdf439a1079.md",
+      "images": []
+    },
+    {
+      "date": "2021-07-05",
+      "title": "Фабрики объектов в JavaScript",
+      "url": "https://flancer32.com/%D1%84%D0%B0%D0%B1%D1%80%D0%B8%D0%BA%D0%B8-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2-%D0%B2-javascript-b6879f83c5cd",
+      "id": "b6879f83c5cd",
+      "file": "2021-07-05--b6879f83c5cd.md",
+      "images": []
+    },
+    {
+      "date": "2021-06-25",
+      "title": "TeqFW: Core",
+      "url": "https://flancer32.com/teqfw-core-346fb4788e98",
+      "id": "346fb4788e98",
+      "file": "2021-06-25--346fb4788e98.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:622/1*Jf-JLpwWS4OFr4JTuGkX6A.png",
+          "file": "img/346fb4788e98/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-06-11",
+      "title": "TeqFW: Namespaces",
+      "url": "https://flancer32.com/teqfw-namespaces-26eee644615a",
+      "id": "26eee644615a",
+      "file": "2021-06-11--26eee644615a.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:254/1*rd8HWOUs399BCgMUrtgxBA.png",
+          "file": "img/26eee644615a/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-06-09",
+      "title": "TeqFW: Внедрение зависимостей",
+      "url": "https://flancer32.com/%D0%B2%D0%BD%D0%B5%D0%B4%D1%80%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9-%D0%B2-teqfw-b1beb319ca56",
+      "id": "b1beb319ca56",
+      "file": "2021-06-09--b1beb319ca56.md",
+      "images": []
+    },
+    {
+      "date": "2021-05-20",
+      "title": "Порождение объектов в JS",
+      "url": "https://flancer32.com/%D0%BF%D0%BE%D1%80%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2-%D0%B2-js-cf89130c97c5",
+      "id": "cf89130c97c5",
+      "file": "2021-05-20--cf89130c97c5.md",
+      "images": [
+        {
+          "alt": "Image 1: Unknown user",
+          "source": "https://miro.medium.com/v2/resize:fill:64:64/1*dmbNkD5D-u45r44go_cf0g.png",
+          "file": "img/cf89130c97c5/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-04-30",
+      "title": "Примитивы в JSDoc",
+      "url": "https://flancer32.com/%D0%BF%D1%80%D0%B8%D0%BC%D0%B8%D1%82%D0%B8%D0%B2%D1%8B-%D0%B2-jsdoc-2498d590cc5b",
+      "id": "2498d590cc5b",
+      "file": "2021-04-30--2498d590cc5b.md",
+      "images": []
+    },
+    {
+      "date": "2021-04-08",
+      "title": "Структура JS-кода: Модули",
+      "url": "https://flancer32.com/%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-js-%D0%BA%D0%BE%D0%B4%D0%B0-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D0%B8-a6dd36033e69",
+      "id": "a6dd36033e69",
+      "file": "2021-04-08--a6dd36033e69.md",
+      "images": []
+    },
+    {
+      "date": "2021-03-24",
+      "title": "Структура JS-кода: Классы",
+      "url": "https://flancer32.com/%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-js-%D0%BA%D0%BE%D0%B4%D0%B0-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D1%8B-221e37d3d1e7",
+      "id": "221e37d3d1e7",
+      "file": "2021-03-24--221e37d3d1e7.md",
+      "images": []
+    },
+    {
+      "date": "2021-03-11",
+      "title": "Структура JS-кода: Функции",
+      "url": "https://flancer32.com/%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-js-%D0%BA%D0%BE%D0%B4%D0%B0-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8-f4acfe63e5a0",
+      "id": "f4acfe63e5a0",
+      "file": "2021-03-11--f4acfe63e5a0.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:458/1*aWXOQlAefGTcj_y-QKDJww.png",
+          "file": "img/f4acfe63e5a0/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-03-09",
+      "title": "Дата-объекты в JavaScript",
+      "url": "https://flancer32.com/%D0%B4%D0%B0%D1%82%D0%B0-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B-%D0%B2-javascript-5708566f643b",
+      "id": "5708566f643b",
+      "file": "2021-03-09--5708566f643b.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:470/1*AfPbdiL4morrCI2nautvmg.png",
+          "file": "img/5708566f643b/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-02-12",
+      "title": "Опыт использования http2-модуля NodeJS",
+      "url": "https://flancer32.com/%D0%BE%D0%BF%D1%8B%D1%82-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-http2-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8F-nodejs-40f43c995194",
+      "id": "40f43c995194",
+      "file": "2021-02-12--40f43c995194.md",
+      "images": [
+        {
+          "alt": "Image 1: Unknown user",
+          "source": "https://miro.medium.com/v2/resize:fill:64:64/1*dmbNkD5D-u45r44go_cf0g.png",
+          "file": "img/40f43c995194/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-02-05",
+      "title": "Наименование элементов кода в JS",
+      "url": "https://flancer32.com/%D0%BD%D0%B0%D0%B8%D0%BC%D0%B5%D0%BD%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2-%D0%BA%D0%BE%D0%B4%D0%B0-%D0%B2-js-fbcabbee5931",
+      "id": "fbcabbee5931",
+      "file": "2021-02-05--fbcabbee5931.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:628/1*veS2oQyex2c5RSt1Ncy7Fg.png",
+          "file": "img/fbcabbee5931/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:470/1*Ma82e0eLG9m4FJX-NRMECg.png",
+          "file": "img/fbcabbee5931/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:631/1*hvElBvaGSYPqYOUe6F0Npg.png",
+          "file": "img/fbcabbee5931/image-03.png"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:542/1*7eTdTBFggazICIKjEO_6rw.png",
+          "file": "img/fbcabbee5931/image-04.png"
+        },
+        {
+          "alt": "Image 6",
+          "source": "https://miro.medium.com/v2/resize:fit:530/1*o5guEGQJoXogsQTGW_Tb8Q.png",
+          "file": "img/fbcabbee5931/image-05.png"
+        },
+        {
+          "alt": "Image 7",
+          "source": "https://miro.medium.com/v2/resize:fit:557/1*4FgPOUmGW5UA6Fe7r12I8w.png",
+          "file": "img/fbcabbee5931/image-06.png"
+        },
+        {
+          "alt": "Image 8",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*-VoGfC6S-2VGjYIRhSC19w.png",
+          "file": "img/fbcabbee5931/image-07.png"
+        }
+      ]
+    },
+    {
+      "date": "2021-01-28",
+      "title": "А антипаттерн ли Service Locator?",
+      "url": "https://flancer32.com/%D0%B0-%D0%B0%D0%BD%D1%82%D0%B8%D0%BF%D0%B0%D1%82%D1%82%D0%B5%D1%80%D0%BD-%D0%BB%D0%B8-service-locator-9ef49ef87415",
+      "id": "9ef49ef87415",
+      "file": "2021-01-28--9ef49ef87415.md",
+      "images": []
+    },
+    {
+      "date": "2020-12-18",
+      "title": "Vue 3 component cheat sheet",
+      "url": "https://flancer32.com/vue-3-component-cheat-sheet-6e1e28b70492",
+      "id": "6e1e28b70492",
+      "file": "2020-12-18--6e1e28b70492.md",
+      "images": []
+    },
+    {
+      "date": "2020-12-05",
+      "title": "Гипертимезия и эволюция в IT",
+      "url": "https://flancer32.com/%D0%B3%D0%B8%D0%BF%D0%B5%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%B7%D0%B8%D1%8F-%D0%B8-%D1%8D%D0%B2%D0%BE%D0%BB%D1%8E%D1%86%D0%B8%D1%8F-%D0%B2-it-9a5f461dc2a2",
+      "id": "9a5f461dc2a2",
+      "file": "2020-12-05--9a5f461dc2a2.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:500/0*jtF60RQjIYJLSTln.jpg",
+          "file": "img/9a5f461dc2a2/image-01.jpg"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:482/1*ZBBVbo_b6rAybx8jklZwYw.png",
+          "file": "img/9a5f461dc2a2/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:452/1*LL8VcN5k7OcKcJdt77mUHA.png",
+          "file": "img/9a5f461dc2a2/image-03.png"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*OfT-J3ZGXHfoc44aWrsx9w.png",
+          "file": "img/9a5f461dc2a2/image-04.png"
+        }
+      ]
+    },
+    {
+      "date": "2020-08-31",
+      "title": "CSS z-index в макетах страниц",
+      "url": "https://flancer32.com/css-z-index-%D0%B2-%D0%BC%D0%B0%D0%BA%D0%B5%D1%82%D0%B0%D1%85-%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86-7aa1f5bb7c1d",
+      "id": "7aa1f5bb7c1d",
+      "file": "2020-08-31--7aa1f5bb7c1d.md",
+      "images": []
+    },
+    {
+      "date": "2020-08-08",
+      "title": "Service Workers Basics",
+      "url": "https://flancer32.com/service-workers-basics-c7cda44c1c98",
+      "id": "c7cda44c1c98",
+      "file": "2020-08-08--c7cda44c1c98.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:142/1*v6l0pvJTgTlwC__jVQTZUA.png",
+          "file": "img/c7cda44c1c98/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:650/1*DveFhoV5sopsVTeW7_0z6A.png",
+          "file": "img/c7cda44c1c98/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*ALGAuRRUdPpS9Iv9lNuF5g.png",
+          "file": "img/c7cda44c1c98/image-03.png"
+        }
+      ]
+    },
+    {
+      "date": "2020-07-31",
+      "title": "События и Web-приложения",
+      "url": "https://flancer32.com/%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F-%D0%B8-web-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-8e5b13a71724",
+      "id": "8e5b13a71724",
+      "file": "2020-07-31--8e5b13a71724.md",
+      "images": [
+        {
+          "alt": "Image 1: Unknown user",
+          "source": "https://miro.medium.com/v2/resize:fill:64:64/1*dmbNkD5D-u45r44go_cf0g.png",
+          "file": "img/8e5b13a71724/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2020-07-27",
+      "title": "DOM’ашние деревья",
+      "url": "https://flancer32.com/dom%D0%B0%D1%88%D0%BD%D0%B8%D0%B5-%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8C%D1%8F-8a42d4a2667a",
+      "id": "8a42d4a2667a",
+      "file": "2020-07-27--8a42d4a2667a.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*oP7AeCxIcBaAoAzqzIzCmQ.jpeg",
+          "file": "img/8a42d4a2667a/image-01.jpg"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:235/1*hOmNlh6POMPtI5CZ31ZN-g.png",
+          "file": "img/8a42d4a2667a/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:158/1*zQ9dmtCP-rhdejQNRZyQAQ.jpeg",
+          "file": "img/8a42d4a2667a/image-03.jpg"
+        }
+      ]
+    },
+    {
+      "date": "2020-07-26",
+      "title": "Адресация элементов в DOM",
+      "url": "https://flancer32.com/%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D0%B0%D1%86%D0%B8%D1%8F-%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2-%D0%B2-dom-898acd38986",
+      "id": "898acd38986",
+      "file": "2020-07-26--898acd38986.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:500/0*ZcWU10uP7IcanSmG",
+          "file": "img/898acd38986/image-01.jpg"
+        }
+      ]
+    },
+    {
+      "date": "2020-07-13",
+      "title": "“Кровь” web-приложений",
+      "url": "https://flancer32.com/%D0%BA%D1%80%D0%BE%D0%B2%D1%8C-web-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9-d1a24935db14",
+      "id": "d1a24935db14",
+      "file": "2020-07-13--d1a24935db14.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:510/1*1F8nzKLTjV_Ix8vkQQSAJQ.gif",
+          "file": "img/d1a24935db14/image-01.gif"
+        }
+      ]
+    },
+    {
+      "date": "2020-07-09",
+      "title": "HTML/CSS/JS в Web-приложениях",
+      "url": "https://flancer32.com/html-css-js-%D0%B2-web-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%D1%85-2f3fc8c9b00e",
+      "id": "2f3fc8c9b00e",
+      "file": "2020-07-09--2f3fc8c9b00e.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:690/1*k05P6sUGt0-d2s3woUva9A.png",
+          "file": "img/2f3fc8c9b00e/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:683/1*UPcz7hj7Q6Zzj-c4fBty4g.png",
+          "file": "img/2f3fc8c9b00e/image-02.png"
+        },
+        {
+          "alt": "Image 4",
+          "source": "https://miro.medium.com/v2/resize:fit:683/1*z9S8I_pSGqCvJMgbFp98Uw.png",
+          "file": "img/2f3fc8c9b00e/image-03.png"
+        },
+        {
+          "alt": "Image 5",
+          "source": "https://miro.medium.com/v2/resize:fit:683/1*uW1jb3X_vkHpODUjPKaAxA.png",
+          "file": "img/2f3fc8c9b00e/image-04.png"
+        },
+        {
+          "alt": "Image 6",
+          "source": "https://miro.medium.com/v2/resize:fit:683/1*KVxlDUf9DZ9tshGqYqmaRQ.png",
+          "file": "img/2f3fc8c9b00e/image-05.png"
+        },
+        {
+          "alt": "Image 7",
+          "source": "https://miro.medium.com/v2/resize:fit:623/1*pkLdVk4cV9m6EPUOLmvn2Q.png",
+          "file": "img/2f3fc8c9b00e/image-06.png"
+        }
+      ]
+    },
+    {
+      "date": "2020-07-06",
+      "title": "Браузер, как среда для Web-приложений",
+      "url": "https://flancer32.com/%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80-%D0%BA%D0%B0%D0%BA-%D1%81%D1%80%D0%B5%D0%B4%D0%B0-%D0%B4%D0%BB%D1%8F-web-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9-66a3ef39b145",
+      "id": "66a3ef39b145",
+      "file": "2020-07-06--66a3ef39b145.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:432/1*zmiINFF8dX1eTbmN7tzwTg.png",
+          "file": "img/66a3ef39b145/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:374/1*aBufQ9ikeQ-ggvHmh0x7CQ.png",
+          "file": "img/66a3ef39b145/image-02.png"
+        }
+      ]
+    },
+    {
+      "date": "2020-06-30",
+      "title": "Основы Web-приложений",
+      "url": "https://flancer32.com/%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-web-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9-b71709ec4530",
+      "id": "b71709ec4530",
+      "file": "2020-06-30--b71709ec4530.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:322/1*9rPEhW0Ghw8J8wBunUonaA.png",
+          "file": "img/b71709ec4530/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:700/1*iLLbXgDo6IET0fG2tJzfqQ.png",
+          "file": "img/b71709ec4530/image-02.png"
+        }
+      ]
+    },
+    {
+      "date": "2020-04-02",
+      "title": "“Кирпичи” кода",
+      "url": "https://flancer32.com/%D0%BA%D0%B8%D1%80%D0%BF%D0%B8%D1%87%D0%B8-%D0%BA%D0%BE%D0%B4%D0%B0-d42f3c435e12",
+      "id": "d42f3c435e12",
+      "file": "2020-04-02--d42f3c435e12.md",
+      "images": [
+        {
+          "alt": "Image 1: Unknown user",
+          "source": "https://miro.medium.com/v2/resize:fill:64:64/1*dmbNkD5D-u45r44go_cf0g.png",
+          "file": "img/d42f3c435e12/image-01.png"
+        }
+      ]
+    },
+    {
+      "date": "2020-02-27",
+      "title": "Namespaces в базах данных",
+      "url": "https://flancer32.com/namespaces-%D0%B2-%D0%B1%D0%B0%D0%B7%D0%B0%D1%85-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-c716566f2a3",
+      "id": "c716566f2a3",
+      "file": "2020-02-27--c716566f2a3.md",
+      "images": [
+        {
+          "alt": "Image 2",
+          "source": "https://miro.medium.com/v2/resize:fit:387/1*6xoRqkCjs2tJ06GcpXontA.png",
+          "file": "img/c716566f2a3/image-01.png"
+        },
+        {
+          "alt": "Image 3",
+          "source": "https://miro.medium.com/v2/resize:fit:413/1*NZzc33JwztuECPhwAY_0Xg.png",
+          "file": "img/c716566f2a3/image-02.png"
+        }
+      ]
+    },
+    {
+      "date": "2020-02-13",
+      "title": "Имена ключей в БД",
+      "url": "https://flancer32.com/%D0%B8%D0%BC%D0%B5%D0%BD%D0%B0-%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%B9-%D0%B2-%D0%B1%D0%B4-5fa07e5d1a72",
+      "id": "5fa07e5d1a72",
+      "file": "2020-02-13--5fa07e5d1a72.md",
+      "images": []
+    }
+  ],
+  "failures": []
+}

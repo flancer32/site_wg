@@ -1,0 +1,148 @@
+{% extends "inc/layout.html" %}
+{% block title %}Dependency Injection sin misterio: un contenedor de objetos simple para JavaScript moderno{% endblock %}
+{% block description %}Un recorrido paso a paso desde el Composition Root hasta un contenedor de objetos y enlace tardío de módulos ES en JavaScript.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Dependency Injection sin misterio: un contenedor de objetos simple para JavaScript moderno</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2023-07-31</span>
+<p>IoC reduce el acoplamiento del código JavaScript: un módulo no importa estáticamente una implementación concreta, sino que recibe los objetos necesarios desde fuera. Este es un recorrido didáctico hacia un contenedor de objetos pequeño. Se refiere a JavaScript ES6+ sin transpilación, no a decoradores TypeScript.</p>
+<p>El objetivo no es una biblioteca universal lista para usar, sino comprender la mecánica: cargar módulos ES, crear dependencias e insertarlas en el lugar adecuado. El contenedor de demostración ocupa unas 35 líneas.</p>
+<h2>1. Composition Root</h2>
+<p>Con control directo, el servicio importa su logger:</p>
+<pre><code class="language-js">import logger from './logger.js';
+export default class Service {
+  exec(opts) { logger.info(JSON.stringify(opts)); }
+}</code></pre>
+<p>Con inversión, el servicio recibe la dependencia por constructor:</p>
+<pre><code class="language-js">export default class Service {
+  constructor(logger) {
+    this.exec = (opts) =&gt; logger.info(JSON.stringify(opts));
+  }
+}</code></pre>
+<p>Alguien sigue teniendo que importar y crear los objetos. Ese lugar es el Composition Root:</p>
+<pre><code class="language-js">import logger from './logger.js';
+import Service from './service.js';
+const service = new Service(logger);
+service.exec({ name: 'Composition Root' });</code></pre>
+<h2>2. Fábricas</h2>
+<p>Para simplificar la demostración, cada módulo exporta una fábrica asíncrona que recibe dependencias y produce el resultado:</p>
+<pre><code class="language-js">export default async function factory(logger) {
+  return (opts) =&gt; logger.info(JSON.stringify(opts));
+}</code></pre>
+<p>En código real un export puede ser clase, función u objeto; este acuerdo solo aclara el siguiente paso.</p>
+<h2>3. Especificación de dependencias</h2>
+<p>Los nombres de argumentos comunes pueden cambiar con minificación. Por eso se pasan dependencias en un solo objeto:</p>
+<pre><code class="language-js">function factory({ logger, config }) { /* ... */ }</code></pre>
+<p>Al principio se puede usar temporalmente la ruta del módulo como clave:</p>
+<pre><code class="language-js">export default async function factory({ ['./logger.js']: logger }) {
+  return (opts) =&gt; logger.info(JSON.stringify(opts));
+}</code></pre>
+<p>Así el contenedor recibe la información que debe analizar.</p>
+<h2>4. Analizador de especificación</h2>
+<p>El ejemplo simplificado convierte una función en texto, extrae parámetros con una expresión regular y obtiene las claves. Es un recurso didáctico, no una recomendación de producción: en un contenedor real el contrato debe declararse mediante metadatos explícitos y fiables.</p>
+<h2>5. Contenedor</h2>
+<p>El contenedor importa recursivamente módulos, encuentra dependencias, construye la especificación y guarda resultados en caché:</p>
+<pre><code class="language-js">const cache = {};
+async function get(key) {
+  if (cache[key]) return cache[key];
+  const { default: factory } = await import(key);
+  const spec = {};
+  for (const path of parse(factory.toString())) spec[path] = await get(path);
+  return (cache[key] = await factory(spec));
+}</code></pre>
+<p>Ahora el Composition Root se reduce a una línea:</p>
+<pre><code class="language-js">const service = await container.get('./service.js');</code></pre>
+<h2>6. Resolver y enlace tardío</h2>
+<p>Las rutas en la especificación aún atan el código a detalles. El paso final deja únicamente abstracciones:</p>
+<pre><code class="language-js">export default async function factory({ logger, config }) {
+  return (opts) =&gt; logger.info(`${config.appName}: ${JSON.stringify(opts)}`);
+}</code></pre>
+<p>La correspondencia entre abstracción e implementación se mueve a un mapa de root:</p>
+<pre><code class="language-js">container.setMap({
+  service: './service.js',
+  logger: './logger.js',
+  config: './config.js',
+});
+const service = await container.get('service');</code></pre>
+<p>Eso es enlace tardío: al iniciar se puede elegir un logger de consola o archivo sin reescribir el servicio. El código pasa de ser una estructura «soldada» a una «atornillada»: un módulo se separa y reutiliza con más facilidad.</p>
+<p>En un proyecto grande nadie mantiene manualmente un mapa para cada nombre. Las convenciones convierten <code>Vendor_Package_Mod</code> en una ruta como <code>node_modules/@vendor/package/src/Mod.js</code>; el identificador incluso puede incluir ciclo de vida o ámbito.</p>
+<h2>Conclusión</h2>
+<p>DI resulta especialmente útil con muchos archivos y paquetes: reduce acoplamiento y mejora pruebas. En frontend tradicional los bundlers suelen ocultar módulos individuales, pero en una PWA Service Worker puede descargar y cachear conjuntos de archivos ES. Así el mismo principio de enlace funciona en Node.js y navegador. Para producción conviene usar un contenedor maduro como <a href="https://github.com/teqfw/di">@teqfw/di</a>, no el parser didáctico del artículo.</p>
+<h2>Fragmentos adicionales de código fuente</h2>
+<pre>export default async function Factory({[‘./logger.js’]: logger}) {
+return function (opts) {
+logger.info(<code>Service is running with: ${JSON.stringify(opts)}</code>);
+};
+}</pre>
+<pre>import fLogger from ‘./logger.js’;
+import fService from ‘./service.js’; const logger = await fLogger();
+const serv = await fService({[‘./logger.js’]: logger});
+serv({name: ‘The Spec’});</pre>
+<pre>function Factory(
+{
+}
+) { }</pre>
+<pre>function parser (def) {
+const res = [];
+const parts = /function Factory({(.<em>)}).</em>/s.exec(def);
+if (parts?.[1]) {
+const deps = parts[1].split(‘,’);
+for (const dep of deps) {
+const left = dep.split(‘:’)[0];
+const path = left.trim()</pre>
+<pre>res.push(path);
+}
+}
+return res;
+}; const paths = parser(factory.toString());</pre>
+<pre>const deps = {}; const FN = /function Factory({(.<em>)}).</em>/s;
+function parser(def) {
+const res = [];
+const parts = FN.exec(def);
+if (parts?.[1]) {
+const deps = parts[1].split(‘,’);
+for (const dep of deps) {
+const left = dep.split(‘:’)[0];
+const path = left.trim()</pre>
+<pre>res.push(path);
+}
+}
+return res;
+}
+async function get(key) {
+if (deps[key]) return deps[key];
+else {
+const {default: factory} = await import(key);
+const def = factory.toString();
+const paths = parser(def);
+const spec = {};
+for (const path of paths)
+spec[path] = await get(path);
+const res = factory(spec);
+deps[key] = res;
+return res;
+}
+}
+export default {get};</pre>
+<pre>import container from ‘./container.js’; const serv = await container.get(‘./service.js’);
+serv({name: ‘The Object Container’});</pre>
+<pre>import logger from ‘./logger.js’; export default function {
+logger.info(<code>Service is running with: ${JSON.stringify(opts)}</code>);
+}</pre>
+<pre>export default async function Factory({[‘./logger.js’]: logger}) {
+return function (opts) {
+logger.info(<code>Service is running with: ${JSON.stringify(opts)}</code>);
+};
+} In both cases, we use “<em>details</em>” (speaking in terms of the <a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency Inversion Principle</a>). In this step, we remove the details from the dependency specification and leave only abstractions:
+export default async function Factory({logger, config}) {
+return function (opts) {
+logger.info(<code>Service '${config.appName}' is running with: ${JSON.stringify(opts)}</code>);
+};
+}</pre>
+<pre>import container from ‘./container.js’; const map = {</pre>
+<pre>};
+container.setMap(map);
+const serv = await container.get(‘service’);
+serv({name: ‘The Resolver’});</pre>
+</div>
+{% endblock %}

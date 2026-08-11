@@ -1,0 +1,143 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}TeqFW: Core{% endblock %}
+{% block description %}В этой публикации я описываю основные компоненты ядра платформы [TeqFW](https://wiredgeese.com/%D1%87%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-teqfw-208d5938205). Teq-приложение — э{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>TeqFW: Core</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2021-06-25
+    </span>
+    {% raw %}
+<p>В этой публикации я описываю основные компоненты ядра платформы <a href="https://wiredgeese.com/%D1%87%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-teqfw-208d5938205">TeqFW</a>. <code>Teq</code>-приложение — это прежде всего <code>nodejs</code>-приложение и одновременно модульная система из <code>teq</code>-плагинов, то есть <code>npm</code>-модулей.</p>
+<p>Таким образом, задачи у Ядра платформы следующие:</p>
+<ul>
+<li>обеспечить возможность запуска <code>teq</code>-приложения и выполнения им команд в консольном режиме;</li>
+<li>обеспечить поиск и подключение <code>teq</code>-плагинов;</li>
+<li>заложить фундаментальные архитектурные принципы <code>teq</code>-приложений;</li>
+</ul>
+<h2 id="bootstrap">Bootstrap</h2>
+<p>Точка входа в приложение — скрипт <code>./bin/tequila.mjs</code>. Он фиксирует текущее положение приложения в файловой системе, загружает <a href="https://wiredgeese.com/%D0%B2%D0%BD%D0%B5%D0%B4%D1%80%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9-%D0%B2-teqfw-b1beb319ca56">DI-контейнер</a>, настраивает контейнер для работы с Ядром, достаёт из Контейнера объект <code>TeqFw_Core_Back_App$</code> , инициирует его и запускает. Этот скрипт не входит в Ядро и является частью пользовательского приложения, но его код <a href="https://github.com/teqfw/create-teqfw-app/blob/master/init/bin/tequila.mjs">не меняется</a> от приложения к приложению:</p>
+<p>#!/usr/bin/env node</p>
+<pre>‘use strict’; import $path from ‘path’;
+import Container from ‘<a href="http://twitter.com/teqfw/di"><span class="citation" data-cites="teqfw/di">@teqfw/di</span></a>’;
+const version = ‘0.11.0’;/* Resolve paths to main folders */
+const url = new URL(import.meta.url);
+const script = url.pathname;
+const bin = $path.dirname(script);
+const root = $path.join(bin, ‘..’);</pre>
+<p>try {</p>
+<p>/* Create and setup DI container */</p>
+<pre>/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {TeqFw_Di_Container} */
+const container = new Container();
+const srcCore = $path</pre>
+<p>.join(root, ‘node_modules/<span class="citation" data-cites="teqfw/core-app/src">@teqfw/core-app/src</span>’);</p>
+<pre>const srcDi = $path.join(root, ‘node_modules/<span class="citation" data-cites="teqfw/di/src">@teqfw/di/src</span>’);
+container.addSourceMapping(‘TeqFw_Core’, srcCore, true, ‘mjs’);
+container.addSourceMapping(‘TeqFw_Di’, srcDi, true, ‘mjs’); // Bootstrap configuration object for ‘TeqFw_Core_Back_App’
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {typeof TeqFw_Core_Back_App.Bootstrap} */
+const Bootstrap = await container</pre>
+<p>.get(‘TeqFw_Core_Back_App#Bootstrap’);</p>
+<pre>/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {TeqFw_Core_Back_App.Bootstrap} */
+const bootstrap = new Bootstrap({version, root});
+container.set(‘bootstrap’, bootstrap); /** Request Container to construct App then run it */
+const app = await container.get(‘TeqFw_Core_Back_App$’);
+await app.init();
+await app.run();
+} catch (e) {
+console.error(‘Cannot create or run TeqFW application.’);
+console.dir(e);
+}</pre>
+<p>Разная функциональность приложений обеспечивается за счет разных <code>teq</code>-плагинов, подключаемых приложением, и реализованных в них исполняемых командах.</p>
+<h2 id="teqfw_core_back_app">TeqFw_Core_Back_App</h2>
+<h3 id="инициализация">Инициализация</h3>
+<p>На этапе инициализации <code>core</code>-приложение выполняет следующее:</p>
+<ul>
+<li>инициализирует логгер;</li>
+<li>загружает локальную конфигурацию (параметры подключения к серверной БД и т.п.);</li>
+<li>сканирует файловую систему приложения и формирует реестр <code>teq</code>-плагинов;</li>
+<li>добавляет namespace’ы из найденных <code>teq</code>-плагинов в DI-контейнер;</li>
+<li>сканирует <code>teq</code>-плагины и формирует список консольных команд, доступных для выполнения в данном приложении;</li>
+</ul>
+<h3 id="запуск">Запуск</h3>
+<p><code>Core</code>-приложение выполняет запрошенную консольную команду (как правило, запуск web-сервера). Если никакой команды не запрашивалось, то выводится список доступных команд (пример для <a href="https://github.com/flancer32/pwa_bwl"><span class="citation" data-cites="flancer32/pwa_bwl">@flancer32/pwa_bwl</span></a>) и выполнение <code>core</code>-приложения завершается:</p>
+<p>Usage: tequila [options] [command]Options:</p>
+<p>-h, –help display help for commandCommands:</p>
+<p>app-db-reset Reset database structures and initialize test data.</p>
+<p>app-db-upgrade Backup data, drop-create tables then restore data.</p>
+<p>core-version Get version of the application.</p>
+<p>http2-start Start the HTTP/2 server.</p>
+<p>http2-stop Stop the HTTP/2 server.</p>
+<p>help [command] display help for command ### Завершение</p>
+<p><code>Core</code>-приложение предоставляет метод <code>stop()</code> для вызова из любой команды для своего завершения (например, закрытия соединений с БД).</p>
+<p><em>TODO: необходим механизм, позволяющий плагинам добавлять в этот метод свой функционал.</em></p>
+<h2 id="логгер">Логгер</h2>
+<p>На данный момент логирование зачаточное и вывод логов реализован только на консоль и только для бэка. Но архитектурно логгер <code>TeqFw_Core_Logger</code> сделан таким образом, чтобы его можно применять и на фронте, и на бэке, а вывод логов перенаправлять при помощи подключаемых транспортов (на консоль, в файл, в базу, на сервер и т.п.).</p>
+<h2 id="конфигурация">Конфигурация</h2>
+<p>На данный момент конфигурация приложения только локальная — <code>TeqFw_Core_Back_Config</code>. Конфиг-объект считывает JSON из файла <code>.cfg/local.json</code> и через DI предоставляет доступ к конфигурационным данным для остальных объектов приложения.</p>
+<h2 id="сканер-плагинов">Сканер плагинов</h2>
+<p><code>Teq</code>-плагином считается любой <code>npm</code>-пакет, у которого в корне находится дескриптор <code>./teqfw.json</code>. В дескрипторе, как минимум, указывается маппинг namespace’а плагина (namespace выбирается разработчиком плагина) на локальную файловую систему плагина:</p>
+<pre>{</pre>
+<p>“autoload”: {</p>
+<p>“ns”: “Vendor_Project_Plugin”,</p>
+<pre>“path”: “./src”
+}
+} Сканер плагинов (<code>TeqFw_Core_Back_Scan_Plugin</code>) пробегает по всем подкаталогам в <code>./node_modules/</code> в поисках <code>teq</code>-дескрипторов (<code>./teqfw.json</code>) и фиксирует найденные <code>npm</code>-пакеты в качестве <code>teq</code>-плагинов в реестре <code>TeqFw_Core_Back_Scan_Plugin_Registry</code>. После чего <code>core</code>-приложение добавляет найденные namespace’ы и их маппинг на файловую систему в DI-контейнер.</pre>
+<p>Остальные части приложения получают доступ к плагинам и их дескрипторам через этот реестр (также через DI).</p>
+<h2 id="команды">Команды</h2>
+<p>По сути, <code>core</code>-приложение (объект <code>TeqFw_Core_Back_App$</code>) представляет собой обёртку над <a href="https://www.npmjs.com/package/commander">commander’ом</a>, которая анализирует <code>teq</code>-плагины приложения и добавляет к нему команды, прописанные в <code>teq</code>-дескрипторах (<code>./teqfw.json</code>):</p>
+<pre>{</pre>
+<p>“commands”: [</p>
+<pre>“TeqFw_Core_Back_Cli_Version”
+]
+} В узле <code>commands</code> прописываются идентификаторы es6-модулей, экспортирующих по-умолчанию фабрики для создания таких структур (<code>TeqFw_Core_Back_Api_Dto_Command</code>):
+class TeqFw_Core_Back_Api_Dto_Command {
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {Function} */
+action;
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {string} */
+desc;
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {string} */
+name;
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {string} */
+realm;
+}</pre>
+<p>Вот код типичной фабрики для создания команды:</p>
+<pre>export default function Factory(spec) {
+// EXTRACT DEPS
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {TeqFw_Core_Defaults} */
+const DEF = spec[‘TeqFw_Core_Defaults$’];
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {TeqFw_Core_Back_App.Bootstrap} */
+const cfg = spec[‘TeqFw_Core_Back_App#Bootstrap$’];
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {Function|TeqFw_Core_Back_Api_Dto_Command.Factory} */
+const fCommand = spec[‘TeqFw_Core_Back_Api_Dto_Command#Factory$’]; // DEFINE INNER FUNCTIONS
+const action = async function () {
+console.log(<code>Application version: ${cfg.version}.</code>);
+}; // COMPOSE RESULT
+const res = fCommand.create();
+res.realm = DEF.BACK_REALM;
+res.name = ‘version’;
+res.desc = ‘Get version of the application.’;
+res.action = action;
+return res;
+} <code>Core</code>-приложение добавляет команды в <a href="https://www.npmjs.com/package/commander">commander</a> при помощи DI-контейнера, который запускает соответствующую фабрику для создания действия (<code>action</code>) и мета-информации для commander’а:
+const cmd = await container.get(<code>${factoryName}$</code>);
+const fullName = (cmd.realm)</pre>
+<dl>
+<dt>? <code>${cmd.realm}-${cmd.name}</code></dt>
+<dd>
+<pre>cmd.name;</pre>
+</dd>
+</dl>
+<pre>commander.command(fullName)</pre>
+<p>.description(cmd.desc)</p>
+<pre>.action(cmd.action);</pre>
+<h2>Резюме</h2>
+<p><code>core</code>-плагин в TeqFW содержит функционал для обнаружения <code>teq</code>-плагинов в общей массе <code>npm</code>-модулей, а также для нахождения консольных команд в <code>teq</code>-плагинах и выполнения запрошенной пользователем команды. Инициирует объекты логгера и локальной конфигурации приложения и помещает их в DI-контейнер.</p>
+<figure>
+<img src="/medium/img/346fb4788e98/image-01.png" alt="Image 2" />
+</figure>
+
+    {% endraw %}
+</div>
+{% endblock %}

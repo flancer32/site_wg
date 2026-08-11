@@ -1,0 +1,107 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}What is TeqFW?{% endblock %}
+{% block description %}TeqFW stands for the Tequila Framework, a web application development framework written in pure JavaScript. It is not a large-scale framework like AngularJS, Laravel, Django, etc.,{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>What is TeqFW?</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2024-04-29
+    </span>
+    {% raw %}
+<p>TeqFW stands for the Tequila Framework, a web application development framework written in pure JavaScript. It is not a large-scale framework like AngularJS, Laravel, Django, etc., but rather an individual’s endeavor to create a tool tailored to their specific needs. In the current landscape of web development, a clear dichotomy has emerged: backend and frontend development, each with its own coding nuances. Often, backend and frontend components are coded in different programming languages, resulting in separate applications interconnected via APIs and data structures. Consequently, web developers now categorize themselves into frontend developers, backend developers, and full-stack developers.</p>
+<p>TeqFW is an experiment, a test to see if a single developer can successfully create web applications for small and medium-sized businesses. My name is Alex Gusev, and I have been involved in web application development for about 25 years. Here are the principles I have based this experiment on.</p>
+<h2 id="one-language-to-rule-them-all">One Language to Rule Them All</h2>
+<p>Certainly, in web development, HTML and CSS are indispensable. However, when it comes to actual programming, there is only one language for web programming, and that language is JavaScript. It’s neither Java, nor PHP, nor Ruby, nor Python, nor Go, nor TypeScript — only JavaScript (and a bit of WebAssembly).</p>
+<p>Personally, I find it challenging to actively use multiple programming languages and switch between them. There was a time when I was quite actively programming in LotusScript, Java, PHP, and JS simultaneously. From my own experience, I know that specializing in one direction gradually leads to the degradation of skills in others, less used ones.</p>
+<p>With the advent of NodeJS, it became possible to write both server-side and client-side code in JS. Therefore, for me, it became quite logical to abandon all other programming languages ​​in favor of JS. As Bruce Lee said, “<em>I fear not the man who has practiced 10,000 kicks once, but I fear the man who has practiced one kick 10,000 times</em>”. Focusing on one language allows for a better understanding of its philosophy, and as a result, enables more efficient use of it. Both on the frontend and on the backend.</p>
+<h2 id="jsdoc-instead-of-typescript">JSDoc instead of TypeScript</h2>
+<p>I had the opportunity to program using <a href="https://www.gwtproject.org/">GWT</a> for a couple of years — this is when you write code in Java, and it transpiles into JS. It’s very convenient if you know Java and don’t know JS. But the downside is that the code in the browser looks completely different from the code in the IDE. Essentially, with this scheme, you can transpile code into JS from any language — python, PHP, C++, Go, … You can even transpile from TypeScript. You can even transpile from JS to JS (minification and obfuscation).</p>
+<p>All this leads to the fact that the code executed in the browser is not the same as the code in the developer’s IDE. This makes debugging and bug hunting difficult. And if you not only write code but also maintain it, from time to time you have to look at the code in the browser and try to understand why it doesn’t work as expected. Of course, you can drag all sorts of map files and plugins into the browser that help you see the same code in the browser that was in the IDE, or you can simply use the same code during development that ends up in the browser. I chose the latter option.</p>
+<p>At the moment, the main advantage of TS over JS is considered to be types. They greatly assist in code navigation and refactoring. My experience has shown that using <a href="https://jsdoc.app/">JSDoc</a> together with JS helps to structure data quite well and describe the interfaces of code elements. At the same time, the developed code may not differ from the executed one at all, there are no restrictions on all the capabilities of JS (yes, you can shoot yourself in the foot, but weapons are toys for adults), and there is no time lost on transpiling the code.</p>
+<h2 id="dependency-injection">Dependency Injection</h2>
+<p>When programming in Java and PHP, I often used object containers with dependency injection. Binding objects at runtime allows for adding depth to development. You can compare binding objects at compile time with 2D space, while binding objects at runtime — with 3D space. Dependency injection not only reduces the level of coupling between application components and increases code testability but also allows overriding base functionality without changing the base code (for example, by injecting a component from a plugin instead of the base component, which wraps the base component and adds/changes its behavior). This behavior provides significant advantages when building applications from modules developed by unfamiliar groups of developers.</p>
+<p>Therefore, the first thing I did when I started my experiment was to create such a <a href="https://github.com/teqfw/di">dependency container</a> for JS that would work in both the browser and Node.js. To achieve this, I had to introduce the concept of <a href="https://medium.com/@wiredgoose/namespace-scope-or-address-9037fada36f2">namespaces</a> into my experiment. Namespaces in TeqFW are similar to the namespace used in the <a href="https://zf2.readthedocs.io/en/release-2.2.1/migration/namespacing-old-classes.html">Zend1</a> framework before the corresponding operator appeared in PHP 5.3.</p>
+<p>Using namespaces in the object container together with the import function and es6 modules allowed me to create JS code that worked equally well in the frontend and backend without prior transpilation. Thus, in my applications, three areas of JS code can be distinguished:</p>
+<ul>
+<li><strong>Back</strong>: code that will only be used on the server — may include static imports of nodejs functions and code from npm packages.</li>
+<li><strong>Front</strong>: code that will only be used in the browser — cannot include static imports of nodejs functions and code from npm packages, but can include static imports of web resources (for example, from <a href="https://www.jsdelivr.com/">JSDelivr</a> or <a href="https://www.unpkg.com/">UNPKG</a>).</li>
+<li><strong>Shared</strong>: code that will be used both on the server and in the browser — should preferably use only dependency injection through the object container.</li>
+</ul>
+<h2 id="dry-dont-repeat-yourself">DRY (Don’t Repeat Yourself)</h2>
+<p>In programming, there’s a huge practice built around being able to use someone else’s code or reuse your own. In the JavaScript ecosystem, this is facilitated by npm packages. Therefore, in my experiment, I organize my code into separate packages and build the final application using a regular <code>package.json</code>.</p>
+<p>There are two packages that are included in every Teq application:</p>
+<ul>
+<li><a href="https://github.com/teqfw/di"><span class="citation" data-cites="teqfw/di">@teqfw/di</span></a> — object container with dependency injection</li>
+<li><a href="https://github.com/teqfw/core"><span class="citation" data-cites="teqfw/core">@teqfw/core</span></a> — basic code allowing the execution of a Teq application as a nodejs application on the server.</li>
+</ul>
+<p>Depending on the requirements of the final application, other packages can be included:</p>
+<ul>
+<li><a href="https://github.com/teqfw/db"><span class="citation" data-cites="teqfw/db">@teqfw/db</span></a> — interaction with relational databases on the server side.</li>
+<li><a href="https://github.com/teqfw/web"><span class="citation" data-cites="teqfw/web">@teqfw/web</span></a> — web server for serving static files.</li>
+<li><a href="https://github.com/teqfw/i18n"><span class="citation" data-cites="teqfw/i18n">@teqfw/i18n</span></a> — internationalization.</li>
+<li>…</li>
+</ul>
+<p>Often, web applications consist of a client-side and an admin panel. In this case, the application code can be organized into three packages:</p>
+<ul>
+<li><span class="citation" data-cites="app/base">@app/base</span> — the base package contains code used in both the client-side and admin panel (including defining common data structures).</li>
+<li><span class="citation" data-cites="app/client">@app/client</span> — complements the base package with client-specific functionality.</li>
+<li><span class="citation" data-cites="app/admin">@app/admin</span> — complements the base package with administrative functionality.</li>
+</ul>
+<p>If a developer has common code that they use in a subset of their applications, it can also be extracted into a separate package:</p>
+<ul>
+<li><span class="citation" data-cites="vendor/auth">@vendor/auth</span> — code for user authentication.</li>
+</ul>
+<p>This is all standard practice for server-side development (Node.js), but not entirely common for the frontend. For the frontend, developers usually prefer to bundle their code using tools like <a href="https://webpack.js.org/">Webpack</a>, <a href="https://browserify.org/">Browserify</a>, etc.</p>
+<h2 id="typical-application-architecture">Typical Application Architecture</h2>
+<p>It’s clear that high-traffic applications have different architectures compared to static websites. The TeqFW platform is designed specifically for small web applications with low traffic, which can be developed by one or two full-stack developers. Ideally, users connect to the application through mobile phones. The client-side assumes extensive use of modern technologies (<a href="https://web.dev/explore/progressive-web-apps">PWA</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">service workers</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage">cacheStorage</a>, <a href="https://developer.mozilla.org/en-US/docs/Glossary/IndexedDB">IndexedDB</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Push_API">WebPush</a>, etc.), allowing the computational load to be shifted from the server to the client.</p>
+<figure>
+<img src="/medium/img/f84ab4c66abf/image-01.png" alt="Image 2" />
+</figure>
+<p>The typical teq-application:</p>
+<ul>
+<li>Stores shared data on the server in a relational database.</li>
+<li>Stores/caches user’s personal data in their browser’s IndexedDB.</li>
+<li>Data processing code is spread across two environments — frontend and backend.</li>
+</ul>
+<p>However, it is not a set of microservices but a modular monolith. Rather, two modular monoliths assembled from the same packages. Both the frontend and backend are standalone applications consisting of individual fragments distributed as npm packages.</p>
+<p>I want to emphasize that a Teq application is a web application, not a set of static pages. It largely disregards SEO requirements. The platform is designed for building applications that operate in a mobile phone browser, not for creating server-side pages indexed by search engines.</p>
+<h2 id="rdbms-and-dem">RDBMS and DEM</h2>
+<p>On the frontend, IndexedDB allows storing heterogeneous data in a single store, while on the backend, a layer called <a href="https://knexjs.org/">Knex.js</a> is used for data manipulation. It’s not a classic <a href="https://www.doctrine-project.org/projects/orm.html">ORM</a> but rather a <a href="https://www.doctrine-project.org/projects/doctrine-dbal/en/4.0/reference/introduction.html">DBAL</a> — it allows working uniformly with different databases (PostgreSQL, MySQL/MariaDB, SQLite, etc.).</p>
+<p>To work with data in relational databases, you first need to describe the table structures. Since a Teq application is assembled from npm packages, each npm package contains its own fragment of the shared database in the form of a JSON file (<code>etc/teqfw.schema.json</code>). This file describes the desired table names, data types in the tables, indexes, and relationships with other tables. Each Teq application has its own rules for creating tables in the database needed by the packages included in the application. These rules are also described in a JSON file (<code>etc/teqfw.schema.map.json</code>). All these JSON files, combined together, allow building a unified structure (Domain Entities Map) and using it to create tables in the database and manipulate data. The transformation of DEM into a data structure is done in the <a href="https://github.com/teqfw/db"><span class="citation" data-cites="teqfw/db">@teqfw/db</span></a> package.</p>
+<p>This approach allows each npm package to have its own subset of tables in the relational database and to link its tables with tables from other packages, taking into account the recommendations of the current Teq application. In one Teq application, the tables of the <code>mod_address</code> package, for example, may be linked to the tables of the <code>app_base_user</code> package, while in another Teq application, these same tables may be linked to the tables of the <code>@vendor/customer</code> package.</p>
+<h2 id="code-modifiability">Code Modifiability</h2>
+<p>For me, as a developer, the primary goal of developing a web application at the moment is its <a href="https://flancer32.com/so-what-is-the-ultimate-goal-of-programming-0fd5def59fdc">modifiability</a>. The TeqFW platform is based on some principles that help facilitate code analysis and modification (for example, DI, decomposition of input-output arguments, <a href="https://flancer32.com/recursive-structure-of-js-code-3e9cfb5fb19c">recursive structuring</a> of JS code, <a href="https://flancer32.com/az-structuring-for-source-code-files-8ae5844696ea">AZ-structuring</a> for source code files, etc.).</p>
+<p>For me, the speed of application execution or the volume of information transmitted over the network is not a priority. I am not concerned at all that the final application code is in the browser in an open form, in the form of separate es6 files, rather than in bundles familiar to everyone. What matters most to me is the ability to quickly recall or understand what a particular piece of code does and how to modify it to add new functionality without breaking the existing one. However, since this is an experimental platform, I can afford not to be too concerned about backward compatibility. It is sufficient for my applications to work on fixed versions of platform packages.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Tequila Framework is an experiment in less common approaches to web development. Its goal is to develop technologies and tools that let independent developers build modern web applications from reusable modules of their own or from the wider community.</p>
+<p>At the moment, the following modules can be highlighted, which are in a more or less ready-to-use state:</p>
+<ul>
+<li><a href="https://github.com/teqfw/di"><span class="citation" data-cites="teqfw/di">@teqfw/di</span></a> — object container with dependency injection.</li>
+<li><a href="https://github.com/teqfw/core"><span class="citation" data-cites="teqfw/core">@teqfw/core</span></a> — Teq plugin scanner (npm packages with integration capabilities into Teq application) and a wrapper for commander for running Teq applications in console mode.</li>
+<li><a href="https://github.com/teqfw/db"><span class="citation" data-cites="teqfw/db">@teqfw/db</span></a> — Teq plugin for working with relational databases on the server side, forming the DB structure based on DEM, wrapper for knexjs.</li>
+<li><a href="https://github.com/teqfw/email"><span class="citation" data-cites="teqfw/email">@teqfw/email</span></a> — <a href="https://www.nodemailer.com/">nodemailer</a> wrapper.</li>
+<li><a href="https://github.com/teqfw/web"><span class="citation" data-cites="teqfw/web">@teqfw/web</span></a> — nodejs-based web server for serving static files, with the ability to connect HTTP request handlers. Can be run in HTTP/HTTP2/HTTPS modes. Wrapper for <a href="https://github.com/websockets/ws">ws</a>.</li>
+<li><a href="https://github.com/teqfw/web-api"><span class="citation" data-cites="teqfw/web-api">@teqfw/web-api</span></a> — connects a synchronous request handler (POST, GET) to the web server.</li>
+<li><a href="https://github.com/teqfw/web-event"><span class="citation" data-cites="teqfw/web-event">@teqfw/web-event</span></a> — connects an asynchronous request handler (SSE) to the web server.</li>
+<li><a href="https://github.com/teqfw/web-push"><span class="citation" data-cites="teqfw/web-push">@teqfw/web-push</span></a> — for using WebPush API in Teq applications.</li>
+<li><a href="https://github.com/teqfw/web-source-installer"><span class="citation" data-cites="teqfw/web-source-installer">@teqfw/web-source-installer</span></a> — installation of frontend source files of Teq applications in the browser cache using a service worker.</li>
+<li><a href="https://github.com/teqfw/vue"><span class="citation" data-cites="teqfw/vue">@teqfw/vue</span></a> — wrapper for <a href="https://vuejs.org/">Vue 3</a> and <a href="https://router.vuejs.org/">Vue Router 4</a>.</li>
+<li><a href="https://github.com/teqfw/ui-quasar"><span class="citation" data-cites="teqfw/ui-quasar">@teqfw/ui-quasar</span></a> — wrapper for <a href="https://quasar.dev/">Quasar UI 2</a>.</li>
+<li><a href="https://github.com/teqfw/i18n"><span class="citation" data-cites="teqfw/i18n">@teqfw/i18n</span></a> — wrapper for <a href="https://www.i18next.com/">i18next</a>.</li>
+</ul>
+<p>These modules are used in various combinations in my own projects (both personal and commercial) and are actively being developed. The <a href="https://github.com/teqfw/di"><span class="citation" data-cites="teqfw/di">@teqfw/di</span></a> module can be considered relatively stable.</p>
+<p>If anyone wants to participate in this experiment, I will be glad to answer your questions and help as much as I can.</p>
+<p>If you enjoyed this article, please give it a clap and follow me for more content!</p>
+<p>Stay connected:</p>
+<ul>
+<li><a href="https://github.com/flancer64">GitHub</a></li>
+<li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/">LinkedIn</a></li>
+<li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497">Upwork</a></li>
+</ul>
+<p>Thank you for your support!</p>
+
+    {% endraw %}
+</div>
+{% endblock %}

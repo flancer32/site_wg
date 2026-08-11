@@ -1,0 +1,98 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Simulating Interfaces in JavaScript with JSDoc Annotations{% endblock %}
+{% block description %}JavaScript, unlike some statically typed languages like TypeScript, does not have built-in support for interfaces. However, as JavaScript applications grow in complexity, the need {% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Simulating Interfaces in JavaScript with JSDoc Annotations</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2024-08-07
+    </span>
+    {% raw %}
+<p>JavaScript, unlike some statically typed languages like TypeScript, does not have built-in support for interfaces. However, as JavaScript applications grow in complexity, the need for enforcing a consistent structure and behavior across different parts of the codebase becomes increasingly important. Interfaces provide a way to define a contract that classes or objects must adhere to, ensuring that certain methods are implemented and promoting code reliability and maintainability. In this article, we will explore how to simulate interfaces in JavaScript using JSDoc annotations <a href="https://jsdoc.app/tags-interface"><span class="citation" data-cites="interface">@interface</span></a> and <a href="https://jsdoc.app/tags-implements"><span class="citation" data-cites="implements">@implements</span></a>, a practical approach to bring interface-like functionality to your JavaScript projects.</p>
+<figure>
+<img src="/medium/img/f4fbd41a3500/image-01.png" alt="Image 2" />
+</figure>
+<p>Frank Martin announced the terms of the contract.</p>
+<p>As a starting point, I will take the 2002 movie “<a href="https://www.imdb.com/title/tt0293662/">The Transporter</a>”. Frank Martin’s rules perfectly illustrate how interfaces work and why they are needed. Frank formulated three simple rules:</p>
+<ol type="1">
+<li>Never change the deal.</li>
+<li>No names.</li>
+<li>Never open the package.</li>
+</ol>
+<p>Now anyone who meets Frank’s requirements and has enough money can use his services.</p>
+<p>Let’s transfer now to the JavaScript environment. Imagine that we have three npm packages:</p>
+<ul>
+<li><strong>plugin</strong>: performs a certain business function (for example, delivers parcels)</li>
+<li><strong>app1</strong>: uses this plugin to process one type of data (delivering a Chinese girl from Marseille to Nice)</li>
+<li><strong>app2</strong>: also uses this plugin, but for different data (transporting a briefcase with explosives from Nice to Grenoble)</li>
+</ul>
+<p>Let’s say a useful function is defined in the <code>plugin</code>:</p>
+<pre>function drive(pack, route) {} Apps <code>app1</code> and <code>app2</code> both call this function, but each passes different data into the function.</pre>
+<p>When using interfaces, it is important to understand that in the “<em>Frank Martin</em> — <em>Customer</em>” pair, Frank plays the leading role. He sets the rules. If the Customer does not agree with the rules, he won’t be able to hire Frank.</p>
+<p>In the code, such rules are played by interfaces. I will reflect the expectations from a parcel in two JS classes:</p>
+<pre>class Package {
+getSize() {</pre>
+<p>throw ‘Please, implement this method.’;</p>
+<pre>} getWeight() {</pre>
+<p>throw ‘Please, implement this method.’;</p>
+<pre>}
+}
+class Route {
+getPlaceFrom() {</pre>
+<p>throw ‘Please, implement this method.’;</p>
+<pre>} getPlaceTo() {</pre>
+<p>throw ‘Please, implement this method.’;</p>
+<pre>}
+}</pre>
+<p>It is possible to describe the interface using only JSDoc annotations, but my experience shows that modern IDEs do not handle them very well. That is why I propose using regular JS code and then applying the <code>@interface</code> annotation to it.</p>
+<p>Now, Frank’s contract with the Customer looks like this:</p>
+<pre>function drive(pack, route) {}</pre>
+<p>For Frank, to be able to deliver the parcel, he has to know the dimensions and weight of the parcel as well as where to deliver the parcel from and where to deliver it to.</p>
+<p>Then in the first application (delivering a Chinese girl from Marseille to Nice) the code might look like this:</p>
+<pre>function app1() {
+const pack = {</pre>
+<p>getSize: () =&gt; {return {length: 150, width: 50, height: 50};},</p>
+<p>getWeight: () =&gt; 50,</p>
+<pre>};
+const route = {</pre>
+<p>getPlaceFrom: () =&gt; ‘Marseille’,</p>
+<p>getPlaceTo: () =&gt; ‘Nice’,</p>
+<pre>};
+drive(pack, route);
+}</pre>
+<p>And in the second (delivering a briefcase with explosives from Nice to Grenoble) the code might look like this:</p>
+<pre>function app2() {
+const pack = {</pre>
+<p>getSize: () =&gt; {return {length: 45, width: 30, height: 10};},</p>
+<p>getWeight: () =&gt; 1,</p>
+<pre>};
+const route = {</pre>
+<p>getPlaceFrom: () =&gt; ‘Nice’,</p>
+<p>getPlaceTo: () =&gt; ‘Grenoble’,</p>
+<pre>};
+drive(pack, route);
+}</pre>
+<p>Modern IDEs can already parse such code and use it in autocompletes and for navigation with Ctrl+Click.</p>
+<figure>
+<img src="/medium/img/f4fbd41a3500/image-02.png" alt="Image 3" />
+</figure>
+<p>Autocomplete in IDEA</p>
+<p>Summarizing everything said above:</p>
+<ul>
+<li>The calling side defines interfaces in the code (sets contract conditions).</li>
+<li>The caller must comply with the contract.</li>
+<li>Modern IDEs recognize connections between the interface and its implementations, if JSDoc annotations are used in the code.</li>
+</ul>
+<p>Interfaces have proven their usefulness in many other programming languages. The foundation of creating complex systems is decomposition into simpler components. Interfaces define the fracture lines (decomposition) of a complex component into parts. In JS, everything is already there to use interfaces when developing complex applications. All you need to implement interfaces in practice is to remember Frank Martin’s way of doing business: <em>the rule maker is the one who performs the task</em>.</p>
+<p>Demo web applications that show the use of interfaces in JS code can be found here:</p>
+<ul>
+<li><a href="https://flancer64.github.io/demo-di-if-app1/">app1</a></li>
+<li><a href="https://flancer64.github.io/demo-di-if-app2/">app2</a></li>
+</ul>
+<p>In these applications, the <a href="https://www.npmjs.com/package/@teqfw/di"><span class="citation" data-cites="teqfw/di">@teqfw/di</span></a> library (constructor-based dependency injection) was used to associate interfaces with their implementations.</p>
+
+    {% endraw %}
+</div>
+{% endblock %}

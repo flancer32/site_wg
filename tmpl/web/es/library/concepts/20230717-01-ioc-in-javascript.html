@@ -1,0 +1,75 @@
+{% extends "inc/layout.html" %}
+{% block title %}IoC en JavaScript normal (ES6+){% endblock %}
+{% block description %}Una explicación práctica de la inversión de control en JavaScript con módulos ES, contratos e inyección de dependencias.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>IoC en JavaScript normal (ES6+)</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2023-07-17</span>
+<p>La inversión de control (IoC) puede resultar menos intuitiva en JavaScript que en PHP, Java o TypeScript: el lenguaje no tiene interfaces incorporadas. Aquí hablamos de código ES6+ organizado en módulos ES y enlazado con <code>import</code>/<code>export</code>.</p>
+<h2>Importar es depender</h2>
+<p>En el nivel de módulo, cualquier importación estática o dinámica es una dependencia de otro módulo. Por ejemplo, <code>service</code> depende de un <code>logger</code> concreto:</p>
+<pre><code class="language-js">import logger from './logger.js';
+export class Service { /* ... */ }</code></pre>
+<p>Quien desarrolla el servicio puede seguir ese import y ver la implementación:</p>
+<pre><code class="language-js">export default {
+  error: (msg) =&gt; console.error(msg),
+  info: (msg) =&gt; console.info(msg),
+};</code></pre>
+<p>Después la usa directamente dentro del módulo:</p>
+<pre><code class="language-js">import logger from './logger.js';
+export class Service {
+  exec() { logger.info('Service is running.'); }
+}</code></pre>
+<p>Con este enfoque los módulos quedan unidos rígidamente por <code>import</code> en una jerarquía única desde el momento de escribir el código.</p>
+<h2>La inversión de control</h2>
+<p>Supongamos varios loggers: de consola, archivo, red o base de datos. Distintas personas pueden crearlos por separado, pero primero deben acordar el contrato:</p>
+<pre><code class="language-js">/** @interface */
+class ILogger {
+  error(msg) {}
+  info(msg) {}
+}</code></pre>
+<p>No es código destinado a ejecutarse; es un acuerdo que JSDoc deja claro para personas e IDE. Las implementaciones lo respetan:</p>
+<pre><code class="language-js">class LoggerFile { error(msg) {} info(msg) {} }
+class LoggerNet  { error(msg) {} info(msg) {} }</code></pre>
+<p>La persona que escribe <code>Service</code> no sabe qué logger se elegirá al ejecutar la aplicación, así que acepta la dependencia desde fuera, normalmente por el constructor:</p>
+<pre><code class="language-js">export class Service {
+  constructor(logger) { this.logger = logger; }
+  exec() { this.logger.info('Service is running.'); }
+}</code></pre>
+<p>Ahí aparece IoC: el servicio no decide de dónde llega su dependencia; lo hace código externo, habitualmente un contenedor de objetos. Las conexiones se establecen en tiempo de ejecución y pueden variar según las condiciones, en lugar de quedar fijadas por imports estáticos en todos los módulos.</p>
+<h2>Qué aporta</h2>
+<p>En un proyecto con DI, casi todos los imports pueden quedarse en el composition root, el lugar donde se ensambla la aplicación. Los módulos deben permitir la inyección por constructor o setter. Así quedan menos acoplados y pueden trasladarse a otro proyecto si este ofrece los contratos necesarios.</p>
+<p>Esto se aprecia especialmente al probar. En vez de un logger de archivo o red, pasamos una pequeña simulación:</p>
+<pre><code class="language-js">const logger = { error(msg) {}, info(msg) {} };
+const service = new Service(logger);
+service.exec();</code></pre>
+<p>La prueba controla el comportamiento de la dependencia sin remitirse a una implementación concreta. Arquitectónicamente, IoC trata primero de cómo se fabrican los «ladrillos» y después de cómo se unen. Unos módulos bien preparados se pueden combinar de muchas maneras.</p>
+<p><zoom-img src="/medium/img/1b2e701f331d/image-01.jpg" alt="Ladrillos con los que se construye una aplicación" width="100%"></zoom-img></p>
+<p>Por eso, módulos ES6 que no están atados mediante imports estáticos a servicios concretos pueden servir como bloques tanto para una aplicación de navegador como para una de Node.js.</p>
+<h2>Fragmentos adicionales de código fuente</h2>
+<pre>class LoggerNet {
+error(msg) { } info(msg) { }
+}</pre>
+<pre>export class Service {
+logger; constructor(logger) {
+this.logger = logger;
+}
+exec(opts) {
+this.logger.info(<code>Service is running.</code>);
+}
+}</pre>
+<pre>import assert from ‘assert’;
+import {describe, it} from ‘mocha’;
+import {Service} from ‘./service.js’; const logger = {
+error(mg) {},
+info(msg) {}
+};
+describe(‘Service’, () =&gt; {
+it(‘does the job’, () =&gt; {
+const service = new Service(logger);
+service.exec({});
+assert(true);
+});
+});</pre>
+</div>
+{% endblock %}

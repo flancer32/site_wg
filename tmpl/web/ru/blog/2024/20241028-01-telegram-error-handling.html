@@ -24,6 +24,35 @@
 
     <p>В статье рассматриваются стратегии предотвращения сбоев, организация глобальной и локальной обработки ошибок, а
         также методы логирования, которые помогают эффективно отслеживать и устранять неполадки в работе бота.</p>
+<h2>Дополнительные фрагменты исходного кода</h2>
+<pre>export default class Demo_Back_Bot_Cmd_Demo {
+constructor({TeqFw_Core_Shared_Api_Logger$: logger}) {
+return async (ctx) =&gt; {
+await ctx.reply(<code>This is a demo command!</code>);
+};
+}
+} This code provides a minimal command handler without error handling. For instance, if a user has blocked the bot, the <code>ctx.reply</code> command will fail. In <code>long polling</code> mode, this error causes the bot to terminate. Here’s an example of the error message you might see:</pre>
+<pre>bot.catch((err) =&gt; {
+const ctx = err.ctx;
+const e = err.error; logger.error(<code>Error while handling update ${ctx.update?.update_id}:</code>);
+if (e instanceof GrammyError &amp;&amp; e.error_code === 403) {
+logger.error(<code>User blocked the bot while sending a message to chat_id ${e.parameters?.chat_id}.</code>);
+return;
+}
+if (e instanceof GrammyError) {
+logger.error(<code>Error in request: ${e.description}</code>);
+} else if (e instanceof HttpError) {
+logger.error(‘Could not contact Telegram:’);
+} else {
+logger.error(‘Unknown error:’);
+}
+logger.exception(e);
+});</pre>
+<pre>{</pre>
+<pre>}
+}
+}
+} This configuration enables flexible substitution of the original classes from the <code>flancer32/teq-telegram-bot</code> plugin with custom ones adapted to the specific bot’s needs.</pre>
 </div>
 {% endblock %}
 

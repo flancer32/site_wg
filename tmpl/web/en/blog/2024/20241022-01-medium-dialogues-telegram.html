@@ -1,50 +1,179 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}New article: Dialogues in Telegram bots with Node.js{% endblock %}
+{% block title %}Telegram Bot with Node.js: Conversations{% endblock %}
+{% block description %}In this article, I continue to share the results of studying the creation of Telegram bots in Node.js, as I began in previous publications ([one](https://flancer32.com/telegram-bot{% endblock %}
 
 {% block content %}
 <div class="card">
-    <h1>New article: Dialogues in Telegram bots with Node.js</h1>
-
+    <h1>Telegram Bot with Node.js: Conversations</h1>
     <span style="display: block; text-align: right;">
         <strong>Publication date:</strong> 2024-10-22
     </span>
+    {% raw %}
+<p>In this article, I continue to share the results of studying the creation of Telegram bots in Node.js, as I began in previous publications (<a href="https://flancer32.com/telegram-bots-the-first-steps-c1688e572abe">one</a>, <a href="https://flancer32.com/telegram-bot-with-node-js-implementing-crud-l-operations-using-command-arguments-fcfb38991efa">two</a>). This time, I will show you how to organize interactive conversations with users using the <a href="https://grammy.dev/plugins/conversations">conversations</a> plugin from the <a href="https://grammy.dev/">grammY</a> library. We’ll explore how to set up the library to work with conversations, manage their completion, and implement branching and looping. This approach will serve as a foundation for more complex projects where user interaction is crucial.</p>
+<h2 id="introduction">Introduction</h2>
+<p>In the developed conversation, the bot, upon receiving the <code>/start</code> command, first checks whether the user is registered in the database. If the user is not registered, the bot prompts them to register. Then, a list of available subscription services is displayed, and the bot requests the service number, repeating the request until a valid number is received. After that, the bot shows the details of the selected service and asks to confirm the subscription. If the user agrees, a new subscription is created, and the conversation ends; if the user declines, the conversation simply ends.</p>
+<figure>
+<img src="/medium/img/6d03ffb4059c/image-01.png" alt="Image 2" />
+</figure>
+<p>The sample conversation</p>
+<p>The source code for implementing the conversation is available in the repository <a href="https://github.com/flancer64/tg-demo-all">flancer64/tg-demo-all</a> (branch <em>conversation</em>), and the bot itself can be found at <a href="https://t.me/f64_demo_conversation_bot">f64_demo_conversation_bot</a>.</p>
+<h2 id="conversations-in-grammy">Conversations in grammY</h2>
+<p>The <em>grammY</em> library provides a <em>conversations</em> plugin for creating conversations between the bot and users. Unlike other frameworks that require bulky configuration objects, this plugin allows you to define conversations using regular JavaScript functions, making the code more understandable and flexible. Each state of the conversation is managed through simple functions that execute sequentially during interaction.</p>
+<p>It is recommended to follow <a href="https://grammy.dev/plugins/conversations#three-golden-rules-of-conversations">three main rules</a> when writing code inside conversation-building functions:</p>
+<ol type="1">
+<li>All operations dependent on external systems should be wrapped in special calls to avoid errors and data loss.</li>
+<li>Avoid using random values directly; instead, use the provided functions to handle randomness.</li>
+<li>Use the helper functions provided by the library that simplify working with states and variables, ensuring more reliable conversations (form, wait…, sleep, now, etc.).</li>
+</ol>
+<p>It’s also important to note that the <em>conversations</em> plugin supports parallel conversations, allowing interaction with multiple users simultaneously. This is especially useful in group chats where the bot can conduct conversations with multiple participants. This approach makes developing interactive applications easier and more efficient.</p>
+<h2 id="conversation-initialization">Conversation Initialization</h2>
+<p>The initialization of the <em>conversation</em> plugin happens in the <code>Demo_Back_Bot_Setup</code> module and boils down to the following:</p>
+<pre>import {session} from ‘grammy’;
+import {conversations} from ‘<span class="citation" data-cites="grammyjs/conversations">@grammyjs/conversations</span>’; bot.use(session({initial: () =&gt; ({})}));
+bot.use(conversations());</pre>
+<p>It’s important to consider the order in which middleware is connected — <em>conversations</em> should be connected after <em>session</em> since the middlewares are processed in the order they are connected, and conversations won’t work without sessions.</p>
+<h2 id="connecting-and-starting-the-conversation">Connecting and Starting the Conversation</h2>
+<p>The typical handler code receives two parameters:</p>
+<pre>const conv = async (conversation, ctx) =&gt; {
+} * <code>conversation</code>: an object that manages the state of the current conversation. * <code>ctx</code>: the standard <em>grammY</em> context corresponding to the current interaction between the user and the bot (the message).</pre>
+<p>Registering handlers is done in the same place as other middleware registration:</p>
+<pre>import {createConversation} from ‘<span class="citation" data-cites="grammyjs/conversations">@grammyjs/conversations</span>’; bot.use(createConversation(conv, ‘conversationStart’));</pre>
+<p>Calling the conversation handler from the command handler:</p>
+<pre>const cmd = async (ctx) =&gt; {
+await ctx.conversation.enter(‘conversationStart’);
+}</pre>
+<h2>Ending the Conversation</h2>
+<p>The conversation ends when the handler finishes its work (reaches <code>return</code>):</p>
+<pre>const conv = async (conversation, ctx) =&gt; {
+return;
+}; If for some reason the conversation cannot end properly (for example, the user enters another command instead of following the conversation script), you can forcibly terminate the conversation through <code>ctx.conversation.exit()</code>. For example:
+bot.use(async (ctx, next) =&gt; {
+if (ctx?.chat &amp;&amp; (typeof ctx?.conversation?.active === ‘function’)) {
+const {start} = await ctx.conversation.active();
+if (start &gt;= 1) {
+logger.info(<code>An active conversation exists.</code>);
+const commandEntity = ctx.message?.entities?.find(entity =&gt; entity.type === ‘bot_command’);
+if (commandEntity) {
+await ctx.conversation.exit(‘conversationStart’);
+await ctx.reply(<code>The previous conversation has been closed.</code>);
+}
+}
+}
+await next();
+});</pre>
+<h2>Repeating Messages at Each Step</h2>
+<p>As mentioned earlier, <em>grammY</em> “glues” individual messages from the user into one continuous flow. So, if the conversation script involves processing, say, three consecutive messages, the conversation handler will be triggered three times — once for each message:</p>
+<pre>const conv = async (conversation, ctx) =&gt; {
+const username = ctx.from.username;
+const sess = conversation.session;
+sess.count = sess.count ?? 0;
+sess.count++; logger.info(<code>username: ${username}, count: ${sess.count}</code>);
+};</pre>
+<p>That is, if the bot has started executing the conversation script, the <code>conv</code> handler will be triggered for every new message. Moreover, with each new trigger, <em>grammY</em> will pass all previous messages to the handler, transitioning the conversation handler to the appropriate state. This is why <em>conversation</em> provides its own random number <a href="https://grammy.dev/ref/conversations/conversationhandle#random">generator</a> (the random value is remembered and given every time for the current conversation).</p>
+<p>Here is <a href="https://github.com/flancer64/tg-demo-all/blob/conversation/src/Bot/Conv/Start.js#L59">the code</a> for checking the existence of the service selected by the user:</p>
+<pre>await ctx.reply(<code>Please select a service by number:\n${list}</code>);
+let selected;</pre>
+<p>do {</p>
+<pre>const response = await conversation.wait();
+const id = parseInt(response.message.text);</pre>
+<p>selected = await modService.read({id});</p>
+<pre>if (!selected) await ctx.reply(<code>Invalid selection. Please enter a valid service number.</code>);
+} while (!selected);</pre>
+<p>The bot has only three services (id: 1, 2, 3), but the user incorrectly enters numbers 4, 5, and only then 3. At each iteration, the bot checks the existence of all previously entered IDs, and the services log the results:</p>
+<p>10/21 17:34:49.537 (info Demo_Back_Mod_User): User wiredgeese read successfully (id:1383581234).</p>
+<p>10/21 17:34:49.540 (info Demo_Back_Mod_Service): Service with ID 4 not found.</p>
+<p>10/21 17:34:50.794 (info Demo_Back_Mod_User): User wiredgeese read successfully (id:1383581234).</p>
+<p>10/21 17:34:50.797 (info Demo_Back_Mod_Service): Service with ID 4 not found.</p>
+<p>10/21 17:34:50.798 (info Demo_Back_Mod_Service): Service with ID 5 not found.</p>
+<p>10/21 17:34:53.290 (info Demo_Back_Mod_User): User wiredgeese read successfully (id:1383581234).</p>
+<p>10/21 17:34:53.292 (info Demo_Back_Mod_Service): Service with ID 4 not found.</p>
+<p>10/21 17:34:53.293 (info Demo_Back_Mod_Service): Service with ID 5 not found.</p>
+<pre>10/21 17:34:53.294 (info Demo_Back_Mod_Service): Service ‘Service 3’ read successfully (id:3).</pre>
+<h2>Side Effects</h2>
+<p>Let’s assume there is a call to an external service in our dialogue code that creates a record in the database.</p>
+<p>user = await modUser.create({dto}); If the database record is created at the first step of a three-step dialogue, the first step will be repeated three times, with the same parameters each time. This means the service for creating the same record will be called three times.</p>
+<p>To handle such “side effects,” the <em>conversation</em> plugin provides the <code>external</code> method:</p>
+<pre>const user = await conversation.external(</pre>
+<p>() =&gt; {</p>
+<pre>const dto = modUser.composeEntity();</pre>
+<p>…</p>
+<pre>dto.telegramId = telegramId;
+modUser.create({dto});
+}
+); In this case, the user creation will only be executed once, during the very first call to the <code>external</code> method. On subsequent steps of the dialogue, the result of the first execution will be returned, and the external service won’t be called again.</pre>
+<p>If the execution of an external service depends on user input (e.g., searching for a service by ID), the <code>external</code> method can be used like this:</p>
+<pre>let service = await conversation.external({</pre>
+<p>task: (id) =&gt; modService.read({id}),</p>
+<p>args: [id]</p>
+<pre>});</pre>
+<p>In this case, the “argument-result” pairs are saved and reused. The previous example with service lookup can be rewritten as follows:</p>
+<pre>let selected;</pre>
+<p>do {</p>
+<pre>const response = await conversation.wait();
+const id = parseInt(response.message.text);</pre>
+<p>selected = await conversation.external({</p>
+<p>task: (id) =&gt; modService.read({id}),</p>
+<p>args: [id]</p>
+<pre>});
+if (!selected) await ctx.reply(<code>Invalid selection. Please enter a valid service number.</code>);
+} while (!selected); As you can see, the external service (<em>Demo_Back_Mod_Service</em>) is no longer called repeatedly for incorrect values (4 and 5), while the <em>Demo_Back_Mod_User</em> service is invoked every time (since it is not wrapped in <code>external</code>):</pre>
+<p>10/21 17:46:58.668 (info Demo_Back_Mod_User): User wiredgeese read successfully (id:1383581234).</p>
+<p>10/21 17:46:58.672 (info Demo_Back_Mod_Service): Service with ID 4 not found.</p>
+<p>10/21 17:46:59.817 (info Demo_Back_Mod_User): User wiredgeese read successfully (id:1383581234).</p>
+<p>10/21 17:46:59.822 (info Demo_Back_Mod_Service): Service with ID 5 not found.</p>
+<p>10/21 17:47:01.758 (info Demo_Back_Mod_User): User wiredgeese read successfully (id:1383581234).</p>
+<pre>10/21 17:47:01.764 (info Demo_Back_Mod_Service): Service ‘Service 3’ read successfully (id:3).</pre>
+<h2>Branching</h2>
+<p>Branching is straightforward, and if the dialogue code doesn’t create any side effects, it’s even simpler:</p>
+<pre>const confirmation = await conversation.wait();
+const confirmationText = confirmation.message.text.toLowerCase();
+if (confirmationText === ‘yes’) {
+} else if (confirmationText === ‘no’) {
+} else {
+}</pre>
+<p>Without side effects (including state persistence), the code can be executed as many times as necessary and will produce the same result for the same input (the benefits of functional programming!).</p>
+<p>However, if there are side effects in the code, they need to be wrapped in <code>external</code>.</p>
+<h2 id="loops">Loops</h2>
+<p>In principle, this is practically the same as branching:</p>
+<pre>let confirmed = false;
+while (!confirmed) {
+const confirmation = await conversation.wait();
+const confirmationText = confirmation.message.text.toLowerCase();
+if (confirmationText === ‘yes’) {</pre>
+<p>confirmed = true;</p>
+<pre>} else if (confirmationText === ‘no’) {</pre>
+<p>confirmed = true;</p>
+<pre>} else {
+await ctx.reply(<code>Please respond with "yes" or "no".</code>);
+}
+}</pre>
+<p>However, consider the following: if the loop is at, say, the second step, and the user enters unexpected responses three times (for example: “ok”, “sure”, “of course”) before finally typing “yes”, then when moving to the next steps (third, fourth, etc.), when the entire dialogue is replayed from the first step to the current one, the loop on the second step will replay all those iterations — for “ok”, “sure”, “of course”, and “yes.”</p>
+<p>Well, that’s how the <em>conversation</em> in <em>grammY</em> works. It’s a small price to pay for the convenience it offers.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this article, we explored how to organize interactive conversations with users in Telegram bots using Node.js and the <em>grammY</em> library with its <em>conversations</em> module. We covered the basic principles of working with conversations, including initialization, completion, branching, and loops, as well as handling side effects. Thanks to the simplicity and flexibility of this approach, you can create more complex and responsive applications that effectively interact with users. I hope the knowledge gained here will assist you in developing your own Telegram bots and expanding their functionality.</p>
+<p>Happy coding!</p>
+<p>If you enjoyed this article, please give it a clap and follow me for more content!</p>
+<p>Stay connected:</p>
+<ul>
+<li><a href="https://github.com/flancer64">GitHub</a></li>
+<li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/">LinkedIn</a></li>
+<li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497">Upwork</a></li>
+<li><a href="https://www.fiverr.com/wiredgeese">Fiverr</a></li>
+</ul>
+<p>Thank you for your support!</p>
 
-    <zoom-img
-            src="/img/blog/2024/10/22-01.png"
-            alt="Dialogues in Telegram bots with Node.js"
-            width="100px"
-            style="float: left; margin: 15px 15px 0 0;"
-    ></zoom-img>
-
-    <p>Published a new article on <a href="https://wiredgoose.medium.com/telegram-bot-with-node-js-conversations-6d03ffb4059c" target="_blank">Medium</a> and <a
-            href="https://habr.com/ru/articles/852330/" target="_blank">Habr</a> — this time about creating
-        interactive dialogues in Telegram bots using Node.js with the <a
-                href="https://grammy.dev/" target="_blank">grammY</a> framework.</p>
-
-    <p>In the article, I explain in detail how to handle user input, manage dialogue state,
-        implement branching, loops, and avoid side effects in bot logic.</p>
-
-    <p>You can see how it works in the demo bot:
-        <a href="https://t.me/f64_demo_conversation_bot" target="_blank">@f64_demo_conversation_bot</a>
-    </p>
-
-    <p>The article also includes a repository with full source code:
-        <a href="https://github.com/flancer64/tg-demo-all/tree/conversation" target="_blank">@flancer64/tg-demo-all/conversation</a>
-    </p>
+    {% endraw %}
 </div>
 {% endblock %}
 
 {% block blog_item %}
     <li class="blog-item">
         <a class="card-link" href="/en/blog/2024/20241022-01-medium-dialogues-telegram.html"></a>
-        <img src="/img/blog/2024/10/22-01.png" alt="Article about dialogues in Telegram bots"/>
         <div>
-            <h4>Article about dialogues in Telegram bots</h4>
-            <p>
-                Sharing how to build interactive dialogues in Telegram bots using Node.js and grammY.
-            </p>
-            <time datetime="2024-10-22">October 22, 2024</time>
+            <h4>Telegram Bot with Node.js: Conversations</h4>
+            <p>In this article, I continue to share the results of studying the creation of Telegram bots in Node.js, as I began in previous publications ([one](https://flancer32.com/telegram-bot</p>
+            <time datetime="2024-10-22">2024-10-22</time>
         </div>
     </li>
 {% endblock %}

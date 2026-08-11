@@ -1,0 +1,54 @@
+{% extends "inc/layout.html" %}
+{% block title %}Estructuración AZ de archivos de código fuente{% endblock %}
+{% block description %}Un enfoque de estructura de archivos que marca las partes privadas del código y hace más visibles los límites de refactorización.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Estructuración AZ de archivos de código fuente</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2022-11-16</span>
+<p>La estructuración AZ es mi forma de organizar archivos fuente en proyectos cuyo código vive en un sistema de archivos: Java, PHP, JavaScript/Node.js. Su objetivo es hacer el refactor más predecible.</p>
+<h2>Por qué hace falta</h2>
+<p>El código se cambia más veces de las que se escribe desde cero. En desarrollo web los requisitos se aclaran mientras se trabaja: vemos la dirección, no todos los detalles. Por eso, en cada iteración añadimos, quitamos y modificamos código. Es el modo normal de trabajo.</p>
+<p><zoom-img src="/medium/img/8ae5844696ea/image-01.png" alt="Modelo de desarrollo en cascada" width="100%"></zoom-img></p>
+<p><zoom-img src="/medium/img/8ae5844696ea/image-02.png" alt="Modelo de desarrollo en espiral" width="100%"></zoom-img></p>
+<p>La dificultad principal es saber hasta dónde se propaga un cambio. La encapsulación de la POO intenta resolver precisamente ese problema.</p>
+<h2>Límites habituales</h2>
+<p>Un proyecto grande se compone de paquetes y archivos. En un módulo ES, el código sin <code>export</code> se puede cambiar libremente dentro del archivo; el código exportado puede usarse en cualquier parte. En un paquete npm, <code>main</code> o <code>exports</code> definen la superficie pública y el resto es interno.</p>
+<p><zoom-img src="/medium/img/8ae5844696ea/image-03.jpg" alt="Límites de propagación de cambios" width="100%"></zoom-img></p>
+<p>Pero a veces el límite debe ser menor que el paquete. Las fuentes suelen organizarse por rol o por dominio. Yo combino ambos: primero por rol y después por funcionalidad.</p>
+<pre><code>src/
+  Back/Mod/RDb/
+  Front/Mod/Store/Ui/
+  Lib/Route/Home.mjs
+  Shared/Dto/</code></pre>
+<p>El primer nivel es más estable y depende del framework; el segundo cambia con el negocio. Un archivo puede tener alcance global dentro del paquete o un alcance local, donde modificarlo no afecta a otros archivos.</p>
+<h2>Estructura A</h2>
+<p>La complejidad se vence con descomposición. Imaginemos una gran clase de configuración en <code>Mod/Settings.mjs</code>. Sus partes se pueden extraer junto a ella:</p>
+<pre><code>Mod/
+  Settings/
+    Payments.mjs
+    Profile.mjs
+    Security.mjs
+  Settings.mjs</code></pre>
+<p>La pareja <code>Settings/</code> y <code>Settings.mjs</code> ya sugiere un modelo con detalles. Si esa estructura ya contiene varios modelos, marco los fragmentos privados con el subdirectorio <code>A/</code>:</p>
+<pre><code>Mod/
+  Settings/
+    A/
+      Snippet1.mjs
+      Snippet2.mjs
+    Payments.mjs
+    Profile.mjs
+  Settings.mjs</code></pre>
+<p>Los archivos de <code>Settings/A/</code> son partes de <code>Settings.mjs</code>. El archivo raíz se puede importar dentro del paquete; el contenido de <code>A/</code> está destinado solo a él. Así el nivel de archivo adquiere una zona privada y se ven mejor los límites de cambio. Se puede anidar: <code>Route/Settings/A/Profile/A/Password/Change/A/Evt/Change.mjs</code>.</p>
+<h2>Estructura Z</h2>
+<p>A veces el código auxiliar no corresponde a un único archivo, sino a un grupo: una «biblioteca para el grupo». Para ello uso <code>Z/</code>:</p>
+<pre><code>Cli/
+  Data/
+    Z/ListTables.mjs
+    Export.mjs
+    Import.mjs
+    Init.mjs</code></pre>
+<p>Un cambio en <code>Cli/Data/Z/ListTables.mjs</code> no debería salir del límite <code>Cli/Data/</code>.</p>
+<h2>Conclusión</h2>
+<p>Marcar ámbitos privados directamente en la estructura de archivos facilita ver hasta dónde llega un cambio. <code>A/</code> significa detalles de un archivo raíz y <code>Z/</code>, detalles comunes de un grupo pequeño. No es una regla del lenguaje ni sustituye una buena API: es un acuerdo de equipo que ayuda mucho al refactorizar proyectos grandes.</p>
+</div>
+{% endblock %}

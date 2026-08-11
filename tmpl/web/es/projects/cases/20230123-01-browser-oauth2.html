@@ -1,0 +1,36 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Obtener un token de acceso OAuth2 para Google Cloud API con JavaScript en el navegador{% endblock %}
+{% block description %}Ejemplo práctico para obtener un token OAuth2 de Google Cloud API con la biblioteca gsi/client en el navegador.{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Obtener un token de acceso OAuth2 para Google Cloud API con JavaScript en el navegador</h1>
+    <span style="display: block; text-align: right;"><strong>Fecha de publicación:</strong> 2023-01-23</span>
+    <p>En este artículo describo mi experiencia al obtener un token de acceso OAuth2 con la nueva biblioteca <code>gsi/client</code>. El objetivo era obtener el token en una aplicación web mediante JavaScript del lado del cliente. Había muchos artículos sobre Node.js y la biblioteca obsoleta <code>gapi.auth2</code>, pero ninguno servía para la nueva biblioteca.</p>
+    <p>No entraré en la configuración del proyecto de Google Cloud, ya que está bien explicada en <a href="https://medium.com/automationmaster/getting-google-oauth-access-token-using-google-apis-18b2ba11a11a">este artículo de Osanda Deshan Nimalarathna</a>. Aquí me concentro en el código de cliente necesario para obtener el token.</p>
+    <p><zoom-img src="/medium/img/208e64f14db4/image-01.png" alt="Esquema de obtención de un token OAuth2" width="100%"></zoom-img></p>
+    <p>Primero hay que incluir el script de la biblioteca en el archivo HTML:</p>
+    <pre><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+  &lt;script src="https://accounts.google.com/gsi/client"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;/html&gt;</code></pre>
+    <p>La biblioteca añade un objeto <code>google</code> al ámbito global (<code>self</code> o <code>window</code>), que podemos usar para solicitar el token:</p>
+    <pre><code class="language-js">const CLIENT_ID = 'XXX.apps.googleusercontent.com';
+const SCOPES = 'https://www.googleapis.com/auth/...';
+
+const google = self.google;
+function onTokenResponse({access_token, token_type, expires_in, scope} = {}) {
+}
+
+const client = google.accounts.oauth2.initTokenClient({
+  client_id: CLIENT_ID,
+  scope: SCOPES,
+  callback: onTokenResponse,
+});
+
+client.requestAccessToken();</code></pre>
+    <p>Este es el fragmento que busqué durante mucho tiempo. Espero que ahorre tiempo a quienes necesitan obtener un token de Google directamente en el navegador.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}А антипаттерн ли Service Locator?{% endblock %}
+{% block description %}Service Locator (как и его эволюция — DI-контейнер) позволяет на этапе выполнения кода связывать в приложении различные элементы (функции и экземпляры классов) со своими зависимост{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>А антипаттерн ли Service Locator?</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2021-01-28
+    </span>
+    {% raw %}
+<p>Service Locator (как и его эволюция — DI-контейнер) позволяет на этапе выполнения кода связывать в приложении различные элементы (функции и экземпляры классов) со своими зависимостями (другими функциями и экземплярами классов).</p>
+<p>Нужно помнить, что работающее приложение — это совсем не то же самое, что код, описывающий работу приложения. Т.е., тот факт, что явная сильная статическая (<em>implicit strong static</em>) типизация позволяет отлавливать ошибки связывания элементов на уровне компиляции кода, отнюдь не говорит о том, что на этапе выполнения приложения подобных ошибок не возникнет. Элементы могут подходить друг другу по интерфейсам, но не по контексту (дверь от шкафа-купе в кузов E46 BMW). Интерфейсы и контекст — вот основа для связывания элементов в коде.</p>
+<p>С интерфейсами более-менее понятно — это то, что доступно программисту при визуальной проверке кода (а также компилятору/интерпретатору/IDE/…). Вот фрагмент PHP-кода:</p>
+<pre>function main($dep)
+{</pre>
+<p>$res = $dep(12, ‘str’);</p>
+<p>echo $res;</p>
+<pre>} <span class="math inline"><em>f</em><em>n</em> = <em>f</em><em>u</em><em>n</em><em>c</em><em>t</em><em>i</em><em>o</em><em>n</em>(</span>num, $str) {
+return $num . $str;
+};
+<em>main</em>($fn);</pre>
+<p>По коду видно, что функция <code>main</code> ожидает в качестве входного аргумента некоторую другую функцию, которой на вход можно передать два аргумента и которая возвращает некоторое значение. То, что принимает на вход функция и что возвращает — это и есть её интерфейс. Заголовочные файлы C/C++ являются примером описания интерфейса функций — <a href="https://github.com/openbsd/src/blob/master/include/string.h">string.h</a></p>
+<p>С объектами посложнее, но смысл остаётся тот же самый, интерфейс — это правила (<code>IDep</code>) взаимодействия двух элементов, описывающие, какие свойства и методы зависимого элемента (<code>$dep</code>) желает использовать в своих целях основной элемент (<code>$app</code>):</p>
+<p>interface IDep</p>
+<pre>{</pre>
+<p>public function get(); public function put($data);</p>
+<pre>}
+class Dep implements IDep
+{</pre>
+<p>private $data;</p>
+<p>public function get()</p>
+<pre>{
+return $this-&gt;data;
+}</pre>
+<p>public function put($data)</p>
+<pre>{</pre>
+<p>$this-&gt;data = $data;</p>
+<pre>}
+}
+class Main
+{</pre>
+<p>public function run(IDep $dep)</p>
+<pre>{</pre>
+<p>$dep-&gt;put(4);</p>
+<p>echo $dep-&gt;get();</p>
+<pre>}
+}</pre>
+<p>$app = new Main();</p>
+<p>$dep = new Dep();</p>
+<p><span class="math inline"><em>a</em><em>p</em><em>p</em> −  &gt; <em>r</em><em>u</em><em>n</em>(</span>dep);</p>
+<p>Если на вход методу <code>run()</code> объекта <code>$app</code> подаётся объект <code>$dep</code>, имплементирующий ожидаемый интерфейс (<code>IDep</code>), то ни один компилятор не ругнётся, если <code>$app</code> — это E46 кузов BMW, а <code>$dep</code> — это дверь для шкафа-купе.</p>
+<p>За соответствие различных различных элементов кода не только по интерфейсам, но и по смыслу (контексту) отвечают специальные элементы приложения — фабрики, строители, пулы и т.п. (см. “<a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%80%D0%BE%D0%B6%D0%B4%D0%B0%D1%8E%D1%89%D0%B8%D0%B5_%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D1%8B_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F">Порождающие шаблоны проектирования</a>”). Именно они создают и соединяют элементы так, чтобы не возникало противоречий между отдельными частями единого композита.</p>
+<p><a href="https://ru.wikipedia.org/wiki/%D0%92%D0%BD%D0%B5%D0%B4%D1%80%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8">Внедрение зависимостей</a> — это такая техника создания элементов приложения, когда при разработке отдельной функции/класса программист не заботится о том, каким образом создаётся зависимость, необходимая для работы базового элемента. Он просто декларирует интерфейсы требуемых зависимостей в ожидании, что внешняя среда предоставит именно то, что нужно в соответствии с текущим контекстом. Вопросы порождения элементов и их связывания выносятся на уровень DI-контейнера. Который, кстати, может использоваться и как Service Locator:</p>
+<pre><em>// DI in constructor</em> public function __construct(IDep $dep)
+{</pre>
+<p>$this-&gt;dep = $dep;</p>
+<pre>}<em>// DI as ServiceLocator</em> public function __construct(IContainer $di)
+{</pre>
+<p>$this-&gt;dep = $di-&gt;get(IDep::class);</p>
+<pre>}</pre>
+<p>Во втором случае мы теряем контекст — у контейнера нет информации, для какого класса создаётся зависимость. Лучше было бы использовать его в таком виде:</p>
+<p>$this-&gt;dep = $di-&gt;get(IDep::class, self::class); В чём же заключаются претензии к Service Locator’у? Основная — в том, что <a href="https://designpatternsphp.readthedocs.io/en/latest/More/ServiceLocator/README.html">локатор скрывает зависимости между элементами приложения</a>:</p>
+<blockquote>
+<p>Service Locator hides class’ dependencies instead of exposing them as you would do using the Dependency Injection. In case of changes of those dependencies you risk to break the functionality of classes which are using them, making your system difficult to maintain.</p>
+</blockquote>
+<p>Типовой пример использования Service Locator’а при упоминании его в качестве <a href="https://freecontent.manning.com/the-service-locator-anti-pattern/">анти-паттерна</a>:</p>
+<p>public class HomeController : Controller</p>
+<pre>{</pre>
+<p>public HomeController() { } public ViewResult Index()</p>
+<pre>{</pre>
+<p>IProductService service =</p>
+<pre>Locator.GetService<IProductService>();
+var products = service.GetFeaturedProducts();
+return this.View(products);
+}
+}</pre>
+<p>Можно ли считать сокрытием зависимости использование локатора в таком виде — <code>Locator.GetService&lt;IProductService&gt;()</code>? Насколько я знаю возможности современных IDE, то подобное использование даже внутри метода или функции будет обнаружено средствами IDE и будет учтено при рефакторинге.</p>
+<p>Да, я согласен, что внедрение зависимостей через конструктор при создании объекта обладает большей наглядностью:</p>
+<p>public HomeController(IProductService service) { } Но внедрение зависимостей в конструкторе привносит другую проблему — чтобы запустить приложение, контейнер должен создать полное дерево зависимостей, даже если какие-то из них не используются в данном режиме работы. Внедрение в конструкторе только контейнера и использование контейнера для создания зависимостей по ходу работы приложения решает эту проблему, но является, по мнению многих, анти-паттерном “Service Locator”:</p>
+<pre>class Main
+{</pre>
+<p>private $locator; public function __construct(ILocator $locator)</p>
+<pre>{</pre>
+<p>$this-&gt;locator = $locator;</p>
+<pre>}</pre>
+<p>public function run()</p>
+<pre>{</pre>
+<p>$dep = $this-&gt;locator-&gt;get(IDep::class, self::class);</p>
+<pre>}
+}</pre>
+<p><a href="https://manningbooks.medium.com/the-service-locator-anti-pattern-58e4f708eee0">Подобный подход</a> снижает возможность переиспользования кода из-за избыточной зависимости (от <code>ILocator</code>) и непрозрачности используемых зависимостей:</p>
+<blockquote>
+<p>The main problem with Service Locator’s the impact of reusability of the classes consuming it. This manifests itself in two ways:</p>
+<ul>
+<li><p>The class drags along the Service Locator as a redundant Dependency.</p></li>
+<li><p>The class makes it non-obvious what its Dependencies are.</p></li>
+</ul>
+</blockquote>
+<p>С первым пунктом ничего не поделаешь — код действительно можно использовать только лишь внутри приложения, в котором определён сам локатор (<code>ILocator</code>), а вот со вторым вариантом можно справиться организационными мерами (например, извлекать все зависимости в методах с префиксом <code>dep</code>):</p>
+<pre>class Main
+{</pre>
+<p>private $locator; public function __construct(ILocator $locator)</p>
+<pre>{</pre>
+<p>$this-&gt;locator = $locator;</p>
+<pre>}</pre>
+<p>private function depIDep()</p>
+<pre>{
+return $this-&gt;locator-&gt;get(IDep::class, self::class);
+}</pre>
+<p>public function run()</p>
+<pre>{</pre>
+<p>$dep = $this-&gt;depIDep();</p>
+<pre>}
+}</pre>
+<p>По большому счёту этот подход мало чем отличается от внедрения зависимостей через setter’ы или свойства. Вот только создание зависимостей происходит не при создании базового объекта, а при обращении базового объекта к зависимостям.</p>
+<p>Лично я не вижу ничего плохого в том, чтобы внедрять в конструктор базового объекта DI-контейнер (или Service Locator) и создавать зависимости не при создании базового объекта, а по мере необходимости.</p>
+
+    {% endraw %}
+</div>
+{% endblock %}

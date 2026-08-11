@@ -1,0 +1,136 @@
+{% extends "inc/layout.html" %}
+{% block title %}TeqFW: servidor web{% endblock %}
+{% block description %}El servidor web TeqFW: modos HTTP, dispatcher de solicitudes, handlers componibles, recursos estáticos, API JSON, SSE y límites de upload.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>TeqFW: servidor web</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2021-12-15</span>
+<p>El servidor web TeqFW puede ejecutarse en HTTP/1, HTTP/2 o HTTPS sobre HTTP/2. HTTP/1 es práctico en desarrollo local, HTTP/2 puede estar detrás de otro servidor como nginx, y HTTPS-over-HTTP/2 puede actuar como endpoint público. El servidor se diseña como un pipeline de solicitudes componible, aportado por plugins Teq.</p>
+<h2>Fundamentos HTTP</h2>
+<p>HTTP es solicitud-respuesta: línea inicial, cabeceras y opcionalmente cuerpo; la respuesta envía cabeceras antes del cuerpo. El cuerpo puede transmitirse con el tiempo, como en Server-Sent Events. Node.js expone servidores <code>http</code> y <code>http2</code> mediante eventos como <code>request</code>, <code>connect</code>, <code>error</code> y <code>close</code>.</p>
+<pre><code class="language-js">server.on('request', (req, res) =&gt; {
+  // Read req and write res.
+});</code></pre>
+<p>Solicitud y respuesta son streams. Las cabeceras deben decidirse antes de escribir cualquier cuerpo.</p>
+<h2>Procesamiento de solicitudes</h2>
+<p>El listener acepta <code>HEAD</code>, <code>GET</code> y <code>POST</code>; otros métodos reciben 405. Para cuerpos POST <code>text/plain</code> y <code>application/json</code>, lee y adjunta texto o JSON parseado. Otros tipos quedan como streams para handlers especializados.</p>
+<p>Los plugins aportan handlers. Uno puede reconocer solicitud, añadir cabeceras, adjuntar cuerpo a <code>res.teqBody</code> o ruta de archivo a <code>res.teqFile</code>. El handler final envía primero cabeceras y después transmite archivo o termina con cuerpo. Si nadie reclama, responde 404.</p>
+<h2>Dispatcher y handlers</h2>
+<pre><code>TeqFw_Web_Back_Server_Dispatcher</code> descubre e inicializa handlers antes de registrar su listener:</p>
+<p><code class="language-js">await dispatcher.createHandlers();
+server.on('request', dispatcher.getListener());</code></pre>
+<p>Un handler implementa inicialización, comprobación de propiedad y procesador:</p>
+<pre><code class="language-js">class RequestHandler {
+  async init() {}
+  requestIsMine({ method, address, headers } = {}) {}
+  getProcessor() { return async (req, res) =&gt; {}; }
+}</code></pre>
+<p>Los descriptores ordenan handlers mediante <code>before</code>/<code>after</code> y reservan espacios de dirección:</p>
+<pre><code class="language-json">{
+  "@teqfw/web": {
+    "handlers": {
+      "Vendor_Back_Handler_Upload": {
+        "after": ["TeqFw_Web_Back_Handler_WAPI"],
+        "before": ["TeqFw_Web_Back_Handler_Static"],
+        "space": ["upload"]
+      }
+    }
+  }
+}</code></pre>
+<p>Los procesadores se ejecutan en orden y pueden enriquecer <code>req</code> o <code>res</code> para los siguientes. Un handler que responde por sí mismo debe dejarlo claro; los posteriores comprueban <code>res.headersSent</code>.</p>
+<h2>Respuesta final</h2>
+<p>El handler final envía cabeceras acumuladas y escoge archivo o cuerpo. Transmite archivos existentes y devuelve 404 si no hay ninguno ni cuerpo. La separación permite que los anteriores se centren en routing y negocio, manteniendo coherente la respuesta HTTP.</p>
+<h2>Roles integrados</h2>
+<ul><li><code>SSE</code>: eventos servidor-navegador;</li><li><code>WAPI</code>: Web API JSON sobre GET/POST;</li><li><code>Upload</code>: carga de archivos;</li><li><code>Static</code>: recursos estáticos;</li><li><code>Final</code>: respuesta HTTP final.</li></ul>
+<p>Reservan espacios como <code>sse</code>, <code>api</code>, <code>upload</code>, <code>src</code> y <code>web</code>. El modelo de dirección analiza URL y permite que cada handler reclame solo su área.</p>
+<h2>Recursos estáticos</h2>
+<p>Hay dos grupos principales:</p>
+<ul><li><code>src</code>: fuentes de paquetes npm en <code>node_modules</code>;</li><li><code>web</code>: archivos arbitrarios del directorio <code>web/</code> de un plugin Teq.</li></ul>
+<p>Los metadatos de autoload asignan namespace a fuentes. Una URL como <code>/src/@vendor/package/Path/To/Module.mjs</code> puede mapear a archivo del paquete correspondiente. Dependencias no Teq se pueden mapear explícitamente, por ejemplo para exponer archivos Vue seleccionados. Solo se deben exponer raíces estáticas previstas; nunca convierta una ruta amplia del sistema de archivos en espacio URL público.</p>
+<h2>Web API, SSE y uploads</h2>
+<p>WAPI posee <code>/api/</code>, acepta GET y POST y devuelve JSON. Los plugins registran módulos de API en el descriptor bajo rutas con namespace. SSE y uploads requieren decisiones adicionales: autenticación, autorización, propiedad de canal compartido, límites, validación de contenido y política de almacenamiento. Los handlers no usados se pueden excluir en configuración.</p>
+<h2>Resumen</h2>
+<p>TeqFW ofrece HTTP/1, HTTP/2 y HTTPS mediante pipeline de handlers conectables para estáticos, API JSON, SSE y uploads. Los plugins añaden capacidades sin modificar dispatcher, mientras propiedad de espacios y handler final hacen predecible el procesamiento. En despliegue expuesto a Internet, use TLS, autenticación, límites de tamaño, validación, logs y proxy inverso o controles operativos equivalentes cuando corresponda.</p>
+<h2>Fragmentos adicionales de código fuente</h2>
+<pre>function process(req, res) {} Подключение обработчиков происходит в дескрипторе <code>teq</code>-плагина (<code>teqfw.json</code>):
+{</pre>
+<pre>}
+}
+}
+}</pre>
+<pre>/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {TeqFw_Web_Back_Model_Address} */
+const mAddress = spec[‘TeqFw_Web_Back_Model_Address$’];
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {TeqFw_Web_Back_Server_Respond.respond405|function} */
+const respond405 = spec[‘TeqFw_Web_Back_Server_Respond.respond405’];
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {TeqFw_Web_Back_Api_Request_IHandler[]} */
+const handlers = [];
+async function onRequest(req, res) {
+function isMethodAllowed(method) { }
+async function parseBody(method, headers, req) { } const {headers, method, url} = req;
+if (isMethodAllowed(method)) {
+await parseBody(method, headers, req);
+const address = mAddress.parsePath(url);
+// collect processors
+const active = [];
+for (const one of handlers)
+if (one.requestIsMine({method, address, headers}))
+active.push(one.getProcessor());
+// run processors one by one
+for (const one of active)
+await one(req, res);
+} else respond405(res);
+} В общем случае обработчик не должен сам отправлять ответ — ему неизвестно, какие ещё обработчики есть в очереди после него. Так как результатом обработки запроса является сообщение, состоящее из заголовков и тела запроса, то каждый обработчик может добавить свои заголовки в <code>res</code> (через <code>response.setHeader(name, value)</code>), а тело ответа или имя файла для отправки клиенту сохранить в <code>res[‘teqBody’]</code> или в <code>res[‘teqFile’]</code> соответственно. Если обработчик считает, что его данных достаточно для формирования ответа, он добавляет код ответа в <code>res[‘teqStatus’]</code>.</pre>
+<pre>function process(req, res) {
+if (!res.headersSent) {
+const headers = res.getHeaders();
+const statusCode = res[DEF.RES_STATUS] ?? HTTP_STATUS_OK;
+const file = res[DEF.RES_FILE];
+const body = res[DEF.RES_BODY];
+let stat;
+if (file) {
+if (
+existsSync(file)</pre>
+<pre>) {
+// …
+const readStream = createReadStream(file);
+res.writeHead(statusCode, headers);
+pipeline(readStream, res);
+}
+} else if (body) {
+res.writeHead(statusCode, headers);
+res.end(body);
+} else respond404(res);
+}
+}</pre>
+<pre>{</pre>
+<pre>}
+}
+}
+}</pre>
+<pre>/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {TeqFw_Web_Back_Model_Address} */
+const mAddress = await container.get(‘TeqFw_Web_Back_Model_Address$’);
+//…
+const address = mAddress.parsePath(url);
+if (address?.space === ‘api’) { /* … */}</pre>
+<pre>{</pre>
+<pre>“path”: “./sources”
+}
+}
+}</pre>
+<pre>{</pre>
+<pre>“/vue/”: “/vue/dist/”
+}
+}
+}</pre>
+<pre>./node_modules/<span class="citation" data-cites="vnd/pkg/web/css/style.css">@vnd/pkg/web/css/style.css</span></pre>
+<pre>{</pre>
+<pre>“TeqFw_Web_Back_WAPI_Load_Namespaces”
+]
+}
+}</pre>
+<pre>{</pre>
+<pre>}
+}
+}</pre>
+</div>
+{% endblock %}

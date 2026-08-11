@@ -53,6 +53,7 @@
 <li>what to verify against the current source code and tests.</li>
 </ul>
 <p>The Agent Skills format is not tied to Codex. Other coding-agent environments support it as well, although discovery paths and installation methods vary. A TeqFW package ships the skill itself; the consuming project exposes it in the way its chosen environment expects.</p>
+<p>Claude Code follows the same pattern through <code>.claude/skills/</code>; the package remains independent of the agent-specific discovery path.</p>
 <p>Reference materials and examples sit alongside <code>SKILL.md</code> and are included in the same npm package.</p>
 <p>This is not a README rewritten for another audience. A README helps a developer get started. A skill gives an agent a route through the package: which documents to read, which boundaries to preserve, and which contracts to rely on before changing code.</p>
 <h2 id="the-pattern-in-teqfw">The pattern in TeqFW</h2>

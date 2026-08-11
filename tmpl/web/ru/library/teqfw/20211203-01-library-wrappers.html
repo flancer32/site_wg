@@ -1,0 +1,80 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}TeqFW: Обёртки для библиотек{% endblock %}
+{% block description %}В приложениях зачастую приходится использовать сторонние библиотеки (как правило — в браузере), которые не являются es6-модулями. В данной публикации описано, каким образом подключ{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>TeqFW: Обёртки для библиотек</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2021-12-03
+    </span>
+    {% raw %}
+<p>В приложениях зачастую приходится использовать сторонние библиотеки (как правило — в браузере), которые не являются <code>es6</code>-модулями. В данной публикации описано, каким образом подключать сторонние библиотеки, чтобы их можно было использовать внутри платформы <a href="https://wiredgeese.com/%D1%87%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-teqfw-208d5938205">TeqFW</a>.</p>
+<p>Возьмём, например, пакет <a href="https://tweetnacl.js.org/">tweetnacl</a>. Разработчики пакета предусматривают, что весь функционал пакета загружается в браузер в виде единого бандла:</p>
+<script type="application/javascript" src="nacl-fast.min.js"></script>
+<p>После чего он становится доступным для использования в браузере в виде глобального объекта:</p>
+<pre>window.nacl В TeqFW обращение к элементам кода организуется через <a href="https://wiredgeese.com/teqfw-namespaces-26eee644615a">пространство имён</a>, а использование контейнера для внедрения зависимостей позволяет подменять одни зависимости другими (например, интерфейсы их реализациями). Поэтому для доступа к глобальным объектам в teq-приложениях необходима обёртка, совместимая с TeqFW DI.</pre>
+<p>Teq-приложения — это прежде всего PWA. В PWA все необходимые ресурсы подгружаются в кэш браузера, чтобы обеспечить возможность работы приложения в offline. В том числе и внешние библиотеки. Загрузка внешних библиотек и их монтирование в <code>globals</code> производится в оболочке приложения (<code>app shell</code>) стандартными средствами:</p>
+<p>&lt;!DOCTYPE html&gt;</p>
+<html lang="en">
+<head>
+</head>
+<body>
+<p>…</p>
+<!-- These scripts are not ESM ready for loading with ES6 'import'. Use old style loading. -->
+<script type="application/javascript" src="./src/tweetnacl/nacl-fast.min.js"></script>
+</body>
+</html>
+<p>Чтобы фронт получил доступ к содержимому <code>npm</code>-пакета <code>tweetnacl</code>, в файле <code>./teqfw.json</code> (дескрипторе приложения или плагина) нужно добавить инструкции плагину <code>@teqfw/web</code> для обработки статики:</p>
+<pre>{</pre>
+<p>“<a href="http://twitter.com/teqfw/web"><span class="citation" data-cites="teqfw/web">@teqfw/web</span></a>”: {</p>
+<p>“statics”: {</p>
+<pre>“/tweetnacl/”: “/tweetnacl/”
+}
+}
+}</pre>
+<p>После чего все файлы в каталоге <code>./node_modules/tweetnacl/…</code> станут доступны с фронта по адресу <code>https://…/src/tweetnacl/…</code>. Сам <code>npm</code>-пакет подключается в приложение обычным способом, в <code>package.json</code> (приложения или плагина):</p>
+<pre>{</pre>
+<p>“dependencies”: {</p>
+<pre>“tweetnacl”: “*”
+}
+}</pre>
+<p>Если сделать всё указанное выше, то библиотека загружается на фронте. Чтобы сделать её функционал доступным через TeqFW DI, нужно создать примерно такой <code>es6</code>-модуль <code>./src/Front/Lib/Nacl.mjs</code>:</p>
+<pre>/**</pre>
+<ul>
+<li><p>Wrap TweetNaCl library to use as ES6 module in TeqFW on the front.</p></li>
+<li><p><a href="http://twitter.com/namespace"><span class="citation" data-cites="namespace">@namespace</span></a> Fl32_Dup_Front_Lib_Nacl</p></li>
+</ul>
+<p>*/</p>
+<pre>if (window.nacl === undefined) {</pre>
+<p>throw new Error(`</p>
+Add ’
+<script type="application/javascript" src="./src/tweetnacl/nacl-fast.min.js"></script>
+<p>’</p>
+<p>to your startup HTML to use TweetNaCl.</p>
+<p>`);</p>
+<pre>}
+export const {</pre>
+<p>box,</p>
+<p>hash,</p>
+<p>lowlevel,</p>
+<p>randomBytes,</p>
+<p>scalarMult,</p>
+<p>secretbox,</p>
+<p>setPRNG,</p>
+<p>sign,</p>
+<p>verify,</p>
+<pre>} = window.nacl; Оболочка экспортирует функционал, находящийся в <code>global</code>, в виде, доступном для использования в качестве <code>es6</code>-модуля.</pre>
+<p>Теперь функционал библиотеки можно использовать через <a href="https://wiredgeese.com/%D0%B2%D0%BD%D0%B5%D0%B4%D1%80%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9-%D0%B2-teqfw-b1beb319ca56">TeqFW DI</a>:</p>
+<pre>class Vnd_Plugin_Mod {
+constructor(spec) {
+// EXTRACT DEPS
+const {box, secretbox} = spec[‘Fl32_Dup_Front_Lib_Nacl’];
+// …
+}
+}</pre>
+
+    {% endraw %}
+</div>
+{% endblock %}

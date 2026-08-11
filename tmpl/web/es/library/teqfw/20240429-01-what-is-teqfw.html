@@ -1,0 +1,30 @@
+{% extends "inc/layout.html" %}
+{% block title %}¿Qué es TeqFW?{% endblock %}
+{% block description %}TeqFW es una plataforma JavaScript para aplicaciones web modulares de tamaño pequeño y mediano construidas por equipos reducidos.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>¿Qué es TeqFW?</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2024-04-29</span>
+<p>TeqFW significa Tequila Framework: un framework de aplicaciones web escrito en JavaScript puro. No pretende competir con plataformas grandes como Angular, Laravel o Django; es un experimento práctico: comprobar si una persona desarrolladora o un equipo full-stack pequeño puede crear con solvencia aplicaciones para pequeñas y medianas empresas.</p>
+<h2>Un lenguaje para toda la lógica</h2>
+<p>HTML y CSS son indispensables, pero la lógica programable de la web puede vivir en un único lenguaje: JavaScript. Node.js hizo posible usar la misma familia de herramientas en servidor y navegador. Para mí eso implica menos cambios de contexto y más práctica en un instrumento: dominar bien un lenguaje en frontend y backend en lugar de varios de forma superficial.</p>
+<h2>JSDoc en vez de transpilación</h2>
+<p>La transpilación es útil, pero el código que ejecuta el navegador pasa a diferir del que se ve en el IDE. Eso complica depuración y mantenimiento. TeqFW prefiere usar el mismo JavaScript que se ejecutará y describir estructuras y contratos con <a href="https://jsdoc.app/">JSDoc</a>. Ayuda a navegar y refactorizar sin limitar el lenguaje ni añadir una fase de compilación.</p>
+<h2>Inyección de dependencias</h2>
+<p>El elemento central es el <a href="https://github.com/teqfw/di">contenedor de dependencias</a>, que funciona tanto en navegador como en Node.js. Enlazar objetos en tiempo de ejecución reduce acoplamiento, simplifica pruebas y permite que un plugin o envoltorio modifique una función base sin cambiar su fuente.</p>
+<p>En TeqFW, espacios de nombres, módulos ES y DI separan el código en tres ámbitos:</p>
+<ul><li><strong>Back</strong>: solo servidor, Node.js y paquetes npm del servidor;</li><li><strong>Front</strong>: solo navegador, recursos web y lógica cliente;</li><li><strong>Shared</strong>: código común, enlazado cuando es posible mediante DI.</li></ul>
+<h2>Reutilización</h2>
+<p>El código se organiza en paquetes npm y se ensambla con un <code>package.json</code> habitual. Los paquetes base son <a href="https://github.com/teqfw/di">@teqfw/di</a> y <a href="https://github.com/teqfw/core">@teqfw/core</a>; según la necesidad se añaden <a href="https://github.com/teqfw/db">@teqfw/db</a>, <a href="https://github.com/teqfw/web">@teqfw/web</a>, <a href="https://github.com/teqfw/i18n">@teqfw/i18n</a> y otros.</p>
+<p>Por ejemplo, una aplicación con área de cliente y administración puede tener <code>@app/base</code> para modelos compartidos, <code>@app/client</code> y <code>@app/admin</code>. Soluciones comunes como autenticación se extraen a paquetes propios. Es habitual en Node.js, aunque menos común en el navegador, donde muchas veces se construyen grandes bundles.</p>
+<h2>Arquitectura de aplicación</h2>
+<p>TeqFW se dirige a aplicaciones de carga baja o moderada, mantenidas por uno o dos equipos y orientadas al navegador móvil. PWA, Service Worker, Cache Storage, IndexedDB y Web Push llevan procesamiento y caché adecuados más cerca de la persona usuaria.</p>
+<p><zoom-img src="/medium/img/f84ab4c66abf/image-01.png" alt="Arquitectura típica de una aplicación TeqFW" width="100%"></zoom-img></p>
+<p>Los datos compartidos pueden residir en una base relacional del servidor, los datos personales se cachean en IndexedDB y la lógica se reparte entre frontend y backend. No es un conjunto de microservicios, sino un monolito modular: dos aplicaciones independientes montadas a partir de paquetes compatibles.</p>
+<h2>Datos y capacidad de cambio</h2>
+<p>Para bases relacionales TeqFW usa una capa DBAL basada en Knex.js. Cada paquete describe su fragmento de esquema y la aplicación los compone en un Domain Entities Map para crear la estructura necesaria. Así un paquete puede conectarse a distintos modelos de usuario en aplicaciones distintas.</p>
+<p>El objetivo principal es la modificabilidad: comprender rápido una pieza y añadir una capacidad sin romper lo existente. DI, descomposición, convenciones de argumentos y estructuras de archivos ayudan a ello. El rendimiento máximo y la compatibilidad retrospectiva perfecta no son prioridades absolutas; cada aplicación puede fijar versiones comprobadas de sus paquetes.</p>
+<h2>Conclusión</h2>
+<p>TeqFW explora el desarrollo modular de aplicaciones web JavaScript para individuos y equipos pequeños. Su ecosistema incluye DI, ejecución Node.js, bases de datos, correo, servidor web, HTTP/SSE/Web Push, Vue, Quasar e internacionalización. Ya se usa en proyectos personales y comerciales; su componente más maduro es <a href="https://github.com/teqfw/di">@teqfw/di</a>.</p>
+</div>
+{% endblock %}

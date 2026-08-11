@@ -1,0 +1,35 @@
+{% extends "inc/layout.html" %}
+{% block title %}TeqFW: organización del código de nivel superior{% endblock %}
+{% block description %}Por qué los plugins TeqFW separan fuentes en Back, Front y Shared, y cómo eso permite usar módulos ES con seguridad en navegador y Node.js.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>TeqFW: organización del código de nivel superior</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2024-02-15</span>
+<p>TeqFW permite usar parte del código JavaScript sin cambios en servidor y navegador, por ejemplo constantes y DTO. Pero frontend y backend resuelven tareas diferentes: el frontend se relaciona con personas y el backend con bases de datos, colas y otros sistemas. Por eso conviene hacer visible la frontera desde la estructura del paquete.</p>
+<h2>Tres ámbitos de fuentes</h2>
+<p>En un paquete npm ordinario podría verse así:</p>
+<pre><code>src/
+  back/
+  front/
+  shared/</code></pre>
+<p>TeqFW usa CamelCase para directorios y archivos:</p>
+<pre><code>src/
+  Back/
+  Front/
+  Shared/
+    Dto/
+      UserAuth/</code></pre>
+<p><strong>Back</strong> guarda solo código de servidor; <strong>Front</strong>, solo código de navegador; <strong>Shared</strong>, código válido en ambos entornos. Si un paquete no tiene código de un ámbito, no necesita dicho directorio.</p>
+<h2>Nombres de módulo y DI</h2>
+<p>A partir de la ruta de un módulo ES, TeqFW forma un nombre lógico que utiliza el contenedor de dependencias. Por ejemplo, <code>src/Shared/Dto/UserAuth/Permission.js</code> puede llamarse:</p>
+<pre><code>Vendor_App_Shared_Dto_UserAuth_Permission</code></pre>
+<p>El contenedor usa ese nombre para direccionar e inyectar dependencias. La separación de directorios ayuda a leer la arquitectura y a mantener un mecanismo común de enlace entre módulos.</p>
+<h2>Por qué es obligatorio</h2>
+<p>La plataforma entrega al navegador las fuentes de <code>Front</code> y <code>Shared</code>. Por tanto, no pueden contener dependencias disponibles solo en Node.js. Por ejemplo:</p>
+<pre><code class="language-js">import { existsSync, mkdirSync, rmSync } from 'node:fs';</code></pre>
+<p>El navegador no puede ejecutar la API de sistema de archivos de Node.js. Ese import es válido en <code>Back</code>, pero rompería la carga en cliente. El límite del nivel superior evita el error antes de que llegue a quien usa el producto.</p>
+<p>Ejemplos de paquetes con esta estructura: <a href="https://github.com/flancer64/demo-webauthn-pubkey/tree/main/src">demo-webauthn-pubkey</a>, <a href="https://github.com/flancer64/spa-remote-console/tree/main/src">spa-remote-console</a> y <a href="https://github.com/teqfw/core/tree/main/src">teqfw/core</a>.</p>
+<h2>Conclusión</h2>
+<p>El directorio raíz puede llamarse <code>src</code>, <code>source</code> o de otro modo. Pero en un plugin Teq la separación <code>Back</code>, <code>Front</code> y <code>Shared</code> es obligatoria. Dentro de cada ámbito la estructura es libre; en el nivel superior, esta regla fija el entorno de uso de cada módulo y hace manejable el JavaScript compartido entre navegador y Node.js.</p>
+</div>
+{% endblock %}

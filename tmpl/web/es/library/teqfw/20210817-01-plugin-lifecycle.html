@@ -1,0 +1,79 @@
+{% extends "inc/layout.html" %}
+{% block title %}TeqFW: inicialización y detención de plugins{% endblock %}
+{% block description %}Cómo los plugins de TeqFW declaran acciones de inicio y detención y cómo el framework las ejecuta según la jerarquía de dependencias.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>TeqFW: inicialización y detención de plugins</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2021-08-17</span>
+<p>Algunos plugins de TeqFW necesitan realizar tareas cuando la aplicación se inicia o se detiene; por ejemplo, abrir conexiones con la base de datos al arrancar y cerrarlas al finalizar.</p>
+<p>El plugin puede declarar en su descriptor TeqFW (<code>./teqfw.json</code>) un módulo ES6 con una fábrica para el inicializador y otro para el finalizador:</p>
+<pre><code class="language-json">{
+  "core": {
+    "plugin": {
+      "onInit": "Vnd_Prj_Back_Plugin_Init",
+      "onStop": "Vnd_Prj_Back_Plugin_Stop"
+    }
+  }
+}</code></pre>
+<p>Un módulo ES6 típico tiene esta forma:</p>
+<pre><code class="language-js">export default function Factory(spec) {
+  // EXTRACT DEPS
+  // ...
+  // COMPOSE RESULT
+  async function action() {
+    // ...
+  }
+  return action;
+}</code></pre>
+<h2>Jerarquía de plugins</h2>
+<p>Los plugins de una aplicación forman una jerarquía según sus dependencias. TeqFW las obtiene del nodo <code>/dependencies</code> de <code>package.json</code>:</p>
+<pre><code class="language-json">{
+  "name": "@teqfw/web",
+  "dependencies": { "@teqfw/core": "*" }
+}</code></pre>
+<p>Los plugins de nivel básico, como <code>core</code>, se inicializan y detienen antes que los de nivel superior, como <code>web</code>.</p>
+<h2>Inicialización</h2>
+<p>La inicialización ocurre al iniciar una aplicación TeqFW, en <code>TeqFw_Core_Back_App.init</code>, después de cargar la configuración local, explorar plugins e inicializar el contenedor DI:</p>
+<pre><code class="language-js">this.init = async function ({path, version}) {
+  initBootConfig(config, path, version);
+  config.loadLocal(path);
+  const registry = await pluginScan.exec(path);
+  initDiContainer(registry);
+  await initPlugins(registry);
+};</code></pre>
+<p>La aplicación ejecuta los inicializadores uno a uno, desde <code>core</code> hasta niveles superiores como <code>app</code>.</p>
+<h2>Detención</h2>
+<p>La detención se realiza mediante el método público <code>TeqFw_Core_Back_App.stop</code>. Puede invocarse directamente y TeqFW también lo llama al recibir una <a href="https://nodejs.org/api/process.html#process_signal_events">señal del proceso</a>:</p>
+<pre><code class="language-js">this.run = async function () {
+  const me = this;
+  async function onStop() {
+    await me.stop();
+    process.exit();
+  }
+  process.on('SIGINT', onStop);
+  process.on('SIGTERM', onStop);
+  process.on('SIGQUIT', onStop);
+};
+this.stop = async function () { /* ... */ };</code></pre>
+<p>Los finalizadores se ejecutan en el mismo orden ascendente: de <code>core</code> a <code>app</code>.</p>
+<h2>Fragmentos adicionales de código fuente</h2>
+<pre>this.init = async function ({path, version}) {
+initBootConfig(config, path, version);
+// …
+config.loadLocal(path);
+const registry = await pluginScan.exec(path);
+initDiContainer(registry);
+await initPlugins(registry);
+// …
+}</pre>
+<pre>this.run = async function () {
+const me = this; async function onStop() {
+await me.stop();
+process.exit();
+} process.on(‘SIGINT’, onStop);
+process.on(‘SIGTERM’, onStop);
+process.on(‘SIGQUIT’, onStop);
+// …
+};this.stop = async function () {/* … */} Функции останова плагинов запускаются также по очереди, снизу-вверх — от базовых уровне (<code>core</code>) к верхним (<code>app</code>).</pre>
+</div>
+{% endblock %}

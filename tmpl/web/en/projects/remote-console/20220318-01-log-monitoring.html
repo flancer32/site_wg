@@ -1,0 +1,27 @@
+{% extends "inc/layout.html" %}
+{% block title %}Log Monitoring During Web Application Development{% endblock %}
+{% block description %}What a developer-oriented log aggregator needs: source identification, business-process tracing, near-real-time feedback, and short retention.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Log Monitoring During Web Application Development</h1>
+<span style="display:block;text-align:right;"><strong>Publication date:</strong> 2022-03-18</span>
+<p><zoom-img src="/medium/img/8cffdd920c29/image-01.png" alt="Remote log monitoring concept" width="100%"></zoom-img></p>
+<p>Serious applications generate many logs. ELK, Sentry, Google Cloud Logging, and CloudWatch are valuable for production operations, but development has different needs. A developer needs immediate, selective feedback while changing a web application — not a long-term operational archive.</p>
+<h2>A distributed web application</h2>
+<p>Web applications have frontend and backend parts. The backend may itself be heterogeneous or replicated behind load balancing; the frontend naturally exists on many desktops, phones, and tablets. A development log aggregator must collect logs from all these sources and identify each source, so a developer can isolate one browser instance or one server component.</p>
+<h2>Tracing a business process</h2>
+<p>One business action often crosses components. In a chat, a sender’s frontend submits a message, the backend accepts and forwards it, and the receiver’s frontend stores it. The useful log view groups those records into one process even though they came from different devices and different code.</p>
+<p>In practice this requires a correlation identifier propagated with the request or event. It should be safe to expose in logs, unique enough for the retention window, and attached at each handoff.</p>
+<h2>Linking logs to code</h2>
+<p>A record should identify the code that produced it, at least the source file. Developers frequently jump from a message to source with IDE search. Structured fields for module, file, function, and line — where reliable — make that path faster than a bare text string.</p>
+<h2>Feedback speed</h2>
+<p>Development depends on the loop: change code, run a scenario, read feedback, adjust. Selected log records should arrive as they are produced, with a delay of seconds rather than minutes. This is why a live stream is more valuable during development than scheduled aggregation.</p>
+<h2>Short retention</h2>
+<p>Development logs age rapidly. After a code change and another test run, previous records often lose value. Keeping roughly the latest hour, or a bounded number of recent records, matches the task better than an expensive permanent archive. It also reduces accidental retention of sensitive test data.</p>
+<h2>Levels for developers</h2>
+<p>Operational logging commonly distinguishes <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code>, <code>ERROR</code>, and <code>FATAL</code>. During development, it is often more useful to see the full informational flow while making errors visually distinct. The key is fast filtering, not hiding the context that explains an error.</p>
+<h2>Summary and proof of concept</h2>
+<p>A developer-oriented aggregator needs real-time filtering, a link to the emitting application instance and source file, and business-process correlation. I built a proof of concept, <a href="https://github.com/flancer64/pwa_log_agg">flancer64/pwa_log_agg</a>: a server receives logs via POST and relays them to a browser interface using Server-Sent Events (SSE); filtering happens in the client.</p>
+<p>It demonstrates the direction rather than claiming to replace observability platforms. A production implementation would additionally define authentication, tenant isolation, structured schemas, redaction, retention controls, and reliability of the transport. The Remote Console project on this site develops the same developer-feedback idea further.</p>
+</div>
+{% endblock %}

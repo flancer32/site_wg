@@ -1,0 +1,83 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Why I always use ‘enum’ in JS{% endblock %}
+{% block description %}I wrote this post under the influence of the article “WHY I DON’T USE ENUMS IN TYPESCRIPT, AND NEITHER SHOULD YOU” (now deleted). In short, the author suggested using objects inste{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Why I always use ‘enum’ in JS</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2024-05-23
+    </span>
+    {% raw %}
+<p>I wrote this post under the influence of the article “WHY I DON’T USE ENUMS IN TYPESCRIPT, AND NEITHER SHOULD YOU” (now deleted). In short, the author suggested using <code>objects</code> instead of <code>enums</code> in TS.</p>
+<figure>
+<img src="/medium/img/2feb64992e54/image-01.png" alt="Image 2" />
+</figure>
+<p>That is, instead of:</p>
+<p>enum Colors {</p>
+<p>BLUE = ‘blue’,</p>
+<p>GREEN = ‘green’,</p>
+<p>RED = ‘red’,</p>
+<pre>} function printColor(color: Colors) {
+console.log(color);
+}
+printColor(Colors.BLUE);
+printColor(‘blue’);</pre>
+<p>it was proposed to use something like:</p>
+<pre>const Colors = {</pre>
+<p>BLUE: ‘blue’,</p>
+<p>GREEN: ‘green’,</p>
+<p>RED: ‘red’,</p>
+<pre>} as const;</pre>
+<p>type Colors = typeof Colors[keyof typeof Colors]; function printColor(color: Colors) {</p>
+<pre>console.log(color);
+}
+printColor(Colors.BLUE);
+printColor(‘blue’);</pre>
+<p>The author cited the ability to use literals (<code>blue</code>) instead of importing the source file with the enum and using its values as an advantage of this approach.</p>
+<p>I have an article “<a href="https://flancer32.com/so-what-is-the-ultimate-goal-of-programming-0fd5def59fdc">So, What Is the Ultimate Goal of Programming?</a>” in which I examine the sequence of programming goals in a hierarchy similar to Maslow’s pyramid:</p>
+<figure>
+<img src="/medium/img/2feb64992e54/image-02.png" alt="Image 3" />
+</figure>
+<p>The goals</p>
+<p>And I dare to claim that the approach with literals instead of enums corresponds to the first level of goals — convenience of writing code, but does not correspond to the highest level of goals I have seen — The Modifying.</p>
+<p>Indeed, a string literal is much more convenient for writing code.</p>
+<pre>invoice.setState(‘pending’);
+order.setState(‘pending’);</pre>
+<p>But a search for the <code>pending</code> state of an order now collides with similar invoice states. This is the trade-off for avoiding imports and literals.</p>
+<p>In <a href="https://github.com/teqfw/core/blob/1af0e85783e95fbbbdee82a8b116eb17e9bc34a5/src/Shared/Enum/Sphere.mjs">my JS code</a>, I use namespaces taken from Zend1</p>
+<pre>const TeqFw _Core_Shared_Enum_Sphere = {</pre>
+<p>BACK: ‘BACK’,</p>
+<p>FRONT: ‘FRONT’,</p>
+<p>SHARED: ‘SHARED’,</p>
+<pre>};
+Object.freeze(TeqFw _Core_Shared_Enum_Sphere);
+export default TeqFw _Core_Shared_Enum_Sphere;</pre>
+<p>and during the call, I use <a href="https://github.com/teqfw/web/blob/441d166c8cea10cbc70f649bcca6df008c24c431/src/Back/App/Server/Handler/Config/A/Di.mjs#L30">dependency injection</a> and <a href="https://github.com/teqfw/web/blob/441d166c8cea10cbc70f649bcca6df008c24c431/src/Back/App/Server/Handler/Config/A/Di.mjs#L21">JSDocs</a>.</p>
+<pre>export default function (
+{</pre>
+<p>…</p>
+<p>TeqFw_Core_Shared_Enum_Sphere$: SPHERE,</p>
+<pre>}
+) {
+if (</pre>
+<p>(one.sphere === SPHERE.FRONT) ||</p>
+<p>(one.sphere === SPHERE.SHARED)</p>
+<pre>) {</pre>
+<p>…</p>
+<pre>}
+} With this approach, you can find all the places where <code>TeqFw_Core_Shared_Enum_Sphere</code> is used through simple text search. Using JSDoc annotations helps the IDE (PhpStorm) navigate through the code and find usages of each individual value (<code>BACK</code>, <code>FRONT</code>, <code>SHARED</code>) within the IDE.</pre>
+<p>Yes, unlike TS, such an approach does not prohibit the use of literals directly when calling code:</p>
+<pre>if (</pre>
+<p>(one.sphere === ‘FRONT’) ||</p>
+<p>(one.sphere === ‘SHARED’)</p>
+<pre>) {</pre>
+<p>…</p>
+<pre>}</pre>
+<p>However, it is your responsibility as a programmer to use the capabilities of the available tools for good and not for evil.</p>
+<p>Yes, I understand that <code>enum</code> is not actually implemented in JS (although the word itself is reserved), but I believe that you can write code as if it were there even without it :)</p>
+
+    {% endraw %}
+</div>
+{% endblock %}

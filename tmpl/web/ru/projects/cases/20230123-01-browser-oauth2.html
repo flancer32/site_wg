@@ -1,0 +1,36 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Получение OAuth2 access token для Google Cloud API в браузерном JavaScript{% endblock %}
+{% block description %}Практический пример получения OAuth2 access token для Google Cloud API через библиотеку gsi/client в браузере.{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Получение OAuth2 access token для Google Cloud API в браузерном JavaScript</h1>
+    <span style="display: block; text-align: right;"><strong>Дата публикации:</strong> 2023-01-23</span>
+    <p>В этой статье я описываю опыт получения OAuth2 access token с помощью новой библиотеки <code>gsi/client</code>. Задача состояла в том, чтобы получить токен доступа в web-приложении средствами клиентского JavaScript. В интернете было много материалов о Node.js и устаревшей библиотеке <code>gapi.auth2</code>, но для новой библиотеки подходящего примера не нашлось.</p>
+    <p>Настройку проекта Google Cloud я здесь не разбираю: она подробно описана в <a href="https://medium.com/automationmaster/getting-google-oauth-access-token-using-google-apis-18b2ba11a11a">статье Osanda Deshan Nimalarathna</a>. Ниже — только клиентский код, нужный для получения токена.</p>
+    <p><zoom-img src="/medium/img/208e64f14db4/image-01.png" alt="Схема получения OAuth2 access token" width="100%"></zoom-img></p>
+    <p>Сначала подключим скрипт библиотеки в HTML:</p>
+    <pre><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+  &lt;script src="https://accounts.google.com/gsi/client"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;/html&gt;</code></pre>
+    <p>Библиотека добавляет объект <code>google</code> в глобальную область видимости (<code>self</code> или <code>window</code>). Через него можно запросить access token:</p>
+    <pre><code class="language-js">const CLIENT_ID = 'XXX.apps.googleusercontent.com';
+const SCOPES = 'https://www.googleapis.com/auth/...';
+
+const google = self.google;
+function onTokenResponse({access_token, token_type, expires_in, scope} = {}) {
+}
+
+const client = google.accounts.oauth2.initTokenClient({
+  client_id: CLIENT_ID,
+  scope: SCOPES,
+  callback: onTokenResponse,
+});
+
+client.requestAccessToken();</code></pre>
+    <p>Именно этот фрагмент я долго искал. Надеюсь, он сэкономит время тем, кому нужно получить Google access token непосредственно в браузере.</p>
+</div>
+{% endblock %}

@@ -27,6 +27,63 @@
         будет полезна.</p>
 
     <p>Надеюсь, она прояснит ключевые моменты и вдохновит на применение новых подходов в проектах.</p>
+<h2>Дополнительные фрагменты исходного кода</h2>
+<pre>export class Cat {
+speak(): void {
+console.log(“Meow”);
+}
+}
+import {Cat} from “./cat”; export function animalSound(animal: Cat): void {
+animal.speak();
+}
+import {animalSound} from ‘./animal’;
+import {Cat} from ‘./cat’; const myCat = new Cat();
+animalSound(myCat);</pre>
+<pre>import {Cat} from “./cat”;
+import {Dog} from “./dog”; export function animalSound(animal: Cat | Dog): void {
+animal.speak();
+}</pre>
+<pre>export interface Animal {
+speak(): void;
+}
+import {Animal} from “./iAnimal”; export function animalSound(animal: Animal): void {
+animal.speak();
+}
+import {Animal} from ‘./iAnimal’; export class Cat implements Animal {
+speak(): void {
+console.log(“Meow”);
+}
+}
+import {animalSound} from ‘./animal’;
+import {Cat} from ‘./cat’; const myCat = new Cat();
+animalSound(myCat);</pre>
+<pre>import {Animal} from ‘./animal’; export class Dog implements Animal {
+speak(): void {
+console.log(“Woof”);
+}
+}</pre>
+<pre>export interface Animal {
+speak(): void;
+} import {Animal} from “./iAnimal”;
+export function animalSound(animal: Animal): void {
+animal.speak();
+}</pre>
+<pre>export {}; export function animalSound(animal) {
+animal.speak();
+}</pre>
+<pre>class IAction {
+act(opts) {}
+}</pre>
+<pre>export class FindUser {
+act(opts) {}
+}</pre>
+<pre>export function animalSound(animal) {
+animal.speak();
+} We can see that the <code>animalSound</code> function relies on (or depends on) the <code>animal</code> object. However, there are no <code>import</code> statements linking this function to any specific implementation elsewhere in the code.</pre>
+<pre>export default function (
+{</pre>
+<pre>}
+) {}</pre>
 </div>
 {% endblock %}
 

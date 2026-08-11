@@ -1,0 +1,70 @@
+{% extends "inc/layout.html" %}
+{% block title %}Почему я всегда использую enum в JavaScript{% endblock %}
+{% block description %}Почему именованные значения и поиск по символам надёжнее строковых литералов в поддерживаемом JavaScript-коде.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Почему я всегда использую enum в JavaScript</h1>
+<span style="display:block;text-align:right;"><strong>Дата публикации:</strong> 2024-05-23</span>
+<p>Эта заметка появилась под впечатлением от статьи «Why I don't use enums in TypeScript, and neither should you», которая сейчас удалена. Её автор предлагал вместо <code>enum</code> использовать в TypeScript объекты.</p>
+<p><zoom-img src="/medium/img/2feb64992e54/image-01.png" alt="Сравнение enum и объекта с константами" width="100%"></zoom-img></p>
+<p>То есть вместо:</p>
+<pre><code class="language-ts">enum Colors {
+  BLUE = 'blue',
+  GREEN = 'green',
+  RED = 'red',
+}
+function printColor(color: Colors) { console.log(color); }
+printColor(Colors.BLUE);
+printColor('blue');</code></pre>
+<p>предлагалось писать:</p>
+<pre><code class="language-ts">const Colors = {
+  BLUE: 'blue',
+  GREEN: 'green',
+  RED: 'red',
+} as const;
+type Colors = typeof Colors[keyof typeof Colors];
+function printColor(color: Colors) { console.log(color); }
+printColor(Colors.BLUE);
+printColor('blue');</code></pre>
+<p>Преимуществом называли возможность писать литерал <code>'blue'</code>, не импортируя модуль с перечислением.</p>
+<p>В статье <a href="https://flancer32.com/so-what-is-the-ultimate-goal-of-programming-0fd5def59fdc">«Какова конечная цель программирования?»</a> я рассматриваю иерархию целей разработки, похожую на пирамиду Маслоу.</p>
+<p><zoom-img src="/medium/img/2feb64992e54/image-02.png" alt="Иерархия целей программирования" width="100%"></zoom-img></p>
+<p>Подход со строковыми литералами относится к первому уровню — удобству написания кода. Но он не достигает высшего уровня, который я называю <em>изменяемостью</em>.</p>
+<p>Действительно, литерал писать проще:</p>
+<pre><code class="language-js">invoice.setState('pending');
+order.setState('pending');</code></pre>
+<p>Но при поиске всех состояний <code>pending</code> для заказов они смешаются с такими же состояниями счетов. Именно от этого защищают кажущиеся неудобствами импорт и отказ от литералов.</p>
+<p>В <a href="https://github.com/teqfw/core/blob/1af0e85783e95fbbbdee82a8b116eb17e9bc34a5/src/Shared/Enum/Sphere.mjs">моём JS-коде</a> я использую пространства имён, унаследованные от Zend1:</p>
+<pre><code class="language-js">const TeqFw_Core_Shared_Enum_Sphere = {
+  BACK: 'BACK',
+  FRONT: 'FRONT',
+  SHARED: 'SHARED',
+};
+Object.freeze(TeqFw_Core_Shared_Enum_Sphere);
+export default TeqFw_Core_Shared_Enum_Sphere;</code></pre>
+<p>При использовании подключаю перечисление через <a href="https://github.com/teqfw/web/blob/441d166c8cea10cbc70f649bcca6df008c24c431/src/Back/App/Server/Handler/Config/A/Di.mjs#L30">внедрение зависимостей</a> и <a href="https://github.com/teqfw/web/blob/441d166c8cea10cbc70f649bcca6df008c24c431/src/Back/App/Server/Handler/Config/A/Di.mjs#L21">JSDoc</a>:</p>
+<pre><code class="language-js">export default function ({ TeqFw_Core_Shared_Enum_Sphere$: SPHERE }) {
+  if (one.sphere === SPHERE.FRONT || one.sphere === SPHERE.SHARED) {
+    // ...
+  }
+}</code></pre>
+<p>Так обычным текстовым поиском находятся все места использования <code>TeqFw_Core_Shared_Enum_Sphere</code>. JSDoc помогает IDE перейти к каждому значению — <code>BACK</code>, <code>FRONT</code> или <code>SHARED</code>.</p>
+<p>JavaScript, в отличие от TypeScript, не запрещает передать литерал напрямую. Но ответственность разработчика — использовать возможности инструментов во благо, а не во вред. Да, <code>enum</code> в JavaScript фактически не реализован, хотя слово зарезервировано. Но я считаю полезным писать код так, как будто он есть.</p>
+<h2>Дополнительные фрагменты исходного кода</h2>
+<pre>const TeqFw _Core_Shared_Enum_Sphere = {</pre>
+<pre>};
+Object.freeze(TeqFw _Core_Shared_Enum_Sphere);
+export default TeqFw _Core_Shared_Enum_Sphere;</pre>
+<pre>export default function (
+{</pre>
+<pre>}
+) {
+if (</pre>
+<pre>) {</pre>
+<pre>}
+} With this approach, you can find all the places where <code>TeqFw_Core_Shared_Enum_Sphere</code> is used through simple text search. Using JSDoc annotations helps the IDE (PhpStorm) navigate through the code and find usages of each individual value (<code>BACK</code>, <code>FRONT</code>, <code>SHARED</code>) within the IDE.</pre>
+<pre>if (</pre>
+<pre>) {</pre>
+<pre>}</pre>
+</div>
+{% endblock %}

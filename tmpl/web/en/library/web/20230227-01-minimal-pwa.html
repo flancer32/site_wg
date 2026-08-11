@@ -1,0 +1,147 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Minimal PWA{% endblock %}
+{% block description %}Every website, regardless of the platform it is initially built on, has the potential to become a PWA. Since PWA’s are built using web technologies like HTML, CSS, and JavaScript, {% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Minimal PWA</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2023-02-27
+    </span>
+    {% raw %}
+<p>Every website, regardless of the platform it is initially built on, has the potential to become a PWA. Since PWA’s are built using web technologies like HTML, CSS, and JavaScript, any website can be converted into a PWA by following this guideline.</p>
+<p>Here is a list of the minimum requirements to convert any website into a PWA:</p>
+<ul>
+<li><strong>HTTPS</strong>: The website must support HTTPS.</li>
+<li><strong>Web manifest</strong>: The site must load the web manifest into the client’s browser to provide metadata about the PWA.</li>
+<li><strong>Icon</strong>: An icon is needed to display the application on a smartphone’s home screen.</li>
+<li><strong>Service Worker</strong>: JavaScript code that can process requests to the server and return responses if the application is offline.</li>
+<li><strong>App Shell</strong>: HTML code that installs and starts up the PWA.</li>
+</ul>
+<h2 id="web-manifest">Web Manifest</h2>
+<p>This is a simple web manifest for embedding a PWA into a smartphone — it includes just the description, colors, icon, and addresses:</p>
+<pre>{</pre>
+<p>“background_color”: “#000000”,</p>
+<p>“description”: “Simple PWA”,</p>
+<p>“display”: “standalone”,</p>
+<p>“icons”: [</p>
+<pre>{</pre>
+<p>“sizes”: “180x180”,</p>
+<p>“src”: “./img/favicon-180.png”,</p>
+<p>“type”: “image/png”</p>
+<pre>}, {</pre>
+<p>“sizes”: “192x192”,</p>
+<p>“src”: “./img/favicon-192.png”,</p>
+<p>“type”: “image/png”</p>
+<pre>}, {</pre>
+<p>“sizes”: “512x512”,</p>
+<p>“src”: “./img/favicon-512.png”,</p>
+<p>“type”: “image/png”</p>
+<pre>}
+],</pre>
+<p>“id”: “/”,</p>
+<p>“name”: “Simple PWA”,</p>
+<p>“scope”: “./”,</p>
+<p>“short_name”: “Simple PWA”,</p>
+<p>“start_url”: “./”,</p>
+<p>“theme_color”: “#000000”</p>
+<pre>}</pre>
+<h2>Icon</h2>
+<p>In a PWA, icons are used to represent the app on a user’s home screen, taskbar, and app switcher. The following are the minimum requirements for PWA icons:</p>
+<ul>
+<li>Provide icons in multiple sizes, including <code>192x192</code> and <code>512x512</code> pixels for Android devices and <code>180x180</code> pixels for Apple devices.</li>
+<li>Use a PNG or SVG format for the icons.</li>
+</ul>
+<h2 id="service-worker">Service Worker</h2>
+<p>For the application to be installed on the phone, the service worker must provide at least offline access to the application shell. All other resources are not required to be cached:</p>
+<p>‘use strict’;</p>
+<pre>const CACHE_STATIC = ‘static-cache-v1’;
+const FILES_TO_CACHE = [</pre>
+<p>‘./’,</p>
+<p>‘./favicon.ico’,</p>
+<p>‘./img/favicon-512.png’,</p>
+<p>‘./index.html’,</p>
+<p>‘./pwa.json’,</p>
+<pre>]; function onActivate(evt) {
+console.log(<code>SW: send 'claim' message to the clients.</code>);
+evt.waitUntil(
+self.clients.claim()
+);
+}
+function onFetch(evt) {
+async function cacheOrFetch(req) {
+const cache = await self.caches.open(CACHE_STATIC);
+const cachedResponse = await cache.match(req);
+return cachedResponse ?? await fetch(req);
+}
+console.log(<code>SW: fetch '${evt.request}'.</code>);
+evt.respondWith(cacheOrFetch(evt.request));
+}
+function onInstall(evt) {
+async function cacheStaticFiles() {
+const cacheStat = await caches.open(CACHE_STATIC);
+await Promise.all(
+FILES_TO_CACHE.map(function (url) {
+return cacheStat.add(url).catch(function (reason) {
+console.log(<code>'${url}' failed: ${String(reason)}</code>);
+});
+})
+);
+}
+console.log(<code>SW: cache app shell on install.</code>);
+evt.waitUntil(cacheStaticFiles());
+}
+self.addEventListener(‘activate’, onActivate);
+self.addEventListener(‘fetch’, onFetch);
+self.addEventListener(‘install’, onInstall);</pre>
+<h2 id="app-shell">App Shell</h2>
+<p>The app shell is the main file of your site — typically <code>index.html</code>. This file should instruct the browser where to find the web manifest and how to install the service worker.</p>
+<p>&lt;!DOCTYPE html&gt;</p>
+<html lang="en">
+<head>
+<link rel="manifest" href="./pwa.json">
+<script>
+
+ if ('serviceWorker' in navigator) {
+
+ 
+
+ self.addEventListener('load', async () => {
+
+ const container = navigator.serviceWorker;
+
+ container.addEventListener(
+
+ 'controllerchange',
+
+ () => console.log(`SW is changed (installed or removed).`)
+
+ );
+
+ if (container.controller === null) {
+
+ console.log(`Register new SW for the app.`);
+
+ await container.register('sw.js');
+
+ console.log(`SW is registered.`);
+
+ } else console.log(`SW is already registered.`);
+
+ });
+
+ }
+
+ </script>
+</head>
+<body>
+…
+</body>
+</html>
+<h2 id="conclusion">Conclusion</h2>
+<p>Almost any website can be converted into a PWA by following the guidelines described in this post. However, the “<em>minimal PWA</em>” only enables the placement of the website’s icon on the smartphone’s home screen. To fully utilize the capabilities of modern <a href="https://developer.mozilla.org/en-US/docs/Web/API">Web API</a>s, a web application must be built with offline functionality, client-side data storage, and computation in mind from the start.</p>
+
+    {% endraw %}
+</div>
+{% endblock %}

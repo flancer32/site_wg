@@ -1,0 +1,69 @@
+{% extends "inc/layout.html" %}
+{% block title %}Веб-приложение без своего сервера: ESM и CDN{% endblock %}
+{% block description %}Как ES-модули, npm и CDN позволяют развернуть небольшое браузерное приложение без собственной серверной инфраструктуры.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Веб-приложение без своего сервера: ESM и CDN</h1>
+<span style="display:block;text-align:right;"><strong>Дата публикации:</strong> 2024-07-04</span>
+<p>Небольшому веб-приложению больше не всегда нужна сложная инфраструктура. ES-модули и CDN позволяют запустить код прямо в браузере пользователя: статическая страница размещается отдельно, а библиотеки загружаются по сети. Разберём это на примере.</p>
+<p>Демонстрационное <a href="https://flancer64.github.io/demo-wa-esm-openai/#/">приложение</a> — чат, который работает на стороне клиента, берёт библиотеки из <a href="https://www.jsdelivr.com/">jsDelivr</a> и обращается к внешнему API. Его <code>index.html</code> размещён на GitHub Pages.</p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-01.png" alt="Пример диалога в приложении" width="100%"></zoom-img></p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-02.png" alt="Принципиальная схема приложения" width="100%"></zoom-img></p>
+<p>После публикации пакета в <a href="https://www.npmjs.com/">npm</a> его можно доставлять браузеру через CDN, например jsDelivr или <a href="https://unpkg.com/">unpkg</a>.</p>
+<h2>Из чего состоит пример</h2>
+<p>Интерфейс собран с Vue, Vue Router и Quasar. Навигация минимальна: чат, конфигурация и справка.</p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-03.png" alt="Навигация приложения" width="100%"></zoom-img></p>
+<p>В конфигурации пользователь выбирает модель и системную инструкцию. Любой секретный ключ, введённый в браузер, следует считать доступным этому устройству и его расширениям: для реальных продуктов лучше использовать свой серверный посредник с ограниченными учётными данными, а не передавать постоянный API-ключ в клиент.</p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-04.png" alt="Конфигурация приложения" width="100%"></zoom-img></p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-05.png" alt="Чат приложения" width="100%"></zoom-img></p>
+<h2><code>index.html</code></h2>
+<p>Точка входа получается очень компактной. В ней подключаются стили, шрифты, <code>importmap</code> и главный ES-модуль приложения:</p>
+<pre><code class="language-html">&lt;script type="importmap"&gt;
+{ "imports": {
+  "vue": "https://cdn.jsdelivr.net/npm/vue@3.4.31/dist/vue.esm-browser.prod.js",
+  "openai/core": "https://cdn.jsdelivr.net/npm/openai@4.52.2/core.mjs"
+} }
+&lt;/script&gt;
+&lt;script type="module"&gt;
+import app from 'https://cdn.jsdelivr.net/npm/@flancer64/demo-wa-esm-openai@0.1.0/src/App.mjs';
+app.mount('#app');
+&lt;/script&gt;</code></pre>
+<p><code>importmap</code> даёт браузеру node-подобные имена импортов. Сам документ также подгружает ресурсы и монтирует приложение в элемент страницы.</p>
+<h2>Пакет приложения</h2>
+<p>Код <a href="https://www.npmjs.com/package/@flancer64/demo-wa-esm-openai">@flancer64/demo-wa-esm-openai</a> состоит из ES-модулей. В <code>Mod/</code> расположены модели действий, в <code>Ui/</code> — Vue-компоненты.</p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-06.png" alt="Исходные файлы пакета приложения" width="100%"></zoom-img></p>
+<p>В <code>App.mjs</code> ESM-версии Vue и Vue Router импортируются статически. Quasar в показанной версии был UMD-библиотекой, поэтому перед динамическим импортом он получает Vue через глобальный объект:</p>
+<pre><code class="language-js">import * as Vue from 'https://cdn.jsdelivr.net/npm/vue@3.4.31/dist/vue.esm-browser.prod.js';
+window.Vue = Vue;
+await import('https://cdn.jsdelivr.net/npm/quasar@2.16.4/dist/quasar.umd.prod.js');
+const Quasar = window.Quasar;</code></pre>
+<p>Маршруты используют ленивую загрузку. Компонент придёт по сети лишь при переходе на соответствующий экран:</p>
+<pre><code class="language-js">const routes = [
+  { path: '/', component: () =&gt; import('./Ui/Route/Chat.mjs') },
+  { path: '/config', component: () =&gt; import('./Ui/Route/Config.mjs') },
+];</code></pre>
+<h2>Что видит браузер</h2>
+<p>На вкладке Sources видно, что статический хостинг отдаёт только <code>index.html</code> и стили, а пакет и сторонние зависимости приходят с CDN. Непосещённые маршруты не загрузят свои компоненты. Шрифты и картинки тоже могут оставаться на общедоступных источниках, а пользовательские настройки — в локальном хранилище.</p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-07.png" alt="Источники ресурсов в браузере" width="100%"></zoom-img></p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-08.png" alt="Ресурсы GitHub Pages" width="100%"></zoom-img></p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-09.png" alt="Собственные ESM-исходники в CDN" width="100%"></zoom-img></p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-10.png" alt="Сторонние ESM-ресурсы" width="100%"></zoom-img></p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-11.png" alt="Сторонние UMD-ресурсы" width="100%"></zoom-img></p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-12.png" alt="Шрифты и изображения" width="100%"></zoom-img></p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-13.png" alt="Локальное хранилище браузера" width="100%"></zoom-img></p>
+<h2>Вывод</h2>
+<p>Современный стек позволяет создавать и распространять небольшие приложения без собственных виртуальных серверов: код и зависимости можно публиковать в открытых сервисах. CDN дают хорошую скорость и кэширование при повторном запуске.</p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-14.png" alt="Статистика загрузки сети" width="100%"></zoom-img></p>
+<p><zoom-img src="/medium/img/a68e6632999f/image-15.png" alt="Использование кэша браузера" width="100%"></zoom-img></p>
+<p>Модули можно грузить с точностью до пользовательского действия, не собирая отдельные бандлы и не выполняя tree-shaking заранее. Но открытая цепочка поставки повышает риск вредоносного или неожиданно изменившегося кода. Фиксируйте версии, оценивайте доверие к пакетам и CDN, используйте CSP и не размещайте важные секреты в клиенте. Для небольшого открытого приложения этот подход практичен; для чувствительных данных те же ESM-принципы можно применить на собственном хостинге.</p>
+<h2>Дополнительные фрагменты исходного кода</h2>
+<pre>});
+const app = createApp(Main);
+app.use(router);
+app.use(Quasar, {</pre>
+<pre>}
+});
+export default app;</pre>
+<pre>{path: …, component: () =&gt; import(‘./Ui/Route/About.mjs’)}</pre>
+</div>
+{% endblock %}

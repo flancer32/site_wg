@@ -1,0 +1,137 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Live ‘Speech-To-Text’ Recognition with Deepgram API in PWA{% endblock %}
+{% block description %}[Deepgram](https://deepgram.com/) is a company that specializes in developing speech recognition and natural language processing technologies. They provide various products and ser{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Live ‘Speech-To-Text’ Recognition with Deepgram API in PWA</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2023-03-10
+    </span>
+    {% raw %}
+<p><a href="https://deepgram.com/">Deepgram</a> is a company that specializes in developing speech recognition and natural language processing technologies. They provide various products and services to help businesses and organizations convert audio and speech data into text, extract insights, and automate workflows. In this post, I will share my experience of using their service in web applications. You can see the demo at <a href="https://deepgram.demo.wiredgeese.com/">https://deepgram.demo.wiredgeese.com/</a></p>
+<p>Deepgram Live STT Demo</p>
+<h2 id="deepgram-sdk">Deepgram SDK</h2>
+<p>Deepgram offers a variety of <a href="https://developers.deepgram.com/sdks-tools/">SDKs</a> for using its API with different programming languages. However, as web application development primarily uses JavaScript, I will be using the <a href="https://developers.deepgram.com/sdks-tools/sdks/node-sdk/">Node.js SDK</a> in my app.</p>
+<p>Using this SDK, you can directly access the Deepgram API in a serverless mode from within a browser. To do this, you need to include the SDK in your project by running the following command:</p>
+<pre>$ npm install <span class="citation" data-cites="deepgram/sdk">@deepgram/sdk</span> Once the installation is complete, make the <code>./dist/browser/index.js</code> file available from the browser. You can do this by copying the file to the public directory of your web application using the following command:
+$ cp ./node_modules/<span class="citation" data-cites="deepgram/sdk/dist/browser/index.js">@deepgram/sdk/dist/browser/index.js</span> ./js/lib/deepgram.browser.sdk.mjs Once you have completed these steps, you can use the library in your application in the same way it is described in the <a href="https://developers.deepgram.com/sdks-tools/sdks/node-sdk/#browser">documentation</a>. Simply import the Deepgram object from <code>./lib/deepgram.browser.sdk.mjs</code> and create a new instance of it with your Deepgram API key:
+import {Deepgram} from ‘./lib/deepgram.browser.sdk.mjs’;
+const deepgram = new Deepgram(DEEPGRAM_API_KEY);</pre>
+<h2>Authentication</h2>
+<p>Principally, you can interact with the Deepgram API using <code>curl</code>. Here’s an example code for transcribing <a href="https://developers.deepgram.com/api-reference/transcription/#transcribe-pre-recorded-audio">pre-recorded audio</a>:</p>
+<p>curl –request POST<br />
+</p>
+<p>–url ‘https://api.deepgram.com/v1/listen’<br />
+</p>
+<p>–header ‘Authorization: Token <YOUR_DEEPGRAM_API_KEY>’<br />
+</p>
+<p>–header ‘content-type: application/json’<br />
+</p>
+<p>–data ‘{“url”:“string”}’ To authenticate your requests, you’ll need to generate a token (<code>YOUR_DEEPGRAM_API_KEY)</code> using the Deepgram Web UI:</p>
+<p>Deepgram Web Console</p>
+<p>However, this method is only suitable for analyzing pre-recorded audio files. To use it, you’ll need to send an audio file (<code>speech</code>) to the service through a POST request, and the service will respond with the result of the analysis (<code>text</code>).</p>
+<h2 id="live-transcription">Live Transcription</h2>
+<p>To translate speech into text live, you need to implement the following sequence of actions:</p>
+<ul>
+<li>Open a socket with the Deepgram API, passing the configuration parameters (at least the speech language).</li>
+<li>Launch a media recorder in the browser to record speech.</li>
+<li>Transfer the recorded speech in parts through the socket to the Deepgram API.</li>
+<li>Receive the transcribed text from the Deepgram API via the same socket and process it.</li>
+</ul>
+<p>This is the code to open socket:</p>
+<pre>import {Deepgram} from ‘./lib/deepgram.browser.sdk.mjs’; const deepgram = new Deepgram(API_KEY);
+const deepgramSocket = deepgram.transcription.live({language: LANG});
+deepgramSocket.addEventListener(‘open’, onSocketOpen);
+deepgramSocket.addEventListener(‘message’, onSocketMessage);</pre>
+<p>The code to start speech recording:</p>
+<pre>navigator.mediaDevices</pre>
+<p>.getUserMedia({audio: true})</p>
+<p>.then((stream) =&gt; {</p>
+<pre>const mediaRecorder = new MediaRecorder(stream, {</pre>
+<p>mimeType: ‘audio/webm’,</p>
+<pre>});
+mediaRecorder.start(DEF_TIME_SLICE);
+}); The <code>DEF_TIME_SLICE</code> parameter refers to the interval at which the <code>dataavailable</code> event is triggered and recorded by the media recorder.</pre>
+<p>Transfer audio data to Deepgram API on every <code>dataavailable</code> event:</p>
+<pre>mediaRecorder.addEventListener(‘dataavailable’, async (event) =&gt; {
+if (event.data.size &gt; 0 &amp;&amp; deepgramSocket.readyState === 1) {
+deepgramSocket.send(event.data);
+}
+});</pre>
+<p>Get result with transcriptions:</p>
+<pre>function onSocketMessage(message) {
+const received = JSON.parse(message.data);
+console.log(received);
+}</pre>
+<p>The transcribed text we need is in this attribute:</p>
+<pre>data.channel.alternatives[0].transcript</pre>
+<h2>Result Analyzing</h2>
+<p>Here is the structure of a typical response from the service:</p>
+<pre>{</pre>
+<p>“channel_index”: [0,1],</p>
+<p>“duration”: 2.16,</p>
+<p>“start”: 0,</p>
+<p>“is_final”: true,</p>
+<p>“speech_final”: true,</p>
+<p>“channel”: {</p>
+<p>“alternatives”: [</p>
+<pre>{</pre>
+<p>“transcript”: “This is demo.”,</p>
+<p>“confidence”: 0.9929168,</p>
+<p>“words”: [</p>
+<pre>{</pre>
+<p>“word”: “this”,</p>
+<p>“start”: 1.2143519,</p>
+<p>“end”: 1.3736111,</p>
+<p>“confidence”: 0.99766505,</p>
+<p>“punctuated_word”: “This”</p>
+<pre>},
+{</pre>
+<p>“word”: “is”,</p>
+<p>“start”: 1.3736111,</p>
+<p>“end”: 1.6523148,</p>
+<p>“confidence”: 0.9929168,</p>
+<p>“punctuated_word”: “is”</p>
+<pre>},
+{</pre>
+<p>“word”: “demo”,</p>
+<p>“start”: 1.6523148,</p>
+<p>“end”: 1.9310185,</p>
+<p>“confidence”: 0.56145895,</p>
+<p>“punctuated_word”: “demo.”</p>
+<pre>}
+]
+}
+]
+},</pre>
+<p>“metadata”: {</p>
+<p>“request_id”: “dca09eea-e392-4282-909d-f545f44724fe”,</p>
+<p>“model_info”: {</p>
+<p>“name”: “general”,</p>
+<p>“version”: “2022-01-18.1”,</p>
+<p>“arch”: “vega”</p>
+<pre>},</pre>
+<p>“model_uuid”: “c12089d0-0766-4ca0-9511-98fd2e443ebd”</p>
+<pre>}
+}</pre>
+<p>Deepgram transcribes speech as it arrives and may revise an earlier result in a later response. Each response identifies the speech fragment with <code>start</code> and <code>duration</code>, and reports word-level confidence. The browser therefore needs to assemble the final transcript from these provisional and final fragments.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The Deepgram API allows web developers to integrate speech recognition and transcription capabilities directly into their browser side code. By using the SDK, developers can send audio files or live speech to the Deepgram API for transcription, and receive back a text representation of the speech.</p>
+<p>The use of the service is not expensive. Deepgram offers a range of plans, including a free plan that allows up to 2 hours of audio processing per month. Their paid plans start at $1 per hour of audio processed and go up to custom pricing for enterprise-level customers with specific needs.</p>
+<p>At <a href="http://wiredgeese.com/">Wiredgeese Devs</a>, we specialize in developing high-quality, custom PWAs that leverage the latest technologies to provide the best possible user experience.</p>
+<p>If you’re interested in taking your PWA to the next level by integrating Deepgram’s API, our team of expert developers is ready to help. We can work with you to create a customized solution that meets your specific needs, whether you’re looking to transcribe audio recordings, provide real-time voice recognition, or something else entirely.</p>
+<p>Don’t let your PWA fall behind the competition. Contact <a href="http://wiredgeese.com/">Wiredgeese Devs</a> today to learn more about how we can help you integrate Deepgram’s powerful speech-to-text recognition service into your app.</p>
+<p>If you enjoyed this article, please give it a clap and follow me for more content!</p>
+<p>Stay connected:</p>
+<ul>
+<li><a href="https://github.com/flancer64">GitHub</a></li>
+<li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/">LinkedIn</a></li>
+<li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497">Upwork</a></li>
+</ul>
+<p>Thank you for your support!</p>
+
+    {% endraw %}
+</div>
+{% endblock %}

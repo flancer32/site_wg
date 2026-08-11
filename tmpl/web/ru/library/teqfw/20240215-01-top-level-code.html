@@ -1,0 +1,35 @@
+{% extends "inc/layout.html" %}
+{% block title %}TeqFW: организация верхнего уровня кода{% endblock %}
+{% block description %}Почему плагины TeqFW разделяют исходники на Back, Front и Shared и как это помогает безопасно использовать ES-модули в браузере и Node.js.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>TeqFW: организация верхнего уровня кода</h1>
+<span style="display:block;text-align:right;"><strong>Дата публикации:</strong> 2024-02-15</span>
+<p>TeqFW позволяет использовать часть JavaScript-кода без изменений и на сервере, и в браузере — например, константы и DTO. Но фронтенд и бэкенд решают разные задачи: фронтенд взаимодействует с человеком, бэкенд — с базами, очередями и другими приложениями. Поэтому границы нужно сделать очевидными уже в структуре пакета.</p>
+<h2>Три области исходников</h2>
+<p>В обычном npm-пакете это могло бы выглядеть так:</p>
+<pre><code>src/
+  back/
+  front/
+  shared/</code></pre>
+<p>TeqFW использует CamelCase в именах каталогов и файлов:</p>
+<pre><code>src/
+  Back/
+  Front/
+  Shared/
+    Dto/
+      UserAuth/</code></pre>
+<p><strong>Back</strong> содержит только серверный код; <strong>Front</strong> — только браузерный; <strong>Shared</strong> — код, пригодный в обеих средах. Если в пакете нет кода одной области, соответствующий каталог не нужен.</p>
+<h2>Имена модулей и DI</h2>
+<p>По пути к ES-модулю TeqFW формирует логическое имя, которым оперирует контейнер зависимостей. Например, файл <code>src/Shared/Dto/UserAuth/Permission.js</code> может получить имя:</p>
+<pre><code>Vendor_App_Shared_Dto_UserAuth_Permission</code></pre>
+<p>Контейнер использует такое имя для адресации и внедрения зависимости. Разделение каталогов помогает одновременно читать архитектуру глазами и сохранять одинаковый механизм связи для модулей.</p>
+<h2>Почему это обязательное правило</h2>
+<p>Платформа отдаёт браузеру исходники из <code>Front</code> и <code>Shared</code>. Значит, в них нельзя помещать зависимости, которые доступны только в Node.js. Например:</p>
+<pre><code class="language-js">import { existsSync, mkdirSync, rmSync } from 'node:fs';</code></pre>
+<p>Браузер не умеет выполнять API файловой системы Node.js. Такой импорт законен в <code>Back</code>, но сломает загрузку в клиенте. Граница на верхнем уровне пакета предотвращает эту ошибку раньше, чем она попадёт к пользователю.</p>
+<p>Примеры пакетов с этой структурой: <a href="https://github.com/flancer64/demo-webauthn-pubkey/tree/main/src">demo-webauthn-pubkey</a>, <a href="https://github.com/flancer64/spa-remote-console/tree/main/src">spa-remote-console</a> и <a href="https://github.com/teqfw/core/tree/main/src">teqfw/core</a>.</p>
+<h2>Вывод</h2>
+<p>Корневой каталог можно назвать <code>src</code>, <code>source</code> или иначе. Но для Teq-плагина разделение на <code>Back</code>, <code>Front</code> и <code>Shared</code> обязательно. Внутри этих областей структура свободна, а на верхнем уровне правило фиксирует сферы использования модуля и делает общий JavaScript между браузером и Node.js управляемым.</p>
+</div>
+{% endblock %}

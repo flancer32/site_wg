@@ -1,0 +1,53 @@
+{% extends "inc/layout.html" %}
+{% block title %}DTO en JavaScript{% endblock %}
+{% block description %}Principios para organizar y transformar datos con Data Transfer Object en JavaScript.{% endblock %}
+{% block content %}<div class="card">
+<h1>DTO en JavaScript</h1><span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2023-02-06</span>
+<p>Los sistemas de información procesan datos, por lo que DTO (<a href="https://en.wikipedia.org/wiki/Data_transfer_object">Data Transfer Object</a>) es un concepto importante del desarrollo moderno. En sentido clásico, un DTO es un objeto sencillo, sin lógica, que describe los datos transferidos por la red entre procesos remotos. Cuando los datos pasan entre capas del mismo proceso se habla de <a href="https://martinfowler.com/bliki/LocalDTO.html">DTO local</a>.</p>
+<p>Un DTO tiene dos objetivos principales:</p><ul><li><strong>estructurar los datos</strong> para facilitar el trabajo de desarrollo;</li><li><strong>transformar los datos</strong> desde un formato de transporte, como JSON, XML o YAML, al formato interno de la aplicación, por ejemplo un objeto JavaScript.</li></ul>
+<h2>DTO simple</h2><p>En el caso simple, el DTO es una estructura plana cuyos atributos son primitivos, como cadenas o números:</p><pre><code class="language-js">class Simple {
+  aBool;
+  aNumber;
+  aString;
+}</code></pre><p>Para transformar la entrada, el constructor debe analizar los datos y convertir sus tipos:</p><pre><code class="language-js">class Simple {
+  constructor(data) {
+    this.aBool = Boolean(data?.aBool);
+    this.aNumber = Number.parseFloat(data?.aNumber);
+    this.aString = String(data?.aString);
+  }
+}</code></pre>
+<h2>DTO complejo</h2><p>Un DTO complejo contiene otros DTO, simples o complejos, además de primitivas:</p><pre><code class="language-js">class Complex {
+  constructor(data) {
+    this.aDto = new Simple(data?.aDto);
+    this.aString = String(data?.aString);
+  }
+}</code></pre><p>La transformación de JSON a DTO puede ser:</p><pre><code class="language-js">const dto = new Complex({
+  aDto: {aBool: true, aNumber: 16, aString: 'simple'},
+  aString: 'complex',
+});</code></pre>
+<h2>Conversión de tipos en cascada</h2><p>Para convertir tipos en cascada, los componentes se conectan mediante import-export:</p><pre><code class="language-js">export default class Simple1 {}
+import Simple from './simple.mjs';
+export default class Complex {}</code></pre><p>Así se pueden construir DTO de gran complejidad y modificar sus componentes de forma independiente. Cada nivel analiza su fragmento de entrada, convierte los tipos y conecta los constructores de niveles anidados.</p>
+<h2>Recortar o convertir</h2><p>Supongamos que JSON contiene <code>name</code>, <code>age</code> y <code>weight</code>, pero el DTO Person conoce solo los dos primeros. Podemos conservar únicamente las propiedades conocidas:</p><pre><code class="language-js">this.name = String(data?.name);
+this.age = Number.parseInt(data?.age);</code></pre><p>o copiar todo y convertir después las propiedades conocidas:</p><pre><code class="language-js">Object.assign(this, data);
+this.name = String(data?.name);
+this.age = Number.parseInt(data?.age);</code></pre><p><zoom-img src="/medium/img/3274a3063919/image-01.png" alt="Recortar y convertir datos en un DTO" width="100%"></zoom-img></p><p>Si el código es el manejador final del DTO, conviene eliminar datos innecesarios. Si es un manejador intermedio, conviene convertir los tipos que usa directamente y conservar los datos que no conoce.</p>
+<h2>Resumen</h2><ul><li>Un DTO describe datos transferidos entre procesos o capas.</li><li>Sus objetivos son organizar los datos y convertir tipos.</li><li>Los DTO anidados permiten formar estructuras complejas.</li><li>Al convertir la entrada, las propiedades conocidas se pueden recortar o convertir, conservando las demás cuando corresponda.</li></ul>
+<h2>Fragmentos adicionales de código fuente</h2>
+<pre>{</pre>
+<pre>} … and DTO for this data:
+class Person {
+name;
+age;
+}</pre>
+<pre>constructor(data) {
+this.name = String(data?.name);
+this.age = Number.parseInt(data?.age);
+}
+constructor(data) {
+Object.assign(this, data);
+this.name = String(data?.name);
+this.age = Number.parseInt(data?.age);
+}</pre>
+</div>
+{% endblock %}

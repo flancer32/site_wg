@@ -1,0 +1,86 @@
+{% extends "inc/layout.html" %}
+{% block title %}¿Service Locator es realmente un antipatrón?{% endblock %}
+{% block description %}Una mirada práctica a Service Locator, la inyección de dependencias, los contratos explícitos y el contexto de ejecución.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>¿Service Locator es realmente un antipatrón?</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2021-01-28</span>
+<p>Service Locator —al igual que su evolución hacia un contenedor de DI— conecta elementos de una aplicación con sus dependencias durante la ejecución. Conviene distinguir eso del código fuente que describe la aplicación.</p>
+<p>La tipificación estática fuerte detecta ciertos errores de enlace al compilar, pero no garantiza que una dependencia tenga sentido en su contexto real. Dos piezas pueden coincidir por interfaz y no por significado: como una puerta de armario en la carrocería de un BMW E46. Un enlace correcto necesita tanto <em>interfaces</em> como <em>contexto</em>.</p>
+<p>La interfaz es la parte que ven la persona programadora, el compilador y el IDE. Esta función PHP espera un callable que reciba dos valores y devuelva uno:</p>
+<pre><code class="language-php">function main($dep) {
+    $res = $dep(12, 'str');
+    echo $res;
+}
+$fn = function ($num, $str) { return $num . $str; };
+main($fn);</code></pre>
+<p>Los argumentos y el resultado forman el contrato. Los archivos de cabecera C/C++, como <a href="https://github.com/openbsd/src/blob/master/include/string.h">string.h</a>, son un ejemplo conocido de descripción de interfaces.</p>
+<p>Con objetos la idea no cambia: <code>IDep</code> define qué métodos puede usar <code>Main</code>.</p>
+<pre><code class="language-php">interface IDep { public function get(); public function put($data); }
+class Dep implements IDep { /* ... */ }
+class Main {
+    public function run(IDep $dep) { $dep-&gt;put(4); echo $dep-&gt;get(); }
+}</code></pre>
+<p>El compilador queda satisfecho cuando un objeto implementa <code>IDep</code>, aunque sea semánticamente inadecuado. Las fábricas, builders y pools aportan la otra mitad: ensamblar partes compatibles en el contexto adecuado.</p>
+<p>Con inyección de dependencias, una clase declara las interfaces que necesita y deja la construcción y el cableado al entorno. Un contenedor de DI también puede actuar como localizador:</p>
+<pre><code class="language-php">// Inyección en el constructor
+public function __construct(IDep $dep) { $this-&gt;dep = $dep; }
+
+// Resolver al necesitarla
+public function __construct(IContainer $di) {
+    $this-&gt;dep = $di-&gt;get(IDep::class);
+}</code></pre>
+<p>La segunda forma pierde información sobre qué clase pide la dependencia. Es mejor conservar ese contexto:</p>
+<pre><code class="language-php">$this-&gt;dep = $di-&gt;get(IDep::class, self::class);</code></pre>
+<p>La objeción habitual es que el localizador oculta dependencias y la inyección por constructor las muestra. Es una preocupación legítima: una clase acoplada a <code>ILocator</code> se reutiliza peor y sus dependencias no son visibles de inmediato. Pero la inyección por constructor también puede obligar al contenedor a construir un árbol completo, aunque algunos servicios no se usen en ese modo de ejecución.</p>
+<p>Resolver de forma perezosa evita esa construcción anticipada:</p>
+<pre><code class="language-php">class Main {
+    private $locator;
+    public function __construct(ILocator $locator) { $this-&gt;locator = $locator; }
+    private function depIDep() {
+        return $this-&gt;locator-&gt;get(IDep::class, self::class);
+    }
+    public function run() { $dep = $this-&gt;depIDep(); }
+}</code></pre>
+<p>La dependencia del localizador sigue existiendo, pero se puede hacer visible por convención: concentrar las recuperaciones en métodos claramente llamados <code>dep…</code>. En la práctica se parece a la inyección por setter o propiedad; cambia el momento: la dependencia se crea cuando se usa, no cuando se crea el objeto base.</p>
+<p>Mi conclusión es pragmática: inyectar un contenedor DI o Service Locator no es malo por sí mismo. Hay que usarlo con intención, conservar el contexto de quien solicita el servicio y mantener las dependencias reales fáciles de encontrar en el código.</p>
+<h2>Fragmentos adicionales de código fuente</h2>
+<pre>{</pre>
+<pre>}
+}
+class Main
+{</pre>
+<pre>{</pre>
+<pre>}
+}</pre>
+<pre><em>// DI in constructor</em> public function __construct(IDep $dep)
+{</pre>
+<pre>}<em>// DI as ServiceLocator</em> public function __construct(IContainer $di)
+{</pre>
+<pre>}</pre>
+<pre>{</pre>
+<pre>{</pre>
+<pre>Locator.GetService<IProductService>();
+var products = service.GetFeaturedProducts();
+return this.View(products);
+}
+}</pre>
+<pre>class Main
+{</pre>
+<pre>{</pre>
+<pre>}</pre>
+<pre>{</pre>
+<pre>}
+}</pre>
+<pre>class Main
+{</pre>
+<pre>{</pre>
+<pre>}</pre>
+<pre>{
+return $this-&gt;locator-&gt;get(IDep::class, self::class);
+}</pre>
+<pre>{</pre>
+<pre>}
+}</pre>
+</div>
+{% endblock %}

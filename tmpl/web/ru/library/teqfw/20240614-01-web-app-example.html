@@ -1,0 +1,52 @@
+{% extends "inc/layout.html" %}
+{% block title %}Пример веб-приложения на TeqFW{% endblock %}
+{% block description %}Как собрать браузерное ToDo-приложение из ES-модулей с контейнером зависимостей @teqfw/di.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Пример веб-приложения на TeqFW</h1>
+<span style="display:block;text-align:right;"><strong>Дата публикации:</strong> 2024-06-14</span>
+<p>В <a href="https://github.com/flancer64/demo_web_app_di">демонстрации</a> показано применение контейнера объектов и внедрения зависимостей <a href="https://github.com/teqfw/di">@teqfw/di</a> в браузерном приложении. Это знакомый ToDo List без серверной части: набор статических файлов загружается и исполняется в браузере.</p>
+<p><zoom-img src="/medium/img/add155627b58/image-01.png" alt="Демонстрационное ToDo-приложение" width="100%"></zoom-img></p>
+<p>Чистый JavaScript с ES-модулями даёт важное преимущество при отладке: в браузере видны те же файлы, что и в IDE.</p>
+<p><zoom-img src="/medium/img/add155627b58/image-02.png" alt="Исходники приложения в браузере" width="100%"></zoom-img></p>
+<p><zoom-img src="/medium/img/add155627b58/image-03.png" alt="Те же исходники в IDE" width="100%"></zoom-img></p>
+<h2>Подключение контейнера</h2>
+<p>Библиотека доступна как ES-модуль, например через unpkg:</p>
+<pre><code class="language-html">&lt;script type="module"&gt;
+  import Container from 'https://unpkg.com/@teqfw/di';
+&lt;/script&gt;</code></pre>
+<h2>Создание и настройка</h2>
+<p>Контейнер не хранит заранее подготовленные объекты. Его Resolver вычисляет путь к исходнику по идентификатору зависимости. После создания контейнера связываем пространство имён <code>Demo</code> с папкой <code>./js</code>:</p>
+<pre><code class="language-js">const container = new Container();
+const root = new URL(location.href).href.replace('index.html', '');
+const resolver = container.getResolver();
+resolver.addNamespaceRoot('Demo', root + '/js');</code></pre>
+<p>Тогда имена превращаются в адреса модулей:</p>
+<ul><li><code>Demo_App</code> → <code>…/js/App.js</code>;</li><li><code>Demo_Defs</code> → <code>…/js/Defs.js</code>;</li><li><code>Demo_ToDo_Item</code> → <code>…/js/ToDo/Item.js</code>;</li><li><code>Demo_ToDo_List</code> → <code>…/js/ToDo/List.js</code>.</li></ul>
+<h2>Запуск приложения</h2>
+<p>Символ <code>$</code> в конце идентификатора означает singleton. Контейнер создаёт его один раз и затем возвращает тот же объект:</p>
+<pre><code class="language-js">const app = await container.get('Demo_App$');
+app.run();</code></pre>
+<p>Базовые формы идентификаторов:</p>
+<ul><li><code>Demo_App</code> — default export как есть;</li><li><code>Demo_App$</code> — singleton из default export;</li><li><code>Demo_App$I</code> — новый экземпляр;</li><li><code>Demo_App.</code> — объект модуля;</li><li><code>Demo_App.export</code> — именованный export;</li><li>суффиксы <code>$</code> и <code>$I</code> работают также для именованного export.</li></ul>
+<h2>Описание зависимостей</h2>
+<p>Статический импорт нужен только для самого контейнера; остальные модули связываются идентификаторами в конструкторе:</p>
+<pre><code class="language-js">export default class Demo_App {
+  constructor({
+    Demo_Defs$: defs,
+    Demo_ToDo_List$: list,
+  }) {
+    this.defs = defs;
+    this.list = list;
+  }
+}</code></pre>
+<p>Контейнер загрузит модули, создаст нужные singleton-объекты и передаст их приложению. Если нужен сам класс, а не его объект, запрос выглядит проще:</p>
+<pre><code class="language-js">export default class Demo_ToDo_List {
+  constructor({ Demo_ToDo_Item: ToDoItem }) {
+    this.item = new ToDoItem();
+  }
+}</code></pre>
+<h2>Вывод</h2>
+<p><a href="https://github.com/teqfw/di">@teqfw/di</a> переносит привычные enterprise-подходы — контейнер объектов и пространства имён — в SPA и PWA. Для запуска демо достаточно разместить папку <code>web/</code> на статическом хостинге. Позднее связывание избыточно для маленькой статичной страницы, но становится полезным в больших приложениях и наборах пакетов; тот же подход также позволяет разделять код фронтенда и Node.js-бэкенда.</p>
+</div>
+{% endblock %}

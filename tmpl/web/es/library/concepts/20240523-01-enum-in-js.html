@@ -1,0 +1,62 @@
+{% extends "inc/layout.html" %}
+{% block title %}Por qué siempre uso enum en JavaScript{% endblock %}
+{% block description %}Por qué los valores con nombre y la búsqueda por símbolos son más seguros que los literales de cadena en JavaScript mantenible.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Por qué siempre uso enum en JavaScript</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2024-05-23</span>
+<p>Escribí esta nota bajo la influencia de un artículo ya eliminado que proponía usar objetos en lugar de <code>enum</code> en TypeScript.</p>
+<p><zoom-img src="/medium/img/2feb64992e54/image-01.png" alt="Comparación entre enum y un objeto de constantes" width="100%"></zoom-img></p>
+<p>En vez de:</p>
+<pre><code class="language-ts">enum Colors {
+  BLUE = 'blue', GREEN = 'green', RED = 'red',
+}
+function printColor(color: Colors) { console.log(color); }
+printColor(Colors.BLUE);
+printColor('blue');</code></pre>
+<p>se sugería usar:</p>
+<pre><code class="language-ts">const Colors = {
+  BLUE: 'blue', GREEN: 'green', RED: 'red',
+} as const;
+type Colors = typeof Colors[keyof typeof Colors];
+function printColor(color: Colors) { console.log(color); }
+printColor(Colors.BLUE);
+printColor('blue');</code></pre>
+<p>La ventaja sería poder escribir <code>'blue'</code> sin importar el módulo que define la enumeración.</p>
+<p>En mi artículo sobre la meta última de programar describo una jerarquía de objetivos parecida a la pirámide de Maslow.</p>
+<p><zoom-img src="/medium/img/2feb64992e54/image-02.png" alt="Jerarquía de objetivos de programación" width="100%"></zoom-img></p>
+<p>Usar literales favorece el primer nivel, la comodidad al escribir. Pero no alcanza el nivel más alto: la capacidad de modificar el sistema con seguridad.</p>
+<pre><code class="language-js">invoice.setState('pending');
+order.setState('pending');</code></pre>
+<p>Es cómodo, pero al buscar todos los estados <code>pending</code> de pedidos se mezclarán con los de facturas. La importación y el uso de símbolos evitan justamente esa ambigüedad.</p>
+<p>En <a href="https://github.com/teqfw/core/blob/1af0e85783e95fbbbdee82a8b116eb17e9bc34a5/src/Shared/Enum/Sphere.mjs">mi código JavaScript</a> uso espacios de nombres inspirados en Zend1:</p>
+<pre><code class="language-js">const TeqFw_Core_Shared_Enum_Sphere = {
+  BACK: 'BACK', FRONT: 'FRONT', SHARED: 'SHARED',
+};
+Object.freeze(TeqFw_Core_Shared_Enum_Sphere);
+export default TeqFw_Core_Shared_Enum_Sphere;</code></pre>
+<p>Al usarlo, incorporo la enumeración mediante <a href="https://github.com/teqfw/web/blob/441d166c8cea10cbc70f649bcca6df008c24c431/src/Back/App/Server/Handler/Config/A/Di.mjs#L30">inyección de dependencias</a> y JSDoc:</p>
+<pre><code class="language-js">export default function ({ TeqFw_Core_Shared_Enum_Sphere$: SPHERE }) {
+  if (one.sphere === SPHERE.FRONT || one.sphere === SPHERE.SHARED) {
+    // ...
+  }
+}</code></pre>
+<p>Así una búsqueda de texto encuentra todos los usos de <code>TeqFw_Core_Shared_Enum_Sphere</code>, y JSDoc ayuda al IDE a localizar cada valor. JavaScript no prohíbe usar literales directamente; es responsabilidad del programador usar las herramientas con criterio. Aunque <code>enum</code> no esté implementado realmente en JavaScript, considero útil escribir como si lo estuviera.</p>
+<h2>Fragmentos adicionales de código fuente</h2>
+<pre>const TeqFw _Core_Shared_Enum_Sphere = {</pre>
+<pre>};
+Object.freeze(TeqFw _Core_Shared_Enum_Sphere);
+export default TeqFw _Core_Shared_Enum_Sphere;</pre>
+<pre>export default function (
+{</pre>
+<pre>}
+) {
+if (</pre>
+<pre>) {</pre>
+<pre>}
+} With this approach, you can find all the places where <code>TeqFw_Core_Shared_Enum_Sphere</code> is used through simple text search. Using JSDoc annotations helps the IDE (PhpStorm) navigate through the code and find usages of each individual value (<code>BACK</code>, <code>FRONT</code>, <code>SHARED</code>) within the IDE.</pre>
+<pre>if (</pre>
+<pre>) {</pre>
+<pre>}</pre>
+</div>
+{% endblock %}

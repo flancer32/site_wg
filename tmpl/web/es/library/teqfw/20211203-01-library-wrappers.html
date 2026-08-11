@@ -1,0 +1,52 @@
+{% extends "inc/layout.html" %}
+{% block title %}TeqFW: envoltorios para bibliotecas{% endblock %}
+{% block description %}Cómo exponer bibliotecas del navegador que no son módulos ES mediante espacios de nombres e inyección de dependencias de TeqFW.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>TeqFW: envoltorios para bibliotecas</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2021-12-03</span>
+<p>Las aplicaciones suelen usar bibliotecas de terceros, sobre todo en el navegador, que no son módulos ES6. Este artículo explica cómo conectarlas para poder utilizarlas dentro de <a href="https://teqfw.com/">TeqFW</a>.</p>
+<p>Tomemos <a href="https://tweetnacl.js.org/">tweetnacl</a> como ejemplo. El paquete se carga en el navegador como un único bundle:</p>
+<pre><code class="language-html">&lt;script type="application/javascript" src="nacl-fast.min.js"&gt;&lt;/script&gt;</code></pre>
+<p>Después queda disponible como objeto global:</p>
+<pre><code class="language-js">window.nacl</code></pre>
+<p>TeqFW accede a los elementos de código mediante espacios de nombres. Además, su contenedor de inyección de dependencias permite sustituir una dependencia por otra, por ejemplo una interfaz por su implementación. Por ello, para acceder a objetos globales se necesita un envoltorio compatible con TeqFW DI.</p>
+<p>Las aplicaciones TeqFW son principalmente PWA. Para funcionar sin conexión, guardan en caché del navegador todos los recursos necesarios, incluidas las bibliotecas externas. El app shell las carga de la forma habitual:</p>
+<pre><code class="language-html">&lt;!-- These scripts are not ESM ready for loading with ES6 'import'. --&gt;
+&lt;script type="application/javascript" src="./src/tweetnacl/nacl-fast.min.js"&gt;&lt;/script&gt;</code></pre>
+<p>Para exponer el contenido del paquete npm <code>tweetnacl</code> al frontend, añade instrucciones de recursos estáticos para <code>@teqfw/web</code> en <code>./teqfw.json</code>:</p>
+<pre><code class="language-json">{
+  "@teqfw/web": {
+    "statics": { "/tweetnacl/": "/tweetnacl/" }
+  }
+}</code></pre>
+<p>Los archivos de <code>./node_modules/tweetnacl/…</code> estarán disponibles en <code>https://…/src/tweetnacl/…</code>, y el paquete se declara normalmente en <code>package.json</code>:</p>
+<pre><code class="language-json">{ "dependencies": { "tweetnacl": "*" } }</code></pre>
+<p>Una vez cargada la biblioteca, crea un módulo ES6 como <code>./src/Front/Lib/Nacl.mjs</code> para exponerla mediante TeqFW DI:</p>
+<pre><code class="language-js">if (window.nacl === undefined) {
+  throw new Error("Add TweetNaCl to your startup HTML to use it.");
+}
+
+export const {
+  box, hash, lowlevel, randomBytes, scalarMult,
+  secretbox, setPRNG, sign, verify,
+} = window.nacl;</code></pre>
+<p>El envoltorio exporta las funciones del objeto global en una forma que puede consumir un módulo ES6. Después otro módulo las obtiene mediante TeqFW DI:</p>
+<pre><code class="language-js">class Vnd_Plugin_Mod {
+  constructor(spec) {
+    const {box, secretbox} = spec['Fl32_Dup_Front_Lib_Nacl'];
+  }
+}</code></pre>
+<h2>Fragmentos adicionales de código fuente</h2>
+<pre>}
+export const {</pre>
+<pre>} = window.nacl; Оболочка экспортирует функционал, находящийся в <code>global</code>, в виде, доступном для использования в качестве <code>es6</code>-модуля.</pre>
+<pre>class Vnd_Plugin_Mod {
+constructor(spec) {
+// EXTRACT DEPS
+const {box, secretbox} = spec[‘Fl32_Dup_Front_Lib_Nacl’];
+// …
+}
+}</pre>
+</div>
+{% endblock %}

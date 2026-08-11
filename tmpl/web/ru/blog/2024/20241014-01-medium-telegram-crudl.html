@@ -30,6 +30,50 @@
     <p>Все примеры кода собраны в демонстрационном репозитории:
         <a href="https://github.com/flancer64/tg-demo-crudl" target="_blank">@flancer64/tg-demo-crudl</a>
     </p>
+<h2>Дополнительные фрагменты исходного кода</h2>
+<pre>export default class Demo_Crudl_Back_Bot_Cmd_Create {
+constructor(
+{</pre>
+<pre>}
+) {}
+} * <strong>Logger</strong> (<code>TeqFw_Core_Shared_Api_Logger</code>): For logging the execution of commands. * <strong>Database Connection</strong> (<code>TeqFw_Db_Back_RDb_IConnect</code>): To handle database transactions. * <strong>CRUD Engine</strong> (<code>TeqFw_Db_Back_Api_RDb_CrudEngine</code>): To perform basic database operations. * <strong>DTO for Database Structure</strong> (<code>Demo_Crudl_Back_Store_RDb_Schema_Phone</code>): A Data Transfer Object (DTO) that defines the database structure.</pre>
+<pre>class Dto {
+date_created;
+id;
+name;
+phone;
+}</pre>
+<pre>); This structure is sufficient to give you an idea of how the data is organized in the database. While the demo bot uses SQLite, Knex.js, a database abstraction layer (DBAL), allows you <a href="https://knexjs.org/guide/#node-js">to work</a> with PostgreSQL, MariaDB/MySQL, MS SQL, and Oracle as well. You just need to install the appropriate npm package for the desired database system.</pre>
+<pre>$ ./bin/tequila.mjs db-init
+$ ./bin/tequila.mjs db-export -f ./var/data.json
+$ ./bin/tequila.mjs db-import -f ./var/data.json The command names are self-explanatory: <code>db-init</code> initializes the database structure (table), while <code>db-export</code> and <code>db-import</code> handle data export and import in JSON format, respectively.</pre>
+<pre>const handler = async (ctx) =&gt; {
+let msg = ‘The command has failed.’;
+const from = ctx.message.from;
+logger.info(<code>Command has been received from user '${from.username}' (id:${from.id})</code>);
+const trx = await conn.startTransaction();</pre>
+<pre>// const parts = ctx.message.text.split(’ ’);
+// …
+await trx.commit();
+} catch (e) {
+await trx.rollback();</pre>
+<pre>logger.error(msg);
+}
+// https://core.telegram.org/bots/api#sendmessage
+await ctx.reply(msg, {</pre>
+<pre>});
+};</pre>
+<pre>const parts = ctx.message.text.split(’ ’);
+const dto = rdbPhone.createDto();
+dto.name = parts[1];
+dto.phone = parts[2];
+const {[A_PHONE.ID]: id} = await crud.create(trx, rdbPhone, dto);
+await trx.commit();</pre>
+<pre>logger.info(msg);
+} catch (e) {…}</pre>
+<pre>$ ./bin/tequila.mjs db-init Start the bot in long polling mode:
+$ ./bin/tequila.mjs tg-bot-start or
+$ npm start ### Get the Help</pre>
 </div>
 {% endblock %}
 

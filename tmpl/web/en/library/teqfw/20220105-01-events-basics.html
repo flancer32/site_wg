@@ -1,0 +1,37 @@
+{% extends "inc/layout.html" %}
+{% block title %}TeqFW: Event Basics{% endblock %}
+{% block description %}How TeqFW models local and cross-boundary events between browser and Node.js, with explicit message contracts and resilient delivery.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>TeqFW: Event Basics</h1>
+<span style="display:block;text-align:right;"><strong>Publication date:</strong> 2022-01-05</span>
+<p>JavaScript is well suited to asynchronous programming, where events are central. This article introduces how Tequila Framework uses events to coordinate work within the browser or server and across the boundary between them.</p>
+<h2>What is an event?</h2>
+<p>An event is a meaningful state change, such as “the user has authenticated”. It carries data — for example, a user identifier — arises from an action, and can cause further actions such as loading the user profile.</p>
+<p><zoom-img src="/medium/img/541b01dfbe6b/image-01.png" alt="Event producer, message, and handlers" width="100%"></zoom-img></p>
+<p>In the simplest form there are two functional objects and one data object: an <em>Event Producer</em> changes state and emits an <em>Event Message</em>; one or more <em>Event Handlers</em> react. An event has a type, such as <code>onClick</code>, and a message with related data, such as a <code>MouseEvent</code>.</p>
+<p>Handlers react asynchronously, can change application state, and can emit further events. This makes an application more flexible than a chain of synchronous calls, but it also requires discipline and observability.</p>
+<h2>Local and cross-boundary events</h2>
+<p>A Teq application usually has a frontend in a browser and a Node.js backend. If producer and handler run in the same process, the event is local. If they are on opposite sides, it is cross-boundary.</p>
+<p>Cross-boundary messages travel over the Internet as JSON. Their data must therefore be serializable and deserializable without loss. A local message stays within one process and is not subject to that transport constraint.</p>
+<h2>Event names</h2>
+<p>Each event type should be unique across the application. Teq namespaces make an event’s ES module name a natural identifier:</p>
+<ul><li><code>Vnd_Plug_Front_Event_Net_Status_Changed</code>: a local frontend event;</li><li><code>Vnd_Plug_Back_Event_Sale_Order_Registered</code>: a local backend event;</li><li><code>Vnd_Plug_Shared_Event_Front_Sale_Order_Confirmed</code>: a browser-originated cross-boundary event;</li><li><code>Vnd_Plug_Shared_Event_Back_Sale_Order_Registered</code>: a backend-originated cross-boundary event.</li></ul>
+<p>The ES module encapsulates not only the event name but also the DTO shape of its message. That makes the contract explicit and reusable on both sides.</p>
+<h2>Handling local events</h2>
+<p>A local producer supports publishing and subscription:</p>
+<pre><code class="language-js">emit(eventName, message) {}
+subscribe(eventName, handler) {}
+unsubscribe(subscription) {}</code></pre>
+<p>A subscriber tells the producer which event it needs and supplies a handler. When the state changes, the producer sends the message to that handler.</p>
+<p><zoom-img src="/medium/img/541b01dfbe6b/image-02.png" alt="Local event subscription and delivery" width="100%"></zoom-img></p>
+<p>Because both parties are on the frontend or both on the backend, this is comparatively simple.</p>
+<h2>Handling cross-boundary events</h2>
+<p>With a browser producer and server handler — or the reverse — a mobile application has an unreliable communication channel in between.</p>
+<p><zoom-img src="/medium/img/541b01dfbe6b/image-03.png" alt="Cross-boundary event transfer between frontend and backend" width="100%"></zoom-img></p>
+<p>The producer sends messages to a queue that watches the channel and delivers when possible. On the other side, a representative or “embassy” lets local handlers subscribe to events from the remote side. Once it receives a network message, it routes it to the matching handler. The same principle works in both directions.</p>
+<p>A production design must also define message identity, ordering, retry and deduplication semantics; a queue alone does not make delivery exactly-once.</p>
+<h2>Summary</h2>
+<p>Event-driven architecture matches JavaScript’s asynchronous nature and works well in environments that change unpredictably. Its cost is less linear control flow. Event-driven applications therefore need purposeful logging and tracing on both client and server so people can understand what happened and recover from failures.</p>
+</div>
+{% endblock %}

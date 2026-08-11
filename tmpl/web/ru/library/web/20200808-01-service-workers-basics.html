@@ -1,0 +1,197 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Service Workers Basics{% endblock %}
+{% block description %}Прочитал статью “[Визуализация работы сервис-воркеров](https://habr.com/ru/post/491840/)” и почувствовал необходимость разобраться с основами работы service worker’ов, тем более, ч{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>Service Workers Basics</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2020-08-08
+    </span>
+    {% raw %}
+<p>Прочитал статью “<a href="https://habr.com/ru/post/491840/">Визуализация работы сервис-воркеров</a>” и почувствовал необходимость разобраться с основами работы service worker’ов, тем более, что как раз занимаюсь этой темой.</p>
+<h2 id="регистрация-service-workerа">Регистрация service worker’а</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register">Регистрация</a> происходит на главной странице web-приложения:</p>
+<pre>navigator.serviceWorker</pre>
+<p>.register(“sw.js”, {scope})</p>
+<pre>.then(onSuccess, onFail);</pre>
+<h2>Простой service worker</h2>
+<p>Самый простой service worker просто сообщает о факте своей загрузке (файл <code>sw.js</code>):</p>
+<pre>console.log(</pre>
+<p>“SW: registering itself, state:”,</p>
+<pre>self.serviceWorker.state
+); Состояние worker’а берётся из собственного <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope">контекста</a> — <code>self</code>. Если worker продолжительное время неактивен, то браузер завершает поток, в котором он существует, и создаёт новый, как только в worker’е вновь возникает необходимость.</pre>
+<h2 id="service-worker-states">Service Worker States</h2>
+<p>Всего у service worker’а может быть <a href="https://w3c.github.io/ServiceWorker/#dfn-state">6 состояний</a>:</p>
+<ul>
+<li>parsed</li>
+<li>installing</li>
+<li>installed</li>
+<li>activating</li>
+<li>activated</li>
+<li>redundant</li>
+</ul>
+<p>Для трассировки изменения состояний worker’а сразу же после регистрации добавим к нему обработчик событий смены состояния worker’а:</p>
+<pre>// onSuccess:</pre>
+<p>(reg) =&gt; {</p>
+<pre><em>// get service worker from registration</em> const sw = reg.installing;
+console.log(“SW registration done, state:”, sw.state);
+<em>// setup handler to “statechange” event to trace changes</em> sw.addEventListener(“statechange”, (e) =&gt; {
+console.log(“State is changed:”, e.target.state);
+if (e.target.state === “activated”) {
+console.log(“uninstall SW after activation.”);
+reg.unregister();
+}
+});
+} Код можно <a href="https://github.com/flancer64/demo_pwa_sw/tree/master/01_states">посмотреть</a> на github’е. В итоге получаем примерно такой вывод в консоли браузера:
+index.html:12 before SW registration.
+index.html:30 after SW registration.
+index.html:44 end of body.
+sw.js:1 registering itself, state: parsed
+index.html:18 SW registration done, state: installing
+index.html:21 SW state is changed: installed
+index.html:21 SW state is changed: activating
+index.html:21 SW state is changed: activated
+index.html:23 uninstall service worker after activation.
+index.html:21 SW state is changed: redundant Так как в обработчике после перехода в рабочее состояние “<em>activated</em>” вызывается де-регистрация service worker’а, то получается полный цикл всех возможных состояний:</pre>
+<figure>
+<img src="/medium/img/c7cda44c1c98/image-01.png" alt="Image 2" />
+</figure>
+<p>Если же убрать де-регистрацию service worker’а после перехода в рабочее состояние:</p>
+<pre>sw.addEventListener(“statechange”, (e) =&gt; {
+console.log(“State is changed:”, e.target.state);</pre>
+<p>_// if (e.target.state === “activated”) {</p>
+<pre>// console.log(“Uninstall SW after activation.”);
+// reg.unregister();
+// }_}); то вывод на консоль для первой загрузки выглядит так:
+index.html:12 before SW registration.
+index.html:30 after SW registration.
+index.html:44 end of body.
+sw.js:1 registering itself, state: parsed
+index.html:18 SW registration done, state: installing
+index.html:21 SW state is changed: installed
+index.html:21 SW state is changed: activating
+index.html:21 SW state is changed: activated Service worker доходит до своего рабочего состояния (“<em>activated</em>”) и остаётся в нём. При повторной загрузке страницы вывод на консоль уже такой:
+index.html:12 before SW registration.
+index.html:30 after SW registration.
+index.html:44 end of body.
+index.html:18 SW registration done, state: activated Правда для этого нужно изменить строку:
+// const sw = reg.installing;
+const sw = reg.installing ?? reg.active; так как при попытке повторной регистрации того же самого service worker’а возвращается уже установленный (<em>active</em>).</pre>
+<p>Перевести service worker в состояние “<em>redundant</em>” можно вручную, через панель инструментов разработчика:</p>
+<figure>
+<img src="/medium/img/c7cda44c1c98/image-02.png" alt="Image 3" />
+</figure>
+<h2 id="service-worker-events">Service Worker Events</h2>
+<p>Основным назначением service worker’а является кэширование удалённого контента для ускорения работы пользователя web-приложения и обеспечения работоспособности web-приложения при потере соединения с интернетом (в offline-режиме).</p>
+<p>Как правило, регистрацию service worker’а <a href="https://developers.google.com/web/fundamentals/primers/service-workers/registration">откладывают</a> до завершения загрузки головной страницы web-приложения (<code>index.html</code>), чтобы загрузка кэша worker’ом не влияла на загрузку головной страницы:</p>
+<pre>window.addEventListener(‘load’, function () {
+navigator.serviceWorker.register(‘sw.js’)</pre>
+<p>.then()</p>
+<p>.catch();</p>
+<pre>});</pre>
+<p>В самом service worker’е обычно вешают обработчики на события для выполнения следующих типовых задач:</p>
+<ul>
+<li><code>install</code>: заполнение кэша;</li>
+<li><code>activate</code>: зачистка устаревшего кэша предыдущей версии service worker’а;</li>
+<li><code>fetch</code>: обработка клиентских запросов (возврат данных их кэша или из сети);</li>
+</ul>
+<p>Есть ещё такие <a href="https://w3c.github.io/ServiceWorker/#execution-context-events">события</a>:</p>
+<ul>
+<li><code>push</code>: получение <a href="https://w3c.github.io/push-api/">push</a>-сообщений от сервера;</li>
+<li><code>notificationclick</code>и <code>notificationclose</code>: связаны с обработкой <a href="https://notifications.spec.whatwg.org/">системных уведомлений</a>;</li>
+<li><code>sync</code>: <a href="https://wicg.github.io/background-sync/spec/">синхронизация данных</a> в фоновом режиме;</li>
+<li><code>canmakepayment</code>и<code>paymentrequest</code>: поддержка платежей <a href="https://w3c.github.io/payment-handler/">кредитными картами</a>;</li>
+</ul>
+<h3 id="install">install</h3>
+<p>Как правило обработчик события <code>install</code> заполняет <a href="https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage">кэш</a> service worker’а данными из сети:</p>
+<pre>self.addEventListener(“install”, (event) =&gt; {
+event.waitUntil(
+caches.open(“static-v2”)</pre>
+<p>.then((cache) =&gt; {</p>
+<pre>return cache.addAll(
+[</pre>
+<p>“./index.html”,</p>
+<pre>“./pwa.webmanifest”
+]
+);
+})</pre>
+<p>.then(() =&gt; {</p>
+<pre>console.log(“Cache is loaded.”);
+})
+);
+}); Диспетчер событий ожидает выполнения промиса, переданного в <code>event.waitUntil</code>, и только после загрузки кэша переводит service worker из состояния <code>installing</code> в <code>installed</code>.</pre>
+<h3 id="activate">activate</h3>
+<p>Этот обработчик удаляет из кэша данные, относящиеся к предыдущей версии service worker’а</p>
+<pre>self.addEventListener(“activate”, (event) =&gt; {
+event.waitUntil(
+caches.keys().then((cacheNames) =&gt; {
+return Promise.all(
+cacheNames.map((cacheName) =&gt; {
+<em>// delete all caches except “static-v2”</em> if (cacheName !== “static-v2”) {
+return caches.delete(cacheName);
+}
+})
+);
+})
+);
+}); Вообще-то правила работы с кэшем в web-приложении могут быть довольно разнообразны. В примерах, как правило, приводится самый простой вариант: при регистрации заполнили новый кэш, при активации — удалили старый. Но service worker обладает меньшей изменчивостью, чем всё приложение в целом (вернее, отдельные его ресурсы — <a href="https://medium.com/@alex_gusev/html-css-js-%D0%B2-web-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%D1%85-2f3fc8c9b00e">HTML/CSS/JS</a>). Поэтому web-приложение должно обладать возможностью принудительной ре-инициализации кэша (например, при переходе по ссылке <code>/sw/cache/reset</code>) без переинсталляции service worker’а.</pre>
+<h3 id="fetch">fetch</h3>
+<p>Опять-таки, вот один из самых простых вариантов — возвращаем ресурс из кэша, если он там есть, или запрашиваем из сети:</p>
+<pre>self.addEventListener(“fetch”, (event) =&gt; {
+event.respondWith(
+caches.match(event.request)</pre>
+<p>.then(response =&gt; {</p>
+<pre>if (response) {
+return response;
+}
+return fetch(event.request)
+})
+);
+}); Примеры кода также выложены на <a href="https://github.com/flancer64/demo_pwa_sw/tree/master/02_events">github</a>.</pre>
+<h3 id="обновление-основной-страницы">Обновление основной страницы</h3>
+<p>У service worker’а есть особенность — он не обрабатывает запросы той страницы, которая запросила его регистрацию. По-умолчанию service worker обработает все <code>fetch</code>-запросы только после перезагрузки страницы (<code>reload</code>’а).</p>
+<p>При необходимости можно сообщить браузеру, что service worker <a href="https://developer.mozilla.org/en-US/docs/Web/API/Clients/claim">готов к выполнению</a><code>fetch</code>-запросов регистрационной страницы через:</p>
+<pre>await clients.claim(); или просто повесить обработчик на событие смены статуса service worker’а в <code>index.html</code>:
+window.addEventListener(‘load’, function () {
+navigator.serviceWorker.register(‘sw.js’)</pre>
+<p>.then((reg) =&gt; {</p>
+<dl>
+<dt>const sw = (reg.installing) ? reg.installing</dt>
+<dd>
+<p>(reg.waiting) ? reg.waiting</p>
+</dd>
+<dd>
+<p>(reg.active);</p>
+</dd>
+</dl>
+<pre>sw.addEventListener(“statechange”, (e) =&gt; {
+console.log(“State is changed:”, e.target.state);
+if (e.target.state === “activated”) {
+location.reload();
+}
+});
+});
+});</pre>
+<p>и принудительно обновить страницу после того, как service worker будет готов к обработке запросов.</p>
+<p>Вот так выглядят запросы к сети с точки зрения браузера в <a href="https://github.com/flancer64/demo_pwa_sw/blob/master/02_events/index.html">демо-приложении</a> (второй вариант, перезагрузка через <code>location.reload</code>):</p>
+<figure>
+<img src="/medium/img/c7cda44c1c98/image-03.png" alt="Image 4" />
+</figure>
+<ul>
+<li><code>зелёный</code>: первая загрузка головной страницы приложения и связанных ресурсов (всё тянется из сети);</li>
+<li><code>морковный</code>: кэширование ресурсов service worker’ом;</li>
+<li><code>синий</code>: вторая загрузка головной страницы приложения (из кэша service worker’а);</li>
+</ul>
+<p>Материалов о service worker’ах в Сети довольно много, но большинство — как и эта публикация — рассматривает самый простой сценарий. В реальном приложении требования к service worker’у обычно заметно сложнее.</p>
+<p>Для более глубокого понимания лучше обратиться к детальному описанию API:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">Service Worker API</a></li>
+<li><a href="https://w3c.github.io/ServiceWorker/">Service Workers Nightly</a></li>
+</ul>
+<p>написать свою собственную статью или, что лучше всего, внедрить service worker в реальное приложение.</p>
+
+    {% endraw %}
+</div>
+{% endblock %}

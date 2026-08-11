@@ -1,0 +1,148 @@
+{% extends "inc/layout.html" %}
+{% block title %}Dependency Injection без магии: простой контейнер объектов для современного JavaScript{% endblock %}
+{% block description %}Пошаговый путь от Composition Root к контейнеру объектов и позднему связыванию ES-модулей в JavaScript.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Dependency Injection без магии: простой контейнер объектов для современного JavaScript</h1>
+<span style="display:block;text-align:right;"><strong>Дата публикации:</strong> 2023-07-31</span>
+<p>IoC уменьшает связанность JavaScript-кода: модуль не делает статический импорт конкретной реализации, а получает нужные объекты извне. Здесь — учебный путь к небольшому контейнеру объектов. Он рассчитан на обычный ES6+ JavaScript без транспиляции, а не на TypeScript-декораторы.</p>
+<p>Цель не в готовой универсальной библиотеке, а в понимании механики: как загрузить ES-модули, создать их зависимости и передать их в правильные места. Демонстрационный контейнер занимает около 35 строк.</p>
+<h2>1. Composition Root</h2>
+<p>При прямом управлении сервис сам импортирует логгер:</p>
+<pre><code class="language-js">import logger from './logger.js';
+export default class Service {
+  exec(opts) { logger.info(JSON.stringify(opts)); }
+}</code></pre>
+<p>При инверсии сервис принимает зависимость в конструкторе:</p>
+<pre><code class="language-js">export default class Service {
+  constructor(logger) {
+    this.exec = (opts) =&gt; logger.info(JSON.stringify(opts));
+  }
+}</code></pre>
+<p>Кто-то всё равно должен импортировать модули и создать объекты. Это место называется Composition Root:</p>
+<pre><code class="language-js">import logger from './logger.js';
+import Service from './service.js';
+const service = new Service(logger);
+service.exec({ name: 'Composition Root' });</code></pre>
+<h2>2. Фабрики</h2>
+<p>Для упрощения учебного примера каждый модуль экспортирует асинхронную фабрику, которая получает зависимости и создаёт результат:</p>
+<pre><code class="language-js">export default async function factory(logger) {
+  return (opts) =&gt; logger.info(JSON.stringify(opts));
+}</code></pre>
+<p>В реальном коде export может быть классом, функцией или объектом; фабричное соглашение здесь лишь делает следующий шаг понятнее.</p>
+<h2>3. Спецификация зависимостей</h2>
+<p>Имена обычных аргументов могут измениться при минификации. Поэтому зависимости передаются одним объектом:</p>
+<pre><code class="language-js">function factory({ logger, config }) { /* ... */ }</code></pre>
+<p>Сначала ключом можно временно сделать путь к модулю:</p>
+<pre><code class="language-js">export default async function factory({ ['./logger.js']: logger }) {
+  return (opts) =&gt; logger.info(JSON.stringify(opts));
+}</code></pre>
+<p>Так контейнер получает данные, которые нужно разобрать.</p>
+<h2>4. Парсер спецификации</h2>
+<p>Упрощённый пример превращает функцию в строку, извлекает блок параметров регулярным выражением и выделяет ключи зависимостей. Это учебный приём, не совет для production: в настоящем контейнере контракт зависимостей лучше задавать надёжной явной метаинформацией.</p>
+<h2>5. Контейнер</h2>
+<p>Контейнер рекурсивно импортирует модуль, находит его зависимости, строит объект спецификации и кэширует результат:</p>
+<pre><code class="language-js">const cache = {};
+async function get(key) {
+  if (cache[key]) return cache[key];
+  const { default: factory } = await import(key);
+  const spec = {};
+  for (const path of parse(factory.toString())) spec[path] = await get(path);
+  return (cache[key] = await factory(spec));
+}</code></pre>
+<p>Теперь Composition Root превращается в единственную строку:</p>
+<pre><code class="language-js">const service = await container.get('./service.js');</code></pre>
+<h2>6. Resolver и позднее связывание</h2>
+<p>Пути в спецификации всё ещё привязывают код к деталям. Последний шаг — оставить в модулях только абстракции:</p>
+<pre><code class="language-js">export default async function factory({ logger, config }) {
+  return (opts) =&gt; logger.info(`${config.appName}: ${JSON.stringify(opts)}`);
+}</code></pre>
+<p>А соответствие абстракции реализации вынести в карту root:</p>
+<pre><code class="language-js">container.setMap({
+  service: './service.js',
+  logger: './logger.js',
+  config: './config.js',
+});
+const service = await container.get('service');</code></pre>
+<p>Это и есть позднее связывание: во время запуска можно выбрать консольный или файловый логгер, не переписывая сервис. Вместо «сварной» конструкции код становится «болтовой» — модуль легче отделить и применить в другом проекте.</p>
+<p>В крупном проекте не поддерживают вручную карту для каждого имени. Соглашения преобразуют идентификатор вроде <code>Vendor_Package_Mod</code> в путь <code>node_modules/@vendor/package/src/Mod.js</code>; к идентификатору можно добавить срок жизни или область действия.</p>
+<h2>Вывод</h2>
+<p>DI особенно полезна там, где много файлов и пакетов: она снижает связанность и улучшает тестирование. В традиционном фронтенде бандлеры часто скрывают отдельные модули, но в PWA Service Worker может загрузить и кэшировать набор ES-файлов. Тогда одинаковый принцип связи подходит и Node.js, и браузеру. Для практического применения стоит использовать зрелый контейнер — например <a href="https://github.com/teqfw/di">@teqfw/di</a> — а не учебный парсер из статьи.</p>
+<h2>Дополнительные фрагменты исходного кода</h2>
+<pre>export default async function Factory({[‘./logger.js’]: logger}) {
+return function (opts) {
+logger.info(<code>Service is running with: ${JSON.stringify(opts)}</code>);
+};
+}</pre>
+<pre>import fLogger from ‘./logger.js’;
+import fService from ‘./service.js’; const logger = await fLogger();
+const serv = await fService({[‘./logger.js’]: logger});
+serv({name: ‘The Spec’});</pre>
+<pre>function Factory(
+{
+}
+) { }</pre>
+<pre>function parser (def) {
+const res = [];
+const parts = /function Factory({(.<em>)}).</em>/s.exec(def);
+if (parts?.[1]) {
+const deps = parts[1].split(‘,’);
+for (const dep of deps) {
+const left = dep.split(‘:’)[0];
+const path = left.trim()</pre>
+<pre>res.push(path);
+}
+}
+return res;
+}; const paths = parser(factory.toString());</pre>
+<pre>const deps = {}; const FN = /function Factory({(.<em>)}).</em>/s;
+function parser(def) {
+const res = [];
+const parts = FN.exec(def);
+if (parts?.[1]) {
+const deps = parts[1].split(‘,’);
+for (const dep of deps) {
+const left = dep.split(‘:’)[0];
+const path = left.trim()</pre>
+<pre>res.push(path);
+}
+}
+return res;
+}
+async function get(key) {
+if (deps[key]) return deps[key];
+else {
+const {default: factory} = await import(key);
+const def = factory.toString();
+const paths = parser(def);
+const spec = {};
+for (const path of paths)
+spec[path] = await get(path);
+const res = factory(spec);
+deps[key] = res;
+return res;
+}
+}
+export default {get};</pre>
+<pre>import container from ‘./container.js’; const serv = await container.get(‘./service.js’);
+serv({name: ‘The Object Container’});</pre>
+<pre>import logger from ‘./logger.js’; export default function {
+logger.info(<code>Service is running with: ${JSON.stringify(opts)}</code>);
+}</pre>
+<pre>export default async function Factory({[‘./logger.js’]: logger}) {
+return function (opts) {
+logger.info(<code>Service is running with: ${JSON.stringify(opts)}</code>);
+};
+} In both cases, we use “<em>details</em>” (speaking in terms of the <a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency Inversion Principle</a>). In this step, we remove the details from the dependency specification and leave only abstractions:
+export default async function Factory({logger, config}) {
+return function (opts) {
+logger.info(<code>Service '${config.appName}' is running with: ${JSON.stringify(opts)}</code>);
+};
+}</pre>
+<pre>import container from ‘./container.js’; const map = {</pre>
+<pre>};
+container.setMap(map);
+const serv = await container.get(‘service’);
+serv({name: ‘The Resolver’});</pre>
+</div>
+{% endblock %}

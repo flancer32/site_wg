@@ -1,0 +1,79 @@
+{% extends "inc/layout.html" %}
+{% block title %}Simular interfaces en JavaScript con anotaciones JSDoc{% endblock %}
+{% block description %}Cómo definir contratos claros entre el código que llama y sus implementaciones en JavaScript usando JSDoc.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Simular interfaces en JavaScript con anotaciones JSDoc</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2024-08-07</span>
+<p>JavaScript no incorpora interfaces como TypeScript. Aun así, cuando una aplicación crece, conviene fijar una estructura y un comportamiento comunes para sus piezas. Una interfaz expresa un contrato: los métodos que un objeto debe ofrecer. Reduce supuestos ocultos y hace el código más fácil de mantener. En JavaScript podemos representarlo con código normal y las anotaciones JSDoc <a href="https://jsdoc.app/tags-interface"><code>@interface</code></a> y <a href="https://jsdoc.app/tags-implements"><code>@implements</code></a>.</p>
+<p><zoom-img src="/medium/img/f4fbd41a3500/image-01.png" alt="Frank Martin anuncia las condiciones del contrato" width="100%"></zoom-img></p>
+<p>Las reglas de Frank Martin en la película «Transporter» lo explican bien:</p>
+<ol><li>no cambiar nunca el trato;</li><li>sin nombres;</li><li>no abrir nunca el paquete.</li></ol>
+<p>Quien quiera contratarlo debe aceptar esas condiciones. En la pareja «quien realiza el trabajo — cliente», quien realiza el trabajo define las reglas. En el código, ese papel corresponde a la interfaz.</p>
+<p>Imaginemos tres paquetes npm: <code>plugin</code> presta una función de negocio —repartir— y <code>app1</code>, <code>app2</code> la usan con datos distintos. El plugin expone <code>drive(pack, route)</code>. Para entregar necesita dimensiones y peso del paquete, origen y destino. Sus expectativas pueden escribirse así:</p>
+<pre><code class="language-js">/** @interface */
+class Package {
+  getSize() { throw new Error('Implement this method.'); }
+  getWeight() { throw new Error('Implement this method.'); }
+}
+/** @interface */
+class Route {
+  getPlaceFrom() { throw new Error('Implement this method.'); }
+  getPlaceTo() { throw new Error('Implement this method.'); }
+}</code></pre>
+<p>Se podría usar solamente JSDoc, pero los IDE modernos no siempre lo interpretan de la misma manera. Por eso prefiero código JavaScript corriente marcado con <code>@interface</code>: el contrato queda claro tanto para las personas como para las herramientas.</p>
+<p>La primera aplicación entrega un objeto con los métodos requeridos:</p>
+<pre><code class="language-js">function app1() {
+  const pack = {
+    getSize: () =&gt; ({ length: 150, width: 50, height: 50 }),
+    getWeight: () =&gt; 50,
+  };
+  const route = {
+    getPlaceFrom: () =&gt; 'Marseille',
+    getPlaceTo: () =&gt; 'Nice',
+  };
+  drive(pack, route);
+}</code></pre>
+<p>La segunda utiliza datos diferentes, pero cumple el mismo contrato:</p>
+<pre><code class="language-js">function app2() {
+  const pack = {
+    getSize: () =&gt; ({ length: 45, width: 30, height: 10 }),
+    getWeight: () =&gt; 1,
+  };
+  const route = {
+    getPlaceFrom: () =&gt; 'Nice',
+    getPlaceTo: () =&gt; 'Grenoble',
+  };
+  drive(pack, route);
+}</code></pre>
+<p>Los IDE ya pueden analizar este código, completar métodos y navegar hasta sus definiciones.</p>
+<p><zoom-img src="/medium/img/f4fbd41a3500/image-02.png" alt="Autocompletado de la interfaz en IDEA" width="100%"></zoom-img></p>
+<p>En resumen:</p>
+<ul><li>el código que llama define el contrato;</li><li>la implementación debe respetarlo;</li><li>JSDoc permite que el IDE reconozca la relación entre contrato e implementación.</li></ul>
+<p>Las interfaces ayudan a dividir un sistema complejo en componentes manejables y a dibujar límites explícitos entre ellos. JavaScript ya tiene las piezas necesarias: acordar la forma de los objetos, documentar el acuerdo en el código y recordar el principio de Frank Martin: las reglas las establece quien ejecuta el trabajo.</p>
+<p>Hay demostraciones en <a href="https://flancer64.github.io/demo-di-if-app1/">app1</a> y <a href="https://flancer64.github.io/demo-di-if-app2/">app2</a>. Ambas usan <a href="https://www.npmjs.com/package/@teqfw/di">@teqfw/di</a> para vincular interfaces e implementaciones mediante inyección de dependencias por constructor.</p>
+<h2>Fragmentos adicionales de código fuente</h2>
+<pre>}
+}
+class Route {
+getPlaceFrom() {</pre>
+<pre>} getPlaceTo() {</pre>
+<pre>}
+}</pre>
+<pre>function drive(pack, route) {}</pre>
+<pre>function app1() {
+const pack = {</pre>
+<pre>};
+const route = {</pre>
+<pre>};
+drive(pack, route);
+}</pre>
+<pre>function app2() {
+const pack = {</pre>
+<pre>};
+const route = {</pre>
+<pre>};
+drive(pack, route);
+}</pre>
+</div>
+{% endblock %}

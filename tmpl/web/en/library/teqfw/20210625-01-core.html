@@ -1,0 +1,86 @@
+{% extends "inc/layout.html" %}
+{% block title %}TeqFW: Core{% endblock %}
+{% block description %}How the TeqFW core boots a Node.js application, discovers npm plugins, configures DI, and composes its command-line interface.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>TeqFW: Core</h1>
+<span style="display:block;text-align:right;"><strong>Publication date:</strong> 2021-06-25</span>
+<p>A Teq application is first a Node.js application and then a modular application composed of Teq plugins, which are npm modules. The platform core has three jobs: start the application and its console commands, discover and attach plugins, and establish the foundational architecture.</p>
+<h2>Bootstrap</h2>
+<p>The application entry point is <code>bin/tequila.mjs</code>. It finds the application root, loads the DI container, maps core sources, creates the bootstrap configuration, obtains <code>TeqFw_Core_Back_App$</code>, initializes it, and runs it. The script belongs to the application but is intentionally almost identical from one Teq application to another.</p>
+<pre><code class="language-js">import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import teq from '@teqfw/core';
+
+const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+teq({ path: root }).catch(console.error);</code></pre>
+<p>Different behaviour comes from the installed plugins and the commands they contribute, not from rewriting the launcher.</p>
+<h2>Core application lifecycle</h2>
+<p>During initialization, <code>TeqFw_Core_Back_App</code>:</p>
+<ul><li>initializes logging;</li><li>loads local configuration, such as database connection settings;</li><li>scans the application filesystem and creates the plugin registry;</li><li>adds namespaces discovered in plugins to the DI container;</li><li>collects CLI commands from those plugins.</li></ul>
+<p>During execution it runs the requested command — commonly a web server. With no command, it prints the available commands. The application also exposes <code>stop()</code> so a command can close resources such as database connections in an orderly way.</p>
+<h2>Logger and configuration</h2>
+<p>The original core design exposed a common logger abstraction that could work on backend or frontend and route records to transports such as console, file, database, or remote server. Local backend configuration is read from a JSON file such as <code>cfg/local.json</code> and injected into the objects that need it. Secrets should remain in an ignored local configuration or a secure deployment environment, never in a package descriptor.</p>
+<h2>Plugin scanner</h2>
+<p>A Teq plugin is an npm package with a <code>teqfw.json</code> descriptor in its root. At minimum it declares a namespace and source directory:</p>
+<pre><code class="language-json">{
+  "autoload": {
+    "ns": "Vendor_Project_Plugin",
+    "path": "./src"
+  }
+}</code></pre>
+<p>The plugin scanner walks <code>node_modules</code>, finds descriptors, records plugin packages, and adds namespace-to-filesystem mappings to DI. Other parts of the application access plugin descriptors through this registry instead of rescanning the filesystem.</p>
+<h2>Commands</h2>
+<p>The core application is effectively a wrapper around <a href="https://www.npmjs.com/package/commander">commander</a>. Plugin descriptors list module identifiers that produce command DTOs:</p>
+<pre><code class="language-json">{ "commands": ["TeqFw_Core_Back_Cli_Version"] }</code></pre>
+<p>A command DTO provides an <code>action</code>, description, name and optional realm. The realm prefixes commands from one plugin, so <code>app</code> plus <code>clean</code> becomes <code>app-clean</code>.</p>
+<pre><code class="language-js">const command = await container.get(`${factoryName}$`);
+const fullName = command.realm ? `${command.realm}-${command.name}` : command.name;
+commander.command(fullName).description(command.desc).action(command.action);</code></pre>
+<h2>Summary</h2>
+<p>The Core plugin turns a collection of npm modules into a runnable Teq application. It discovers plugins, registers their namespaces, initializes logging and local configuration, collects their commands, and executes the selected command through DI. This keeps the launcher stable while applications grow by composing plugins.</p>
+<p><zoom-img src="/medium/img/346fb4788e98/image-01.png" alt="Core components in a TeqFW application" width="100%"></zoom-img></p>
+<h2>Additional source-code excerpts</h2>
+<pre>{</pre>
+<pre>“path”: “./src”
+}
+} Сканер плагинов (<code>TeqFw_Core_Back_Scan_Plugin</code>) пробегает по всем подкаталогам в <code>./node_modules/</code> в поисках <code>teq</code>-дескрипторов (<code>./teqfw.json</code>) и фиксирует найденные <code>npm</code>-пакеты в качестве <code>teq</code>-плагинов в реестре <code>TeqFw_Core_Back_Scan_Plugin_Registry</code>. После чего <code>core</code>-приложение добавляет найденные namespace’ы и их маппинг на файловую систему в DI-контейнер.</pre>
+<pre>{</pre>
+<pre>“TeqFw_Core_Back_Cli_Version”
+]
+} В узле <code>commands</code> прописываются идентификаторы es6-модулей, экспортирующих по-умолчанию фабрики для создания таких структур (<code>TeqFw_Core_Back_Api_Dto_Command</code>):
+class TeqFw_Core_Back_Api_Dto_Command {
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {Function} */
+action;
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {string} */
+desc;
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {string} */
+name;
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {string} */
+realm;
+}</pre>
+<pre>export default function Factory(spec) {
+// EXTRACT DEPS
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {TeqFw_Core_Defaults} */
+const DEF = spec[‘TeqFw_Core_Defaults$’];
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {TeqFw_Core_Back_App.Bootstrap} */
+const cfg = spec[‘TeqFw_Core_Back_App#Bootstrap$’];
+/** <a href="http://twitter.com/type"><span class="citation" data-cites="type">@type</span></a> {Function|TeqFw_Core_Back_Api_Dto_Command.Factory} */
+const fCommand = spec[‘TeqFw_Core_Back_Api_Dto_Command#Factory$’]; // DEFINE INNER FUNCTIONS
+const action = async function () {
+console.log(<code>Application version: ${cfg.version}.</code>);
+}; // COMPOSE RESULT
+const res = fCommand.create();
+res.realm = DEF.BACK_REALM;
+res.name = ‘version’;
+res.desc = ‘Get version of the application.’;
+res.action = action;
+return res;
+} <code>Core</code>-приложение добавляет команды в <a href="https://www.npmjs.com/package/commander">commander</a> при помощи DI-контейнера, который запускает соответствующую фабрику для создания действия (<code>action</code>) и мета-информации для commander’а:
+const cmd = await container.get(<code>${factoryName}$</code>);
+const fullName = (cmd.realm)</pre>
+<pre>cmd.name;</pre>
+<pre>commander.command(fullName)</pre>
+<pre>.action(cmd.action);</pre>
+</div>
+{% endblock %}

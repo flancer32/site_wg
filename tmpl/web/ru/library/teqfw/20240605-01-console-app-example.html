@@ -1,0 +1,104 @@
+{% extends "inc/layout.html" %}
+{% block title %}Пример консольного приложения на TeqFW{% endblock %}
+{% block description %}Как модульное Node.js-приложение на TeqFW ежедневно очищает устаревшие записи в базе данных магазина.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Пример консольного приложения на TeqFW</h1>
+<span style="display:block;text-align:right;"><strong>Дата публикации:</strong> 2024-06-05</span>
+<p>Этот небольшой, но рабочий проект — <a href="https://github.com/flancer64/autobalta_cleaner">консольное приложение</a> для магазина autobalta.com. Оно ежедневно по cron удаляет из базы устаревшие журналы обмена с внешними системами и старые пользовательские сессии.</p>
+<p><zoom-img src="/medium/img/e038e31766dd/image-01.png" alt="Проект очистки базы данных в IDE" width="100%"></zoom-img></p>
+<p>Очищаются таблицы <code>oc_latakko_api_log</code>, <code>oc_latakko_api_queue</code>, <code>oc_latakko_log</code> и <code>oc_session</code>.</p>
+<h2><code>package.json</code></h2>
+<p>TeqFW живёт в экосистеме npm/Node.js, поэтому приложение начинается с <code>package.json</code>. Поле <code>"type": "module"</code> означает ES-модули: TypeScript и транспиляция не нужны. Версии платформенных пакетов фиксируются, чтобы рабочая инсталляция воспроизводилась:</p>
+<pre><code class="language-json">{
+  "type": "module",
+  "dependencies": {
+    "@teqfw/core": "0.24.0",
+    "@teqfw/db": "0.21.0",
+    "@teqfw/di": "0.22.0",
+    "mysql": "^2.18.1"
+  },
+  "scripts": { "start": "node ./bin/tequila.mjs app-clean" }
+}</code></pre>
+<ul><li><code>@teqfw/di</code> загружает ES-модули, создаёт singleton и transient-объекты, внедряет зависимости;</li><li><code>@teqfw/core</code> задаёт правила идентификаторов и связывает приложение с commander;</li><li><code>@teqfw/db</code> даёт единообразный доступ к реляционным БД поверх Knex.js;</li><li><code>mysql</code> — драйвер MySQL/MariaDB.</li></ul>
+<p>Запуск — обычный <code>npm start</code>.</p>
+<h2>Общий launcher</h2>
+<p>Файл <code>bin/tequila.mjs</code> одинаков для backend-приложений TeqFW: находит корень проекта и передаёт его ядру.</p>
+<pre><code class="language-js">import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import teq from '@teqfw/core';
+
+const path = join(dirname(fileURLToPath(import.meta.url)), '..');
+teq({ path }).catch(console.error);</code></pre>
+<p>Ядро сканирует <code>node_modules</code>, находит Teq-плагины, настраивает контейнер объектов и собирает CLI-команды.</p>
+<h2><code>teqfw.json</code> и конфигурация</h2>
+<p>Teq-плагин — обычный npm-пакет с дескриптором <code>teqfw.json</code>. Приложение объявляет свой namespace и путь к исходникам, а также добавляет команду:</p>
+<pre><code class="language-json">{
+  "@teqfw/di": { "autoload": { "ns": "Ab_Clean", "path": "./src" } },
+  "@teqfw/core": { "commands": ["Ab_Clean_Back_Cli_Clean"] }
+}</code></pre>
+<p>Единый файл <code>cfg/local.json</code> содержит конфигурацию всех плагинов. Здесь <code>@teqfw/db</code> получает параметры Knex.js и MySQL-соединения. Секреты остаются только в локальном, не публикуемом конфиге.</p>
+<h2>Команда <code>app-clean</code></h2>
+<p>Команда описывается объектом с префиксом (realm), именем, описанием и действием. Префикс <code>app</code> отделяет команды приложения от команд других плагинов:</p>
+<pre><code class="language-js">const command = fCommand.create();
+command.realm = 'app';
+command.name = 'clean';
+command.desc = 'Clean up expired data.';
+command.action = action;</code></pre>
+<p>Поэтому <code>./bin/tequila.mjs app-clean</code> запускает функцию очистки.</p>
+<h2>Работа с базой</h2>
+<p><code>@teqfw/db</code> описывает используемые таблицы отдельными schema-модулями и предоставляет соединение <code>TeqFw_Db_Back_RDb_IConnect</code> вместе с CRUD-движком <code>TeqFw_Db_Back_Api_RDb_CrudEngine</code>. Типичный шаблон всегда использует транзакцию:</p>
+<pre><code class="language-js">const trx = await conn.startTransaction();
+try {
+  // Read or change data.
+  await trx.commit();
+} catch (error) {
+  await trx.rollback();
+  throw error;
+} finally {
+  await conn.disconnect();
+}</code></pre>
+<p>Например, очистка сессий старше 45 дней передаёт CRUD-движку транзакцию, метаданные таблицы и условие:</p>
+<pre><code class="language-js">const date = util.formatDate(util.subtractDays(45));
+const rows = await crud.deleteSet(trx, rdbSession, function () {
+  this.where(A_SESS.EXPIRE, '&lt;', date);
+});
+logger.info(`Total '${rows}' sessions were deleted.`);</code></pre>
+<h2>Вывод</h2>
+<p>Этот пример показывает, как TeqFW собирает Node.js-задачу из модулей: плагины объявляют свои возможности, контейнер связывает объекты во время запуска, а CLI-команда выполняет понятную бизнес-операцию. Такая структура хорошо подходит для повторяемых фоновых задач, интеграций и сервисных утилит, когда важны изоляция модулей, тестируемость и контролируемое изменение кода.</p>
+<h2>Дополнительные фрагменты исходного кода</h2>
+<pre>]
+}
+}</pre>
+<pre>{</pre>
+<pre>}
+}
+} The local configuration description structure follows the configuration parameters for the <a href="https://knexjs.org/">knexjs</a> library:</pre>
+<pre>]
+} The result of the <code>Ab_Clean_Back_Cli_Clean</code> function is an object whose structure matches that specified in the script <code>TeqFw_Core_Back_Api_Dto_Command</code>. The platform core sequentially connects all commands described in the descriptors of all used teq-plugins to the <code>commander</code>. In our case, it looks something like this:
+const res = fCommand.create();
+res.realm = DEF.CLI_PREFIX;
+res.name = ‘clean’;
+res.desc = ‘clean up the expired data’;
+res.action = action;
+return res; The command name is prefixed (realm) common to all commands of one plugin. In our case, <code>DEF.CLI_PREFIX = ‘app’.</code> When running the application with the parameter:
+$ ./bin/tequila.mjs app-clean the <code>action</code> function will be called. The realm is needed to separate commands of one plugin from commands of another. As a rule, the name of the teq-plugin serves as the realm. If the teq-plugin is not intended for use by other teq-plugins, the prefix <code>app</code> is a good option.</pre>
+<pre>const trx = await conn.startTransaction();</pre>
+<pre>await trx.commit();
+} catch (e) {
+await trx.rollback();
+}
+await conn.disconnect();</pre>
+<pre>async function cleanSessions(trx) {
+const from = util.subtractDays(45);
+const date = util.formatDate(from);
+logger.info(<code>Clean up the sessions started before '${date}'.</code>);
+const where = function () {
+this.where(A_SESS.EXPIRE, ‘&lt;’, date);
+};
+const rows = await crud.deleteSet(trx, rdbSession, where);
+logger.info(<code>Total '${rows}' sessions were deleted.</code>);
+return rows;
+} Note the functional style of performing CRUD operations. All necessary information is passed to the corresponding method of the <code>crud</code> object:</pre>
+</div>
+{% endblock %}

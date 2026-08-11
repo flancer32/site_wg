@@ -1,0 +1,37 @@
+{% extends "inc/layout.html" %}
+{% block title %}TeqFW: identificación de instalaciones web{% endblock %}
+{% block description %}Cómo una PWA móvil distingue una instalación de navegador de usuario o sesión, y la autentica al cambiar de red.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>TeqFW: identificación de instalaciones web</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2022-02-07</span>
+<p>Las PWA móviles afrontan conectividad intermitente y cambios de dirección IP al moverse entre redes. El servidor necesita reconocer una instalación concreta de aplicación en navegador sin confundir identidad con IP o nombre de navegador.</p>
+<h2>frontUUID</h2>
+<p>Las PWA viven dentro de navegadores. local storage, IndexedDB, cookies y caché pertenecen al origen y perfil del navegador. La misma PWA instalada en dos navegadores, o en dos perfiles, son instalaciones separadas; dos pestañas de un perfil comparten recursos.</p>
+<p><zoom-img src="/medium/img/8d951d13becf/image-01.png" alt="Instancias PWA en navegadores, perfiles y pestañas" width="100%"></zoom-img></p>
+<p>En el primer inicio, una aplicación Teq genera un UUID y lo guarda en almacenamiento del navegador. Todas las pestañas que comparten ese almacenamiento usan el mismo valor. TeqFW lo llama <code>frontUUID</code>.</p>
+<h2>Dirigir el frontend</h2>
+<p>Para backend, solicitudes con el mismo <code>frontUUID</code> pertenecen a una instalación frontend aunque cambie su dirección de red.</p>
+<p><zoom-img src="/medium/img/8d951d13becf/image-02.png" alt="Backend identificando instalaciones por frontUUID" width="100%"></zoom-img></p>
+<p>El frontend abre un canal SSE usando el identificador, por ejemplo <code>https://server.example/sse/&lt;frontUUID&gt;</code>. El backend asocia el stream activo a ese identificador para enviar eventos a la instalación correcta. Si llega un stream nuevo para el mismo identificador —algo común al cambiar de red— se cierra el antiguo.</p>
+<h2>Un UUID no es autenticación</h2>
+<p>Un UUID es dirección, no prueba de posesión. Alguien que lo conozca podría hacerse pasar por ese frontend y recibir mensajes destinados a él, especialmente si la instalación genuina está offline. HTTPS lo protege en tránsito, pero puede quedar expuesto por logs descuidados o compromiso del dispositivo. Un UUID nunca debe usarse como token de sesión ni credencial de autorización.</p>
+<h2>Claves asimétricas e identidad de instalación</h2>
+<p>Para autenticar una instalación, el primer inicio genera par de claves además del UUID. Clave pública y UUID se registran en backend; la privada permanece en almacenamiento del navegador. La identidad queda así:</p>
+<pre><code class="language-json">{
+  "uuid": "frontend UUID",
+  "publicKey": "public key",
+  "secretKey": "private key — never send to server"
+}</code></pre>
+<p>El servidor desafía un stream SSE recién abierto. El frontend demuestra posesión de clave privada firmando o descifrando material del desafío; el backend verifica con la pública registrada. Una clave privada robada derrota esta prueba, por lo que almacenamiento seguro y recuperación siguen siendo esenciales.</p>
+<h2>Flujo de conexión</h2>
+<p><zoom-img src="/medium/img/8d951d13becf/image-03.png" alt="Flujo de registro y autenticación de instalación frontend" width="100%"></zoom-img></p>
+<ol><li>En el primer inicio, generar UUID y par de claves y persistirlos en IndexedDB.</li><li>Registrar UUID y clave pública y recibir ID de registro del backend.</li><li>Abrir el stream SSE.</li><li>El backend envía un challenge por ese stream.</li><li>El frontend demuestra posesión de clave privada y devuelve su ID de registro.</li><li>El backend verifica, activa stream y confirma autenticación.</li></ol>
+<p>En posteriores inicios se omite registro. La solicitud de registro es el único intercambio síncrono; los mensajes de eventos siguen siendo asíncronos en ambos sentidos.</p>
+<h2>Resumen</h2>
+<p>Una instalación PWA móvil es distinta de usuario, user agent, sesión o IP. <code>frontUUID</code> ofrece al backend una dirección de enrutamiento estable; una clave privada en el dispositivo prueba que la instalación es la registrada. Este patrón sirve para clientes que se reconectan, pero debe combinarse con autenticación y autorización de usuario normales, almacenamiento seguro, logs cuidadosos y recuperación ante pérdida de dispositivo.</p>
+<h2>Fragmentos adicionales de código fuente</h2>
+<pre>“uuid”: “7dc933ff-5acd-434d-8703-7cef276d69e2”
+} Эта информация хранится в IndexedDB браузера и является общей для всех экземпляров одного и того же приложения, запущенного в разных вкладках (но не <a href="https://www.theverge.com/2021/3/2/22309154/google-chrome-reading-list-new-profile-bookmarks-colors-features">в профилях</a>!).</pre>
+</div>
+{% endblock %}

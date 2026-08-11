@@ -1,0 +1,92 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}IoC in regular JavaScript (ES6+){% endblock %}
+{% block description %}In this post, I will demonstrate the practical application of the [IoC](https://en.wikipedia.org/wiki/Inversionofcontrol) concept in JavaScript code. Unlike languages like PHP, Jav{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>IoC in regular JavaScript (ES6+)</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Publication date:</strong> 2023-07-17
+    </span>
+    {% raw %}
+<p>In this post, I will demonstrate the practical application of the <a href="https://en.wikipedia.org/wiki/Inversion_of_control">IoC</a> concept in JavaScript code. Unlike languages like PHP, Java, and TypeScript, JavaScript does not have abstractions (interfaces). Therefore, the <a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">principle of dependency inversion</a> (“<em>concrete implementations should depend on abstractions</em>”) is difficult for a JavaScript developer to grasp. I hope that by practically applying the inversion of control in JavaScript, I can help clarify this issue specifically for JavaScript developers.</p>
+<p>Caution: Everything said in this post refers to the ES6+ version, where the project source code is placed in ES modules and linked together using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">import/export</a>.</p>
+<h2 id="importing-as-a-dependency">Importing as a dependency</h2>
+<p>First, let’s define what a “<em>dependency</em>” is in ES6+, particularly when considering the situation at the module level. I dare say that any import (static or dynamic) represents a dependency of our module on some other module. Thus, in the following code, we can safely say that the <code>service</code> module has at least one dependency — on the <code>logger</code> module:</p>
+<pre>import logger from ‘./logger.js’; export class Service {…}</pre>
+<h2 id="the-forward-control">The forward control</h2>
+<p>Usually, a service developer needs to know where the dependencies for his code are. He can follow the link in the import and see the imported objects (dependencies) — observe the specific implementation of the dependencies:</p>
+<pre>export default {</pre>
+<p>error: (msg) =&gt; console.error(msg),</p>
+<p>info: (msg) =&gt; console.info(msg),</p>
+<pre>};</pre>
+<p>Imported dependencies can be used inside a module:</p>
+<pre>import logger from ‘./logger.js’; export class Service {
+exec(opts) {
+logger.info(<code>Service is running.</code>);
+}
+}</pre>
+<p>When we use a service elsewhere:</p>
+<pre>import {Service} from ‘./service.js’; const s = new Service();
+s.exec({});</pre>
+<p>we also import its dependencies one by one.</p>
+<p>With this approach, all project modules end up being rigidly linked with <code>imports</code> into a single hierarchy at the stage of writing the code.</p>
+<h2 id="the-inverted-control">The inverted control</h2>
+<p>Let’s imagine a situation where a project can have several loggers: console, file, network, database, etc. It is possible that one developer creates a service that uses logging, while another developer creates a file logger, and a third one makes a network logger. The first thing all developers will need to do is agree on a logger interface, for example, like this:</p>
+<pre>class ILogger {
+error(msg) {} info(msg) {}
+}</pre>
+<p>This code will never be executed by a computer. It uses <a href="https://jsdoc.app/">JSDoc</a> solely to document the development process and to harmonize the interaction between different developers. The file logger developer writes something like:</p>
+<pre>class LoggerFile {
+error(msg) { } info(msg) { }
+}</pre>
+<p>The network logger developer writes something like:</p>
+<pre>class LoggerNet {
+error(msg) { } info(msg) { }
+}</pre>
+<p>The <code>service</code> developer does not know which <code>logger</code> will be used at runtime and must provide the ability to add the required dependency (the classic way — in the constructor):</p>
+<pre>export class Service {
+logger; constructor(logger) {
+this.logger = logger;
+}
+exec(opts) {
+this.logger.info(<code>Service is running.</code>);
+}
+}</pre>
+<p>This is where the inversion of control comes in. Now, it is not the <code>service</code> itself that decides where it gets the required dependency, but some external code to the <code>service</code> (usually called the object container). We do not hard-link the project code through imports. Dependencies can be injected at runtime, flexibly, according to conditions.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In principle, in a project with dependency injection, almost the entire project can be written without using imports at all. Imports will be needed only in the composition root (the object container), which will collect all the code together, depending on certain conditions.</p>
+<p>The most important condition is that the code of the modules must provide the ability to inject the necessary dependencies into them from the outside (through the constructor or the setters). And what is nice with this approach is that the code becomes loosely coupled. You can drag and drop a module from one project to another, as long as the required dependencies are satisfied in the other project as well.</p>
+<p>A vivid example of reducing connectivity is the possibility of creating a test environment for a <code>service</code> using TDD:</p>
+<pre>import assert from ‘assert’;
+import {describe, it} from ‘mocha’;
+import {Service} from ‘./service.js’; const logger = {
+error(mg) {},
+info(msg) {}
+};
+describe(‘Service’, () =&gt; {
+it(‘does the job’, () =&gt; {
+const service = new Service(logger);
+service.exec({});
+assert(true);
+});
+});</pre>
+<p>In the test, we mock the dependency of our <code>service</code> and define the behavior we need without referencing a specific implementation (such as file or network).</p>
+<p>In general, inversion of control in application architecture is primarily about how the individual “<em>bricks</em>” for the entire “<em>building</em>” are created, and only then how they are put together. If the “<em>bricks</em>” are made correctly, they can be laid in many ways.</p>
+<figure>
+<img src="/medium/img/1b2e701f331d/image-01.jpg" alt="Image 2" />
+</figure>
+<p>I will tell you how to stack “<em>bricks</em>” with each other in the following posts. The purpose of this post is to give an understanding that ES6 modules without static imports may well serve as building blocks for an application. At the same time, it becomes unimportant what kind of application it is — browser or Node.js.</p>
+<p>If you enjoyed this article, please give it a clap and follow me for more content!</p>
+<p>Stay connected:</p>
+<ul>
+<li><a href="https://github.com/flancer64">GitHub</a></li>
+<li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/">LinkedIn</a></li>
+<li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497">Upwork</a></li>
+</ul>
+<p>Thank you for your support!</p>
+
+    {% endraw %}
+</div>
+{% endblock %}

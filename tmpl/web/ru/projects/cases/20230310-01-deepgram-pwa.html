@@ -1,0 +1,73 @@
+{% extends "inc/layout.html" %}
+{% block title %}Распознавание речи Deepgram в реальном времени в PWA{% endblock %}
+{% block description %}Кейс интеграции потокового Speech-to-Text через Deepgram API, WebSocket и MediaRecorder в браузерном PWA.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Распознавание речи Deepgram в реальном времени в PWA</h1>
+<span style="display:block;text-align:right;"><strong>Дата публикации:</strong> 2023-03-10</span>
+<p><a href="https://deepgram.com/">Deepgram</a> предоставляет сервисы распознавания речи и обработки естественного языка. В этом кейсе показано, как использовать его для преобразования живой речи в текст внутри веб-приложения. Демонстрация: <a href="https://deepgram.demo.wiredgeese.com/">deepgram.demo.wiredgeese.com</a>.</p>
+<h2>SDK и граница безопасности</h2>
+<p>Для JavaScript доступен SDK Deepgram. Исторический демо-подход подключал его к браузерному приложению:</p>
+<pre><code class="language-bash">npm install @deepgram/sdk
+cp ./node_modules/@deepgram/sdk/dist/browser/index.js \
+  ./js/lib/deepgram.browser.sdk.mjs</code>
+<code class="language-js">import { Deepgram } from './lib/deepgram.browser.sdk.mjs';
+const deepgram = new Deepgram(DEEPGRAM_API_KEY);</code></pre>
+<p>Для демонстрации это помогает быстро понять интеграцию, но постоянный API-ключ нельзя безопасно помещать в клиентский код. В рабочем продукте сервер выдаёт краткоживущий ограниченный токен либо сам выступает доверенным посредником. Это позволяет контролировать расходы, права и отзыв доступа.</p>
+<p>Для заранее записанного аудио API можно вызвать обычным HTTP-запросом: отправить файл или URL и получить текст. Потоковая расшифровка устроена иначе — нужен постоянный сокет.</p>
+<h2>Потоковая расшифровка</h2>
+<p>Последовательность проста:</p>
+<ol><li>открыть WebSocket с параметрами распознавания, включая язык;</li><li>получить доступ к микрофону через браузер;</li><li>записывать звук небольшими частями;</li><li>отправлять части в сокет и получать результаты по тому же соединению.</li></ol>
+<pre><code class="language-js">const deepgram = new Deepgram(API_KEY);
+const socket = deepgram.transcription.live({ language: LANG });
+socket.addEventListener('open', onSocketOpen);
+socket.addEventListener('message', onSocketMessage);</code></pre>
+<p>Запись запускает стандартный <code>MediaRecorder</code>:</p>
+<pre><code class="language-js">const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+const recorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+recorder.start(TIME_SLICE);</code></pre>
+<p><code>TIME_SLICE</code> задаёт интервал события <code>dataavailable</code>. В нём отправляем фрагмент, только если сокет открыт:</p>
+<pre><code class="language-js">recorder.addEventListener('dataavailable', (event) =&gt; {
+  if (event.data.size &gt; 0 &amp;&amp; socket.readyState === 1) {
+    socket.send(event.data);
+  }
+});</code></pre>
+<p>Ответ приходит как JSON, а текст лежит в <code>data.channel.alternatives[0].transcript</code>.</p>
+<h2>Как обработать результат</h2>
+<p>Сервис возвращает промежуточные и финальные версии фразы. В ответе есть <code>start</code>, <code>duration</code>, флаги <code>is_final</code>/<code>speech_final</code> и уровень уверенности <code>confidence</code> для слов. Поэтому интерфейс не должен просто дописывать каждый ответ: он хранит сегменты по времени и заменяет черновой текст финальным.</p>
+<pre><code class="language-js">function onSocketMessage(message) {
+  const data = JSON.parse(message.data);
+  const transcript = data.channel.alternatives[0].transcript;
+  // Merge transcript by start/duration and final-state flags.
+}</code></pre>
+<p>Качество зависит от языка, шума, микрофона, модели и словаря предметной области. Перед внедрением нужны тесты на реальных сценариях, явное согласие на доступ к микрофону и понятная политика хранения аудио и транскриптов.</p>
+<h2>Итог</h2>
+<p>Deepgram позволяет добавить в PWA расшифровку записей и живой речи: браузер захватывает звук, WebSocket передаёт поток, а приложение собирает текст из ответов. Такой сценарий подходит для заметок, голосовых форм и поддержки, если архитектура защищает учётные данные и уважает приватность говорящих. Wiredgeese может спроектировать и реализовать такую интеграцию под конкретный продукт.</p>
+<h2>Дополнительные фрагменты исходного кода</h2>
+<pre>mediaRecorder.addEventListener(‘dataavailable’, async (event) =&gt; {
+if (event.data.size &gt; 0 &amp;&amp; deepgramSocket.readyState === 1) {
+deepgramSocket.send(event.data);
+}
+});</pre>
+<pre>function onSocketMessage(message) {
+const received = JSON.parse(message.data);
+console.log(received);
+}</pre>
+<pre>data.channel.alternatives[0].transcript</pre>
+<pre>{</pre>
+<pre>{</pre>
+<pre>{</pre>
+<pre>},
+{</pre>
+<pre>},
+{</pre>
+<pre>}
+]
+}
+]
+},</pre>
+<pre>},</pre>
+<pre>}
+}</pre>
+</div>
+{% endblock %}

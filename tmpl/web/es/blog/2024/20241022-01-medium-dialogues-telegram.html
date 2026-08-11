@@ -32,6 +32,77 @@
     <p>El artículo también incluye un repositorio con el código fuente completo:
         <a href="https://github.com/flancer64/tg-demo-all/tree/conversation" target="_blank">@flancer64/tg-demo-all/conversation</a>
     </p>
+<h2>Fragmentos adicionales de código fuente</h2>
+<pre>import {session} from ‘grammy’;
+import {conversations} from ‘<span class="citation" data-cites="grammyjs/conversations">@grammyjs/conversations</span>’; bot.use(session({initial: () =&gt; ({})}));
+bot.use(conversations());</pre>
+<pre>const conv = async (conversation, ctx) =&gt; {
+} * <code>conversation</code>: an object that manages the state of the current conversation. * <code>ctx</code>: the standard <em>grammY</em> context corresponding to the current interaction between the user and the bot (the message).</pre>
+<pre>import {createConversation} from ‘<span class="citation" data-cites="grammyjs/conversations">@grammyjs/conversations</span>’; bot.use(createConversation(conv, ‘conversationStart’));</pre>
+<pre>const cmd = async (ctx) =&gt; {
+await ctx.conversation.enter(‘conversationStart’);
+}</pre>
+<pre>const conv = async (conversation, ctx) =&gt; {
+return;
+}; If for some reason the conversation cannot end properly (for example, the user enters another command instead of following the conversation script), you can forcibly terminate the conversation through <code>ctx.conversation.exit()</code>. For example:
+bot.use(async (ctx, next) =&gt; {
+if (ctx?.chat &amp;&amp; (typeof ctx?.conversation?.active === ‘function’)) {
+const {start} = await ctx.conversation.active();
+if (start &gt;= 1) {
+logger.info(<code>An active conversation exists.</code>);
+const commandEntity = ctx.message?.entities?.find(entity =&gt; entity.type === ‘bot_command’);
+if (commandEntity) {
+await ctx.conversation.exit(‘conversationStart’);
+await ctx.reply(<code>The previous conversation has been closed.</code>);
+}
+}
+}
+await next();
+});</pre>
+<pre>const conv = async (conversation, ctx) =&gt; {
+const username = ctx.from.username;
+const sess = conversation.session;
+sess.count = sess.count ?? 0;
+sess.count++; logger.info(<code>username: ${username}, count: ${sess.count}</code>);
+};</pre>
+<pre>await ctx.reply(<code>Please select a service by number:\n${list}</code>);
+let selected;</pre>
+<pre>const response = await conversation.wait();
+const id = parseInt(response.message.text);</pre>
+<pre>if (!selected) await ctx.reply(<code>Invalid selection. Please enter a valid service number.</code>);
+} while (!selected);</pre>
+<pre>10/21 17:34:53.294 (info Demo_Back_Mod_Service): Service ‘Service 3’ read successfully (id:3).</pre>
+<pre>const user = await conversation.external(</pre>
+<pre>const dto = modUser.composeEntity();</pre>
+<pre>dto.telegramId = telegramId;
+modUser.create({dto});
+}
+); In this case, the user creation will only be executed once, during the very first call to the <code>external</code> method. On subsequent steps of the dialogue, the result of the first execution will be returned, and the external service won’t be called again.</pre>
+<pre>let service = await conversation.external({</pre>
+<pre>});</pre>
+<pre>let selected;</pre>
+<pre>const response = await conversation.wait();
+const id = parseInt(response.message.text);</pre>
+<pre>});
+if (!selected) await ctx.reply(<code>Invalid selection. Please enter a valid service number.</code>);
+} while (!selected); As you can see, the external service (<em>Demo_Back_Mod_Service</em>) is no longer called repeatedly for incorrect values (4 and 5), while the <em>Demo_Back_Mod_User</em> service is invoked every time (since it is not wrapped in <code>external</code>):</pre>
+<pre>10/21 17:47:01.764 (info Demo_Back_Mod_Service): Service ‘Service 3’ read successfully (id:3).</pre>
+<pre>const confirmation = await conversation.wait();
+const confirmationText = confirmation.message.text.toLowerCase();
+if (confirmationText === ‘yes’) {
+} else if (confirmationText === ‘no’) {
+} else {
+}</pre>
+<pre>let confirmed = false;
+while (!confirmed) {
+const confirmation = await conversation.wait();
+const confirmationText = confirmation.message.text.toLowerCase();
+if (confirmationText === ‘yes’) {</pre>
+<pre>} else if (confirmationText === ‘no’) {</pre>
+<pre>} else {
+await ctx.reply(<code>Please respond with "yes" or "no".</code>);
+}
+}</pre>
 </div>
 {% endblock %}
 

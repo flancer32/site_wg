@@ -1,0 +1,67 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}TeqFW: инициализация и останов плагинов{% endblock %}
+{% block description %}Некоторые teq-плагины могут нуждаться в выполнении определённых действий при запуске и останове приложения (например, установить соединения с базой данных при запуске и закрыть сое{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1>TeqFW: инициализация и останов плагинов</h1>
+    <span style="display: block; text-align: right;">
+        <strong>Дата публикации:</strong> 2021-08-17
+    </span>
+    {% raw %}
+<p>Некоторые teq-плагины могут нуждаться в выполнении определённых действий при запуске и останове приложения (например, установить соединения с базой данных при запуске и закрыть соединения при останове).</p>
+<p>Для этого плагин может указать в teq-дескрипторе (<code>./teqfw.json</code>) es6-модуль с фабричной функцией, которая создаёт функцию-инициализатор, и es6-модуль с фабричной функцией для функции-финализатора:</p>
+<pre>{</pre>
+<p>“core”: {</p>
+<p>“plugin”: {</p>
+<p>“onInit”: “Vnd_Prj_Back_Plugin_Init”,</p>
+<pre>“onStop”: “Vnd_Prj_Back_Plugin_Stop”
+}
+}
+}</pre>
+<p>Типовое содержимое es6-модуля:</p>
+<pre>export default function Factory(spec) {
+// EXTRACT DEPS
+// … // COMPOSE RESULT
+async function action() {
+// …
+} return action;
+}</pre>
+<h2>Иерархия плагинов</h2>
+<p>Все плагины приложения выстраиваются в иерархию в соответствии с зависимостями друг от друга. Зависимости определяется по ноде <code>/dependencies</code>из <code>package.json</code>.</p>
+<pre>{</pre>
+<p>“name”: “<a href="http://twitter.com/teqfw/web"><span class="citation" data-cites="teqfw/web">@teqfw/web</span></a>”,</p>
+<p>“dependencies”: {</p>
+<p>“<a href="http://twitter.com/teqfw/core"><span class="citation" data-cites="teqfw/core">@teqfw/core</span></a>”: “*“,</p>
+<p>…</p>
+<pre>}
+}</pre>
+<p>Первыми и инициализируются, и останавливаются плагины базовых уровней (<code>core</code>), а затем — более высоких (<code>web</code>)</p>
+<h2 id="инициализация">Инициализация</h2>
+<p>Инициализация плагинов происходит при старте teq-приложения (<code>TeqFw_Core_Back_App.init</code>) — после загрузки локальной конфигурации, сканирования плагинов и инициализации DI-контейнера:</p>
+<pre>this.init = async function ({path, version}) {
+initBootConfig(config, path, version);
+// …
+config.loadLocal(path);
+const registry = await pluginScan.exec(path);
+initDiContainer(registry);
+await initPlugins(registry);
+// …
+}</pre>
+<p>Приложение по очереди запускает инициализационные функции плагинов снизу-вверх, начиная от базовых уровней (<code>core</code>) и заканчивая верхними (<code>app</code>).</p>
+<h2 id="останов">Останов</h2>
+<p>Останов плагинов происходит в методе <code>TeqFw_Core_Back_App.stop</code>. Это публичный метод и может быть вызван напрямую. Если остановка приложения происходит по <a href="https://nodejs.org/api/process.html#process_signal_events">сигналу</a>, то метод вызывается автоматом:</p>
+<pre>this.run = async function () {
+const me = this; async function onStop() {
+await me.stop();
+process.exit();
+} process.on(‘SIGINT’, onStop);
+process.on(‘SIGTERM’, onStop);
+process.on(‘SIGQUIT’, onStop);
+// …
+};this.stop = async function () {/* … */} Функции останова плагинов запускаются также по очереди, снизу-вверх — от базовых уровне (<code>core</code>) к верхним (<code>app</code>).</pre>
+
+    {% endraw %}
+</div>
+{% endblock %}

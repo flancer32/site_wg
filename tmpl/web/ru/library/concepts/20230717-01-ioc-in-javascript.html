@@ -1,0 +1,75 @@
+{% extends "inc/layout.html" %}
+{% block title %}IoC в обычном JavaScript (ES6+){% endblock %}
+{% block description %}Практическое объяснение инверсии управления в JavaScript с ES-модулями, контрактами и внедрением зависимостей.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>IoC в обычном JavaScript (ES6+)</h1>
+<span style="display:block;text-align:right;"><strong>Дата публикации:</strong> 2023-07-17</span>
+<p>Инверсию управления (IoC) в JavaScript бывает сложнее почувствовать, чем в PHP, Java или TypeScript: в языке нет встроенных интерфейсов. Здесь рассматривается ES6+ код, разложенный на ES-модули и связанный через <code>import</code>/<code>export</code>.</p>
+<h2>Импорт как зависимость</h2>
+<p>На уровне модуля любой статический или динамический импорт — зависимость от другого модуля. Например, у <code>service</code> есть зависимость от конкретного <code>logger</code>:</p>
+<pre><code class="language-js">import logger from './logger.js';
+export class Service { /* ... */ }</code></pre>
+<p>Разработчик сервиса открывает импорт и видит реализацию:</p>
+<pre><code class="language-js">export default {
+  error: (msg) =&gt; console.error(msg),
+  info: (msg) =&gt; console.info(msg),
+};</code></pre>
+<p>Затем он использует её прямо внутри модуля:</p>
+<pre><code class="language-js">import logger from './logger.js';
+export class Service {
+  exec() { logger.info('Service is running.'); }
+}</code></pre>
+<p>Так исходники оказываются жёстко собраны <code>import</code>-ами в единую иерархию ещё при написании кода.</p>
+<h2>Инверсия управления</h2>
+<p>Представим, что логгеров несколько: консольный, файловый, сетевой, для базы данных. Разные разработчики могут сделать их независимо, но сначала им нужно договориться о контракте:</p>
+<pre><code class="language-js">/** @interface */
+class ILogger {
+  error(msg) {}
+  info(msg) {}
+}</code></pre>
+<p>Это не исполняемый код, а соглашение, которое JSDoc делает понятным человеку и IDE. Реализации следуют ему:</p>
+<pre><code class="language-js">class LoggerFile { error(msg) {} info(msg) {} }
+class LoggerNet  { error(msg) {} info(msg) {} }</code></pre>
+<p>Автор <code>Service</code> не знает, какой логгер будет выбран при запуске, поэтому принимает зависимость извне — классически через конструктор:</p>
+<pre><code class="language-js">export class Service {
+  constructor(logger) { this.logger = logger; }
+  exec() { this.logger.info('Service is running.'); }
+}</code></pre>
+<p>Это и есть IoC: источник зависимости выбирает не сервис, а внешний для него код — обычно объектный контейнер. Связи задаются во время выполнения и могут зависеть от условий, а не закрепляются во всех модулях статическими импортами.</p>
+<h2>Что даёт такой подход</h2>
+<p>В проекте с DI почти все импорты могут остаться в composition root — месте, где приложение собирают. Сами модули должны разрешать внедрение нужных зависимостей через конструктор или setter. Тогда они слабее связаны и переносятся между проектами, если новая среда предоставляет нужные контракты.</p>
+<p>Особенно наглядно это в тесте. Вместо файлового или сетевого логгера передаём простую заглушку:</p>
+<pre><code class="language-js">const logger = { error(msg) {}, info(msg) {} };
+const service = new Service(logger);
+service.exec();</code></pre>
+<p>Тест управляет поведением зависимости, не ссылаясь на конкретную реализацию. В архитектурном смысле IoC сначала отвечает за то, как изготовлены отдельные «кирпичи», и лишь затем — как они сложены в здание. Хорошо подготовленные модули можно соединять по-разному.</p>
+<p><zoom-img src="/medium/img/1b2e701f331d/image-01.jpg" alt="Кирпичи, из которых строится приложение" width="100%"></zoom-img></p>
+<p>Поэтому ES6-модули, не привязанные статическими импортами к конкретным службам, могут быть строительными блоками и браузерного, и Node.js-приложения.</p>
+<h2>Дополнительные фрагменты исходного кода</h2>
+<pre>class LoggerNet {
+error(msg) { } info(msg) { }
+}</pre>
+<pre>export class Service {
+logger; constructor(logger) {
+this.logger = logger;
+}
+exec(opts) {
+this.logger.info(<code>Service is running.</code>);
+}
+}</pre>
+<pre>import assert from ‘assert’;
+import {describe, it} from ‘mocha’;
+import {Service} from ‘./service.js’; const logger = {
+error(mg) {},
+info(msg) {}
+};
+describe(‘Service’, () =&gt; {
+it(‘does the job’, () =&gt; {
+const service = new Service(logger);
+service.exec({});
+assert(true);
+});
+});</pre>
+</div>
+{% endblock %}

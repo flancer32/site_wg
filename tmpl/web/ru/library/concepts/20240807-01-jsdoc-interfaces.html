@@ -1,0 +1,79 @@
+{% extends "inc/layout.html" %}
+{% block title %}Имитация интерфейсов в JavaScript с аннотациями JSDoc{% endblock %}
+{% block description %}Как описывать контракт между вызывающим кодом и реализацией в JavaScript с помощью JSDoc и понятных объектов.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Имитация интерфейсов в JavaScript с аннотациями JSDoc</h1>
+<span style="display:block;text-align:right;"><strong>Дата публикации:</strong> 2024-08-07</span>
+<p>В JavaScript нет встроенных интерфейсов, как в TypeScript. Но по мере роста приложения становится важно закреплять общую структуру и поведение его частей. Интерфейс задаёт контракт: какие методы должен предоставить объект. Это уменьшает число скрытых предположений и упрощает сопровождение. В JavaScript такой контракт удобно выразить обычным кодом и аннотациями JSDoc <a href="https://jsdoc.app/tags-interface"><code>@interface</code></a> и <a href="https://jsdoc.app/tags-implements"><code>@implements</code></a>.</p>
+<p><zoom-img src="/medium/img/f4fbd41a3500/image-01.png" alt="Фрэнк Мартин объявляет условия контракта" width="100%"></zoom-img></p>
+<p>Хорошая иллюстрация — правила Фрэнка Мартина из фильма «Перевозчик»:</p>
+<ol><li>никогда не менять условия сделки;</li><li>не называть имён;</li><li>никогда не открывать посылку.</li></ol>
+<p>Клиент получает услугу, только согласившись с правилами исполнителя. В паре «исполнитель — заказчик» именно исполнитель формулирует условия. В коде эту роль играет интерфейс.</p>
+<p>Представим три npm-пакета: <code>plugin</code> выполняет бизнес-функцию — доставку; <code>app1</code> и <code>app2</code> используют его с разными данными. Плагин экспортирует <code>drive(pack, route)</code>. Чтобы доставить посылку, ему нужны размеры и вес, место отправки и место назначения. Ожидания можно описать так:</p>
+<pre><code class="language-js">/** @interface */
+class Package {
+  getSize() { throw new Error('Implement this method.'); }
+  getWeight() { throw new Error('Implement this method.'); }
+}
+/** @interface */
+class Route {
+  getPlaceFrom() { throw new Error('Implement this method.'); }
+  getPlaceTo() { throw new Error('Implement this method.'); }
+}</code></pre>
+<p>Только аннотаций JSDoc тоже достаточно, но современные IDE не всегда одинаково хорошо их понимают. Поэтому я предпочитаю обычный JavaScript-код с аннотацией <code>@interface</code>. Так контракт виден человеку и доступен инструментам.</p>
+<p>Первое приложение может передать объект с нужными методами:</p>
+<pre><code class="language-js">function app1() {
+  const pack = {
+    getSize: () =&gt; ({ length: 150, width: 50, height: 50 }),
+    getWeight: () =&gt; 50,
+  };
+  const route = {
+    getPlaceFrom: () =&gt; 'Marseille',
+    getPlaceTo: () =&gt; 'Nice',
+  };
+  drive(pack, route);
+}</code></pre>
+<p>Во втором приложении данные другие, но контракт тот же:</p>
+<pre><code class="language-js">function app2() {
+  const pack = {
+    getSize: () =&gt; ({ length: 45, width: 30, height: 10 }),
+    getWeight: () =&gt; 1,
+  };
+  const route = {
+    getPlaceFrom: () =&gt; 'Nice',
+    getPlaceTo: () =&gt; 'Grenoble',
+  };
+  drive(pack, route);
+}</code></pre>
+<p>IDE уже умеют разбирать такой код: подсказывать методы и переходить к их определениям.</p>
+<p><zoom-img src="/medium/img/f4fbd41a3500/image-02.png" alt="Автодополнение интерфейса в IDEA" width="100%"></zoom-img></p>
+<p>Итак:</p>
+<ul><li>вызывающая сторона формулирует контракт;</li><li>реализация обязана ему соответствовать;</li><li>JSDoc помогает IDE видеть связь между контрактом и реализациями.</li></ul>
+<p>Интерфейсы полезны потому, что делят сложную систему на более простые части и ясно проводят границы между ними. В JavaScript уже есть всё необходимое: договориться об объектах, выразить договорённость в коде и не забывать принцип Фрэнка Мартина — правила задаёт тот, кто выполняет работу.</p>
+<p>Демонстрации: <a href="https://flancer64.github.io/demo-di-if-app1/">app1</a> и <a href="https://flancer64.github.io/demo-di-if-app2/">app2</a>. Для связывания интерфейсов и реализаций в них используется <a href="https://www.npmjs.com/package/@teqfw/di">@teqfw/di</a> — внедрение зависимостей через конструктор.</p>
+<h2>Дополнительные фрагменты исходного кода</h2>
+<pre>}
+}
+class Route {
+getPlaceFrom() {</pre>
+<pre>} getPlaceTo() {</pre>
+<pre>}
+}</pre>
+<pre>function drive(pack, route) {}</pre>
+<pre>function app1() {
+const pack = {</pre>
+<pre>};
+const route = {</pre>
+<pre>};
+drive(pack, route);
+}</pre>
+<pre>function app2() {
+const pack = {</pre>
+<pre>};
+const route = {</pre>
+<pre>};
+drive(pack, route);
+}</pre>
+</div>
+{% endblock %}

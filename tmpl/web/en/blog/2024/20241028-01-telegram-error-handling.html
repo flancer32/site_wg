@@ -1,41 +1,95 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}New article: Enhancing Telegram Bot Resilience Through Error Handling{% endblock %}
+{% block title %}Telegram Bot with Node.js: Using Error Handling to Boost Resilience{% endblock %}
+{% block description %}In this article, I’ll share my experience in developing Telegram bots on Node.js with the [grammY](https://grammy.dev/) library. Bot development often requires robust error handlin{% endblock %}
 
 {% block content %}
 <div class="card">
-    <h1>New article: Enhancing Telegram Bot Resilience Through Error Handling</h1>
-
+    <h1>Telegram Bot with Node.js: Using Error Handling to Boost Resilience</h1>
     <span style="display: block; text-align: right;">
         <strong>Publication date:</strong> 2024-10-28
     </span>
+    {% raw %}
+<p>In this article, I’ll share my experience in developing Telegram bots on Node.js with the <a href="https://grammy.dev/">grammY</a> library. Bot development often requires robust error handling to avoid breakdowns and improve application resilience. Using a <a href="https://github.com/flancer64/tg-demo-all">demo bot</a> as an example, I’ll explain how such errors may arise and how to address them.</p>
+<h2 id="problem-description">Problem Description</h2>
+<p>In a <a href="https://flancer32.com/telegram-bot-with-node-js-conversations-6d03ffb4059c">previous project</a>, I encountered a frustrating issue that disrupted my bot’s stability. The database required a <code>name_last</code> field for users, but some Telegram profiles didn’t include a last name. Attempting to register such users caused a failure, and the bot would terminate with an error.</p>
+<p>The situation worsened as Telegram continued to queue commands from users even when the bot was down. Eventually, frustrated users removed the bot and restricted its access to their accounts. Upon restarting, the fixed bot correctly handled the missing <code>name_last</code> field error. However, the issue arose because Telegram sent commands from users who had already blocked the bot but refused to accept replies to those commands. As a result, the bot crashed again due to the inability to deliver a response.</p>
+<figure>
+<img src="/medium/img/cd04f99074fc/image-01.png" alt="Image 2" />
+</figure>
+<p>The exception</p>
+<p>This article explores solutions to such issues, aiming to enhance the bot’s reliability and resilience.</p>
+<h2 id="template-for-bot-command-handlers">Template for Bot Command Handlers</h2>
+<p>Let’s start by examining a basic structure for command handlers in grammY. Below is an interface description for command handlers using JSDoc annotations:</p>
+<p>Based on this interface, we can create a simple command handler factory:</p>
+<pre>export default class Demo_Back_Bot_Cmd_Demo {
+constructor({TeqFw_Core_Shared_Api_Logger$$: logger}) {
+return async (ctx) =&gt; {
+await ctx.reply(<code>This is a demo command!</code>);
+};
+}
+} This code provides a minimal command handler without error handling. For instance, if a user has blocked the bot, the <code>ctx.reply</code> command will fail. In <code>long polling</code> mode, this error causes the bot to terminate. Here’s an example of the error message you might see:</pre>
+<p>Error in middleware while handling update 245088998 GrammyError: Call to ‘sendMessage’ failed! (403: Forbidden: bot was blocked by the user) In <code>webhook</code> mode, a web server may handle these exceptions, preventing the bot from crashing entirely. However, in <code>long polling</code> mode, the bot will simply stop.</p>
+<h2 id="centralized-error-handling-for-the-bot">Centralized Error Handling for the Bot</h2>
+<p>To prevent the bot from crashing due to such errors, you can set a global error handler using the <a href="https://grammy.dev/guide/errors#catching-errors">bot.catch</a> method. This method allows you to catch exceptions, log them, and even take action depending on the type of error:</p>
+<pre>bot.catch((err) =&gt; {
+const ctx = err.ctx;
+const e = err.error; logger.error(<code>Error while handling update ${ctx.update?.update_id}:</code>);
+if (e instanceof GrammyError &amp;&amp; e.error_code === 403) {
+logger.error(<code>User blocked the bot while sending a message to chat_id ${e.parameters?.chat_id}.</code>);
+return;
+}
+if (e instanceof GrammyError) {
+logger.error(<code>Error in request: ${e.description}</code>);
+} else if (e instanceof HttpError) {
+logger.error(‘Could not contact Telegram:’);
+} else {
+logger.error(‘Unknown error:’);
+}
+logger.exception(e);
+});</pre>
+<p>Here, the handler logs exceptions to prevent the bot from stopping and records error details in the log. Using a centralized error handler like <code>bot.catch</code> ensures that the bot remains resilient and continues running even in the face of unexpected errors.</p>
+<h2 id="extending-functionality-with-middleware">Extending Functionality with Middleware</h2>
+<p>To improve error management, I implemented two classes in my <code>flancer32/teq-telegram-bot</code> plugin:</p>
+<ul>
+<li><code>Telegram_Bot_Back_Mod_Bot_Catch</code> – a bot-wide exception handler that automatically connects when the bot starts, regardless of mode (<code>long polling</code> or <code>webhook</code>).</li>
+<li><code>Telegram_Bot_Back_Mod_Mdlwr_Log</code> – middleware for logging and catching exceptions, which can be added manually in each application as needed by implementing the <code>Telegram_Bot_Back_Api_Setup</code> interface.</li>
+</ul>
+<p>These classes can be replaced with custom implementations through the <code>./teqfw.json</code> file:</p>
+<pre>{</pre>
+<p>“<span class="citation" data-cites="teqfw/di">@teqfw/di</span>”: {</p>
+<p>“replaces”: {</p>
+<p>“back”: {</p>
+<p>“Telegram_Bot_Back_Api_Setup”: “Demo_Back_Bot_Setup”,</p>
+<p>“Telegram_Bot_Back_Mod_Bot_Catch”: “Demo_Back_Di_Catch”,</p>
+<p>“Telegram_Bot_Back_Mod_Mdlwr_Log”: “Demo_Back_Di_MdlwrLog”</p>
+<pre>}
+}
+}
+} This configuration enables flexible substitution of the original classes from the <code>flancer32/teq-telegram-bot</code> plugin with custom ones adapted to the specific bot’s needs.</pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>Effective error handling is essential for building reliable Telegram bots. Implementing well-configured global and local handlers not only prevents unexpected bot crashes but also enhances overall resilience. Additionally, comprehensive logging allows for timely monitoring and response to issues, ensuring a more robust and user-friendly bot experience.</p>
+<p>If you enjoyed this article, please give it a clap and follow me for more content!</p>
+<p>Stay connected:</p>
+<ul>
+<li><a href="https://github.com/flancer64">GitHub</a></li>
+<li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/">LinkedIn</a></li>
+<li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497">Upwork</a></li>
+<li><a href="https://www.fiverr.com/wiredgeese">Fiverr</a></li>
+</ul>
+<p>Thank you for your support!</p>
 
-    <zoom-img
-            src="/img/blog/2024/10/28-01.png"
-            alt="Error handling in Telegram bots with Node.js"
-            width="100px"
-            style="float: left; margin: 15px 15px 0 0;"
-    ></zoom-img>
-
-    <p>Published a new article on <a
-            href="https://flancer32.com/telegram-bot-with-node-js-using-error-handling-to-boost-resilience-cd04f99074fc"
-            target="_blank">Medium</a>, dedicated to enhancing Telegram bot resilience through systematic error handling in Node.js and the <a href="https://grammy.dev/" target="_blank">grammY</a> framework.</p>
-
-    <p>The article explores failure prevention strategies, organization of global and local error handling, as well as logging methods that help effectively track and resolve bot operation issues.</p>
+    {% endraw %}
 </div>
 {% endblock %}
 
 {% block blog_item %}
     <li class="blog-item">
         <a class="card-link" href="/en/blog/2024/20241028-01-telegram-error-handling.html"></a>
-        <img src="/img/blog/2024/10/28-01.png" alt="Article about Telegram bot resilience"/>
         <div>
-            <h4>Article about Telegram bot resilience</h4>
-            <p>
-                Analyzing how to improve bot reliability through error handling and logging using Node.js and grammY.
-            </p>
-            <time datetime="2024-10-28">October 28, 2024</time>
+            <h4>Telegram Bot with Node.js: Using Error Handling to Boost Resilience</h4>
+            <p>In this article, I’ll share my experience in developing Telegram bots on Node.js with the [grammY](https://grammy.dev/) library. Bot development often requires robust error handlin</p>
+            <time datetime="2024-10-28">2024-10-28</time>
         </div>
     </li>
 {% endblock %}
-

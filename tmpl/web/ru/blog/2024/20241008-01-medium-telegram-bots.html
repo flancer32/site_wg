@@ -34,6 +34,87 @@
             @flancer64/tg-demo-base
         </a>
     </p>
+<h2>Дополнительные фрагменты исходного кода</h2>
+<pre>$ mkdir ./my-bot
+$ cd ./my-bot
+$ git init
+$ git config –global init.defaultBranch main
+$ npm init -y
+$ npm pkg set name=“my-bot”
+$ npm pkg set version=“0.1.0”
+$ npm pkg set type=“module”
+$ npm pkg set description=“Telegram Bots: The First Steps”
+$ npm pkg set author=“Your Name <a href="mailto:your@email.com" class="email">your@email.com</a>”
+$ npm install <span class="citation" data-cites="flancer32/teq-telegram-bot">@flancer32/teq-telegram-bot</span> –save This will set the foundation for building your Telegram bot using the <em>grammY</em> framework and other tools we will introduce later.</pre>
+<pre>import {dirname, join} from ‘node:path’;
+import {fileURLToPath} from ‘node:url’;
+import teq from ‘<span class="citation" data-cites="teqfw/core">@teqfw/core</span>’; const url = new URL(import.meta.url);
+const script = fileURLToPath(url);
+const bin = dirname(script);
+const path = join(bin, ‘..’);
+teq({path}).catch((e) =&gt; console.error(e));</pre>
+<pre>$ chmod a+x ./bin/tequila.mjs To verify that the application is working, run the script:
+$ ./bin/tequila.mjs Expected output:</pre>
+<pre>{</pre>
+<pre>}
+} ### Configuring Git</pre>
+<pre>/**/node_modules/
+/**/package-lock.json
+/**/tmp/</pre>
+<pre>$ git add .
+$ git status</pre>
+<pre>$ git commit -m “Initial commit: setup project structure and configuration”</pre>
+<pre>$ ./bin/tequila.mjs tg-bot-start</pre>
+<pre>…</pre>
+<pre>$ mkdir -p ./src/Back/Bot
+$ touch ./src/Back/Bot/Setup.js Now, add the following content to the <code>./src/Back/Bot/Setup.js</code> file:
+export default class MyBot_Back_Bot_Setup {
+constructor() { this.commands = async function (bot) {
+return bot;
+};
+this.handlers = function (bot) {
+return bot;
+};
+}
+}</pre>
+<pre>{</pre>
+<pre>},</pre>
+<pre>}
+}
+}
+} The <code>@teqfw/di</code> dependency container locates the source code in a manner similar to PHP’s <a href="https://www.php-fig.org/psr/psr-4/">PSR-4 standard</a>. In our case, the <code>MyBot</code> namespace maps to the <code>./src</code> directory. Additionally, there is an instruction for the container to replace the <code>Telegram_Bot_Back_Api_Setup</code> interface with its implementation <code>MyBot_Back_Bot_Setup</code>.</pre>
+<pre>$ ./bin/tequila.mjs tg-bot-start</pre>
+<pre>export default class MyBot_Back_Bot_Setup {
+constructor() {
+this.commands = async function (bot) {
+await bot.api.setMyCommands([
+{command: ‘help’, description: ‘Display this text.’},
+{command: ‘settings’, description: ‘Configure bot settings.’},
+{command: ‘start’, description: ‘Start using the bot.’},
+]);
+return bot;
+};
+}
+} In this code, the <code>bot</code> parameter in the <code>commands</code> method is a <a href="https://github.com/grammyjs/grammY/blob/v1.29.0/src/bot.ts#L151"><em>grammY</em> object</a> with the <a href="https://grammy.dev/guide/api">appropriate API</a>. This method is called when the bot starts (both in long polling mode and webhook mode) and creates the list of commands for the user.</pre>
+<pre>export default class MyBot_Back_Bot_Setup {
+constructor() {
+this.handlers = function (bot) {
+bot.command(‘help’, (ctx) =&gt; {
+const msg = `</pre>
+<pre>;
+ctx.reply(msg, {</pre>
+<pre>});
+});
+bot.command(‘settings’, (ctx) =&gt; {
+ctx.reply(‘Configure bot settings.’);
+});
+bot.command(‘start’, (ctx) =&gt; {
+ctx.reply(‘Start using the bot.’);
+});
+return bot;
+};
+}
+}</pre>
 </div>
 {% endblock %}
 

@@ -1,0 +1,27 @@
+{% extends "inc/layout.html" %}
+{% block title %}Monitorización de logs durante el desarrollo web{% endblock %}
+{% block description %}Qué necesita un agregador de logs orientado al desarrollo: identificación de origen, trazado de procesos, feedback casi en tiempo real y retención corta.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Monitorización de logs durante el desarrollo web</h1>
+<span style="display:block;text-align:right;"><strong>Fecha de publicación:</strong> 2022-03-18</span>
+<p><zoom-img src="/medium/img/8cffdd920c29/image-01.png" alt="Concepto de monitorización remota de logs" width="100%"></zoom-img></p>
+<p>Las aplicaciones serias generan muchos logs. ELK, Sentry, Google Cloud Logging y CloudWatch son valiosos para operación en producción, pero el desarrollo tiene otras necesidades. Quien desarrolla necesita feedback inmediato y selectivo mientras cambia una aplicación web, no un archivo operativo a largo plazo.</p>
+<h2>Una aplicación web distribuida</h2>
+<p>Las aplicaciones web tienen frontend y backend. El backend puede ser heterogéneo o estar replicado tras balanceo; el frontend existe naturalmente en muchos ordenadores, teléfonos y tabletas. Un agregador para desarrollo debe recoger logs de todas esas fuentes e identificar cada una, para aislar una instancia de navegador o un componente de servidor.</p>
+<h2>Trazar un proceso de negocio</h2>
+<p>Una acción de negocio suele cruzar componentes. En un chat, el frontend del remitente envía un mensaje, el backend lo acepta y reenvía, y el frontend de quien recibe lo guarda. La vista útil agrupa esos registros en un único proceso aunque procedan de dispositivos y código diferentes.</p>
+<p>En la práctica se necesita un identificador de correlación que viaje con solicitud o evento. Debe poder exponerse sin riesgo en logs, ser suficientemente único durante la retención y añadirse en cada traspaso.</p>
+<h2>Vincular logs con código</h2>
+<p>Un registro debe identificar el código que lo produjo, al menos el archivo fuente. A menudo se llega al origen con la búsqueda del IDE. Campos estructurados de módulo, archivo, función y línea —cuando sean fiables— acortan el camino frente a un texto aislado.</p>
+<h2>Velocidad de feedback</h2>
+<p>El desarrollo depende del ciclo: cambiar código, ejecutar un escenario, leer feedback y ajustar. Los registros seleccionados deben llegar según se producen, con demora de segundos y no de minutos. Por eso, durante desarrollo un flujo en vivo vale más que una agregación programada.</p>
+<h2>Retención corta</h2>
+<p>Los logs de desarrollo envejecen rápido. Tras cambiar código y hacer otra prueba, los anteriores a menudo pierden valor. Conservar aproximadamente la última hora, o un número limitado de entradas recientes, encaja mejor que un archivo costoso y permanente. También reduce la retención accidental de datos sensibles de prueba.</p>
+<h2>Niveles para desarrollo</h2>
+<p>El logging operativo suele distinguir <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code>, <code>ERROR</code> y <code>FATAL</code>. Al desarrollar suele ser más útil ver el flujo informativo completo y destacar visualmente los errores. Lo importante es filtrar rápido, no ocultar el contexto que explica un error.</p>
+<h2>Resumen y prueba de concepto</h2>
+<p>Un agregador orientado a desarrollo necesita filtrado en tiempo real, vínculo con instancia emisora y archivo fuente, y correlación de proceso. Construí una prueba de concepto, <a href="https://github.com/flancer64/pwa_log_agg">flancer64/pwa_log_agg</a>: un servidor recibe logs por POST y los retransmite a una interfaz de navegador mediante Server-Sent Events (SSE); el filtrado ocurre en cliente.</p>
+<p>Demuestra una dirección, no pretende sustituir plataformas de observabilidad. Una versión de producción además definiría autenticación, aislamiento de tenants, esquemas estructurados, redacción, control de retención y fiabilidad de transporte. El proyecto Remote Console de este sitio desarrolla la misma idea de feedback para desarrollo.</p>
+</div>
+{% endblock %}

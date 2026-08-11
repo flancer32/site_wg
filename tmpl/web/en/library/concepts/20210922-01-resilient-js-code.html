@@ -1,0 +1,101 @@
+{% extends "inc/layout.html" %}
+{% block title %}Making JavaScript Code Resilient to Change{% endblock %}
+{% block description %}How decomposition, stable addresses, small public APIs, and deliberate interfaces make JavaScript applications easier to evolve.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Making JavaScript Code Resilient to Change</h1>
+<span style="display:block;text-align:right;"><strong>Publication date:</strong> 2021-09-22</span>
+<p>Software development faces two persistent difficulties: complexity and changing requirements. Decomposition helps with both, but only when the resulting parts are themselves resilient to change. This article looks at the elements of JavaScript code, their interfaces, and the boundaries that protect a change from spreading through an entire application.</p>
+<h2>Elements and their interfaces</h2>
+<p>At different levels of detail, JavaScript code contains objects, functions, classes, ES modules, and npm packages. Objects, functions and classes are basic elements; modules and packages combine them.</p>
+<ul><li>An object exposes properties.</li><li>A function exposes input and output arguments.</li><li>A class exposes its public properties and methods.</li><li>An ES module exposes its export object.</li><li>An npm package exposes its name, version, entry point and, in practice, the modules consumers can reach.</li></ul>
+<p>Bottom-up development builds packages from smaller elements; top-down work travels the other way. In either direction, good decomposition seeks high cohesion inside a component and low coupling between components.</p>
+<p><zoom-img src="/medium/img/e9a0fe4f1e1f/image-01.png" alt="High cohesion and low coupling as a design goal" width="100%"></zoom-img></p>
+<h2>Addressing code</h2>
+<p>In ES2015+ applications the ES module is the primary building block. In a browser it is loaded through a URL-like hierarchy; in Node.js it is a file within a package in <code>node_modules</code>.</p>
+<p><zoom-img src="/medium/img/e9a0fe4f1e1f/image-02.png" alt="ES modules loaded into a browser" width="100%"></zoom-img></p>
+<p><zoom-img src="/medium/img/e9a0fe4f1e1f/image-03.jpg" alt="ES modules in Node.js package hierarchy" width="100%"></zoom-img></p>
+<p>An application-level address therefore has two parts: a module path and an export name. Examples:</p>
+<pre><code class="language-js">import { exportName } from 'https://domain.example/path/to/mod.mjs';
+import { exportName } from '../../path/to/mod.mjs';
+import { exportName } from '@vendor/project/src/path/to/mod.mjs';</code></pre>
+<p><zoom-img src="/medium/img/e9a0fe4f1e1f/image-04.png" alt="ES module, exports, and package composition" width="100%"></zoom-img></p>
+<p>Absolute addresses are more fragile than relative or mapped ones. Import maps can decouple consumers from a physical resource location. <code>export default</code> also decouples a consumer from the internal export name, though it limits a module to one default export.</p>
+<p><zoom-img src="/medium/img/e9a0fe4f1e1f/image-05.png" alt="Connections between exported code elements" width="100%"></zoom-img></p>
+<h2>Interfaces at each level</h2>
+<p>For a function, its name, inputs, and result form the interface. A positional signature is concise:</p>
+<pre><code class="language-js">function producer(x1, x2) { return x1 * x2; }</code></pre>
+<p>Destructuring a single object gives a more change-tolerant public boundary:</p>
+<pre><code class="language-js">function producer({ x1, x2 }) {
+  return { sum: x1 + x2, product: x1 * x2 };
+}
+const { sum, product } = producer({ x1: 1, x2: 2 });</code></pre>
+<p>Fields can be added without shifting a position. The trade-off is more verbose code and weaker immediate readability, so this pattern is most valuable at public or long-lived boundaries. Classes expose names, public members, and method contracts. An ES module exposes only what it exports.</p>
+<p>An npm package is the largest reusable unit. Its package name, version and <code>main</code>/<code>exports</code> entry point are part of the contract. Consumers can technically import internal files unless the package defines export restrictions, so public/private conventions need to be explicit.</p>
+<h2>Public and private areas</h2>
+<p>Everything outside an element’s interface is its private implementation. A private nested function, private class field, or non-exported module binding can change without forcing consumers to change:</p>
+<pre><code class="language-js">class SomeClass {
+  #privateValue;
+  constructor() {
+    const internal = {};
+    this.useInternal = () =&gt; { internal.value = this.#privateValue; };
+  }
+  setValue(value) { this.#privateValue = value; }
+}</code></pre>
+<p>More useful behaviour in the private area means a smaller public surface and fewer dependencies to maintain. Packages can declare a primary entry point and re-export intended APIs; they can also adopt folder conventions, such as treating <code>Api/</code> as public and other modules as internal.</p>
+<h2>Practical rules</h2>
+<ul><li>Prefer high cohesion inside a module and low coupling across modules.</li><li>Treat names and placement of packages, modules, classes, and exports as stable public addresses.</li><li>Add new properties, arguments, and methods more freely than removing or renaming them; renaming creates widespread refactoring.</li><li>Use object input/output and destructuring at evolving public boundaries; use positional arguments freely in private helpers.</li><li>Use local aliases for external dependencies when they reduce the number of places tied to an external name.</li><li>State public/private rules in package exports and source-layout conventions.</li></ul>
+<p>The larger the component, the more important the stability of its name and interface. Thoughtful boundaries do not prevent change; they keep a local change local.</p>
+<h2>Additional source-code excerpts</h2>
+<pre>import func from ‘./mod.mjs’;
+import {fn} from ‘./mod.mjs’;</pre>
+<pre>function outer() {
+const obj = {};
+function inner() {
+const obj = {};
+}
+} &gt; Глубоко вложенные области видимости ухудшают читаемость кода, а использование элементов кода с верхних уровней снижают устойчивость кода к изменениям (за исключением случая, когда элементы кода определяются на самом верхнем уровне — через импорты в <code>es</code>-модуле).</pre>
+<pre>const OBJ = {prop: ‘value’}function consumer() {
+console.log(OBJ.prop);
+} ### Функции</pre>
+<pre>function producer(x1, x2) {
+return x2 * x1;
+}const y = producer(1, 2); Я как-то <a href="https://habr.com/ru/post/321862/">уже размышлял</a> на тему, что было бы, если бы у функции был только один входной параметр и один выходной:
+const y = fn(x); JS с его <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">деструктирующим присваиванием</a> вплотную подошёл к этому варианту:
+function producer({x1, x2}) {
+return {y1: x1 + x2, y2: x2 * x1};
+}const {y1, y2} = producer({x1: 1, x2: 2}); &gt; Использование функций в таком виде добавляет коду устойчивости к изменениям относительно “<em>классического</em>” варианта. В этом случае мы можем смелее изменять входные и выходные аргументы (их количество и порядок следования), но платим за это читабельностью кода.</pre>
+<pre>{</pre>
+<pre>“another_dep”: “~2.2.0”
+}
+} Имя <code>npm</code>-пакета участвует в адресации <code>es</code>-модулей в nodejs-приложениях. В пакете может быть определён <a href="https://stackoverflow.com/questions/22512992/how-to-use-the-main-parameter-in-package-json">входной объект</a>, в его <code>./package.json</code>:
+{
+“main”: “lib/entry.js”
+}</pre>
+<pre>function producer(opts) {
+function nested() {}
+}</pre>
+<pre>class SomeClass {</pre>
+<pre>const nestedObj = {};
+this.instMethod = function () {
+nestedObj.prop = this.#privProp;
+}
+} setProp(data) {
+this.#privProp = data;
+}
+} <code>privProp</code> и <code>nestedObj</code> являются внутренними элементами кода для класса <code>SomeClass</code> и недоступны извне напрямую.</pre>
+<pre>{
+“main”: “src/Shared/Container.mjs”
+}</pre>
+<pre>import Container from ‘<a href="http://twitter.com/teqfw/di"><span class="citation" data-cites="teqfw/di">@teqfw/di</span></a>’;</pre>
+<pre>import subModule from ‘./path/to/sub/modle.mjs’;export {</pre>
+<pre>}</pre>
+<pre>import * as module from ‘<span class="citation" data-cites="scope/prj">@scope/prj</span>’;
+const sub = module.subModule; Но это именно “<em>джентльменское соглашение</em>” — ничто не мешает разработчику другого <code>npm</code>-пакета обратиться внутрь нашего <code>npm</code>-пакета к любому <code>es</code>-модулю напрямую.</pre>
+<pre>export default class TeqFw_Web_Back_Defaults {
+constructor(spec) {
+this.MOD_DI = spec[‘TeqFw_Di_Back_Defaults$’];
+}
+}</pre>
+</div>
+{% endblock %}

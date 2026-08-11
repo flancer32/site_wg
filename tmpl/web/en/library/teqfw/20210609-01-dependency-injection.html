@@ -1,0 +1,83 @@
+{% extends "inc/layout.html" %}
+{% block title %}TeqFW: Dependency Injection{% endblock %}
+{% block description %}A practical guide to the @teqfw/di container: ES modules, dependency identifiers, singleton and transient lifetimes, and source resolution.{% endblock %}
+{% block content %}
+<div class="card">
+<h1>TeqFW: Dependency Injection</h1>
+<span style="display:block;text-align:right;"><strong>Publication date:</strong> 2021-06-09</span>
+<p>Every JavaScript application creates objects and connects them. Dependency injection (DI) is a long-established way to make those connections explicit and flexible. TeqFW implements DI in the standalone <a href="https://github.com/teqfw/di">@teqfw/di</a> package.</p>
+<h2>Requirements</h2>
+<p>For TeqFW DI, code is organized as ES modules, usually <code>*.mjs</code>. A class constructor or factory receives one <code>spec</code> object. The container must either resolve a dependency identifier to a module source or receive that dependency explicitly from the application.</p>
+<h2>What the container does</h2>
+<p>A typical request is <code>await container.get(id)</code>. The container:</p>
+<ol><li>interprets the identifier;</li><li>returns a cached object if one exists;</li><li>otherwise resolves and dynamically imports its module;</li><li>discovers and resolves the constructor/factory dependencies recursively;</li><li>creates the requested object;</li><li>caches it when its lifetime requires it.</li></ol>
+<p>The recursive dependency tree is built before the caller receives its requested object.</p>
+<h2>What an ES module can provide</h2>
+<p>A module can export a class, a factory, or an object template:</p>
+<pre><code class="language-js">const template = { name: 'Simple Object' };
+class Service { constructor(spec) { /* ... */ } }
+function createService(spec) { return { name: 'Factory instance' }; }
+
+export { template as ObjTmpl, Service as default, createService as Factory };</code></pre>
+<p>The container can return an export itself, construct a class, invoke a factory, or use an object as a template according to the identifier.</p>
+<h2>Dependency identifiers</h2>
+<p>Dependencies are entries in <code>spec</code>:</p>
+<pre><code class="language-js">constructor(spec) {
+  const logger = spec['TeqFw_Log_Api_Logger$'];
+}</code></pre>
+<p>Identifiers beginning with lowercase are named dependencies supplied manually:</p>
+<pre><code class="language-js">container.set('connection', databaseConnection);</code></pre>
+<p>Identifiers beginning with uppercase are importable dependencies. The main notation is:</p>
+<ul><li><code>EsModuleId</code>: module object;</li><li><code>EsModuleId#</code> or <code>EsModuleId#default</code>: default export;</li><li><code>EsModuleId#ExportName</code>: named export;</li><li><code>EsModuleId$</code>: singleton built from default export;</li><li><code>EsModuleId$$</code>: a new instance built from default export;</li><li><code>EsModuleId#name$</code> / <code>$$</code>: singleton / new instance from a named export.</li></ul>
+<p>The first request for a singleton builds and stores it; later requests receive the same object. A double dollar requests a fresh object every time. Choose lifetimes deliberately: shared stateless services often suit singletons, while request-specific or mutable short-lived objects do not.</p>
+<h2>Declaring dependencies</h2>
+<p>The explicit form makes identifiers easy to inspect:</p>
+<pre><code class="language-js">constructor(spec) {
+  const named = spec['namedSingleton'];
+  const one = spec['EsModId#name$$'];
+  const shared = spec['EsModId$'];
+}</code></pre>
+<p>Destructuring is compact when no setup must precede resolution:</p>
+<pre><code class="language-js">constructor({ namedSingleton, EsModId$, EsModId$$ }) { /* ... */ }</code></pre>
+<h2>Resolving sources</h2>
+<p>Mappings connect a namespace prefix with its source root:</p>
+<pre><code class="language-js">container.addSourceMapping('EsModId', './relative/path');
+container.addSourceMapping('EsModId', '/absolute/path', true);</code></pre>
+<p>The relative form is suitable for browser use, the absolute form for Node.js. Namespace segments map to directories, for example <code>EsModId_PathTo_Mod</code> resolves to <code>/absolute/path/PathTo/Mod.mjs</code>.</p>
+<h2>Summary</h2>
+<p><a href="https://github.com/teqfw/di">@teqfw/di</a> can use whole ES modules or individual exports as dependencies, create singleton or transient objects, and run the same architectural pattern in browsers and Node.js. The convention makes object wiring visible and replaceable while keeping module source resolution systematic.</p>
+<h2>Additional source-code excerpts</h2>
+<pre>import Container from ‘<a href="http://twitter.com/teqfw/di"><span class="citation" data-cites="teqfw/di">@teqfw/di</span></a>’;
+const container = new Container();
+container.set(‘dep1’, {name: ‘first’});
+container.set(‘dep2’, {name: ‘second’});
+const obj = await container.get(‘dep1’);</pre>
+<pre>class Clazz {
+constructor(spec) {}
+}function Factory(spec) {} Как различить случай, когда мы хотим получить от контейнера сам класс (функцию), а когда — экземпляр объекта данного класса (результат работы функции)? В идентификаторе зависимости для <code>@teqfw/di</code> это отражается при помощи символа <code>$</code>:</pre>
+<pre>let id1 = ‘named’; // named singleton been added manually
+let id2 = ‘EsModId’; // ES module
+let id3 = ‘EsModId#’; // default export of ES module
+let id4 = ‘EsModId#name’; // named export of ES module
+let id5 = ‘EsModId$’; // singleton from default export
+let id6 = ‘EsModId$’; // new instance from default export
+let id7 = ‘EsModId#name$’; // singleton from named export
+let id8 = ‘EsModId#name$’; // new instance from named export</pre>
+<pre>constructor(spec) {
+const named = spec[‘namedSingleton’];
+const inst = spec[‘EsModId#name$’];
+const single = spec[‘EsModId$’];
+} Особенностью <code>@teqfw/di</code> является то, что контейнер прерывает процесс создания запрошенного объекта, если обнаруживает неизвестную зависимость, подгружает исходники зависимости и создает зависимость, после чего вновь пытается создать запрошенный объект. Таким образом, первые строки конструктора запрошенного объекта могут выполняться несколько раз, если в процессе приходилось несколько раз прерывать процесс и подгружать нужные исходники.</pre>
+<pre>constructor({named, EsModId<span class="math inline">, <em>E</em><em>s</em><em>M</em><em>o</em><em>d</em><em>I</em><em>d</em></span>$}) {}</pre>
+<pre>container.addSourceMapping(‘EsModId’, ‘./relative/path’);
+container.addSourceMapping(‘EsModId’, ‘/absolute/path’, true); Первый способ применяется, если контейнер используется в браузере, второй — в nodejs-приложениях.</pre>
+<pre>export default class Mod {
+constructor(spec) {
+const Clazz = spec[‘Lib_Dep#’];
+const single = spec[‘Lib_Dep$’];
+const inst = spec[‘Lib_Dep$’];
+// …
+}
+}</pre>
+</div>
+{% endblock %}
