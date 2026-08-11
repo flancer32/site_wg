@@ -3,21 +3,21 @@
 /**
  * @namespace App_Back_Web_Handler_NotFound
  * @description Renders the localized site error page as the final GET/HEAD fallback.
- * @implements Fl32_Web_Back_Api_Handler
+ * @implements TeqFw_Web_Back_Api_Handler
  */
 
 export default class NotFound {
     /**
      * @param {object} deps
      * @param {typeof import('node:http2')} deps.http2
-     * @param {Fl32_Web_Back_Helper_Respond} deps.respond
-     * @param {Fl32_Web_Back_Dto_Info__Factory} deps.dtoInfo
+     * @param {TeqFw_Web_Back_Helper_Respond} deps.respond
+     * @param {TeqFw_Web_Back_Dto_Info__Factory} deps.dtoInfo
      * @param {Fl32_Cms_Back_Api_Adapter} deps.adapter
      * @param {Fl32_Tmpl_Back_Config} deps.tmplConfig
      * @param {Fl32_Cms_Back_Helper_Web} deps.helpWeb
      * @param {Fl32_Tmpl_Back_Service_Load} deps.servTmplLoad
      * @param {Fl32_Tmpl_Back_Service_Render} deps.servTmplRender
-     * @param {Fl32_Web_Back_Enum_Stage} deps.STAGE
+     * @param {TeqFw_Web_Back_Enum_Stage} deps.STAGE
      */
     constructor({
         http2,
@@ -37,16 +37,16 @@ export default class NotFound {
             stage: STAGE.PROCESS,
             after: [
                 'Fl32_Cms_Back_Web_Handler_Template',
-                'Fl32_Web_Back_Handler_Static',
+                'TeqFw_Web_Back_Handler_Static',
                 'App_Back_Web_Handler_SendEmail',
             ],
         });
 
-        /** @returns {Fl32_Web_Back_Dto_Info} */
+        /** @returns {TeqFw_Web_Back_Dto_Info} */
         this.getRegistrationInfo = () => info;
 
         /**
-         * @param {Fl32_Web_Back_Pipeline_RequestContext} context
+         * @param {TeqFw_Web_Back_Pipeline_RequestContext} context
          * @returns {Promise<void>}
          */
         this.handle = async function (context) {
@@ -100,12 +100,12 @@ export default class NotFound {
 
 export const __deps__ = Object.freeze({
     http2: 'node:http2',
-    respond: 'Fl32_Web_Back_Helper_Respond$',
-    dtoInfo: 'Fl32_Web_Back_Dto_Info__Factory$',
+    respond: 'TeqFw_Web_Back_Helper_Respond$',
+    dtoInfo: 'TeqFw_Web_Back_Dto_Info__Factory$',
     adapter: 'Fl32_Cms_Back_Api_Adapter$',
     tmplConfig: 'Fl32_Tmpl_Back_Config$',
     helpWeb: 'Fl32_Cms_Back_Helper_Web$',
     servTmplLoad: 'Fl32_Tmpl_Back_Service_Load$',
     servTmplRender: 'Fl32_Tmpl_Back_Service_Render$',
-    STAGE: 'Fl32_Web_Back_Enum_Stage$',
+    STAGE: 'TeqFw_Web_Back_Enum_Stage$',
 });

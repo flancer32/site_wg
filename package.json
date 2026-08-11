@@ -30,15 +30,16 @@
     "url": "git+https://github.com/flancer32/site_wg.git"
   },
   "scripts": {
-    "start": "teq fl32:web:start",
+    "start": "teq web:start",
     "test": "node --test test/unit/*.test.mjs",
     "typecheck": "tsc -p jsconfig.json",
     "sitemap": "node bin/generate-sitemap.mjs",
     "translate": "teq cms:translate"
   },
   "dependencies": {
-    "@flancer32/teq-cms": "<=1.0.0",
+    "@flancer32/teq-cms": "github:flancer32/teq-cms#v0.7.0",
     "@teqfw/cli": "^2.1.0",
+    "@teqfw/web": "^2.0.0",
     "nodemailer": "^9.0.3",
     "nunjucks": "^3.2.4"
   },
@@ -65,7 +66,7 @@
       },
       "cli": {
         "command": {
-          "default": "fl32:web:start"
+          "default": "web:start"
         },
         "container": {
           "configurator": "./teqcms.config.mjs"

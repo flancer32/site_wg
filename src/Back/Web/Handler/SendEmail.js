@@ -3,19 +3,19 @@
 /**
  * @namespace App_Back_Web_Handler_SendEmail
  * @description Accepts landing-page form submissions and delivers them through SMTP.
- * @implements Fl32_Web_Back_Api_Handler
+ * @implements TeqFw_Web_Back_Api_Handler
  */
 
 export default class SendEmail {
     /**
      * @param {object} deps
      * @param {typeof import('node:http2')} deps.http2
-     * @param {Fl32_Web_Back_Helper_Respond} deps.respond
-     * @param {Fl32_Web_Back_Dto_Info__Factory} deps.dtoInfo
+     * @param {TeqFw_Web_Back_Helper_Respond} deps.respond
+     * @param {TeqFw_Web_Back_Dto_Info__Factory} deps.dtoInfo
      * @param {TeqFw_Log_Provider} deps.logger
      * @param {App_Back_Web_Helper_FormProtection} deps.formProtection
      * @param {TeqFw_Cfg_Reader} deps.reader
-     * @param {Fl32_Web_Back_Enum_Stage} deps.STAGE
+     * @param {TeqFw_Web_Back_Enum_Stage} deps.STAGE
      */
     constructor({http2, respond, dtoInfo, logger, formProtection, reader, STAGE}) {
         const {constants: H2} = http2;
@@ -83,11 +83,11 @@ export default class SendEmail {
             });
         };
 
-        /** @returns {Fl32_Web_Back_Dto_Info} */
+        /** @returns {TeqFw_Web_Back_Dto_Info} */
         this.getRegistrationInfo = () => info;
 
         /**
-         * @param {Fl32_Web_Back_Pipeline_RequestContext} context
+         * @param {TeqFw_Web_Back_Pipeline_RequestContext} context
          * @returns {Promise<void>}
          */
         this.handle = async function (context) {
@@ -149,10 +149,10 @@ export default class SendEmail {
 
 export const __deps__ = Object.freeze({
     http2: 'node:http2',
-    respond: 'Fl32_Web_Back_Helper_Respond$',
-    dtoInfo: 'Fl32_Web_Back_Dto_Info__Factory$',
+    respond: 'TeqFw_Web_Back_Helper_Respond$',
+    dtoInfo: 'TeqFw_Web_Back_Dto_Info__Factory$',
     logger: 'TeqFw_Log_Provider$',
     formProtection: 'App_Back_Web_Helper_FormProtection$',
     reader: 'TeqFw_Cfg_Reader$',
-    STAGE: 'Fl32_Web_Back_Enum_Stage$',
+    STAGE: 'TeqFw_Web_Back_Enum_Stage$',
 });
