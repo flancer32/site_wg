@@ -37,7 +37,7 @@
     "translate": "teq cms:translate"
   },
   "dependencies": {
-    "@flancer32/teq-cms": "github:flancer32/teq-cms#v0.7.0",
+    "@flancer32/teq-cms": "^0.7.0",
     "@teqfw/cli": "^2.1.0",
     "@teqfw/web": "^2.0.0",
     "nodemailer": "^9.0.3",
