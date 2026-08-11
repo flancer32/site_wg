@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/page-composition.md`
 - Template Version: `20260630`
-- Changed: `20260716`
+- Changed: `20260811`
 
 ## Purpose
 
@@ -20,6 +20,7 @@ The current composition model is:
 - library article -> shared locale layout -> Site Header + article content + optional Zoomable Image + Publication Discussion CTA + Site Footer
 - projects index -> shared locale layout -> Site Header + featured work + chronological archive + Site Footer
 - project detail -> shared locale layout -> Site Header + project identity + project content + status CTA + Site Footer
+- book page -> shared locale layout -> Site Header + book identity + author explanation or language notice + publisher purchase CTA + Site Footer
 - landing page -> shared locale layout -> Site Header + conversion-oriented content and form + Site Footer
 - 404 page -> shared locale layout -> Site Header + not-found recovery surface + Site Footer
 

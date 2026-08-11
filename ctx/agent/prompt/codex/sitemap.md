@@ -2,7 +2,7 @@
 
 - Path: `ctx/agent/prompt/codex/sitemap.md`
 - Template Version: `20260629`
-- Changed: `20260629`
+- Changed: `20260811`
 
 ## Purpose
 
@@ -15,6 +15,7 @@ Use this prompt when content or routing changes require publication-oriented fin
 The routine is:
 
 - regenerate or update `web/sitemap.xml`;
+- when validating a local SSR page, start the server on an explicit free port other than the default port when it may be occupied, then request the exact changed route;
 - review the current repository diff before any VCS action;
 - commit only the intended changes for the current task;
 - push the current branch when the human explicitly asks for publication-oriented delivery;

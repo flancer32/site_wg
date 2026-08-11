@@ -1,0 +1,43 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}My Russian-language book about the browser is now published — Alex Gusev{% endblock %}
+{% block description %}Alex Gusev's Russian-language book explores the browser as a personal operating environment for the internet.{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>My Russian-language book about the browser is now published</h1>
+    <time datetime="2026-08-04">August 4, 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260804-01-browser-as-operating-system-book.webp"
+        alt="Cover of the book Browser as an Operating System for Developing Modern Applications" width="240px"></zoom-img>
+
+    <p>
+        My Russian-language book,
+        <a href="https://bhv.ru/product/brauzer-kak-operatsionnaya-sistema-dlya-razrabotki-sovremennyh-prilozhenij/"
+            target="_blank" rel="noopener noreferrer">“Browser as an Operating System for Developing Modern Applications”</a>,
+        has been published by BHV.
+    </p>
+
+    <p>
+        It presents the browser as a personal operating environment for the internet: a place where web applications
+        execute, persist state, use the network, operate within trust boundaries, and connect with a person's digital
+        presence. The book is currently available in Russian.
+    </p>
+
+    <p>The book approaches the browser through environment, structure, operation, and everyday digital presence.</p>
+    <p><a href="/en/books/browser-as-operating-system.html">Read about the book →</a></p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2026/20260804-01-browser-as-operating-system-book.html"></a>
+        <img src="/img/blog/2026/20260804-01-browser-as-operating-system-book.webp"
+            alt="Cover of the book Browser as an Operating System for Developing Modern Applications" />
+        <div>
+            <h4>My Russian-language book about the browser is now published</h4>
+            <p>A new book about the browser as a personal operating environment for the internet is available in Russian.</p>
+            <time datetime="2026-08-04">August 4, 2026</time>
+        </div>
+    </li>
+{% endblock %}

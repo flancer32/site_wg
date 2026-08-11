@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/overview.md`
 - Template Version: `20260605`
-- Changed: `20260701`
+- Changed: `20260811`
 
 ## Site Purpose
 
@@ -150,6 +150,12 @@ Their role is to show:
 - that the engineering base exists;
 - that the approaches have been exercised in practice;
 - that the commercial language is backed by implemented systems and observable experience.
+
+The Russian-language book `Browser as an Operating System for Developing Modern Applications`, published by `BHV`,
+is a supporting proof of Alex's browser and web-system engineering expertise. Its dedicated Russian book page owns
+the author-facing explanation and routes readers to the publisher's page for purchase. The journal announcement and
+project-archive entry should route readers to that book page. It must not displace the current hot offer or the
+three-product selection on the home page.
 
 ## Public Surfaces
 

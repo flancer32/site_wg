@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/routes.md`
 - Template Version: `20260630`
-- Changed: `20260716`
+- Changed: `20260811`
 
 ## Purpose
 
@@ -29,6 +29,7 @@ The current SSR route families visible in `tmpl/web/{locale}/` are:
 - top-level content pages: `/{locale}/about.html`, `/{locale}/contact.html`, `/{locale}/projects.html`
 - blog index: `/{locale}/blog/` and `/{locale}/blog.html`
 - blog article pages: `/{locale}/blog/{year}/{slug}.html`
+- book pages: `/{locale}/books/{slug}.html`
 - library article pages: `/{locale}/library/{section}/{slug}.html`
 - project-detail pages: `/{locale}/projects/{project-family}/{slug}.html`
 - dedicated landing pages below nested route families such as `/{locale}/land/...`

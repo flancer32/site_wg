@@ -1723,6 +1723,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.html"/>
   </url>
   <url>
+    <loc>https://wiredgeese.com/en/blog/2026/20260804-01-browser-as-operating-system-book.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260804-01-browser-as-operating-system-book.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260804-01-browser-as-operating-system-book.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260804-01-browser-as-operating-system-book.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260804-01-browser-as-operating-system-book.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/ru/blog/2026/20260804-01-browser-as-operating-system-book.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260804-01-browser-as-operating-system-book.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260804-01-browser-as-operating-system-book.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260804-01-browser-as-operating-system-book.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260804-01-browser-as-operating-system-book.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/es/blog/2026/20260804-01-browser-as-operating-system-book.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260804-01-browser-as-operating-system-book.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260804-01-browser-as-operating-system-book.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260804-01-browser-as-operating-system-book.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260804-01-browser-as-operating-system-book.html"/>
+  </url>
+  <url>
     <loc>https://wiredgeese.com/en/blog/2026/20260810-01-teqfw-agent-skills.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/blog/2026/20260810-01-teqfw-agent-skills.html"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260810-01-teqfw-agent-skills.html"/>
@@ -1742,6 +1763,27 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/blog/2026/20260810-01-teqfw-agent-skills.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/blog/2026/20260810-01-teqfw-agent-skills.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/blog/2026/20260810-01-teqfw-agent-skills.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/en/books/browser-as-operating-system.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/books/browser-as-operating-system.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/books/browser-as-operating-system.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/books/browser-as-operating-system.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/books/browser-as-operating-system.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/ru/books/browser-as-operating-system.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/books/browser-as-operating-system.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/books/browser-as-operating-system.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/books/browser-as-operating-system.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/books/browser-as-operating-system.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/es/books/browser-as-operating-system.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/books/browser-as-operating-system.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/books/browser-as-operating-system.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/books/browser-as-operating-system.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/books/browser-as-operating-system.html"/>
   </url>
   <url>
     <loc>https://wiredgeese.com/en/land/agent-orchestration-poc/</loc>

@@ -1,0 +1,42 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Ya se ha publicado mi libro en ruso sobre el navegador — Alex Gusev{% endblock %}
+{% block description %}El libro de Alex Gusev en ruso presenta el navegador como un entorno operativo personal para internet.{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Ya se ha publicado mi libro en ruso sobre el navegador</h1>
+    <time datetime="2026-08-04">4 de agosto de 2026</time>
+
+    <zoom-img src="/img/blog/2026/20260804-01-browser-as-operating-system-book.webp"
+        alt="Portada del libro El navegador como sistema operativo para desarrollar aplicaciones modernas" width="240px"></zoom-img>
+
+    <p>
+        La editorial BHV ha publicado mi libro en ruso,
+        <a href="https://bhv.ru/product/brauzer-kak-operatsionnaya-sistema-dlya-razrabotki-sovremennyh-prilozhenij/"
+            target="_blank" rel="noopener noreferrer">«El navegador como sistema operativo para desarrollar aplicaciones modernas»</a>.
+    </p>
+
+    <p>
+        El libro presenta el navegador como un entorno operativo personal para internet: el lugar donde las
+        aplicaciones web se ejecutan, conservan su estado, utilizan la red, respetan límites de confianza y se
+        conectan con la presencia digital de una persona. Por ahora está disponible en ruso.
+    </p>
+
+    <p>El libro aborda el navegador desde el entorno, la estructura, el funcionamiento y la presencia digital cotidiana.</p>
+    <p><a href="/es/books/browser-as-operating-system.html">Conocer el libro →</a></p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2026/20260804-01-browser-as-operating-system-book.html"></a>
+        <img src="/img/blog/2026/20260804-01-browser-as-operating-system-book.webp"
+            alt="Portada del libro El navegador como sistema operativo para desarrollar aplicaciones modernas" />
+        <div>
+            <h4>Ya se ha publicado mi libro en ruso sobre el navegador</h4>
+            <p>Un nuevo libro sobre el navegador como entorno operativo personal para internet, disponible en ruso.</p>
+            <time datetime="2026-08-04">4 de agosto de 2026</time>
+        </div>
+    </li>
+{% endblock %}
