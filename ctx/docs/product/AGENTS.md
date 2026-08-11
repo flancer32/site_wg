@@ -14,6 +14,7 @@ Documents at this level describe the site as a product: its meaning, purpose, sc
 
 - `offers/` — offer-level documents that define concrete commercial entry offers under the site product hierarchy.
 - `AGENTS.md` — level definition for `ctx/docs/product/`.
+- `commercial-strategy.md` — commercial outcome, buyer opportunities, positioning bets, conversion model, and acceptance criteria.
 - `overview.md` — semantic entry point that defines site purpose, offer hierarchy, and product-level communication constraints.
 
 ## Product Knowledge Model

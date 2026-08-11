@@ -2856,4 +2856,25 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/projects/remote-console/20220318-01-log-monitoring.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/projects/remote-console/20220318-01-log-monitoring.html"/>
   </url>
+  <url>
+    <loc>https://wiredgeese.com/en/work-with-me.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/work-with-me.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/work-with-me.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/work-with-me.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/work-with-me.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/ru/work-with-me.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/work-with-me.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/work-with-me.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/work-with-me.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/work-with-me.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/es/work-with-me.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/work-with-me.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/work-with-me.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/work-with-me.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/work-with-me.html"/>
+  </url>
 </urlset>

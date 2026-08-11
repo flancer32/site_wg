@@ -13,7 +13,7 @@ Describe the current SSR page families as implementation-facing template groups.
 The current locale template tree exposes these main page families:
 
 - `home` — locale root entry page, currently represented by `index.html`;
-- `top-level content pages` — about, contact, posts, projects, products, and related standalone pages;
+- `top-level content pages` — about, contact, projects, work-with-me, and related standalone pages;
 - `blog index` — article listing page rendered from `blog.html` plus injected `blogIndex`;
 - `blog article pages` — dated article documents under `blog/{year}/`;
 - `library pages` — article-like documents grouped under `library/{section}/`;
@@ -49,6 +49,7 @@ The current dedicated page documents are:
 
 - `ctx/docs/code/web/ssr/pages/home.md`
 - `ctx/docs/code/web/ssr/pages/contact.md`
+- `ctx/docs/code/web/ssr/pages/work-with-me.md`
 
 The current dedicated landing-page implementation branch is:
 

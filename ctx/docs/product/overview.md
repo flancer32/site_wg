@@ -6,210 +6,128 @@
 
 ## Site Purpose
 
-`wiredgeese.com` is the personal product site of Alex Gusev.
+`wiredgeese.com` is the commercial site of Alex Gusev, an independent web engineer who combines more than 25 years of practical web-development experience with modern LLMs and software agents.
 
-At this level, the site itself is the product of the repository.
-Its role is to present and sell Alex Gusev, his products, and his offers.
+The site exists to create qualified commercial conversations with clients who need a senior engineer to:
 
-Its primary role is:
+- design or rescue a web product whose architecture must remain understandable and evolvable;
+- introduce agents into a real development process without surrendering engineering control;
+- build a focused web application, prototype, integration, or internal tool;
+- create a durable technical foundation for continued human-agent development.
 
-- to sell Alex as an engineer;
-- to sell Alex's products;
-- to convert visitor interest into a clear next step such as contact, a pilot, a book visit, a product visit, or a relevant project review.
+The site is not primarily a product catalogue, technical archive, or sales surface for one automation mechanism. Its main product is Alex's engineering judgment and ability to deliver.
 
-The site is not a neutral archive, a technical encyclopedia, or a personal diary.
-Articles, notes, library pages, and demos must strengthen trust in Alex and his products.
+## Positioning
 
-## Core Principle
+The canonical positioning is:
 
-Each major page should perform at least one of these product functions:
+`Senior web engineering amplified by agents, grounded in architecture, context, and working software.`
 
-- directly sell Alex;
-- directly sell one of his products;
-- strengthen trust in Alex as an engineer;
-- strengthen trust in the product line;
-- explain a method that increases the value of his practical offers;
-- show working proof that the products and approaches are real.
+The public promise is not generic AI automation. Alex brings together:
 
-If a page performs none of those functions, its presence on the site should be reconsidered.
+- long practical experience across banking, e-commerce, PWA, Node.js, infrastructure, and product development;
+- hands-on agent-driven delivery rather than detached AI consultancy;
+- an owned engineering platform, `Tequila Framework` (`TeqFW`);
+- an owned management methodology, `Agent-Driven Software Management` (`ADSM`);
+- active R&D through the private personal-agent project `Alarisa`;
+- inspectable code, applications, books, articles, and project history.
 
-## Product Hierarchy
+## Buyer
 
-The site product sells and organizes a connected promoted product line rather than a single offer.
+The primary buyer is a technically aware founder, owner, product leader, or engineering lead with a real web-system problem and insufficient certainty, capacity, or senior attention to solve it safely.
 
-The current hierarchy is:
+The best-fit buyer values:
 
-### 1. Alex As The Base Product
+- one senior accountable practitioner over a large delivery layer;
+- clarity before code and evidence after implementation;
+- direct communication with the person doing the work;
+- pragmatic use of agents without hype or opaque delegation;
+- modular, maintainable systems and controlled ownership of infrastructure.
 
-The primary object being sold is Alex himself.
+The site should disqualify visitors seeking commodity page production, unbounded automation promises, or cheap anonymous execution.
 
-The site should help visitors understand:
+## Commercial Offer Hierarchy
 
-- who Alex is;
-- what engineering profile he has;
-- which classes of problems he can solve;
-- why he can be trusted with architecture, infrastructure, or agent-driven work.
+The site sells three engagement formats. They are buyer-facing doors into the same engineering practice, not separate identities.
 
-### 2. The Main Engineering Product
+### 1. Architecture And Agent Readiness
 
-The main engineering product is `Tequila Framework`.
+A bounded technical review for an existing product, repository, or planned system. It identifies architectural constraints, agent-readiness gaps, useful first interventions, and a concrete next-step plan.
 
-It should be presented as the foundational technical asset that demonstrates:
+This is the preferred low-risk entry for clients whose problem is important but not yet well framed.
 
-- architectural depth;
-- systematic engineering thinking;
-- the ability to build platform components;
-- a practical base for later applied products.
+### 2. Focused Build Or Rescue
 
-### 3. The Current Hot Offer
+Hands-on design and implementation of a focused web application, integration, prototype, internal tool, or difficult subsystem. The engagement may include repair or modernization of an existing codebase.
 
-The current hot offer is `GitHub Flows`.
+This is the primary revenue-bearing service and should be described in terms of business-critical outcomes rather than a fixed stack.
 
-It is the nearest-to-sale infrastructure product:
+### 3. Agent-Driven Engineering System
 
-- a workflow approach and software layer for GitHub events;
-- a self-hosted link between GitHub webhooks and CLI agents;
-- a practical way to run bounded agent workflows in client infrastructure;
-- a suitable object for pilot adoption.
+Establishment or improvement of a controlled human-agent development system: cognitive context, repository rules, agent-compatible package documentation, verification, bounded automation, and team handoff.
 
-This product may dominate hero sections and conversion scenarios while it remains the current priority.
+`GitHub Flows` and `Agent Orchestration PoC` may serve as implementation patterns or narrow experiments inside this engagement. They are no longer the site's primary positioning or universal first step.
 
-`GitHub Flows App` must not be promoted as the main product label.
-It is the host application that executes `GitHub Flows`, not the main thing being sold.
+## Product And Proof Model
 
-### 3.1. Narrow Entry Offers Under GitHub Flows
+The promoted product line supports Alex's engineering service:
 
-Small entry offers may exist under `GitHub Flows` when they help validate demand and reduce buyer risk.
+- `Alarisa` is the strategic R&D focus and strongest expression of the direction: a private personal agent with durable context and bounded authority. It remains explicitly in active development and must not be presented as available for purchase.
+- `TeqFW` is the owned technical instrument and proof of architectural depth. It helps Alex build modular Node.js and browser systems and makes package knowledge available to agents.
+- `ADSM` is the owned methodology for preserving product meaning, architecture, constraints, authority, and verification across human-agent work.
+- `GitHub Flows` is a useful orchestration mechanism and evidence of event-driven agent operation, not the centre of Alex's identity.
+- books, articles, public repositories, live applications, client systems, and this multilingual site form the evidence base.
 
-Current narrow validation offer:
+## Evidence Rule
 
-- `Agent Orchestration PoC` as a small paid GitHub-based proof of concept on a real repository.
+Claims should be attached to concrete evidence wherever practical:
 
-This offer is subordinate to `GitHub Flows` and must remain:
+- `25+ years` connects to the professional history and About page;
+- web architecture connects to TeqFW, published technical material, books, and long-running systems;
+- agent-driven delivery connects to ADSM, recent project histories, agent-friendly TeqFW packages, and this site's own development process;
+- product execution connects to selected applications and client work;
+- active innovation connects to Alarisa while clearly stating its development status.
 
-- a bounded first commercial step;
-- a quick trial on a real repository before custom infrastructure work;
-- a guided engineering check with visible GitHub-side results, logs or sanitized excerpts, and a short report;
-- a low-risk way to test an AI issue workflow before deeper customization.
+The full archive may remain available, but primary surfaces must curate it into a small number of relevant proof clusters. Chronology alone is not a sales structure.
 
-It must not read as a separate platform, a replacement for `GitHub Flows`, or a general AI-consulting offer.
+## Public Surface Roles
 
-Its canonical definition lives in:
-
-- `ctx/docs/product/offers/agent-orchestration-poc/overview.md`
-
-Across product documents, the durable public meaning is:
-
-`A ready starter stand for quickly trying AI agents on issues of a real GitHub repository.`
-
-The orchestration principle that should remain visible is:
-
-`event -> agent reaction -> new observable event`
-
-GitHub issue triage is the first visible scenario, not the whole product meaning.
-
-### 4. The Method Product
-
-The book `Agent-Driven Development` is a separate product.
-
-It is both supporting material and a standalone commercial artifact.
-Its role is:
-
-- to sell Alex's methodological expertise;
-- to explain how to keep control while delegating development to AI agents;
-- to strengthen trust in practical offers;
-- to serve as an entry point for people who first want to understand the approach and only then buy a product or implementation.
-
-### 5. AI-Generated SSG Sites On Top Of TeqFW
-
-Another applied product is AI-generated SSG sites built on `Tequila Framework`.
-
-This offer means:
-
-- site creation on top of TeqFW;
-- page generation through an AI agent;
-- translation support through an AI agent;
-- managed content publication and evolution without a heavy CMS stack;
-- the ability to connect a content site with an agent-driven workflow.
-
-This product should show that TeqFW is not only an engineering foundation but also a practical platform for real sites.
-
-This layer should be positioned as an applied product scenario for:
-
-- personal sites;
-- product sites;
-- technical documentation;
-- sites where AI-supported content and workflow are an advantage.
-
-### 6. Supporting Proofs
-
-Demo projects, articles, notes, this site, and other public materials should function as supporting proofs.
-Their role is to show:
-
-- that the products are real;
-- that the engineering base exists;
-- that the approaches have been exercised in practice;
-- that the commercial language is backed by implemented systems and observable experience.
-
-The Russian-language book `Browser as an Operating System for Developing Modern Applications`, published by `BHV`,
-is a supporting proof of Alex's browser and web-system engineering expertise. Its dedicated Russian book page owns
-the author-facing explanation and routes readers to the publisher's page for purchase. The journal announcement and
-project-archive entry should route readers to that book page. It must not displace the current hot offer or the
-three-product selection on the home page.
-
-## Public Surfaces
-
-The site may use multiple public surfaces such as the home page, contact page, offer landing pages, project pages, articles, notes, demos, and library materials.
-At product level, those surfaces matter only as roles in the commercial system:
-
-- some surfaces sell the current offer directly;
-- some explain a concrete product or offer;
-- some strengthen trust through proof, method, or engineering depth;
-- some move the visitor to the next commercial step.
-
-Detailed page contracts and SSR page structure belong under `ctx/docs/code/web/ssr/pages/`.
-
-## Priority Rule
-
-The site should always distinguish between:
-
-- the main engineering product;
-- the current hot offer;
-- the method product;
-- applied product scenarios on top of TeqFW;
-- supporting proofs.
-
-Supporting proofs must not displace the main products.
-Methodology must not displace the practical offer being sold.
-The current offer must not hide the underlying engineering base.
-No single public surface should try to carry the whole product line at once.
+- `Home` states the buyer problem, Alex's differentiated capability, engagement paths, selected proof, and direct CTA.
+- `Work With Me` defines who Alex helps, what can be bought, how engagements work, and what to send in a first message.
+- `Projects` curates evidence by capability before exposing the chronological archive.
+- `About` converts career history into reasons to trust Alex with current work.
+- `Library` organizes intellectual proof around agent-driven engineering, TeqFW, and web architecture.
+- `Journal` shows current thinking and execution but is not the primary commercial path.
+- `Contact` supports any qualified project conversation rather than only a GitHub pilot.
+- individual offer landing pages remain valid as campaign surfaces but must not override site-wide positioning.
 
 ## Communication Constraints
 
+Public copy should be direct, commercially confident, specific, and calm.
+
+The site must:
+
+- lead with client problems and outcomes before internal product names;
+- sell Alex as a senior hands-on engineer, not only his tools;
+- make a commercial next step visible on every primary surface;
+- distinguish available services from products still in development;
+- use the accumulated material as proof, not as undifferentiated volume;
+- invite serious conversations without fabricating urgency, client results, testimonials, or availability.
+
 The site must not:
 
-- read like an abstract research project without a commercial path;
-- spread attention across too many equal meanings;
-- sell "AI in general";
-- promise universal software-development automation;
-- turn all content into a long methodological treatise.
-
-The site should:
-
-- keep a clear sales line;
-- show product hierarchy;
-- allow narrow validation offers under the current hot offer without fragmenting the product line;
-- connect articles, demos, and projects to the commercial function;
-- strengthen trust through specifics;
-- move the visitor toward a meaningful next step.
-
-Public-facing site text should remain calm, confident, and natural rather than polemical.
-Unnecessary tension in wording should be smoothed out before publication.
+- position GitHub Flows as the universal or current hot offer;
+- imply that Alarisa is released or purchasable;
+- sell generic AI transformation, prompt engineering, or autonomous development;
+- lead with a low-price PoC in a way that anchors Alex as a commodity provider;
+- invent metrics, case-study outcomes, client names, or endorsements not supported by project material.
 
 ## Product Check Rule
 
-Any substantial site revision should be checked against this question:
+Every substantial site revision should answer all of these questions:
 
-`Does this help sell Alex and his products more effectively?`
-
-If the answer is unclear, the change should be reconsidered.
+1. Does a suitable buyer recognize a costly problem Alex can solve?
+2. Is Alex's combination of experience, TeqFW, ADSM, and active Alarisa R&D understandable without prior knowledge?
+3. Is there a credible proof near every major claim?
+4. Is the next commercial step explicit and proportionate?
+5. Is the distinction between available service, reusable instrument, methodology, and unreleased product clear?

@@ -62,6 +62,7 @@ const routeWithoutLocale = currentPath.replace(localePattern, '') || '/';
 let routeKind = 'page';
 if (routeWithoutLocale === '/') routeKind = 'home';
 else if (/^\/projects(?:\.html|\/)?$/.test(routeWithoutLocale)) routeKind = 'projects';
+else if (/^\/work-with-me(?:\.html|\/)?$/.test(routeWithoutLocale)) routeKind = 'service';
 else if (/^\/blog(?:\.html|\/)?$/.test(routeWithoutLocale)) routeKind = 'blog-index';
 else if (/^\/library(?:\/|\/index\.html)?$/.test(routeWithoutLocale)) routeKind = 'library-index';
 else if (/^\/contact(?:\.html|\/)?$/.test(routeWithoutLocale)) routeKind = 'contact';

@@ -1,126 +1,72 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Alex Gusev — controlled systems for working with AI agents{% endblock %}
-{% block description %}I build controlled GitHub workflows, TeqFW systems, and agent-driven products that keep people in charge.{% endblock %}
+{% block title %}Alex Gusev — senior web engineering with AI agents{% endblock %}
+{% block description %}I design, build, and rescue web systems using 25+ years of engineering experience, TeqFW, ADSM, and controlled AI-agent workflows.{% endblock %}
 
 {% block content %}
 <div class="home-page">
     <section class="card hero--home">
         <div class="hero-copy">
-            <p class="eyebrow">Independent systems engineer · Latvia</p>
-            <h1>Controlled systems for work with AI agents.</h1>
-            <p class="lead">I build practical infrastructure where intent becomes bounded agent work and every result
-                stays observable. Start with GitHub Flows on a real repository, then decide how far to take it.</p>
+            <p class="eyebrow">Alex Gusev · Independent web engineer · Latvia</p>
+            <h1>I build web systems that can keep evolving.</h1>
+            <p class="lead">Bring me a difficult product, architecture, or delivery problem. I combine 25+ years in web engineering with AI agents to move faster without losing context, control, or accountability.</p>
             <div class="hero-links">
-                <a class="button-primary" href="/{{ locale }}/land/agent-orchestration-poc/">Start a €50 repository pilot</a>
-                <a class="button-secondary" href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">See the public demo</a>
+                <a class="button-primary" href="/{{ locale }}/work-with-me.html">Discuss your project</a>
+                <a class="button-secondary" href="/{{ locale }}/projects.html">See the evidence</a>
             </div>
-            <ul class="proof-strip" aria-label="Experience and approach">
-                <li>25+ years in web engineering</li>
-                <li>JavaScript and Node.js</li>
-                <li>Self-hosted by design</li>
-                <li>Multilingual delivery</li>
+            <ul class="proof-strip" aria-label="Professional evidence">
+                <li>Web engineering since 1998</li><li>Founder and hands-on builder</li><li>JavaScript · Node.js · Browser</li><li>EU-based · Remote</li>
             </ul>
         </div>
-        <div class="system-map" aria-label="A controlled GitHub Flows process">
-            <p class="system-map-label">GitHub Flows / controlled path</p>
+        <aside class="system-map" aria-label="Engineering practice">
+            <p class="system-map-label">One accountable engineering practice</p>
             <div class="system-flow">
-                <div class="system-node"><span>01</span><strong>Intent and boundary</strong></div>
-                <div class="system-connector" aria-hidden="true"></div>
-                <div class="system-node"><span>02</span><strong>GitHub event</strong></div>
-                <div class="system-connector" aria-hidden="true"></div>
-                <div class="system-node"><span>03</span><strong>Bounded agent action</strong></div>
-                <div class="system-connector" aria-hidden="true"></div>
-                <div class="system-node"><span>04</span><strong>Observable result</strong></div>
+                <div class="system-node"><span>01</span><strong>Understand the real product problem</strong></div><div class="system-connector" aria-hidden="true"></div>
+                <div class="system-node"><span>02</span><strong>Make architecture and boundaries explicit</strong></div><div class="system-connector" aria-hidden="true"></div>
+                <div class="system-node"><span>03</span><strong>Use agents for bounded execution</strong></div><div class="system-connector" aria-hidden="true"></div>
+                <div class="system-node"><span>04</span><strong>Verify, explain, and leave durable context</strong></div>
             </div>
-            <code>event → agent reaction → new observable event</code>
-        </div>
+            <code>senior judgment × agent leverage = controlled delivery</code>
+        </aside>
     </section>
 
-    <section class="home-section profile-split">
-        <div class="profile-card">
-            <img src="/img/avatar.jpg" alt="Alex Gusev in the mountains" width="640" height="480"/>
-            <div class="profile-meta">
-                <strong>Alex Gusev</strong>
-                <span>Engineer · product builder · author</span>
-            </div>
-        </div>
-        <div class="profile-copy">
-            <p class="eyebrow">Who I am</p>
-            <h2>Senior engineering without a black box.</h2>
-            <p>I am an independent web developer and systems engineer. I work at the intersection of JavaScript
-                architecture, self-managed infrastructure, and agent-driven development.</p>
-            <p>My products are also my working tools: I use TeqFW to build them, ADSM to maintain their context, and
-                GitHub Flows to make agent activity bounded and visible.</p>
-            <p><a href="/{{ locale }}/about.html">More about my experience and approach →</a>
-                <a href="/en/books/browser-as-operating-system.html">My book about the browser →</a></p>
+    <section class="home-section">
+        <div class="section-heading"><p class="eyebrow">Where I create value</p><h2>When the problem is bigger than “write some code.”</h2></div>
+        <div class="product-grid">
+            <article class="product-card"><span class="product-index">01 / Uncertainty</span><h3>Your product needs a sound technical direction</h3><p>I turn an ambiguous goal, inherited system, or risky idea into explicit decisions, architecture, and a credible path to delivery.</p></article>
+            <article class="product-card"><span class="product-index">02 / Execution</span><h3>A focused system has to be built or rescued</h3><p>I work across browser, Node.js, data, integrations, and Linux infrastructure to deliver the difficult part—not just advise from the sidelines.</p></article>
+            <article class="product-card"><span class="product-index">03 / Leverage</span><h3>You want agents in engineering without chaos</h3><p>I establish context, authority boundaries, package knowledge, workflows, and verification so agents increase capacity without becoming a black box.</p></article>
         </div>
     </section>
 
     <section class="home-section">
-        <div class="section-heading">
-            <p class="eyebrow">What I build</p>
-            <h2>One engineering base, three practical products.</h2>
-            <p>Each product solves a different part of the same problem: keeping digital work structured while agents
-                take on more of the execution.</p>
-        </div>
+        <div class="section-heading"><p class="eyebrow">Ways to work together</p><h2>Start at the level your problem requires.</h2><p>Each engagement is scoped around a real system and an observable outcome.</p></div>
         <div class="product-grid">
-            <article class="product-card product-card--featured">
-                <span class="product-index">01 / Current focus</span>
-                <h3>GitHub Flows</h3>
-                <p>Controlled workflows triggered by GitHub events. Agents, checks, and publication steps become one
-                    observable process instead of a hidden automation chain.</p>
-                <p class="product-links">
-                    <a href="/{{ locale }}/land/agent-orchestration-poc/">€50 repository pilot</a>
-                    <a href="https://teqfw.com/demo/pages/" target="_blank" rel="noopener noreferrer">Public demo</a>
-                    <a href="/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html">How the model works</a>
-                </p>
-            </article>
-            <article class="product-card">
-                <span class="product-index">02 / Engineering base</span>
-                <h3>Tequila Framework</h3>
-                <p>My modular JavaScript platform and architectural foundation for systems that must remain legible,
-                    replaceable, and under control as they grow.</p>
-                <p><a href="https://teqfw.com/ecosystem/philosophy" target="_blank" rel="noopener noreferrer">Explore the TeqFW philosophy →</a></p>
-            </article>
-            <article class="product-card">
-                <span class="product-index">03 / Applied product</span>
-                <h3>AI-generated multilingual sites</h3>
-                <p>Fast, lightweight content sites on TeqFW and TeqCMS, with pages, translations, and publication
-                    maintained through an agent-driven workflow.</p>
-                <p><a href="https://cms.teqfw.com/en/" target="_blank" rel="noopener noreferrer">See a working example →</a></p>
-            </article>
+            <article class="product-card product-card--featured"><span class="product-index">Clarify</span><h3>Architecture &amp; agent-readiness review</h3><p>A bounded review of your product, repository, constraints, and best next intervention.</p><p><a href="/{{ locale }}/work-with-me.html#review">Review the engagement →</a></p></article>
+            <article class="product-card"><span class="product-index">Deliver</span><h3>Focused build or rescue</h3><p>A web application, integration, prototype, internal tool, or hard subsystem designed and implemented hands-on.</p><p><a href="/{{ locale }}/work-with-me.html#build">Explore build work →</a></p></article>
+            <article class="product-card"><span class="product-index">Scale</span><h3>Agent-driven engineering system</h3><p>A controlled development environment where people own intent and agents can execute against durable context.</p><p><a href="/{{ locale }}/work-with-me.html#system">Explore agent-driven engineering →</a></p></article>
         </div>
     </section>
 
     <section class="home-section method-split">
         <div class="method-copy">
-            <p class="eyebrow">How I work</p>
-            <h2>Agents need context, limits, and evidence.</h2>
-            <p>ADSM is my method for keeping product meaning, architecture, constraints, and verification available to
-                both people and agents. It turns agent-driven work into a managed engineering process.</p>
-            <p>The book <em>Agent-Driven Development</em> explains the method; the projects and publications show it in practice.</p>
-            <p class="action-links">
-                <a href="https://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer">Read the English edition</a>
-                <a href="/{{ locale }}/projects.html">Browse projects</a>
-                <a href="/{{ locale }}/library/">Explore the library</a>
-            </p>
+            <p class="eyebrow">My unfair advantage</p><h2>I am building the tools I need for this work.</h2>
+            <p><strong>Alarisa</strong>, my private personal-agent project, is the strategic R&amp;D focus. It is in active development and not for sale. The work forces practical answers about durable context, privacy, authority, and continuity.</p>
+            <p><strong>Tequila Framework</strong> is my modular JavaScript platform. <strong>ADSM</strong> is my methodology for keeping product meaning and engineering knowledge usable by people and agents. GitHub Flows is one supporting orchestration pattern—not the product I reduce myself to.</p>
+            <p class="action-links"><a href="/{{ locale }}/projects/alarisa.html">Why I am building Alarisa</a><a href="https://teqfw.com/" target="_blank" rel="noopener">Explore TeqFW</a><a href="https://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener">Read about ADSM</a></p>
         </div>
-        <ul class="method-points">
-            <li>Intent remains with the person.</li>
-            <li>Context survives beyond one chat.</li>
-            <li>Authority is explicit and bounded.</li>
-            <li>Results are checked and observable.</li>
-        </ul>
+        <ul class="method-points"><li>25+ years of engineering judgment</li><li>Owned platform and methodology</li><li>Current hands-on agent R&amp;D</li><li>Direct responsibility for delivery</li></ul>
     </section>
 
-    <section class="cta-panel">
-        <div>
-            <p class="eyebrow">A small first step</p>
-            <h2>Try one controlled agent workflow on your repository.</h2>
-            <p>Up to five test tasks, visible GitHub results, execution evidence, and a concise engineering recommendation.</p>
+    <section class="home-section">
+        <div class="section-heading"><p class="eyebrow">Evidence, not AI theatre</p><h2>A body of work you can inspect.</h2><p>Production systems, open-source packages, client applications, books, experiments, and technical writing show how I think and what I can ship.</p></div>
+        <div class="proof-grid">
+            <a class="proof-card" href="/{{ locale }}/projects.html"><strong>Projects</strong><span>Alarisa, TeqFW, TeqCMS, PWAs, client systems, and agent-built tools.</span></a>
+            <a class="proof-card" href="/{{ locale }}/about.html"><strong>Experience</strong><span>Banking, e-commerce, technical leadership, platform engineering, and independent delivery.</span></a>
+            <a class="proof-card" href="/{{ locale }}/library/"><strong>Knowledge</strong><span>ADSM, JavaScript architecture, browser systems, agents, and durable technical context.</span></a>
         </div>
-        <a class="button-primary" href="/{{ locale }}/land/agent-orchestration-poc/">Start the €50 pilot →</a>
     </section>
+
+    <section class="cta-panel"><div><p class="eyebrow">Bring the difficult part</p><h2>Tell me what is blocked, fragile, or worth building.</h2><p>I will help determine whether the right first step is a review, a focused build, or a stronger agent-driven engineering system.</p></div><a class="button-primary" href="/{{ locale }}/work-with-me.html">Work with me →</a></section>
 </div>
 {% endblock %}

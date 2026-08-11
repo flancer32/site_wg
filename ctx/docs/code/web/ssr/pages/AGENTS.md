@@ -16,6 +16,7 @@ Documents at this level describe concrete SSR page families, their implementatio
 - `AGENTS.md` — level definition for `ctx/docs/code/web/ssr/pages/`.
 - `contact.md` — SSR implementation contract for the contact page.
 - `home.md` — SSR implementation contract for the locale-root home page.
+- `work-with-me.md` — SSR implementation contract for the primary commercial services page.
 
 ## Level Boundary
 

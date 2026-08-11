@@ -2,111 +2,56 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/home.md`
 - Template Version: `20260630`
-- Changed: `20260716`
+- Changed: `20260811`
 
 ## Purpose
 
-Define the implementation-facing SSR page contract for the locale-root home page.
+Define the locale-root commercial entry page derived from `ctx/docs/product/overview.md` and `commercial-strategy.md`.
 
-## Semantic Source Of Truth
+## Route And Role
 
-The semantic product source of truth for the current offer hierarchy is:
+- Route: `/{locale}/`
+- Role: make a suitable buyer recognize a consequential problem Alex solves, understand why his practice is different, inspect relevant proof, and choose a commercial next step.
 
-- `ctx/docs/product/overview.md`
+## Required Sequence
 
-When the home page references the current narrow entry offer, its canonical offer source is:
-
-- `ctx/docs/product/offers/agent-orchestration-poc/overview.md`
-
-This SSR page document must not redefine product hierarchy or offer scope.
-It translates accepted product meaning into page-level structure and composition rules.
-
-## Route Role
-
-The page is the locale-root entry page of the SSR site.
-
-The current route shape is:
-
-- `/{locale}/`
-
-## Page Role
-
-The home page acts as the main introductory commercial entry surface.
-
-Its page-level role is:
-
-- to establish the current hot offer on the first screen;
-- to show Alex through product and proof context;
-- to expose a compact product selection without turning into a full catalogue;
-- to move the visitor toward a concrete next step.
-
-## Audience Emphasis
-
-The page should stay optimized for:
-
-- technically competent GitHub users;
-- small teams and independent developers;
-- visitors who prefer a practical pilot over abstract AI-transformation messaging.
-
-## Required Structure
-
-The page should preserve this sequence:
-
-1. `Hero` with current-offer copy, actions, evidence markers, and a compact process model
-2. `Who I Am` with real portrait and a route to the full profile
-3. `Key Products` with explicit hierarchy
-4. `How I Work` with ADSM, book, projects, and library routes
-5. `Final CTA`
+1. outcome-led Hero selling Alex's senior web and agent-driven engineering practice;
+2. compact authority evidence;
+3. three buyer-problem cards;
+4. three available engagement formats linking to `Work With Me`;
+5. capability system connecting Alarisa, TeqFW, ADSM, and GitHub Flows without presenting them as equal products;
+6. selected proof clusters linking into Projects, About, and Library;
+7. direct final CTA.
 
 ## Hero Contract
 
-The hero should:
+The first screen must:
 
-- establish `GitHub Flows` as the current hot offer;
-- sell a concrete first step rather than methodology;
-- keep one primary CTA for the bounded repository pilot;
-- allow an optional secondary CTA for a demo;
-- embed the explanatory concept link to `/{{ locale }}/library/concepts/20260519-controlled-product-evolution.html`;
-- avoid first-screen overload with implementation detail.
+- name Alex and the class of outcome he delivers;
+- lead with web-product and engineering value before tool names;
+- make agent-driven work a differentiator rather than a generic promise;
+- expose one primary commercial CTA to `/{locale}/work-with-me.html`;
+- expose one secondary evidence CTA to Projects;
+- show at least three compact, supportable authority markers.
 
-Acceptable technical markers in hero copy include:
+GitHub Flows and the `€50` PoC must not be the global headline or primary CTA.
 
-- GitHub App;
-- webhook;
-- Docker;
-- CLI agent;
-- VPS.
+## Capability Contract
 
-## Product Selection Contract
+- Alarisa is the strategic R&D direction and must be marked as in active development, not for sale.
+- TeqFW is the owned engineering platform.
+- ADSM is the owned management methodology.
+- GitHub Flows is supporting orchestration proof.
 
-The home page should surface no more than three main products:
-
-1. `GitHub Flows` as current focus;
-2. `Tequila Framework` as engineering foundation;
-3. `AI-generated multilingual sites` as the applied TeqFW product.
-
-The book `Agent-Driven Development` belongs in the supporting method layer rather than the main product trio.
-
-If the home page mentions the current narrow entry offer, it should treat `Agent Orchestration PoC` only as the quickest bounded trial under `GitHub Flows`.
-
-## Composition Expectations
-
-The page should:
-
-- remain a locale-root SSR page rather than a landing page under `land/`;
-- extend the shared locale layout;
-- use the shared navigation and footer shell;
-- keep home-specific copy and local page structure inside the home template branch;
-- preserve room for localized CTA targets.
-- use a wide responsive composition while preserving one-column reflow on compact viewports;
-- keep the process diagram text-native so it remains readable without a generated image.
+The composition should explain that these are parts of one engineering practice, not four competing products.
 
 ## Quality Check
 
-A revised home page remains acceptable when:
+The page is acceptable when a first-time buyer can answer within one reading:
 
-- the current hot offer is clear from the first screen;
-- the page still sells Alex rather than only a tool;
-- the page exposes a concrete next step;
-- the page does not collapse into a full site catalogue;
-- the page does not retell the dedicated PoC landing page.
+- what Alex can do for a client;
+- who should contact him;
+- what can be bought now;
+- why his use of agents is credible and controlled;
+- what evidence can be inspected;
+- where to start a serious conversation.

@@ -26,7 +26,7 @@ The locale list is provided by CMS configuration and consumed by the project ada
 The current SSR route families visible in `tmpl/web/{locale}/` are:
 
 - locale home page: `/{locale}/`
-- top-level content pages: `/{locale}/about.html`, `/{locale}/contact.html`, `/{locale}/projects.html`
+- top-level content pages: `/{locale}/about.html`, `/{locale}/contact.html`, `/{locale}/projects.html`, `/{locale}/work-with-me.html`
 - blog index: `/{locale}/blog/` and `/{locale}/blog.html`
 - blog article pages: `/{locale}/blog/{year}/{slug}.html`
 - book pages: `/{locale}/books/{slug}.html`

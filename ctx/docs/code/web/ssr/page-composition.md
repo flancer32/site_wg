@@ -12,7 +12,8 @@ Connect route families to the shared SSR shell and route-specific page compositi
 
 The current composition model is:
 
-- locale home page -> shared locale layout -> Site Header + Home Hero + profile + products + method + final CTA + Site Footer
+- locale home page -> shared locale layout -> Site Header + outcome Hero + authority + buyer problems + engagements + capability system + selected proof + final CTA + Site Footer
+- work-with-me page -> shared locale layout -> Site Header + qualification Hero + fit + engagement formats + working model + proof routes + contact CTA + Site Footer
 - top-level standalone pages -> shared locale layout -> Site Header + page-local content + Site Footer
 - journal index -> shared locale layout -> Site Header + journal introduction + blog-specific list + Site Footer
 - journal article -> shared locale layout -> Site Header + article content + optional Zoomable Image + Publication Discussion CTA + Site Footer
