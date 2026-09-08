@@ -2,54 +2,30 @@
 
 - Path: `ctx/docs/code/web/ssr/ui-states.md`
 - Template Version: `20260630`
-- Changed: `20260716`
+- Changed: `20260908`
 
 ## Purpose
 
-Describe visible request outcomes and browser-enhanced states delivered by the SSR site.
+Describe stable shared request and enhancement states without defining unapproved commercial interactions.
 
-## Request-Visible States
+## Request States
 
 - `ready page` — localized SSR content is delivered inside the shared shell.
-- `populated journal index` — extracted localized `blog_item` fragments are rendered.
-- `empty journal index` — the journal heading remains available when no fragments can be collected.
-- `internal legacy redirect` — a legacy clean path is normalized to the current template before rendering, while query data is preserved.
-- `not found` — the final GET/HEAD fallback returns the localized 404 surface with HTTP status `404`, no canonical metadata, and recovery links to primary sections.
+- `populated journal index` — prepared localized article items are rendered.
+- `empty journal index` — the journal surface remains usable without collected items.
+- `internal legacy redirect` — an accepted old path is normalized while query data is preserved.
+- `not found` — the localized recovery surface returns HTTP `404` without canonical metadata.
 
 ## Shared Shell States
 
-### Header
+- Header presentation may distinguish top and scrolled positions.
+- Compact navigation exposes closed, open, and keyboard-dismissed states with synchronized `aria-expanded`.
+- Locale navigation distinguishes the current locale from an equivalent target locale.
+- Zoomable-image states are defined in `components/zoom-img.md`.
+- Reduced-motion and print presentation preserve content while removing non-essential effects or navigation surfaces.
 
-- `at top` — transparent-soft shell without elevation.
-- `scrolled` — a subtle elevation separates the sticky header from content.
+## Commercial Interaction Boundary
 
-### Compact Navigation
+No Telegram-offer form, payment state, provisioning progress, credential flow, or deployment state is defined at code level.
 
-- `closed` — menu content is hidden and the toggle exposes `aria-expanded="false"`.
-- `open` — menu content is visible, first-link focus is available, and the toggle exposes `aria-expanded="true"`.
-- `dismissed` — link activation, outside activation, or `Escape` closes the menu; Escape returns focus to the toggle.
-
-### Locale Navigation
-
-- `current locale` — rendered as current, non-link text.
-- `equivalent locale target` — route path, query, and fragment are preserved when switching locale.
-
-## Zoomable Image States
-
-The thumbnail and expanded states are defined in `components/zoom-img.md`.
-
-## Offer Form States
-
-The Agent Orchestration PoC form keeps these visible states:
-
-- initial editable form;
-- submitting with disabled submit action and spinner;
-- success dialog;
-- validation or connection failure with a recoverable message;
-- restored editable state after completion or failure.
-
-## Motion And Print
-
-Reduced-motion preference shortens non-essential transitions.
-
-Print output removes navigation-only surfaces while keeping primary authored content available.
+The old Agent Orchestration PoC form states are retired from normative documentation even if corresponding implementation remains temporarily. Any new interaction requires an approved product and architecture contract.

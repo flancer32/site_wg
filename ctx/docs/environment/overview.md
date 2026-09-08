@@ -2,62 +2,63 @@
 
 - Path: `ctx/docs/environment/overview.md`
 - Template Version: `20260605`
-- Changed: `20260808`
+- Changed: `20260908`
 
 ## Purpose
 
-Describe the runtime and operational environment required by the system.
+Define durable runtime and operational assumptions for wiredgeese.com while keeping product-delivery environments outside the site boundary.
 
-## Runtime Model
+## Website Runtime
 
-The project currently assumes two main execution environments:
+The site currently assumes:
 
-- a local Node.js environment for site generation, translation, and repository maintenance;
-- a Linux host environment for long-running site serving through `npm start` and the `@teqfw/cli` host.
+- a local Node.js environment for site generation, translation, validation, and repository maintenance;
+- a Linux host environment for long-running site serving through `npm start` and the `@teqfw/cli` host;
+- the TeqCMS-based rendering and publication model documented at architecture level;
+- SMTP configuration when the existing programmatic contact form is used.
 
-For the hosted orchestration PoC validation flow, the current site-environment assumption should remain minimal:
-
-- the site already includes backend support for form submission;
-- first-party funnel events should be delivered to the backend through a local endpoint rather than through third-party analytics by default;
-- backend-side logging for form submission and funnel events must remain subordinate to the static-site architecture and approval boundaries documented above this level.
-
-The product context may describe a broader hosted PoC environment involving GitHub webhooks, `github-flows-app`, containerized agent execution, and bounded model usage.
-Within this repository, those elements remain documented product and architecture context unless and until this site itself needs runtime support for them.
-
-## External Dependencies
-
-The stable external prerequisites are:
+The stable external prerequisites include:
 
 - Node.js `>=20`, as declared in `package.json`;
-- npm-compatible dependency installation for `@flancer32/teq-cms` and `nunjucks`;
-- shell access sufficient to run `npm start` and `npm run translate`;
-- a Linux service environment compatible with the current `systemd` unit and log rotation assets under `etc/`.
-
-The current lead-form protection also assumes one of these secret sources:
-
-- `WG_FORM_TOKEN_SECRET` provided through the host environment; or
-- writable local runtime storage under `var/` for a generated fallback secret.
-
-Public canonical and alternate metadata uses `TEQ_CMS__BASE_URL` when it is a valid `http` or `https` origin. Production should set it to `https://wiredgeese.com`; invalid or absent values fall back to that public origin rather than trusting request headers.
+- npm-compatible dependency installation;
+- shell access sufficient for documented repository commands;
+- a Linux service environment compatible with current operational assets under `etc/`;
+- a valid public base URL supplied through `TEQ_CMS__BASE_URL`, with the documented production fallback;
+- environment-provided SMTP settings when email delivery is enabled.
 
 Template locale settings use the `TEQFW_TMPL__*` namespace, web transport settings use `TEQFW_WEB__*`, and CMS-specific settings use `TEQ_CMS__*`.
 
-The development helper script under `bin/deploy/dev.sh` additionally assumes GitHub network access for cloning linked development dependencies.
+## Product-Delivery Boundary
 
-Optional commercial-path dependencies may include:
+PDE, MCP access, Telegram sessions, Shared Files, and client-specific product deployments are not website runtime dependencies.
 
-- email delivery through the operator's normal contact channel;
-- Fiverr as an optional escrow or payment-link path.
+The site may sell or explain those capabilities while the corresponding runtime operates on:
 
-Third-party analytics platforms are not an environment requirement for this funnel.
+- a client's existing VPS;
+- a VPS controlled by the client;
+- a dedicated host provisioned for the engagement;
+- a host controlled by Alex when separately agreed.
+
+This list describes possible product-level arrangements, not a website deployment topology or a promise that every option is routinely supported.
+
+Environment documentation for a concrete PDE deployment belongs with that product or delivery context after its boundaries are agreed. It must not be invented here.
+
+## Credential And Configuration Boundary
+
+Website environment configuration must not become an implicit store for Telegram credentials, PDE secrets, customer AI-system grants, channel data, or client VPS access.
+
+For each future product delivery, deployment location, credential ownership, administrative access, configuration storage, update responsibility, and termination or revocation procedure require explicit agreement before environment-specific instructions are created.
+
+## Commercial Operations
+
+Early qualification, pricing, payment confirmation, deployment agreement, and delivery validation may remain manual. No CRM, payment integration, automated provisioning, telemetry funnel, or managed-hosting control plane is an environment requirement.
+
+Ordinary access logs and contact delivery may remain operational evidence. They do not establish commercial validation or revenue truth.
 
 ## Environment Constraints
 
-The environment must respect these stable constraints:
-
-- runtime assumptions must remain compatible with Node.js and the TeqCMS-based execution model;
-- operational configuration under `etc/` must stay environment-specific and must not replace product or architecture truth;
-- new lead-capture or funnel-logging runtime pieces must remain small, reviewable, and justified by the validation experiment;
-- local-first analytics is preferred: first-party backend intake plus local logs before any external analytics dependency is considered;
-- runtime secret files under `var/` must stay outside version control and remain readable only to the service user where practical;
-- deployment-specific paths, service users, and host logging behavior may vary by host, but any new class of runtime dependency should be documented before it becomes a durable requirement.
+- Runtime configuration remains subordinate to product and architecture context.
+- Secrets remain outside version control and are scoped to the runtime that needs them.
+- New classes of site dependency require documentation and approval before they become durable requirements.
+- Local development must not require live PDE, Telegram, customer credentials, or product-delivery infrastructure.
+- Current implementation support for the discontinued GitHub offer is legacy drift and must not be generalized into future environment rules.

@@ -2,31 +2,36 @@
 
 - Path: `ctx/docs/code/web/ssr/components/widgets.md`
 - Template Version: `20260630`
-- Changed: `20260716`
+- Changed: `20260908`
 
 ## Purpose
 
-Describe reusable user-facing units composed by the localized SSR templates.
+Describe stable reusable template-composed units without making legacy commercial content normative.
 
 ## Shared Shell Widgets
 
-- `Site Header` — identifies Alex Gusev, exposes primary navigation, and contains the locale switcher and mobile-menu control.
-- `Primary Navigation` — links Home, Projects, Library, Journal, and Contact with a visible current-page state.
-- `Locale Switcher` — preserves the current route when an equivalent localized page exists and exposes the current locale.
-- `Site Footer` — provides durable identity, method attribution, secondary navigation, and current copyright information.
-- `Publication Discussion CTA` — appears only on blog and library detail pages and links to the matching locale Telegram channel.
+- `Site Header` — exposes site identity, primary navigation, locale switching, and compact-menu control.
+- `Primary Navigation` — links approved primary destinations and exposes current-page state.
+- `Locale Switcher` — changes locale while preserving an equivalent route where available.
+- `Site Footer` — provides durable identity, secondary navigation, and attribution.
+- `Publication Discussion CTA` — may appear on journal and library detail pages and route to the relevant discussion channel.
 
 ## Content Widgets
 
-- `Home Hero` — states the current GitHub Flows offer, primary and secondary actions, evidence markers, and a compact process model.
-- `Product Card` — represents a promoted product with its role in the product hierarchy and a next action.
-- `Featured Work Card` — distinguishes current products from the chronological project archive.
-- `Archive Card` — preserves historical project content without giving every item equal strategic prominence.
-- `Contact Channel List` — exposes direct contact methods at the start of the contact page.
-- `Disclosure` — keeps engineering and business appendices available without placing them before the primary conversion path.
+- `Hero` — introduces the approved page outcome and action without owning product meaning.
+- `Offer Summary` — may present a concrete purchasable outcome only when a canonical product offer exists.
+- `Product Or Capability Summary` — presents status and routes to deeper evidence without implying equal commercial maturity.
+- `Proof Summary` — connects a claim to current work, historical responsibility, or published material.
+- `Archive Card` — preserves historical content without giving every item equal strategic prominence.
+- `Contact Channel List` — exposes approved direct contact methods.
+- `Disclosure` — keeps secondary engineering or business detail accessible without dominating the main proposition.
+
+These are semantic widget roles, not a required home-page sequence or final component design.
+
+## Retired Meaning
+
+The `Home Hero` no longer has a contract to promote GitHub Flows. No widget may treat Agent Orchestration PoC as current or infer Telegram credentials, deployment controls, pricing, or form fields from the old campaign.
 
 ## Component Relationship
 
-The `Zoomable Image` widget is implemented by the `zoom-img` Web Component documented in [zoom-img.md](zoom-img.md).
-
-Other widgets are template-composed units and do not require custom elements.
+The `Zoomable Image` widget is implemented by the `zoom-img` Web Component documented in [zoom-img.md](zoom-img.md). Other listed widgets remain template-composed units unless a later architecture decision changes that boundary.

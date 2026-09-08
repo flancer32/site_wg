@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/environment/AGENTS.md`
 - Template Version: `20260629`
-- Changed: `20260701`
+- Changed: `20260908`
 
 ## Purpose
 
@@ -13,8 +13,6 @@ Documents at this level describe runtime assumptions, operational prerequisites,
 ## Level Map
 
 - `AGENTS.md` — level definition for `ctx/docs/environment/`.
-- `funnel-validation.md` — environment-specific assumptions for first-party funnel support, local log reporting, and submission handling.
-- `offer-validation.md` — operational validation assumptions, success signals, and review questions for narrow commercial offers.
 - `overview.md` — compact entry point for runtime assumptions, external prerequisites, and environment constraints.
 
 ## Level Boundary

@@ -2,46 +2,40 @@
 
 - Path: `ctx/docs/code/web/ssr/page-composition.md`
 - Template Version: `20260630`
-- Changed: `20260811`
+- Changed: `20260908`
 
 ## Purpose
 
-Connect route families to the shared SSR shell and route-specific page composition.
+Define stable shared composition rules while leaving the future commercial page design open.
 
-## Composition Matrix
+## Stable Composition
 
-The current composition model is:
+- Locale-specific `inc/layout.html` is the common outer shell.
+- `inc/nav.html` and `inc/footer.html` remain shared rather than repeated in every page.
+- Page templates provide route-specific metadata and content inside the shared shell.
+- Journal and library detail pages may use the publication discussion surface.
+- Journal indexes receive their prepared item collection through existing render enrichment.
+- Shared accessibility, localization, responsive, canonical, and alternate-link behavior applies across page families.
 
-- locale home page -> shared locale layout -> Site Header + outcome Hero + authority + buyer problems + engagements + capability system + selected proof + final CTA + Site Footer
-- work-with-me page -> shared locale layout -> Site Header + qualification Hero + fit + engagement formats + working model + proof routes + contact CTA + Site Footer
-- top-level standalone pages -> shared locale layout -> Site Header + page-local content + Site Footer
-- journal index -> shared locale layout -> Site Header + journal introduction + blog-specific list + Site Footer
-- journal article -> shared locale layout -> Site Header + article content + optional Zoomable Image + Publication Discussion CTA + Site Footer
-- library index -> shared locale layout -> Site Header + library introduction + category grid + Site Footer
-- library article -> shared locale layout -> Site Header + article content + optional Zoomable Image + Publication Discussion CTA + Site Footer
-- projects index -> shared locale layout -> Site Header + featured work + chronological archive + Site Footer
-- project detail -> shared locale layout -> Site Header + project identity + project content + status CTA + Site Footer
-- book page -> shared locale layout -> Site Header + book identity + author explanation or language notice + publisher purchase CTA + Site Footer
-- landing page -> shared locale layout -> Site Header + conversion-oriented content and form + Site Footer
-- 404 page -> shared locale layout -> Site Header + not-found recovery surface + Site Footer
+## Commercial Target
 
-## Shared Composition Rules
+Future composition must make purchasable offers and outcomes more prominent than biography or generic services, while preserving access to useful projects, writing, books, and historical material.
 
-Across the current SSR site:
+It must also preserve Alarisa as the strategic product system and connect separately promoted components back to it without placing the full internal model before the buyer outcome.
 
-- locale-specific `inc/layout.html` acts as the universal outer shell;
-- `inc/nav.html` and `inc/footer.html` are shared at layout level rather than repeated in pages;
-- page-specific differentiation happens inside content blocks rather than through multiple competing shells;
-- article-like pages commonly embed images or interactive media through delivered HTML and the shared `zoom-img` script;
-- reusable surface identities and the `zoom-img` relationship are catalogued under `components/`;
-- all layouts expose the same accessibility and responsive baseline.
+This document does not prescribe a home-page sequence, a product catalogue, a Telegram landing page, a contact form, or a final navigation tree. Those choices require a later approved product and interface design.
 
-## Route-Specific Exception
+## Legacy Composition
 
-The main current route-specific composition exception is the blog index.
+Existing templates may still contain:
 
-Its final rendered list is assembled from article-block fragments extracted from blog article source files rather than from a dedicated authored listing dataset.
+- an engineer-centric home and service hierarchy;
+- a GitHub offer landing page and form;
+- a contact page that promotes GitHub Flows;
+- Alarisa presented only as a monolithic unavailable project rather than a system with productizable parts.
 
-The current landing-page implementation contract for the `land/agent-orchestration-poc/` branch is documented separately under:
+These structures are legacy drift. They may be retained temporarily for a valid staged transition, but must not be copied into new templates or treated as acceptance criteria.
 
-- `ctx/docs/code/web/ssr/pages/land/agent-orchestration-poc.md`
+## Preservation Gate
+
+Before composition changes remove or relocate content, implementation work must inventory affected URLs and decide whether to keep, repurpose, redirect, or preserve archive access. Locale branches must remain semantically aligned.

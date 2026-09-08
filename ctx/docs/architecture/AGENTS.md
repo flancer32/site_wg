@@ -2,13 +2,13 @@
 
 - Path: `ctx/docs/architecture/AGENTS.md`
 - Template Version: `20260605`
-- Changed: `20260629`
+- Changed: `20260908`
 
 ## Purpose
 
 Defines the architecture documentation level for the wiredgeese.com site project.
 
-Documents at this level translate product intent into stable engineering structure, behavior, state ownership, integration boundaries, architectural constraints, durable decisions, and supervision rules.
+Documents at this level translate the product-led commercial intent into stable site structure, behavior, state ownership, integration boundaries, architectural constraints, durable decisions, and supervision rules without absorbing the runtime architecture of products promoted by the site.
 
 ## Level Map
 
@@ -55,4 +55,4 @@ Does NOT define:
 
 Architecture depends on product documentation and refines it. It is not an independent source of product truth.
 
-When product knowledge is missing or contradictory, architecture documents must expose the gap and escalate it instead of creating implicit meaning.
+When product knowledge is missing or contradictory, architecture documents must expose the gap and escalate it instead of creating implicit meaning. The site may describe and sell an external product without hosting that product inside the site runtime.

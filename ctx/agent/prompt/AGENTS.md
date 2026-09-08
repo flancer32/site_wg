@@ -2,7 +2,7 @@
 
 - Path: `ctx/agent/prompt/AGENTS.md`
 - Template Version: `20260629`
-- Changed: `20260629`
+- Changed: `20260908`
 
 ## Purpose
 
@@ -27,4 +27,4 @@ Does NOT define:
 
 - Product requirements, page contracts, or repository architecture.
 - Runtime workflow semantics, deployment configuration, or source-code constraints.
-- Iteration reports or compliance records, which belong under `ctx/agent/report/`.
+- Iteration reports or compliance records; a dedicated branch must be established and mapped before such records are added.

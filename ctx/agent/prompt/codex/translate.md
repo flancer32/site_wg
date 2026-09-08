@@ -1,7 +1,8 @@
 # Page Translation Prompt
 
 - Path: `ctx/agent/prompt/codex/translate.md`
-- Changed: `20260630`
+- Template Version: `20260629`
+- Changed: `20260908`
 
 ## Purpose
 

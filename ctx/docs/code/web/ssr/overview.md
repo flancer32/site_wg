@@ -2,74 +2,42 @@
 
 - Path: `ctx/docs/code/web/ssr/overview.md`
 - Template Version: `20260630`
-- Changed: `20260716`
+- Changed: `20260908`
 
 ## Purpose
 
-Describe the current SSR web application at implementation-facing level.
+Describe the stable SSR implementation model and its boundary with the unimplemented commercial target.
 
 ## Delivery Model
 
-The site is a multilingual SSR site built on top of `@flancer32/teq-cms`.
+The site is a multilingual SSR site built on `@flancer32/teq-cms`.
 
-The current project:
+It:
 
 - stores authored page templates under `tmpl/web/{locale}/`;
-- uses Nunjucks-style template inheritance and includes for page composition;
-- injects project-specific render behavior through `src/Back/Di/Replace/Adapter.js`;
-- serves generated or published output through the CMS runtime rather than treating `web/` as the primary authored source.
+- uses Nunjucks-style inheritance and includes;
+- injects bounded project behavior through `src/Back/Di/Replace/Adapter.js`;
+- serves browser output through the CMS runtime;
+- treats light browser JavaScript as enhancement rather than the primary delivery mechanism.
 
-The site is SSR-first.
-It may include light browser-side JavaScript, but the primary delivery model is server-rendered HTML.
+## Stable SSR Chain
 
-## Implementation Anchors
+`HTTP request -> locale-aware route extraction -> redirect normalization -> CMS render data -> bounded project enrichment -> locale template -> HTML response or localized 404`
 
-The current SSR model is anchored in:
+Stable enrichments include locale metadata, route classification, redirect behavior, and journal-index assembly.
 
-- [teqcms.config.mjs](../../../../../teqcms.config.mjs:1) for project wiring into the CMS runtime;
-- [src/Back/Di/Replace/Adapter.js](../../../../../src/Back/Di/Replace/Adapter.js:1) for render-data interception;
-- [src/Back/Web/Cms/Handler/Blog.js](../../../../../src/Back/Web/Cms/Handler/Blog.js:1) for blog-index enrichment;
-- [src/Back/Web/Cms/Handler/Redirect.js](../../../../../src/Back/Web/Cms/Handler/Redirect.js:1) for request-path normalization and redirect-map application;
-- [src/Back/Web/Handler/NotFound.js](../../../../../src/Back/Web/Handler/NotFound.js:1) for localized unresolved-route responses;
-- [bin/generate-sitemap.mjs](../../../../../bin/generate-sitemap.mjs:1) for generated public route metadata;
-- `tmpl/web/{locale}/` for locale-specific layouts, partials, and pages.
+## Current Public Families
 
-## SSR Chain
+The existing templates include locale roots, standalone pages, journal pages, library material, project pages, book pages, historical material, and a legacy campaign landing page.
 
-The current render chain is:
+These observed families do not define the future commercial hierarchy. The target context requires distinguishing offers, products and capabilities, customization, research, proof, writing, and contact, but final route and page mapping is intentionally open.
 
-`HTTP request -> locale-aware route extraction -> redirect-map normalization -> CMS render-data assembly -> project metadata and optional route enrichment -> locale template render -> HTML response or localized 404 fallback`
+## Product Runtime Boundary
 
-The explicit project-specific enrichments visible in the current code are:
+The SSR site may publish information about PDE and the Telegram offer. It must not connect to Telegram, expose MCP capabilities, provision product instances, or store customer product credentials unless a later approved architecture explicitly adds those responsibilities.
 
-- redirect rewriting from `etc/redirect-map.json`;
-- validated-origin canonical and alternate metadata;
-- publication and not-found route classification;
-- `blogIndex` injection for locale blog-index routes;
-- signed form-token injection for the Agent Orchestration PoC landing page.
+## Legacy Drift
 
-## Current Surface Model
+Current code may still inject a signed form token for the discontinued Agent Orchestration PoC route. That behavior is an implementation remnant, not a reusable offer-page pattern or target requirement.
 
-The current SSR site surface is organized around:
-
-- localized top-level pages such as home, contact, projects, and about;
-- journal index pages and dated journal article pages;
-- library index and article pages;
-- project-detail pages;
-- shared locale-specific layout partials under `inc/`;
-- a locale-aware navigation shell.
-
-## Boundaries
-
-This SSR branch documents:
-
-- request-visible route behavior;
-- render-time enrichment;
-- template composition structure;
-- delivered assets and locale behavior.
-
-It does not document:
-
-- product messaging;
-- content strategy;
-- generic frontend implementation patterns beyond what the SSR model already exposes.
+No future agent should infer a new Telegram landing page, form, route, state, or browser behavior from the old campaign implementation.

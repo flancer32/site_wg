@@ -2,67 +2,58 @@
 
 - Path: `ctx/docs/architecture/behavior.md`
 - Template Version: `20260605`
-- Changed: `20260716`
+- Changed: `20260908`
 
 ## Purpose
 
-Describe major internal architectural flows and processing behavior.
+Describe the stable site flows required by the target product model.
 
-## Major Flows
+## Authoring Flow
 
-The current architecture has these major flows:
+Product meaning is accepted in `ctx/docs/product/`, propagated through architecture, environment, and code context, and only later expressed in templates and implementation.
 
-- content-authoring flow from cognitive context and templates into repository changes;
-- publication flow from template and asset sources into rendered output under `web/`;
-- request-time rendering flow through TeqCMS with project-specific adapter logic;
-- a conversion-validation flow for narrow commercial landing pages when such pages exist.
+The flow ends when normative context and authored public sources are consistent. Generated output does not feed product meaning back upstream.
 
-## Flow Boundaries
+## Publication Flow
 
-### Content-authoring flow
+Template, asset, and configuration sources are rendered or served through TeqCMS and the project adapter. Browser-facing artifacts under `web/` remain derived output.
 
-Starts when a human or agent changes product documents, prompt assets, or template sources under `ctx/` or `tmpl/`.
-Ends when that durable source material is committed as project truth.
+The commercial repositioning must preserve locale parity and must not bypass the established authored-source chain.
 
-### Publication flow
+## Request-Time Flow
 
-Starts from template, asset, and configuration sources.
-TeqCMS translates them into publishable artifacts under `web/`.
-Ends when browser-facing files such as HTML, CSS, images, and `sitemap.xml` exist in the publication block.
+An inbound request is normalized, resolved to a locale-aware authored route, enriched with bounded project data where justified, and rendered through the shared site shell. Unresolved HTML requests return the localized not-found surface.
 
-### Request-time rendering flow
+Offer-specific runtime enrichment is not a default requirement. It needs an approved page and interaction contract at higher levels before code-level design.
 
-Starts from an inbound HTTP request handled by TeqCMS.
-The project adapter resolves locale-aware routing, applies redirect logic, requests render data from the CMS adapter, derives trusted-origin localized metadata, classifies route state, and conditionally injects blog-index or form-token data.
-Ends when render data is returned for page rendering or when the final site handler returns a localized not-found surface with HTTP status `404`.
+## Commercial Handoff Flow
 
-### Conversion-validation flow
+The target commercial behavior is:
 
-Starts when a visitor arrives on a validation landing page or follows a CTA toward a bounded commercial next step.
-In the current model, the page communicates the offer, may emit local-first funnel events to the backend, and may submit the request form to the backend.
-Before submission, the landing page receives a server-generated signed `form_token` during SSR render.
-The form POSTs to `/api/send-email`; the email handler (`App_Back_Web_Handler_SendEmail`) verifies the token, validates `repository_url` as a GitHub repository URL, composes the accepted form data into an HTML email, and delivers it via SMTP to the site owner.
-Funnel events should use a fire-and-forget browser delivery pattern such as `navigator.sendBeacon()` where appropriate, with `fetch(..., {keepalive: true})` as a fallback when Beacon is unavailable or unsuitable.
-Ends when accepted form submission is acknowledged by the backend, event logging completes on a best-effort basis, or an error is returned to the browser for the submission path.
+`visitor recognizes a problem -> sees a concrete outcome and honest status -> inspects relevant proof -> chooses a contact step -> Alex and the client agree scope, price, deployment, and trust boundaries outside the public page`
 
-The dominant product meaning behind the current validation flow is a hosted PoC for event-driven AI-agent orchestration, with the Agent Orchestration PoC landing page as the first live form submission surface.
-The site does not execute that orchestration loop itself, but it must describe the loop consistently:
+The website supports understanding and contact. It does not need to provision PDE, collect Telegram credentials, automate payment, or execute customer workflows.
 
-`GitHub issue event -> webhook -> github-flows-app -> workflow decision -> containerized agent runtime -> LLM/tools/prompt -> GitHub label/comment result -> new observable GitHub event -> run report`
+## Preservation Flow
 
-## Failure And Recovery
+Before a future implementation changes routes or removes public material:
 
-Architectural failure handling is intentionally narrow:
+1. inventory affected URLs and content;
+2. identify search, backlink, reference, and historical value;
+3. choose keep, repurpose, redirect, archive-access, or reviewed removal;
+4. implement locale-consistent routing and metadata;
+5. verify the old and new public paths as appropriate.
 
-- missing blog index input is tolerated when it results only in `ENOENT`;
-- unexpected blog aggregation failures are logged rather than normalized silently;
-- malformed or unresolved HTML routes fail into a localized noindex 404 surface rather than an empty or host-dependent response;
-- public canonical metadata trusts only validated runtime configuration and never inbound host or forwarding headers;
-- validation-funnel evidence must fail safely by omission rather than by over-collecting sensitive repository or payment data;
-- public product wording must fail toward narrower claims rather than overpromising unsupported integrations or unlimited runtime;
-- redirect and route-normalization logic must fail visibly rather than fork product meaning into duplicate routes.
+This preservation flow protects useful public value without keeping discontinued offers commercially active.
 
-## Product Dependency
+## Failure Boundaries
 
-These flows exist to realize the documented product behavior of the site.
-If that behavior changes materially, the flows must be revalidated against product documentation before implementation changes proceed.
+- Product claims fail toward narrower, verifiable statements.
+- Experimental product status remains visible when evidence is incomplete.
+- Missing commercial automation falls back to direct human contact rather than invented workflow.
+- Route changes fail toward preserving access or an intentional redirect rather than silent disappearance.
+- The website must not collect PDE or Telegram credentials as a shortcut around an undefined delivery process.
+
+## Legacy Drift
+
+The implementation may still contain a GitHub orchestration landing flow, signed token enrichment, dedicated form fields, and related event assumptions. These are not target behavior and must not be expanded or rebuilt. Their implementation retirement is outside this documentation-only task.

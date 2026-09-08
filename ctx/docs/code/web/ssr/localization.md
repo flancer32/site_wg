@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/localization.md`
 - Template Version: `20260630`
-- Changed: `20260808`
+- Changed: `20260908`
 
 ## Purpose
 
@@ -40,6 +40,8 @@ The primary navigation maps these meanings:
 - `Journal / Журнал / Bitácora`;
 - `Contact / Контакты / Contacto`.
 
+This list describes the current shared shell, not the approved future commercial navigation. A later product-led information-architecture decision may add, rename, reorder, or redirect destinations while preserving locale parity and useful public routes.
+
 Blog announcements and durable library material remain distinct content types even though both belong to the broader writing surface.
 
 ## Locale Switcher
@@ -47,6 +49,8 @@ Blog announcements and durable library material remain distinct content types ev
 The SSR fallback target is the target-locale root.
 
 When browser JavaScript is available, switching locale preserves the current route, query, and fragment. Active maintained routes must exist in every locale. Obsolete EN-only routes normalize to localized current routes before rendering.
+
+Future offer, product, or capability routes must not be added to one locale as durable public structure without equivalent semantic treatment in the other maintained locales.
 
 ## Metadata Localization
 

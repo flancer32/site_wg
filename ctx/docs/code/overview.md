@@ -2,51 +2,50 @@
 
 - Path: `ctx/docs/code/overview.md`
 - Template Version: `20260629`
-- Changed: `20260630`
+- Changed: `20260908`
 
 ## Purpose
 
-Provide a minimal entry point to the code documentation level.
-
-## Role
-
-This branch captures durable implementation constraints that are too specific for architecture or environment documents.
-It refines those levels into source-facing rules without replacing them.
+Define implementation-facing boundaries that refine the accepted product, architecture, and environment model without prematurely specifying the commercial redesign.
 
 ## Current Scope
 
-At present, the branch is intentionally minimal.
-Its immediate role is:
+The code documentation describes the existing multilingual SSR delivery model and durable repository boundaries. It does not yet define new PDE offer pages, navigation, forms, analytics, payment, provisioning, or product-runtime integrations.
 
-- to reserve the code documentation level in the ADSM dependency chain;
-- to prevent source-level rules from being scattered into architecture and environment documents;
-- to provide a stable location for future implementation constraints when they stop being incidental.
+## Repository Boundaries
 
-The branch now also contains a narrow durable schema for validation-funnel event naming and payload boundaries in `funnel-events.md`.
-The branch now also contains a dedicated web-facing SSR documentation branch under `web/ssr/`.
+- `src/` plus `teqcms.config.mjs` contain project-specific runtime adaptation.
+- `tmpl/` contains authored public pages and shared partials.
+- `web/` contains generated or published output rather than primary authored implementation.
+- `etc/` and `bin/` contain environment-facing operational assets.
+- `ctx/` contains normative meaning and implementation constraints, not runtime code.
 
-## Initial Constraints
+## Target-State Rule
 
-Until this branch is expanded further, agents should treat the following as the active boundary:
+Future implementation must derive from the product-led commercial context:
 
-- architecture documents remain the source of truth for system structure and responsibility boundaries;
-- environment documents remain the source of truth for runtime prerequisites and host assumptions;
-- new durable source-level rules should be added here before they spread implicitly through code changes.
+- products and concrete outcomes lead;
+- engineering expertise supports product delivery and customization;
+- PDE remains external to the website runtime;
+- valuable routes and public material are preserved deliberately;
+- experimental status and credential boundaries stay explicit.
 
-## Initial Repository Boundaries
+## Legacy Drift
 
-The current implementation-facing repository boundaries are:
+Current source and templates may still implement the discontinued GitHub Flows and Agent Orchestration PoC funnel, including offer-specific page content, form fields, signed token enrichment, and event concepts.
 
-- `src/` plus `teqcms.config.mjs` for project-specific runtime adaptation;
-- `tmpl/` for page and partial sources rather than runtime logic;
-- `web/` for generated or published output rather than primary authored implementation;
-- `etc/` and `bin/` for environment-facing operational assets rather than product or architecture truth.
+Those elements are not durable code contracts. Future agents must not rebuild, extend, port, or reuse them for the Telegram offer without a separately approved design.
 
-## Current Durable Additions
+The implementation may also still express the former engineer-centric commercial hierarchy. That behavior remains observable current state but is not the accepted target.
 
-The current code-documentation branch additionally defines:
+## Future Design Gate
 
-- an SSR web-application documentation branch under `ctx/docs/code/web/ssr/`;
-- stable funnel event names for the GitHub-based AI-agent trial stand validation experiment;
-- payload boundaries separating anonymous funnel evidence from lead data;
-- the rule that client-side or first-party event logs are not, by themselves, commercial truth.
+Before code changes begin, the human must approve enough product and architecture detail to define:
+
+- final information architecture and routes;
+- page roles and composition;
+- preservation and redirect decisions;
+- contact and qualification behavior;
+- whether any telemetry, payment, provisioning, or customer-data handling is required.
+
+Absent that approval, code documentation should preserve stable SSR facts and leave commercial implementation questions open.

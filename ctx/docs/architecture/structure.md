@@ -2,38 +2,42 @@
 
 - Path: `ctx/docs/architecture/structure.md`
 - Template Version: `20260605`
-- Changed: `20260629`
+- Changed: `20260908`
 
 ## Purpose
 
-Describe the major architectural blocks, runtime areas, and responsibility boundaries.
+Describe the major architectural blocks and responsibility boundaries of the site target state.
 
 ## Architectural Blocks
 
-The main architectural blocks are:
-
-- `ctx/` as the cognitive-context block that governs product and agent-facing project knowledge;
-- `tmpl/web/` as the template-content block that stores multilingual page sources and shared partials;
-- `src/` plus `teqcms.config.mjs` as the application-extension block that injects repository-specific behavior into TeqCMS;
-- `web/` as the publication block that stores rendered site assets and static resources;
-- `bin/` and `etc/` as the operational-support block for deployment-oriented scripts and host configuration artifacts.
+- `ctx/` — cognitive context governing product meaning and implementation constraints.
+- `tmpl/web/` — multilingual authored page and shared-partial sources.
+- `src/` plus `teqcms.config.mjs` — thin application-extension block adapting TeqCMS to project-specific behavior.
+- `web/` — browser-delivered and generated publication artifacts.
+- `bin/` and `etc/` — site operation and deployment support.
+- external product systems — PDE runtimes, Telegram connections, client storage, customer hosts, and other promoted-product deployments outside this repository.
 
 ## Responsibility Boundaries
 
-The stable boundaries are:
+- Cognitive context defines accepted meaning; runtime code must not become the hidden source of product strategy.
+- Templates express approved public composition and copy; they do not originate product hierarchy.
+- The project adapter owns only justified site-specific request and render behavior.
+- Publication output remains derived and must be traceable to authored sources.
+- Operational assets bind the site to concrete hosts without redefining the site product.
+- External product deployments own their own credentials, data, operation, and lifecycle according to each client agreement.
 
-- cognitive context defines meaning and rules, but does not act as runtime implementation;
-- template content defines page source material and layout composition, but does not own request routing decisions;
-- the application extension owns project-specific runtime adaptation, including CMS adapter replacement, route normalization, redirect handling, and blog-index injection;
-- publication output owns browser-delivered artifacts, but remains downstream of template and application sources;
-- operational-support artifacts bind the project to concrete deployment or hosting environments without redefining product or architecture meaning.
+## Commercial Surface Structure
 
-## Boundary Notes
+The future public structure must make the Alarisa strategic system, its components and their individual statuses, concrete offers, customization, research, proof, writing, and contact distinguishable. It must support selling a coherent component without presenting that component as unrelated to Alarisa or forcing the buyer to understand the whole system. Architecture does not yet assign these roles to final routes or a navigation tree.
 
-The application layer is intentionally thin.
-Most site behavior is delegated to TeqCMS and template content, while project-specific code exists only where generic CMS behavior is insufficient.
+Existing pages may be retained, repurposed, redirected, or reorganized only after content and search-value review. A familiar route name does not preserve an obsolete commercial role by itself.
 
-## Optional Expansion
+## Site And Product Boundary
 
-If the project grows, deeper structure documents may be created under `structure/`.
-No deeper structure branch is justified at the current scale.
+The website may explain, demonstrate, and sell PDE-based capabilities. It does not thereby become the PDE Runtime, an MCP server for customers, a Telegram credential store, or a managed product host.
+
+Any future decision to add those responsibilities would create a new architectural owner and trust boundary and requires explicit human approval plus upstream documentation.
+
+## Expansion Rule
+
+No new runtime area, persistent state owner, offer-specific backend, or detailed page branch is justified solely by the new positioning. Introduce such structure only in a later implementation design after the product model and buyer evidence make it necessary.

@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/AGENTS.md`
 - Template Version: `20260605`
-- Changed: `20260701`
+- Changed: `20260908`
 
 ## Purpose
 
@@ -14,15 +14,18 @@ Documents at this level describe the site as a product: its meaning, purpose, sc
 
 - `offers/` — offer-level documents that define concrete commercial entry offers under the site product hierarchy.
 - `AGENTS.md` — level definition for `ctx/docs/product/`.
-- `commercial-strategy.md` — commercial outcome, buyer opportunities, positioning bets, conversion model, and acceptance criteria.
-- `overview.md` — semantic entry point that defines site purpose, offer hierarchy, and product-level communication constraints.
+- `commercial-strategy.md` — revenue model, acquisition, price discovery, validation, and productization logic.
+- `overview.md` — semantic entry point defining site purpose, commercial identity, public-surface roles, and preservation constraints.
+- `product-system.md` — promoted technology, capability, methodology, research, and proof hierarchy.
 
 ## Product Knowledge Model
 
 The product branch is intentionally compact:
 
-- `overview.md` defines the site product and the promoted product line presented through it;
-- `offers/` defines bounded commercial offers within that promoted product line.
+- `overview.md` defines the site product and its commercial communication model;
+- `commercial-strategy.md` defines how the site is expected to generate sustainable revenue;
+- `product-system.md` distinguishes original technologies, working capabilities, research, and historical proof;
+- `offers/` defines bounded buyer-facing offers derived from that product system.
 
 ## Terminology Rule
 

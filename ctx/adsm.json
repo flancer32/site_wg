@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "notes": [
     "Baseline ADSM context metadata initialized for wiredgeese.com.",
-    "The project currently has product, architecture, environment, code, and agent-operational documentation branches.",
-    "The code documentation branch is instantiated in a minimal state and reserved for future durable implementation constraints."
+    "The product context defines wiredgeese.com as a product-led commercial system for original software capabilities, deployment, integration, customization, and related engineering.",
+    "Alarisa is the principal long-term R&D project and strategic product system; coherent components may be commercialized separately as their readiness and buyer value become clear.",
+    "The first active commercial offer connects an MCP-compatible AI system such as ChatGPT to Telegram through Personal Digital Embassy, an experimental working infrastructure component of Alarisa.",
+    "The website runtime remains separate from PDE and customer deployments; current GitHub-offer implementation is documented only as legacy drift."
   ]
 }

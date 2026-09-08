@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/AGENTS.md`
 - Template Version: `20260629`
-- Changed: `20260630`
+- Changed: `20260908`
 
 ## Purpose
 
@@ -14,7 +14,6 @@ Documents at this level constrain implementation structure, source-level respons
 
 - `web/` — web-facing code documentation for the site's SSR delivery model and related page-structure rules.
 - `AGENTS.md` — level definition for `ctx/docs/code/`.
-- `funnel-events.md` — code-level event schema and payload boundaries for validation-funnel instrumentation.
 - `overview.md` — minimal entry point for implementation-facing boundaries and code-documentation scope.
 
 ## Level Boundary

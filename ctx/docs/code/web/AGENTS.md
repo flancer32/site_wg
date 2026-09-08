@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/AGENTS.md`
 - Template Version: `20260630`
-- Changed: `20260630`
+- Changed: `20260908`
 
 ## Purpose
 
@@ -21,7 +21,7 @@ Documents at this level describe the implementation-facing model of the site's w
 Defines:
 
 - The boundary for implementation-facing documentation of the site's web surface.
-- The split between SSR web documentation and other code branches such as API or funnel contracts.
+- The split between SSR web documentation and any future code branches justified by approved architecture.
 - The local structure used to describe routes, layouts, pages, rendering, and browser-facing delivery at code level.
 
 Does NOT define:

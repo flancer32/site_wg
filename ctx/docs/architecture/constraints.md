@@ -2,45 +2,61 @@
 
 - Path: `ctx/docs/architecture/constraints.md`
 - Template Version: `20260605`
-- Changed: `20260630`
+- Changed: `20260908`
 
 ## Purpose
 
-Record non-negotiable architecture restrictions and trust boundaries.
+Record non-negotiable site architecture and trust-boundary constraints.
 
 ## Core Constraints
 
 The architecture must preserve:
 
-- cognitive context under `ctx/` remains the authoritative knowledge space above implementation;
-- the site remains primarily a template-driven multilingual publication system rather than a large custom application;
-- `web/` remains a derived publication artifact, not an independent authored source of truth;
-- funnel data remains operational validation evidence rather than product truth;
-- any future `pageViewId` or equivalent funnel correlation key remains single-page, memory-only state rather than persistent visitor identity;
-- any future funnel reading remains primitive and low-traffic rather than evolving into a full analytics platform by default;
-- the hosted PoC must remain a controlled sandbox with bounded issue count, event count, concurrency, runtime, and token use rather than reading as unlimited hosted agent execution;
-- project-specific backend code stays thin and justified by concrete gaps in generic CMS behavior.
+- `ctx/` as authoritative knowledge above implementation;
+- a multilingual, content-oriented TeqCMS site with thin justified project adaptation;
+- `web/` as derived publication output rather than an authored source of truth;
+- clear status distinctions among active offers, experimental capabilities, research, and historical proof;
+- separation between the wiredgeese.com runtime and PDE or customer deployments;
+- deliberate preservation of valuable URLs and public material during future restructuring;
+- direct human review for commercial scope, price, trust, and deployment decisions while the offer is experimental.
 
-## Boundary Constraints
+## Trust Constraints
 
-Architecture must not:
+The website must not:
 
-- redefine product meaning that already belongs to `ctx/docs/product/`;
-- put repository contents, secrets, tokens, private code, or payment-sensitive data into analytics events or generic funnel logs;
-- put email, name, GitHub repository URL, issue contents, or any long-term visitor identifier into generic funnel-event URLs or payloads;
-- hide new persistent state inside runtime or generated artifacts;
-- introduce third-party trackers, persistent databases, payment integrations, or lead-storage expansion without explicit approval;
-- introduce fingerprinting, cross-visit tracking, cookies for funnel tracking, or `localStorage` / `sessionStorage` correlation without explicit approval;
-- introduce heatmaps, mouse tracking, scroll-percentage telemetry, long-term journey tracking, or other high-granularity behavioral surveillance without explicit approval;
-- imply implemented support for GitLab, Atlassian/Jira, non-Docker runners, arbitrary buyer-provided keys, or unlimited multi-agent hosting when those are only described as replaceable pattern components;
-- normalize deployment-specific assumptions into product or architecture truth without explicit documentation.
+- collect or store Telegram credentials, session data, channel content, PDE configuration, or customer-host access without a separately approved architecture;
+- imply that access to a technical capability grants permission to use it on a customer's resources;
+- hide credential ownership, administrative access, update responsibility, or revocation behind generic security claims;
+- promise absolute security, privacy, availability, compliance, or production maturity;
+- introduce persistent customer state, automated provisioning, payment authority, or CRM-like ownership without approval.
 
-## Change Constraints
+## Commercial Constraints
 
-These changes always require human approval:
+Architecture must not encode:
 
-- introducing new architectural owners or major runtime areas;
-- introducing new persistent state or database-backed authority;
-- introducing new external integrations or publication dependencies;
-- introducing automated payment handling, CRM-like lead storage, or third-party tracking;
-- turning generated site output into a primary editable source.
+- GitHub Flows or Agent Orchestration PoC as a current offer or validation path;
+- the discontinued `€50` price as a reusable commercial anchor;
+- generic senior-engineering services as the site's primary product;
+- PDE as a strategic replacement for, or product direction unrelated to, Alarisa;
+- Alarisa only as monolithic research that cannot be commercialized through coherent parts;
+- the World Map, general memory, or another Alarisa component as an active offer before its status and boundary are documented;
+- Shared Files as a validated offer;
+- detailed page, form, navigation, analytics, or deployment contracts that product documentation deliberately leaves open.
+
+## Preservation Constraints
+
+Future implementation must not remove or relocate search-bearing content casually. Route retirement requires an evidence-informed decision and deliberate redirect or access strategy where warranted.
+
+Preservation applies to useful history and content, not to obsolete commercial emphasis.
+
+## Approval Cases
+
+Human approval is required before introducing:
+
+- a new site runtime area or major architectural owner;
+- a new persistent source of truth;
+- a new external runtime integration;
+- customer credential or private-resource handling by the site;
+- automated payment, provisioning, managed-hosting, or customer-record systems;
+- a final commercial navigation or page architecture;
+- conversion tracking beyond ordinary operational evidence.

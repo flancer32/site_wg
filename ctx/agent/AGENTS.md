@@ -2,7 +2,7 @@
 
 - Path: `ctx/agent/AGENTS.md`
 - Template Version: `20260610`
-- Changed: `20260629`
+- Changed: `20260908`
 
 ## Purpose
 
@@ -13,7 +13,6 @@ This level contains service assets that guide agent execution through project-lo
 ## Level Map
 
 - `prompt/` — reusable prompt assets for repository-local agent tasks.
-- `report/` — iteration reports produced by agents as required by ADSM.
 - `AGENTS.md` — level definition for `ctx/agent/`.
 
 ## Level Boundary

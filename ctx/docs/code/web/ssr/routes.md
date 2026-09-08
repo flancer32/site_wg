@@ -2,69 +2,46 @@
 
 - Path: `ctx/docs/code/web/ssr/routes.md`
 - Template Version: `20260630`
-- Changed: `20260811`
+- Changed: `20260908`
 
 ## Purpose
 
-Describe the current route families and path conventions of the SSR site.
+Define stable route conventions, current route families, and preservation requirements without freezing the future commercial information architecture.
 
-## Locale Prefix Model
+## Locale Prefix
 
-The current site is locale-prefixed.
+Public pages use `/{locale}/...` with current authored locales `en`, `es`, and `ru`. Locale-aware resolution precedes template rendering.
 
-Visible locale roots are:
+## Stable Current Families
 
-- `/en`
-- `/es`
-- `/ru`
+- locale root: `/{locale}/`;
+- standalone pages such as About, Contact, Projects, and Work With Me;
+- journal index and dated journal articles;
+- books and library materials;
+- project detail pages;
+- localized not-found page;
+- a legacy nested route for the discontinued GitHub campaign.
 
-The SSR model expects locale-aware route resolution before template rendering.
-The locale list is provided by CMS configuration and consumed by the project adapter and locale switcher.
+Directory indexes use trailing slashes. Standalone and detail templates use `.html` canonical paths under the current model.
 
-## Route Families
+## Redirect Boundary
 
-The current SSR route families visible in `tmpl/web/{locale}/` are:
+`etc/redirect-map.json` normalizes selected legacy paths while preserving locale overlay. Static resource paths are excluded from HTML route normalization.
 
-- locale home page: `/{locale}/`
-- top-level content pages: `/{locale}/about.html`, `/{locale}/contact.html`, `/{locale}/projects.html`, `/{locale}/work-with-me.html`
-- blog index: `/{locale}/blog/` and `/{locale}/blog.html`
-- blog article pages: `/{locale}/blog/{year}/{slug}.html`
-- book pages: `/{locale}/books/{slug}.html`
-- library article pages: `/{locale}/library/{section}/{slug}.html`
-- project-detail pages: `/{locale}/projects/{project-family}/{slug}.html`
-- dedicated landing pages below nested route families such as `/{locale}/land/...`
-- locale 404 page: `/{locale}/404.html`
+Redirects are a deliberate continuity tool. They must not silently create an alternative product hierarchy.
 
-## Blog Route Special Case
+## Commercial Redesign Boundary
 
-The blog index route is not only a static template.
+No route for PDE, Telegram, capabilities, products, or a new offer is approved by this context rewrite. Final routes require a later information-architecture decision.
 
-For clean paths `/blog` and `/blog.html`, the project adapter injects `blogIndex.items` based on the locale blog directory.
-This creates a render-time route specialization for blog index pages.
+The existing GitHub campaign route may remain in the implementation temporarily, but it is not current commercial inventory and should not appear in new route contracts.
 
-## Redirected Legacy Paths
+## Preservation Verification
 
-The current SSR model supports declarative redirects through `etc/redirect-map.json`.
+Before changing routes, implementation work must:
 
-Visible redirect families include:
-
-- old dated blog URL shapes redirected to the current flat dated slug shape;
-- old `/doc/...` paths redirected into `/library/...`;
-- selected `/post/...` aliases redirected into canonical blog or library targets;
-- former top-level aliases `/contacts.html`, `/posts.html`, and `/products.html` normalized to `/contact.html`, `/about.html`, and `/projects.html` respectively.
-
-Locale overlay is preserved when redirect targets are applied to locale-prefixed incoming routes.
-
-## Canonical Route Shapes
-
-Public metadata and the generated sitemap use:
-
-- trailing slashes for locale roots and directory indexes such as `/blog/`, `/library/`, and `/land/agent-orchestration-poc/`;
-- `.html` for standalone pages and content-detail pages;
-- the same canonical route shape across all three locale branches.
-
-## Non-HTML Boundary
-
-The redirect handler intentionally treats HTML-like routes differently from static-resource routes.
-
-Static resources such as images, CSS, JavaScript, fonts, JSON, and similar file types are excluded from the HTML redirect path normalization branch.
+- inventory affected URLs across locales;
+- review search, backlink, reference, and historical value;
+- define canonical replacements and redirects where warranted;
+- regenerate and inspect sitemap output;
+- verify old and new request behavior, metadata, and locale parity.

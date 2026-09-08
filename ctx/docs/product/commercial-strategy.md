@@ -2,98 +2,144 @@
 
 - Path: `ctx/docs/product/commercial-strategy.md`
 - Template Version: `20260811`
-- Changed: `20260811`
+- Changed: `20260908`
 
-## Desired Outcome
+## Required Outcome
 
-Increase qualified conversations with buyers who have a consequential web-product or agent-driven engineering problem and can engage Alex for senior hands-on work.
+`wiredgeese.com` must contribute to commercial survival and sustainable revenue. Presentation, professional visibility, and intellectual reputation are supporting assets; they are not sufficient product outcomes by themselves.
 
-The site should optimize for commercial fit rather than raw traffic or low-cost pilot volume.
+The strategy must reduce dependence on selling Alex as a generic senior developer in a commodity freelance market. It should create demand around owned products, working capabilities, bounded offers, and the specialized engineering those assets make possible.
 
-## Strategy Diagnosis
+The strategy must not depend on winning a CV-style comparison with younger generic developers. Differentiation should come from original technology, direct ownership, working demonstrations, productized delivery, customization leverage, long-term responsibility, and demonstrated use of AI agents. The site must not turn this constraint into age-focused marketing or unsupported claims about discrimination.
 
-The previous surface over-weighted `GitHub Flows` and a `€50` repository PoC. This made a narrow implementation mechanism appear larger than Alex's actual capability and anchored the offer below the value implied by his experience, owned platform, methodology, and body of work.
+## Vision And Cash Engine
 
-The accumulated content has stronger potential when it operates as a proof system:
+The commercial model distinguishes two connected horizons.
 
-- career history establishes judgment and durability;
-- TeqFW establishes platform-building and architectural depth;
-- ADSM establishes a differentiated approach to human-agent development;
-- Alarisa establishes a coherent long-term R&D direction;
-- recent agent-built applications establish current practice;
-- books and technical writing establish the ability to explain and transfer knowledge;
-- client and personal applications establish execution across real domains.
+### Vision
 
-## Opportunity Map
+Alarisa is the principal long-term R&D project and product horizon. It develops the model of a personal agent and the surrounding agent-compatible software system. TeqFW, ADSM, and active AI-agent practice are foundations used to build it; PDE is one of its infrastructure components.
 
-The commercial outcome depends on serving these buyer needs:
+The commercial strategy must preserve Alarisa's strategic continuity while allowing useful parts to become products or offers before the whole system reaches a single release boundary.
 
-- `I need a senior engineer to make a difficult web-system decision before more money is spent.`
-- `I need a focused product or subsystem built without assembling and managing a large team.`
-- `I want agents to increase delivery capacity, but I need architecture, context, and verification to stay under control.`
-- `I inherited a codebase or process that moves, but no longer evolves safely.`
-- `I need evidence that this engineer can work across product meaning, browser, server, infrastructure, and agent tooling.`
+### Cash Engine
 
-## Prioritized Bets
+Revenue must begin with concrete capabilities that can be sold now or soon. PDE is currently easier to package commercially than Alarisa as a whole, and the first active offer is a bounded paid experimental setup connecting an MCP-compatible AI system such as ChatGPT to a client's Telegram account through PDE.
 
-### Bet 1: Sell The Engineering Practice
+The vision explains why the work compounds. The cash engine prevents the vision from depending on indefinite research, reputation, or speculative attention.
 
-Lead with Alex's ability to solve difficult web-product and agent-integration problems. Present named tools only as the reason his practice is differentiated and credible.
+## Compounding Revenue Model
 
-Core assumption: qualified buyers purchase accountable outcomes and judgment more readily than an unfamiliar infrastructure product.
+Paid work should strengthen reusable assets when customer needs align with the product direction:
 
-### Bet 2: Provide Three Engagement Doors
+`first customer -> revenue + reusable capability`
 
-Offer an architecture/readiness review, focused build or rescue, and agent-driven engineering-system engagement.
+`next customer -> revenue + improved capability`
 
-Core assumption: buyers arrive at different levels of problem clarity and need a recognizable low-risk next step without forcing every lead into one PoC.
+`repeated demand -> evidence for a standardized product`
 
-### Bet 3: Turn The Archive Into Evidence
+The default delivery path is:
 
-Curate projects and writing by the capability they prove, while retaining the full archive below.
+`existing capability -> bounded setup -> client-specific need -> configuration where possible -> reusable product extension where justified -> custom integration when necessary`
 
-Core assumption: relevance and interpretation convert better than volume alone.
+The customer buys a useful outcome or capability. Internal effort, coding-agent usage, and billable typing time do not define the product value.
+
+Custom engineering remains important, but it should preferentially extend or apply the existing product system instead of restarting from zero for every client. Work on PDE can strengthen Alarisa's infrastructure while also producing an independently useful customer outcome.
+
+## Modular Commercialization Of Alarisa
+
+Alarisa should not depend on being sold only as one complete, mature application. Its coherent components may become separate products, capabilities, demonstrations, or paid offers when their readiness and buyer value support that step.
+
+Candidate parts include:
+
+- PDE and its Desks;
+- the World Map;
+- general memory;
+- other reusable capabilities developed within Alarisa.
+
+Component commercialization must preserve two truths simultaneously:
+
+- the component belongs to and strengthens the larger Alarisa direction;
+- the buyer receives a concrete, understandable outcome without needing to adopt or understand all of Alarisa.
+
+Naming a component here does not claim that it is already available, validated, separately deployable, or priced. Each active commercial offer still requires its own documented status and boundary.
+
+## Initial Offer And Price Discovery
+
+The Telegram offer is an experimental, fixed-scope paid setup rather than a standardized SaaS subscription.
+
+Current pricing principles are:
+
+- agree scope and price before work begins;
+- account for provisioning, deployment, authentication, configuration, troubleshooting, communication, and explanation of trust boundaries;
+- do not reuse the discontinued `€50` GitHub experiment as a price anchor;
+- do not publish a mature package price before external delivery evidence exists;
+- learn from actual effort and buyer response, then standardize only what proves repeatable.
+
+A favorable internal installation took approximately two hours on infrastructure and communication channels already controlled by Alex. External installations may require materially more work. This observation informs price discovery but is not a delivery-time promise.
+
+## Early Commercial Validation
+
+The initial learning target is approximately `3–5` paid external setups for customers who are not friends or family.
+
+This is a temporary evidence target, not a permanent business metric or a claim of existing validation. Early delivery should learn:
+
+- which Telegram outcomes buyers will pay for;
+- which deployment arrangements are acceptable;
+- how much installation and customer communication actually require;
+- which trust and credential questions block or enable purchase;
+- which customization needs repeat across customers;
+- whether the work produces a viable margin and a credible next offer.
+
+Evidence from real payment, delivery, and follow-up has priority over visits, clicks, or expressions of interest.
+
+## Acquisition
+
+The site is the primary credibility and explanation surface, but not the only acquisition channel.
+
+Upwork is a useful candidate when acquisition is framed around specific demand such as:
+
+- ChatGPT and Telegram integration;
+- Telegram summarization or publishing automation;
+- MCP integrations;
+- self-hosted AI integrations;
+- specialized bridges between AI systems and private digital resources.
+
+Alex should not be positioned there primarily as a generic `Senior JavaScript Developer`, `Node.js Developer`, or `AI Consultant`. The useful pattern is:
+
+`concrete customer problem -> substantial enabling technology already exists -> faster specialized delivery -> reusable PDE, TeqFW, or ADSM asset improves`
+
+Other channels may include direct referrals, technical writing, demonstrations, relevant communities, partnerships, and search traffic. No single channel is assumed to be sufficient.
 
 ## Conversion Model
 
-Primary conversion:
+The desired commercial path is:
 
-`relevant problem -> differentiated capability -> proof -> engagement format -> direct conversation`
+`recognizable problem -> concrete outcome -> honest boundary -> working evidence -> bounded paid next step -> customization or integration when justified`
 
-The default CTA is a direct project conversation by email or contact page. A useful first message describes the system, the costly problem, current constraints, and desired outcome.
+The site should support direct contact and qualification without requiring the visitor to understand the entire technical platform. Manual qualification, agreements, payment, and delivery are acceptable while demand is small and the offer is still being learned.
 
-The Agent Orchestration PoC remains available through its dedicated landing page for campaign traffic and narrow GitHub experimentation, but it is subordinate to the main conversion model.
+## Commercial Evidence
 
-## Measurement
+Commercial truth includes paid work, delivered outcomes, actual effort, reusable extensions, follow-on demand, and repeated problem patterns.
 
-Commercial success requires external observation after publication. Track at least:
+Traffic, click events, contact intent, and marketplace messages may help diagnose acquisition, but they must not be presented as revenue, validation, or customer success.
 
-- visits to `Work With Me` from Home, Projects, About, Library, and publications;
-- contact-page visits and outbound email/Telegram intent events;
-- qualified inquiries per month;
-- inquiry source and the proof or offer referenced by the prospect;
-- conversations that progress to a scoped paid engagement;
-- mismatch reasons for unsuitable inquiries.
+No specific analytics, CRM, payment, or automated funnel implementation is authorized by this strategy.
 
-No baseline or target volume is currently evidenced. The first measurement period establishes the baseline; targets require human business judgment after real traffic and inquiry data exist.
+## Open Strategic Questions
 
-## Acceptance Criteria For The Repositioning
+The following remain deliberately open until external evidence supports a decision:
 
-- GitHub Flows is absent from the global value proposition and may appear only as supporting proof or a narrow offer.
-- Alarisa is visible as the strategic R&D direction and explicitly marked as unavailable while in active development.
-- TeqFW and ADSM are explained as Alex's owned leverage, not as three competing things to buy.
-- Home exposes three engagement formats and at least three proof classes.
-- primary navigation contains an explicit commercial destination.
-- Projects begins with curated capability evidence before the archive.
-- About explains current commercial relevance before biography.
-- Library explains how its themes support Alex's work and routes suitable readers toward a conversation.
-- Contact accepts broad qualified web and agent-driven engineering inquiries.
-- every locale preserves the same product hierarchy and CTA intent.
-- site tests, type checks, sitemap generation, and context validation complete without structural errors.
+- the standardized scope, price, and delivery time of the Telegram setup;
+- which deployment arrangements Alex will support routinely;
+- the boundary between configuration, reusable product extension, and bespoke work;
+- whether recurring maintenance or managed hosting becomes a standard offer;
+- which Telegram workflows repeat strongly enough to become products;
+- whether Shared Files becomes a buyer-facing offer;
+- which World Map and general-memory capabilities can become independent buyer-facing offers;
+- how public positioning should connect component offers back to Alarisa without making buyers learn the full system first;
+- which channels produce qualified, economically viable customers;
+- what site information architecture and public copy best communicate the model.
 
-## Risks And Learning Gaps
-
-- User needs are inferred from Alex's experience and current materials; they are not yet validated through prospect interviews or analytics.
-- No verified testimonials or quantified client outcomes are present, so the site must rely on inspectable work and accurate career history.
-- Pricing for the three main engagement formats is not yet authorized; the site should invite scoped conversations rather than invent prices.
-- Alarisa can attract attention but must not create an unavailable-product dead end; it should route interest toward Alex's current engineering services.
+These questions must not be answered in lower-level documentation by inventing implementation contracts.

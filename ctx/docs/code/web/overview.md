@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/overview.md`
 - Template Version: `20260630`
-- Changed: `20260808`
+- Changed: `20260908`
 
 ## Purpose
 
@@ -10,9 +10,11 @@ Provide the entry point for web-facing code documentation under `ctx/docs/code/`
 
 ## Role
 
-This branch isolates implementation-facing documentation for the site's web surface from other code-level concerns such as funnel-event contracts.
+This branch isolates implementation-facing documentation for the site's web surface from other code-level concerns.
 
 The current project uses a multilingual SSR site model built from authored templates under `tmpl/` and runtime adaptation under `src/`.
+
+The accepted commercial target is product-led, but final page routes, composition, and public copy are not yet approved. Existing engineer-centric and GitHub-offer implementation is legacy drift rather than a source for new code contracts.
 
 ## Current Scope
 

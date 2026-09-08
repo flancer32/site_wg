@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/layouts.md`
 - Template Version: `20260630`
-- Changed: `20260716`
+- Changed: `20260908`
 
 ## Purpose
 
@@ -10,7 +10,7 @@ Describe the shared SSR shell, its regions, responsive behavior, and accessibili
 
 ## Primary Layout
 
-Each locale defines the same structural layout under `tmpl/web/{locale}/inc/layout.html`.
+Each locale defines the same structural layout under `tmpl/web/{locale}/inc/layout.html`. The shell remains stable while the future product-led navigation and content hierarchy await approval.
 
 The layout owns:
 
@@ -28,7 +28,7 @@ Page templates own route-specific metadata blocks, content, and any narrowly jus
 
 The header stays visible while scrolling and contains:
 
-- Alex Gusev / Wired Geese identity rather than a product-only logo meaning;
+- Wired Geese identity with Alex Gusev present as the accountable maker rather than the sole commodity;
 - primary navigation;
 - locale switcher;
 - a keyboard-operable mobile menu control.
@@ -51,7 +51,7 @@ The footer carries secondary navigation, current copyright information, and dura
 - typography, spacing, radius, shadow, wide-shell, and reading-width roles;
 - buttons, cards, long-form content, forms, archives, contact surfaces, and shared shell widgets.
 
-The emotional register is a calm engineering studio and editorial lab. It must avoid generic neon AI imagery, excessive card equality, and decorative effects that obscure hierarchy.
+The emotional register is calm, specific, technically credible, and product-oriented. It must avoid generic neon AI imagery, aggressive sales treatment, excessive card equality, and effects that obscure hierarchy or experimental status.
 
 ## Responsive Model
 

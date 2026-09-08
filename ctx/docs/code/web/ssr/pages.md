@@ -2,55 +2,43 @@
 
 - Path: `ctx/docs/code/web/ssr/pages.md`
 - Template Version: `20260630`
-- Changed: `20260630`
+- Changed: `20260908`
 
 ## Purpose
 
-Describe the current SSR page families as implementation-facing template groups.
+Describe current page families and the boundary for future page-level contracts.
 
-## Page Families
+## Current Families
 
-The current locale template tree exposes these main page families:
+The current locale template tree contains:
 
-- `home` — locale root entry page, currently represented by `index.html`;
-- `top-level content pages` — about, contact, projects, work-with-me, and related standalone pages;
-- `blog index` — article listing page rendered from `blog.html` plus injected `blogIndex`;
-- `blog article pages` — dated article documents under `blog/{year}/`;
-- `library pages` — article-like documents grouped under `library/{section}/`;
-- `project detail pages` — project-specific pages under `projects/{family}/`;
-- `landing pages` — nested offer or experiment pages under custom route branches such as `land/`;
-- `404 page` — locale-specific not-found document.
+- locale home pages;
+- standalone pages such as About, Contact, Projects, and Work With Me;
+- journal indexes and dated articles;
+- library indexes and articles;
+- book pages;
+- project indexes and detail pages;
+- a legacy nested campaign page;
+- localized not-found pages.
 
-## Page Characteristics
+## Target-State Requirement
 
-The current SSR pages are mostly content-first documents that:
+The future public system must distinguish things available now, active products and technologies, customization capability, research, proof and history, writing, and a commercial next step.
 
-- extend the shared locale layout;
-- fill layout blocks directly;
-- optionally add page-local styles;
-- sometimes add extra head assets such as blog-specific CSS.
+This requirement does not establish one page per category or preserve current page names as final product architecture.
 
-## Index Pages Versus Detail Pages
+## Detailed Page Documents
 
-The current surface has a clear distinction between:
+Current route-boundary documents exist for:
 
-- index-like pages such as home, blog index, posts, projects, and contact;
-- detail-like pages such as individual blog posts, library entries, and project-detail pages.
+- `pages/home.md`;
+- `pages/contact.md`;
+- `pages/work-with-me.md`.
 
-The `blog.html` page is the only current page family with explicit project-side render enrichment visible in `src/`.
+They intentionally avoid final section order and copy. Add a new page document only after product and architecture decisions make its route and responsibility durable.
 
-## Detailed Page Branches
+The former Agent Orchestration PoC page document has been retired because its offer is discontinued. Its remaining source template is legacy implementation outside this task.
 
-When a concrete SSR page needs its own implementation contract, it should be documented under:
+## Preservation Rule
 
-- `ctx/docs/code/web/ssr/pages/`
-
-The current dedicated page documents are:
-
-- `ctx/docs/code/web/ssr/pages/home.md`
-- `ctx/docs/code/web/ssr/pages/contact.md`
-- `ctx/docs/code/web/ssr/pages/work-with-me.md`
-
-The current dedicated landing-page implementation branch is:
-
-- `ctx/docs/code/web/ssr/pages/land/agent-orchestration-poc.md`
+Historical and search-bearing pages should remain accessible or receive deliberate redirects when future implementation changes page families. A discontinued offer need not remain promoted merely because its route exists today.

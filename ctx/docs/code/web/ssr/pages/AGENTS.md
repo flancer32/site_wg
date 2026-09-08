@@ -2,21 +2,20 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/AGENTS.md`
 - Template Version: `20260630`
-- Changed: `20260630`
+- Changed: `20260908`
 
 ## Purpose
 
 Defines the page-level SSR implementation documentation branch.
 
-Documents at this level describe concrete SSR page families, their implementation-facing structure, and their mapping from product meaning into authored templates.
+Documents at this level describe concrete SSR page families, current route boundaries, and approved implementation constraints derived from product meaning.
 
 ## Level Map
 
-- `land/` — SSR landing-page implementation documents.
 - `AGENTS.md` — level definition for `ctx/docs/code/web/ssr/pages/`.
-- `contact.md` — SSR implementation contract for the contact page.
-- `home.md` — SSR implementation contract for the locale-root home page.
-- `work-with-me.md` — SSR implementation contract for the primary commercial services page.
+- `contact.md` — current route boundary and future semantic constraints for the contact page.
+- `home.md` — current route boundary and future semantic constraints for the locale-root home page.
+- `work-with-me.md` — current route boundary and future semantic constraints for the existing commercial page.
 
 ## Level Boundary
 

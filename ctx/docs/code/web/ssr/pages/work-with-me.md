@@ -2,43 +2,30 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/work-with-me.md`
 - Template Version: `20260811`
-- Changed: `20260811`
+- Changed: `20260908`
 
 ## Purpose
 
-Define the primary commercial destination for Alex's engineering practice.
+Define the current commercial-route boundary while its future role is reconsidered under the product-led model.
 
-## Route And Role
+## Route
 
-- Route: `/{locale}/work-with-me.html`
-- Role: qualify suitable buyers, explain the three engagement formats, reduce uncertainty about collaboration, and route a real problem to direct contact.
+- `/{locale}/work-with-me.html`
 
-## Required Sequence
+## Target Boundary
 
-1. buyer-oriented hero with direct contact action;
-2. best-fit and poor-fit qualification;
-3. Architecture And Agent Readiness engagement;
-4. Focused Build Or Rescue engagement;
-5. Agent-Driven Engineering System engagement;
-6. working model from problem framing through verified delivery and handoff;
-7. proof routes;
-8. first-message guidance and final CTA.
+The route may support deployment, integration, customization, and related engineering around Alex's original products and capabilities. It must not restore generic senior-engineering engagements as the primary product hierarchy.
 
-## Offer Boundary
+The product context requires visitors to distinguish concrete offers from customization capability. Whether this existing route becomes that capability surface, is renamed, redirects elsewhere, or remains as a secondary page is deliberately open.
 
-The page must not invent fixed prices, delivery times, testimonials, availability, or guaranteed outcomes.
+## Implementation Constraints
 
-The Agent Orchestration PoC may be linked as an optional narrow experiment but must not define the main service hierarchy.
+- Existing useful content and incoming route value must be reviewed before removal or redirection.
+- Any retained page must derive its hierarchy from `ctx/docs/product/`.
+- Product outcomes and owned leverage should precede generic role or hourly-service framing.
+- No fixed prices, delivery times, testimonials, maturity claims, or guaranteed outcomes may be invented.
+- GitHub Flows and Agent Orchestration PoC must not be linked as current offers.
 
-## Conversion Contract
+## Design Gate
 
-The primary action is a direct email or Contact route. The prompt should ask for:
-
-- the product or system;
-- the costly or blocked problem;
-- the current technical context;
-- the desired outcome and relevant constraints.
-
-## Localization And Accessibility
-
-All three locale trees must preserve the same offer hierarchy, qualification meaning, and CTA intent. Cards must remain readable in a one-column compact layout, and heading hierarchy must remain sequential.
+Final route role, title, section sequence, qualification language, and CTAs require a later site information-architecture decision. Current implementation is not authority for those choices.

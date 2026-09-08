@@ -2,66 +2,58 @@
 
 - Path: `ctx/docs/architecture/supervision.md`
 - Template Version: `20260605`
-- Changed: `20260629`
+- Changed: `20260908`
 
 ## Purpose
 
-Describe how one human and many agents supervise architecture-level consistency.
+Define human-agent supervision of the target architecture and the transition away from obsolete commercial implementation.
 
-## Human-Agent Supervision Principle
+## Authority
 
-Humans own architectural direction and guardrails.
-Agents operate within documented architectural boundaries.
-Architecture documentation is the authoritative medium through which the human direction-setting loop and the agent refinement and execution-support loop coordinate at the architecture level.
-Agents must surface architectural drift instead of silently resolving it.
-Major architectural boundary changes require human approval.
+The human owns product direction, accepted commercial meaning, architectural boundaries, and approval of implementation work. Agents refine documentation and implementation only inside that authority.
 
-## Human Responsibilities
+The normative dependency order remains:
 
-The human:
+`product -> architecture -> environment -> code`
 
-- decides whether the site remains a thin adaptation of TeqCMS or becomes a larger custom application;
-- approves new runtime areas, new persistent state, and new external integrations;
-- resolves contradictions between product intent and implementation pressure.
+Current implementation is evidence of existing behavior, not authority to reinstate a superseded product model.
 
-## Agent Responsibilities
-
-Agents may:
-
-- refine existing template, publication, and adapter behavior within documented boundaries;
-- improve architecture documentation when repository evidence clarifies the current model;
-- add narrow validation-funnel support only when it stays within documented data and approval boundaries;
-- prefer documentation updates before code when a new architectural concept appears.
-
-Agents must not silently introduce new architectural owners or hidden state authority.
-
-## Mandatory Approval Cases
+## Human Decisions
 
 Human approval is required for:
 
-- new architectural owners;
-- new persistent state;
-- new external integrations;
-- new commercial-data owners, automated payment paths, or lead-storage expansion;
-- new major system boundaries.
+- final site information architecture, routes, and public copy;
+- new runtime areas, persistent state, integrations, or customer-data owners;
+- website handling of credentials or private resources;
+- standardized offer scope, price, hosting, maintenance, payment, and provisioning;
+- retirement or redirection of public URLs when preservation value is uncertain.
+
+## Agent Responsibilities
+
+Agents must:
+
+- trace product changes through architecture, environment, and code documentation before implementation;
+- preserve the distinction among Alarisa as strategic product system, PDE as an infrastructure component, and Telegram integration as the current concrete offer;
+- distinguish site responsibilities from PDE and client-deployment responsibilities;
+- label legacy GitHub funnel behavior as drift rather than a reusable pattern;
+- preserve experimental-status and trust-boundary language;
+- surface missing evidence instead of inventing validation or maturity;
+- verify URL and content preservation during any later implementation task.
 
 ## Drift Signals
 
-Architecture drift is present when:
+Architecture drift exists when:
 
-- generated output under `web/` starts carrying durable meaning unavailable in `tmpl/` or `ctx/`;
-- repository-specific application code grows beyond thin adaptation without architecture updates;
-- validation pages imply data collection or commercial automation not named in architecture documents;
-- product-page behavior depends on integrations or state not named in architecture documents.
+- public or code documentation again makes generic engineering judgment the main product;
+- GitHub Flows, Agent Orchestration PoC, or `€50` reappears as active commercial direction;
+- PDE is described as replacing or existing strategically outside Alarisa;
+- Alarisa is reduced to historical or unavailable research with no path for component-level commercialization;
+- a named Alarisa component is presented as purchasable before its offer status is documented;
+- the website begins to own PDE credentials, data, or operation without an approved boundary;
+- page or funnel mechanics define product meaning downstream;
+- historical or search-bearing material disappears without review;
+- experimental capabilities are described as mature or validated.
 
-## Pre-Code Check Order
+## Transition Rule
 
-Before code-oriented work, agents should check:
-
-```text
-product
-  -> architecture
-  -> environment
-  -> code
-```
-If lower-level guidance is still too thin for a concrete change, agents must surface the gap explicitly instead of inventing it downstream.
+The documentation target may temporarily coexist with legacy templates and code. Future work must remove or repurpose obsolete implementation in reviewed stages, preserve valuable routes, and verify that no lower-level contract recreates the old offer.

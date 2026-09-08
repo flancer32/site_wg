@@ -2,56 +2,42 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/home.md`
 - Template Version: `20260630`
-- Changed: `20260811`
+- Changed: `20260908`
 
 ## Purpose
 
-Define the locale-root commercial entry page derived from `ctx/docs/product/overview.md` and `commercial-strategy.md`.
+Define the stable route and semantic implementation boundary of the locale-root page without designing its final composition.
 
-## Route And Role
+## Route
 
-- Route: `/{locale}/`
-- Role: make a suitable buyer recognize a consequential problem Alex solves, understand why his practice is different, inspect relevant proof, and choose a commercial next step.
+- `/{locale}/`
 
-## Required Sequence
+## Target Role
 
-1. outcome-led Hero selling Alex's senior web and agent-driven engineering practice;
-2. compact authority evidence;
-3. three buyer-problem cards;
-4. three available engagement formats linking to `Work With Me`;
-5. capability system connecting Alarisa, TeqFW, ADSM, and GitHub Flows without presenting them as equal products;
-6. selected proof clusters linking into Projects, About, and Library;
-7. direct final CTA.
+The home page is the principal entry to the product-led commercial model. It must help a suitable visitor understand:
 
-## Hero Contract
+- what Wired Geese builds;
+- the concrete Telegram outcome available to discuss now;
+- how the offer relates to PDE, how PDE belongs to the larger Alarisa direction, and how TeqFW, ADSM, and engineering capability support the system;
+- which items are active, experimental, historical, or future;
+- where to inspect proof and how to take a commercial next step.
 
-The first screen must:
+Engineering experience is supporting evidence and delivery capability, not the home page's primary commodity.
 
-- name Alex and the class of outcome he delivers;
-- lead with web-product and engineering value before tool names;
-- make agent-driven work a differentiator rather than a generic promise;
-- expose one primary commercial CTA to `/{locale}/work-with-me.html`;
-- expose one secondary evidence CTA to Projects;
-- show at least three compact, supportable authority markers.
+## Implementation Boundary
 
-GitHub Flows and the `€50` PoC must not be the global headline or primary CTA.
+The page:
 
-## Capability Contract
+- remains in the shared locale shell;
+- must preserve equivalent semantic intent across locales;
+- must not require the visitor to understand internal platform terms before buyer value;
+- must not imply production maturity, broad validation, fixed pricing, or unsupported outcomes;
+- must route useful historical and technical material without placing it before the commercial proposition.
 
-- Alarisa is the strategic R&D direction and must be marked as in active development, not for sale.
-- TeqFW is the owned engineering platform.
-- ADSM is the owned management methodology.
-- GitHub Flows is supporting orchestration proof.
+## Open Design
 
-The composition should explain that these are parts of one engineering practice, not four competing products.
+Final headline, section order, navigation relationship, offer CTA, proof selection, page-local assets, and route links require a later approved design. This document must not be used as a substitute for that decision.
 
-## Quality Check
+## Legacy Drift
 
-The page is acceptable when a first-time buyer can answer within one reading:
-
-- what Alex can do for a client;
-- who should contact him;
-- what can be bought now;
-- why his use of agents is credible and controlled;
-- what evidence can be inspected;
-- where to start a serious conversation.
+The current page may still lead with senior engineering engagements or present Alarisa mainly as one unavailable monolithic project. The first is legacy positioning; the second is incomplete because it does not expose the component-level productization path. GitHub Flows and the old PoC must not reappear as current home-page content.

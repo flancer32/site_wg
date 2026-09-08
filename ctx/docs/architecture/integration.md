@@ -2,57 +2,57 @@
 
 - Path: `ctx/docs/architecture/integration.md`
 - Template Version: `20260605`
-- Changed: `20260810`
+- Changed: `20260908`
 
 ## Purpose
 
-Describe external integrations and major internal contracts between architectural blocks.
+Define the site's external integrations, internal contracts, and boundary with products promoted through the site.
 
-## External Integrations
+## Site Integrations
 
-The architecturally significant external integrations are:
+The stable site integrations are:
 
-- TeqCMS as the site engine used for rendering and translation-oriented workflows under the `@teqfw/cli` process host;
-- Node.js as the runtime for local execution and publication commands;
-- public external sites linked as product destinations;
-- optional manual commercial surfaces such as email contact and Fiverr for payment or escrow paths;
-- SMTP email delivery for programmatic form submission from commercial landing pages;
-- host-level deployment surfaces implied by `bin/` and `etc/`, including service and redirect configuration artifacts.
+- TeqCMS under the `@teqfw/cli` host for rendering and site workflows;
+- Node.js for local execution and publication commands;
+- Nunjucks-compatible templates for authored page composition;
+- SMTP for existing programmatic form-to-email delivery;
+- public external destinations used as evidence, communication, or product references;
+- host-level deployment surfaces represented by `bin/` and `etc/`.
+
+These are website integrations. They do not make the website a host for the products it sells.
 
 ## Internal Contracts
 
-The major internal contract surfaces are:
+- Root package and TeqCMS configuration bind the project namespace, lifecycle plugin, DI replacements, and template engine.
+- Request routing resolves locale and canonical route information before page-specific enrichment.
+- Template sources produce browser-facing output through the CMS runtime.
+- Redirect configuration supports intentional preservation and normalization of public URLs.
+- Contact delivery sends approved page input to the operator without becoming a general customer database.
 
-- the contract between root `package.json`, `teqcms.config.mjs`, and `src/`, where the host declares the application namespace and lifecycle plugin, selects DI replacements before container resolution, and registers project-specific handlers before the web command starts;
-- the contract between request routing and multilingual template content, where locale extraction selects the rendered content branch;
-- the contract between validation landing-page content and first-party funnel logging, where event payloads must stay bounded and non-sensitive;
-- the contract between the landing page and funnel-event naming, where the stable page identifier for this offer is `github-agent-orchestration-poc`;
-- the contract between browser-side page interactions and a first-party event endpoint such as `/funnel/evt`, where requests should be fire-and-forget and return only a minimal success status;
-- the contract between browser-side event delivery and the backend, where `navigator.sendBeacon()` is preferred for non-blocking event delivery and `fetch(..., {keepalive: true})` is the fallback;
-- the contract between first-party event requests and ordinary web-server access logs, where raw log lines may later be parsed into weekly aggregate counts;
-- the contract between the landing-page form and the email delivery endpoint (`POST /api/send-email`), where the browser sends form data as `application/x-www-form-urlencoded`, includes a server-generated signed `form_token`, and expects a JSON response with `{ok: boolean}`;
-- the contract between the email handler and the SMTP server, where `nodemailer` delivers a composed HTML email using the `APP__EMAIL_*` configuration keys for transport authentication and recipient routing;
-- the contract between form-token signing and runtime configuration, where `WG_FORM_TOKEN_SECRET` is preferred and a local runtime fallback file under `var/` may be used when that environment variable is absent;
-- the contract between template sources and the publication block, where TeqCMS materializes browser-facing output into `web/`.
+Detailed implementation contracts remain in the code documentation when they are durable and current.
 
-The product-level integration chain described by the landing page is also architecturally significant as a documented boundary model:
+## PDE Commercial Boundary
 
-- GitHub issue event as the first event source;
-- webhook delivery into `github-flows-app`;
-- workflow decision before agent execution;
-- containerized agent runtime as the first execution environment;
-- LLM, prompt, and tool selection inside the agent run;
-- GitHub labels and issue comments as the first visible result surface;
-- run evidence such as execution status, runtime, token usage, and sanitized logs.
+The site may describe a PDE capability and route a visitor to a commercial conversation. The following are outside the website integration boundary unless separately approved:
 
-These components are described as replaceable parts of one orchestration pattern.
-That does not imply the site repository already implements alternative event platforms or runners.
+- MCP interaction with a customer's AI system;
+- Telegram authentication, sessions, messages, and publishing authority;
+- Shared Files storage;
+- PDE deployment, monitoring, updates, and termination;
+- client VPS access or managed hosting.
 
-## Boundary Rules
+These responsibilities belong to PDE and to client-specific delivery arrangements. Selling an external capability does not imply runtime coupling to the selling site.
 
-- New runtime integrations must be documented here before they become durable implementation assumptions.
-- SMTP credentials and recipient addresses are configured through `@teqfw/cfg` under the `APP` namespace (`APP__EMAIL_*` keys) and must not be tracked in the repository.
-- Internal contract descriptions must stay at boundary level rather than module-by-module API detail.
-- Manual commercial integrations are acceptable as bounded links or operator workflows; automated payment or CRM integrations require explicit review.
-- Product destinations may evolve, but new categories of external dependency require architectural review.
-- Access logs may be used as raw funnel evidence for approved first-party event requests, but that does not authorize a full analytics or customer-data platform.
+## Trust And Authority
+
+Any future website interaction involving credentials, private resource identifiers, deployment administration, or product provisioning would transfer materially more authority than an ordinary contact request. It must be documented upstream, minimized, and approved before implementation.
+
+The current offer therefore favors a human agreement on deployment and credential boundaries before sensitive access is requested.
+
+## Legacy Integration Drift
+
+The current code may still contain a GitHub-offer landing form, offer-specific token injection, and fields tied to repository validation. Those are implementation remnants of a discontinued direction. They must not be treated as reusable contracts for the Telegram offer.
+
+## Change Rule
+
+New runtime integrations, automated payment or provisioning, external analytics, CRM dependencies, or customer-data owners require explicit architectural review. Product destinations and ordinary evidence links may evolve without becoming runtime dependencies.
