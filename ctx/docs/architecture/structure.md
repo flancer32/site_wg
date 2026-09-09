@@ -28,9 +28,18 @@ Describe the major architectural blocks and responsibility boundaries of the sit
 
 ## Commercial Surface Structure
 
-The future public structure must distinguish Alarisa as the principal long-term R&D project from capabilities, independently deliverable products, concrete offers, customization, proof, writing, and contact. It must keep current products and offers directly reachable without requiring a visitor to understand Alarisa, while allowing interested visitors to trace their R&D lineage and understand Alarisa's future product ambition. Architecture does not yet assign these roles to final routes or a navigation tree.
+The future public structure has two distinct semantic responsibilities:
 
-Existing pages may be retained, repurposed, redirected, or reorganized only after content and search-value review. A familiar route name does not preserve an obsolete commercial role by itself.
+- the **primary commercial surface** makes current products, offers, outcomes, relevant technology and direction, customization, accountable maker identity, trust boundaries, and a commercial action easy to discover;
+- the **secondary knowledge and archive surface** keeps Projects, Library, Journal, Books, technical materials, historical projects, experiments, proof, and other retained content meaningfully reachable.
+
+The primary surface must distinguish Alarisa as the principal long-term R&D project from capabilities, independently deliverable products, concrete offers, customization, proof, writing, and contact. It must keep current products and offers directly reachable without requiring a visitor to understand Alarisa, while allowing interested visitors to trace their R&D lineage and understand Alarisa's future product ambition.
+
+Primary navigation serves the current business through Products, Custom Development, Alarisa, Technology, and About, with Home owned by the brand link and Contact represented by a distinct commercial action. Resources, Projects, Library, Journal, and Books use the footer, the Resources hub, contextual links, related-content links, and retained inbound routes.
+
+These are responsibility and reachability boundaries within one SSR publication architecture. The canonical semantic labels, destination order, page roles, and route intents come from `../product/information-architecture.md`; architecture must not silently alter them.
+
+Existing pages may be retained, repurposed, redirected, or reorganized only after content and search-value review. A familiar route name does not preserve an obsolete commercial role or primary-navigation position by itself. Leaving a file or URL online without an intentional internal discovery path is not sufficient preservation.
 
 ## Site And Product Boundary
 

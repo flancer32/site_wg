@@ -14,14 +14,18 @@ Define the stable route and semantic implementation boundary of the locale-root 
 
 ## Target Role
 
-The home page is the principal entry to the product-led commercial model. It must help a suitable visitor understand:
+The home page is the principal entry to the product-led commercial model. Its semantic sequence is:
 
-- what Wired Geese builds;
-- the concrete Telegram outcome available to discuss now;
-- Alarisa as the principal long-term R&D project and future product candidate, without implying that it can be bought now;
-- when useful after the buyer outcome, how the offer uses PDE, how PDE contributes to Alarisa R&D, and how TeqFW, ADSM, and AI-agent practice support Alarisa and other products;
-- which items are active, experimental, historical, or future;
-- where to inspect proof and how to take a commercial next step.
+1. what Wired Geese builds;
+2. the concrete Telegram outcome available to discuss now;
+3. whether the current product's experimental, trust, and deployment boundaries fit the visitor;
+4. the customization and integration path;
+5. Alarisa as the principal long-term R&D project and future product candidate, without implying that it can be bought now;
+6. Alex Gusev as accountable maker and TeqFW, ADSM, and AI agents as the production system supporting Alarisa and independent products;
+7. selected practical-use or historical proof and the Resources path without allowing them to dominate the commercial proposition;
+8. the `Discuss your need` commercial action.
+
+This ordering is semantic. Adjacent meanings may share one visual section, but buyer outcome must precede platform lineage and maker identity.
 
 Engineering experience is supporting evidence and delivery capability, not the home page's primary commodity.
 
@@ -34,11 +38,12 @@ The page:
 - must not require the visitor to understand internal platform terms before buyer value;
 - must not require the visitor to understand or adopt Alarisa before discovering or buying an independent offer;
 - must not imply production maturity, broad validation, fixed pricing, or unsupported outcomes;
-- must route useful historical and technical material without placing it before the commercial proposition.
+- must distinguish Alex's own and trusted-user practical use from external commercial validation;
+- must route useful historical and technical material through an intentional secondary or contextual path without placing it before the commercial proposition.
 
-## Open Design
+## Interface Design Boundary
 
-Final headline, section order, navigation relationship, offer CTA, proof selection, page-local assets, and route links require a later approved design. This document must not be used as a substitute for that decision.
+Final headlines, body copy, visual grouping, card count, proof selection, page-local assets, and responsive composition require a later approved interface design. Navigation relationships, route links, Resources treatment, and the commercial action must follow the approved information architecture.
 
 ## Legacy Drift
 

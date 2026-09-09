@@ -2,21 +2,21 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/work-with-me.md`
 - Template Version: `20260811`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
-Define the current commercial-route boundary while its future role is reconsidered under the product-led model.
+Define the retained commercial route and its approved role as the Custom Development page.
 
 ## Route
 
 - `/{locale}/work-with-me.html`
 
-## Target Boundary
+## Target Role
 
-The route may support deployment, integration, customization, and related engineering around Alex's original products and capabilities. It must not restore generic senior-engineering engagements as the primary product hierarchy.
+The route is labeled `Custom Development` in primary navigation. It supports deployment, integration, customization, and related engineering around Alex's original products and capabilities. It must not restore generic senior-engineering engagements as the primary product hierarchy.
 
-The product context requires visitors to distinguish concrete offers from customization capability. Whether this existing route becomes that capability surface, is renamed, redirects elsewhere, or remains as a secondary page is deliberately open.
+Visitors must encounter concrete Products separately from this customization capability. The existing URL remains canonical so accumulated route value is preserved while its commercial meaning changes.
 
 ## Implementation Constraints
 
@@ -26,6 +26,6 @@ The product context requires visitors to distinguish concrete offers from custom
 - No fixed prices, delivery times, testimonials, maturity claims, or guaranteed outcomes may be invented.
 - GitHub Flows and Agent Orchestration PoC must not be linked as current offers.
 
-## Design Gate
+## Interface Design Gate
 
-Final route role, title, section sequence, qualification language, and CTAs require a later site information-architecture decision. Current implementation is not authority for those choices.
+Final title wording, section composition, qualification language, and page-local CTAs require later interface design. The approved role, route, and primary-navigation membership are not open implementation choices.

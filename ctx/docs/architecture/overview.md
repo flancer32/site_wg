@@ -14,7 +14,9 @@ The architecture realizes `wiredgeese.com` as a multilingual commercial publicat
 
 - communicates concrete offers, active technologies, customization capability, proof, research, and writing with distinct status;
 - presents Alarisa as the principal long-term R&D direction and future product candidate while giving current standalone products and offers direct commercial paths;
-- preserves valuable historical and search-bearing public material;
+- gives the primary commercial surface and navigation responsibility for the current business while preserving accumulated knowledge on a meaningfully reachable secondary surface;
+- preserves valuable historical and search-bearing public material without granting it automatic primary prominence;
+- presents Alex Gusev as the accountable maker working with AI-agent production participants without implying a larger organization or unbounded capacity;
 - supports explicit commercial next steps without assuming a mature automated sales system;
 - remains separate from the runtime and client deployments of products it promotes.
 
@@ -27,6 +29,8 @@ The stable flow is:
 `authoritative context -> authored templates and assets -> TeqCMS plus thin project adapter -> SSR or published browser output`
 
 The commercial repositioning changes site meaning and future content hierarchy. It does not by itself authorize a new site engine, a large custom application, or incorporation of PDE into the website process.
+
+The primary commercial and secondary knowledge/archive surfaces are semantic responsibilities, not separate applications or deployment units. Their approved navigation, page roles, and route intents are defined in `../product/information-architecture.md` and rendered through the same multilingual SSR system.
 
 ## Major Boundaries
 

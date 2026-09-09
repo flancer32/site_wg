@@ -19,11 +19,15 @@ Define stable shared composition rules while leaving the future commercial page 
 
 ## Commercial Target
 
-Future composition must make purchasable offers and outcomes more prominent than biography or generic services, while preserving access to useful projects, writing, books, and historical material.
+Target composition makes purchasable offers and outcomes more prominent than biography, generic services, or legacy content categories. Primary composition supports Products, the Telegram offer, Custom Development, Alarisa, Technology, About, honest boundaries, and the Contact action according to `../../../product/information-architecture.md`.
+
+Projects, Library, Journal, Books, technical material, and historical proof belong to a secondary knowledge and archive role by default. They must remain meaningfully discoverable through an approved combination of footer or other secondary navigation, a coherent resource entry point, contextual or related-content links, existing inbound routes, and redirects where required. Merely retaining template files is insufficient.
 
 It must also preserve Alarisa as the strategically central long-term R&D direction without presenting it as currently purchasable. Standalone products and offers that emerge from its work must remain directly reachable; their R&D lineage may be explained after the buyer outcome rather than imposed as a prerequisite.
 
-This document does not prescribe a home-page sequence, a product catalogue, a Telegram landing page, a contact form, or a final navigation tree. Those choices require a later approved product and interface design.
+Home follows the approved semantic sequence of identity, current outcome, fit and boundaries, customization, Alarisa, maker and production system, selected proof and Resources, and the commercial action. This sequence may combine adjacent meanings into visual sections but must not reverse buyer value and supporting explanation.
+
+This document does not prescribe final headlines, body copy, card count, illustrations, responsive layout, detailed page styling, contact form fields, or offer interaction state. Those choices require a later approved interface design.
 
 ## Legacy Composition
 
@@ -38,4 +42,4 @@ These structures are legacy drift. They may be retained temporarily for a valid 
 
 ## Preservation Gate
 
-Before composition changes remove or relocate content, implementation work must inventory affected URLs and decide whether to keep, repurpose, redirect, or preserve archive access. Locale branches must remain semantically aligned.
+Before composition changes remove or relocate content, implementation work must inventory affected URLs and decide whether to keep, repurpose, redirect, or preserve archive access. Retained content needs an intentional internal discovery path, and locale branches must remain semantically aligned.

@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/state.md`
 - Template Version: `20260605`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -34,6 +34,8 @@ Define sources of truth and state ownership for the target site while separating
 Visits, page events, submitted forms, and marketplace messages do not by themselves prove a qualified customer, payment, delivery, reusable capability, or product demand.
 
 Early commercial validation requires evidence from external paying customers and completed setups. Human confirmation remains authoritative unless a separately approved trusted business system is introduced.
+
+Alex's personal operation of Alarisa and PDE, and selected installations for close or experimental users, are practical-use evidence. They must remain distinguishable from commercial evidence and must not be promoted into claims of market demand, mature support, production-grade security, or repeatable external deployment.
 
 ## Change Discipline
 

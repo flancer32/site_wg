@@ -25,11 +25,15 @@ The code documentation describes the existing multilingual SSR delivery model an
 Future implementation must derive from the product-led commercial context:
 
 - products and concrete outcomes lead;
+- the primary commercial surface and navigation serve current business goals;
+- Projects, Library, Journal, Books, and other retained knowledge may become secondary without becoming orphaned;
 - engineering expertise supports product delivery and customization;
+- Alex Gusev is presented as the accountable maker and AI agents as active production participants without implied large-company capacity;
 - Alarisa remains visible as the strategic R&D direction but is not presented as a current commercial product;
 - capabilities, independently deliverable products, and buyer-facing offers remain distinct;
 - PDE remains external to the website runtime;
 - valuable routes and public material are preserved deliberately;
+- retained material has a meaningful internal discovery path, not only a surviving file or search result;
 - experimental status and credential boundaries stay explicit.
 
 ## Legacy Drift
@@ -40,14 +44,13 @@ Those elements are not durable code contracts. Future agents must not rebuild, e
 
 The implementation may also still express the former engineer-centric commercial hierarchy. That behavior remains observable current state but is not the accepted target.
 
-## Future Design Gate
+## Implementation Design Gate
 
-Before code changes begin, the human must approve enough product and architecture detail to define:
+The commercial information architecture, target route intents, navigation hierarchy, and page roles are approved in `../product/information-architecture.md`. Before code changes begin, the human must still approve enough interface and interaction detail to define:
 
-- final information architecture and routes;
-- page roles and composition;
-- preservation and redirect decisions;
+- final public copy and visual composition;
+- the evidence-based preservation or redirect treatment for affected legacy routes;
 - contact and qualification behavior;
 - whether any telemetry, payment, provisioning, or customer-data handling is required.
 
-Absent that approval, code documentation should preserve stable SSR facts and leave commercial implementation questions open.
+Absent that approval, code documentation may map the approved information architecture but must not invent the remaining interface or interaction contracts.

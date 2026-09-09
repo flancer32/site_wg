@@ -23,6 +23,8 @@ The contact page is a general commercial next-step surface for:
 
 It must not make GitHub Flows, Agent Orchestration PoC, generic consulting, or a legacy fixed price the current reason to write.
 
+Contact is a commercial action and route-continuity concern, not a primary content category. The header exposes it through the `Discuss your need` action; offer pages, Custom Development, the footer, and contextual CTAs may also link to it.
+
 ## Contact Boundary
 
 The page may expose approved direct contact channels and first-message guidance. A first conversation may identify the desired outcome, AI system, Telegram boundary, preferred deployment model, and likely customization.
@@ -40,4 +42,4 @@ No final form fields, channel order, automation, payment step, or deployment wor
 
 ## Preservation And Redesign
 
-The established contact route should normally remain valid. Final page composition and copy require a later approved design.
+The established contact route remains valid. Final page composition and copy require a later approved design.

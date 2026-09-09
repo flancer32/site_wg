@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/layouts.md`
 - Template Version: `20260630`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -10,7 +10,7 @@ Describe the shared SSR shell, its regions, responsive behavior, and accessibili
 
 ## Primary Layout
 
-Each locale defines the same structural layout under `tmpl/web/{locale}/inc/layout.html`. The shell remains stable while the future product-led navigation and content hierarchy await approval.
+Each locale defines the same structural layout under `tmpl/web/{locale}/inc/layout.html`. The shell remains the common structural owner while the approved product-led navigation and content hierarchy await implementation.
 
 The layout owns:
 
@@ -28,10 +28,13 @@ Page templates own route-specific metadata blocks, content, and any narrowly jus
 
 The header stays visible while scrolling and contains:
 
-- Wired Geese identity with Alex Gusev present as the accountable maker rather than the sole commodity;
-- primary navigation;
+- Wired Geese as the brand link to the locale root, with Alex Gusev available as subordinate accountable-maker attribution;
+- primary navigation in this semantic order: Products, Custom Development, Alarisa, Technology, About;
+- a visually distinct `Discuss your need` commercial action linking to Contact;
 - locale switcher;
 - a keyboard-operable mobile menu control.
+
+Home is owned by the brand link and must not be duplicated as an equal text item. Resources and retained content categories do not enter primary navigation. Localized labels must preserve these meanings and ordering.
 
 ### Main Content
 
@@ -41,7 +44,13 @@ Long-form pages narrow their primary reading surface to approximately `58rem` so
 
 ### Site Footer
 
-The footer carries secondary navigation, current copyright information, and durable attribution to TeqFW, TeqCMS, and ADSM.
+The footer carries substantial secondary navigation, current copyright information, and durable attribution to TeqFW, TeqCMS, and ADSM. Its semantic groups are:
+
+- `Build` — Products, Custom Development, Alarisa, Technology;
+- `Knowledge` — Resources, Project archive, Library, Journal, Books;
+- `Wired Geese` — About, Contact, maker attribution, and approved external profile or company links.
+
+The footer provides a coherent discovery path without becoming an unstructured dump. Localized group wording may change idiomatically without changing membership or responsibility.
 
 ## Visual System
 

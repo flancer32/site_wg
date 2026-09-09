@@ -22,7 +22,7 @@ Current implementation is evidence of existing behavior, not authority to reinst
 
 Human approval is required for:
 
-- final site information architecture, routes, and public copy;
+- changes to the approved site information architecture or route intents, and all final public copy;
 - new runtime areas, persistent state, integrations, or customer-data owners;
 - website handling of credentials or private resources;
 - standardized offer scope, price, hosting, maintenance, payment, and provisioning;
@@ -37,8 +37,11 @@ Agents must:
 - distinguish site responsibilities from PDE and client-deployment responsibilities;
 - label legacy GitHub funnel behavior as drift rather than a reusable pattern;
 - preserve experimental-status and trust-boundary language;
+- preserve Alex Gusev as the accountable human maker while describing AI agents as production participants rather than employees or independent authorities;
+- keep current commercial navigation responsibility distinct from secondary knowledge and archive reachability;
+- implement navigation and page roles from `../product/information-architecture.md` without reinterpreting legacy template structure as authority;
 - surface missing evidence instead of inventing validation or maturity;
-- verify URL and content preservation during any later implementation task.
+- verify URL, content, and meaningful internal discovery preservation during any later implementation task.
 
 ## Drift Signals
 
@@ -54,8 +57,14 @@ Architecture drift exists when:
 - the website begins to own PDE credentials, data, or operation without an approved boundary;
 - page or funnel mechanics define product meaning downstream;
 - historical or search-bearing material disappears without review;
+- Projects, Library, Journal, Books, or another historical taxonomy retains primary prominence merely because its content or route is preserved;
+- retained content becomes reachable only through direct or search-engine access with no intentional internal discovery path;
+- Alex's maker identity replaces a concrete buyer outcome, or the site pretends to have organizational capacity it does not have;
+- AI-agent participation is used to obscure human accountability or claim unlimited capacity;
+- dogfooding or trusted-user installation is described as commercial validation;
+- Home, Resources, Products, Custom Development, Alarisa, Technology, About, or the commercial action loses its approved semantic role;
 - experimental capabilities are described as mature or validated.
 
 ## Transition Rule
 
-The documentation target may temporarily coexist with legacy templates and code. Future work must remove or repurpose obsolete implementation in reviewed stages, preserve valuable routes, and verify that no lower-level contract recreates the old offer.
+The documentation target may temporarily coexist with legacy templates and code. Future work must remove or repurpose obsolete implementation in reviewed stages, preserve valuable routes and secondary discoverability, and verify that no lower-level contract recreates the old offer or personal-portfolio hierarchy.

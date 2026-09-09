@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/localization.md`
 - Template Version: `20260630`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -32,15 +32,20 @@ Directory-index routes retain trailing slashes. Authored standalone and detail t
 
 ## Shared-Shell Vocabulary
 
-The primary navigation maps these meanings:
+The current legacy shell maps Home, Projects or Evidence, Library, Journal where present, Work with me, and Contact inconsistently. Those labels and positions are implementation drift, not target vocabulary.
 
-- `Home / Главная / Inicio`;
-- `Projects / Проекты / Proyectos`;
-- `Library / Библиотека / Biblioteca`;
-- `Journal / Журнал / Bitácora`;
-- `Contact / Контакты / Contacto`.
+The target primary shell maps these canonical meanings in this order:
 
-This list describes the current shared shell, not the approved future commercial navigation. A later product-led information-architecture decision may add, rename, reorder, or redirect destinations while preserving locale parity and useful public routes.
+- `Products`;
+- `Custom Development`;
+- `Alarisa`;
+- `Technology`;
+- `About`;
+- distinct action: `Discuss your need`.
+
+Home is represented by the localized brand link. Resources, Project archive, Library, Journal, and Books are secondary meanings owned by the Resources and footer discovery model.
+
+English labels establish semantic keys, not mandatory word-for-word text in every locale. Russian and Spanish wording must be approved as idiomatic public copy while preserving destination identity, order, primary-versus-secondary status, and action semantics.
 
 Blog announcements and durable library material remain distinct content types even though both belong to the broader writing surface.
 

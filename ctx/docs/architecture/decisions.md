@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/decisions.md`
 - Template Version: `20260605`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -32,14 +32,26 @@ Record durable architecture decisions in a short ADR-like form.
 - Rejected alternatives: add product runtime responsibilities merely because the site promotes the product.
 - Reasoning: the systems have different state, credentials, trust, failure, deployment, and revocation boundaries.
 
-## Decision 5: Preserve useful public value during restructuring
+## Decision 5: Separate preservation from navigational prominence
 
-- Decision: inventory existing URLs and content before implementation, retaining access or adding deliberate redirects where value warrants it.
-- Rejected alternatives: erase the existing archive during a homepage repositioning; preserve obsolete promotion solely to keep a route unchanged.
-- Reasoning: search and reference value can remain accessible while commercial hierarchy changes.
+- Decision: let primary navigation serve current commercial direction while retained knowledge and history remain meaningfully reachable through deliberate secondary or contextual paths. Inventory existing URLs and content before implementation, retaining access or adding redirects where value warrants it.
+- Rejected alternatives: erase the existing archive during a homepage repositioning; preserve the Home, Projects, Library, Journal, and Contact hierarchy solely because it exists or carries search value; leave retained pages online without internal discovery.
+- Reasoning: preservation does not imply navigational prominence. Search, backlink, reference, proof, and historical value can remain accessible while the primary commercial hierarchy changes.
 
 ## Decision 6: Defer new commercial automation
 
 - Decision: use the existing contact capability or another later-approved minimal handoff while pricing and delivery are learned manually.
 - Rejected alternatives: define a new offer form, analytics funnel, payment system, CRM, or automated PDE provisioning in this context rewrite.
 - Reasoning: those commitments are premature without external buyer and delivery evidence.
+
+## Decision 7: Expose accountable maker-led production
+
+- Decision: represent Alex Gusev as the accountable human maker and AI agents as active production participants, while keeping buyer outcome and evidence ahead of production identity.
+- Rejected alternatives: imply a larger organization; hide the single-maker model; treat agents as employees or as replacements for human authority; make Alex's identity the product.
+- Reasoning: suitable early buyers may value direct ownership, transparency, and customization, but those strengths do not establish maturity, capacity, continuity, or commercial validation.
+
+## Decision 8: Adopt a product-led primary route model
+
+- Decision: use Products, Custom Development, Alarisa, Technology, and About as primary navigation meanings; use the brand for Home and a distinct `Discuss your need` action for Contact; place Resources and retained knowledge in the footer and contextual discovery model defined by product information architecture.
+- Rejected alternatives: retain the current personal-site navigation; place Resources in the header as an equal commercial category; hide Alarisa under an archive; create separate applications for commercial and knowledge surfaces.
+- Reasoning: the chosen model gives the current offer a direct path, keeps Alarisa strategically visible, exposes customization and maker trust, and preserves accumulated knowledge without letting it dominate the commercial journey.

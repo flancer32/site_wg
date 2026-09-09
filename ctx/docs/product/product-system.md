@@ -16,13 +16,19 @@ JavaScript is an enabling technological choice, not the product being sold and n
 
 The production relationship is:
 
-`TeqFW + ADSM + AI agents -> software production -> Alarisa R&D and independently developed products`
+`Alex as accountable maker + TeqFW + ADSM + AI agents -> software production -> Alarisa R&D and independently developed products`
 
 Within Alarisa R&D, the learning loop is:
 
 `R&D -> useful capability -> independently valuable product -> commercial offer -> paying customer -> revenue and feedback -> reusable technology -> stronger Alarisa`
 
 These are connected roles, not a catalogue of equal products and not a single containment hierarchy.
+
+## Maker And Production Responsibility
+
+Alex Gusev is the single accountable human maker who selects product direction and accepts engineering decisions. AI and LLM agents are active production participants within the TeqFW and ADSM production system, but their ability to propose, inspect, or implement work does not transfer accountability away from Alex.
+
+This model must be represented honestly. Wired Geese must not pretend to be a larger company, describe agents as employees, claim that agents eliminate key-person risk, or imply unlimited delivery and support capacity. For suitable buyers, the same model may provide direct creator access, coherent ownership, rapid feedback, and deep customization of original technology.
 
 ## Core Distinctions
 
@@ -136,7 +142,13 @@ This possibility does not make Alarisa a current product being commercialized in
 
 Alex already uses AI agents as software-development participants. The long-term hypothesis is that software platforms increasingly need to support environments in which agents create, inspect, and modify code; consume architectural and contextual documentation; and hand software between different human-agent systems.
 
-This direction may guide product and architecture choices, but speculative future behavior must not be presented as currently available.
+This direction may guide product and architecture choices, but speculative future behavior must not be presented as currently available. Agents act within human-defined goals and authority; they do not select the commercial purpose of Wired Geese or replace Alex's responsibility for accepted outcomes.
+
+## Practical-Use Evidence
+
+Alex uses Alarisa and PDE capabilities in his own digital life, and selected capabilities have also been installed for close or experimental users. This dogfooding demonstrates that working software can be useful and operational in bounded settings.
+
+Practical use and commercial validation are separate evidence categories. Personal and trusted-user use does not establish payer demand, standardized delivery, mature support, production-grade security, or repeatable external deployment. External paying customers remain necessary to validate a commercial product or offer.
 
 ## Historical Proof
 

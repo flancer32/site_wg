@@ -30,9 +30,13 @@ Offer-specific runtime enrichment is not a default requirement. It needs an appr
 
 The target commercial behavior is:
 
-`visitor recognizes a problem -> sees a concrete outcome and honest status -> inspects relevant proof -> chooses a contact step -> Alex and the client agree scope, price, deployment, and trust boundaries outside the public page`
+`visitor recognizes a problem -> sees a concrete outcome -> evaluates fit, evidence, and honest boundaries -> understands maker responsibility where useful -> chooses a commercial action -> Alex and the client agree scope, price, deployment, and trust boundaries outside the public page`
 
 The website supports understanding and contact. It does not need to provision PDE, collect Telegram credentials, automate payment, or execute customer workflows.
+
+The main discovery flow enters through Home or a direct offer route and moves among Products, the Telegram offer, Custom Development, the commercial action, and supporting Alarisa, Technology, or About detail without requiring traversal of historical taxonomy, biography, or Alarisa internals first. Technical depth, maker identity, R&D lineage, and retained proof support the decision after buyer value is clear.
+
+The secondary discovery flow enters through Resources, footer navigation, contextual and related-content links, direct inbound URLs, or search access and then reaches Project archive, Library, Journal, Books, and selected evidence. It supports evidence and exploration without competing equally with active commercial actions.
 
 ## Preservation Flow
 
@@ -41,8 +45,9 @@ Before a future implementation changes routes or removes public material:
 1. inventory affected URLs and content;
 2. identify search, backlink, reference, and historical value;
 3. choose keep, repurpose, redirect, archive-access, or reviewed removal;
-4. implement locale-consistent routing and metadata;
-5. verify the old and new public paths as appropriate.
+4. define at least one meaningful internal discovery path for retained material;
+5. implement locale-consistent routing and metadata;
+6. verify the old and new public paths and internal reachability as appropriate.
 
 This preservation flow protects useful public value without keeping discontinued offers commercially active.
 
@@ -52,6 +57,7 @@ This preservation flow protects useful public value without keeping discontinued
 - Experimental system, capability, product, and offer statuses remain distinguishable when evidence is incomplete.
 - Missing commercial automation falls back to direct human contact rather than invented workflow.
 - Route changes fail toward preserving access or an intentional redirect rather than silent disappearance.
+- Retained content fails toward a coherent secondary or contextual path rather than an orphaned URL.
 - The website must not collect PDE or Telegram credentials as a shortcut around an undefined delivery process.
 
 ## Legacy Drift

@@ -48,6 +48,8 @@ The buyer does not need to understand PDE Runtime, Desk architecture, TDLib, MCP
 
 PDE and the Telegram capability are working and used in practice, but remain experimental. The offer must not imply mature SaaS, enterprise infrastructure, unattended reliability, or broad market validation.
 
+Alex uses the underlying capabilities himself, and selected capabilities have been installed for close or experimental users. This supports a claim of practical use, not a claim of commercial validation, production-grade security, mature support, or repeatable external delivery.
+
 ## Deployment And Trust Agreement
 
 Telegram integration operates close to personal credentials, conversations, channels, and publishing authority. This is a primary offer boundary, not a detail to hide behind generic security language.
@@ -104,6 +106,8 @@ Unless explicitly agreed, the offer does not include:
 The first learning target is approximately `3–5` paid external setups for customers outside friends and family. This target tests willingness to pay, delivery effort, trust arrangements, repeatable outcomes, and customization demand.
 
 It is not a permanent KPI and must not be described as achieved until evidence exists.
+
+The provisional best fit is a buyer who already uses AI systems actively, wants controlled access to real digital resources, accepts explicit trust and deployment discussions, and values direct access to the accountable maker. The buyer need not be a programmer or operate a server; a mutually agreed deployment may be provided by Alex. This behavioral profile is an early discovery hypothesis, not a permanent market definition.
 
 ## Next Step
 

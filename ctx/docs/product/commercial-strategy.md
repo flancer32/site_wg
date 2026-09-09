@@ -12,6 +12,12 @@ The strategy must reduce dependence on selling Alex as a generic senior develope
 
 The strategy must not depend on winning a CV-style comparison with younger generic developers. Differentiation should come from original technology, direct ownership, working demonstrations, productized delivery, customization leverage, long-term responsibility, and demonstrated use of AI agents. The site must not turn this constraint into age-focused marketing or unsupported claims about discrimination.
 
+The commercial sequence remains:
+
+`concrete need -> useful product or outcome -> evidence and boundary -> maker and production model as trust and differentiation -> commercial next step`
+
+Alex's identity supports the value of a product; it does not replace that value.
+
 ## Vision And Cash Engine
 
 The commercial model distinguishes two connected horizons.
@@ -27,6 +33,14 @@ Alarisa is not currently a commercial product. The long-term objective is for it
 Revenue must begin with independently valuable products and concrete offers that can be sold now or soon. PDE supplies capabilities that can solve customer problems without requiring the customer to adopt Alarisa. The first active offer is a bounded paid experimental setup connecting an MCP-compatible AI system such as ChatGPT to a client's Telegram account through PDE.
 
 The vision explains why the work compounds. The cash engine prevents continued Alarisa development from depending on indefinite unpaid research, reputation, or speculative attention.
+
+## Maker-Led Production Model
+
+Wired Geese is intentionally maker-led. Alex Gusev creates and directs the products, TeqFW, ADSM, Alarisa, PDE, and related applications while working closely with AI and LLM agents as active production participants.
+
+Alex owns product direction and remains accountable for accepted engineering and delivery decisions. Agents expand production capacity and help inspect, create, and maintain software; they are not employees and do not remove human review or responsibility.
+
+For buyers who value this model, its potential commercial strengths include direct creator access, coherent architectural ownership, a short feedback path, customization below the surface of a third-party SaaS, continuity across the original technology stack, and evidence that Alex uses parts of the system himself. The site must not infer from those strengths `24/7` support, large-team redundancy, enterprise service capacity, unlimited parallel customization, continuity independent of Alex, or removal of key-person risk.
 
 ## Compounding Revenue Model
 
@@ -97,6 +111,21 @@ This is a temporary evidence target, not a permanent business metric or a claim 
 
 Evidence from real payment, delivery, and follow-up has priority over visits, clicks, or expressions of interest.
 
+## Provisional Early Adopter Fit
+
+The initial audience hypothesis is based on behavior and technological attitude rather than demographics. Suitable early customers may be technically thoughtful individuals, independent professionals, makers, founders, or small teams who:
+
+- actively use ChatGPT or another AI or LLM system for real work;
+- want controlled interaction between agents and their digital resources;
+- value explicit data, credential, infrastructure, and authority boundaries;
+- accept experimental software and direct discussion of trade-offs;
+- value direct access to the accountable maker and the possibility of customization;
+- may prefer self-hosting or a controlled deployment, without necessarily operating it themselves.
+
+Programming skill is not a qualification requirement. Technical depth should be available for trust evaluation without becoming a gate before the buyer outcome.
+
+Similarity to Alex's own unmet needs and technical attitudes is a useful discovery heuristic because PDE was developed partly for his own use. Paying-customer evidence must later narrow, broaden, or replace this audience hypothesis.
+
 ## Acquisition
 
 The site is the primary credibility and explanation surface, but not the only acquisition channel.
@@ -129,6 +158,8 @@ Commercial truth includes paid work, delivered outcomes, actual effort, reusable
 
 Traffic, click events, contact intent, and marketplace messages may help diagnose acquisition, but they must not be presented as revenue, validation, or customer success.
 
+Alex's own use of Alarisa and PDE, plus installations for close or experimental users, proves practical use and can support credible demonstration. It does not prove market demand, production-grade security, mature support, repeatable external deployment, or commercial validation. Those claims require external paying-customer evidence.
+
 No specific analytics, CRM, payment, or automated funnel implementation is authorized by this strategy.
 
 ## Open Strategic Questions
@@ -145,6 +176,7 @@ The following remain deliberately open until external evidence supports a decisi
 - how public positioning should explain the R&D origin of independent products without making buyers learn Alarisa first;
 - what audience, packaging, pricing, business model, and deployment boundary a future mature Alarisa product may eventually require;
 - which channels produce qualified, economically viable customers;
-- what site information architecture and public copy best communicate the model.
+- what final public copy and visual design best express the approved information architecture;
+- how capacity, support, and continuity limits of the single-maker model should be expressed as products mature.
 
 These questions must not be answered in lower-level documentation by inventing implementation contracts.

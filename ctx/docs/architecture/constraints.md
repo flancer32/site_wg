@@ -16,8 +16,10 @@ The architecture must preserve:
 - a multilingual, content-oriented TeqCMS site with thin justified project adaptation;
 - `web/` as derived publication output rather than an authored source of truth;
 - clear status distinctions among active offers, experimental capabilities, research, and historical proof;
+- separation of primary commercial prominence from secondary knowledge and archive reachability;
 - separation between the wiredgeese.com runtime and PDE or customer deployments;
 - deliberate preservation of valuable URLs and public material during future restructuring;
+- Alex Gusev's accountability for accepted product and engineering decisions when AI agents participate in production;
 - direct human review for commercial scope, price, trust, and deployment decisions while the offer is experimental.
 
 ## Trust Constraints
@@ -43,13 +45,21 @@ Architecture must not encode:
 - every Alarisa subsystem or capability as something that must become a product;
 - the World Map, general memory, or another Alarisa component as an active offer before its status and boundary are documented;
 - Shared Files as a validated offer;
-- detailed page, form, navigation, analytics, or deployment contracts that product documentation deliberately leaves open.
+- the current Home, Projects, Library, Journal, and Contact navigation as a durable target hierarchy;
+- historical or search value as automatic authority for primary-navigation placement;
+- Alex's maker identity as a substitute for a concrete buyer outcome;
+- AI agents as employees, independent product authorities, or replacements for Alex's accountability;
+- large-team redundancy, `24/7` support, enterprise capacity, unlimited customization, or continuity independent of Alex;
+- final copy, visual composition, form, analytics, or deployment contracts that product documentation deliberately leaves open;
+- navigation labels, ordering, destinations, or page roles that contradict `../product/information-architecture.md`.
 
 ## Preservation Constraints
 
 Future implementation must not remove or relocate search-bearing content casually. Route retirement requires an evidence-informed decision and deliberate redirect or access strategy where warranted.
 
-Preservation applies to useful history and content, not to obsolete commercial emphasis.
+Preservation applies to useful history and content, not to obsolete commercial emphasis. Retained content must remain reachable through a deliberate secondary, contextual, related-content, or equivalent internal path; presence on the server or search access alone is insufficient.
+
+Projects, Library, Journal, Books, historical experiments, and comparable material stay out of primary navigation. The Resources hub, footer groups, contextual links, and retained routes provide their approved discovery model.
 
 ## Approval Cases
 
@@ -60,5 +70,5 @@ Human approval is required before introducing:
 - a new external runtime integration;
 - customer credential or private-resource handling by the site;
 - automated payment, provisioning, managed-hosting, or customer-record systems;
-- a final commercial navigation or page architecture;
+- a change to the approved commercial navigation, canonical page roles, or route intents;
 - conversion tracking beyond ordinary operational evidence.
