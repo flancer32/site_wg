@@ -64,9 +64,7 @@ const localePattern = /^\/(en|es|ru)(?=\/|$)/;
 document.querySelectorAll('[data-locale-target]').forEach((link) => {
     const targetLocale = link.dataset.localeTarget;
     if (!targetLocale) return;
-    const localizedPath = link.dataset.localeFallback === 'root'
-        ? `/${targetLocale}/`
-        : currentPath.match(localePattern)
+    const localizedPath = currentPath.match(localePattern)
         ? currentPath.replace(localePattern, `/${targetLocale}`)
         : `/${targetLocale}/`;
     link.href = `${localizedPath}${window.location.search}${window.location.hash}`;

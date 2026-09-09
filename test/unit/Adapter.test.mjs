@@ -91,7 +91,7 @@ test('marks only publication details and removes metadata from 404 pages', async
     assert.deepEqual(missing.data.alternateUrls, {});
 });
 
-test('keeps the English-only product route out of nonexistent locale alternates', async () => {
+test('includes localized ChatGPT + Telegram product alternates', async () => {
     const adapter = createAdapter();
     const result = await adapter.getRenderData({
         req: {url: '/en/products/chatgpt-telegram.html', headers: {}, socket: {}},
@@ -100,6 +100,7 @@ test('keeps the English-only product route out of nonexistent locale alternates'
     assert.equal(result.data.canonicalUrl, 'https://wiredgeese.com/en/products/chatgpt-telegram.html');
     assert.deepEqual(result.data.alternateUrls, {
         en: 'https://wiredgeese.com/en/products/chatgpt-telegram.html',
+        ru: 'https://wiredgeese.com/ru/products/chatgpt-telegram.html',
+        es: 'https://wiredgeese.com/es/products/chatgpt-telegram.html',
     });
-    assert.equal(result.data.localeRouteFallback, true);
 });

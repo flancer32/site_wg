@@ -22,7 +22,7 @@
                 {% if loc == locale %}
                 <span aria-current="true">{{ loc | upper }}</span>
                 {% else %}
-                <a href="/{{ loc }}/" data-locale-target="{{ loc }}"{% if localeRouteFallback %} data-locale-fallback="root"{% endif %} lang="{{ loc }}" hreflang="{{ loc }}">{{ loc | upper }}</a>
+                <a href="/{{ loc }}/" data-locale-target="{{ loc }}" lang="{{ loc }}" hreflang="{{ loc }}">{{ loc | upper }}</a>
                 {% endif %}
                 {% endfor %}
             </div>

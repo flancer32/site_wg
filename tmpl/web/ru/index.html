@@ -1,36 +1,91 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Алекс Гусев — web-разработка с использованием ИИ-агентов{% endblock %}
-{% block description %}Проектирую, создаю и развиваю web-системы, соединяя 25+ лет инженерного опыта, TeqFW, ADSM и управляемую работу ИИ-агентов.{% endblock %}
+{% block title %}Wired Geese — программное обеспечение для людей и их ИИ-агентов{% endblock %}
+{% block description %}Программные продукты Алекса Гусева, соединяющие людей и их ИИ-агентов с полезными цифровыми сервисами и информацией.{% endblock %}
 
 {% block content %}
 <div class="home-page">
-    <section class="card hero--home">
-        <div class="hero-copy">
-            <p class="eyebrow">Алекс Гусев · Независимый web-инженер · Латвия</p>
-            <h1>Я создаю web-системы, которые не боятся развития.</h1>
-            <p class="lead">Приходите со сложной продуктовой, архитектурной или инженерной задачей. Я соединяю более 25 лет опыта в web-разработке с возможностями ИИ-агентов, чтобы двигаться быстрее без потери контекста, контроля и ответственности.</p>
-            <div class="hero-links"><a class="button-primary" href="/{{ locale }}/work-with-me.html">Обсудить задачу</a><a class="button-secondary" href="/{{ locale }}/projects.html">Посмотреть доказательства</a></div>
-            <ul class="proof-strip" aria-label="Профессиональный опыт"><li>Web-разработка с 1998 года</li><li>Основатель и практикующий инженер</li><li>JavaScript · Node.js · Browser</li><li>ЕС · Удалённая работа</li></ul>
+    <div class="home-opening">
+        <section class="home-hero" aria-labelledby="home-title">
+            <h1 id="home-title">Я создаю программное обеспечение для людей и их ИИ-агентов.</h1>
+            <p class="lead">Я создаю практические продукты, которые соединяют ИИ-агентов с цифровыми сервисами и информацией, которыми вы уже пользуетесь.</p>
+            <div class="hero-links">
+                <a class="button-primary" href="#products">Посмотреть продукты</a>
+                <a class="button-secondary" href="#how-it-works">Как это работает</a>
+            </div>
+        </section>
+
+        <section class="home-products" id="products" aria-labelledby="products-title" tabindex="-1">
+            <div class="home-products-heading">
+                <h2 id="products-title">Доступно сейчас</h2>
+            </div>
+            <div class="product-collection">
+                <article class="product-preview">
+                    <p class="product-status">Ранний доступ</p>
+                    <h3>ChatGPT + Telegram</h3>
+                    <p class="product-outcome">Подключите ChatGPT к Telegram.</p>
+                    <p>Превращайте активные разговоры в Telegram в полезные сводки, а затем работайте с ними прямо из ChatGPT.</p>
+                    <ul class="product-capabilities">
+                        <li>Читайте и суммируйте разговоры и каналы.</li>
+                        <li>Находите нужную историю там, где это поддерживается.</li>
+                        <li>Готовьте и публикуйте сообщения.</li>
+                    </ul>
+                    <p class="product-commercial">Доступна платная настройка.</p>
+                    <p class="product-links"><a class="button-primary" href="/{{ locale }}/products/chatgpt-telegram.html">О продукте</a></p>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <section class="home-bridge" aria-labelledby="adaptation-title">
+        <div>
+            <h2 id="adaptation-title">Нужно немного другое?</h2>
+            <p>Если существующий продукт близок к вашей задаче, я могу адаптировать его, подключить другой сервис или расширить для вашего рабочего процесса.</p>
         </div>
-        <aside class="system-map" aria-label="Инженерная практика">
-            <p class="system-map-label">Единая ответственная инженерная практика</p>
-            <div class="system-flow"><div class="system-node"><span>01</span><strong>Понять реальную задачу продукта</strong></div><div class="system-connector" aria-hidden="true"></div><div class="system-node"><span>02</span><strong>Зафиксировать архитектуру и границы</strong></div><div class="system-connector" aria-hidden="true"></div><div class="system-node"><span>03</span><strong>Делегировать агентам ограниченное выполнение</strong></div><div class="system-connector" aria-hidden="true"></div><div class="system-node"><span>04</span><strong>Проверить, объяснить и сохранить контекст</strong></div></div>
-            <code>инженерное суждение × возможности агентов = управляемая разработка</code>
-        </aside>
+        <a class="button-secondary" href="/{{ locale }}/contact.html?topic=product-adaptation">Спросить о продукте</a>
     </section>
-    <section class="home-section"><div class="section-heading"><p class="eyebrow">Где я полезен</p><h2>Когда задача больше, чем «написать код».</h2></div><div class="product-grid">
-        <article class="product-card"><span class="product-index">01 / Неопределённость</span><h3>Продукту нужен сильный технический курс</h3><p>Превращаю размытую цель, унаследованную систему или рискованную идею в явные решения, архитектуру и реалистичный путь к результату.</p></article>
-        <article class="product-card"><span class="product-index">02 / Реализация</span><h3>Нужно создать или спасти конкретную систему</h3><p>Работаю с браузером, Node.js, данными, интеграциями и Linux-инфраструктурой и сам реализую сложную часть, а не только советую.</p></article>
-        <article class="product-card"><span class="product-index">03 / Усиление</span><h3>Агенты нужны в разработке, но не нужен хаос</h3><p>Выстраиваю контекст, границы полномочий, знания пакетов, процессы и проверки, чтобы агенты увеличивали возможности команды, не превращаясь в чёрный ящик.</p></article>
-    </div></section>
-    <section class="home-section"><div class="section-heading"><p class="eyebrow">Форматы работы</p><h2>Начните на том уровне, которого требует задача.</h2><p>Каждая работа строится вокруг реальной системы и проверяемого результата.</p></div><div class="product-grid">
-        <article class="product-card product-card--featured"><span class="product-index">Разобраться</span><h3>Архитектурный аудит и готовность к агентам</h3><p>Ограниченный аудит продукта, репозитория, ограничений и лучшего следующего вмешательства.</p><p><a href="/{{ locale }}/work-with-me.html#review">Подробнее о формате →</a></p></article>
-        <article class="product-card"><span class="product-index">Сделать</span><h3>Разработка или спасение системы</h3><p>Web-приложение, интеграция, прототип, внутренний инструмент или сложная подсистема — от проектирования до реализации.</p><p><a href="/{{ locale }}/work-with-me.html#build">Подробнее о разработке →</a></p></article>
-        <article class="product-card"><span class="product-index">Усилить</span><h3>Система агентской разработки</h3><p>Управляемая среда, где человек владеет намерением, а агенты работают с долговечным контекстом и проверками.</p><p><a href="/{{ locale }}/work-with-me.html#system">Подробнее об агентской разработке →</a></p></article>
-    </div></section>
-    <section class="home-section method-split"><div class="method-copy"><p class="eyebrow">Моё собственное преимущество</p><h2>Я создаю инструменты, необходимые мне для этой работы.</h2><p><strong>Alarisa</strong>, мой проект персонального агента, — главный фокус исследований и разработки. Продукт активно разрабатывается и пока не продаётся. Эта работа заставляет на практике решать вопросы долговечного контекста, приватности, полномочий и непрерывности.</p><p><strong>Tequila Framework</strong> — моя модульная JavaScript-платформа. <strong>ADSM</strong> — моя методология сохранения смысла продукта и инженерного знания для людей и агентов. GitHub Flows — один из механизмов оркестрации, но не то, к чему сводится моя работа.</p><p class="action-links"><a href="/{{ locale }}/projects/alarisa.html">Зачем я создаю Alarisa</a><a href="https://teqfw.com/" target="_blank" rel="noopener">Открыть TeqFW</a><a href="https://fly.wiredgeese.com/flancer/leanpub/adsm-ru/" target="_blank" rel="noopener">Читать об ADSM</a></p></div><ul class="method-points"><li>Более 25 лет инженерного опыта</li><li>Собственная платформа и методология</li><li>Практические исследования агентов</li><li>Личная ответственность за результат</li></ul></section>
-    <section class="home-section"><div class="section-heading"><p class="eyebrow">Доказательства вместо шоу об ИИ</p><h2>Работы, которые можно изучить.</h2><p>Работающие системы, открытые пакеты, клиентские приложения, книги, эксперименты и технические статьи показывают, как я думаю и что умею доводить до результата.</p></div><div class="proof-grid"><a class="proof-card" href="/{{ locale }}/projects.html"><strong>Проекты</strong><span>Alarisa, TeqFW, TeqCMS, PWA, клиентские системы и инструменты, созданные с агентами.</span></a><a class="proof-card" href="/{{ locale }}/about.html"><strong>Опыт</strong><span>Банки, e-commerce, техническое руководство, платформенная инженерия и независимая разработка.</span></a><a class="proof-card" href="/{{ locale }}/library/"><strong>Знания</strong><span>ADSM, архитектура JavaScript, браузерные системы, агенты и долговечный технический контекст.</span></a></div></section>
-    <section class="cta-panel"><div><p class="eyebrow">Принесите сложную часть</p><h2>Расскажите, что заблокировано, хрупко или достойно создания.</h2><p>Я помогу определить, нужен ли сначала аудит, сфокусированная разработка или полноценная система агентской инженерии.</p></div><a class="button-primary" href="/{{ locale }}/work-with-me.html">Работать со мной →</a></section>
+
+    <section class="home-section home-preview home-preview--method" id="how-it-works" aria-labelledby="how-it-works-title" tabindex="-1">
+        <div>
+            <p class="eyebrow">Как это работает</p>
+            <h2 id="how-it-works-title">Один ответственный создатель, а ИИ-агенты активно участвуют в работе.</h2>
+        </div>
+        <div class="home-preview-copy">
+            <p>Я задаю направление и остаюсь ответственным за результат. ИИ-агенты участвуют в исследовании, реализации, проверке и поддержке. Я использую TeqFW и ADSM, чтобы программное обеспечение оставалось модульным, понятным и легче развивалось.</p>
+        </div>
+    </section>
+
+    <section class="home-section home-preview home-preview--vision" id="alarisa" aria-labelledby="alarisa-title" tabindex="-1">
+        <div>
+            <p class="eyebrow">Alarisa</p>
+            <h2 id="alarisa-title">К чему ведёт эта работа</h2>
+        </div>
+        <div class="home-preview-copy">
+            <p>Alarisa — моё долгосрочное исследование того, как люди, ИИ-агенты и цифровые сервисы могут сосуществовать и взаимодействовать. Это направление, а не продукт и не фиксированная дорожная карта. Некоторые продукты появляются в ходе этого исследования.</p>
+            <p><a href="/{{ locale }}/projects/alarisa.html">Узнать об Alarisa →</a></p>
+        </div>
+    </section>
+
+    <section class="home-section home-preview home-preview--maker" id="maker" aria-labelledby="maker-title" tabindex="-1">
+        <div>
+            <p class="eyebrow">Алекс Гусев</p>
+            <h2 id="maker-title">Создатель Wired Geese</h2>
+        </div>
+        <div class="home-preview-copy">
+            <p>Wired Geese — название программного обеспечения, которое я создаю. Я работаю с продуктами напрямую и остаюсь ответственным за решения, стоящие за ними.</p>
+            <p>Я десятилетиями создаю и поддерживаю рабочее программное обеспечение. Сегодня я создаю веб-приложения вместе с ИИ-агентами. Эти возможности я использую в собственной работе; их также тестируют несколько ранних пользователей.</p>
+        </div>
+    </section>
+
+    <section class="cta-panel home-cta" aria-labelledby="start-title">
+        <div>
+            <h2 id="start-title">Начните с работающего продукта.</h2>
+            <p>Если продукт кажется полезным — или близким к тому, что вам нужно, — расскажите, что он должен делать. Я помогу определить подходящую точку старта.</p>
+        </div>
+        <div class="home-cta-actions">
+            <a class="button-primary" href="/{{ locale }}/contact.html?topic=product">Спросить о продукте</a>
+            <a class="home-cta-secondary" href="#products">Посмотреть продукты</a>
+        </div>
+    </section>
 </div>
 {% endblock %}

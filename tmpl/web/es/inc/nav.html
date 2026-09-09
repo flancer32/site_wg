@@ -1,10 +1,10 @@
 <header class="site-header">
     <div class="header-inner">
-        <a class="site-brand" href="/{{ locale }}/" aria-label="Alex Gusev — inicio">
+        <a class="site-brand" href="/{{ locale }}/" aria-label="Wired Geese — inicio">
             <img class="brand-mark" src="/favicon.ico" alt="" width="41" height="41"/>
             <span class="brand-copy">
-                <strong>Alex Gusev</strong>
-                <small>Sistemas web · Ingeniería con agentes</small>
+                <strong>Wired Geese</strong>
+                <small>Productos de software de Alex Gusev</small>
             </span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menú" data-label-open="Abrir menú" data-label-close="Cerrar menú">
@@ -12,12 +12,11 @@
         </button>
         <div class="site-menu" id="site-menu" data-open="false">
             <nav class="primary-nav" aria-label="Navegación principal">
-                <a href="/{{ locale }}/">Inicio</a>
-                <a href="/{{ locale }}/work-with-me.html">Trabaja conmigo</a>
-                <a href="/{{ locale }}/projects.html">Pruebas</a>
-                <a href="/{{ locale }}/library/">Biblioteca</a>
-                <a href="/{{ locale }}/contact.html">Contacto</a>
+                <a href="/{{ locale }}/#products">Productos</a>
+                <a href="/{{ locale }}/#how-it-works">Cómo funciona</a>
+                <a href="/{{ locale }}/projects/alarisa.html">Alarisa</a>
             </nav>
+            <a class="header-action" href="/{{ locale }}/contact.html?topic=product">Consultar un producto</a>
             <div class="locale-switcher" role="group" aria-label="Idioma">
                 {% for loc in allowedLocales %}
                 {% if loc == locale %}

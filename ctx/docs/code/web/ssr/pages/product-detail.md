@@ -27,7 +27,7 @@ The page includes deployment model, control, privacy, credential ownership, trus
 
 This family defines responsibilities rather than mandatory sections or card counts. A narrow product may use a concise page. A product with consequential credentials, deployment choices, or integration boundaries may need deeper explanation. Buyer outcome comes before enabling technology and exploration lineage in either case.
 
-The first target instance is the early-access product that lets an MCP-compatible AI system work with a buyer's Telegram resources. Its permanent name remains open, and its current offer wording must not become the family name. Its initial English detail page is `/{locale}/products/chatgpt-telegram.html`, with `locale` currently limited to `en`; the route places it in the durable product family without promoting the working label to a family name.
+The first target instance is the early-access product that lets an MCP-compatible AI system work with a buyer's Telegram resources. Its permanent name remains open, and its current offer wording must not become the family name. Its localized detail pages use `/{locale}/products/chatgpt-telegram.html` for `en`, `ru`, and `es`; the route places it in the durable product family without promoting the working label to a family name.
 
 The first page composes buyer outcome, supported practical workflows, setup and fixed-scope model, deployment and credential boundary, fit and early-access maturity, adaptation, concise PDE lineage, and a product-specific commercial handoff. It must not imply that the site itself accepts Telegram credentials or provisions a customer deployment.
 
@@ -35,7 +35,7 @@ The first page composes buyer outcome, supported practical workflows, setup and 
 
 - Inbound paths may come from Home, Products, direct acquisition, referrals, search, related knowledge, or a genuine Alarisa relationship.
 - Outbound paths include the shared commercial handoff with originating product context, How it works, relevant proof, related products, and Alarisa only when lineage helps.
-- Each active locale variant exposes equivalent product identity, maturity, core capabilities, boundaries, and action semantics. Until an equivalent localized detail page exists, the English-only first detail page exposes only an English alternate and sends locale-switcher choices to the selected locale root rather than to a nonexistent translated path.
+- Each active locale variant exposes equivalent product identity, maturity, core capabilities, boundaries, and action semantics. The ChatGPT + Telegram detail page is currently authored in English, Russian, and Spanish, and locale-switcher choices preserve the matching product route.
 - Available, Early access, selectively public In development, and Discontinued meanings remain distinguishable.
 
 ## Exclusions

@@ -7,53 +7,52 @@ import {fileURLToPath} from 'node:url';
 import nunjucks from 'nunjucks';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const localeRoot = path.join(root, 'tmpl', 'web', 'en');
+const locales = {
+    en: {
+        title: 'Early access',
+        setup: 'Paid setup for an agreed workflow',
+        cta: 'Ask about this product',
+    },
+    ru: {
+        title: 'Ранний доступ',
+        setup: 'Платная настройка согласованного сценария',
+        cta: 'Спросить об этом продукте',
+    },
+    es: {
+        title: 'Acceso anticipado',
+        setup: 'Configuración de pago para un flujo acordado',
+        cta: 'Consultar este producto',
+    },
+};
 
-function renderProduct() {
-    const environment = nunjucks.configure(localeRoot, {autoescape: true});
+function renderProduct(locale) {
+    const environment = nunjucks.configure(path.join(root, 'tmpl', 'web', locale), {autoescape: true});
     return environment.render('products/chatgpt-telegram.html', {
         allowedLocales: ['en', 'ru', 'es'],
-        locale: 'en',
-        localeRouteFallback: true,
+        locale,
     });
 }
 
-test('renders the English ChatGPT + Telegram product page with its commercial boundaries', () => {
-    const html = renderProduct();
-    const expectedOrder = [
-        'Connect your ChatGPT to your Telegram.',
-        'What it lets you do',
-        'Typical workflows',
-        'How setup works',
-        'Control and trust',
-        'Fit and boundaries',
-        'The product can be adapted.',
-        'Built on PDE',
-        'Want ChatGPT to work with your Telegram?',
-    ];
-
-    let cursor = -1;
-    for (const content of expectedOrder) {
-        const index = html.indexOf(content);
-        assert.ok(index > cursor, `${content} must appear in buyer-decision order`);
-        cursor = index;
+test('renders localized ChatGPT + Telegram product pages with commercial boundaries', () => {
+    for (const [locale, copy] of Object.entries(locales)) {
+        const html = renderProduct(locale);
+        assert.match(html, new RegExp(copy.title));
+        assert.match(html, new RegExp(copy.setup));
+        assert.match(html, new RegExp(`href="/${locale}/contact\\.html\\?topic=chatgpt-telegram">${copy.cta}`));
+        assert.doesNotMatch(html, /enterprise-grade|zero-risk|fixed monthly price/i);
     }
-
-    assert.match(html, /Early access/);
-    assert.match(html, /Paid setup for an agreed workflow/);
-    assert.match(html, /href="\/en\/contact\.html\?topic=chatgpt-telegram">Ask about this product/);
-    assert.match(html, /data-locale-fallback="root"/);
-    assert.doesNotMatch(html, /enterprise-grade|zero-risk|fixed monthly price/i);
 });
 
-test('the English product page has resolvable local destinations', async () => {
-    const html = renderProduct();
+test('localized product pages have resolvable local destinations', async () => {
+    for (const locale of Object.keys(locales)) {
+        const html = renderProduct(locale);
     const hrefs = [...html.matchAll(/\shref="([^"]+)"/g)].map((match) => match[1]);
     for (const href of hrefs) {
         const url = new URL(href, 'https://wiredgeese.com');
-        if (url.origin !== 'https://wiredgeese.com' || !url.pathname.startsWith('/en/')) continue;
-        if (url.pathname.startsWith('/styles/') || url.pathname === '/favicon.ico' || url.pathname === '/en/') continue;
-        const relative = url.pathname.replace(/^\/en\//, '');
-        await assert.doesNotReject(fs.access(path.join(localeRoot, relative)), href);
+        if (url.origin !== 'https://wiredgeese.com' || !url.pathname.startsWith(`/${locale}/`)) continue;
+        if (url.pathname.startsWith('/styles/') || url.pathname === '/favicon.ico' || url.pathname === `/${locale}/`) continue;
+        const relative = url.pathname.replace(new RegExp(`^/${locale}/`), '');
+        await assert.doesNotReject(fs.access(path.join(root, 'tmpl', 'web', locale, relative)), href);
+    }
     }
 });

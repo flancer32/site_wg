@@ -65,7 +65,7 @@ test('sitemap contains only existing localized canonical templates', async () =>
     }
 
     assert.ok(locations.includes('https://wiredgeese.com/en/products/chatgpt-telegram.html'));
-    assert.ok(!locations.includes('https://wiredgeese.com/ru/products/chatgpt-telegram.html'));
-    assert.ok(!locations.includes('https://wiredgeese.com/es/products/chatgpt-telegram.html'));
+    assert.ok(locations.includes('https://wiredgeese.com/ru/products/chatgpt-telegram.html'));
+    assert.ok(locations.includes('https://wiredgeese.com/es/products/chatgpt-telegram.html'));
     assert.equal((xml.match(/hreflang="x-default"/g) || []).length, locations.length);
 });
