@@ -1,0 +1,47 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Productos — software práctico de Alex Gusev | Wired Geese{% endblock %}
+{% block description %}Productos de software prácticos y actuales de Alex Gusev para personas y sus agentes de IA, presentados bajo la marca Wired Geese.{% endblock %}
+
+{% block content %}
+<article class="products-catalogue-page">
+    <header class="products-catalogue-opening">
+        <div>
+            <h1>Productos</h1>
+            <p class="lead">Productos de software prácticos que creo para las personas y sus agentes de IA.</p>
+            <p>Cada producto tiene valor por sí mismo. Si alguno se acerca a lo que necesitas, podemos hablar de una adaptación adecuada.</p>
+        </div>
+        <p class="catalogue-trust-link"><a href="/{{ locale }}/how-it-works.html">Cómo funciona →</a></p>
+    </header>
+
+    <section class="home-section product-detail-section" aria-labelledby="current-products-title">
+        <div class="section-heading">
+            <p class="eyebrow">Productos actuales</p>
+            <h2 id="current-products-title">Disponibles para conversar ahora</h2>
+        </div>
+        <div class="product-collection">
+            <article class="product-preview">
+                <p class="product-status">Acceso anticipado</p>
+                <h3>ChatGPT + Telegram</h3>
+                <p class="product-outcome">Conecta ChatGPT con tu Telegram.</p>
+                <p>Convierte conversaciones activas de Telegram en resúmenes útiles y trabaja con ellas directamente desde ChatGPT.</p>
+                <ul class="product-capabilities">
+                    <li>Lee y resume conversaciones y canales.</li>
+                    <li>Encuentra el historial relevante cuando está disponible.</li>
+                    <li>Prepara y publica mensajes.</li>
+                </ul>
+                <p class="product-commercial">Configuración de pago disponible.</p>
+                <p class="product-links"><a class="button-primary" href="/{{ locale }}/products/chatgpt-telegram.html">Ver producto</a></p>
+            </article>
+        </div>
+    </section>
+
+    <section class="home-bridge" aria-labelledby="adaptation-title">
+        <div>
+            <h2 id="adaptation-title">¿Necesitas algo diferente?</h2>
+            <p>Si un producto existente se acerca a lo que necesitas, puedo adaptarlo, conectar otro servicio o ampliarlo para tu flujo de trabajo.</p>
+        </div>
+        <a class="button-secondary" href="/{{ locale }}/contact.html?topic=product">Consultar sobre un producto</a>
+    </section>
+</article>
+{% endblock %}

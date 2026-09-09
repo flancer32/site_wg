@@ -105,6 +105,20 @@ test('includes localized ChatGPT + Telegram product alternates', async () => {
     });
 });
 
+test('uses directory-index canonical and alternate routes for the Products catalogue', async () => {
+    const adapter = createAdapter();
+    const result = await adapter.getRenderData({
+        req: {url: '/ru/products/', headers: {}, socket: {}},
+    });
+
+    assert.equal(result.data.canonicalUrl, 'https://wiredgeese.com/ru/products/');
+    assert.deepEqual(result.data.alternateUrls, {
+        en: 'https://wiredgeese.com/en/products/',
+        ru: 'https://wiredgeese.com/ru/products/',
+        es: 'https://wiredgeese.com/es/products/',
+    });
+});
+
 test('preserves localized Alarisa canonical and alternate routes', async () => {
     const adapter = createAdapter();
     const result = await adapter.getRenderData({

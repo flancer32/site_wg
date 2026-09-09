@@ -52,6 +52,7 @@ test('sitemap contains only existing localized canonical templates', async () =>
     for (const locale of ['en', 'ru', 'es']) {
         assert.ok(locations.includes(`https://wiredgeese.com/${locale}/projects/alarisa.html`));
         assert.ok(locations.includes(`https://wiredgeese.com/${locale}/how-it-works.html`));
+        assert.ok(locations.includes(`https://wiredgeese.com/${locale}/products/`));
     }
     assert.doesNotMatch(xml, /\/(?:contacts|posts|products)\.html/);
     assert.doesNotMatch(xml, /\/404\.html/);
@@ -70,5 +71,8 @@ test('sitemap contains only existing localized canonical templates', async () =>
     assert.ok(locations.includes('https://wiredgeese.com/en/products/chatgpt-telegram.html'));
     assert.ok(locations.includes('https://wiredgeese.com/ru/products/chatgpt-telegram.html'));
     assert.ok(locations.includes('https://wiredgeese.com/es/products/chatgpt-telegram.html'));
+    assert.ok(locations.includes('https://wiredgeese.com/en/products/'));
+    assert.ok(locations.includes('https://wiredgeese.com/ru/products/'));
+    assert.ok(locations.includes('https://wiredgeese.com/es/products/'));
     assert.equal((xml.match(/hreflang="x-default"/g) || []).length, locations.length);
 });

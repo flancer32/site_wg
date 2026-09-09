@@ -58,7 +58,7 @@ test('renders every localized How-it-works page as a cross-product trust layer',
         assert.ok(html.includes('TeqFW'), `${locale}: TeqFW`);
         assert.ok(html.includes('PDE'), `${locale}: PDE`);
         assert.match(html, new RegExp(`href="/${locale}/products/chatgpt-telegram\\.html"`));
-        assert.match(html, new RegExp(`href="/${locale}/#products"`));
+        assert.match(html, new RegExp(`href="/${locale}/products/"`));
         assert.doesNotMatch(html, /GitHub Flows|Agent Orchestration PoC|€50/u);
     }
 });

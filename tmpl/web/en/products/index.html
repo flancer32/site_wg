@@ -1,0 +1,47 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Products — practical software by Alex Gusev | Wired Geese{% endblock %}
+{% block description %}Current practical software products by Alex Gusev for people and their AI agents, presented under the Wired Geese brand.{% endblock %}
+
+{% block content %}
+<article class="products-catalogue-page">
+    <header class="products-catalogue-opening">
+        <div>
+            <h1>Products</h1>
+            <p class="lead">Practical software products I build for people and their AI agents.</p>
+            <p>Each product stands on its own. When one is close to your need, we can discuss a fitting adaptation.</p>
+        </div>
+        <p class="catalogue-trust-link"><a href="/{{ locale }}/how-it-works.html">How it works →</a></p>
+    </header>
+
+    <section class="home-section product-detail-section" aria-labelledby="current-products-title">
+        <div class="section-heading">
+            <p class="eyebrow">Current products</p>
+            <h2 id="current-products-title">Available to discuss now</h2>
+        </div>
+        <div class="product-collection">
+            <article class="product-preview">
+                <p class="product-status">Early access</p>
+                <h3>ChatGPT + Telegram</h3>
+                <p class="product-outcome">Connect your ChatGPT to your Telegram.</p>
+                <p>Turn busy Telegram conversations into useful summaries, then act on them directly from ChatGPT.</p>
+                <ul class="product-capabilities">
+                    <li>Read and summarize conversations and channels.</li>
+                    <li>Find relevant history where supported.</li>
+                    <li>Prepare and publish messages.</li>
+                </ul>
+                <p class="product-commercial">Paid setup available.</p>
+                <p class="product-links"><a class="button-primary" href="/{{ locale }}/products/chatgpt-telegram.html">View product</a></p>
+            </article>
+        </div>
+    </section>
+
+    <section class="home-bridge" aria-labelledby="adaptation-title">
+        <div>
+            <h2 id="adaptation-title">Need something different?</h2>
+            <p>If an existing product is close to what you need, I can adapt it, connect another service, or extend it for your workflow.</p>
+        </div>
+        <a class="button-secondary" href="/{{ locale }}/contact.html?topic=product">Ask about a product</a>
+    </section>
+</article>
+{% endblock %}

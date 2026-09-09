@@ -146,6 +146,8 @@ export default class Adapter {
                 '/library',
                 '/library.html',
                 '/library/index.html',
+                '/products',
+                '/products/index.html',
                 '/land/agent-orchestration-poc',
                 '/land/agent-orchestration-poc/index.html',
             ]);

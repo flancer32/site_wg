@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Define the code-facing semantic contract for the cross-product How-it-works destination without choosing its route, final localized copy, or template composition.
+Define the code-facing semantic contract for the cross-product How-it-works destination, its accepted localized route, and its remaining copy and template-composition boundary.
 
 ## Target Role
 
@@ -37,4 +37,4 @@ The page must not:
 
 ## Route And Interface Boundary
 
-How it works is required semantically in English, Russian, and Spanish, but its canonical route is undecided. `How it works` is the accepted English label; localized labels must be idiomatic rather than literal. Final copy, section count, diagrams, proof selection, page-local actions, and responsive composition require later copy, interface, and migration decisions.
+How it works is required semantically in English, Russian, and Spanish at `/{locale}/how-it-works.html`. `How it works` is the accepted English label; localized labels must be idiomatic rather than literal. Final copy, section count, diagrams, proof selection, page-local actions, and responsive composition require later copy and interface decisions.

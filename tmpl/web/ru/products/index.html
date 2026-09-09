@@ -1,0 +1,47 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Продукты — практическое ПО Алекса Гусева | Wired Geese{% endblock %}
+{% block description %}Текущие практические программные продукты Алекса Гусева для людей и их ИИ-агентов, представленные под брендом Wired Geese.{% endblock %}
+
+{% block content %}
+<article class="products-catalogue-page">
+    <header class="products-catalogue-opening">
+        <div>
+            <h1>Продукты</h1>
+            <p class="lead">Практические программные продукты, которые я создаю для людей и их ИИ-агентов.</p>
+            <p>Каждый продукт полезен сам по себе. Если один из них близок к вашей задаче, можно обсудить подходящую адаптацию.</p>
+        </div>
+        <p class="catalogue-trust-link"><a href="/{{ locale }}/how-it-works.html">Как это работает →</a></p>
+    </header>
+
+    <section class="home-section product-detail-section" aria-labelledby="current-products-title">
+        <div class="section-heading">
+            <p class="eyebrow">Текущие продукты</p>
+            <h2 id="current-products-title">Можно обсудить уже сейчас</h2>
+        </div>
+        <div class="product-collection">
+            <article class="product-preview">
+                <p class="product-status">Ранний доступ</p>
+                <h3>ChatGPT + Telegram</h3>
+                <p class="product-outcome">Подключите ChatGPT к Telegram.</p>
+                <p>Превращайте активные разговоры в Telegram в полезные сводки, а затем работайте с ними прямо из ChatGPT.</p>
+                <ul class="product-capabilities">
+                    <li>Читайте и суммируйте разговоры и каналы.</li>
+                    <li>Находите нужную историю там, где это поддерживается.</li>
+                    <li>Готовьте и публикуйте сообщения.</li>
+                </ul>
+                <p class="product-commercial">Доступна платная настройка.</p>
+                <p class="product-links"><a class="button-primary" href="/{{ locale }}/products/chatgpt-telegram.html">О продукте</a></p>
+            </article>
+        </div>
+    </section>
+
+    <section class="home-bridge" aria-labelledby="adaptation-title">
+        <div>
+            <h2 id="adaptation-title">Нужно немного другое?</h2>
+            <p>Если существующий продукт близок к вашей задаче, я могу адаптировать его, подключить другой сервис или расширить для вашего рабочего процесса.</p>
+        </div>
+        <a class="button-secondary" href="/{{ locale }}/contact.html?topic=product">Спросить о продукте</a>
+    </section>
+</article>
+{% endblock %}

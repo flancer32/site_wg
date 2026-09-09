@@ -51,6 +51,7 @@ test('renders the English Home with the accepted product-led sequence', () => {
     }
 
     assert.match(html, /<section class="home-products" id="products"/);
+    assert.match(html, /href="\/en\/products\/">Explore products<\/a>/);
     assert.match(html, /href="\/en\/products\/chatgpt-telegram\.html">View product<\/a>/);
     assert.match(html, /<section class="home-section home-preview home-preview--method" id="how-it-works"/);
     assert.match(html, /href="\/en\/how-it-works\.html">See how it works →<\/a>/);

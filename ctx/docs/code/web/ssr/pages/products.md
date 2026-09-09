@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Define the primary commercial inventory page family and its catalogue and maturity boundaries without selecting its target path.
+Define the primary commercial inventory page family, its catalogue and maturity boundaries, and its accepted localized route.
 
 ## Target Role
 
@@ -23,8 +23,8 @@ The page:
 
 The catalogue remains structurally valid at one, two, or five products. It may introduce groupings only when several independently understandable products make them useful; it must not invent product families or expose internal R&D to make a one-product catalogue appear larger.
 
-## Transition Boundary
+## Route And Legacy Boundary
 
-The current redirect from `products.html` to `projects.html` is legacy behavior and migration evidence. This IA requires a localized Products destination but does not decide whether that existing path becomes canonical or redirects elsewhere.
+The canonical catalogue route is `/{locale}/products/` in English, Russian, and Spanish. The current redirect from `/{locale}/products.html` to `/{locale}/projects.html` is separate legacy behavior and remains in place pending an explicit route-migration decision.
 
-Final route, catalogue presentation, localized status labels, card composition, copy, and proof selection require migration and interface design.
+Catalogue presentation, localized status labels, card composition, copy, and proof selection require later interface design.
