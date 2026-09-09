@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/AGENTS.md`
 - Template Version: `20260605`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -16,7 +16,7 @@ Documents at this level describe the site as a product: its meaning, purpose, sc
 - `AGENTS.md` — level definition for `ctx/docs/product/`.
 - `commercial-strategy.md` — revenue model, acquisition, price discovery, validation, and productization logic.
 - `overview.md` — semantic entry point defining site purpose, commercial identity, public-surface roles, and preservation constraints.
-- `product-system.md` — promoted technology, capability, methodology, research, and proof hierarchy.
+- `product-system.md` — distinctions and relationships among R&D projects, capabilities, products, offers, enabling technology, and proof.
 
 ## Product Knowledge Model
 
@@ -24,22 +24,22 @@ The product branch is intentionally compact:
 
 - `overview.md` defines the site product and its commercial communication model;
 - `commercial-strategy.md` defines how the site is expected to generate sustainable revenue;
-- `product-system.md` distinguishes original technologies, working capabilities, research, and historical proof;
-- `offers/` defines bounded buyer-facing offers derived from that product system.
+- `product-system.md` distinguishes original technologies, R&D systems, working capabilities, products, offers, and historical proof;
+- `offers/` defines bounded buyer-facing commercial presentations without treating every source capability or R&D subsystem as a product.
 
 ## Terminology Rule
 
 Within `ctx/docs/product/`, the term `product` has two distinct meanings that must not be merged:
 
 - the **site product**: `wiredgeese.com` as the product of this repository and the main object defined at this documentation level;
-- the **promoted products**: Alex Gusev's products, offers, methods, and proofs that are presented, prioritized, and sold through the site.
+- the **promoted work**: Alex Gusev's R&D projects, capabilities, products, offers, methods, and proofs presented through the site, not all of which are sellable.
 
 Rules for agents:
 
 - when describing repository-level product meaning, treat the site itself as the product;
-- when describing what the site sells, explicitly refer to Alex's products, offers, or product line;
-- do not collapse the site product and the promoted products into one object;
-- do not treat every promoted product as if it were the product of this repository.
+- when describing what the site sells, explicitly identify a bounded product or offer instead of treating all promoted work as sellable;
+- do not collapse the site product, Alarisa R&D, technical capabilities, commercial products, and offers into one object or hierarchy;
+- do not treat promoted work as if it were the product of this repository.
 
 ## Level Boundary
 

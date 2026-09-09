@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/supervision.md`
 - Template Version: `20260605`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -33,7 +33,7 @@ Human approval is required for:
 Agents must:
 
 - trace product changes through architecture, environment, and code documentation before implementation;
-- preserve the distinction among Alarisa as strategic product system, PDE as an infrastructure component, and Telegram integration as the current concrete offer;
+- preserve the distinction among Alarisa as the principal long-term R&D project, PDE as an independently useful Alarisa subsystem, a bounded independently deliverable product derived from a capability, and Telegram integration as the current concrete offer;
 - distinguish site responsibilities from PDE and client-deployment responsibilities;
 - label legacy GitHub funnel behavior as drift rather than a reusable pattern;
 - preserve experimental-status and trust-boundary language;
@@ -47,7 +47,9 @@ Architecture drift exists when:
 - public or code documentation again makes generic engineering judgment the main product;
 - GitHub Flows, Agent Orchestration PoC, or `€50` reappears as active commercial direction;
 - PDE is described as replacing or existing strategically outside Alarisa;
-- Alarisa is reduced to historical or unavailable research with no path for component-level commercialization;
+- Alarisa is presented as a current sellable product or as a finished product commercialized in parts;
+- Alarisa is reduced to historical or unavailable research instead of a strategically central experimental system with a long-term product objective;
+- a capability is treated as a product without a bounded payer need and independent delivery and support boundary;
 - a named Alarisa component is presented as purchasable before its offer status is documented;
 - the website begins to own PDE credentials, data, or operation without an approved boundary;
 - page or funnel mechanics define product meaning downstream;

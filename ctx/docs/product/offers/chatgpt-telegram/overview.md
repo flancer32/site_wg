@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/offers/chatgpt-telegram/overview.md`
 - Template Version: `20260630`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -17,6 +17,8 @@ The semantic offer is:
 `ChatGPT` is the clearest initial buyer-facing reference. The technical boundary may include another MCP-compatible AI system when it supports the required interaction.
 
 The offer is a bounded paid experimental setup that connects the client's AI system to Telegram through PDE and establishes an agreed working capability on an agreed deployment.
+
+For this commercial path, the Telegram Desk operations are technical capabilities, the configured integration that delivers the agreed outcome is the independently deliverable product, and `Connect your ChatGPT to your Telegram` is its buyer-facing offer. The product can be delivered without an Alarisa installation or an Alarisa purchase.
 
 ## Buyer Outcomes
 
@@ -40,7 +42,7 @@ The exact workflow and permissions included in a paid setup must be agreed befor
 
 ## Platform Boundary
 
-PDE is an infrastructure component of Alarisa and the implementation foundation for this offer. The Telegram Desk provides the resource capability. The commercial offer packages setup and a useful buyer outcome without requiring the buyer to adopt or understand Alarisa as a whole.
+PDE is an independently useful infrastructure subsystem created as part of Alarisa R&D and is the implementation foundation for this offer. The Telegram Desk provides the resource capability. The commercial offer packages setup and a useful buyer outcome without requiring the buyer to adopt Alarisa, understand its R&D lineage, or receive an Alarisa installation.
 
 The buyer does not need to understand PDE Runtime, Desk architecture, TDLib, MCP implementation details, TeqFW, or ADSM before understanding the offer.
 

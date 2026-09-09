@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/overview.md`
 - Template Version: `20260629`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -26,6 +26,8 @@ Future implementation must derive from the product-led commercial context:
 
 - products and concrete outcomes lead;
 - engineering expertise supports product delivery and customization;
+- Alarisa remains visible as the strategic R&D direction but is not presented as a current commercial product;
+- capabilities, independently deliverable products, and buyer-facing offers remain distinct;
 - PDE remains external to the website runtime;
 - valuable routes and public material are preserved deliberately;
 - experimental status and credential boundaries stay explicit.

@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/commercial-strategy.md`
 - Template Version: `20260811`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Required Outcome
 
@@ -18,15 +18,15 @@ The commercial model distinguishes two connected horizons.
 
 ### Vision
 
-Alarisa is the principal long-term R&D project and product horizon. It develops the model of a personal agent and the surrounding agent-compatible software system. TeqFW, ADSM, and active AI-agent practice are foundations used to build it; PDE is one of its infrastructure components.
+Alarisa is the principal long-term R&D project, active experimental system, and integration environment. It develops the model of a personal intelligent assistant and the surrounding agent-compatible software system. TeqFW, ADSM, and active AI-agent practice are broader production foundations used to build it; PDE is one of its infrastructure subsystems.
 
-The commercial strategy must preserve Alarisa's strategic continuity while allowing useful parts to become products or offers before the whole system reaches a single release boundary.
+Alarisa is not currently a commercial product. The long-term objective is for it to reach product maturity, but its future packaging, audience, pricing, and business model remain open. The commercial strategy must preserve this strategic continuity while allowing independently useful outcomes of its R&D to generate revenue sooner.
 
 ### Cash Engine
 
-Revenue must begin with concrete capabilities that can be sold now or soon. PDE is currently easier to package commercially than Alarisa as a whole, and the first active offer is a bounded paid experimental setup connecting an MCP-compatible AI system such as ChatGPT to a client's Telegram account through PDE.
+Revenue must begin with independently valuable products and concrete offers that can be sold now or soon. PDE supplies capabilities that can solve customer problems without requiring the customer to adopt Alarisa. The first active offer is a bounded paid experimental setup connecting an MCP-compatible AI system such as ChatGPT to a client's Telegram account through PDE.
 
-The vision explains why the work compounds. The cash engine prevents the vision from depending on indefinite research, reputation, or speculative attention.
+The vision explains why the work compounds. The cash engine prevents continued Alarisa development from depending on indefinite unpaid research, reputation, or speculative attention.
 
 ## Compounding Revenue Model
 
@@ -44,25 +44,29 @@ The default delivery path is:
 
 The customer buys a useful outcome or capability. Internal effort, coding-agent usage, and billable typing time do not define the product value.
 
-Custom engineering remains important, but it should preferentially extend or apply the existing product system instead of restarting from zero for every client. Work on PDE can strengthen Alarisa's infrastructure while also producing an independently useful customer outcome.
+Custom engineering remains important, but it should preferentially extend or apply reusable technology instead of restarting from zero for every client. Work on PDE can strengthen Alarisa's infrastructure while also producing an independently useful customer outcome.
 
-## Modular Commercialization Of Alarisa
+## R&D-To-Revenue Loop
 
-Alarisa should not depend on being sold only as one complete, mature application. Its coherent components may become separate products, capabilities, demonstrations, or paid offers when their readiness and buyer value support that step.
+Alex cannot defer income until the entire Alarisa vision reaches product maturity. The intended economic loop is:
 
-Candidate parts include:
+`Alarisa R&D -> useful bounded capability -> evidenced payer need -> standalone product -> commercial offer -> paying customer -> revenue and real-world feedback -> reusable improvement -> stronger Alarisa`
+
+Candidate sources of useful capabilities include:
 
 - PDE and its Desks;
 - the World Map;
 - general memory;
-- other reusable capabilities developed within Alarisa.
+- other reusable technology developed within Alarisa.
 
-Component commercialization must preserve two truths simultaneously:
+Commercialization must preserve these truths simultaneously:
 
-- the component belongs to and strengthens the larger Alarisa direction;
-- the buyer receives a concrete, understandable outcome without needing to adopt or understand all of Alarisa.
+- the originating subsystem or technology may remain part of and strengthen Alarisa;
+- a commercial product must stand on its own as a bounded, deliverable, supportable solution to a payer need;
+- the buyer receives a concrete outcome without needing to adopt or understand Alarisa;
+- revenue and real-world learning help make continued Alarisa development economically possible.
 
-Naming a component here does not claim that it is already available, validated, separately deployable, or priced. Each active commercial offer still requires its own documented status and boundary.
+This is not modular commercialization of a finished Alarisa product. Not every capability or subsystem should become a product, and naming one here does not claim that it is available, validated, separately deployable, or priced. Each active product and offer requires its own documented status and boundary.
 
 ## Initial Offer And Price Discovery
 
@@ -138,7 +142,8 @@ The following remain deliberately open until external evidence supports a decisi
 - which Telegram workflows repeat strongly enough to become products;
 - whether Shared Files becomes a buyer-facing offer;
 - which World Map and general-memory capabilities can become independent buyer-facing offers;
-- how public positioning should connect component offers back to Alarisa without making buyers learn the full system first;
+- how public positioning should explain the R&D origin of independent products without making buyers learn Alarisa first;
+- what audience, packaging, pricing, business model, and deployment boundary a future mature Alarisa product may eventually require;
 - which channels produce qualified, economically viable customers;
 - what site information architecture and public copy best communicate the model.
 

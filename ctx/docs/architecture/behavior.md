@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/behavior.md`
 - Template Version: `20260605`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -49,7 +49,7 @@ This preservation flow protects useful public value without keeping discontinued
 ## Failure Boundaries
 
 - Product claims fail toward narrower, verifiable statements.
-- Experimental product status remains visible when evidence is incomplete.
+- Experimental system, capability, product, and offer statuses remain distinguishable when evidence is incomplete.
 - Missing commercial automation falls back to direct human contact rather than invented workflow.
 - Route changes fail toward preserving access or an intentional redirect rather than silent disappearance.
 - The website must not collect PDE or Telegram credentials as a shortcut around an undefined delivery process.

@@ -25,9 +25,9 @@ The primary identity is:
 
 Alex operates as an independent software maker and engineering product creator. Web Platform and JavaScript technologies are deliberate foundations of this direction, not the commercial product itself and not a reason to reduce the site to a generic JavaScript-developer portfolio.
 
-The commercial progression is:
+The commercial progression for a bounded customer solution is:
 
-`original technology -> working product or capability -> concrete paid offer -> deployment or integration -> customization -> stronger reusable product`
+`useful capability -> independently valuable product -> concrete paid offer -> deployment or integration -> revenue and feedback -> reusable improvement`
 
 Alex's engineering experience remains visible and important. Its commercial role is to prove that the products can be built, maintained, deployed, integrated, and extended. It is also a secondary capability for work adjacent to those products. The site must not make generic access to Alex as an individual developer its principal commodity.
 
@@ -35,23 +35,23 @@ Alex's engineering experience remains visible and important. Its commercial role
 
 The site should lead with things that exist, work, or can be delivered, then explain the technology and experience behind them.
 
-The internal strategic and product hierarchy is:
+The internal development lineage is:
 
-1. Alarisa as the principal long-term R&D project and product system;
-2. Tequila Framework (`TeqFW`), Agent-Driven Software Management (`ADSM`), and active AI-agent practice as foundations used to build it;
-3. Personal Digital Embassy (`PDE`) as an infrastructure component of Alarisa that can also be deployed and commercialized through concrete capabilities;
-4. the World Map, general memory, PDE Desks, and other Alarisa components as candidates for separate productization according to their actual readiness and evidence.
+1. Tequila Framework (`TeqFW`), Agent-Driven Software Management (`ADSM`), and active AI-agent practice form a broader software-production system;
+2. Alarisa is the principal long-term R&D project built with that system: an active experimental working system and integration environment, not a current commercial product;
+3. Personal Digital Embassy (`PDE`) is an independently useful infrastructure subsystem created as part of Alarisa R&D;
+4. Telegram, Shared Files, the World Map, general memory, and other work may yield capabilities, but a capability becomes a product only when it solves a bounded payer need and can be offered, delivered, and supported independently.
 
-The current commercial-entry hierarchy is:
+The current customer-facing entry path is:
 
 1. a concrete paid experimental Telegram integration offer that a buyer can understand without learning Alarisa or PDE internals;
-2. paid deployment, integration, and customization around PDE and other sufficiently ready Alarisa components;
+2. paid deployment, integration, and customization around PDE-based or other independently useful products;
 3. related engineering in which TeqFW, ADSM, Alarisa, PDE, and AI-agent practice create reusable leverage;
 4. engineering experience, historical systems, public work, and writing as evidence.
 
-Commercial priority and strategic importance are different dimensions. PDE may be easier to monetize first without replacing Alarisa as the main strategic horizon.
+Commercial readiness and strategic importance are different dimensions. Alarisa remains the main long-term R&D direction while independently useful results of that work may reach buyers first.
 
-The internal hierarchy and the commercial acquisition path are related but not identical. A buyer may enter directly through a concrete Telegram outcome and encounter PDE or the broader Alarisa system only when those concepts help the decision.
+Development lineage and the commercial acquisition path are related but not identical. A buyer may enter directly through a concrete Telegram problem and offer; PDE or Alarisa need appear only when they help the decision. The buyer does not adopt Alarisa merely because a product originated in its R&D.
 
 The product and status distinctions are defined in `product-system.md`. The revenue model is defined in `commercial-strategy.md`. Concrete buyer-facing offer boundaries are defined under `offers/`.
 
@@ -73,7 +73,7 @@ Internal names such as PDE Runtime, Desk architecture, TDLib, MCP implementation
 The future site must let visitors distinguish at least:
 
 - things available to buy or use now;
-- the strategic Alarisa product system, its components, and their individual readiness;
+- Alarisa as the strategically central long-term R&D project, its future product ambition, and the status of work emerging from it;
 - active products, technologies, and working capabilities;
 - deployment, integration, and customization capability;
 - research and methodology;
@@ -136,7 +136,8 @@ It must avoid:
 Every substantial future site revision must verify that:
 
 - a buyer can identify at least one concrete purchasable outcome;
-- Alarisa remains visible as the principal strategic product system while ready components receive concrete commercial paths;
+- Alarisa remains visible as the principal long-term R&D project without being presented as something a buyer can purchase now;
+- capabilities, independently deliverable products, and their concrete commercial offers remain distinguishable;
 - original technology leads to a credible delivery and customization path;
 - engineering expertise supports the products rather than replacing them;
 - current, experimental, historical, and future items are visibly distinct;

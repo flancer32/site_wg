@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/contact.md`
 - Template Version: `20260630`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -18,7 +18,7 @@ The contact page is a general commercial next-step surface for:
 
 - the active ChatGPT and Telegram offer;
 - PDE deployment, integration, or customization discussions;
-- related specialized engineering where the existing product system provides leverage;
+- related specialized engineering where existing capabilities and reusable technology provide leverage;
 - other qualified conversations supported by the product context.
 
 It must not make GitHub Flows, Agent Orchestration PoC, generic consulting, or a legacy fixed price the current reason to write.

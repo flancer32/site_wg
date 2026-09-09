@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/constraints.md`
 - Template Version: `20260605`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -38,7 +38,9 @@ Architecture must not encode:
 - the discontinued `€50` price as a reusable commercial anchor;
 - generic senior-engineering services as the site's primary product;
 - PDE as a strategic replacement for, or product direction unrelated to, Alarisa;
-- Alarisa only as monolithic research that cannot be commercialized through coherent parts;
+- Alarisa as a current commercial product, a product merely waiting for packaging, or a finished product being sold in parts;
+- Alarisa as irrelevant or historical research rather than the principal long-term R&D project and future product candidate;
+- every Alarisa subsystem or capability as something that must become a product;
 - the World Map, general memory, or another Alarisa component as an active offer before its status and boundary are documented;
 - Shared Files as a validated offer;
 - detailed page, form, navigation, analytics, or deployment contracts that product documentation deliberately leaves open.

@@ -2,13 +2,13 @@
 
 - Path: `ctx/docs/product/offers/AGENTS.md`
 - Template Version: `20260629`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
-Defines the offer-level refinement branch for bounded commercial offers under the site product hierarchy.
+Defines the offer-level refinement branch for bounded commercial offers presented through the site.
 
-Documents at this level describe concrete sellable entry offers, their outcomes, scope, commercial boundary, trust model, price logic, and relationship to the enabling product system.
+Documents at this level describe concrete sellable entry offers, their outcomes, scope, commercial boundary, trust model, price logic, and relationship to the capability or product that enables them.
 
 ## Terminology Rule
 
@@ -16,7 +16,7 @@ Within this branch, an `offer` is:
 
 - a commercial object sold or validated through the site product;
 - not the site product itself;
-- subordinate to a promoted product or capability already defined in `ctx/docs/product/product-system.md`.
+- a concrete commercial presentation of a bounded product or capability already defined in `ctx/docs/product/product-system.md`.
 
 Agents must keep the distinction explicit: `wiredgeese.com` is the site product of the repository, while an offer is a promoted commercial object sold through that site.
 
@@ -29,9 +29,9 @@ Agents must keep the distinction explicit: `wiredgeese.com` is the site product 
 
 Defines:
 
-- Concrete commercial offers that sit under the product hierarchy already defined in `ctx/docs/product/product-system.md`.
+- Concrete commercial presentations of products or capabilities already defined in `ctx/docs/product/product-system.md`.
 - Offer scope, exclusions, trust boundaries, and expected buyer-facing outcome.
-- The boundary between a narrow entry offer and its broader parent product.
+- The boundary among an offer, the independently deliverable product or capability behind it, and any R&D lineage.
 
 Does NOT define:
 

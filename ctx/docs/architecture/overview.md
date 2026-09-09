@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/overview.md`
 - Template Version: `20260605`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -13,7 +13,7 @@ Provide the entry point to the target architecture of the product-led commercial
 The architecture realizes `wiredgeese.com` as a multilingual commercial publication and contact surface that:
 
 - communicates concrete offers, active technologies, customization capability, proof, research, and writing with distinct status;
-- presents Alarisa as the principal strategic product system while allowing its sufficiently ready components to have independent commercial paths;
+- presents Alarisa as the principal long-term R&D direction and future product candidate while giving current standalone products and offers direct commercial paths;
 - preserves valuable historical and search-bearing public material;
 - supports explicit commercial next steps without assuming a mature automated sales system;
 - remains separate from the runtime and client deployments of products it promotes.
@@ -35,9 +35,9 @@ The commercial repositioning changes site meaning and future content hierarchy. 
 - `src/` plus `teqcms.config.mjs` own thin project-specific runtime adaptation.
 - `web/` contains downstream delivered or generated output.
 - `bin/` and `etc/` support site operation without defining product meaning.
-- PDE and customer-specific deployments are external products and operational systems, not components of the wiredgeese.com runtime.
+- PDE and customer-specific deployments are external promoted systems and operational environments, not components of the wiredgeese.com runtime.
 
-PDE remains an infrastructure component of Alarisa at product level even though its deployed runtime stays outside the website architecture. Product composition and runtime deployment boundaries must not be conflated.
+PDE remains an independently useful infrastructure subsystem of Alarisa R&D even though its deployed runtime stays outside the website architecture. R&D composition, commercial independence, and runtime deployment boundaries must not be conflated.
 
 ## Documentation Map
 

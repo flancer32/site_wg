@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/structure.md`
 - Template Version: `20260605`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -15,7 +15,7 @@ Describe the major architectural blocks and responsibility boundaries of the sit
 - `src/` plus `teqcms.config.mjs` — thin application-extension block adapting TeqCMS to project-specific behavior.
 - `web/` — browser-delivered and generated publication artifacts.
 - `bin/` and `etc/` — site operation and deployment support.
-- external product systems — PDE runtimes, Telegram connections, client storage, customer hosts, and other promoted-product deployments outside this repository.
+- external promoted systems — PDE runtimes, Telegram connections, client storage, customer hosts, and other product-delivery deployments outside this repository.
 
 ## Responsibility Boundaries
 
@@ -28,7 +28,7 @@ Describe the major architectural blocks and responsibility boundaries of the sit
 
 ## Commercial Surface Structure
 
-The future public structure must make the Alarisa strategic system, its components and their individual statuses, concrete offers, customization, research, proof, writing, and contact distinguishable. It must support selling a coherent component without presenting that component as unrelated to Alarisa or forcing the buyer to understand the whole system. Architecture does not yet assign these roles to final routes or a navigation tree.
+The future public structure must distinguish Alarisa as the principal long-term R&D project from capabilities, independently deliverable products, concrete offers, customization, proof, writing, and contact. It must keep current products and offers directly reachable without requiring a visitor to understand Alarisa, while allowing interested visitors to trace their R&D lineage and understand Alarisa's future product ambition. Architecture does not yet assign these roles to final routes or a navigation tree.
 
 Existing pages may be retained, repurposed, redirected, or reorganized only after content and search-value review. A familiar route name does not preserve an obsolete commercial role by itself.
 

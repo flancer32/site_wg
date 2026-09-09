@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/page-composition.md`
 - Template Version: `20260630`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -21,7 +21,7 @@ Define stable shared composition rules while leaving the future commercial page 
 
 Future composition must make purchasable offers and outcomes more prominent than biography or generic services, while preserving access to useful projects, writing, books, and historical material.
 
-It must also preserve Alarisa as the strategic product system and connect separately promoted components back to it without placing the full internal model before the buyer outcome.
+It must also preserve Alarisa as the strategically central long-term R&D direction without presenting it as currently purchasable. Standalone products and offers that emerge from its work must remain directly reachable; their R&D lineage may be explained after the buyer outcome rather than imposed as a prerequisite.
 
 This document does not prescribe a home-page sequence, a product catalogue, a Telegram landing page, a contact form, or a final navigation tree. Those choices require a later approved product and interface design.
 
@@ -32,7 +32,7 @@ Existing templates may still contain:
 - an engineer-centric home and service hierarchy;
 - a GitHub offer landing page and form;
 - a contact page that promotes GitHub Flows;
-- Alarisa presented only as a monolithic unavailable project rather than a system with productizable parts.
+- Alarisa hidden as irrelevant research or presented as a current product whose parts are being sold separately.
 
 These structures are legacy drift. They may be retained temporarily for a valid staged transition, but must not be copied into new templates or treated as acceptance criteria.
 
