@@ -1,8 +1,8 @@
 /.codex
-/.idea/
 /**/.env
 /**/node_modules/
-/**/output.md
+/**/output*.md
+/**/output*.zip
 /**/own_modules/
 /**/tmp/
 /http-client.env.json
