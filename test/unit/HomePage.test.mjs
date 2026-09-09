@@ -61,6 +61,7 @@ test('renders the English Home with the accepted product-led sequence', () => {
 test('keeps Alex as the accountable maker and Wired Geese as the site and development brand in every locale', () => {
     const locales = {
         en: {
+            title: "Wired Geese — Alex Gusev's site and trade brand for software made with AI agents",
             maker: 'The maker behind Wired Geese',
             brand: 'Wired Geese is the name and brand I use for this site and my work building software with AI agents.',
             legacy: 'Wired Geese is the name I use for the software I create.',
@@ -68,6 +69,7 @@ test('keeps Alex as the accountable maker and Wired Geese as the site and develo
             productLink: '/en/products/',
         },
         ru: {
+            title: 'Wired Geese — сайт и торговый бренд Алекса Гусева для программных продуктов, создаваемых с ИИ-агентами',
             maker: 'Создатель Wired Geese',
             brand: 'Wired Geese — название и бренд этого сайта и моей работы по созданию программного обеспечения с ИИ-агентами.',
             legacy: 'Wired Geese — название программного обеспечения, которое я создаю.',
@@ -75,6 +77,7 @@ test('keeps Alex as the accountable maker and Wired Geese as the site and develo
             productLink: '/ru/products/',
         },
         es: {
+            title: 'Wired Geese — sitio y marca comercial de Alex Gusev para productos de software creados con agentes de IA',
             maker: 'El creador detrás de Wired Geese',
             brand: 'Wired Geese es el nombre y la marca que uso para este sitio y mi trabajo creando software con agentes de IA.',
             legacy: 'Wired Geese es el nombre que uso para el software que creo.',
@@ -88,6 +91,7 @@ test('keeps Alex as the accountable maker and Wired Geese as the site and develo
         const products = html.indexOf('id="products"');
         const maker = html.indexOf('id="maker"');
 
+        assert.match(html, new RegExp(`<title>${expected.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</title>`));
         assert.match(html, new RegExp(expected.maker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
         assert.match(html, new RegExp(expected.brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
         assert.doesNotMatch(html, new RegExp(expected.legacy.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
