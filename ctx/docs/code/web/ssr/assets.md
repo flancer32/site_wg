@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/assets.md`
 - Template Version: `20260630`
-- Changed: `20260716`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -24,7 +24,7 @@ Describe passive browser-facing resources and shared delivered files relevant to
 Content templates reference images below `/img/`, including:
 
 - Alex Gusev portraits;
-- project media such as the local Alarisa avatar;
+- vision and exploration media such as the local Alarisa avatar;
 - article and library illustrations;
 - contact and external-profile icons;
 - TeqFW, GitHub, Codex, and other brand marks.

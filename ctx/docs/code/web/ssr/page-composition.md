@@ -23,9 +23,9 @@ Target composition makes purchasable offers and outcomes more prominent than bio
 
 Projects, Library, Journal, Books, technical material, and historical proof belong to a secondary knowledge and archive role by default. They must remain meaningfully discoverable through an approved combination of footer or other secondary navigation, a coherent resource entry point, contextual or related-content links, existing inbound routes, and redirects where required. Merely retaining template files is insufficient.
 
-It must also preserve Alarisa as the strategically central long-term R&D direction without presenting it as currently purchasable. Standalone products and offers that emerge from its work must remain directly reachable; their R&D lineage may be explained after the buyer outcome rather than imposed as a prerequisite.
+It must also preserve Alarisa as the strategically central vision and long-term R&D direction without presenting it as a product, conventional project, single runtime, or roadmap. Standalone products and offers discovered along that path must remain directly reachable; their exploration lineage may be explained after the buyer outcome rather than imposed as a prerequisite.
 
-Home follows the approved semantic sequence of identity, current outcome, fit and boundaries, customization, Alarisa, maker and production system, selected proof and Resources, and the commercial action. This sequence may combine adjacent meanings into visual sections but must not reverse buyer value and supporting explanation.
+Home follows the approved semantic sequence of identity, current outcome, fit and boundaries, customization, Alarisa, maker plus distinct technology and development-method roles, selected proof and Resources, and the commercial action. This sequence may combine adjacent meanings into visual sections but must not reverse buyer value and supporting explanation.
 
 This document does not prescribe final headlines, body copy, card count, illustrations, responsive layout, detailed page styling, contact form fields, or offer interaction state. Those choices require a later approved interface design.
 
@@ -36,7 +36,7 @@ Existing templates may still contain:
 - an engineer-centric home and service hierarchy;
 - a GitHub offer landing page and form;
 - a contact page that promotes GitHub Flows;
-- Alarisa hidden as irrelevant research or presented as a current product whose parts are being sold separately.
+- Alarisa hidden as irrelevant research or presented as a product, conventional project, monolithic system, or package whose parts are being sold separately.
 
 These structures are legacy drift. They may be retained temporarily for a valid staged transition, but must not be copied into new templates or treated as acceptance criteria.
 

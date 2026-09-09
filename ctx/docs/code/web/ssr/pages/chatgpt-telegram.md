@@ -22,7 +22,7 @@ The page must make this decision path possible:
 
 `Telegram problem -> supported outcome -> early-adopter fit -> experimental and trust boundary -> practical-use evidence -> bounded paid setup -> customization path -> Discuss your need`
 
-PDE, MCP, Desk architecture, TeqFW, ADSM, and Alarisa may appear as optional supporting depth after the outcome. The page must not request credentials, imply automated provisioning, publish an unapproved fixed price, or claim mature SaaS operation.
+PDE implementation, MCP and Desk architecture, TeqFW as a technical platform, ADSM as a development methodology, and the Alarisa vision may appear as optional supporting depth after the outcome. The page must not request credentials, imply automated provisioning, publish an unapproved fixed price, or claim mature SaaS operation.
 
 Relevant Telegram resources may be linked contextually as evidence without competing with the commercial action.
 

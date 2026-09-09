@@ -20,6 +20,7 @@ The page explains:
 - AI agents as active production participants rather than employees or replacements for responsibility;
 - relevant experience, long-term system ownership, and continuity behind current products;
 - the direct maker relationship and customization advantage for suitable buyers;
+- ADSM's ability to make part of the maker's development knowledge explicit and potentially transferable without claiming perfect continuity;
 - honest limits of single-maker capacity, support, redundancy, and continuity.
 
 Biography and personal context support trust but must not precede or replace the connection to Products, Custom Development, proof, and the commercial action.

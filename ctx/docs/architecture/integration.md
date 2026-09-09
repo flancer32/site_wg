@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/integration.md`
 - Template Version: `20260605`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -43,6 +43,14 @@ The site may describe a PDE capability and route a visitor to a commercial conve
 
 These responsibilities belong to PDE and to client-specific delivery arrangements. Selling an external capability does not imply runtime coupling to the selling site.
 
+## Cognitive-Context Transfer Boundary
+
+An agreed product delivery may include source code, configuration and deployment knowledge, and a bounded cognitive context for continued human-directed, AI-agent-assisted development. This is a commercial handoff between accountable parties, not a runtime integration with wiredgeese.com.
+
+The delivered context must be intentionally selected for the product and agreement. It must not implicitly include unrelated Wired Geese strategy, other customer material, credentials, third-party restricted content, or access to Alex's live internal source of truth. A one-time snapshot, a separately owned repository, and an ongoing shared collaboration have different state and authority semantics; no one model is selected automatically.
+
+The receiving human owner controls goals, acceptance, credentials, and consequential changes after transfer. AI-agent access conveys technical capability only within the permissions and supervision granted by that owner.
+
 ## Trust And Authority
 
 Any future website interaction involving credentials, private resource identifiers, deployment administration, or product provisioning would transfer materially more authority than an ordinary contact request. It must be documented upstream, minimized, and approved before implementation.
@@ -55,4 +63,4 @@ The current code may still contain a GitHub-offer landing form, offer-specific t
 
 ## Change Rule
 
-New runtime integrations, automated payment or provisioning, external analytics, CRM dependencies, or customer-data owners require explicit architectural review. Product destinations and ordinary evidence links may evolve without becoming runtime dependencies.
+New runtime integrations, automated payment or provisioning, external analytics, CRM dependencies, customer-data owners, or synchronized context-transfer services require explicit architectural review. Product destinations and ordinary evidence links may evolve without becoming runtime dependencies.

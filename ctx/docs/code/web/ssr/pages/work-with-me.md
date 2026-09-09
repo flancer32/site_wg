@@ -14,7 +14,7 @@ Define the retained commercial route and its approved role as the Custom Develop
 
 ## Target Role
 
-The route is labeled `Custom Development` in primary navigation. It supports deployment, integration, customization, and related engineering around Alex's original products and capabilities. It must not restore generic senior-engineering engagements as the primary product hierarchy.
+The route is labeled `Custom Development` in primary navigation. It supports deployment, integration, customization, related engineering around Alex's original products and capabilities, and optional design or transfer of software for continued development by a customer's accountable human-and-agent team. It must not restore generic senior-engineering engagements as the primary product hierarchy or promise autonomous maintenance.
 
 Visitors must encounter concrete Products separately from this customization capability. The existing URL remains canonical so accumulated route value is preserved while its commercial meaning changes.
 

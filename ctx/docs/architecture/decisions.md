@@ -55,3 +55,15 @@ Record durable architecture decisions in a short ADR-like form.
 - Decision: use Products, Custom Development, Alarisa, Technology, and About as primary navigation meanings; use the brand for Home and a distinct `Discuss your need` action for Contact; place Resources and retained knowledge in the footer and contextual discovery model defined by product information architecture.
 - Rejected alternatives: retain the current personal-site navigation; place Resources in the header as an equal commercial category; hide Alarisa under an archive; create separate applications for commercial and knowledge surfaces.
 - Reasoning: the chosen model gives the current offer a direct path, keeps Alarisa strategically visible, exposes customization and maker trust, and preserves accumulated knowledge without letting it dominate the commercial journey.
+
+## Decision 9: Separate vision, method, platform, system, product, and offer
+
+- Decision: represent Alarisa as the guiding vision and R&D direction, ADSM as the development methodology, TeqFW as the technical platform, PDE as an independently useful technical system produced by Alarisa-guided exploration, and the Telegram setup as the current concrete commercial offer.
+- Rejected alternatives: treat them as equal catalogue items; model Alarisa as a future product system containing PDE and every subsequent offer; treat one failed product experiment as failure of the vision.
+- Reasoning: these objects have different purposes, boundaries, and lifecycles. Separating them keeps the strategic direction open while allowing products and discontinued branches to be evaluated independently.
+
+## Decision 10: Treat product-specific cognitive context as an optional transfer asset
+
+- Decision: allow an agreed product delivery to include a bounded cognitive context and development guidance for continued work by another accountable human-and-agent team, while keeping source access, context access, rights, authority, and support as separate agreement dimensions.
+- Rejected alternatives: make all internal context part of every installation; equate source delivery with development continuity; promise autonomous agent maintenance; turn the public site into an automated context-transfer service.
+- Reasoning: ADSM can preserve more development intent than source code alone, but transfer has confidentiality, intellectual-property, competence, authority, and continuity limits that require explicit human control.

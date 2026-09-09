@@ -20,6 +20,7 @@ The architecture must preserve:
 - separation between the wiredgeese.com runtime and PDE or customer deployments;
 - deliberate preservation of valuable URLs and public material during future restructuring;
 - Alex Gusev's accountability for accepted product and engineering decisions when AI agents participate in production;
+- human ownership of intent, acceptance, risk, and consequential decisions before and after any agreed cognitive-context transfer;
 - direct human review for commercial scope, price, trust, and deployment decisions while the offer is experimental.
 
 ## Trust Constraints
@@ -39,16 +40,20 @@ Architecture must not encode:
 - GitHub Flows or Agent Orchestration PoC as a current offer or validation path;
 - the discontinued `€50` price as a reusable commercial anchor;
 - generic senior-engineering services as the site's primary product;
-- PDE as a strategic replacement for, or product direction unrelated to, Alarisa;
+- PDE as a predetermined module of Alarisa, a strategic replacement for its vision, or a technical system unrelated to the exploration that produced it;
 - Alarisa as a current commercial product, a product merely waiting for packaging, or a finished product being sold in parts;
-- Alarisa as irrelevant or historical research rather than the principal long-term R&D project and future product candidate;
-- every Alarisa subsystem or capability as something that must become a product;
-- the World Map, general memory, or another Alarisa component as an active offer before its status and boundary are documented;
+- Alarisa as a conventional project, product system, single runtime, deterministic roadmap, or future product candidate with an implied product lifecycle;
+- Alarisa as irrelevant or historical research rather than the guiding vision and principal long-term R&D direction;
+- every experiment, technical system, or capability discovered along the Alarisa path as something that must become a product;
+- the World Map, general memory, or another Alarisa-directed exploration area as an active offer before its status and boundary are documented;
 - Shared Files as a validated offer;
 - the current Home, Projects, Library, Journal, and Contact navigation as a durable target hierarchy;
 - historical or search value as automatic authority for primary-navigation placement;
 - Alex's maker identity as a substitute for a concrete buyer outcome;
 - AI agents as employees, independent product authorities, or replacements for Alex's accountability;
+- ADSM as merely internal automation, or as a promise that agents replace developers, remove human supervision, or guarantee autonomous evolution;
+- source-code delivery, cognitive-context access, use rights, customization rights, continued-development rights, and maintenance responsibility as automatically equivalent grants;
+- delivery of every installation with all internal Wired Geese cognitive context;
 - large-team redundancy, `24/7` support, enterprise capacity, unlimited customization, or continuity independent of Alex;
 - final copy, visual composition, form, analytics, or deployment contracts that product documentation deliberately leaves open;
 - navigation labels, ordering, destinations, or page roles that contradict `../product/information-architecture.md`.
@@ -71,4 +76,5 @@ Human approval is required before introducing:
 - customer credential or private-resource handling by the site;
 - automated payment, provisioning, managed-hosting, or customer-record systems;
 - a change to the approved commercial navigation, canonical page roles, or route intents;
-- conversion tracking beyond ordinary operational evidence.
+- conversion tracking beyond ordinary operational evidence;
+- automated, synchronized, or continuing cognitive-context transfer as a site capability.

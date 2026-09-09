@@ -18,7 +18,7 @@ The semantic offer is:
 
 The offer is a bounded paid experimental setup that connects the client's AI system to Telegram through PDE and establishes an agreed working capability on an agreed deployment.
 
-For this commercial path, the Telegram Desk operations are technical capabilities, the configured integration that delivers the agreed outcome is the independently deliverable product, and `Connect your ChatGPT to your Telegram` is its buyer-facing offer. The product can be delivered without an Alarisa installation or an Alarisa purchase.
+For this commercial path, the Telegram Desk operations are technical capabilities, the configured integration that delivers the agreed outcome is the independently deliverable product, and `Connect your ChatGPT to your Telegram` is its buyer-facing offer. The product can be delivered without adopting the Alarisa vision or receiving a broader experimental environment.
 
 ## Buyer Outcomes
 
@@ -42,7 +42,7 @@ The exact workflow and permissions included in a paid setup must be agreed befor
 
 ## Platform Boundary
 
-PDE is an independently useful infrastructure subsystem created as part of Alarisa R&D and is the implementation foundation for this offer. The Telegram Desk provides the resource capability. The commercial offer packages setup and a useful buyer outcome without requiring the buyer to adopt Alarisa, understand its R&D lineage, or receive an Alarisa installation.
+PDE is an independently useful technical and infrastructure system that emerged from Alarisa-guided development and is the implementation foundation for this offer. The Telegram Desk provides the resource capability. The commercial offer packages setup and a useful buyer outcome without requiring the buyer to adopt or understand the Alarisa vision or receive any broader experimental system.
 
 The buyer does not need to understand PDE Runtime, Desk architecture, TDLib, MCP implementation details, TeqFW, or ADSM before understanding the offer.
 

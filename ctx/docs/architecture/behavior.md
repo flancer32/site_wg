@@ -32,11 +32,19 @@ The target commercial behavior is:
 
 `visitor recognizes a problem -> sees a concrete outcome -> evaluates fit, evidence, and honest boundaries -> understands maker responsibility where useful -> chooses a commercial action -> Alex and the client agree scope, price, deployment, and trust boundaries outside the public page`
 
-The website supports understanding and contact. It does not need to provision PDE, collect Telegram credentials, automate payment, or execute customer workflows.
+The website supports understanding and contact. It does not need to provision PDE, collect Telegram credentials, automate payment, execute customer workflows, or automate cognitive-context transfer.
 
-The main discovery flow enters through Home or a direct offer route and moves among Products, the Telegram offer, Custom Development, the commercial action, and supporting Alarisa, Technology, or About detail without requiring traversal of historical taxonomy, biography, or Alarisa internals first. Technical depth, maker identity, R&D lineage, and retained proof support the decision after buyer value is clear.
+The main discovery flow enters through Home or a direct offer route and moves among Products, the Telegram offer, Custom Development, the commercial action, and supporting Alarisa, Technology, or About detail without requiring traversal of historical taxonomy, biography, or the full Alarisa vision first. Technical depth, maker identity, exploration lineage, and retained proof support the decision after buyer value is clear.
 
 The secondary discovery flow enters through Resources, footer navigation, contextual and related-content links, direct inbound URLs, or search access and then reaches Project archive, Library, Journal, Books, and selected evidence. It supports evidence and exploration without competing equally with active commercial actions.
+
+## Product Continuation Flow
+
+When a commercial agreement includes continued development by a customer's team, the bounded flow is:
+
+`agree ownership and transfer scope -> identify source, configuration, deployment knowledge, and relevant cognitive context -> remove unrelated or unauthorized material -> deliver an agreed snapshot or repository boundary -> receiving humans accept authority and risk -> receiving human-and-agent team continues development`
+
+The transfer preserves explicit development knowledge but does not create a permanently synchronized source of truth unless a later agreement and architecture define one. The website only explains or initiates discussion of this capability; it does not perform the transfer or grant rights by itself.
 
 ## Preservation Flow
 
@@ -59,6 +67,8 @@ This preservation flow protects useful public value without keeping discontinued
 - Route changes fail toward preserving access or an intentional redirect rather than silent disappearance.
 - Retained content fails toward a coherent secondary or contextual path rather than an orphaned URL.
 - The website must not collect PDE or Telegram credentials as a shortcut around an undefined delivery process.
+- Cognitive-context delivery fails toward an explicit, bounded, human-reviewed transfer rather than silently exposing internal or third-party knowledge.
+- Continued agent-assisted development fails toward human review and narrower authority rather than a claim of autonomous maintenance.
 
 ## Legacy Drift
 

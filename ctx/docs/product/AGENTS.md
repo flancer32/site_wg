@@ -17,7 +17,8 @@ Documents at this level describe the site as a product: its meaning, purpose, sc
 - `commercial-strategy.md` — revenue model, acquisition, price discovery, validation, and productization logic.
 - `information-architecture.md` — approved navigation hierarchy, public page roles, route intents, commercial journeys, and secondary-content discovery model.
 - `overview.md` — semantic entry point defining site purpose, commercial identity, public-surface roles, and preservation constraints.
-- `product-system.md` — distinctions and relationships among R&D projects, capabilities, products, offers, enabling technology, and proof.
+- `product-system.md` — distinctions and relationships among guiding vision, development methodology, technical platform, exploration, capabilities, products, offers, and proof.
+- `transferable-development.md` — strategic models and boundaries for delivering software with cognitive context for continued human-directed, AI-agent-assisted evolution.
 
 ## Product Knowledge Model
 
@@ -26,7 +27,8 @@ The product branch is intentionally compact:
 - `overview.md` defines the site product and its commercial communication model;
 - `commercial-strategy.md` defines how the site is expected to generate sustainable revenue;
 - `information-architecture.md` defines the approved public hierarchy and maps product meaning to page and navigation roles;
-- `product-system.md` distinguishes original technologies, R&D systems, working capabilities, products, offers, and historical proof;
+- `product-system.md` distinguishes Alarisa as a guiding direction from TeqFW, ADSM, working systems, capabilities, products, offers, and historical proof;
+- `transferable-development.md` defines optional product-transfer and agent-maintainable-system capabilities without turning them into fixed packages or legal terms;
 - `offers/` defines bounded buyer-facing commercial presentations without treating every source capability or R&D subsystem as a product.
 
 ## Terminology Rule
@@ -34,13 +36,13 @@ The product branch is intentionally compact:
 Within `ctx/docs/product/`, the term `product` has two distinct meanings that must not be merged:
 
 - the **site product**: `wiredgeese.com` as the product of this repository and the main object defined at this documentation level;
-- the **promoted work**: Alex Gusev's R&D projects, capabilities, products, offers, methods, and proofs presented through the site, not all of which are sellable.
+- the **promoted work**: Alex Gusev's vision, exploration, systems, capabilities, products, offers, methods, and proofs presented through the site, not all of which are sellable.
 
 Rules for agents:
 
 - when describing repository-level product meaning, treat the site itself as the product;
 - when describing what the site sells, explicitly identify a bounded product or offer instead of treating all promoted work as sellable;
-- do not collapse the site product, Alarisa R&D, technical capabilities, commercial products, and offers into one object or hierarchy;
+- do not collapse the site product, Alarisa's guiding direction, ADSM, TeqFW, technical systems or capabilities, commercial products, and offers into one object or hierarchy;
 - do not treat promoted work as if it were the product of this repository.
 
 ## Level Boundary

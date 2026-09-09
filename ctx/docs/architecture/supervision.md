@@ -26,6 +26,7 @@ Human approval is required for:
 - new runtime areas, persistent state, integrations, or customer-data owners;
 - website handling of credentials or private resources;
 - standardized offer scope, price, hosting, maintenance, payment, and provisioning;
+- source-code rights, cognitive-context scope, intellectual-property boundaries, continued-development rights, receiving-team responsibilities, and support for any transfer;
 - retirement or redirection of public URLs when preservation value is uncertain.
 
 ## Agent Responsibilities
@@ -33,11 +34,12 @@ Human approval is required for:
 Agents must:
 
 - trace product changes through architecture, environment, and code documentation before implementation;
-- preserve the distinction among Alarisa as the principal long-term R&D project, PDE as an independently useful Alarisa subsystem, a bounded independently deliverable product derived from a capability, and Telegram integration as the current concrete offer;
+- preserve the distinction among Alarisa as the guiding vision and R&D direction, ADSM as the development methodology, TeqFW as the technical platform, PDE as an independently useful technical system discovered along that direction, a bounded product derived from a capability, and Telegram integration as the current concrete offer;
 - distinguish site responsibilities from PDE and client-deployment responsibilities;
 - label legacy GitHub funnel behavior as drift rather than a reusable pattern;
 - preserve experimental-status and trust-boundary language;
 - preserve Alex Gusev as the accountable human maker while describing AI agents as production participants rather than employees or independent authorities;
+- keep cognitive-context transfer bounded, optional, explicitly authorized, and subordinate to accountable human ownership on both sides;
 - keep current commercial navigation responsibility distinct from secondary knowledge and archive reachability;
 - implement navigation and page roles from `../product/information-architecture.md` without reinterpreting legacy template structure as authority;
 - surface missing evidence instead of inventing validation or maturity;
@@ -49,11 +51,12 @@ Architecture drift exists when:
 
 - public or code documentation again makes generic engineering judgment the main product;
 - GitHub Flows, Agent Orchestration PoC, or `€50` reappears as active commercial direction;
-- PDE is described as replacing or existing strategically outside Alarisa;
+- PDE is described as a predetermined module of a future Alarisa package, as replacing the Alarisa vision, or as unrelated to the exploration that produced it;
 - Alarisa is presented as a current sellable product or as a finished product commercialized in parts;
-- Alarisa is reduced to historical or unavailable research instead of a strategically central experimental system with a long-term product objective;
+- Alarisa is presented as a conventional project, product system, single runtime, deterministic roadmap, or future product candidate;
+- Alarisa is reduced to historical or unavailable research instead of the strategically central guiding vision and long-term R&D direction;
 - a capability is treated as a product without a bounded payer need and independent delivery and support boundary;
-- a named Alarisa component is presented as purchasable before its offer status is documented;
+- a named Alarisa-directed exploration area or outcome is presented as purchasable before its offer status is documented;
 - the website begins to own PDE credentials, data, or operation without an approved boundary;
 - page or funnel mechanics define product meaning downstream;
 - historical or search-bearing material disappears without review;
@@ -61,6 +64,8 @@ Architecture drift exists when:
 - retained content becomes reachable only through direct or search-engine access with no intentional internal discovery path;
 - Alex's maker identity replaces a concrete buyer outcome, or the site pretends to have organizational capacity it does not have;
 - AI-agent participation is used to obscure human accountability or claim unlimited capacity;
+- ADSM is reduced to an internal coding workflow or exaggerated into autonomous, developer-free maintenance;
+- cognitive-context delivery is implied by ordinary product use or source access, exposes unrelated context, or lacks an accountable receiving human owner;
 - dogfooding or trusted-user installation is described as commercial validation;
 - Home, Resources, Products, Custom Development, Alarisa, Technology, About, or the commercial action loses its approved semantic role;
 - experimental capabilities are described as mature or validated.

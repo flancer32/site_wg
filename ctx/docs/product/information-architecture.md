@@ -14,7 +14,7 @@ Facts established by the accepted product context:
 
 - Wired Geese must lead with independently valuable products and outcomes rather than generic access to Alex as a developer;
 - `Connect your ChatGPT to your Telegram` is the current active commercial offer;
-- Alarisa is the principal long-term R&D project and must remain prominent without being presented as purchasable now;
+- Alarisa is the guiding vision and principal long-term R&D direction and must remain prominent without being reduced to a purchasable product or conventional project;
 - Alex Gusev is the accountable maker working with AI-agent production participants;
 - Projects, Library, Journal, Books, and historical materials retain evidence and search value without requiring primary-navigation prominence;
 - the public site supports understanding and commercial contact, not automated provisioning or product operation.
@@ -53,8 +53,8 @@ Home is the shortest complete path through the commercial model. Its approved se
 2. the current Telegram product outcome and offer;
 3. early-adopter fit plus experimental, trust, credential, and deployment boundaries;
 4. the customization and integration path;
-5. Alarisa as the strategically central R&D direction and future product candidate;
-6. Alex's accountable maker role and the TeqFW, ADSM, and AI-agent-assisted production system;
+5. Alarisa as the strategically central vision and open R&D direction from which independent discoveries may emerge;
+6. Alex's accountable maker role, TeqFW as the technical platform, ADSM as the development methodology, and AI agents as supervised production participants;
 7. selected practical-use and historical proof with a path into Resources;
 8. the commercial next action.
 
@@ -67,8 +67,8 @@ Products is the primary commercial inventory. It must:
 - lead with the independently deliverable product behind the Telegram offer and route to its detail page;
 - distinguish `available now`, `experimental capability`, and `future candidate` statuses;
 - expose customization as a continuation of a product need;
-- avoid presenting Shared Files, the World Map, general memory, PDE, or Alarisa as equal purchasable products without their own approved commercial status;
-- explain R&D lineage only after the buyer-facing outcome and status.
+- never present Alarisa as purchasable, and avoid presenting Shared Files, the World Map, general memory, PDE, or every technical capability as an equal product without independent commercial status;
+- explain exploration lineage only after the buyer-facing outcome and status.
 
 The existing `products.html -> projects.html` redirect is legacy behavior to retire when localized target product pages exist.
 
@@ -84,7 +84,8 @@ The existing route is retained and repurposed under the `Custom Development` nav
 
 - deployment, integration, and customization of current products and capabilities;
 - new Desks or adjacent integrations where a bounded customer outcome justifies them;
-- related modern web application work where TeqFW, ADSM, Alarisa, PDE, or Alex's product base provides material leverage.
+- related modern web application work where TeqFW, PDE, or Alex's product base provides technical leverage, or where ADSM and Alarisa-guided discovery provide relevant development leverage;
+- optional development or transfer of software with maintained cognitive context for continued work by a customer's accountable human-and-agent team.
 
 It is not a generic staff-augmentation, CV, hourly-rate, or unrestricted consultancy catalogue.
 
@@ -92,11 +93,12 @@ It is not a generic staff-augmentation, CV, hourly-rate, or unrestricted consult
 
 The existing route is retained but becomes a direct primary destination rather than something discoverable only through Projects. The page presents:
 
-- the principal long-term R&D direction and personal intelligent-assistant vision;
-- current experimental and practical-use status;
+- Alarisa as the guiding vision and principal long-term R&D direction for human-AI-agent coexistence and interaction;
+- current exploration, experimental systems, and practical-use evidence without equating any one implementation with Alarisa;
 - the `Principal` domain concept and explicit human authority;
-- PDE and other systems as R&D components or outcomes without implying that Alarisa is sold in parts;
-- the future product objective without a current purchase promise;
+- PDE and other systems or products as independently useful outcomes discovered along the direction, without implying that Alarisa is sold in parts;
+- failed, discontinued, and still-open branches as valid exploration outcomes rather than contradictions of the vision;
+- the open-ended nature of the direction rather than a deterministic roadmap or future purchase promise;
 - links to current products and Technology where they clarify how the R&D creates useful results.
 
 ### Technology — `/{locale}/technology.html`
@@ -105,11 +107,11 @@ Technology explains the production and technical system behind current work:
 
 - Web Platform and JavaScript as the deliberate technical direction;
 - TeqFW as the application platform and architectural asset;
-- ADSM as the controlled human-agent software-production method;
+- ADSM as the controlled human-agent software-development method and basis for preserving transferable development context;
 - AI agents as active production participants under Alex's accountability;
-- PDE as independently useful Alarisa infrastructure when relevant to delivered products.
+- PDE as an independently useful technical system discovered through Alarisa-guided exploration when relevant to delivered products.
 
-The page supports technical trust and differentiation. It is not a generic stack list, an AI-consulting offer, or a prerequisite for understanding Products.
+The page supports technical trust and differentiation, including the optional capability to design or transfer software for continued human-directed, AI-agent-assisted evolution. It is not a generic stack list, an AI-consulting offer, a claim of autonomous maintenance, or a prerequisite for understanding Products.
 
 ### About — `/{locale}/about.html`
 
@@ -149,7 +151,7 @@ Secondary content supports commercial journeys through selective relationships:
 
 - the Telegram offer may link to relevant Telegram articles or working demonstrations;
 - Products may link to evidence for the capability or outcome being claimed;
-- Alarisa may link to PDE-derived products and relevant R&D explanations;
+- Alarisa may link to PDE-derived products and relevant exploration explanations;
 - Technology may link to inspectable TeqFW, ADSM, source, or technical materials;
 - About may link to selected historical responsibility evidence;
 - detail articles and archive items may link back to the relevant current Product, Technology, Alarisa, or Custom Development page when the relation is genuine.

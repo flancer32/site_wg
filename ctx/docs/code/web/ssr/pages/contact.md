@@ -18,6 +18,7 @@ The contact page is a general commercial next-step surface for:
 
 - the active ChatGPT and Telegram offer;
 - PDE deployment, integration, or customization discussions;
+- product-specific cognitive-context transfer or an agent-maintainable system where the product and agreement make that suitable;
 - related specialized engineering where existing capabilities and reusable technology provide leverage;
 - other qualified conversations supported by the product context.
 
@@ -27,9 +28,9 @@ Contact is a commercial action and route-continuity concern, not a primary conte
 
 ## Contact Boundary
 
-The page may expose approved direct contact channels and first-message guidance. A first conversation may identify the desired outcome, AI system, Telegram boundary, preferred deployment model, and likely customization.
+The page may expose approved direct contact channels and first-message guidance. A first conversation may identify the desired outcome, AI system, Telegram boundary, preferred deployment model, likely customization, and whether source or cognitive-context transfer is relevant.
 
-The website must not request Telegram credentials, session data, client-host secrets, or broad administrative access as ordinary contact fields.
+The website must not request Telegram credentials, session data, client-host secrets, broad administrative access, or internal customer cognitive context as ordinary contact fields.
 
 No final form fields, channel order, automation, payment step, or deployment workflow are authorized here.
 

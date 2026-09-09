@@ -20,7 +20,7 @@ The page:
 - distinguishes products available now from experimental capabilities and future candidates;
 - routes product-related customization to Custom Development;
 - may show PDE as enabling infrastructure after the buyer outcome;
-- must not present Alarisa, PDE, Shared Files, the World Map, general memory, or every Desk as equal purchasable products;
+- must not present Alarisa as a product or present PDE, Shared Files, the World Map, general memory, or every Desk as equal purchasable products without independent commercial status;
 - gives each listed item an explicit status and next action proportionate to that status.
 
 ## Transition Boundary

@@ -27,6 +27,8 @@ Alex operates as an independent software maker and engineering product creator. 
 
 The software, technologies, and products are created and directed by one accountable human maker, Alex Gusev, working closely with AI and LLM agents as active production participants. Alex remains responsible for product direction and accepted engineering decisions. Agents accelerate software creation but are not employees, do not remove human responsibility, and do not imply the delivery capacity or continuity of a larger organization.
 
+ADSM extends this maker-led model by making product intent, architecture, constraints, accepted decisions, and development guidance explicit in a maintained cognitive context. For suitable products and agreements, this development knowledge may be transferred with the software so another accountable human-and-agent team can continue its evolution. This is an optional engineering capability, not a promise of autonomous maintenance or perfect continuity.
+
 For suitable buyers, this maker-led model can support trust through direct access to the creator, coherent architectural ownership, a short path from feedback to change, and the ability to customize underlying technology. These are conditional positioning strengths, not universal advantages or substitutes for evidence about the product itself.
 
 The commercial progression for a bounded customer solution is:
@@ -39,25 +41,29 @@ Alex's engineering experience remains visible and important. Its commercial role
 
 The site should lead with things that exist, work, or can be delivered, then explain the technology and experience behind them.
 
-The internal development lineage is:
+The internal development model distinguishes different kinds of things:
 
-1. Tequila Framework (`TeqFW`), Agent-Driven Software Management (`ADSM`), and active AI-agent practice form a broader software-production system;
-2. Alarisa is the principal long-term R&D project built with that system: an active experimental working system and integration environment, not a current commercial product;
-3. Personal Digital Embassy (`PDE`) is an independently useful infrastructure subsystem created as part of Alarisa R&D;
-4. Telegram, Shared Files, the World Map, general memory, and other work may yield capabilities, but a capability becomes a product only when it solves a bounded payer need and can be offered, delivered, and supported independently.
+1. Alarisa is the guiding vision, long-term direction, and open exploration path for human-AI-agent coexistence and interaction;
+2. Tequila Framework (`TeqFW`) is the technical application platform that addresses how modular JavaScript and web software is structured;
+3. Agent-Driven Software Management (`ADSM`) is the methodology that addresses how human-directed, AI-agent-assisted development is organized, controlled, documented, and made more transferable;
+4. Personal Digital Embassy (`PDE`) is an independently useful technical system that emerged from Alarisa-guided development and continues to support both exploration and independent delivery;
+5. Telegram, Shared Files, the World Map, general memory, and future discoveries may yield capabilities or products, but each product requires a bounded payer need and an independent delivery and support boundary.
+
+Alarisa is not a deterministic product roadmap. Exploration may produce reusable infrastructure, commercial products, future ideas, or discontinued dead ends. Failure of one product hypothesis does not invalidate the direction.
 
 The current customer-facing entry path is:
 
-1. a concrete paid experimental Telegram integration offer that a buyer can understand without learning Alarisa or PDE internals;
+1. a concrete paid experimental Telegram integration offer that a buyer can understand without learning PDE implementation or the broader Alarisa rationale;
 2. paid deployment, integration, and customization around PDE-based or other independently useful products;
-3. related engineering in which TeqFW, ADSM, Alarisa, PDE, and AI-agent practice create reusable leverage;
-4. engineering experience, historical systems, public work, and writing as evidence.
+3. related engineering in which TeqFW and PDE provide technical leverage while ADSM and Alarisa-guided discovery provide development leverage;
+4. an optional path to software designed or transferred for continued development by another accountable human-and-agent team;
+5. engineering experience, historical systems, public work, and writing as evidence.
 
 Commercial readiness and strategic importance are different dimensions. Alarisa remains the main long-term R&D direction while independently useful results of that work may reach buyers first.
 
-Development lineage and the commercial acquisition path are related but not identical. A buyer may enter directly through a concrete Telegram problem and offer; PDE or Alarisa need appear only when they help the decision. The buyer does not adopt Alarisa merely because a product originated in its R&D.
+Development lineage and the commercial acquisition path are related but not identical. A buyer may enter directly through a concrete Telegram problem and offer; PDE or Alarisa need appear only when they help the decision. The buyer does not adopt the Alarisa vision merely because a product emerged while following it.
 
-The product and status distinctions are defined in `product-system.md`. The revenue model is defined in `commercial-strategy.md`. Concrete buyer-facing offer boundaries are defined under `offers/`.
+The product and status distinctions are defined in `product-system.md`. The revenue model is defined in `commercial-strategy.md`. Optional context-enabled delivery is defined in `transferable-development.md`. Concrete buyer-facing offer boundaries are defined under `offers/`.
 
 ## Buyer Understanding Requirement
 
@@ -101,7 +107,7 @@ This accumulated material acts as commercial support infrastructure through sear
 The future site must also let visitors distinguish at least:
 
 - things available to buy or use now;
-- Alarisa as the strategically central long-term R&D project, its future product ambition, and the status of work emerging from it;
+- Alarisa as the strategically central vision and R&D direction, together with the status of independent work emerging along that path;
 - active products, technologies, and working capabilities;
 - deployment, integration, and customization capability;
 - research and methodology;
@@ -143,7 +149,7 @@ Claims must be attached to inspectable evidence wherever practical. The site mus
 
 The site must not manufacture a history of many successful independent product businesses, customer results, testimonials, maturity, security guarantees, or market validation that do not exist.
 
-Alarisa and PDE capabilities are used in Alex's own digital life, and selected capabilities have been installed for close or experimental users. This is evidence of practical usefulness and operation. It is not evidence of market demand, mature support, production-grade security, repeatable external deployment, or commercial validation. External paying customers remain the required validation evidence.
+Software developed along the Alarisa direction and PDE capabilities are used in Alex's own digital life, and selected capabilities have been installed for close or experimental users. TeqFW, PDE, Alarisa-directed exploration, and this site's cognitive context also provide practical evidence that ADSM is used in real development. This is not evidence of market demand, successful customer handoff, mature support, production-grade security, repeatable external deployment, or commercial validation. External paying customers and actual receiving-team continuation remain the relevant validation evidence.
 
 ## Historical And Search Preservation
 
@@ -181,6 +187,7 @@ It must avoid:
 - defensive use of Alex's age or grievances about market comparisons;
 - leading with legacy Magento/PHP work or a long autobiography;
 - implying legal, privacy, security, or availability guarantees that have not been established.
+- claiming that cognitive-context delivery removes the need for developers, makes evolution automatic, or guarantees safe autonomous maintenance.
 
 For the provisional early adopter audience, technical transparency, explicit trade-offs, controlled deployment, direct maker involvement, and optional architectural depth may support a trust decision. Buyer outcomes still come first; Alex's identity and production model support product value rather than replace it.
 
@@ -189,8 +196,9 @@ For the provisional early adopter audience, technical transparency, explicit tra
 Every substantial future site revision must verify that:
 
 - a buyer can identify at least one concrete purchasable outcome;
-- Alarisa remains visible as the principal long-term R&D project without being presented as something a buyer can purchase now;
+- Alarisa remains visible as the guiding vision and principal long-term R&D direction without being reduced to a product, conventional project, or deterministic roadmap;
 - capabilities, independently deliverable products, and their concrete commercial offers remain distinguishable;
+- TeqFW, ADSM, Alarisa, PDE, and the Telegram offer remain distinguishable as a technical platform, development methodology, vision and direction, technical system, and commercial offer respectively;
 - original technology leads to a credible delivery and customization path;
 - engineering expertise supports the products rather than replacing them;
 - current, experimental, historical, and future items are visibly distinct;
@@ -198,5 +206,6 @@ Every substantial future site revision must verify that:
 - useful public and search-bearing material is preserved deliberately;
 - primary navigation serves current commercial goals while retained knowledge remains meaningfully reachable through secondary paths;
 - Alex remains the accountable human maker and AI agents remain visible production participants without exaggerated capacity claims;
+- any transferable-development claim preserves human accountability, separates source access from cognitive-context rights, and avoids promises of autonomous continuity;
 - practical use is not presented as commercial validation;
 - early adopter communication describes needs and attitudes rather than demographic or unnecessary technical gates.

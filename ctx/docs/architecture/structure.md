@@ -33,7 +33,7 @@ The future public structure has two distinct semantic responsibilities:
 - the **primary commercial surface** makes current products, offers, outcomes, relevant technology and direction, customization, accountable maker identity, trust boundaries, and a commercial action easy to discover;
 - the **secondary knowledge and archive surface** keeps Projects, Library, Journal, Books, technical materials, historical projects, experiments, proof, and other retained content meaningfully reachable.
 
-The primary surface must distinguish Alarisa as the principal long-term R&D project from capabilities, independently deliverable products, concrete offers, customization, proof, writing, and contact. It must keep current products and offers directly reachable without requiring a visitor to understand Alarisa, while allowing interested visitors to trace their R&D lineage and understand Alarisa's future product ambition.
+The primary surface must distinguish Alarisa as the guiding vision and principal long-term R&D direction from TeqFW as a technical platform, ADSM as a development methodology, PDE as an independently useful technical system, capabilities, products, offers, customization, proof, writing, and contact. It must keep current products and offers directly reachable without requiring a visitor to understand Alarisa, while allowing interested visitors to trace how exploration in that direction produced useful independent results.
 
 Primary navigation serves the current business through Products, Custom Development, Alarisa, Technology, and About, with Home owned by the brand link and Contact represented by a distinct commercial action. Resources, Projects, Library, Journal, and Books use the footer, the Resources hub, contextual links, related-content links, and retained inbound routes.
 
@@ -46,6 +46,8 @@ Existing pages may be retained, repurposed, redirected, or reorganized only afte
 The website may explain, demonstrate, and sell PDE-based capabilities. It does not thereby become the PDE Runtime, an MCP server for customers, a Telegram credential store, or a managed product host.
 
 Any future decision to add those responsibilities would create a new architectural owner and trust boundary and requires explicit human approval plus upstream documentation.
+
+An optional product transfer may include source code, deployment knowledge, and a bounded product-specific cognitive context. It is a delivery crossing between accountable parties, not a new responsibility of the website runtime. The transfer must distinguish an agreed copy from a shared source of truth and must not imply access to unrelated Wired Geese context, credentials, or internal business knowledge.
 
 ## Expansion Rule
 

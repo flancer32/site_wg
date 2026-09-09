@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Define the existing Alarisa route as a primary strategic R&D destination without converting Alarisa into a current commercial product.
+Define the existing Alarisa route as the primary destination for its guiding vision and long-term R&D direction without converting Alarisa into a product, conventional project, or deterministic roadmap.
 
 ## Route
 
@@ -16,15 +16,16 @@ Define the existing Alarisa route as a primary strategic R&D destination without
 
 The page presents:
 
-- Alarisa as Alex's principal long-term R&D project, active experimental system, and future product candidate;
-- the personal intelligent-assistant direction and deliberate `Principal` concept;
-- working use by Alex and selected experimental users without claiming commercial validation;
-- PDE and other systems as parts or outcomes of R&D rather than pieces of a finished product sold early;
-- the unresolved future product boundary;
+- Alarisa as Alex's guiding vision, principal long-term R&D direction, and open exploration path for human-AI-agent coexistence and interaction;
+- the personal intelligent-assistant concept and deliberate `Principal` terminology as a central current expression of that vision;
+- active experiments and working systems used by Alex and selected experimental users without equating any one system with Alarisa or claiming commercial validation;
+- PDE and other independently useful systems, capabilities, or products as discoveries along the direction rather than pieces of a finished product sold early;
+- reusable learning, future ideas, and failed or discontinued branches as legitimate exploration outcomes;
+- the absence of a deterministic product roadmap or current purchase promise;
 - current Products and Technology as related destinations where useful.
 
 ## Implementation Boundary
 
-The existing route remains canonical but moves from archive-only discovery into primary navigation. The page must not contain a present purchase CTA for Alarisa; its commercial links lead to independently available products, customization, or the general contact action with status intact.
+The existing route remains canonical but moves from archive-only discovery into primary navigation. The page must not contain a purchase CTA for Alarisa or imply that it awaits product packaging; its commercial links lead to independently available products, customization, or the general contact action with status intact.
 
 Final public narrative, diagrams, proof selection, and visual composition require interface design.

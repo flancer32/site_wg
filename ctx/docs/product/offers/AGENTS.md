@@ -31,7 +31,7 @@ Defines:
 
 - Concrete commercial presentations of products or capabilities already defined in `ctx/docs/product/product-system.md`.
 - Offer scope, exclusions, trust boundaries, and expected buyer-facing outcome.
-- The boundary among an offer, the independently deliverable product or capability behind it, and any R&D lineage.
+- The boundary among an offer, the independently deliverable product or capability behind it, and any exploration or technical lineage.
 
 Does NOT define:
 
