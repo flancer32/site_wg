@@ -54,13 +54,13 @@ I make practical products that connect AI agents with the digital services and i
 
 **Connect your ChatGPT to your Telegram.**
 
-Make sense of Telegram conversations and act on them without moving the work between tools.
+Turn busy Telegram conversations into useful summaries, then act on them directly from ChatGPT.
 
 - Read and summarize conversations and channels.
 - Find relevant history where supported.
 - Prepare and publish messages.
 
-Available as a paid experimental setup.
+Paid setup available.
 
 Primary action: `View product`
 
@@ -78,7 +78,7 @@ Primary action: `Ask about a product`
 
 **One accountable maker, with AI agents actively involved.**
 
-I set the direction and remain responsible for what ships. AI agents participate in research, implementation, inspection, and maintenance. TeqFW and ADSM help keep the software modular, its intent explicit, and future development manageable.
+I set the direction and remain responsible for what ships. AI agents participate in research, implementation, inspection, and maintenance. I use TeqFW and ADSM to keep the software modular, understandable, and easier to evolve with AI agents.
 
 Primary action: `How it works`
 
@@ -88,7 +88,7 @@ Primary action: `How it works`
 
 **Where this work is heading**
 
-Alarisa is my long-term exploration of how people, AI agents, and digital services can coexist and interact. It is a direction, not a product or fixed roadmap. Some of the software I offer grows from that exploration.
+Alarisa is my long-term exploration of how people, AI agents, and digital services can coexist and interact. It is a direction, not a product or fixed roadmap. Some of the products I build emerge from that exploration.
 
 Primary action: `Explore Alarisa`
 
@@ -100,7 +100,7 @@ Primary action: `Explore Alarisa`
 
 Wired Geese is the name I use for the software I create. I work directly on the products and remain responsible for the decisions behind them.
 
-I have built and maintained production software for decades. Today I build web applications with AI agents and use the same capabilities in my own work and with a small number of experimental users.
+I have built and maintained production software for decades. Today I build web applications with AI agents. I already use the same capabilities in my own work, with a few early users testing them as well.
 
 ### 8. Final Commercial Action
 
@@ -163,7 +163,7 @@ The recommended version is concrete and broad enough to cover work, communicatio
 
 ## Major Reductions from the Previous Draft
 
-- The Telegram preview now states the result, three capabilities, maturity, and one action; deployment, access, support, and detailed feature boundaries move to the product page.
+- The Telegram preview now states the result, three capabilities, one maturity signal, and one action; deployment, access, support, and detailed feature boundaries move to the product page.
 - The adaptation bridge is one short offer rather than an explanation of reusable engineering capabilities.
 - `How it works` is a single preview paragraph; transfer, control, deployment, and cognitive-context detail move to the deeper page.
 - Maker evidence is reduced to accountability, production experience, AI-agent-assisted development, and practical use. Named technical and historical proof moves to deeper evidence pages.
@@ -172,7 +172,7 @@ The recommended version is concrete and broad enough to cover work, communicatio
 ## Provisional Language and Confirmation Points
 
 - `ChatGPT + Telegram` remains a working label, not an approved permanent product name.
-- `Early access` and `paid experimental setup` must be reconfirmed immediately before publication.
+- `Early access` and `Paid setup available` must be reconfirmed immediately before publication.
 - Conversation, channel, history, preparation, and publishing support must be checked against the final product scope. The short Home bullets do not promise universal support.
 - Exact destinations for `Explore products`, `View product`, `Ask about a product`, `How it works`, and `Explore Alarisa` remain route and implementation decisions.
 - Shared Files and private memory remain absent because they have not passed the catalogue-entry gate.
