@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/overview.md`
 - Template Version: `20260605`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Site Purpose
 
@@ -21,7 +21,9 @@ Traffic, reputation, technical originality, writing, experience, and projects ar
 
 The primary identity is:
 
-`independent software maker and engineering product creator`
+`creator and developer of modern web applications for a world in which people, software services, and AI agents coexist and interact`
+
+Alex operates as an independent software maker and engineering product creator. Web Platform and JavaScript technologies are deliberate foundations of this direction, not the commercial product itself and not a reason to reduce the site to a generic JavaScript-developer portfolio.
 
 The commercial progression is:
 
@@ -33,7 +35,7 @@ Alex's engineering experience remains visible and important. Its commercial role
 
 The site should lead with things that exist, work, or can be delivered, then explain the technology and experience behind them.
 
-The strategic hierarchy is:
+The internal strategic and product hierarchy is:
 
 1. Alarisa as the principal long-term R&D project and product system;
 2. Tequila Framework (`TeqFW`), Agent-Driven Software Management (`ADSM`), and active AI-agent practice as foundations used to build it;
@@ -48,6 +50,8 @@ The current commercial-entry hierarchy is:
 4. engineering experience, historical systems, public work, and writing as evidence.
 
 Commercial priority and strategic importance are different dimensions. PDE may be easier to monetize first without replacing Alarisa as the main strategic horizon.
+
+The internal hierarchy and the commercial acquisition path are related but not identical. A buyer may enter directly through a concrete Telegram outcome and encounter PDE or the broader Alarisa system only when those concepts help the decision.
 
 The product and status distinctions are defined in `product-system.md`. The revenue model is defined in `commercial-strategy.md`. Concrete buyer-facing offer boundaries are defined under `offers/`.
 

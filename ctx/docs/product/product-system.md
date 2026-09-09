@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/product-system.md`
 - Template Version: `20260605`
-- Changed: `20260908`
+- Changed: `20260909`
 
 ## Purpose
 
@@ -10,7 +10,9 @@ Define the relationship among Alex Gusev's original technologies, working capabi
 
 ## Strategic Direction
 
-Alex intentionally develops modern web applications around JavaScript and the Web Platform. The long-term system combines software architecture, human-agent production methods, and applications that connect AI systems to useful resources under explicit human control.
+Alex intentionally creates and develops modern web applications for an environment in which people, software services, and AI agents coexist and interact. The Internet provides their shared environment; the Web Platform provides the application platform; and JavaScript provides a common language across browser and server applications. This supports reuse of code and concepts, modular distributed applications, and software increasingly developed and maintained by humans together with AI agents.
+
+JavaScript is an enabling technological choice, not the product being sold and not a reason to present Alex as a generic JavaScript developer. The long-term system combines software architecture, human-agent production methods, and applications that connect AI systems to useful resources under explicit human control.
 
 The strategic chain is:
 
@@ -21,6 +23,10 @@ These are connected roles, not a catalogue of equal products.
 ## Alarisa
 
 Alarisa is Alex's principal long-term R&D project and the main product system through which the personal-agent direction is developed.
+
+Alarisa is a personal intelligent assistant built around AI agents. It is configured around its `Principal`: the person whose interests, resources, context, and actions the assistant serves. In Alarisa's domain model, `Principal` is deliberate terminology and must not be casually replaced with `customer`, `owner`, or `user`. Those terms remain valid for a buyer or client in commercial documentation.
+
+Alarisa's durable product responsibility is to act as an intelligent bridge between its Principal and the surrounding digital environment, including the Principal's digital resources, external digital services, resources or services belonging to other people where authority permits, AI agents, and other people's agents. This describes the product vision and domain boundary; it does not claim that every bridge or agent interaction is already implemented.
 
 Alarisa is larger than a single release or buyer-facing package. It contains or drives components that may have their own lifecycles, demonstrations, deployments, and commercial offers. The fact that Alarisa as a whole is not currently offered as a mature product does not make it merely historical and does not remove it from the strategic horizon.
 
@@ -38,23 +44,26 @@ Tequila Framework (`TeqFW`) is an original JavaScript application platform and a
 - isomorphic application code where appropriate;
 - dependency injection, inversion of control, and late binding;
 - modular composition with understandable and replaceable parts;
+- distributed application development and replaceable package-level contributions;
 - package-level architecture that humans and AI agents can inspect and modify.
 
 `@teqfw/di` is an important original technical asset and concrete evidence of this architectural work.
 
-TeqFW is enabling technology and proof. It should not be forced into an abstract framework sale before a buyer understands the capability it enables.
+TeqFW is part of Alex's software-production system, not merely another library in a portfolio. It is enabling technology and proof and should not become the primary commercial offer unless a concrete paid offer around it is later validated.
 
 ## Agent-Driven Software Management
 
 Agent-Driven Software Management (`ADSM`) is Alex's methodology for controlled software creation with AI agents. It preserves product meaning, architecture, environment, implementation constraints, authority, and review across human-agent work.
 
-Its commercial relevance is primarily that it improves Alex's own production system and supports maintainable handoff. It must not be reduced to generic AI consultancy.
+TeqFW primarily supplies application structure and the technical platform; ADSM primarily supplies the development process and agent-controlled methodology. Together with AI agents acting as active development participants, they form Alex's software-production system.
+
+ADSM's commercial relevance is primarily that it improves this production system and supports maintainable handoff. It is active engineering infrastructure, not merely writing, research, consultancy material, or generic AI consultancy.
 
 ## Personal Digital Embassy
 
-Personal Digital Embassy (`PDE`) is an experimental but working application and infrastructure platform through which MCP-compatible AI systems can interact with digital resources under a person's control.
+Personal Digital Embassy (`PDE`) is an experimental but working application and infrastructure subsystem created in the context of Alarisa. It provides controlled bridges through which MCP-compatible AI systems can interact with digital resources associated with a Principal.
 
-PDE is an infrastructure component of Alarisa. It is also separable enough to support concrete deployments and offers before Alarisa as a whole is commercially packaged. Its near-term monetization role must not be confused with ownership of the long-term strategic direction.
+PDE is an infrastructure component of Alarisa. It is also separable enough to be deployed independently, solve useful problems by itself, support customization, and provide concrete commercial offers without a complete Alarisa installation. Its near-term monetization role must not be confused with ownership of the long-term strategic direction.
 
 Conceptually:
 
