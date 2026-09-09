@@ -41,12 +41,24 @@ menu?.querySelectorAll('a').forEach((link) => {
 });
 
 const currentPath = window.location.pathname.replace(/\/index\.html$/, '/');
-document.querySelectorAll('.primary-nav a').forEach((link) => {
-    const linkPath = new URL(link.href, window.location.origin).pathname.replace(/\/index\.html$/, '/');
-    const isHome = /^\/(en|es|ru)\/$/.test(linkPath);
-    const matches = isHome ? currentPath === linkPath : currentPath === linkPath || currentPath.startsWith(linkPath.replace(/\.html$/, '/'));
-    if (matches) link.setAttribute('aria-current', 'page');
-});
+const updateCurrentNavigation = () => {
+    document.querySelectorAll('.primary-nav a').forEach((link) => {
+        const linkUrl = new URL(link.href, window.location.origin);
+        const linkPath = linkUrl.pathname.replace(/\/index\.html$/, '/');
+        const isHome = /^\/(en|es|ru)\/$/.test(linkPath);
+        const matchesPath = isHome
+            ? currentPath === linkPath
+            : currentPath === linkPath || currentPath.startsWith(linkPath.replace(/\.html$/, '/'));
+        const matches = linkUrl.hash
+            ? matchesPath && window.location.hash === linkUrl.hash
+            : matchesPath;
+
+        if (matches) link.setAttribute('aria-current', linkUrl.hash ? 'location' : 'page');
+        else link.removeAttribute('aria-current');
+    });
+};
+updateCurrentNavigation();
+window.addEventListener('hashchange', updateCurrentNavigation);
 
 const localePattern = /^\/(en|es|ru)(?=\/|$)/;
 document.querySelectorAll('[data-locale-target]').forEach((link) => {

@@ -1,72 +1,90 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Alex Gusev — senior web engineering with AI agents{% endblock %}
-{% block description %}I design, build, and rescue web systems using 25+ years of engineering experience, TeqFW, ADSM, and controlled AI-agent workflows.{% endblock %}
+{% block title %}Wired Geese — software for people and their AI agents{% endblock %}
+{% block description %}Software products by Alex Gusev that connect people and their AI agents with useful digital services and information.{% endblock %}
 
 {% block content %}
 <div class="home-page">
-    <section class="card hero--home">
-        <div class="hero-copy">
-            <p class="eyebrow">Alex Gusev · Independent web engineer · Latvia</p>
-            <h1>I build web systems that can keep evolving.</h1>
-            <p class="lead">Bring me a difficult product, architecture, or delivery problem. I combine 25+ years in web engineering with AI agents to move faster without losing context, control, or accountability.</p>
+    <div class="home-opening">
+        <section class="home-hero" aria-labelledby="home-title">
+            <h1 id="home-title">I build software for people and their AI agents.</h1>
+            <p class="lead">I make practical products that connect AI agents with the digital services and information you already use.</p>
             <div class="hero-links">
-                <a class="button-primary" href="/{{ locale }}/work-with-me.html">Discuss your project</a>
-                <a class="button-secondary" href="/{{ locale }}/projects.html">See the evidence</a>
+                <a class="button-primary" href="#products">Explore products</a>
+                <a class="button-secondary" href="#how-it-works">How it works</a>
             </div>
-            <ul class="proof-strip" aria-label="Professional evidence">
-                <li>Web engineering since 1998</li><li>Founder and hands-on builder</li><li>JavaScript · Node.js · Browser</li><li>EU-based · Remote</li>
-            </ul>
-        </div>
-        <aside class="system-map" aria-label="Engineering practice">
-            <p class="system-map-label">One accountable engineering practice</p>
-            <div class="system-flow">
-                <div class="system-node"><span>01</span><strong>Understand the real product problem</strong></div><div class="system-connector" aria-hidden="true"></div>
-                <div class="system-node"><span>02</span><strong>Make architecture and boundaries explicit</strong></div><div class="system-connector" aria-hidden="true"></div>
-                <div class="system-node"><span>03</span><strong>Use agents for bounded execution</strong></div><div class="system-connector" aria-hidden="true"></div>
-                <div class="system-node"><span>04</span><strong>Verify, explain, and leave durable context</strong></div>
+        </section>
+
+        <section class="home-products" id="products" aria-labelledby="products-title" tabindex="-1">
+            <div class="home-products-heading">
+                <h2 id="products-title">Available now</h2>
             </div>
-            <code>senior judgment × agent leverage = controlled delivery</code>
-        </aside>
+            <div class="product-collection">
+                <article class="product-preview">
+                    <p class="product-status">Early access</p>
+                    <h3>ChatGPT + Telegram</h3>
+                    <p class="product-outcome">Connect your ChatGPT to your Telegram.</p>
+                    <p>Turn busy Telegram conversations into useful summaries, then act on them directly from ChatGPT.</p>
+                    <ul class="product-capabilities">
+                        <li>Read and summarize conversations and channels.</li>
+                        <li>Find relevant history where supported.</li>
+                        <li>Prepare and publish messages.</li>
+                    </ul>
+                    <p class="product-commercial">Paid setup available.</p>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <section class="home-bridge" aria-labelledby="adaptation-title">
+        <div>
+            <h2 id="adaptation-title">Need something different?</h2>
+            <p>If an existing product is close to what you need, I can adapt it, connect another service, or extend it for your workflow.</p>
+        </div>
+        <a class="button-secondary" href="/{{ locale }}/contact.html?topic=product-adaptation">Ask about a product</a>
     </section>
 
-    <section class="home-section">
-        <div class="section-heading"><p class="eyebrow">Where I create value</p><h2>When the problem is bigger than “write some code.”</h2></div>
-        <div class="product-grid">
-            <article class="product-card"><span class="product-index">01 / Uncertainty</span><h3>Your product needs a sound technical direction</h3><p>I turn an ambiguous goal, inherited system, or risky idea into explicit decisions, architecture, and a credible path to delivery.</p></article>
-            <article class="product-card"><span class="product-index">02 / Execution</span><h3>A focused system has to be built or rescued</h3><p>I work across browser, Node.js, data, integrations, and Linux infrastructure to deliver the difficult part—not just advise from the sidelines.</p></article>
-            <article class="product-card"><span class="product-index">03 / Leverage</span><h3>You want agents in engineering without chaos</h3><p>I establish context, authority boundaries, package knowledge, workflows, and verification so agents increase capacity without becoming a black box.</p></article>
+    <section class="home-section home-preview home-preview--method" id="how-it-works" aria-labelledby="how-it-works-title" tabindex="-1">
+        <div>
+            <p class="eyebrow">How it works</p>
+            <h2 id="how-it-works-title">One accountable maker, with AI agents actively involved.</h2>
+        </div>
+        <div class="home-preview-copy">
+            <p>I set the direction and remain responsible for what ships. AI agents participate in research, implementation, inspection, and maintenance. I use TeqFW and ADSM to keep the software modular, understandable, and easier to evolve.</p>
         </div>
     </section>
 
-    <section class="home-section">
-        <div class="section-heading"><p class="eyebrow">Ways to work together</p><h2>Start at the level your problem requires.</h2><p>Each engagement is scoped around a real system and an observable outcome.</p></div>
-        <div class="product-grid">
-            <article class="product-card product-card--featured"><span class="product-index">Clarify</span><h3>Architecture &amp; agent-readiness review</h3><p>A bounded review of your product, repository, constraints, and best next intervention.</p><p><a href="/{{ locale }}/work-with-me.html#review">Review the engagement →</a></p></article>
-            <article class="product-card"><span class="product-index">Deliver</span><h3>Focused build or rescue</h3><p>A web application, integration, prototype, internal tool, or hard subsystem designed and implemented hands-on.</p><p><a href="/{{ locale }}/work-with-me.html#build">Explore build work →</a></p></article>
-            <article class="product-card"><span class="product-index">Scale</span><h3>Agent-driven engineering system</h3><p>A controlled development environment where people own intent and agents can execute against durable context.</p><p><a href="/{{ locale }}/work-with-me.html#system">Explore agent-driven engineering →</a></p></article>
+    <section class="home-section home-preview home-preview--vision" id="alarisa" aria-labelledby="alarisa-title" tabindex="-1">
+        <div>
+            <p class="eyebrow">Alarisa</p>
+            <h2 id="alarisa-title">Where this work is heading</h2>
+        </div>
+        <div class="home-preview-copy">
+            <p>Alarisa is my long-term exploration of how people, AI agents, and digital services can coexist and interact. It is a direction, not a product or fixed roadmap. Some of the products I build emerge from that exploration.</p>
+            <p><a href="/{{ locale }}/projects/alarisa.html">Explore Alarisa →</a></p>
         </div>
     </section>
 
-    <section class="home-section method-split">
-        <div class="method-copy">
-            <p class="eyebrow">My unfair advantage</p><h2>I am building the tools I need for this work.</h2>
-            <p><strong>Alarisa</strong>, my private personal-agent project, is the strategic R&amp;D focus. It is in active development and not for sale. The work forces practical answers about durable context, privacy, authority, and continuity.</p>
-            <p><strong>Tequila Framework</strong> is my modular JavaScript platform. <strong>ADSM</strong> is my methodology for keeping product meaning and engineering knowledge usable by people and agents. GitHub Flows is one supporting orchestration pattern—not the product I reduce myself to.</p>
-            <p class="action-links"><a href="/{{ locale }}/projects/alarisa.html">Why I am building Alarisa</a><a href="https://teqfw.com/" target="_blank" rel="noopener">Explore TeqFW</a><a href="https://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener">Read about ADSM</a></p>
+    <section class="home-section home-preview home-preview--maker" id="maker" aria-labelledby="maker-title" tabindex="-1">
+        <div>
+            <p class="eyebrow">Alex Gusev</p>
+            <h2 id="maker-title">The maker behind Wired Geese</h2>
         </div>
-        <ul class="method-points"><li>25+ years of engineering judgment</li><li>Owned platform and methodology</li><li>Current hands-on agent R&amp;D</li><li>Direct responsibility for delivery</li></ul>
-    </section>
-
-    <section class="home-section">
-        <div class="section-heading"><p class="eyebrow">Evidence, not AI theatre</p><h2>A body of work you can inspect.</h2><p>Production systems, open-source packages, client applications, books, experiments, and technical writing show how I think and what I can ship.</p></div>
-        <div class="proof-grid">
-            <a class="proof-card" href="/{{ locale }}/projects.html"><strong>Projects</strong><span>Alarisa, TeqFW, TeqCMS, PWAs, client systems, and agent-built tools.</span></a>
-            <a class="proof-card" href="/{{ locale }}/about.html"><strong>Experience</strong><span>Banking, e-commerce, technical leadership, platform engineering, and independent delivery.</span></a>
-            <a class="proof-card" href="/{{ locale }}/library/"><strong>Knowledge</strong><span>ADSM, JavaScript architecture, browser systems, agents, and durable technical context.</span></a>
+        <div class="home-preview-copy">
+            <p>Wired Geese is the name I use for the software I create. I work directly on the products and remain responsible for the decisions behind them.</p>
+            <p>I have built and maintained production software for decades. Today I build web applications with AI agents. I use these capabilities in my own work, with a few early users testing them as well.</p>
         </div>
     </section>
 
-    <section class="cta-panel"><div><p class="eyebrow">Bring the difficult part</p><h2>Tell me what is blocked, fragile, or worth building.</h2><p>I will help determine whether the right first step is a review, a focused build, or a stronger agent-driven engineering system.</p></div><a class="button-primary" href="/{{ locale }}/work-with-me.html">Work with me →</a></section>
+    <section class="cta-panel home-cta" aria-labelledby="start-title">
+        <div>
+            <h2 id="start-title">Start with a working product.</h2>
+            <p>If a product looks useful—or close to what you need—tell me what you want it to do. I’ll help identify the right starting point.</p>
+        </div>
+        <div class="home-cta-actions">
+            <a class="button-primary" href="/{{ locale }}/contact.html?topic=product">Ask about a product</a>
+            <a class="home-cta-secondary" href="#products">Explore products</a>
+        </div>
+    </section>
 </div>
 {% endblock %}

@@ -1,10 +1,10 @@
 <header class="site-header">
     <div class="header-inner">
-        <a class="site-brand" href="/{{ locale }}/" aria-label="Alex Gusev — home">
+        <a class="site-brand" href="/{{ locale }}/" aria-label="Wired Geese — home">
             <img class="brand-mark" src="/favicon.ico" alt="" width="41" height="41"/>
             <span class="brand-copy">
-                <strong>Alex Gusev</strong>
-                <small>Web systems · Agent engineering</small>
+                <strong>Wired Geese</strong>
+                <small>by Alex Gusev</small>
             </span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
@@ -12,12 +12,11 @@
         </button>
         <div class="site-menu" id="site-menu" data-open="false">
             <nav class="primary-nav" aria-label="Primary navigation">
-                <a href="/{{ locale }}/">Home</a>
-                <a href="/{{ locale }}/work-with-me.html">Work with me</a>
-                <a href="/{{ locale }}/projects.html">Evidence</a>
-                <a href="/{{ locale }}/library/">Library</a>
-                <a href="/{{ locale }}/contact.html">Contact</a>
+                <a href="/{{ locale }}/#products">Products</a>
+                <a href="/{{ locale }}/#how-it-works">How it works</a>
+                <a href="/{{ locale }}/projects/alarisa.html">Alarisa</a>
             </nav>
+            <a class="header-action" href="/{{ locale }}/contact.html?topic=product">Ask about a product</a>
             <div class="locale-switcher" role="group" aria-label="Language">
                 {% for loc in allowedLocales %}
                 {% if loc == locale %}
