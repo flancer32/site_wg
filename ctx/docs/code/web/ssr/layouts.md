@@ -29,12 +29,12 @@ Page templates own route-specific metadata blocks, content, and any narrowly jus
 The header stays visible while scrolling and contains:
 
 - Wired Geese as the brand link to the locale root, with Alex Gusev available as subordinate accountable-maker attribution;
-- primary navigation in this semantic order: Products, Approach, Alarisa;
+- primary navigation in this semantic order: Products, How it works, Alarisa;
 - a visually distinct shared commercial action linking to the commercial handoff;
 - locale switcher;
 - a keyboard-operable mobile menu control.
 
-Home is owned by the brand link and must not be duplicated as an equal text item. About and retained content categories do not enter primary navigation. `Approach` and the action are semantic roles whose final idiomatic labels remain open. Localized labels must preserve these meanings and ordering.
+Home is owned by the brand link and must not be duplicated as an equal text item. About and retained content categories do not enter primary navigation. `How it works` is the accepted English label; its Russian and Spanish labels and the action wording remain idiomatic copy decisions. Localized labels must preserve these meanings and ordering.
 
 ### Main Content
 
@@ -46,7 +46,7 @@ Long-form pages narrow their primary reading surface to approximately `58rem` so
 
 The footer carries substantial secondary navigation, current copyright information, and accountable-maker attribution. Its semantic groups are:
 
-- `Discover` — Products, Approach, Alarisa;
+- `Discover` — Products, How it works, Alarisa;
 - `Knowledge` — Project Archive, Library, Journal, Books;
 - `Wired Geese` — About, Contact/commercial handoff, maker attribution, and approved legal, external profile, or company links.
 

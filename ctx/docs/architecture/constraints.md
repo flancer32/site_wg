@@ -57,6 +57,8 @@ Architecture must not encode:
 - large-team redundancy, `24/7` support, enterprise capacity, unlimited customization, or continuity independent of Alex;
 - final copy, visual composition, form, analytics, or deployment contracts that product documentation deliberately leaves open;
 - navigation meanings, relative hierarchy, page roles, or migration boundaries that contradict `../product/information-architecture.md`, including turning candidate labels or paths into approved implementation contracts.
+- a compact-viewport order that places methodology, biography, or archive evidence before current products and the first meaningful commercial action;
+- `Approach` as the preferred English public label after `How it works` was accepted, while still allowing idiomatic non-literal Russian and Spanish labels;
 
 ## Preservation Constraints
 

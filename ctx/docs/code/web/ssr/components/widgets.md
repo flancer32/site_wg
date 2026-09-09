@@ -11,7 +11,7 @@ Describe stable reusable template-composed units without making legacy commercia
 ## Shared Shell Widgets
 
 - `Site Header` — exposes the Wired Geese brand link, subordinate maker attribution where useful, primary navigation, shared commercial action, locale switching, and compact-menu control.
-- `Primary Navigation` — links Products, Approach, and Alarisa in the approved semantic order and exposes current-page state.
+- `Primary Navigation` — links Products, How it works, and Alarisa in the approved semantic order and exposes current-page state.
 - `Locale Switcher` — changes locale while preserving an equivalent route where available.
 - `Site Footer` — provides the approved Discover, Knowledge, and Wired Geese semantic groups plus attribution without becoming an unstructured archive or product-catalogue dump.
 - `Publication Discussion CTA` — may appear on journal and library detail pages and route to the relevant discussion channel.

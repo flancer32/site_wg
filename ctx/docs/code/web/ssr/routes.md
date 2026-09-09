@@ -32,7 +32,7 @@ Redirects are a deliberate continuity tool. They must not silently create an alt
 
 ## Target Semantic Destinations
 
-The target requires locale-aware semantic destinations for Home, Products, Product Detail, Approach, Alarisa, About, a shared commercial handoff, Project Archive, Library, Journal, Books, and retained historical material.
+The target requires locale-aware semantic destinations for Home, Products, Product Detail, How it works, Alarisa, About, a shared commercial handoff, Project Archive, Library, Journal, Books, and retained historical material.
 
 This code document does not select exact target paths. Existing paths such as `/{locale}/`, `/{locale}/products.html`, `/{locale}/work-with-me.html`, `/{locale}/projects.html`, `/{locale}/projects/alarisa.html`, `/{locale}/about.html`, and `/{locale}/contact.html` are migration evidence and candidates, not automatic target contracts. The superseded proposed `technology.html`, `/resources/`, and `/products/chatgpt-telegram.html` paths have no target authority.
 

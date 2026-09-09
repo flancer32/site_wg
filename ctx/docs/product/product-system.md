@@ -71,6 +71,19 @@ Capabilities and reusable technology developed along this path may solve concret
 
 GitHub Flows and Agent Orchestration PoC are discontinued branches and must not return as active offers. Their discontinuation is a normal result of exploration rather than evidence that the broader vision failed.
 
+## Public Page Placement
+
+The product system is projected into the public page architecture according to visitor jobs rather than internal ownership:
+
+- Products and Product Detail contain only independently understandable commercial products and their offers;
+- How it works explains Alex's accountability, AI-agent participation, control, customization, TeqFW, ADSM, cognitive context, transferable development, and PDE where relevant;
+- Alarisa explains the guiding vision, exploration, learning, and genuine relationships to independent outcomes;
+- Home previews current products before deeper method, vision, maker history, or archive evidence;
+- About supplies secondary maker trust;
+- Project Archive, Library, Journal, Books, and historical pages preserve proof and knowledge.
+
+Placement does not change object kind. Mentioning PDE on a product page does not make PDE a catalogue product; linking a product from Alarisa does not make the product a module of Alarisa; explaining TeqFW or ADSM under How it works does not make either a commercial offer.
+
 Alarisa does not enumerate a fixed roadmap. PDE was discovered and developed through exploration rather than treated as a permanently predetermined module, and future products must emerge from validated needs and technical discoveries rather than from a claim that their final architecture is already known.
 
 Alarisa should therefore remain visible as the unifying strategic vision and R&D direction while current buyers encounter independent products and offers in language appropriate to their needs.

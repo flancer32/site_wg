@@ -177,7 +177,7 @@ The desired commercial path is:
 
 `recognizable problem -> concrete outcome -> honest boundary -> working evidence -> bounded paid next step -> customization or integration when justified`
 
-The site should support direct contact and qualification without requiring the visitor to understand the entire technical platform. Manual qualification, agreements, payment, and delivery are acceptable while demand is small and the offer is still being learned.
+Home, Products, and Product Detail own the first four meanings. How it works supplies optional depth about accountable making, agent-assisted production, control, customization, and transferable development. Alarisa supplies vision rather than purchase justification. The site should support direct contact and qualification without requiring the visitor to understand the entire technical platform. Manual qualification, agreements, payment, and delivery are acceptable while demand is small and the offer is still being learned.
 
 ## Commercial Evidence
 

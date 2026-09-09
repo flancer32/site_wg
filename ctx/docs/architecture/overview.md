@@ -32,6 +32,8 @@ The commercial repositioning changes site meaning and future content hierarchy. 
 
 The primary commercial and secondary knowledge/archive surfaces are semantic responsibilities, not separate applications or deployment units. Their approved navigation meanings, page roles, and route-selection boundary are defined in `../product/information-architecture.md` and rendered through the same multilingual SSR system.
 
+The primary page architecture is Home by brand, Products, Product Detail, How it works, Alarisa, and the shared commercial handoff. About supplies secondary maker trust. Project Archive, Library, Journal, Books, technical pages, and historical material supply secondary evidence and knowledge. This hierarchy remains valid from one current product to a larger catalogue and keeps the same semantic priority on compact viewports.
+
 ## Major Boundaries
 
 - `ctx/` owns normative product and engineering context.

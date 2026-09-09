@@ -67,7 +67,7 @@ Architecture drift exists when:
 - ADSM is reduced to an internal coding workflow or exaggerated into autonomous, developer-free maintenance;
 - cognitive-context delivery is implied by ordinary product use or source access, exposes unrelated context, or lacks an accountable receiving human owner;
 - dogfooding or trusted-user installation is described as commercial validation;
-- Products, Approach, Alarisa, Home-by-brand, or the shared commercial action loses its approved primary semantic role;
+- Products, How it works, Alarisa, Home-by-brand, or the shared commercial action loses its approved primary semantic role;
 - About returns to primary navigation or maker biography becomes the entry proposition;
 - customization becomes a parallel generic-services business instead of a cross-product path;
 - a mandatory Resources hub or exact target route is inferred without the evidence and approval required by product information architecture;

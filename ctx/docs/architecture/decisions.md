@@ -50,9 +50,9 @@ Record durable architecture decisions in a short ADR-like form.
 - Rejected alternatives: imply a larger organization; hide the single-maker model; treat agents as employees or as replacements for human authority; make Alex's identity the product.
 - Reasoning: suitable early buyers may value direct ownership, transparency, and customization, but those strengths do not establish maturity, capacity, continuity, or commercial validation.
 
-## Decision 8: Adopt products, Approach, and vision as primary semantics
+## Decision 8: Adopt Products, How It Works, And Alarisa As Primary Semantics
 
-- Decision: use Products, Approach, and Alarisa as the stable primary navigation meanings; use the brand for Home and a distinct shared commercial action for the human handoff. Keep About as secondary maker evidence. Treat customization as a cross-product capability owned by product journeys and Approach rather than as a parallel header business. Do not freeze exact labels or paths at the architecture level.
+- Decision: use Products, How it works, and Alarisa as the stable primary navigation meanings; use the brand for Home and a distinct shared commercial action for the human handoff. `How it works` is the accepted English public label; Russian and Spanish labels remain idiomatic copy decisions. Keep About as secondary maker evidence. Treat customization as a cross-product capability owned by product journeys and How it works rather than as a parallel header business. Do not freeze exact paths at the architecture level.
 - Rejected alternatives: retain the current personal-site navigation; use Products, Custom Development, Alarisa, Technology, and About as equal primary destinations; expose only Products and Alarisa with no cross-product trust destination; place retained knowledge in the header; create separate applications for commercial and knowledge surfaces.
 - Reasoning: the chosen model gives products the dominant discovery path, gives customization and shared foundations one buyer-oriented supporting destination, keeps Alarisa strategically visible, reduces portfolio and consultancy drift, and remains stable as products are added or retired.
 

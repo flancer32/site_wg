@@ -14,9 +14,9 @@ Record the current Work With Me route and constrain its future repurpose or redi
 
 ## Target Relationship
 
-Customization is no longer a primary navigation destination or a parallel generic-services business. Product-specific installation, integration, and extension belong on Products and Product Detail. Cross-product explanation of new Desks, related applications, controlled delivery, and optional source/context transfer belongs under Approach.
+Customization is no longer a primary navigation destination or a parallel generic-services business. Product-specific installation, integration, and extension belong on Products and Product Detail. Cross-product explanation of new Desks, related applications, controlled delivery, and optional source/context transfer belongs under How it works.
 
-Useful current content and inbound value may justify repurposing this route as part of that model, or the route may later redirect to Approach, Products, or the shared handoff. The semantic IA does not choose among those migration treatments.
+Useful current content and inbound value may justify repurposing this route as part of that model, or the route may later redirect to How it works, Products, or the shared handoff. The semantic IA does not choose among those migration treatments.
 
 ## Implementation Constraints
 

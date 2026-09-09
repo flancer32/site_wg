@@ -17,6 +17,8 @@ Documents at this level describe concrete SSR page families, current route bound
 - `alarisa.md` — current Alarisa route and its target role as the guiding vision and primary strategic R&D direction.
 - `contact.md` — current Contact route and its target shared commercial-handoff boundary.
 - `home.md` — locale-root route and its approved product-family routing semantics.
+- `how-it-works.md` — target cross-product production, control, customization, and transfer page family without an approved route.
+- `product-detail.md` — flexible product-detail page family contract without product-specific copy or an approved route.
 - `products.md` — Products index page family and its catalogue and maturity boundaries without an approved path.
 - `work-with-me.md` — current route whose future repurpose or redirect treatment remains a migration decision.
 

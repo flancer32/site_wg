@@ -13,7 +13,7 @@ Documents at this level describe stable code-facing SSR behavior and distinguish
 ## Level Map
 
 - `components/` — shared SSR-delivered widget and Web Component documentation.
-- `pages/` — page-level SSR implementation documents for concrete page families such as landing pages.
+- `pages/` — page-level SSR implementation documents for current routes and durable target page families.
 - `AGENTS.md` — level definition for `ctx/docs/code/web/ssr/`.
 - `assets.md` — browser-facing asset model used by the SSR site.
 - `layouts.md` — shared SSR layout and partial structure.

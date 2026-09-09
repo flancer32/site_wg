@@ -23,7 +23,7 @@ The page explains:
 - ADSM's ability to make part of the maker's development knowledge explicit and potentially transferable without claiming perfect continuity;
 - honest limits of single-maker capacity, support, redundancy, and continuity.
 
-Biography and personal context support trust but must not precede or replace the connection to Products, Approach, product-specific customization, proof, and the commercial action.
+Biography and personal context support trust but must not precede or replace the connection to Products, How it works, product-specific customization, proof, and the commercial action.
 
 ## Implementation Boundary
 

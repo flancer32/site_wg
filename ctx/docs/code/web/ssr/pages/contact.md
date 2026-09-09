@@ -24,7 +24,7 @@ The contact page is a shared commercial next-step surface for:
 
 It must not make GitHub Flows, Agent Orchestration PoC, generic consulting, or a legacy fixed price the current reason to write.
 
-Contact is a commercial action and route-continuity concern, not a primary content category. The header exposes it through a shared action whose final public wording remains open; product details, Approach, About, the footer, and contextual actions may also link to it.
+Contact is a commercial action and route-continuity concern, not a primary content category. The header exposes it through a shared action whose final public wording remains open; product details, How it works, About, the footer, and contextual actions may also link to it.
 
 ## Contact Boundary
 

@@ -18,11 +18,11 @@ The home page is the principal entry to the product-led commercial model. Its se
 
 1. the useful class of products Wired Geese makes;
 2. a replaceable collection of current products, even while it contains only the Telegram-connected AI product;
-3. product fit, honest maturity, and relevant trust boundaries;
-4. customization and related-integration possibilities;
-5. concise Approach and accountable-maker evidence, with deeper technical and method detail available by choice;
-6. Alarisa as the guiding vision and principal long-term R&D direction, plus selected practical-use or historical proof;
-7. the shared commercial action.
+3. adaptation possibilities for needs that differ from the current product shape;
+4. concise How-it-works explanation covering accountability, control, extensibility, and transfer without deep internal detail;
+5. Alarisa as the guiding vision and principal long-term R&D direction;
+6. accountable-maker identity and a deliberately small set of product-relevant proof;
+7. the shared product-oriented commercial action.
 
 This ordering is semantic. Adjacent meanings may share one visual section, but buyer outcome must precede platform lineage and maker identity.
 
@@ -40,8 +40,9 @@ The page:
 - must not imply that ADSM makes maintenance autonomous or removes accountable human development;
 - must not imply production maturity, broad validation, fixed pricing, or unsupported outcomes;
 - must distinguish Alex's own and trusted-user practical use from external commercial validation;
-- must route useful historical and technical material through an intentional secondary or contextual path without placing it before the commercial proposition.
-- must treat the current product area as a scalable collection rather than hard-code Telegram into the page hierarchy.
+- must route useful historical and technical material through an intentional secondary or contextual path without placing it before the commercial proposition;
+- must treat the current product area as a scalable collection rather than hard-code Telegram into the page hierarchy;
+- must preserve this buyer-first priority on compact viewports so deep method, biography, and archive evidence do not precede current products and the first meaningful commercial action.
 
 ## Interface Design Boundary
 

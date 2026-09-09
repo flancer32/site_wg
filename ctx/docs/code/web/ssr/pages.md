@@ -28,7 +28,7 @@ The target primary page families are:
 - Home;
 - Products index;
 - Product detail;
-- Approach;
+- How it works;
 - Alarisa vision;
 - shared commercial handoff.
 
@@ -44,10 +44,12 @@ Route-boundary documents exist for:
 - `pages/alarisa.md`;
 - `pages/contact.md`;
 - `pages/home.md`;
+- `pages/how-it-works.md`;
+- `pages/product-detail.md`;
 - `pages/products.md`;
 - `pages/work-with-me.md`.
 
-They document current route evidence and approved semantic responsibilities without selecting the target path for repurposed or new families. The former provisional Telegram, Resources, and Technology target page documents were removed because they froze an unimplemented route and page split that the selected IA does not approve. Add a target page document only after product, migration, and architecture decisions make its route and responsibility durable.
+They document current route evidence and approved semantic responsibilities without selecting the target path for repurposed or new families. Product Detail and How it works are durable semantic families even though their routes remain open. The former provisional Telegram, Resources, and Technology target page documents were removed because they froze an unimplemented route and page split that the selected IA does not approve. Add another route-specific target document only after product, migration, and architecture decisions make its route and responsibility durable.
 
 The former Agent Orchestration PoC page document has been retired because its offer is discontinued. Its remaining source template is legacy implementation outside this task.
 

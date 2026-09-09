@@ -10,7 +10,7 @@ Define implementation-facing boundaries that refine the accepted product, archit
 
 ## Current Scope
 
-The code documentation describes the existing multilingual SSR delivery model and durable repository boundaries. It does not yet define final target routes, new product-detail or Approach templates, forms, analytics, payment, provisioning, or product-runtime integrations.
+The code documentation describes the existing multilingual SSR delivery model and durable repository boundaries. It does not define final target routes, Product Detail or How-it-works templates, forms, analytics, payment, provisioning, or product-runtime integrations.
 
 ## Repository Boundaries
 

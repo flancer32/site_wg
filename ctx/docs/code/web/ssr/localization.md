@@ -37,13 +37,13 @@ The current legacy shell maps Home, Projects or Evidence, Library, Journal where
 The target primary shell maps these canonical meanings in this order:
 
 - `Products`;
-- `Approach`;
+- `How it works`;
 - `Alarisa`;
 - distinct shared commercial action.
 
-Home is represented by the localized brand link. `Approach` is a semantic key for the cross-product explanation of foundations, control, customization, accountability, and transferability; it is not an approved English display label. About, Project Archive, Library, Journal, and Books are secondary meanings owned by curated footer and contextual discovery. No generic Resources hub is required.
+Home is represented by the localized brand link. `How it works` is the accepted English label for the cross-product explanation of foundations, control, customization, accountability, and transferability. Its Russian and Spanish display labels must be idiomatic rather than literal. About, Project Archive, Library, Journal, and Books are secondary meanings owned by curated footer and contextual discovery. No generic Resources hub is required.
 
-Semantic roles establish keys such as `nav.products`, `nav.approach`, `nav.vision`, and `action.discuss`, not mandatory English strings. Russian and Spanish wording must be approved as idiomatic public copy while preserving destination identity, order, primary-versus-secondary status, and action semantics.
+Semantic roles establish keys such as `nav.products`, `nav.how_it_works`, `nav.vision`, and `action.discuss`, not mandatory English strings across all locale sources. Russian and Spanish wording must be approved as idiomatic public copy while preserving destination identity, order, primary-versus-secondary status, and action semantics.
 
 Blog announcements and durable library material remain distinct content types even though both belong to the broader writing surface.
 

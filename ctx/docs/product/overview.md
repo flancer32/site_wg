@@ -115,7 +115,9 @@ The future site must also let visitors distinguish at least:
 - books, library material, and journal writing;
 - the contact or commercial next step.
 
-Primary navigation serves the current business and technological direction rather than reproducing the historical personal-site taxonomy. Projects, Library, Journal, Books, and comparable accumulated material use secondary discovery. Contact is a distinct commercial action and continuity route rather than a primary content category.
+Primary navigation uses the accepted semantic order `Products -> How it works -> Alarisa -> commercial action`, with Home reached through the Wired Geese brand. `How it works` is the accepted English public label; its Russian and Spanish labels remain idiomatic copy decisions. Projects, Library, Journal, Books, and comparable accumulated material use secondary discovery. About remains a secondary maker-trust destination. Contact is a distinct commercial action and continuity route rather than a primary content category.
+
+Home routes visitors into this product system. It presents product-maker positioning and current products before customization, production method, vision, biography, or archive evidence. Its current-products region remains a collection even when only one product qualifies, so product growth changes content rather than the page hierarchy.
 
 Secondary status must not orphan retained content. The approved information architecture uses curated collection-level footer navigation, contextual and related-content links, preserved inbound routes, and deliberate redirects. A new cross-collection hub is optional and requires evidence that it improves discovery.
 
