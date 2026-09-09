@@ -104,3 +104,27 @@ test('includes localized ChatGPT + Telegram product alternates', async () => {
         es: 'https://wiredgeese.com/es/products/chatgpt-telegram.html',
     });
 });
+
+test('maps Contact topics through an allowlist without changing canonical metadata', async () => {
+    const adapter = createAdapter();
+
+    const product = await adapter.getRenderData({
+        req: {url: '/ru/contact.html?topic=product', headers: {}, socket: {}},
+    });
+    const telegram = await adapter.getRenderData({
+        req: {url: '/es/contact.html?topic=chatgpt-telegram', headers: {}, socket: {}},
+    });
+    const unknown = await adapter.getRenderData({
+        req: {url: '/en/contact.html?topic=%3Cscript%3E', headers: {}, socket: {}},
+    });
+
+    assert.equal(product.data.contactTopic, 'product');
+    assert.equal(telegram.data.contactTopic, 'chatgpt-telegram');
+    assert.equal(unknown.data.contactTopic, 'default');
+    assert.equal(telegram.data.canonicalUrl, 'https://wiredgeese.com/es/contact.html');
+    assert.deepEqual(telegram.data.alternateUrls, {
+        en: 'https://wiredgeese.com/en/contact.html',
+        ru: 'https://wiredgeese.com/ru/contact.html',
+        es: 'https://wiredgeese.com/es/contact.html',
+    });
+});

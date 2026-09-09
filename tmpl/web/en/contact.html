@@ -1,22 +1,35 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Contact Alex Gusev — web and agent-driven engineering{% endblock %}
-{% block description %}Discuss a web system, architecture review, focused build, or controlled agent-driven engineering engagement with Alex Gusev.{% endblock %}
+{% block title %}Contact Alex Gusev — product inquiries and adaptation{% endblock %}
+{% block description %}Ask Alex Gusev about a product presented through Wired Geese, whether it fits your need, and what adaptation or deployment may involve.{% endblock %}
 
 {% block content %}
 <div class="contact-page">
     <section class="contact-hero">
         <div class="contact-intro">
-            <p class="eyebrow">Start a conversation</p>
-            <h1>Bring the real problem.</h1>
-            <p class="lead">Tell me what you are building, what is blocked or fragile, and what outcome matters. I will help identify whether to start with an architecture review, focused implementation, or a controlled agent-driven engineering system.</p>
-            <p><a href="/{{ locale }}/work-with-me.html">See how we can work together →</a></p>
+            {% if contactTopic == 'chatgpt-telegram' %}
+                <p class="eyebrow">Product inquiry</p>
+                <h1>Ask about ChatGPT + Telegram.</h1>
+                <p class="lead">Tell me what you want ChatGPT to do with Telegram. I will check whether the current setup fits and what a bounded deployment or adaptation would involve.</p>
+            {% elif contactTopic == 'product' %}
+                <p class="eyebrow">Product inquiry</p>
+                <h1>Ask about a product.</h1>
+                <p class="lead">Tell me the outcome you need. I will check whether an existing product fits or is close enough to adapt without turning this into an open-ended consultancy engagement.</p>
+            {% else %}
+                <p class="eyebrow">Product conversation</p>
+                <h1>Tell me what you need a product to do.</h1>
+                <p class="lead">I will check whether a product I present through Wired Geese fits, whether adaptation makes sense, and what a bounded next step could be.</p>
+            {% endif %}
         </div>
         <aside class="contact-direct" aria-labelledby="direct-contact-title">
             <h2 id="direct-contact-title">Contact me directly</h2>
-            <p>Email is best for context; Telegram is best for a quick first exchange.</p>
+            <p>Email is best for context; Telegram is useful for a short first exchange.</p>
             <ul class="contact-list">
-                <li><a href="mailto:alex@wiredgeese.com"><img src="/img/contacts/email.svg" alt=""/><span>alex@wiredgeese.com</span></a></li>
+                {% if contactTopic == 'chatgpt-telegram' %}
+                    <li><a href="mailto:alex@wiredgeese.com?subject=ChatGPT%20%2B%20Telegram%20inquiry"><img src="/img/contacts/email.svg" alt=""/><span>alex@wiredgeese.com</span></a></li>
+                {% else %}
+                    <li><a href="mailto:alex@wiredgeese.com?subject=Wired%20Geese%20product%20inquiry"><img src="/img/contacts/email.svg" alt=""/><span>alex@wiredgeese.com</span></a></li>
+                {% endif %}
                 <li><a href="https://t.me/wiredgeese" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/telegram.svg" alt=""/><span>@wiredgeese</span></a></li>
                 <li><a href="https://wa.me/37129181801" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/whatsapp.svg" alt=""/><span>+371 29181801</span></a></li>
                 <li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/linkedin.svg" alt=""/><span>LinkedIn</span></a></li>
@@ -24,109 +37,50 @@
         </aside>
     </section>
 
-    <section class="contact-section">
+    <section class="contact-section" aria-labelledby="contact-details-title">
         <div class="section-heading">
-            <p class="eyebrow">A practical path</p>
-            <h2>Start small, then bring the system under your control.</h2>
+            <p class="eyebrow">What to tell me</p>
+            {% if contactTopic == 'chatgpt-telegram' %}
+                <h2 id="contact-details-title">A little context is enough to check the fit.</h2>
+            {% else %}
+                <h2 id="contact-details-title">Start with the outcome, not a technical brief.</h2>
+            {% endif %}
         </div>
-        <div class="service-grid">
-            <article class="service-card">
-                <span class="product-index">Step 01</span>
-                <h3>Repository pilot</h3>
-                <p>I connect one repository to my setup and run up to five agreed test tasks with visible results on GitHub.</p>
-                <p class="price">€50</p>
-            </article>
-            <article class="service-card">
-                <span class="product-index">Step 02</span>
-                <h3>Deployment on your VPS</h3>
-                <p>I deploy the same controlled infrastructure in your environment and connect your own accounts.</p>
-                <p class="price">From €150</p>
-            </article>
-            <article class="service-card">
-                <span class="product-index">Step 03</span>
-                <h3>Workflow design</h3>
-                <p>We define event routes, agent boundaries, checks, and useful next workflows together.</p>
-                <p class="price">€35/hour</p>
-            </article>
-        </div>
-        <p class="action-links">
-            <a class="button-primary" href="/{{ locale }}/land/agent-orchestration-poc/">See the pilot scope</a>
-            <a class="button-secondary" href="mailto:alex@wiredgeese.com?subject=GitHub%20Flows%20pilot">Email me about a pilot</a>
-        </p>
-    </section>
-
-    <section class="contact-section">
         <div class="next-step-grid">
-            <div>
-                <h2>What to include</h2>
-                <ul>
-                    <li>whether the repository is public or private;</li>
-                    <li>the event and outcome you want to test;</li>
-                    <li>whether you want only a pilot or also deployment;</li>
-                    <li>any access, privacy, or execution constraints.</li>
-                </ul>
-            </div>
-            <div>
-                <h2>What you receive</h2>
-                <ul>
-                    <li>a bounded test without a large project commitment;</li>
-                    <li>visible GitHub outcomes and execution evidence;</li>
-                    <li>a short engineering assessment;</li>
-                    <li>a concrete recommendation for the next step.</li>
-                </ul>
-            </div>
+            {% if contactTopic == 'chatgpt-telegram' %}
+                <div><h3>The Telegram outcome</h3><p>What do you want ChatGPT to help you do with Telegram?</p></div>
+                <div><h3>Your working context</h3><p>Is this a personal account, channel, group, or another Telegram use?</p></div>
+                <div><h3>Where it could run</h3><p>Say whether you already have a suitable VPS or host, or need to discuss the options.</p></div>
+                <div><h3>Standard or adapted</h3><p>Tell me whether the existing workflow sounds sufficient or needs to change.</p></div>
+            {% else %}
+                <div><h3>The product or capability</h3><p>Which current product or capability interests you, if you already know.</p></div>
+                <div><h3>The outcome</h3><p>What would you like the product to make easier, safer, or more useful?</p></div>
+                <div><h3>Your current approach</h3><p>Briefly describe what you use today and the relevant constraints.</p></div>
+                <div><h3>Fit or adaptation</h3><p>Say whether the existing product looks sufficient or only close to your need.</p></div>
+            {% endif %}
         </div>
     </section>
 
-    <section class="contact-section">
-        <div class="section-heading">
-            <p class="eyebrow">Background and trust</p>
-            <h2>See the work before getting in touch.</h2>
-        </div>
-        <div class="support-grid">
-            <article class="support-card">
-                <h3>Projects and publications</h3>
-                <ul>
-                    <li><a href="https://github.com/flancer64" target="_blank" rel="noopener noreferrer">GitHub profile</a></li>
-                    <li><a href="https://t.me/alexgusev_lab_en" target="_blank" rel="noopener noreferrer">Telegram channel in English</a></li>
-                    <li><a href="https://t.me/alexgusev_lab_ru" target="_blank" rel="noopener noreferrer">Telegram channel in Russian</a></li>
-                    <li><a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener noreferrer">Telegram channel in Spanish</a></li>
-                    <li><a href="https://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer">Agent-Driven Development book</a></li>
-                </ul>
-            </article>
-            <article class="support-card">
-                <h3>Professional profiles</h3>
-                <ul>
-                    <li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497" target="_blank" rel="noopener noreferrer">Upwork</a></li>
-                    <li><a href="https://www.fiverr.com/users/wiredgeese" target="_blank" rel="noopener noreferrer">Fiverr</a></li>
-                    <li><a href="https://stackoverflow.com/users/4073821/alex-gusev" target="_blank" rel="noopener noreferrer">Stack Overflow</a></li>
-                    <li><a href="https://flancer32.com/" target="_blank" rel="noopener noreferrer">Earlier blog archive</a></li>
-                </ul>
-            </article>
+    <section class="contact-section" aria-labelledby="next-steps-title">
+        <div class="section-heading"><p class="eyebrow">What happens next</p><h2 id="next-steps-title">A bounded product discussion.</h2></div>
+        <div class="service-grid">
+            <article class="service-card"><span class="product-index">01</span><h3>I review the fit.</h3><p>I check whether the current product addresses the outcome you described.</p></article>
+            <article class="service-card"><span class="product-index">02</span><h3>We clarify the boundary.</h3><p>If needed, we discuss deployment, adaptation, and the smallest sensible scope.</p></article>
+            <article class="service-card"><span class="product-index">03</span><h3>We agree before work begins.</h3><p>Scope and price are agreed before setup, adaptation, or other work starts.</p></article>
         </div>
     </section>
 
-    <details class="disclosure">
-        <summary>Engineering background</summary>
-        <div class="disclosure-content">
-            <p>I am an independent developer from Latvia with more than 25 years in web engineering. My current focus
-                is JavaScript and Node.js architecture, Linux infrastructure, TeqFW, ADSM, and controlled agent workflows.</p>
-            <p><strong>Technical range:</strong> JavaScript, Node.js, HTML/CSS, JSDoc, Vue, PostgreSQL, MariaDB, SQLite,
-                GitHub, Docker, and Linux servers.</p>
-        </div>
-    </details>
+    <section class="contact-section"><p><strong>A safe first message.</strong> Do not send credentials, passwords, session files, access tokens, or other secrets. First contact is for qualification; any access boundary is agreed before setup.</p></section>
 
     <details class="disclosure">
         <summary>Business details</summary>
-        <div class="disclosure-content">
-            <dl class="business-details">
-                <dt>Name</dt><dd>F. Lancer</dd>
-                <dt>Registration number</dt><dd>40103303120 · since 29 June 2010</dd>
-                <dt>SEPA ID</dt><dd>LV82ZZZ40103303120</dd>
-                <dt>VAT number</dt><dd>LV40103303120 · since 27 September 2023</dd>
-                <dt>Bank account</dt><dd>LV83HABA0551028650868</dd>
-            </dl>
-        </div>
+        <div class="disclosure-content"><dl class="business-details">
+            <dt>Legal entity</dt><dd>F. Lancer, SIA</dd>
+            <dt>Registration number</dt><dd>40103303120 · since 29 June 2010</dd>
+            <dt>SEPA ID</dt><dd>LV82ZZZ40103303120</dd>
+            <dt>VAT number</dt><dd>LV40103303120 · since 27 September 2023</dd>
+            <dt>Bank account</dt><dd>LV83HABA0551028650868</dd>
+        </dl></div>
     </details>
 </div>
 {% endblock %}

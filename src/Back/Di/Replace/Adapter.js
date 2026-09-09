@@ -105,6 +105,35 @@ export default class Adapter {
                 || normalized === '/land/agent-orchestration-poc/index.html';
         };
 
+        /** @param {string} cleanPath @returns {boolean} */
+        const isContactRoute = (cleanPath) => {
+            const normalized = (cleanPath || '').replace(/\/+$/, '');
+            return normalized === '/contact' || normalized === '/contact.html';
+        };
+
+        /**
+         * Maps Contact origins to a small, safe vocabulary. Query values are
+         * never rendered directly, so unrecognized input remains generic.
+         *
+         * @param {any} req
+         * @returns {'default'|'product'|'chatgpt-telegram'}
+         */
+        const resolveContactTopic = (req) => {
+            const rawUrl = typeof req?.url === 'string' ? req.url : '';
+            try {
+                const queryStart = rawUrl.indexOf('?');
+                if (queryStart < 0) return 'default';
+                const rawQuery = rawUrl.slice(queryStart + 1).split('#', 1)[0];
+                const topic = new URLSearchParams(rawQuery).get('topic');
+                if (topic === 'product' || topic === 'chatgpt-telegram') {
+                    return topic;
+                }
+            } catch {
+                // Keep malformed query input inert and use the generic handoff.
+            }
+            return 'default';
+        };
+
         /** @param {string} cleanPath @returns {string} */
         const toCanonicalCleanPath = (cleanPath) => {
             const raw = cleanPath || '/';
@@ -193,6 +222,9 @@ export default class Adapter {
             applyLocalizedMetadata({data, routeInfo: effectiveRouteInfo});
             data.isPublication = isPublicationRoute(effectiveRouteInfo?.cleanPath);
             data.isNotFound = isNotFoundRoute(effectiveRouteInfo?.cleanPath);
+            if (isContactRoute(effectiveRouteInfo?.cleanPath)) {
+                data.contactTopic = resolveContactTopic(req);
+            }
             if (data.isNotFound) {
                 data.canonicalUrl = undefined;
                 data.alternateUrls = {};

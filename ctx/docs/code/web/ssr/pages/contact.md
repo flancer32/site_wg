@@ -41,6 +41,8 @@ No final form fields, channel order, automation, payment step, or deployment wor
 - Supporting engineering and business details may remain accessible without dominating the primary action.
 - Existing form-to-email behavior may remain until later implementation review, but GitHub-specific validation fields and promises are not target contracts.
 
-## Preservation And Redesign
+## Topic Context And Canonicality
 
-The established contact route remains valid during migration and is a strong continuity candidate. Its final canonical role, context-preservation mechanism, page composition, and copy require later approval.
+The established route remains the one shared handoff for every maintained locale. It supports only the bounded render contexts `default`, `product`, and `chatgpt-telegram`; unknown query values use `default` and are never reflected into public copy.
+
+The optional `topic` query records an inbound product context, not a new page identity. Every topic variant retains the clean localized Contact canonical URL and locale alternates without query parameters. The route remains valid during migration and is a strong continuity candidate.

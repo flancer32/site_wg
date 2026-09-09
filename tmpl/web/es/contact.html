@@ -1,22 +1,35 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Contactar con Alex Gusev — ingeniería web y agentes de IA{% endblock %}
-{% block description %}Hablemos de un sistema web, revisión de arquitectura, construcción focalizada o ingeniería controlada con agentes con Alex Gusev.{% endblock %}
+{% block title %}Contactar con Alex Gusev — consultas de producto y adaptación{% endblock %}
+{% block description %}Consulta a Alex Gusev sobre un producto presentado a través de Wired Geese, su encaje con tu necesidad y la posible adaptación o el despliegue.{% endblock %}
 
 {% block content %}
 <div class="contact-page">
     <section class="contact-hero">
         <div class="contact-intro">
-            <p class="eyebrow">Hablemos de tu proyecto</p>
-            <h1>Trae el problema real.</h1>
-            <p class="lead">Cuéntame qué estás construyendo, qué está bloqueado o es frágil y qué resultado importa. Te ayudaré a decidir si conviene empezar con una revisión, una construcción focalizada o un sistema controlado de ingeniería con agentes.</p>
-            <p><a href="/{{ locale }}/work-with-me.html">Ver cómo podemos colaborar →</a></p>
+            {% if contactTopic == 'chatgpt-telegram' %}
+                <p class="eyebrow">Consulta de producto</p>
+                <h1>Consulta sobre ChatGPT + Telegram.</h1>
+                <p class="lead">Cuéntame qué quieres que ChatGPT haga con Telegram. Revisaré si la configuración actual encaja y qué implicaría un despliegue o una adaptación acotados.</p>
+            {% elif contactTopic == 'product' %}
+                <p class="eyebrow">Consulta de producto</p>
+                <h1>Consulta sobre un producto.</h1>
+                <p class="lead">Describe el resultado que necesitas. Revisaré si un producto existente encaja o está lo bastante cerca para adaptarlo, sin convertir esto en una consultoría abierta.</p>
+            {% else %}
+                <p class="eyebrow">Conversación de producto</p>
+                <h1>Cuéntame qué necesitas que haga un producto.</h1>
+                <p class="lead">Revisaré si encaja uno de los productos que presento a través de Wired Geese, si tiene sentido adaptarlo y cuál podría ser el siguiente paso acotado.</p>
+            {% endif %}
         </div>
         <aside class="contact-direct" aria-labelledby="direct-contact-title">
             <h2 id="direct-contact-title">Escríbeme directamente</h2>
-            <p>El correo es mejor para dar contexto; Telegram, para un primer intercambio rápido.</p>
+            <p>El correo es mejor para dar contexto; Telegram sirve para un primer intercambio corto.</p>
             <ul class="contact-list">
-                <li><a href="mailto:alex@wiredgeese.com"><img src="/img/contacts/email.svg" alt=""/><span>alex@wiredgeese.com</span></a></li>
+                {% if contactTopic == 'chatgpt-telegram' %}
+                    <li><a href="mailto:alex@wiredgeese.com?subject=ChatGPT%20%2B%20Telegram%20inquiry"><img src="/img/contacts/email.svg" alt=""/><span>alex@wiredgeese.com</span></a></li>
+                {% else %}
+                    <li><a href="mailto:alex@wiredgeese.com?subject=Wired%20Geese%20product%20inquiry"><img src="/img/contacts/email.svg" alt=""/><span>alex@wiredgeese.com</span></a></li>
+                {% endif %}
                 <li><a href="https://t.me/wiredgeese" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/telegram.svg" alt=""/><span>@wiredgeese</span></a></li>
                 <li><a href="https://wa.me/37129181801" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/whatsapp.svg" alt=""/><span>+371 29181801</span></a></li>
                 <li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/linkedin.svg" alt=""/><span>LinkedIn</span></a></li>
@@ -24,109 +37,50 @@
         </aside>
     </section>
 
-    <section class="contact-section">
+    <section class="contact-section" aria-labelledby="contact-details-title">
         <div class="section-heading">
-            <p class="eyebrow">Un recorrido práctico</p>
-            <h2>Empieza por algo pequeño y lleva después el sistema a tu entorno.</h2>
+            <p class="eyebrow">Qué contarme</p>
+            {% if contactTopic == 'chatgpt-telegram' %}
+                <h2 id="contact-details-title">Basta un poco de contexto para revisar el encaje.</h2>
+            {% else %}
+                <h2 id="contact-details-title">Empieza por el resultado, no por una especificación técnica.</h2>
+            {% endif %}
         </div>
-        <div class="service-grid">
-            <article class="service-card">
-                <span class="product-index">Paso 01</span>
-                <h3>Piloto en un repositorio</h3>
-                <p>Conecto un repositorio a mi entorno, ejecuto hasta cinco tareas de prueba acordadas y entrego resultados visibles en GitHub.</p>
-                <p class="price">50 €</p>
-            </article>
-            <article class="service-card">
-                <span class="product-index">Paso 02</span>
-                <h3>Despliegue en tu VPS</h3>
-                <p>Despliego la misma infraestructura controlada en tu entorno y conecto tus propias cuentas.</p>
-                <p class="price">Desde 150 €</p>
-            </article>
-            <article class="service-card">
-                <span class="product-index">Paso 03</span>
-                <h3>Diseño de flujos</h3>
-                <p>Definimos juntos las rutas de eventos, los límites de los agentes, las comprobaciones y los siguientes flujos útiles.</p>
-                <p class="price">35 € por hora</p>
-            </article>
-        </div>
-        <p class="action-links">
-            <a class="button-primary" href="/{{ locale }}/land/agent-orchestration-poc/">Ver el alcance del piloto</a>
-            <a class="button-secondary" href="mailto:alex@wiredgeese.com?subject=Piloto%20GitHub%20Flows">Escríbeme para hablar del piloto</a>
-        </p>
-    </section>
-
-    <section class="contact-section">
         <div class="next-step-grid">
-            <div>
-                <h2>Qué conviene incluir</h2>
-                <ul>
-                    <li>si el repositorio es público o privado;</li>
-                    <li>qué evento y qué resultado quieres probar;</li>
-                    <li>si buscas solo el piloto o también el despliegue;</li>
-                    <li>qué límites de acceso, privacidad o ejecución existen.</li>
-                </ul>
-            </div>
-            <div>
-                <h2>Qué recibirás</h2>
-                <ul>
-                    <li>una prueba acotada sin comprometerte con un proyecto grande;</li>
-                    <li>resultados visibles en GitHub y datos de ejecución;</li>
-                    <li>una valoración técnica breve;</li>
-                    <li>una recomendación concreta para el siguiente paso.</li>
-                </ul>
-            </div>
+            {% if contactTopic == 'chatgpt-telegram' %}
+                <div><h3>El resultado en Telegram</h3><p>¿En qué quieres que ChatGPT te ayude dentro de Telegram?</p></div>
+                <div><h3>Tu contexto de uso</h3><p>¿Es una cuenta personal, un canal, un grupo u otro uso de Telegram?</p></div>
+                <div><h3>Dónde podría ejecutarse</h3><p>Indica si ya tienes un VPS o host adecuado, o si hay que hablar de opciones.</p></div>
+                <div><h3>Estándar o adaptación</h3><p>Cuéntame si el flujo existente parece suficiente o necesita cambiar.</p></div>
+            {% else %}
+                <div><h3>El producto o la capacidad</h3><p>Qué producto o capacidad actual te interesa, si ya lo sabes.</p></div>
+                <div><h3>El resultado</h3><p>¿Qué te gustaría que el producto hiciera más fácil, seguro o útil?</p></div>
+                <div><h3>Tu enfoque actual</h3><p>Describe brevemente qué usas hoy y las restricciones relevantes.</p></div>
+                <div><h3>Encaje o adaptación</h3><p>Indica si el producto existente parece suficiente o solo cercano a tu necesidad.</p></div>
+            {% endif %}
         </div>
     </section>
 
-    <section class="contact-section">
-        <div class="section-heading">
-            <p class="eyebrow">Experiencia y confianza</p>
-            <h2>Conoce mi trabajo antes de escribirme.</h2>
-        </div>
-        <div class="support-grid">
-            <article class="support-card">
-                <h3>Proyectos y publicaciones</h3>
-                <ul>
-                    <li><a href="https://github.com/flancer64" target="_blank" rel="noopener noreferrer">Perfil de GitHub</a></li>
-                    <li><a href="https://t.me/alexgusev_lab_es" target="_blank" rel="noopener noreferrer">Canal de Telegram en español</a></li>
-                    <li><a href="https://t.me/alexgusev_lab_en" target="_blank" rel="noopener noreferrer">Canal de Telegram en inglés</a></li>
-                    <li><a href="https://t.me/alexgusev_lab_ru" target="_blank" rel="noopener noreferrer">Canal de Telegram en ruso</a></li>
-                    <li><a href="https://fly.wiredgeese.com/flancer/leanpub/adsm-en/" target="_blank" rel="noopener noreferrer">Libro Agent-Driven Development</a></li>
-                </ul>
-            </article>
-            <article class="support-card">
-                <h3>Perfiles profesionales</h3>
-                <ul>
-                    <li><a href="https://www.upwork.com/freelancers/~0181de0a64c6981497" target="_blank" rel="noopener noreferrer">Upwork</a></li>
-                    <li><a href="https://www.fiverr.com/users/wiredgeese" target="_blank" rel="noopener noreferrer">Fiverr</a></li>
-                    <li><a href="https://stackoverflow.com/users/4073821/alex-gusev" target="_blank" rel="noopener noreferrer">Stack Overflow</a></li>
-                    <li><a href="https://flancer32.com/" target="_blank" rel="noopener noreferrer">Archivo del blog anterior</a></li>
-                </ul>
-            </article>
+    <section class="contact-section" aria-labelledby="next-steps-title">
+        <div class="section-heading"><p class="eyebrow">Qué ocurre después</p><h2 id="next-steps-title">Una conversación de producto acotada.</h2></div>
+        <div class="service-grid">
+            <article class="service-card"><span class="product-index">01</span><h3>Reviso el encaje.</h3><p>Compruebo si el producto actual responde al resultado que has descrito.</p></article>
+            <article class="service-card"><span class="product-index">02</span><h3>Aclaramos el límite.</h3><p>Si hace falta, hablamos de despliegue, adaptación y el alcance mínimo razonable.</p></article>
+            <article class="service-card"><span class="product-index">03</span><h3>Acordamos antes de empezar.</h3><p>El alcance y el precio se acuerdan antes de la configuración, la adaptación u otro trabajo.</p></article>
         </div>
     </section>
 
-    <details class="disclosure">
-        <summary>Trayectoria técnica</summary>
-        <div class="disclosure-content">
-            <p>Soy desarrollador independiente en Letonia y llevo más de 25 años trabajando en ingeniería web. Hoy me
-                centro en arquitectura JavaScript y Node.js, infraestructura Linux, TeqFW, ADSM y flujos controlados con agentes.</p>
-            <p><strong>Tecnologías:</strong> JavaScript, Node.js, HTML/CSS, JSDoc, Vue, PostgreSQL, MariaDB, SQLite,
-                GitHub, Docker y servidores Linux.</p>
-        </div>
-    </details>
+    <section class="contact-section"><p><strong>Un primer mensaje seguro.</strong> No envíes credenciales, contraseñas, archivos de sesión, tokens de acceso ni otros secretos. El primer contacto sirve para cualificar; el límite de acceso se acuerda antes de configurar.</p></section>
 
     <details class="disclosure">
         <summary>Datos de la empresa</summary>
-        <div class="disclosure-content">
-            <dl class="business-details">
-                <dt>Razón social</dt><dd>F. Lancer</dd>
-                <dt>Número de registro</dt><dd>40103303120 · desde el 29 de junio de 2010</dd>
-                <dt>SEPA ID</dt><dd>LV82ZZZ40103303120</dd>
-                <dt>Número de IVA</dt><dd>LV40103303120 · desde el 27 de septiembre de 2023</dd>
-                <dt>Cuenta bancaria</dt><dd>LV83HABA0551028650868</dd>
-            </dl>
-        </div>
+        <div class="disclosure-content"><dl class="business-details">
+            <dt>Entidad legal</dt><dd>F. Lancer, SIA</dd>
+            <dt>Número de registro</dt><dd>40103303120 · desde el 29 de junio de 2010</dd>
+            <dt>SEPA ID</dt><dd>LV82ZZZ40103303120</dd>
+            <dt>Número de IVA</dt><dd>LV40103303120 · desde el 27 de septiembre de 2023</dd>
+            <dt>Cuenta bancaria</dt><dd>LV83HABA0551028650868</dd>
+        </dl></div>
     </details>
 </div>
 {% endblock %}
