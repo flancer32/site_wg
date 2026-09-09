@@ -119,6 +119,22 @@ test('uses directory-index canonical and alternate routes for the Products catal
     });
 });
 
+test('uses the canonical Products directory identity after a legacy alias is normalized', async () => {
+    const adapter = createAdapter({
+        redirect: (req) => { req.url = '/en/products?source=legacy'; },
+    });
+    const result = await adapter.getRenderData({
+        req: {url: '/en/products.html?source=legacy', headers: {}, socket: {}},
+    });
+
+    assert.equal(result.data.canonicalUrl, 'https://wiredgeese.com/en/products/');
+    assert.deepEqual(result.data.alternateUrls, {
+        en: 'https://wiredgeese.com/en/products/',
+        ru: 'https://wiredgeese.com/ru/products/',
+        es: 'https://wiredgeese.com/es/products/',
+    });
+});
+
 test('preserves localized Alarisa canonical and alternate routes', async () => {
     const adapter = createAdapter();
     const result = await adapter.getRenderData({

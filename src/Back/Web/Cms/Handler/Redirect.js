@@ -7,7 +7,6 @@
 
 const HTML_EXTENSION_PATTERN = /\.html$/i;
 const STATIC_RESOURCE_PATTERN = /\.(?:avif|bmp|css|gif|ico|jpeg?|jpg|js|json|map|mjs|mp4|mov|pdf|png|svg|ts|txt|webmanifest|woff2?|woff|xml)$/i;
-const DIRECTORY_ROUTE_COLLISIONS = new Set(['/products.html']);
 
 export default class Redirect {
     /**
@@ -137,10 +136,7 @@ export default class Redirect {
                     return;
                 }
                 result.set(normalizedFrom, normalizedTo);
-                if (
-                    HTML_EXTENSION_PATTERN.test(normalizedFrom)
-                    && !DIRECTORY_ROUTE_COLLISIONS.has(normalizedFrom)
-                ) {
+                if (HTML_EXTENSION_PATTERN.test(normalizedFrom)) {
                     const directoryAlias = normalizeRoute(
                         normalizedFrom.replace(HTML_EXTENSION_PATTERN, '')
                     );

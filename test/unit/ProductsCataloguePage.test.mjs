@@ -76,6 +76,7 @@ test('shared discovery links use the catalogue while direct product links stay d
         assert.match(howItWorks, new RegExp(`href="${cataloguePath}"`));
         assert.match(alarisa, new RegExp(`href="${cataloguePath}"`));
         assert.match(product, new RegExp(`href="${cataloguePath}"`));
+        assert.doesNotMatch([nav, footer, home, howItWorks, alarisa, product].join('\n'), /\/products\.html/);
         await assert.doesNotReject(fs.access(path.join(root, 'tmpl', 'web', locale, 'products', 'index.html')));
     }
 });

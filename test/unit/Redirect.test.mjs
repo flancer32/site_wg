@@ -27,14 +27,24 @@ function createRedirect() {
     });
 }
 
-test('keeps the legacy products.html rewrite while preserving the Products directory route', async () => {
+test('normalizes localized Products aliases to the current catalogue and preserves query strings', async () => {
     const redirect = createRedirect();
-    const legacy = {url: '/ru/products.html?source=legacy'};
-    const catalogue = {url: '/ru/products/'};
+    const requests = [
+        {url: '/en/products/', expected: '/en/products', locale: 'en', cleanPath: '/products/'},
+        {url: '/en/products', expected: '/en/products', locale: 'en', cleanPath: '/products'},
+        {url: '/en/products.html?source=legacy', expected: '/en/products?source=legacy', locale: 'en', cleanPath: '/products.html'},
+        {url: '/ru/products.html', expected: '/ru/products', locale: 'ru', cleanPath: '/products.html'},
+        {url: '/es/products', expected: '/es/products', locale: 'es', cleanPath: '/products'},
+        {url: '/es/products.html', expected: '/es/products', locale: 'es', cleanPath: '/products.html'},
+    ];
 
-    await redirect.applyRedirect({req: legacy, routeInfo: {locale: 'ru', cleanPath: '/products.html'}});
-    await redirect.applyRedirect({req: catalogue, routeInfo: {locale: 'ru', cleanPath: '/products/'}});
-
-    assert.equal(legacy.url, '/ru/projects.html?source=legacy');
-    assert.equal(catalogue.url, '/ru/products/');
+    for (const request of requests) {
+        const req = {url: request.url};
+        await redirect.applyRedirect({
+            req,
+            routeInfo: {locale: request.locale, cleanPath: request.cleanPath},
+        });
+        assert.equal(req.url, request.expected);
+        assert.doesNotMatch(req.url, /projects\.html/);
+    }
 });

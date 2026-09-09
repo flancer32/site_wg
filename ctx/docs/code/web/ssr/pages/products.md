@@ -25,6 +25,6 @@ The catalogue remains structurally valid at one, two, or five products. It may i
 
 ## Route And Legacy Boundary
 
-The canonical catalogue route is `/{locale}/products/` in English, Russian, and Spanish. The current redirect from `/{locale}/products.html` to `/{locale}/projects.html` is separate legacy behavior and remains in place pending an explicit route-migration decision.
+The canonical catalogue route is `/{locale}/products/` in English, Russian, and Spanish. Legacy Products aliases, including `/{locale}/products` and `/{locale}/products.html`, resolve to that same current catalogue meaning and canonical identity. Project Archive remains independently available at `/{locale}/projects.html`.
 
 Catalogue presentation, localized status labels, card composition, copy, and proof selection require later interface design.
