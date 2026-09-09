@@ -15,7 +15,7 @@ The shared header exposes these meanings in this order:
 1. Wired Geese brand -> locale Home;
 2. Products -> Products catalogue;
 3. How it works -> cross-product production, control, customization, and continuation explanation;
-4. Alarisa -> vision and exploration destination;
+4. Alarisa -> Principal–Assistant vision and exploration destination, with an eventual product ambition;
 5. distinct commercial action -> shared commercial handoff;
 6. locale control -> semantically equivalent destination in another maintained locale.
 
@@ -42,7 +42,7 @@ The first product remains a direct navigation object on desktop and mobile. Resp
 
 - Products routes to every catalogue-eligible Product Detail and exposes the shared adaptation possibility.
 - Product Detail routes to the commercial handoff, related products, relevant proof, and How it works when control, customization, or production depth helps the decision.
-- How it works routes back to Products and relevant Product Details, to About or inspectable evidence for trust depth, to Alarisa for vision, and to the commercial handoff for a qualified need.
+- How it works routes back to Products and relevant Product Details, to About or inspectable evidence for trust depth, to Alarisa for its Principal–Assistant vision, and to the commercial handoff for a qualified need.
 - Alarisa routes to Products only when an independent product genuinely emerged from that direction and to How it works when production foundations help understanding. Alarisa has no purchase action of its own.
 - About routes to Products, How it works, selected proof, and the commercial handoff without becoming a primary acquisition category.
 

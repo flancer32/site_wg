@@ -17,6 +17,17 @@ Its first-class product requirement is to create sustainable revenue from:
 
 Traffic, reputation, technical originality, writing, experience, and projects are valuable to the site only when they also help suitable visitors understand the work, trust the evidence, and enter economically useful relationships. Revenue is an intended product outcome, not an accidental consequence of professional visibility.
 
+## Identity Boundaries
+
+The site must preserve these distinct identities:
+
+- **Alex Gusev** is the human author and product maker. He chooses direction, accepts important product and engineering decisions, and remains accountable when AI agents participate in the work. Public communication may use Alex's first-person voice.
+- **`F. Lancer`, SIA** is Alex's current Latvian legal entity. It provides legal and business infrastructure for contracts, invoicing, legal ownership where applicable, and formal commercial relationships. It is not the public brand, a software platform, a methodology, or the conceptual identity of the site.
+- **Wired Geese** is the site name and trade brand under which Alex presents his work, products, and vision of how a developer and AI agents interact while creating applications. It is not software, a software product, a platform, a legal company, or a substitute identity for Alex. The internal name echoes Wild Geese: networked AI and digital agents are the hired workers of the digital environment. This may inform brand expression but does not require public use of the literal mercenary metaphor or family resonance.
+- **Alarisa** is Alex's vision of how a Principal and that Principal's Assistant interact in the digital world. It is an active development direction and experimental environment that may ultimately become a product or a connected family of products unified by this vision. It is not yet market-ready or a current commercial offer.
+
+These relationships must not be collapsed into a company, corporate voice, software artifact, or product catalogue item. Products are the bounded solutions that buyers may use or buy; Wired Geese is the brand through which Alex presents them.
+
 ## Commercial Identity
 
 The primary identity is:
@@ -43,13 +54,13 @@ The site should lead with things that exist, work, or can be delivered, then exp
 
 The internal development model distinguishes different kinds of things:
 
-1. Alarisa is the guiding vision, long-term direction, and open exploration path for human-AI-agent coexistence and interaction;
+1. Alarisa is the long-term vision, development direction, and open exploration path for interaction between a Principal and Assistant in the digital world; it may ultimately become a product or connected product family, but is not yet market-ready;
 2. Tequila Framework (`TeqFW`) is the technical application platform that addresses how modular JavaScript and web software is structured;
 3. Agent-Driven Software Management (`ADSM`) is the methodology that addresses how human-directed, AI-agent-assisted development is organized, controlled, documented, and made more transferable;
 4. Personal Digital Embassy (`PDE`) is an independently useful technical system that emerged from Alarisa-guided development and continues to support both exploration and independent delivery;
 5. Telegram, Shared Files, the World Map, general memory, and future discoveries may yield capabilities or products, but each product requires a bounded payer need and an independent delivery and support boundary.
 
-Alarisa is not a deterministic product roadmap. Exploration may produce reusable infrastructure, commercial products, future ideas, or discontinued dead ends. Failure of one product hypothesis does not invalidate the direction.
+Alarisa is not a deterministic product roadmap or a current commercial offer. Development guided by it may produce reusable infrastructure, commercial products, future ideas, or discontinued dead ends. Failure of one product hypothesis does not invalidate the vision or its direction.
 
 The current customer-facing entry path is:
 
@@ -69,7 +80,7 @@ The product and status distinctions are defined in `product-system.md`. The reve
 
 A first-time visitor should be able to answer quickly:
 
-1. What does Wired Geese build?
+1. What does Alex create and present under Wired Geese?
 2. What can I buy now?
 3. What concrete problem can it solve for me?
 4. Why is this more than generic AI automation?
@@ -87,7 +98,7 @@ The durable information-architecture principle is:
 
 The future site supports two semantic public layers. They need not correspond one-to-one with runtime areas, routes, or pages.
 
-The **primary commercial surface** helps a new visitor understand what Wired Geese builds now, what can be bought now, which problem an available product solves, whether its boundaries fit, who and what stand behind it, and the next commercial action. It prioritizes:
+The **primary commercial surface** helps a new visitor understand what Alex creates and presents under Wired Geese, what can be bought now, which problem an available product solves, whether its boundaries fit, who and what stand behind it, and the next commercial action. It prioritizes:
 
 - active products and offers;
 - current technology or product direction where it helps the decision;
@@ -107,7 +118,7 @@ This accumulated material acts as commercial support infrastructure through sear
 The future site must also let visitors distinguish at least:
 
 - things available to buy or use now;
-- Alarisa as the strategically central vision and R&D direction, together with the status of independent work emerging along that path;
+- Alarisa as the strategically central vision and R&D direction, together with the status of independent work emerging along that path and its eventual product or product-family ambition;
 - active products, technologies, and working capabilities;
 - deployment, integration, and customization capability;
 - research and methodology;
@@ -198,9 +209,9 @@ For the provisional early adopter audience, technical transparency, explicit tra
 Every substantial future site revision must verify that:
 
 - a buyer can identify at least one concrete purchasable outcome;
-- Alarisa remains visible as the guiding vision and principal long-term R&D direction without being reduced to a product, conventional project, or deterministic roadmap;
+- Alarisa remains visible as the principal long-term vision and R&D direction, with its eventual product or product-family ambition, without being presented as market-ready, a conventional project, or a deterministic roadmap;
 - capabilities, independently deliverable products, and their concrete commercial offers remain distinguishable;
-- TeqFW, ADSM, Alarisa, PDE, and the Telegram offer remain distinguishable as a technical platform, development methodology, vision and direction, technical system, and commercial offer respectively;
+- TeqFW, ADSM, Alarisa, PDE, and the Telegram offer remain distinguishable as a technical platform, development methodology, vision and direction with an eventual product ambition, technical system, and commercial offer respectively;
 - original technology leads to a credible delivery and customization path;
 - engineering expertise supports the products rather than replacing them;
 - current, experimental, historical, and future items are visibly distinct;

@@ -40,10 +40,10 @@ Architecture must not encode:
 - GitHub Flows or Agent Orchestration PoC as a current offer or validation path;
 - the discontinued `€50` price as a reusable commercial anchor;
 - generic senior-engineering services as the site's primary product;
-- PDE as a predetermined module of Alarisa, a strategic replacement for its vision, or a technical system unrelated to the exploration that produced it;
+- PDE as a predetermined module of Alarisa, a strategic replacement for its vision and direction, merely an incomplete piece of Alarisa, or a technical system unrelated to the exploration that produced it;
 - Alarisa as a current commercial product, a product merely waiting for packaging, or a finished product being sold in parts;
-- Alarisa as a conventional project, product system, single runtime, deterministic roadmap, or future product candidate with an implied product lifecycle;
-- Alarisa as irrelevant or historical research rather than the guiding vision and principal long-term R&D direction;
+- Alarisa as a conventional project, product system, single runtime, deterministic roadmap, or a market-ready future product with an implied commercial lifecycle;
+- Alarisa as irrelevant or historical research rather than the non-market-ready guiding vision and principal long-term R&D direction, with an eventual product or connected product-family ambition;
 - every experiment, technical system, or capability discovered along the Alarisa path as something that must become a product;
 - the World Map, general memory, or another Alarisa-directed exploration area as an active offer before its status and boundary are documented;
 - Shared Files as a validated offer;

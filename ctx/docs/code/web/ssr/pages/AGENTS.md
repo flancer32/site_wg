@@ -14,7 +14,7 @@ Documents at this level describe concrete SSR page families, current route bound
 
 - `AGENTS.md` — level definition for `ctx/docs/code/web/ssr/pages/`.
 - `about.md` — current About route and its target secondary maker-identity and trust role.
-- `alarisa.md` — current Alarisa route and its target role as the guiding vision and primary strategic R&D direction.
+- `alarisa.md` — current Alarisa route and its target role as the guiding vision and primary strategic R&D direction, with an eventual product or connected product-family ambition.
 - `contact.md` — current Contact route and its target shared commercial-handoff boundary.
 - `home.md` — locale-root route and its approved product-family routing semantics.
 - `how-it-works.md` — target cross-product production, control, customization, and transfer page family without an approved route.

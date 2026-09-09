@@ -56,11 +56,11 @@ Record durable architecture decisions in a short ADR-like form.
 - Rejected alternatives: retain the current personal-site navigation; use Products, Custom Development, Alarisa, Technology, and About as equal primary destinations; expose only Products and Alarisa with no cross-product trust destination; place retained knowledge in the header; create separate applications for commercial and knowledge surfaces.
 - Reasoning: the chosen model gives products the dominant discovery path, gives customization and shared foundations one buyer-oriented supporting destination, keeps Alarisa strategically visible, reduces portfolio and consultancy drift, and remains stable as products are added or retired.
 
-## Decision 9: Separate vision, method, platform, system, product, and offer
+## Decision 9: Separate vision, method, platform, system, commercial product, and offer
 
-- Decision: represent Alarisa as the guiding vision and R&D direction, ADSM as the development methodology, TeqFW as the technical platform, PDE as an independently useful technical system produced by Alarisa-guided exploration, and the Telegram setup as the current concrete commercial offer.
-- Rejected alternatives: treat them as equal catalogue items; model Alarisa as a future product system containing PDE and every subsequent offer; treat one failed product experiment as failure of the vision.
-- Reasoning: these objects have different purposes, boundaries, and lifecycles. Separating them keeps the strategic direction open while allowing products and discontinued branches to be evaluated independently.
+- Decision: represent Alarisa as the non-market-ready Principal–Assistant vision and R&D direction, with an eventual product or connected product-family ambition; ADSM as the development methodology; TeqFW as the technical platform; PDE as an independently useful technical system produced by development toward Alarisa; and the Telegram setup as the current concrete commercial offer.
+- Rejected alternatives: treat them as equal catalogue items; model PDE and every subsequent offer as mandatory modules of Alarisa; treat one failed product experiment as failure of Alarisa's vision and direction.
+- Reasoning: these objects have different purposes, boundaries, and lifecycles. Separating them keeps Alarisa's strategic direction open while allowing commercial products and discontinued branches to be evaluated independently.
 
 ## Decision 10: Treat product-specific cognitive context as an optional transfer asset
 

@@ -12,7 +12,7 @@ Define the accepted content architecture and semantic desktop and mobile wirefra
 
 This document refines the Home responsibility established in `information-architecture.md`. Where the current Home implementation differs, this document defines the target content composition and the implementation is legacy evidence only.
 
-Home is a product-routing and commercial surface for software created by Alex Gusev. The public voice is Alex in the first person. Wired Geese is the brand under which Alex creates and offers the software; it must not sound like a large anonymous company. AI and LLM agents are real production participants, while Alex remains the accountable human maker.
+Home is a product-routing and commercial surface for software created by Alex Gusev. The public voice is Alex in the first person. Wired Geese is the site and trade brand under which Alex presents his work, products, and AI-agent development approach; it is not the software or a large anonymous company. AI and LLM agents are real production participants, while Alex remains the accountable human maker.
 
 The document approves:
 
@@ -71,7 +71,7 @@ The ordering rules are:
 
 ## Brand And Voice Direction
 
-The public voice is Alex speaking in the first person. Wired Geese names the practice and product brand; it does not replace Alex with an anonymous corporate `we`. The legal company name SIA F. Lancer has no Home commercial responsibility and appears only where legal or administrative context requires it.
+The public voice is Alex speaking in the first person. Wired Geese names the site and trade brand; it does not replace Alex with an anonymous corporate `we`. `F. Lancer`, SIA is Alex's legal entity, not the public brand, and has no Home commercial responsibility except where legal or administrative context requires it.
 
 Internally, the name Wired Geese echoes Wild Geese: hired specialists become networked digital workers or agents operating in the digital environment. This metaphor may inform personality, imagery, or a deeper brand explanation, but Home and its products must remain understandable without the history. The literal word `mercenary` is not a hero requirement and must not be forced into public copy.
 
@@ -127,7 +127,7 @@ In the sections below, purpose, message priority, content responsibility, action
 
 - **Layout hypothesis:** full-width shared shell; inline primary navigation where space permits.
 - **Purpose:** expose the stable commercial hierarchy before page content.
-- **Primary message:** Wired Geese is the product brand; Alex is the accountable maker where subordinate attribution is useful.
+- **Primary message:** Wired Geese is the brand; Alex is the accountable maker where subordinate attribution is useful.
 - **Content type:** brand/Home link, Products, How it works, Alarisa, distinct commercial action, and EN/ES/RU locale control.
 - **Main action:** Products is the first content destination in navigation.
 - **Secondary action:** the shared commercial action remains visually distinct.
@@ -182,8 +182,8 @@ In the sections below, purpose, message priority, content responsibility, action
 
 - **Layout hypothesis:** distinct compact full-width or asymmetric section; visually recognizable as direction rather than another product card.
 - **Purpose:** show that current products are connected to a broader human-and-agent exploration rather than being random automation scripts.
-- **Primary message:** Alarisa is Alex's vision and development direction for coexistence and interaction among people, AI agents, and digital services.
-- **Content type:** one short vision statement, one connection from exploration to independently useful outcomes, and an exploration action.
+- **Primary message:** Alarisa is Alex's long-term vision of interaction between a Principal and that Principal's Assistant in the digital world; it may ultimately become a product or connected product family.
+- **Content type:** one short vision and eventual-product-ambition statement, one connection from exploration to independently useful outcomes, and an exploration action.
 - **Main action:** explore Alarisa.
 - **Secondary action:** none; Alarisa has no purchase action.
 - **Supporting evidence:** a truthful reference to current exploration or a product genuinely discovered along the path may support the relationship without making that product a module of Alarisa.
@@ -284,7 +284,7 @@ Mobile uses the same meanings but not a mechanically stacked desktop composition
 
 Before significant scrolling, a first-time visitor can understand:
 
-- Alex makes software under the Wired Geese brand;
+- Alex presents his software work and products under the Wired Geese brand;
 - the software is for people working with AI agents;
 - real products exist;
 - Products is the primary discovery action;
@@ -313,7 +313,7 @@ The preview's only job is to create enough trust and curiosity to justify visiti
 
 ### Alarisa Preview
 
-The preview establishes a coherent broader direction behind the work. It connects independently useful products to exploration of human, agent, and digital-service coexistence without describing Alarisa as sellable, as a future monolith, or as a required conceptual gateway. Its only direct action is deeper exploration of Alarisa.
+The preview establishes the long-term vision and coherent broader direction behind the work. It connects independently useful products to exploration of Principal–Assistant interaction in the digital world without describing Alarisa as market-ready, a future monolith, or a required conceptual gateway. Its only direct action is deeper exploration of Alarisa.
 
 ### Maker And Evidence
 
@@ -375,7 +375,7 @@ The diagram shows routing relationships only. The text breadboard remains author
 | Future-product visitor: `I want AI to have persistent private memory.` | Products preview -> new qualifying product or complete Products catalogue | The same preview model accepts Shared Files only after catalogue eligibility; Home hierarchy does not change. |
 | Custom need: `I need something similar, connected to another service.` | Current product -> adaptation bridge -> handoff, with optional How it works depth | Extension is visible without a generic consultancy catalogue. |
 | Technical buyer: `How is this built and who controls credentials?` | Header, hero secondary action, product context, or adaptation bridge -> How it works | Technical and trust depth is directly reachable but absent from the hero burden. |
-| Vision visitor: `What is this human and agent direction?` | Header or Alarisa preview -> Alarisa | Vision remains primary-navigation visible and has a dedicated non-purchase path. |
+| Alarisa visitor: `What is this Principal–Assistant vision and direction?` | Header or Alarisa preview -> Alarisa | The vision and its eventual product ambition remain primary-navigation visible and have a dedicated non-purchase path. |
 | Search visitor arriving on old technical content | Contextual current link or footer -> Products, How it works, Alarisa, or About | Secondary content remains useful and intentionally connected to current commercial meaning. |
 
 ## Three-Language Composition Rules

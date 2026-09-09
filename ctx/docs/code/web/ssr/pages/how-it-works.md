@@ -10,7 +10,7 @@ Define the code-facing semantic contract for the cross-product How-it-works dest
 
 ## Target Role
 
-The page answers how Wired Geese software is made, controlled, deployed, changed, and made continuable. It supports a product decision; it is not a generic Technology page, service catalogue, or internal architecture inventory.
+The page answers how Alex creates applications and products under the Wired Geese brand: how they are made, controlled, deployed, changed, and made continuable. It supports a product decision; it is not a generic Technology page, service catalogue, or internal architecture inventory.
 
 Its semantic progression is:
 
@@ -25,7 +25,7 @@ Its semantic progression is:
 
 ## Composition Boundary
 
-The page may group or shorten adjacent concepts, but buyer questions must precede internal terminology. Product-specific deployment or trust details remain on Product Detail where they affect the purchase decision. The page routes back to Products and relevant details, to About or inspectable evidence for deeper trust, to Alarisa for vision, and to the shared commercial handoff for a qualified adaptation need.
+The page may group or shorten adjacent concepts, but buyer questions must precede internal terminology. Product-specific deployment or trust details remain on Product Detail where they affect the purchase decision. The page routes back to Products and relevant details, to About or inspectable evidence for deeper trust, to Alarisa for its Principal–Assistant vision, and to the shared commercial handoff for a qualified adaptation need.
 
 The page must not:
 

@@ -12,7 +12,7 @@ Define the authoritative semantic information architecture for wiredgeese.com as
 
 The site is the commercial surface for software created by Alex Gusev with AI and LLM agents as active development participants. Alex remains the accountable human maker.
 
-The architecture must support a growing family of current and future products without making the first Telegram offer the permanent centre of the site. It must also preserve Alarisa as the guiding vision, expose technical depth when it helps trust, keep customization commercially visible, and retain valuable knowledge and historical material across English, Russian, and Spanish.
+The architecture must support a growing family of current and future commercial products without making the first Telegram offer the permanent centre of the site. It must also preserve Alarisa as the long-term vision and development direction, with an eventual product or connected product-family ambition, expose technical depth when it helps trust, keep customization commercially visible, and retain valuable knowledge and historical material across English, Russian, and Spanish.
 
 The previous target headed by `Products`, `Custom Development`, `Alarisa`, `Technology`, and `About`, together with fixed `products.html`, `technology.html`, `/resources/`, Telegram-offer routes, footer groups, and a fixed Home sequence, is superseded. The later working label `Approach` is also superseded as the preferred English public direction by the accepted label `How it works`. Those choices remain design evidence, not target contracts.
 
@@ -146,7 +146,7 @@ The durable primary header contains:
 1. **Brand/Home** — Wired Geese, with subordinate Alex Gusev attribution where useful, links to the locale Home;
 2. **Products** — the current product catalogue and route to product details;
 3. **How it works** — how products are built, controlled, adapted, deployed, and made continuable, including relevant technical foundations and customization;
-4. **Alarisa** — the guiding vision and exploration direction;
+4. **Alarisa** — the long-term vision and exploration direction, with an eventual product or connected product-family ambition;
 5. **Commercial action** — a visually distinct shared action to discuss a product or need;
 6. **Locale control** — access to semantically equivalent English, Russian, and Spanish variants.
 
@@ -156,7 +156,7 @@ Home is not duplicated as a text item when the brand provides an evident Home li
 
 ## Current Home Assessment
 
-The implemented Home remains a coherent but structurally legacy personal-engineer landing page. Its sequence answers `why hire Alex?` before `what can Wired Geese provide now?`, and its compact composition places biography, proof, and process before any product. The visual language remains broadly reusable; the commercial hierarchy does not.
+The implemented Home remains a coherent but structurally legacy personal-engineer landing page. Its sequence answers `why hire Alex?` before `what can Alex present under Wired Geese now?`, and its compact composition places biography, proof, and process before any product. The visual language remains broadly reusable; the commercial hierarchy does not.
 
 The authoritative critique, current-section disposition, reusable product-preview model, and accepted desktop and mobile semantic wireframes are defined in `home-page-composition.md`.
 
@@ -165,7 +165,7 @@ The authoritative critique, current-section disposition, reusable product-previe
 ### Home
 
 - **Audience/job:** orient a first-time visitor and route product seekers, custom-need visitors, trust evaluators, and vision visitors.
-- **Responsibility:** state the class of outcomes Wired Geese makes; show a replaceable collection of current products; expose customization; provide concise differentiation and maker accountability; route to Alarisa, proof, and action.
+- **Responsibility:** state the class of outcomes Alex makes and presents under Wired Geese; show a replaceable collection of current products; expose customization; provide concise differentiation and maker accountability; route to Alarisa, proof, and action.
 - **Belongs:** product-family proposition, current-product preview, decision-relevant maturity where it changes expectations, customization path, short How it works proof, short maker proof, selected evidence, Alarisa path, shared action.
 - **Does not belong:** complete catalogue, full technical taxonomy, biography, long philosophy-first funnel, permanent Telegram-centred page architecture, or unfiltered archive.
 - **Inbound:** locale root, brand, general referrals, and broad search/direct visits.
@@ -173,11 +173,11 @@ The authoritative critique, current-section disposition, reusable product-previe
 
 Home's semantic order is:
 
-1. **Product-maker positioning** — identify Wired Geese as a maker of software products for humans working with AI agents; establish concrete usefulness and route to Products or the current commercial action.
+1. **Product-maker positioning** — identify Alex as the maker of software products for humans working with AI agents, presented under the Wired Geese brand; establish concrete usefulness and route to Products or the current commercial action.
 2. **Current products** — show a replaceable catalogue preview with identity, buyer result, a few practical capabilities, and the next relevant action; add maturity, fit, or proof only when each materially helps the buyer decide.
 3. **Need adaptation?** — explain that installation, configuration, customization, a new Desk or integration, and a related application may be discussed around an existing product or reusable capability.
 4. **How it works** — provide a concise buyer-oriented bridge to accountable making, controlled deployment and trust boundaries, agent-assisted production, extensibility, and possible transfer; keep TeqFW, ADSM, PDE, and cognitive-context depth on the destination page.
-5. **Alarisa direction** — introduce the guiding human-agent vision and route to its own page without making it a product prerequisite.
+5. **Alarisa direction** — introduce the long-term Principal–Assistant vision and eventual product ambition, and route to its own page without making it a product prerequisite.
 6. **Maker and evidence** — establish Alex's accountability and show a deliberately small set of proofs matched to buyer risk; route biography and archives deeper.
 7. **Commercial action** — offer one clear next step tied to a product or qualified need rather than generic engineering availability.
 
@@ -233,12 +233,12 @@ Supporting detail pages may be added only when a distinct visitor job and suffic
 
 ### Alarisa
 
-- **Audience/job:** understand the longer-term human-agent vision and the exploration direction behind some of the work.
-- **Responsibility:** define the guiding vision, Principal-centred direction, open questions, current exploration, and the relationship between exploration and independent outcomes.
-- **Belongs:** vision, development direction, current exploration, honest dead ends, PDE and products as discoveries where relevant, and links to concrete outcomes.
-- **Does not belong:** purchase claims, a deterministic roadmap, a product catalogue, a claim that every experiment will ship, or a requirement that product buyers adopt the vision.
+- **Audience/job:** understand the longer-term Principal–Assistant vision behind some of the work, its eventual product or connected product-family ambition, and its current non-market-ready status.
+- **Responsibility:** define the Principal-centred model, guiding vision, possible eventual product direction, open questions, current exploration, and the relationship between exploration and independent outcomes.
+- **Belongs:** vision, eventual product ambition, development direction, current exploration, honest dead ends, PDE and products as discoveries where relevant, and links to concrete outcomes.
+- **Does not belong:** market-ready purchase claims, a deterministic roadmap, a product catalogue, a claim that every experiment will ship, or a requirement that product buyers adopt the vision.
 - **Inbound:** header, Home, How it works, relevant product lineage, and vision-oriented knowledge.
-- **Outbound:** current Products that genuinely emerged from the direction, How it works for production foundations, relevant knowledge, and no purchase action for Alarisa itself.
+- **Outbound:** current Products that genuinely emerged from the direction, How it works for production foundations, relevant knowledge, and no purchase action that represents Alarisa as currently available.
 
 ### About And Maker Trust
 
@@ -425,7 +425,7 @@ Wired Geese [required shared SSR surface]
 │   ├── transferable development
 │   └── PDE technical detail [optional/later; contextual infrastructure, not catalogue]
 ├── Alarisa [required primary destination; vision and exploration]
-│   ├── human-agent direction and current questions
+│   ├── Principal–Assistant vision, eventual product ambition, and current questions
 │   ├── experiments, learning, and dead ends
 │   └── genuine links to independently useful current products
 ├── Commercial handoff [required shared action/destination]
@@ -452,7 +452,7 @@ The following classification describes semantic treatment. It does not authorize
 | Current English-only `products.html` source and redirect behavior | Repurpose or redirect candidate | Products catalogue is required with EN/RU/ES parity, but the current services content and final canonical path are not target authority. |
 | Work With Me | Repurpose or redirect candidate | Preserve useful content and inbound value; distribute product-specific customization into Products/Product Detail and cross-product meaning into How it works. A standalone destination is not required. |
 | Projects index | Preserve as archive; demote to secondary | Becomes Project Archive/evidence rather than the current-product catalogue. |
-| Alarisa project page | Repurpose | Becomes the vision destination; retaining its existing URL is a strong migration candidate, not an IA mandate. |
+| Alarisa project page | Repurpose | Becomes the vision, eventual-product-ambition, and exploration destination; retaining its existing URL is a strong migration candidate, not an IA mandate. |
 | About | Keep in a secondary trust role | Retains maker evidence but leaves primary navigation. |
 | Contact | Keep as commercial handoff | Existing route is a strong continuity candidate; exact action wording and context-transfer mechanism remain open. |
 | Library | Keep in current knowledge role; demote shell prominence where necessary | Preserve identity, indexed paths, and contextual current links. |
@@ -495,7 +495,7 @@ Any later implementation must demonstrate that:
 - experimental capabilities and future ideas do not appear as mature products;
 - customization is visible from Products and Product Detail without becoming the site's dominant identity;
 - How it works distinguishes TeqFW, ADSM, PDE, AI agents, Alex's accountability, customization, control, and transferability without presenting them as equal products;
-- Alarisa remains vision and direction, never a purchase object or deterministic roadmap;
+- Alarisa remains the vision and direction with an eventual product/product-family ambition, never represented as market-ready, a current purchase object, or a deterministic roadmap;
 - About supports trust without becoming the entry proposition;
 - Project Archive, Library, Journal, Books, and valuable historical material remain intentionally reachable;
 - equivalent semantic destinations and product states exist across English, Russian, and Spanish;

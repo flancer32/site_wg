@@ -29,7 +29,7 @@ The product branch is intentionally compact:
 - `commercial-strategy.md` defines how the site is expected to generate sustainable revenue;
 - `home-page-composition.md` defines Home content priority, desktop and mobile attention, reusable product previews, and the handoffs into deeper page families;
 - `information-architecture.md` defines the approved public hierarchy and maps product meaning to page and navigation roles;
-- `product-system.md` distinguishes Alarisa as a guiding direction from TeqFW, ADSM, working systems, capabilities, products, offers, and historical proof;
+- `product-system.md` distinguishes Alarisa as a non-market-ready vision and development direction with an eventual product ambition from TeqFW, ADSM, working systems, capabilities, commercial products, offers, and historical proof;
 - `transferable-development.md` defines optional product-transfer and agent-maintainable-system capabilities without turning them into fixed packages or legal terms;
 - `offers/` defines bounded buyer-facing commercial presentations without treating every source capability or R&D subsystem as a product.
 
@@ -44,7 +44,7 @@ Rules for agents:
 
 - when describing repository-level product meaning, treat the site itself as the product;
 - when describing what the site sells, explicitly identify a bounded product or offer instead of treating all promoted work as sellable;
-- do not collapse the site product, Alarisa's guiding direction, ADSM, TeqFW, technical systems or capabilities, commercial products, and offers into one object or hierarchy;
+- do not collapse the site product, Alarisa's vision and eventual-product direction, ADSM, TeqFW, technical systems or capabilities, commercial products, and offers into one object or hierarchy;
 - do not treat promoted work as if it were the product of this repository.
 
 ## Level Boundary

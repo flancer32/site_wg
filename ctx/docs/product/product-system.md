@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Define the distinctions and relationships among Alarisa as a guiding vision, ADSM as a development methodology, TeqFW as a technical platform, exploratory work, independently useful systems and capabilities, commercial products and offers, and historical proof.
+Define the distinctions and relationships among Alarisa as a long-term vision and development direction with an eventual product ambition, ADSM as a development methodology, TeqFW as a technical platform, exploratory work, independently useful systems and capabilities, commercial products and offers, and historical proof.
 
 ## Strategic Direction
 
@@ -16,7 +16,7 @@ JavaScript is an enabling technological choice, not the product being sold and n
 
 The complementary roles are:
 
-- `Alarisa` describes the broader future Alex chooses to explore: how humans and AI agents may coexist and interact;
+- `Alarisa` is the long-term vision Alex is working toward: how a Principal and that Principal's Assistant interact in the digital world; it may ultimately unify a product or connected product family;
 - `TeqFW` provides a technical application platform and addresses how modular JavaScript and web software is structured;
 - `ADSM` provides a human-directed development methodology and addresses how software intent and evolution are organized and controlled;
 - `PDE` is an independently useful technical system that emerged from development guided by Alarisa;
@@ -42,11 +42,11 @@ Not every experiment must succeed or become a product. Products are hypotheses d
 
 Alex Gusev is the single accountable human maker who selects product direction and accepts engineering decisions. AI and LLM agents are active production participants, using TeqFW where applicable and working under ADSM governance, but their ability to propose, inspect, or implement work does not transfer accountability away from Alex.
 
-This model must be represented honestly. Wired Geese must not pretend to be a larger company, describe agents as employees, claim that agents eliminate key-person risk, or imply unlimited delivery and support capacity. For suitable buyers, the same model may provide direct creator access, coherent ownership, rapid feedback, and deep customization of original technology.
+Wired Geese is Alex's site and trade brand, and expresses his separate vision of developer–agent interaction while creating applications. It is not the software being created, a product, a platform, a company, or a substitute for Alex's identity. This model must be represented honestly: the brand must not pretend to be a larger company, describe agents as employees, claim that agents eliminate key-person risk, or imply unlimited delivery and support capacity. For suitable buyers, the same model may provide direct creator access, coherent ownership, rapid feedback, and deep customization of original technology.
 
 ## Core Distinctions
 
-- `Alarisa` is Alex's guiding vision, long-term development direction, and practical exploration path for human-AI-agent coexistence and interaction. It is not a commercial product category or a conventional software project.
+- `Alarisa` is Alex's long-term vision, development direction, and practical exploration path for interaction between a Principal and that Principal's Assistant in the digital world. It may ultimately become a product or connected product family, but is not yet a market-ready commercial product, a commercial product category, or a conventional software project.
 - `TeqFW` is a technical application platform and architectural approach used to structure modular JavaScript and web applications.
 - `ADSM` is a methodology for organizing and controlling human-directed, AI-agent-assisted software development and preserving its cognitive context.
 - An `experiment` tests a question along the Alarisa path. It may produce a capability, reusable infrastructure, an independent product, a future idea, or a valid dead end.
@@ -59,13 +59,11 @@ Vision, exploration lineage, technical composition, product identity, and commer
 
 ## Alarisa
 
-Alarisa is Alex's guiding vision and long-term development direction for how humans and AI agents may coexist and interact. It is also a practical exploration path: it guides which problems, hypotheses, experiments, integrations, and products Alex chooses to investigate without prescribing their final form.
+Alarisa is the long-term vision Alex is working toward: how a `Principal` and that Principal's Assistant interact in the digital world. `Principal` is the person whose interests, resources, context, and actions the Assistant serves. In Alarisa's conceptual domain, `Principal` is deliberate terminology and must not be casually replaced with `customer`, `owner`, or `user`. Those terms remain valid for a buyer or client in commercial documentation.
 
-The personal intelligent-assistant concept is a central current expression of this vision. It is organized around a `Principal`: the person whose interests, resources, context, and actions an assistant serves. In Alarisa's conceptual domain, `Principal` is deliberate terminology and must not be casually replaced with `customer`, `owner`, or `user`. Those terms remain valid for a buyer or client in commercial documentation.
+The intended Assistant role is an intelligent bridge between a Principal and the surrounding digital environment: the Principal's digital resources, external digital services, resources or services belonging to other people where authority permits, AI agents, and other people's agents. This vision does not claim that a current Alarisa runtime implements every bridge or interaction.
 
-The vision explores an intelligent bridge between a Principal and the surrounding digital environment, including the Principal's digital resources, external digital services, resources or services belonging to other people where authority permits, AI agents, and other people's agents. This is a conceptual direction, not a claim that one Alarisa system already implements every bridge or interaction.
-
-Alarisa must not be defined primarily as a product, product system, conventional project, package waiting for commercialization, or monolithic application sold early through its parts. Experimental software used by Alex and trusted users provides instruments for the exploration, but no single runtime or repository exhausts Alarisa's identity.
+Today Alarisa is simultaneously a long-term vision, an active development direction, and an experimental environment for testing Principal–Assistant interaction. It may eventually become a product or connected product family unified by this vision. It has not reached commercial product maturity: it is not a market-ready offer, a sellable package waiting only for packaging, or a monolithic application whose parts are sold early. Experimental software used by Alex and trusted users provides instruments for this work, but no single runtime or repository exhausts Alarisa's identity.
 
 Capabilities and reusable technology developed along this path may solve concrete customer needs independently. Some may become standalone commercial products; others may remain exploration infrastructure, be superseded, reveal a dead end, or leave only useful learning. Commercial failure or technical discontinuation of one branch does not invalidate the Alarisa direction.
 
@@ -77,7 +75,7 @@ The product system is projected into the public page architecture according to v
 
 - Products and Product Detail contain only independently understandable commercial products and their offers;
 - How it works explains Alex's accountability, AI-agent participation, control, customization, TeqFW, ADSM, cognitive context, transferable development, and PDE where relevant;
-- Alarisa explains the guiding vision, exploration, learning, and genuine relationships to independent outcomes;
+- Alarisa explains the vision, possible eventual product/product-family direction, exploration, learning, and genuine relationships to independent outcomes;
 - Home previews current products before deeper method, vision, maker history, or archive evidence;
 - About supplies secondary maker trust;
 - Project Archive, Library, Journal, Books, and historical pages preserve proof and knowledge.
@@ -86,7 +84,7 @@ Placement does not change object kind. Mentioning PDE on a product page does not
 
 Alarisa does not enumerate a fixed roadmap. PDE was discovered and developed through exploration rather than treated as a permanently predetermined module, and future products must emerge from validated needs and technical discoveries rather than from a claim that their final architecture is already known.
 
-Alarisa should therefore remain visible as the unifying strategic vision and R&D direction while current buyers encounter independent products and offers in language appropriate to their needs.
+Alarisa should therefore remain visible as the unifying strategic vision and R&D direction, with an eventual product/product-family ambition, while current buyers encounter independent products and offers in language appropriate to their needs.
 
 ## Tequila Framework
 
@@ -115,16 +113,16 @@ This is support for continued human-directed, AI-agent-assisted evolution, not a
 
 ## Personal Digital Embassy
 
-Personal Digital Embassy (`PDE`) is an experimental but working application and infrastructure system that emerged from Alarisa-guided development. It provides controlled bridges through which MCP-compatible AI systems can interact with digital resources associated with a Principal.
+Personal Digital Embassy (`PDE`) is an experimental but working application and infrastructure system that emerged from development toward Alarisa. It provides controlled bridges through which MCP-compatible AI systems can interact with digital resources associated with a Principal.
 
-PDE has a legitimate dual role. It supports continued exploration in the Alarisa direction, and it is sufficiently independent to be deployed on its own, solve customer problems, support standalone products and offers, receive customization, and evolve on a technical lifecycle distinct from the commercial lifecycles of products it enables.
+PDE has a legitimate dual role. It contributes to the broader Alarisa architecture and development direction, and it is sufficiently independent to be deployed on its own, solve customer problems, support standalone products and offers, receive customization, and evolve on a technical lifecycle distinct from the commercial lifecycles of products it enables.
 
-PDE is not a smaller Alarisa, a subsystem of a future commercial Alarisa package, or a piece of a finished product sold early. Its commercial value comes from independently useful capabilities discovered through Alarisa-driven exploration.
+PDE is not merely an incomplete piece of Alarisa, a subsystem of a future commercial Alarisa package, or a piece of a finished product sold early. It is neither unrelated to Alarisa nor dependent on Alarisa becoming market-ready before it can have independent value. Its commercial value comes from independently useful capabilities discovered through development toward Alarisa.
 
 Conceptually:
 
 ```text
-Alarisa direction
+Alarisa vision and direction
        |
        v
 exploration and technical discovery
@@ -174,7 +172,7 @@ It is not currently an equal commercial offer. No customer validation, standardi
 
 The World Map and general memory are current exploration areas whose work may produce independently useful capabilities or products, just as PDE work can.
 
-This possibility does not make Alarisa a product being commercialized in modules and does not imply that every exploration branch should become a product. Before either becomes an active product or offer, product documentation must define the payer need, independent delivery and support boundary, maturity, evidence, and commercial next step.
+This possibility does not make Alarisa a product being commercialized in modules and does not imply that every exploration branch should become a product. Before either becomes an active commercial product or offer, product documentation must define the payer need, independent delivery and support boundary, maturity, evidence, and commercial next step.
 
 ## AI-Agent Direction
 

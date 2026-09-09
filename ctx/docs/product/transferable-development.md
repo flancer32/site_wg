@@ -29,7 +29,7 @@ The transferred material supports continuity; it does not guarantee complete kno
 
 ## Commercial Delivery Models
 
-Wired Geese may support several delivery relationships. These are strategic capabilities rather than final package names or pricing tiers.
+Alex may provide several delivery relationships under the Wired Geese brand. These are strategic capabilities rather than final package names or pricing tiers.
 
 ### Product Use
 

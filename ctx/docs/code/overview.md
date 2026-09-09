@@ -29,7 +29,7 @@ Future implementation must derive from the product-led commercial context:
 - Projects, Library, Journal, Books, and other retained knowledge may become secondary without becoming orphaned;
 - engineering expertise supports product delivery and customization;
 - Alex Gusev is presented as the accountable maker and AI agents as active production participants without implied large-company capacity;
-- Alarisa remains visible as the guiding vision and strategic R&D direction rather than a product, conventional project, single runtime, or deterministic roadmap;
+- Alarisa remains visible as the guiding vision and strategic R&D direction, with an eventual product or connected product-family ambition, rather than a market-ready product, conventional project, single runtime, or deterministic roadmap;
 - TeqFW, ADSM, PDE, concrete products, and commercial offers remain visibly distinct kinds of things;
 - capabilities, independently deliverable products, and buyer-facing offers remain distinct;
 - PDE remains external to the website runtime;

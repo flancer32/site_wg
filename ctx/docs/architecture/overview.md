@@ -13,7 +13,7 @@ Provide the entry point to the target architecture of the product-led commercial
 The architecture realizes `wiredgeese.com` as a multilingual commercial publication and contact surface that:
 
 - communicates concrete offers, active technologies, customization capability, proof, research, and writing with distinct status;
-- presents Alarisa as the guiding vision and principal long-term R&D direction while giving independently valuable products and offers direct commercial paths;
+- presents Alarisa as the principal long-term vision and R&D direction, with an eventual product or connected product-family ambition, while giving independently valuable products and offers direct commercial paths;
 - gives the primary commercial surface and navigation responsibility for the current business while preserving accumulated knowledge on a meaningfully reachable secondary surface;
 - preserves valuable historical and search-bearing public material without granting it automatic primary prominence;
 - presents Alex Gusev as the accountable maker working with AI-agent production participants and explains ADSM-enabled continuity without implying a larger organization, unbounded capacity, or autonomous maintenance;

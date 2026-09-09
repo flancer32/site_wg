@@ -33,7 +33,7 @@ The future public structure has two distinct semantic responsibilities:
 - the **primary commercial surface** makes current products, offers, outcomes, relevant technology and direction, customization, accountable maker identity, trust boundaries, and a commercial action easy to discover;
 - the **secondary knowledge and archive surface** keeps Projects, Library, Journal, Books, technical materials, historical projects, experiments, proof, and other retained content meaningfully reachable.
 
-The primary surface must distinguish Alarisa as the guiding vision and principal long-term R&D direction from TeqFW as a technical platform, ADSM as a development methodology, PDE as an independently useful technical system, capabilities, products, offers, customization, proof, writing, and contact. It must keep current products and offers directly reachable without requiring a visitor to understand Alarisa, while allowing interested visitors to trace how exploration in that direction produced useful independent results.
+The primary surface must distinguish Alarisa as the non-market-ready guiding vision and principal long-term R&D direction, with an eventual product or connected product-family ambition, from TeqFW as a technical platform, ADSM as a development methodology, PDE as an independently useful technical system, capabilities, commercial products, offers, customization, proof, writing, and contact. It must keep current products and offers directly reachable without requiring a visitor to understand Alarisa, while allowing interested visitors to trace how exploration in that direction produced useful independent results.
 
 Primary navigation serves the current business through Products, How it works, and Alarisa, with Home owned by the brand link and Contact represented by a distinct shared commercial action. Customization is exposed from product journeys and How it works. About is secondary maker evidence. Project Archive, Library, Journal, and Books use curated footer, contextual, related-content, and retained inbound paths; no cross-collection hub is required without evidence.
 
@@ -41,7 +41,7 @@ The commercial page system has four structural layers:
 
 1. Home routes visitors into the product system and exposes the earliest useful commercial action.
 2. Products and Product Detail own product discovery, fit, maturity, evidence, and product-specific continuation.
-3. How it works, Alarisa, and About supply production-model, vision, and maker-trust depth without becoming prerequisites for understanding a product.
+3. How it works, Alarisa, and About supply production-model, vision/direction, and maker-trust depth without becoming prerequisites for understanding a commercial product.
 4. Project Archive, Library, Journal, Books, technical pages, and historical material remain a secondary proof and knowledge surface with deliberate internal discovery.
 
 These are page and navigation roles inside one multilingual SSR application, not separate runtime applications or route commitments.

@@ -34,7 +34,7 @@ Human approval is required for:
 Agents must:
 
 - trace product changes through architecture, environment, and code documentation before implementation;
-- preserve the distinction among Alarisa as the guiding vision and R&D direction, ADSM as the development methodology, TeqFW as the technical platform, PDE as an independently useful technical system discovered along that direction, a bounded product derived from a capability, and Telegram integration as the current concrete offer;
+- preserve the distinction among Alarisa as the non-market-ready Principal–Assistant vision and R&D direction with an eventual product ambition, ADSM as the development methodology, TeqFW as the technical platform, PDE as an independently useful technical system discovered through development toward Alarisa, a bounded commercial product derived from a capability, and Telegram integration as the current concrete offer;
 - distinguish site responsibilities from PDE and client-deployment responsibilities;
 - label legacy GitHub funnel behavior as drift rather than a reusable pattern;
 - preserve experimental-status and trust-boundary language;
@@ -51,10 +51,10 @@ Architecture drift exists when:
 
 - public or code documentation again makes generic engineering judgment the main product;
 - GitHub Flows, Agent Orchestration PoC, or `€50` reappears as active commercial direction;
-- PDE is described as a predetermined module of a future Alarisa package, as replacing the Alarisa vision, or as unrelated to the exploration that produced it;
+- PDE is described as a predetermined module of a future Alarisa package, as replacing the Alarisa vision and direction, merely as an incomplete piece of Alarisa, or as unrelated to the exploration that produced it;
 - Alarisa is presented as a current sellable product or as a finished product commercialized in parts;
 - Alarisa is presented as a conventional project, product system, single runtime, deterministic roadmap, or future product candidate;
-- Alarisa is reduced to historical or unavailable research instead of the strategically central guiding vision and long-term R&D direction;
+- Alarisa is reduced to historical or unavailable research instead of the strategically central non-market-ready vision and long-term R&D direction with an eventual product or connected product-family ambition;
 - a capability is treated as a product without a bounded payer need and independent delivery and support boundary;
 - a named Alarisa-directed exploration area or outcome is presented as purchasable before its offer status is documented;
 - the website begins to own PDE credentials, data, or operation without an approved boundary;

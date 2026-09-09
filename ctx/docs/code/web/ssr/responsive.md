@@ -21,7 +21,7 @@ Viewport changes may alter layout, emphasis, and repetition of navigation action
 
 Before significant scrolling, a wide-screen visitor must be able to discover both:
 
-- the concise Wired Geese and Alex product-maker proposition;
+- the concise Wired Geese brand and Alex product-maker proposition;
 - at least one real current product or a very direct route into product discovery.
 
 The visitor must not pass through methodology, biography, Alarisa, proof, or a technology inventory before discovering products. Showing a compact hero and featured-product preview side by side is the current preferred design hypothesis because the product can act as opening evidence. It is not a required column structure; another layout is valid when it satisfies the same attention and routing contract. Additional product previews remain part of the same ordered collection regardless of visual grouping.

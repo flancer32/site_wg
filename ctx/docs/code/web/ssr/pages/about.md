@@ -17,6 +17,8 @@ Define the retained About route as the maker-identity and trust page supporting 
 The page explains:
 
 - Alex Gusev's accountable ownership of product direction and accepted engineering decisions;
+- Wired Geese as Alex's site and trade brand, distinct from both Alex and the software products presented under it;
+- `F. Lancer`, SIA as the legal/business entity only where legal or administrative context makes that distinction necessary;
 - AI agents as active production participants rather than employees or replacements for responsibility;
 - relevant experience, long-term system ownership, and continuity behind current products;
 - the direct maker relationship and customization advantage for suitable buyers;

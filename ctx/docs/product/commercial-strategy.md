@@ -24,11 +24,11 @@ The commercial model distinguishes two connected horizons.
 
 ### Vision
 
-Alarisa is Alex's guiding vision, principal long-term R&D direction, and practical exploration path for human-AI-agent coexistence and interaction. The personal intelligent-assistant concept is a central current expression of that vision, but Alarisa is not identical to one experimental runtime, repository, product system, or conventional project.
+Alarisa is Alex's principal long-term vision: how a Principal and that Principal's Assistant interact in the digital world. It is also the R&D direction and practical exploration path for this relationship, and may ultimately become a product or connected product family unified by the vision. It is not identical to one experimental runtime, repository, product system, or conventional project.
 
 TeqFW supplies a technical application platform; ADSM organizes controlled human-directed, AI-agent-assisted development; PDE is an independently useful technical system that emerged while following the Alarisa direction. These roles reinforce one another without forming a taxonomy of equal products.
 
-Alarisa does not need a product lifecycle, packaging plan, audience, price, or launch date to remain strategically central. The commercial strategy preserves the direction while allowing independently useful discoveries to become products, and it accepts that other branches may remain experiments, become obsolete, or end without commercial success.
+Alarisa does not yet have commercial product maturity, a market-ready packaging plan, an audience, a price, or a launch date. The commercial strategy preserves the vision and direction while allowing independently useful discoveries to become products, and it accepts that other branches may remain experiments, become obsolete, or end without commercial success.
 
 ### Cash Engine
 
@@ -38,7 +38,7 @@ The vision explains why the exploration compounds. The cash engine prevents cont
 
 ## Maker-Led Production Model
 
-Wired Geese is intentionally maker-led. Alex Gusev pursues the Alarisa direction, develops products and systems such as TeqFW and PDE, and governs development through ADSM while working closely with AI and LLM agents as active production participants.
+Wired Geese is the brand for Alex's intentionally maker-led vision of developer–agent interaction while creating applications. Alex Gusev pursues the separate Alarisa vision and direction, develops products and systems such as TeqFW and PDE, and governs development through ADSM while working closely with AI and LLM agents as active production participants.
 
 Alex owns product direction and remains accountable for accepted engineering and delivery decisions. Agents expand production capacity and help inspect, create, and maintain software; they are not employees and do not remove human review or responsibility.
 
@@ -68,7 +68,7 @@ Custom engineering remains important, but it should preferentially extend or app
 
 Alex cannot defer income until the entire Alarisa vision resolves into some final system. One successful economic loop is:
 
-`Alarisa-guided exploration -> useful bounded capability -> evidenced payer need -> standalone product -> commercial offer -> paying customer -> revenue and real-world feedback -> reusable improvement -> stronger ability to explore the Alarisa direction`
+`Alarisa vision and direction -> exploration -> useful bounded capability -> evidenced payer need -> standalone product -> commercial offer -> paying customer -> revenue and real-world feedback -> reusable improvement -> stronger ability to develop Alarisa`
 
 Candidate sources of useful capabilities include:
 
@@ -84,7 +84,7 @@ Commercialization must preserve these truths simultaneously:
 - the buyer receives a concrete outcome without needing to adopt or understand Alarisa;
 - revenue and real-world learning help make continued exploration in the Alarisa direction economically possible.
 
-This is not modular commercialization of a finished Alarisa product. Not every experiment, capability, or technical system should become a product, and naming one here does not claim that it is available, validated, separately deployable, or priced. Each active product and offer requires its own documented status and boundary.
+This is not modular commercialization of a finished Alarisa product. Not every experiment, capability, or technical system should become a commercial product, and naming one here does not claim that it is available, validated, separately deployable, or priced. Each active product and offer requires its own documented status and boundary.
 
 Exploration also has non-commercial branches:
 
@@ -107,7 +107,7 @@ Wired Geese can conceptually support:
 
 These are commercial capabilities, not final packages or mandatory tiers. Cognitive-context access, source access, use rights, customization rights, the right to continue development, and maintenance responsibility are separate agreement dimensions. The exact pricing, licensing, security review, transfer scope, and support terms remain open. `transferable-development.md` defines the canonical boundary.
 
-The possible differentiator is not that agents replace developers. It is that Wired Geese can address both what software does now and how its product intent and engineering structure can be preserved for later human-directed, AI-agent-assisted evolution. Claims of lower handoff loss, faster orientation, or reduced dependence on the original maker remain hypotheses until external transfers provide evidence.
+The possible differentiator is not that agents replace developers. It is that Alex, under the Wired Geese brand, can address both what software does now and how its product intent and engineering structure can be preserved for later human-directed, AI-agent-assisted evolution. Claims of lower handoff loss, faster orientation, or reduced dependence on the original maker remain hypotheses until external transfers provide evidence.
 
 ## Initial Offer And Price Discovery
 

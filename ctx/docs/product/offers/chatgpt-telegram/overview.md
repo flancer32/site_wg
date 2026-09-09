@@ -42,7 +42,7 @@ The exact workflow and permissions included in a paid setup must be agreed befor
 
 ## Platform Boundary
 
-PDE is an independently useful technical and infrastructure system that emerged from Alarisa-guided development and is the implementation foundation for this offer. The Telegram Desk provides the resource capability. The commercial offer packages setup and a useful buyer outcome without requiring the buyer to adopt or understand the Alarisa vision or receive any broader experimental system.
+PDE is an independently useful technical and infrastructure system that emerged from development guided by the Alarisa vision and is the implementation foundation for this offer. The Telegram Desk provides the resource capability. The commercial offer packages setup and a useful buyer outcome without requiring the buyer to adopt or understand the Alarisa vision, its eventual product ambition, or any broader experimental system.
 
 The buyer does not need to understand PDE Runtime, Desk architecture, TDLib, MCP implementation details, TeqFW, or ADSM before understanding the offer.
 

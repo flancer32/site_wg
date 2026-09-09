@@ -16,11 +16,11 @@ Define the stable route and implementation boundary of the locale-root page agai
 
 The home page is the principal entry to the product-led commercial model. Its semantic sequence is:
 
-1. the useful class of products Wired Geese makes;
+1. the useful class of products Alex creates and presents under the Wired Geese brand;
 2. a replaceable collection of current products, even while it contains only the Telegram-connected AI product;
 3. adaptation possibilities for needs that differ from the current product shape;
 4. concise How-it-works explanation covering accountability, control, extensibility, and transfer without deep internal detail;
-5. Alarisa as the guiding vision and principal long-term R&D direction;
+5. Alarisa as the guiding vision and principal long-term R&D direction, with an eventual product or connected product-family ambition;
 6. accountable-maker identity and a deliberately small set of product-relevant proof;
 7. the shared product-oriented commercial action.
 
@@ -38,7 +38,7 @@ The page:
 - must preserve equivalent semantic intent across locales;
 - must not require the visitor to understand internal platform terms before buyer value;
 - must not require the visitor to understand or adopt Alarisa before discovering or buying an independent offer;
-- must not imply that Alarisa is a product roadmap or that all exploration branches must become products;
+- must not imply that Alarisa is a market-ready product roadmap or that all exploration branches must become products;
 - must not imply that ADSM makes maintenance autonomous or removes accountable human development;
 - must not imply production maturity, broad validation, fixed pricing, or unsupported outcomes;
 - must distinguish Alex's own and trusted-user practical use from external commercial validation;
@@ -52,4 +52,4 @@ The semantic reading priority, product visibility before significant scrolling, 
 
 ## Legacy Drift
 
-The current page may still lead with senior engineering engagements or present Alarisa mainly as one unavailable monolithic project. The first is legacy positioning; the second is conceptually wrong because Alarisa is the guiding direction rather than one system or future package, and independent products are discoveries along that path. GitHub Flows and the old PoC must not reappear as current home-page content.
+The current page may still lead with senior engineering engagements or present Alarisa mainly as one unavailable monolithic project. The first is legacy positioning; the second is conceptually wrong because Alarisa is the guiding direction with an eventual product or connected product-family ambition rather than one system or current package, and independent products are discoveries along that path. GitHub Flows and the old PoC must not reappear as current home-page content.
