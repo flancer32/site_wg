@@ -30,9 +30,9 @@ Stable enrichments include locale metadata, route classification, redirect behav
 
 The existing templates include locale roots, standalone pages, journal pages, library material, project pages, book pages, historical material, and a legacy campaign landing page.
 
-These observed families and their current navigation positions do not define the commercial hierarchy. The approved target uses Products, Custom Development, Alarisa, Technology, and About as primary meanings, the brand link for Home, and a distinct contact action. Resources, Projects, Library, Journal, Books, technical material, and history form the secondary discovery surface.
+These observed families and their current navigation positions do not define the commercial hierarchy. The approved target uses Products, Approach, and Alarisa as primary meanings, the brand link for Home, and a distinct shared commercial action. About is secondary maker evidence. Customization is exposed through product journeys and Approach. Project Archive, Library, Journal, Books, technical material, and history form the secondary discovery surface.
 
-The two surfaces are semantic roles rendered through the same SSR system, not separate applications. Route and page mapping follows `../../../product/information-architecture.md`. Final copy, styling, and responsive composition remain open. Retained content must remain intentionally discoverable after it leaves primary navigation.
+The two surfaces are semantic roles rendered through the same SSR system, not separate applications. Page responsibility and future route selection follow `../../../product/information-architecture.md`. Exact paths, final copy, styling, and responsive composition remain open. Retained content must remain intentionally discoverable after it leaves primary navigation.
 
 ## Product Runtime Boundary
 

@@ -13,15 +13,12 @@ Documents at this level describe concrete SSR page families, current route bound
 ## Level Map
 
 - `AGENTS.md` — level definition for `ctx/docs/code/web/ssr/pages/`.
-- `about.md` — retained About route and its maker-identity and trust role.
-- `alarisa.md` — retained Alarisa route and its role as the guiding vision and primary strategic R&D direction.
-- `chatgpt-telegram.md` — new focused route for the active Telegram commercial offer.
-- `contact.md` — retained Contact route and its commercial-action boundary.
-- `home.md` — locale-root route and its approved commercial semantic sequence.
-- `products.md` — target Products index and its commercial status boundaries.
-- `resources.md` — target secondary hub for retained knowledge, history, and proof.
-- `technology.md` — target technical-trust page distinguishing TeqFW, ADSM, AI-agent participation, transferable development, and related infrastructure.
-- `work-with-me.md` — retained route and its approved Custom Development role.
+- `about.md` — current About route and its target secondary maker-identity and trust role.
+- `alarisa.md` — current Alarisa route and its target role as the guiding vision and primary strategic R&D direction.
+- `contact.md` — current Contact route and its target shared commercial-handoff boundary.
+- `home.md` — locale-root route and its approved product-family routing semantics.
+- `products.md` — Products index page family and its catalogue and maturity boundaries without an approved path.
+- `work-with-me.md` — current route whose future repurpose or redirect treatment remains a migration decision.
 
 ## Level Boundary
 

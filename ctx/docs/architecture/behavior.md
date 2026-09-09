@@ -34,9 +34,9 @@ The target commercial behavior is:
 
 The website supports understanding and contact. It does not need to provision PDE, collect Telegram credentials, automate payment, execute customer workflows, or automate cognitive-context transfer.
 
-The main discovery flow enters through Home or a direct offer route and moves among Products, the Telegram offer, Custom Development, the commercial action, and supporting Alarisa, Technology, or About detail without requiring traversal of historical taxonomy, biography, or the full Alarisa vision first. Technical depth, maker identity, exploration lineage, and retained proof support the decision after buyer value is clear.
+The main discovery flow enters through Home or a direct product route and moves among Products, product detail, product-specific customization, Approach, the shared commercial action, and supporting Alarisa or About detail without requiring traversal of historical taxonomy, biography, or the full Alarisa vision first. Technical depth, maker identity, exploration lineage, and retained proof support the decision after buyer value is clear.
 
-The secondary discovery flow enters through Resources, footer navigation, contextual and related-content links, direct inbound URLs, or search access and then reaches Project archive, Library, Journal, Books, and selected evidence. It supports evidence and exploration without competing equally with active commercial actions.
+The secondary discovery flow enters through curated footer navigation, Project Archive, Library, Journal, Books, contextual and related-content links, direct inbound URLs, or search access. It supports evidence and exploration without competing equally with active commercial actions. A future cross-collection hub requires a demonstrated discovery need.
 
 ## Product Continuation Flow
 

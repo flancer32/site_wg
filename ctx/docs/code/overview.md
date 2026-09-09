@@ -10,7 +10,7 @@ Define implementation-facing boundaries that refine the accepted product, archit
 
 ## Current Scope
 
-The code documentation describes the existing multilingual SSR delivery model and durable repository boundaries. It does not yet define new PDE offer pages, navigation, forms, analytics, payment, provisioning, or product-runtime integrations.
+The code documentation describes the existing multilingual SSR delivery model and durable repository boundaries. It does not yet define final target routes, new product-detail or Approach templates, forms, analytics, payment, provisioning, or product-runtime integrations.
 
 ## Repository Boundaries
 
@@ -48,11 +48,12 @@ The implementation may also still express the former engineer-centric commercial
 
 ## Implementation Design Gate
 
-The commercial information architecture, target route intents, navigation hierarchy, and page roles are approved in `../product/information-architecture.md`. Before code changes begin, the human must still approve enough interface and interaction detail to define:
+The commercial information architecture, navigation semantics, page roles, and route-selection boundary are approved in `../product/information-architecture.md`. Before code changes begin, the human must still approve enough migration, interface, and interaction detail to define:
 
 - final public copy and visual composition;
+- exact target paths and the role of existing route candidates;
 - the evidence-based preservation or redirect treatment for affected legacy routes;
 - contact and qualification behavior;
 - whether any telemetry, payment, provisioning, or customer-data handling is required.
 
-Absent that approval, code documentation may map the approved information architecture but must not invent the remaining interface or interaction contracts.
+Absent that approval, code documentation may map the approved semantic information architecture but must not promote candidate labels, paths, or page splits into implementation contracts.

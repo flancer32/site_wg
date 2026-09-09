@@ -29,7 +29,7 @@ Agents must keep the distinction explicit: `wiredgeese.com` is the site product 
 
 Defines:
 
-- Concrete commercial presentations of products or capabilities already defined in `ctx/docs/product/product-system.md`.
+- Concrete commercial presentations of products already defined in `ctx/docs/product/product-system.md`, including bounded setup, installation, or customization outcomes built from documented capabilities.
 - Offer scope, exclusions, trust boundaries, and expected buyer-facing outcome.
 - The boundary among an offer, the independently deliverable product or capability behind it, and any exploration or technical lineage.
 

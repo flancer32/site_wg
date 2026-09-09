@@ -6,25 +6,22 @@
 
 ## Purpose
 
-Define the primary commercial inventory page and its status boundaries.
-
-## Route
-
-- `/{locale}/products.html`
+Define the primary commercial inventory page family and its catalogue and maturity boundaries without selecting its target path.
 
 ## Target Role
 
 The page:
 
-- leads with the independently deliverable Telegram product and its offer detail;
-- distinguishes products available now from experimental capabilities and future candidates;
-- routes product-related customization to Custom Development;
+- lists only products that pass the payer-problem, independently understandable result, delivery/support boundary, evidence, and truthful-action gate;
+- leads currently with the early-access Telegram-connected AI product and its offer detail without treating its working offer wording as a permanent product name;
+- distinguishes Available, Early access, selectively public In development, and Discontinued meanings without turning capabilities or object kinds into additional status labels;
+- exposes product-specific customization and related-integration paths;
 - may show PDE as enabling infrastructure after the buyer outcome;
 - must not present Alarisa as a product or present PDE, Shared Files, the World Map, general memory, or every Desk as equal purchasable products without independent commercial status;
 - gives each listed item an explicit status and next action proportionate to that status.
 
 ## Transition Boundary
 
-The current redirect from `products.html` to `projects.html` is legacy behavior. It remains until complete localized Products pages and target navigation are ready, then is removed so the established URL becomes the canonical Products page.
+The current redirect from `products.html` to `projects.html` is legacy behavior and migration evidence. This IA requires a localized Products destination but does not decide whether that existing path becomes canonical or redirects elsewhere.
 
-Final catalogue presentation, status labels, card composition, copy, and proof selection require interface design.
+Final route, catalogue presentation, localized status labels, card composition, copy, and proof selection require migration and interface design.

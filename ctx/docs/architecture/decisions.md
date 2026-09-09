@@ -34,9 +34,9 @@ Record durable architecture decisions in a short ADR-like form.
 
 ## Decision 5: Separate preservation from navigational prominence
 
-- Decision: let primary navigation serve current commercial direction while retained knowledge and history remain meaningfully reachable through deliberate secondary or contextual paths. Inventory existing URLs and content before implementation, retaining access or adding redirects where value warrants it.
-- Rejected alternatives: erase the existing archive during a homepage repositioning; preserve the Home, Projects, Library, Journal, and Contact hierarchy solely because it exists or carries search value; leave retained pages online without internal discovery.
-- Reasoning: preservation does not imply navigational prominence. Search, backlink, reference, proof, and historical value can remain accessible while the primary commercial hierarchy changes.
+- Decision: let primary navigation serve current commercial direction while Project Archive, Library, Journal, Books, and other retained knowledge remain meaningfully reachable through curated collection-level footer links, contextual relationships, preserved inbound paths, and deliberate redirects. Add a cross-collection hub only if evidence establishes a distinct discovery job.
+- Rejected alternatives: erase the existing archive during a homepage repositioning; preserve the Home, Projects, Library, Journal, and Contact hierarchy solely because it exists or carries search value; leave retained pages online without internal discovery; create a mandatory `Resources` hub before showing that it improves navigation.
+- Reasoning: preservation does not imply navigational prominence or a new aggregation layer. Existing collection identities, search value, and references can remain accessible while the primary commercial hierarchy changes.
 
 ## Decision 6: Defer new commercial automation
 
@@ -50,11 +50,11 @@ Record durable architecture decisions in a short ADR-like form.
 - Rejected alternatives: imply a larger organization; hide the single-maker model; treat agents as employees or as replacements for human authority; make Alex's identity the product.
 - Reasoning: suitable early buyers may value direct ownership, transparency, and customization, but those strengths do not establish maturity, capacity, continuity, or commercial validation.
 
-## Decision 8: Adopt a product-led primary route model
+## Decision 8: Adopt products, Approach, and vision as primary semantics
 
-- Decision: use Products, Custom Development, Alarisa, Technology, and About as primary navigation meanings; use the brand for Home and a distinct `Discuss your need` action for Contact; place Resources and retained knowledge in the footer and contextual discovery model defined by product information architecture.
-- Rejected alternatives: retain the current personal-site navigation; place Resources in the header as an equal commercial category; hide Alarisa under an archive; create separate applications for commercial and knowledge surfaces.
-- Reasoning: the chosen model gives the current offer a direct path, keeps Alarisa strategically visible, exposes customization and maker trust, and preserves accumulated knowledge without letting it dominate the commercial journey.
+- Decision: use Products, Approach, and Alarisa as the stable primary navigation meanings; use the brand for Home and a distinct shared commercial action for the human handoff. Keep About as secondary maker evidence. Treat customization as a cross-product capability owned by product journeys and Approach rather than as a parallel header business. Do not freeze exact labels or paths at the architecture level.
+- Rejected alternatives: retain the current personal-site navigation; use Products, Custom Development, Alarisa, Technology, and About as equal primary destinations; expose only Products and Alarisa with no cross-product trust destination; place retained knowledge in the header; create separate applications for commercial and knowledge surfaces.
+- Reasoning: the chosen model gives products the dominant discovery path, gives customization and shared foundations one buyer-oriented supporting destination, keeps Alarisa strategically visible, reduces portfolio and consultancy drift, and remains stable as products are added or retired.
 
 ## Decision 9: Separate vision, method, platform, system, product, and offer
 

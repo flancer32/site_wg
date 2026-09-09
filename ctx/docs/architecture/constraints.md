@@ -56,7 +56,7 @@ Architecture must not encode:
 - delivery of every installation with all internal Wired Geese cognitive context;
 - large-team redundancy, `24/7` support, enterprise capacity, unlimited customization, or continuity independent of Alex;
 - final copy, visual composition, form, analytics, or deployment contracts that product documentation deliberately leaves open;
-- navigation labels, ordering, destinations, or page roles that contradict `../product/information-architecture.md`.
+- navigation meanings, relative hierarchy, page roles, or migration boundaries that contradict `../product/information-architecture.md`, including turning candidate labels or paths into approved implementation contracts.
 
 ## Preservation Constraints
 
@@ -64,7 +64,7 @@ Future implementation must not remove or relocate search-bearing content casuall
 
 Preservation applies to useful history and content, not to obsolete commercial emphasis. Retained content must remain reachable through a deliberate secondary, contextual, related-content, or equivalent internal path; presence on the server or search access alone is insufficient.
 
-Projects, Library, Journal, Books, historical experiments, and comparable material stay out of primary navigation. The Resources hub, footer groups, contextual links, and retained routes provide their approved discovery model.
+Project Archive, Library, Journal, Books, historical experiments, and comparable material stay out of primary navigation. Curated collection-level footer links, contextual and related-content links, and retained routes provide the current discovery model. A generic cross-collection hub must not be introduced without evidence that it serves a distinct discovery job.
 
 ## Approval Cases
 
@@ -75,6 +75,6 @@ Human approval is required before introducing:
 - a new external runtime integration;
 - customer credential or private-resource handling by the site;
 - automated payment, provisioning, managed-hosting, or customer-record systems;
-- a change to the approved commercial navigation, canonical page roles, or route intents;
+- a change to the approved commercial navigation semantics, page roles, or migration boundary;
 - conversion tracking beyond ordinary operational evidence;
 - automated, synchronized, or continuing cognitive-context transfer as a site capability.

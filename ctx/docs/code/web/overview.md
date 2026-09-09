@@ -14,7 +14,7 @@ This branch isolates implementation-facing documentation for the site's web surf
 
 The current project uses a multilingual SSR site model built from authored templates under `tmpl/` and runtime adaptation under `src/`.
 
-The accepted commercial target is product-led, and its navigation, route intents, and page roles are approved in the product information architecture. Final visual composition, interaction details, and public copy are not yet approved. Existing engineer-centric and GitHub-offer implementation is legacy drift rather than a source for new code contracts.
+The accepted commercial target is product-led, and its navigation meanings, page roles, and route-selection boundary are approved in the product information architecture. Exact target paths, final visual composition, interaction details, and public copy are not yet approved. Existing engineer-centric and GitHub-offer implementation is legacy drift rather than a source for new code contracts.
 
 ## Current Scope
 

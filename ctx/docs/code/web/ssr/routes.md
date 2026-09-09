@@ -30,28 +30,13 @@ Directory indexes use trailing slashes. Standalone and detail templates use `.ht
 
 Redirects are a deliberate continuity tool. They must not silently create an alternative product hierarchy.
 
-## Target Commercial Routes
+## Target Semantic Destinations
 
-Target primary routes are:
+The target requires locale-aware semantic destinations for Home, Products, Product Detail, Approach, Alarisa, About, a shared commercial handoff, Project Archive, Library, Journal, Books, and retained historical material.
 
-- Home — `/{locale}/`;
-- Products — `/{locale}/products.html`;
-- Telegram offer — `/{locale}/products/chatgpt-telegram.html`;
-- Custom Development — `/{locale}/work-with-me.html`;
-- Alarisa — `/{locale}/projects/alarisa.html`;
-- Technology — `/{locale}/technology.html`;
-- About — `/{locale}/about.html`;
-- commercial action — `/{locale}/contact.html`.
+This code document does not select exact target paths. Existing paths such as `/{locale}/`, `/{locale}/products.html`, `/{locale}/work-with-me.html`, `/{locale}/projects.html`, `/{locale}/projects/alarisa.html`, `/{locale}/about.html`, and `/{locale}/contact.html` are migration evidence and candidates, not automatic target contracts. The superseded proposed `technology.html`, `/resources/`, and `/products/chatgpt-telegram.html` paths have no target authority.
 
-Target secondary routes are:
-
-- Resources — `/{locale}/resources/`;
-- Project archive — `/{locale}/projects.html`;
-- Library — `/{locale}/library/`;
-- Journal — `/{locale}/blog/`;
-- Books — existing book detail routes under `/{locale}/books/`.
-
-Route continuity and navigation prominence are independent. Existing secondary routes remain valid after leaving primary navigation. The current `products.html -> projects.html` redirect is retired only when localized Products pages are ready. The discontinued GitHub campaign remains outside all target navigation and receives an archive or redirect treatment after inbound-value review.
+Route continuity and navigation prominence are independent. Existing secondary routes may remain valid after leaving primary navigation. The current `products.html -> projects.html` behavior changes only after a localized Products destination and migration treatment are approved. The discontinued GitHub campaign remains outside all target navigation and receives an archive, redirect, or reviewed-retirement treatment after inbound-value review.
 
 ## Preservation Verification
 
@@ -59,6 +44,7 @@ Before changing routes, implementation work must:
 
 - inventory affected URLs across locales;
 - review search, backlink, reference, and historical value;
+- select target paths separately from semantic page roles;
 - define canonical replacements and redirects where warranted;
 - define and verify at least one intentional internal discovery path for retained content;
 - regenerate and inspect sitemap output;

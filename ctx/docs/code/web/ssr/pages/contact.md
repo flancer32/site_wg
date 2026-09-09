@@ -14,9 +14,9 @@ Define the current contact route and its target commercial boundary without pres
 
 ## Target Role
 
-The contact page is a general commercial next-step surface for:
+The contact page is a shared commercial next-step surface for:
 
-- the active ChatGPT and Telegram offer;
+- a specific product or active offer, including the current Telegram offer;
 - PDE deployment, integration, or customization discussions;
 - product-specific cognitive-context transfer or an agent-maintainable system where the product and agreement make that suitable;
 - related specialized engineering where existing capabilities and reusable technology provide leverage;
@@ -24,7 +24,7 @@ The contact page is a general commercial next-step surface for:
 
 It must not make GitHub Flows, Agent Orchestration PoC, generic consulting, or a legacy fixed price the current reason to write.
 
-Contact is a commercial action and route-continuity concern, not a primary content category. The header exposes it through the `Discuss your need` action; offer pages, Custom Development, the footer, and contextual CTAs may also link to it.
+Contact is a commercial action and route-continuity concern, not a primary content category. The header exposes it through a shared action whose final public wording remains open; product details, Approach, About, the footer, and contextual actions may also link to it.
 
 ## Contact Boundary
 
@@ -43,4 +43,4 @@ No final form fields, channel order, automation, payment step, or deployment wor
 
 ## Preservation And Redesign
 
-The established contact route remains valid. Final page composition and copy require a later approved design.
+The established contact route remains valid during migration and is a strong continuity candidate. Its final canonical role, context-preservation mechanism, page composition, and copy require later approval.

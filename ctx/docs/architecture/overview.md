@@ -30,7 +30,7 @@ The stable flow is:
 
 The commercial repositioning changes site meaning and future content hierarchy. It does not by itself authorize a new site engine, a large custom application, or incorporation of PDE into the website process.
 
-The primary commercial and secondary knowledge/archive surfaces are semantic responsibilities, not separate applications or deployment units. Their approved navigation, page roles, and route intents are defined in `../product/information-architecture.md` and rendered through the same multilingual SSR system.
+The primary commercial and secondary knowledge/archive surfaces are semantic responsibilities, not separate applications or deployment units. Their approved navigation meanings, page roles, and route-selection boundary are defined in `../product/information-architecture.md` and rendered through the same multilingual SSR system.
 
 ## Major Boundaries
 

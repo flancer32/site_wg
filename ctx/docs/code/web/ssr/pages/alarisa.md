@@ -22,10 +22,10 @@ The page presents:
 - PDE and other independently useful systems, capabilities, or products as discoveries along the direction rather than pieces of a finished product sold early;
 - reusable learning, future ideas, and failed or discontinued branches as legitimate exploration outcomes;
 - the absence of a deterministic product roadmap or current purchase promise;
-- current Products and Technology as related destinations where useful.
+- current Products and Approach as related destinations where useful.
 
 ## Implementation Boundary
 
-The existing route remains canonical but moves from archive-only discovery into primary navigation. The page must not contain a purchase CTA for Alarisa or imply that it awaits product packaging; its commercial links lead to independently available products, customization, or the general contact action with status intact.
+Alarisa belongs to primary navigation, but the existing route is a strong continuity candidate rather than an IA-mandated canonical path. The page must not contain a purchase CTA for Alarisa or imply that it awaits product packaging; its commercial links lead to independently available products, Approach, product-specific customization, or the shared contact action with status intact.
 
 Final public narrative, diagrams, proof selection, and visual composition require interface design.

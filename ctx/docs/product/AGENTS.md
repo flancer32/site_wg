@@ -15,7 +15,7 @@ Documents at this level describe the site as a product: its meaning, purpose, sc
 - `offers/` — offer-level documents that define concrete commercial entry offers under the site product hierarchy.
 - `AGENTS.md` — level definition for `ctx/docs/product/`.
 - `commercial-strategy.md` — revenue model, acquisition, price discovery, validation, and productization logic.
-- `information-architecture.md` — approved navigation hierarchy, public page roles, route intents, commercial journeys, and secondary-content discovery model.
+- `information-architecture.md` — approved semantic navigation hierarchy, public page roles, commercial journeys, secondary-content discovery model, and route-migration boundary.
 - `overview.md` — semantic entry point defining site purpose, commercial identity, public-surface roles, and preservation constraints.
 - `product-system.md` — distinctions and relationships among guiding vision, development methodology, technical platform, exploration, capabilities, products, offers, and proof.
 - `transferable-development.md` — strategic models and boundaries for delivering software with cognitive context for continued human-directed, AI-agent-assisted evolution.

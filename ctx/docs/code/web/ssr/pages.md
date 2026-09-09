@@ -27,14 +27,12 @@ The target primary page families are:
 
 - Home;
 - Products index;
-- Telegram offer detail;
-- Custom Development;
-- Alarisa;
-- Technology;
-- About;
-- Contact commercial handoff.
+- Product detail;
+- Approach;
+- Alarisa vision;
+- shared commercial handoff.
 
-The target secondary page families are Resources, Project archive and detail, Library index and detail, Journal index and detail, Books, and retained historical material.
+The target secondary page families are About and maker trust, Project Archive and detail, Library index and detail, Journal index and detail, Books, and retained historical material. A cross-collection Resources or Knowledge hub is not required unless later evidence establishes a distinct visitor job.
 
 Primary and secondary families share the same locale-aware SSR shell. Family status controls discovery and page responsibility, not runtime isolation.
 
@@ -44,15 +42,12 @@ Route-boundary documents exist for:
 
 - `pages/about.md`;
 - `pages/alarisa.md`;
-- `pages/chatgpt-telegram.md`;
 - `pages/contact.md`;
 - `pages/home.md`;
 - `pages/products.md`;
-- `pages/resources.md`;
-- `pages/technology.md`;
 - `pages/work-with-me.md`.
 
-They define approved route roles and semantic composition without final copy or visual design. Add another page document only after product and architecture decisions make its route and responsibility durable.
+They document current route evidence and approved semantic responsibilities without selecting the target path for repurposed or new families. The former provisional Telegram, Resources, and Technology target page documents were removed because they froze an unimplemented route and page split that the selected IA does not approve. Add a target page document only after product, migration, and architecture decisions make its route and responsibility durable.
 
 The former Agent Orchestration PoC page document has been retired because its offer is discontinued. Its remaining source template is legacy implementation outside this task.
 

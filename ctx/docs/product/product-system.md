@@ -53,7 +53,7 @@ This model must be represented honestly. Wired Geese must not pretend to be a la
 - A `technical system` such as PDE may emerge from Alarisa-guided development and remain useful both to further exploration and to independent deployments or products.
 - A `capability` is a useful technical ability created through exploration or product work, such as reading Telegram channels, publishing messages, or working with private files. A capability is not automatically a product.
 - A `product` is a bounded solution to a concrete payer need that can be independently offered, delivered, and supported. It may emerge from exploration guided by Alarisa without requiring a customer to adopt that vision.
-- An `offer` is a concrete commercial presentation of a product or capability to a target buyer. `Connect your ChatGPT to your Telegram` is the current canonical example.
+- An `offer` is a concrete commercial presentation of a product, including a bounded setup, installation, or customization outcome. It does not make a raw capability a product. `Connect your ChatGPT to your Telegram` is the current canonical example.
 
 Vision, exploration lineage, technical composition, product identity, and commercial presentation describe different relationships. A system may continue serving Alarisa-guided exploration while an independently deliverable product built from its capabilities develops its own commercial lifecycle.
 
@@ -104,7 +104,7 @@ This is support for continued human-directed, AI-agent-assisted evolution, not a
 
 Personal Digital Embassy (`PDE`) is an experimental but working application and infrastructure system that emerged from Alarisa-guided development. It provides controlled bridges through which MCP-compatible AI systems can interact with digital resources associated with a Principal.
 
-PDE has a legitimate dual role. It supports continued exploration in the Alarisa direction, and it is sufficiently independent to be deployed on its own, solve customer problems, support standalone products and offers, receive customization, and develop its own product lifecycle.
+PDE has a legitimate dual role. It supports continued exploration in the Alarisa direction, and it is sufficiently independent to be deployed on its own, solve customer problems, support standalone products and offers, receive customization, and evolve on a technical lifecycle distinct from the commercial lifecycles of products it enables.
 
 PDE is not a smaller Alarisa, a subsystem of a future commercial Alarisa package, or a piece of a finished product sold early. Its commercial value comes from independently useful capabilities discovered through Alarisa-driven exploration.
 
@@ -137,7 +137,7 @@ ChatGPT or another MCP-compatible agent
                ...   other Desks
 ```
 
-PDE is the platform. A `Desk` is a capability or resource bridge within it. A buyer-facing offer packages a concrete outcome built on one or more capabilities. These concepts must remain distinct.
+PDE is the reusable technical system. A `Desk` is a capability or resource bridge within it. A buyer-facing product packages a bounded result built on one or more capabilities, and an offer presents that product commercially. These concepts must remain distinct.
 
 PDE should initially be explained through outcomes rather than requiring customers to understand its runtime, Desk architecture, protocol implementation, or dependencies.
 
@@ -183,20 +183,17 @@ Santegra is a legitimate proof point: a substantial Magento-based commerce appli
 
 Its valid role is evidence that Alex can build, operate, evolve, and remain responsible for a substantial business system. It is not a reason to position around PHP or Magento, and it is not proof of a large portfolio of repeatable independent product successes.
 
-## Status Vocabulary
+## Product Maturity And Catalogue Eligibility
 
-Future public and internal descriptions should use status deliberately:
+Object kind and product maturity are separate. Vision, methodology, technical platform, technical system, Desk, capability, product, offer, research, and proof describe what something is or how it relates to other work. They must not become a long list of public product statuses.
 
-- `vision and direction` — a guiding view of the future and open exploration path rather than a product, system boundary, or deterministic roadmap;
-- `exploration branch` — a bounded hypothesis or line of investigation that may produce a system, capability, product, reusable learning, or dead end;
-- `experimental system` — a working instrument used to develop and test ideas without a claim of commercial product maturity;
-- `technical system` — independently identifiable software or infrastructure with its own technical boundary, such as PDE, whether or not it supports a commercial product;
-- `active product` — a bounded solution Alex is prepared to offer, deliver, and support independently for a payer;
-- `capability` — a useful technical ability that may support an internal system, a product, or an offer without automatically being any of them;
-- `active offer` — a bounded outcome Alex is prepared to discuss and deliver for payment;
-- `enabling technology` — reusable platform or method supporting offers and delivery;
-- `research` — active investigation without a present purchase promise;
-- `historical proof` — completed or long-running work used as evidence, not as current direction;
-- `discontinued` — not promoted, validated, or recommended as a current offer.
+A commercial product enters the public catalogue only when it has a bounded payer problem, an independently understandable result, a delivery and support boundary Alex is prepared to discuss, evidence appropriate to its claim, and a truthful next action.
 
-GitHub Flows and Agent Orchestration PoC are discontinued. They may appear only when a historical explanation is genuinely useful and must never be reinstated as active commercial direction by lower-level documentation.
+The minimum public maturity meanings are:
+
+- `available` — presently offered with an explicit delivery or use path;
+- `early access` — working and discussable for suitable buyers, with experimental boundaries explicit;
+- `in development` — public only when a specific learning or interest action justifies visibility; otherwise omitted from the catalogue;
+- `discontinued` — removed from active catalogue competition and retained only where history, references, or learning justify it.
+
+The Telegram-connected AI product is currently early access. Shared Files remains a capability and product candidate, not an equal catalogue item. GitHub Flows and Agent Orchestration PoC are discontinued. Lower-level documentation must not promote any of these beyond its documented status.

@@ -35,9 +35,9 @@ The future public structure has two distinct semantic responsibilities:
 
 The primary surface must distinguish Alarisa as the guiding vision and principal long-term R&D direction from TeqFW as a technical platform, ADSM as a development methodology, PDE as an independently useful technical system, capabilities, products, offers, customization, proof, writing, and contact. It must keep current products and offers directly reachable without requiring a visitor to understand Alarisa, while allowing interested visitors to trace how exploration in that direction produced useful independent results.
 
-Primary navigation serves the current business through Products, Custom Development, Alarisa, Technology, and About, with Home owned by the brand link and Contact represented by a distinct commercial action. Resources, Projects, Library, Journal, and Books use the footer, the Resources hub, contextual links, related-content links, and retained inbound routes.
+Primary navigation serves the current business through Products, Approach, and Alarisa, with Home owned by the brand link and Contact represented by a distinct shared commercial action. Customization is exposed from product journeys and Approach. About is secondary maker evidence. Project Archive, Library, Journal, and Books use curated footer, contextual, related-content, and retained inbound paths; no cross-collection hub is required without evidence.
 
-These are responsibility and reachability boundaries within one SSR publication architecture. The canonical semantic labels, destination order, page roles, and route intents come from `../product/information-architecture.md`; architecture must not silently alter them.
+These are responsibility and reachability boundaries within one SSR publication architecture. The semantic destinations, relative hierarchy, page roles, and migration boundary come from `../product/information-architecture.md`; architecture must not silently convert candidate labels or routes into fixed contracts.
 
 Existing pages may be retained, repurposed, redirected, or reorganized only after content and search-value review. A familiar route name does not preserve an obsolete commercial role or primary-navigation position by itself. Leaving a file or URL online without an intentional internal discovery path is not sufficient preservation.
 

@@ -16,14 +16,13 @@ Define the stable route and semantic implementation boundary of the locale-root 
 
 The home page is the principal entry to the product-led commercial model. Its semantic sequence is:
 
-1. what Wired Geese builds;
-2. the concrete Telegram outcome available to discuss now;
-3. whether the current product's experimental, trust, and deployment boundaries fit the visitor;
-4. the customization and integration path;
-5. Alarisa as the guiding vision and principal long-term R&D direction, with independent products discovered along an open exploration path;
-6. Alex Gusev as accountable maker, TeqFW as the technical platform, ADSM as the development methodology and basis for optional development-context portability, and AI agents as supervised production participants;
-7. selected practical-use or historical proof and the Resources path without allowing them to dominate the commercial proposition;
-8. the `Discuss your need` commercial action.
+1. the useful class of products Wired Geese makes;
+2. a replaceable collection of current products, even while it contains only the Telegram-connected AI product;
+3. product fit, honest maturity, and relevant trust boundaries;
+4. customization and related-integration possibilities;
+5. concise Approach and accountable-maker evidence, with deeper technical and method detail available by choice;
+6. Alarisa as the guiding vision and principal long-term R&D direction, plus selected practical-use or historical proof;
+7. the shared commercial action.
 
 This ordering is semantic. Adjacent meanings may share one visual section, but buyer outcome must precede platform lineage and maker identity.
 
@@ -42,10 +41,11 @@ The page:
 - must not imply production maturity, broad validation, fixed pricing, or unsupported outcomes;
 - must distinguish Alex's own and trusted-user practical use from external commercial validation;
 - must route useful historical and technical material through an intentional secondary or contextual path without placing it before the commercial proposition.
+- must treat the current product area as a scalable collection rather than hard-code Telegram into the page hierarchy.
 
 ## Interface Design Boundary
 
-Final headlines, body copy, visual grouping, card count, proof selection, page-local assets, and responsive composition require a later approved interface design. Navigation relationships, route links, Resources treatment, and the commercial action must follow the approved information architecture.
+Final headlines, body copy, visual grouping, card count, proof selection, page-local assets, responsive composition, and exact target links require a later approved interface design and route migration. Navigation relationships and the commercial action must follow the approved semantic information architecture.
 
 ## Legacy Drift
 

@@ -37,15 +37,13 @@ The current legacy shell maps Home, Projects or Evidence, Library, Journal where
 The target primary shell maps these canonical meanings in this order:
 
 - `Products`;
-- `Custom Development`;
+- `Approach`;
 - `Alarisa`;
-- `Technology`;
-- `About`;
-- distinct action: `Discuss your need`.
+- distinct shared commercial action.
 
-Home is represented by the localized brand link. Resources, Project archive, Library, Journal, and Books are secondary meanings owned by the Resources and footer discovery model.
+Home is represented by the localized brand link. `Approach` is a semantic key for the cross-product explanation of foundations, control, customization, accountability, and transferability; it is not an approved English display label. About, Project Archive, Library, Journal, and Books are secondary meanings owned by curated footer and contextual discovery. No generic Resources hub is required.
 
-English labels establish semantic keys, not mandatory word-for-word text in every locale. Russian and Spanish wording must be approved as idiomatic public copy while preserving destination identity, order, primary-versus-secondary status, and action semantics.
+Semantic roles establish keys such as `nav.products`, `nav.approach`, `nav.vision`, and `action.discuss`, not mandatory English strings. Russian and Spanish wording must be approved as idiomatic public copy while preserving destination identity, order, primary-versus-secondary status, and action semantics.
 
 Blog announcements and durable library material remain distinct content types even though both belong to the broader writing surface.
 
@@ -55,7 +53,7 @@ The SSR fallback target is the target-locale root.
 
 When browser JavaScript is available, switching locale preserves the current route, query, and fragment. Active maintained routes must exist in every locale. Obsolete EN-only routes normalize to localized current routes before rendering.
 
-Future offer, product, or capability routes must not be added to one locale as durable public structure without equivalent semantic treatment in the other maintained locales.
+Future product destinations must not be added to one locale as durable public structure without equivalent semantic treatment in the other maintained locales. Capabilities do not receive public routes merely because they exist technically.
 
 ## Metadata Localization
 

@@ -22,7 +22,7 @@ Current implementation is evidence of existing behavior, not authority to reinst
 
 Human approval is required for:
 
-- changes to the approved site information architecture or route intents, and all final public copy;
+- changes to the approved site information architecture, page responsibilities, or route-selection boundary, and all final public copy;
 - new runtime areas, persistent state, integrations, or customer-data owners;
 - website handling of credentials or private resources;
 - standardized offer scope, price, hosting, maintenance, payment, and provisioning;
@@ -41,7 +41,7 @@ Agents must:
 - preserve Alex Gusev as the accountable human maker while describing AI agents as production participants rather than employees or independent authorities;
 - keep cognitive-context transfer bounded, optional, explicitly authorized, and subordinate to accountable human ownership on both sides;
 - keep current commercial navigation responsibility distinct from secondary knowledge and archive reachability;
-- implement navigation and page roles from `../product/information-architecture.md` without reinterpreting legacy template structure as authority;
+- implement navigation and page roles from `../product/information-architecture.md` without reinterpreting legacy template structure, provisional labels, or candidate routes as authority;
 - surface missing evidence instead of inventing validation or maturity;
 - verify URL, content, and meaningful internal discovery preservation during any later implementation task.
 
@@ -67,7 +67,10 @@ Architecture drift exists when:
 - ADSM is reduced to an internal coding workflow or exaggerated into autonomous, developer-free maintenance;
 - cognitive-context delivery is implied by ordinary product use or source access, exposes unrelated context, or lacks an accountable receiving human owner;
 - dogfooding or trusted-user installation is described as commercial validation;
-- Home, Resources, Products, Custom Development, Alarisa, Technology, About, or the commercial action loses its approved semantic role;
+- Products, Approach, Alarisa, Home-by-brand, or the shared commercial action loses its approved primary semantic role;
+- About returns to primary navigation or maker biography becomes the entry proposition;
+- customization becomes a parallel generic-services business instead of a cross-product path;
+- a mandatory Resources hub or exact target route is inferred without the evidence and approval required by product information architecture;
 - experimental capabilities are described as mature or validated.
 
 ## Transition Rule

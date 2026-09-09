@@ -29,12 +29,12 @@ Page templates own route-specific metadata blocks, content, and any narrowly jus
 The header stays visible while scrolling and contains:
 
 - Wired Geese as the brand link to the locale root, with Alex Gusev available as subordinate accountable-maker attribution;
-- primary navigation in this semantic order: Products, Custom Development, Alarisa, Technology, About;
-- a visually distinct `Discuss your need` commercial action linking to Contact;
+- primary navigation in this semantic order: Products, Approach, Alarisa;
+- a visually distinct shared commercial action linking to the commercial handoff;
 - locale switcher;
 - a keyboard-operable mobile menu control.
 
-Home is owned by the brand link and must not be duplicated as an equal text item. Resources and retained content categories do not enter primary navigation. Localized labels must preserve these meanings and ordering.
+Home is owned by the brand link and must not be duplicated as an equal text item. About and retained content categories do not enter primary navigation. `Approach` and the action are semantic roles whose final idiomatic labels remain open. Localized labels must preserve these meanings and ordering.
 
 ### Main Content
 
@@ -44,13 +44,13 @@ Long-form pages narrow their primary reading surface to approximately `58rem` so
 
 ### Site Footer
 
-The footer carries substantial secondary navigation, current copyright information, and durable attribution to TeqFW, TeqCMS, and ADSM. Its semantic groups are:
+The footer carries substantial secondary navigation, current copyright information, and accountable-maker attribution. Its semantic groups are:
 
-- `Build` — Products, Custom Development, Alarisa, Technology;
-- `Knowledge` — Resources, Project archive, Library, Journal, Books;
-- `Wired Geese` — About, Contact, maker attribution, and approved external profile or company links.
+- `Discover` — Products, Approach, Alarisa;
+- `Knowledge` — Project Archive, Library, Journal, Books;
+- `Wired Geese` — About, Contact/commercial handoff, maker attribution, and approved legal, external profile, or company links.
 
-The footer provides a coherent discovery path without becoming an unstructured dump. Localized group wording may change idiomatically without changing membership or responsibility.
+The footer provides a coherent discovery path without becoming an unstructured dump or duplicating the entire product catalogue. Localized group wording may change idiomatically without changing membership or responsibility. A generic knowledge hub is added only after a demonstrated cross-collection discovery need.
 
 ## Visual System
 

@@ -117,9 +117,9 @@ The future site must also let visitors distinguish at least:
 
 Primary navigation serves the current business and technological direction rather than reproducing the historical personal-site taxonomy. Projects, Library, Journal, Books, and comparable accumulated material use secondary discovery. Contact is a distinct commercial action and continuity route rather than a primary content category.
 
-Secondary status must not orphan retained content. The approved information architecture uses a `Resources` hub, footer navigation, contextual links, related-content links, preserved inbound routes, and deliberate redirects.
+Secondary status must not orphan retained content. The approved information architecture uses curated collection-level footer navigation, contextual and related-content links, preserved inbound routes, and deliberate redirects. A new cross-collection hub is optional and requires evidence that it improves discovery.
 
-The concrete target hierarchy, routes, and page roles are defined in `information-architecture.md`. Final visual composition and public copy remain separate design work.
+The target semantic hierarchy, page roles, and migration boundaries are defined in `information-architecture.md`. Exact routes, final visual composition, and public copy remain separate design work.
 
 ## Provisional Early Adopter Fit
 

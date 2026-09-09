@@ -6,26 +6,26 @@
 
 ## Purpose
 
-Define the retained commercial route and its approved role as the Custom Development page.
+Record the current Work With Me route and constrain its future repurpose or redirect treatment without preserving a generic service-led hierarchy.
 
 ## Route
 
 - `/{locale}/work-with-me.html`
 
-## Target Role
+## Target Relationship
 
-The route is labeled `Custom Development` in primary navigation. It supports deployment, integration, customization, related engineering around Alex's original products and capabilities, and optional design or transfer of software for continued development by a customer's accountable human-and-agent team. It must not restore generic senior-engineering engagements as the primary product hierarchy or promise autonomous maintenance.
+Customization is no longer a primary navigation destination or a parallel generic-services business. Product-specific installation, integration, and extension belong on Products and Product Detail. Cross-product explanation of new Desks, related applications, controlled delivery, and optional source/context transfer belongs under Approach.
 
-Visitors must encounter concrete Products separately from this customization capability. The existing URL remains canonical so accumulated route value is preserved while its commercial meaning changes.
+Useful current content and inbound value may justify repurposing this route as part of that model, or the route may later redirect to Approach, Products, or the shared handoff. The semantic IA does not choose among those migration treatments.
 
 ## Implementation Constraints
 
 - Existing useful content and incoming route value must be reviewed before removal or redirection.
-- Any retained page must derive its hierarchy from `ctx/docs/product/`.
+- Any retained page must derive its hierarchy from `ctx/docs/product/` and remain outside primary navigation unless a later product decision changes the IA.
 - Product outcomes and owned leverage should precede generic role or hourly-service framing.
 - No fixed prices, delivery times, testimonials, maturity claims, or guaranteed outcomes may be invented.
 - GitHub Flows and Agent Orchestration PoC must not be linked as current offers.
 
 ## Interface Design Gate
 
-Final title wording, section composition, qualification language, and page-local CTAs require later interface design. The approved role, route, and primary-navigation membership are not open implementation choices.
+Final disposition, title wording, section composition, qualification language, and page-local actions require route inventory and interface design. The current path must not be interpreted as proof that a standalone Custom Development page is required.
