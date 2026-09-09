@@ -53,7 +53,7 @@ The SSR fallback target is the target-locale root.
 
 When browser JavaScript is available, switching locale preserves the current route, query, and fragment. Active maintained routes must exist in every locale. Obsolete EN-only routes normalize to localized current routes before rendering.
 
-Future product destinations must not be added to one locale as durable public structure without equivalent semantic treatment in the other maintained locales. Capabilities do not receive public routes merely because they exist technically.
+Future product destinations should receive equivalent semantic treatment in the other maintained locales. The initial English-only ChatGPT + Telegram detail page is an explicit temporary exception: its locale switcher falls back to the selected locale root and its metadata does not advertise nonexistent localized equivalents. Capabilities do not receive public routes merely because they exist technically.
 
 ## Metadata Localization
 

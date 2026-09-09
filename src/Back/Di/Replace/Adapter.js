@@ -105,6 +105,12 @@ export default class Adapter {
                 || normalized === '/land/agent-orchestration-poc/index.html';
         };
 
+        /** @param {object} routeInfo @returns {boolean} */
+        const isEnglishOnlyProductRoute = (routeInfo) => {
+            const normalized = (routeInfo?.cleanPath || '').replace(/\/+$/, '');
+            return routeInfo?.locale === 'en' && normalized === '/products/chatgpt-telegram.html';
+        };
+
         /** @param {string} cleanPath @returns {string} */
         const toCanonicalCleanPath = (cleanPath) => {
             const raw = cleanPath || '/';
@@ -162,8 +168,11 @@ export default class Adapter {
             const origin = requestOrigin();
             const localizedPath = cleanPath === '/' ? `/${locale}/` : `/${locale}${cleanPath}`;
             data.canonicalUrl = `${origin}${localizedPath}`;
+            const routeLocales = isEnglishOnlyProductRoute(routeInfo)
+                ? [locale]
+                : tmplConfig.getAvailableLocales();
             data.alternateUrls = Object.fromEntries(
-                tmplConfig.getAvailableLocales().map((targetLocale) => {
+                routeLocales.map((targetLocale) => {
                     const targetPath = cleanPath === '/'
                         ? `/${targetLocale}/`
                         : `/${targetLocale}${cleanPath}`;
@@ -190,6 +199,7 @@ export default class Adapter {
 
             const effectiveRouteInfo = resolveRouting(req);
             applyLocalizedMetadata({data, routeInfo: effectiveRouteInfo});
+            data.localeRouteFallback = isEnglishOnlyProductRoute(effectiveRouteInfo);
             data.isPublication = isPublicationRoute(effectiveRouteInfo?.cleanPath);
             data.isNotFound = isNotFoundRoute(effectiveRouteInfo?.cleanPath);
             if (data.isNotFound) {

@@ -2710,6 +2710,11 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/library/web/20240704-01-esm-and-cdns.html"/>
   </url>
   <url>
+    <loc>https://wiredgeese.com/en/products/chatgpt-telegram.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/products/chatgpt-telegram.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/products/chatgpt-telegram.html"/>
+  </url>
+  <url>
     <loc>https://wiredgeese.com/en/projects/alarisa.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/projects/alarisa.html"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/projects/alarisa.html"/>

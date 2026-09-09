@@ -1,0 +1,125 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}ChatGPT + Telegram — connect your ChatGPT to your Telegram{% endblock %}
+{% block description %}Early-access paid setup by Alex Gusev for connecting ChatGPT to Telegram: summarize available conversations, find history, and prepare or publish messages on an agreed deployment.{% endblock %}
+
+{% block content %}
+<article class="product-detail-page">
+    <header class="product-detail-opening">
+        <div>
+            <p class="product-status">Early access</p>
+            <h1>ChatGPT + Telegram</h1>
+            <p class="lead">Connect your ChatGPT to your Telegram.</p>
+            <p>Give ChatGPT a practical way to work with the Telegram conversations and channels available to your account: turn a busy information stream into useful summaries, find earlier context, and prepare what happens next.</p>
+            <p class="action-links"><a class="button-primary" href="/{{ locale }}/contact.html?topic=chatgpt-telegram">Ask about this product</a></p>
+        </div>
+        <aside class="product-detail-summary" aria-label="Product summary">
+            <strong>Paid setup for an agreed workflow.</strong>
+            <span>Scope, deployment, access, and price are agreed before work starts.</span>
+        </aside>
+    </header>
+
+    <section class="home-section product-detail-section" aria-labelledby="product-does-title">
+        <div class="section-heading">
+            <p class="eyebrow">What it lets you do</p>
+            <h2 id="product-does-title">Use ChatGPT with Telegram work that already matters to you.</h2>
+        </div>
+        <div class="product-use-grid">
+            <article>
+                <h3>Catch up</h3>
+                <p>Read and summarize conversations or channels available to the connected account, including large message volumes where the agreed workflow supports them.</p>
+            </article>
+            <article>
+                <h3>Find context</h3>
+                <p>Retrieve relevant earlier history where supported, so you can continue from the useful part of a conversation.</p>
+            </article>
+            <article>
+                <h3>Prepare messages</h3>
+                <p>Draft a reply, announcement, or post with ChatGPT before you decide to send it.</p>
+            </article>
+            <article>
+                <h3>Publish deliberately</h3>
+                <p>Prepare and publish posts to agreed channels, including multi-channel and language-specific workflows where supported.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="product-detail-split" aria-labelledby="workflows-title">
+        <div>
+            <p class="eyebrow">Typical workflows</p>
+            <h2 id="workflows-title">Start with a real Telegram task.</h2>
+        </div>
+        <ul class="product-workflows">
+            <li>“Summarize what happened in these Telegram channels today.”</li>
+            <li>“Find the relevant part of an earlier conversation.”</li>
+            <li>“Prepare this announcement and publish it to several channels.”</li>
+            <li>“Prepare localized versions for different language channels.”</li>
+        </ul>
+    </section>
+
+    <section class="home-section product-detail-section" aria-labelledby="setup-title">
+        <div class="section-heading">
+            <p class="eyebrow">How setup works</p>
+            <h2 id="setup-title">A short, explicit setup—not a generic subscription.</h2>
+        </div>
+        <ol class="product-setup-steps">
+            <li><strong>Describe the outcome</strong><span>We identify the Telegram workflow you want to improve.</span></li>
+            <li><strong>Agree scope and price</strong><span>We define the first workflow and agree a fixed price before work starts.</span></li>
+            <li><strong>Choose deployment</strong><span>We decide where it runs and who controls the host.</span></li>
+            <li><strong>Connect the accounts</strong><span>We configure Telegram access and ChatGPT or another compatible client for the agreed boundary.</span></li>
+            <li><strong>Validate the workflow</strong><span>We check that the agreed use works in your actual setup.</span></li>
+        </ol>
+    </section>
+
+    <section class="product-detail-split product-detail-split--trust" aria-labelledby="control-title">
+        <div>
+            <p class="eyebrow">Control and trust</p>
+            <h2 id="control-title">This is more than a conventional Telegram bot.</h2>
+            <p>The integration can work through your Telegram account rather than only a Bot API identity. That can make access broader than a bot’s, but it also makes the deployment and access boundary important.</p>
+        </div>
+        <div>
+            <p>Telegram account access involves sensitive credentials and session data. Before setup, we make the boundary visible: where the software runs, where configuration and session data are stored, who controls the host, who has administrative access, who handles updates, and how access can later be removed or revoked.</p>
+            <p>Depending on the situation, this may be your existing VPS, a dedicated VPS you control, another dedicated host, or Alex-managed hosting for a demo, test, or experimental use. The arrangement is discussed explicitly before setup.</p>
+        </div>
+    </section>
+
+    <section class="product-detail-split" aria-labelledby="fit-title">
+        <div>
+            <p class="eyebrow">Fit and boundaries</p>
+            <h2 id="fit-title">Useful for an early adopter with a concrete need.</h2>
+        </div>
+        <div>
+            <p>This is a good fit if you already use ChatGPT in real work, have Telegram information or publishing work worth improving, and are comfortable agreeing a clear deployment and trust boundary with the person building it.</p>
+            <p>It is working software Alex uses himself, with selected capabilities installed for a small number of close or experimental users. It is not a mature mass-market SaaS, a promise of every Telegram operation, or an open-ended automation service. Each setup is limited to the workflows we agree.</p>
+        </div>
+    </section>
+
+    <section class="home-section product-detail-section product-adaptation" aria-labelledby="adapt-title">
+        <div>
+            <p class="eyebrow">If your need is close, not identical</p>
+            <h2 id="adapt-title">The product can be adapted.</h2>
+        </div>
+        <div>
+            <p>I work directly with the underlying software. We can discuss a changed Telegram workflow, another Telegram behavior, a related digital service, or a new integration when the standard setup is close but not sufficient.</p>
+            <p><a href="/{{ locale }}/contact.html?topic=chatgpt-telegram">Ask about this product →</a></p>
+        </div>
+    </section>
+
+    <section class="product-pde-note" aria-labelledby="pde-title">
+        <p class="eyebrow">Built on PDE</p>
+        <h2 id="pde-title">A product first, with room to grow.</h2>
+        <p>ChatGPT + Telegram is built on Personal Digital Embassy (PDE), my modular system for connecting AI agents to controlled digital resources. Telegram is one integration in that system. You do not need to adopt a broader platform or the Alarisa direction to use this product.</p>
+    </section>
+
+    <section class="cta-panel product-detail-cta" aria-labelledby="product-cta-title">
+        <div>
+            <h2 id="product-cta-title">Want ChatGPT to work with your Telegram?</h2>
+            <p>Tell me the outcome you want. We can decide whether this setup is the right starting point and what a sensible first scope looks like.</p>
+        </div>
+        <div class="home-cta-actions">
+            <a class="button-primary" href="/{{ locale }}/contact.html?topic=chatgpt-telegram">Ask about this product</a>
+            <a class="home-cta-secondary" href="/{{ locale }}/#products">Back to products</a>
+        </div>
+    </section>
+</article>
+{% endblock %}
