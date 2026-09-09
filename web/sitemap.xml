@@ -1786,6 +1786,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/books/browser-as-operating-system.html"/>
   </url>
   <url>
+    <loc>https://wiredgeese.com/en/how-it-works.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/how-it-works.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/ru/how-it-works.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/how-it-works.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/es/how-it-works.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/how-it-works.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/how-it-works.html"/>
+  </url>
+  <url>
     <loc>https://wiredgeese.com/en/land/agent-orchestration-poc/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/land/agent-orchestration-poc/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/land/agent-orchestration-poc/"/>

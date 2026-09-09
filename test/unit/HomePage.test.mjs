@@ -53,6 +53,7 @@ test('renders the English Home with the accepted product-led sequence', () => {
     assert.match(html, /<section class="home-products" id="products"/);
     assert.match(html, /href="\/en\/products\/chatgpt-telegram\.html">View product<\/a>/);
     assert.match(html, /<section class="home-section home-preview home-preview--method" id="how-it-works"/);
+    assert.match(html, /href="\/en\/how-it-works\.html">See how it works →<\/a>/);
     assert.match(html, /<a class="header-action" href="\/en\/contact\.html\?topic=product">Ask about a product<\/a>/);
     assert.doesNotMatch(html, /GitHub Flows|I build web systems|Discuss your project|Ways to work together|Evidence, not AI theatre/);
 });

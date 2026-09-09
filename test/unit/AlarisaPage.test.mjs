@@ -62,7 +62,7 @@ test('renders localized Alarisa as a non-commercial Principal–Assistant vision
         assert.deepEqual(links, [
             `/${locale}/products/chatgpt-telegram.html`,
             `/${locale}/#products`,
-            `/${locale}/#how-it-works`,
+            `/${locale}/how-it-works.html`,
         ]);
 
         for (const href of links) {

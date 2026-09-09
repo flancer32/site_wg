@@ -119,6 +119,20 @@ test('preserves localized Alarisa canonical and alternate routes', async () => {
     });
 });
 
+test('preserves localized How-it-works canonical and alternate routes', async () => {
+    const adapter = createAdapter();
+    const result = await adapter.getRenderData({
+        req: {url: '/ru/how-it-works.html', headers: {}, socket: {}},
+    });
+
+    assert.equal(result.data.canonicalUrl, 'https://wiredgeese.com/ru/how-it-works.html');
+    assert.deepEqual(result.data.alternateUrls, {
+        en: 'https://wiredgeese.com/en/how-it-works.html',
+        ru: 'https://wiredgeese.com/ru/how-it-works.html',
+        es: 'https://wiredgeese.com/es/how-it-works.html',
+    });
+});
+
 test('maps Contact topics through an allowlist without changing canonical metadata', async () => {
     const adapter = createAdapter();
 

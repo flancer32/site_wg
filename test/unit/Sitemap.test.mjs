@@ -51,6 +51,7 @@ test('sitemap contains only existing localized canonical templates', async () =>
     assert.equal(new Set(locations).size, locations.length);
     for (const locale of ['en', 'ru', 'es']) {
         assert.ok(locations.includes(`https://wiredgeese.com/${locale}/projects/alarisa.html`));
+        assert.ok(locations.includes(`https://wiredgeese.com/${locale}/how-it-works.html`));
     }
     assert.doesNotMatch(xml, /\/(?:contacts|posts|products)\.html/);
     assert.doesNotMatch(xml, /\/404\.html/);
