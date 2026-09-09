@@ -78,7 +78,7 @@ Primary action: `Ask about a product`
 
 **One accountable maker, with AI agents actively involved.**
 
-I set the direction and remain responsible for what ships. AI agents participate in research, implementation, inspection, and maintenance. I use TeqFW and ADSM to keep the software modular, understandable, and easier to evolve with AI agents.
+I set the direction and remain responsible for what ships. AI agents participate in research, implementation, inspection, and maintenance. I use TeqFW and ADSM to keep the software modular, understandable, and easier to evolve.
 
 Primary action: `How it works`
 
@@ -100,13 +100,13 @@ Primary action: `Explore Alarisa`
 
 Wired Geese is the name I use for the software I create. I work directly on the products and remain responsible for the decisions behind them.
 
-I have built and maintained production software for decades. Today I build web applications with AI agents. I already use the same capabilities in my own work, with a few early users testing them as well.
+I have built and maintained production software for decades. Today I build web applications with AI agents. I use these capabilities in my own work, with a few early users testing them as well.
 
 ### 8. Final Commercial Action
 
 **Start with a working product.**
 
-If one looks useful—or close to what you need—tell me what you want it to do. I’ll help identify the right starting point.
+If a product looks useful—or close to what you need—tell me what you want it to do. I’ll help identify the right starting point.
 
 - Primary action: `Ask about a product`
 - Secondary action: `Explore products`
@@ -134,32 +134,6 @@ If one looks useful—or close to what you need—tell me what you want it to do
 #### Attribution
 
 Wired Geese · Software by Alex Gusev
-
-## High-Impact Alternatives
-
-### Hero Subheadline
-
-1. **Recommended:** I make practical products that connect AI agents with the digital services and information you already use.
-2. I build practical connections between AI agents, the services you already use, and the information that matters to you.
-3. Practical software for people, AI agents, and the digital services around them.
-
-The recommended version is concrete and broad enough to cover work, communication, memory, family, and other parts of digital life.
-
-### Product-Section Heading
-
-1. **Recommended:** Available now
-2. Products available now
-3. Start here
-
-`Available now` works naturally with one product and remains usable when the catalogue grows. `Products available now` is clearer once several products exist; `Start here` is warmer but less explicit.
-
-### Final CTA Label
-
-1. **Recommended:** Ask about a product
-2. Start with a product
-3. Explore products
-
-`Ask about a product` makes the contact action clear while keeping the conversation anchored in a real product. `Start with a product` is more active but less precise about what happens next. `Explore products` is best retained as the catalogue action.
 
 ## Major Reductions from the Previous Draft
 
