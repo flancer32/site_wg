@@ -156,23 +156,9 @@ Home is not duplicated as a text item when the brand provides an evident Home li
 
 ## Current Home Assessment
 
-The implemented Home is a coherent but structurally legacy personal-engineer landing page. It starts with `I build web systems that can keep evolving`, offers `Discuss your project` and `See the evidence`, then moves through an engineering process, generic value situations, engagement types, personal technical advantages, portfolio-style evidence, and a generic `Work with me` action. Its current header reinforces the same model through Home, Work with me, Evidence, Library, and Contact. The presentation is credible and reusable, but its sequence answers `why hire Alex?` before `what can Wired Geese provide now?`.
+The implemented Home remains a coherent but structurally legacy personal-engineer landing page. Its sequence answers `why hire Alex?` before `what can Wired Geese provide now?`, and its compact composition places biography, proof, and process before any product. The visual language remains broadly reusable; the commercial hierarchy does not.
 
-The current visual language is not the architectural problem. Typography, spacing, cards, responsive behavior, visual grouping, multilingual controls, and restrained identity may be reused when they support the new hierarchy. Reuse is an option, not a requirement, and no visual redesign is justified merely for novelty.
-
-The implemented Home sections have these target dispositions:
-
-| Current section | Disposition | Target responsibility |
-| --- | --- | --- |
-| Engineer-first hero | Repurpose | Establish Wired Geese as a maker of useful software for people working with AI agents; expose real product availability and a direct Products or commercial path. Do not explain internal foundations, the full vision, or Alex's résumé. |
-| Engineering-practice process panel | Relocate | Move the durable ideas about problem definition, explicit architecture, bounded agent execution, verification, and durable context into How it works, where they merge into a buyer-oriented production explanation. Home may carry only a concise cross-product trust summary. |
-| `Where I create value` | Remove from Home | Its uncertainty/execution/leverage framing is service-centred. Replace its Home responsibility with concrete product outcomes, audiences, and current usefulness; any durable reasoning may inform How it works without retaining the section. |
-| `Ways to work together` | Remove from Home | Do not preserve consultancy packages as equal choices. Distribute installation, configuration, customization, extension, transfer, and support contextually across Products, Product Detail, How it works, and the shared handoff. |
-| `My unfair advantage` | Merge | Retain accountable maker, TeqFW, ADSM, agent-assisted production, customization leverage, and Alarisa in their distinct roles rather than as one advantage section. Home gets a concise trust bridge; How it works owns the deeper production model; Alarisa owns the vision. GitHub Flows is excluded from current semantics. |
-| Portfolio-style Evidence | Demote and curate | Use only the proof most relevant to product trust: working products, dogfooding, real deployments, inspectable source where useful, longevity, selected systems, TeqFW/ADSM artifacts, and technical writing. Deeper Projects, Library, Journal, Books, and history remain secondary. |
-| Generic final `Work with me` CTA | Repurpose | Become a product-oriented commercial handoff for a product, installation, adaptation, related integration, transfer, or another qualified need. It must preserve the visitor's originating context where practical. |
-
-No current Home section is kept unchanged. The shell and visual primitives may survive, but every commercial section either receives a new responsibility, moves deeper, merges into a buyer-oriented explanation, or leaves Home.
+The authoritative critique, current-section disposition, reusable product-preview model, and accepted desktop and mobile semantic wireframes are defined in `home-page-composition.md`.
 
 ## Durable Page Families
 
@@ -180,7 +166,7 @@ No current Home section is kept unchanged. The shell and visual primitives may s
 
 - **Audience/job:** orient a first-time visitor and route product seekers, custom-need visitors, trust evaluators, and vision visitors.
 - **Responsibility:** state the class of outcomes Wired Geese makes; show a replaceable collection of current products; expose customization; provide concise differentiation and maker accountability; route to Alarisa, proof, and action.
-- **Belongs:** product-family proposition, current-product preview, explicit maturity, customization path, short How it works proof, short maker proof, selected evidence, Alarisa path, shared action.
+- **Belongs:** product-family proposition, current-product preview, decision-relevant maturity where it changes expectations, customization path, short How it works proof, short maker proof, selected evidence, Alarisa path, shared action.
 - **Does not belong:** complete catalogue, full technical taxonomy, biography, long philosophy-first funnel, permanent Telegram-centred page architecture, or unfiltered archive.
 - **Inbound:** locale root, brand, general referrals, and broad search/direct visits.
 - **Outbound:** Products, current product details, How it works, Alarisa, selected proof or knowledge, About where trust needs depth, and the commercial handoff.
@@ -188,12 +174,14 @@ No current Home section is kept unchanged. The shell and visual primitives may s
 Home's semantic order is:
 
 1. **Product-maker positioning** — identify Wired Geese as a maker of software products for humans working with AI agents; establish concrete usefulness and route to Products or the current commercial action.
-2. **Current products** — show a replaceable catalogue preview with outcome, audience, maturity, and the next relevant action for each represented product.
+2. **Current products** — show a replaceable catalogue preview with identity, buyer result, a few practical capabilities, and the next relevant action; add maturity, fit, or proof only when each materially helps the buyer decide.
 3. **Need adaptation?** — explain that installation, configuration, customization, a new Desk or integration, and a related application may be discussed around an existing product or reusable capability.
 4. **How it works** — provide a concise buyer-oriented bridge to accountable making, controlled deployment and trust boundaries, agent-assisted production, extensibility, and possible transfer; keep TeqFW, ADSM, PDE, and cognitive-context depth on the destination page.
 5. **Alarisa direction** — introduce the guiding human-agent vision and route to its own page without making it a product prerequisite.
 6. **Maker and evidence** — establish Alex's accountability and show a deliberately small set of proofs matched to buyer risk; route biography and archives deeper.
 7. **Commercial action** — offer one clear next step tied to a product or qualified need rather than generic engineering availability.
+
+`home-page-composition.md` defines how these responsibilities satisfy the desktop opening-attention contract, protect mobile attention, scale the product preview from one to many products, and hand visitors into deeper destinations. Its side-by-side hero and featured-product arrangement is a provisional interface hypothesis rather than a normative page geometry.
 
 Buyer value and current products must remain ahead of methodology, vision, biography, and archival proof. On narrow viewports, this priority also governs reading order: secondary evidence and conceptual depth cannot create a long pre-action scroll before products and a meaningful commercial next step.
 

@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Define the stable route and semantic implementation boundary of the locale-root page without designing its final composition.
+Define the stable route and implementation boundary of the locale-root page against the accepted product-level content composition, without approving final copy or visual implementation.
 
 ## Route
 
@@ -25,6 +25,8 @@ The home page is the principal entry to the product-led commercial model. Its se
 7. the shared product-oriented commercial action.
 
 This ordering is semantic. Adjacent meanings may share one visual section, but buyer outcome must precede platform lineage and maker identity.
+
+The authoritative desktop and mobile content composition, first-viewport requirements, current-section disposition, reusable product-preview model, and section responsibilities are defined in `../../../../product/home-page-composition.md`. This code-level document maps that product decision into the SSR page boundary and must not reinterpret it from the legacy template.
 
 Engineering experience is supporting evidence and delivery capability, not the home page's primary commodity.
 
@@ -46,7 +48,7 @@ The page:
 
 ## Interface Design Boundary
 
-Final headlines, body copy, visual grouping, card count, proof selection, page-local assets, responsive composition, and exact target links require a later approved interface design and route migration. Navigation relationships and the commercial action must follow the approved semantic information architecture.
+The semantic reading priority, product visibility before significant scrolling, compact-mobile product placement, product-preview responsibilities, and first-viewport understanding tests are approved at product level. Desktop column count, card placement, visual grouping, hero/product adjacency, and responsive mechanics are provisional interface decisions. Final headlines, body copy, product and proof selection for a particular release, component structure, page-local assets, pixels, breakpoints, motion, and exact target paths still require later copy, interface, and route-migration work. Navigation relationships and the commercial action must follow the approved semantic information architecture.
 
 ## Legacy Drift
 

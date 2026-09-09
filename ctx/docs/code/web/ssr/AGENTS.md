@@ -18,12 +18,23 @@ Documents at this level describe stable code-facing SSR behavior and distinguish
 - `assets.md` — browser-facing asset model used by the SSR site.
 - `layouts.md` — shared SSR layout and partial structure.
 - `localization.md` — locale-aware route and template behavior.
+- `navigation.md` — semantic page-to-page transitions, primary and secondary discovery, and exceptional navigation outcomes.
 - `overview.md` — entry point for the SSR web-application model.
 - `page-composition.md` — approved shared composition rules and the design gate for future commercial pages.
 - `pages.md` — SSR page-family catalogue and target-state boundary.
 - `rendering.md` — SSR request-to-render chain, redirect handling, and render-data enrichment.
+- `responsive.md` — viewport-dependent composition, Home attention priority, and reflow constraints.
 - `routes.md` — stable route conventions, current route families, and preservation requirements.
 - `ui-states.md` — visible SSR-facing states and exceptional outcomes.
+
+## Documentation Profile
+
+- Primary web documentation profile: SSR
+- Secondary web documentation capabilities: progressive-enhancement
+
+## Documentation Capacity Exception
+
+This SSR level intentionally contains eleven direct ordinary documents. Separate route, rendering, localization, navigation, page-composition, responsive, state, asset, layout, page-family, and overview responsibilities are required to keep the browser model explicit without mixing semantic navigation or viewport behavior into implementation routing.
 
 ## Level Boundary
 

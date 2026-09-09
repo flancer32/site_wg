@@ -19,7 +19,7 @@ Describe stable reusable template-composed units without making legacy commercia
 ## Content Widgets
 
 - `Hero` — introduces the approved page outcome and action without owning product meaning.
-- `Product Summary` — presents a catalogue-eligible product, maturity, bounded outcome, and proportionate next action.
+- `Product Summary` — presents a catalogue-eligible product identity, bounded buyer result, a few practical capabilities, and a proportionate next action. Its parent page may require additional product context; specifically on Home, maturity, fit, and proof appear only when they materially help the buyer decide.
 - `Capability Summary` — may explain a technical capability outside the catalogue without implying product or offer status.
 - `Proof Summary` — connects a claim to current work, historical responsibility, or published material.
 - `Archive Card` — preserves historical content without giving every item equal strategic prominence.

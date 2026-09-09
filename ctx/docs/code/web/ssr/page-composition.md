@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Define stable shared composition rules while leaving the future commercial page design open.
+Define stable shared composition rules and map the accepted Home semantic composition while leaving final copy and visual implementation open.
 
 ## Stable Composition
 
@@ -25,9 +25,9 @@ Project Archive, Library, Journal, Books, technical material, and historical pro
 
 It must also preserve Alarisa as the strategically central vision and long-term R&D direction without presenting it as a product, conventional project, single runtime, or roadmap. Standalone products and offers discovered along that path must remain directly reachable; their exploration lineage may be explained after the buyer outcome rather than imposed as a prerequisite.
 
-Home follows the approved semantic sequence of product-maker positioning, a replaceable current-products collection, adaptation possibilities, concise How-it-works explanation, Alarisa direction, maker and selected evidence, and the commercial action. This sequence may combine adjacent meanings into visual sections but must not reverse buyer value and supporting explanation or make Telegram a permanent structural centre. Compact layouts preserve this reading priority and expose current products and an appropriate action before deep method, biography, or archive material.
+Home follows the approved semantic sequence of product-maker positioning, a replaceable current-products collection, adaptation possibilities, concise How-it-works explanation, Alarisa direction, maker and selected evidence, and the commercial action. The detailed desktop and mobile content composition is defined in `../../../product/home-page-composition.md`. On desktop, the proposition and at least one real current product or a very direct product-discovery path must be discoverable before significant scrolling; pairing a compact hero with a featured product is a preferred hypothesis, not required geometry. Mobile places the first product immediately after a shortened hero. This sequence may combine adjacent meanings into visual sections but must not reverse buyer value and supporting explanation or make Telegram a permanent structural centre.
 
-This document does not prescribe final headlines, body copy, card count, illustrations, responsive layout, detailed page styling, contact form fields, or offer interaction state. Those choices require a later approved interface design.
+This document does not prescribe final headlines, body copy, exact card count for a larger catalogue, illustrations, hero/product adjacency, card placement, visual grouping, component markup, pixels, breakpoints, responsive mechanics, detailed page styling, contact form fields, or offer interaction state. Those choices require later copy and interface design, but they must preserve the approved semantic composition and first-viewport attention.
 
 ## Legacy Composition
 
