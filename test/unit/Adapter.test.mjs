@@ -105,6 +105,20 @@ test('includes localized ChatGPT + Telegram product alternates', async () => {
     });
 });
 
+test('preserves localized Alarisa canonical and alternate routes', async () => {
+    const adapter = createAdapter();
+    const result = await adapter.getRenderData({
+        req: {url: '/ru/projects/alarisa.html', headers: {}, socket: {}},
+    });
+
+    assert.equal(result.data.canonicalUrl, 'https://wiredgeese.com/ru/projects/alarisa.html');
+    assert.deepEqual(result.data.alternateUrls, {
+        en: 'https://wiredgeese.com/en/projects/alarisa.html',
+        ru: 'https://wiredgeese.com/ru/projects/alarisa.html',
+        es: 'https://wiredgeese.com/es/projects/alarisa.html',
+    });
+});
+
 test('maps Contact topics through an allowlist without changing canonical metadata', async () => {
     const adapter = createAdapter();
 

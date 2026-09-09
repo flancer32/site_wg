@@ -1,43 +1,51 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Alarisa — doble digital privado{% endblock %}
-{% block description %}Alarisa es un doble digital privado en desarrollo para conservar el contexto y coordinar de forma controlada el trabajo con agentes de IA.{% endblock %}
+{% block title %}Alarisa — una visión Principal–Asistente{% endblock %}
+{% block description %}Alarisa es una visión a largo plazo de la relación Principal–Asistente en el mundo digital: una exploración activa hacia un futuro producto o familia de productos de asistencia personal.{% endblock %}
 
 {% block content %}
 <article class="card project-detail">
     <header class="project-detail-hero">
-        <img src="/img/projects/alarisa/avatar.webp" alt="Avatar de Alarisa" width="512" height="512"/>
+        <img src="/img/projects/alarisa/avatar.webp" alt="Avatar de Alarisa" width="512" height="512" fetchpriority="high"/>
         <div>
-            <p class="eyebrow">Herramienta personal · En desarrollo</p>
+            <p class="eyebrow">Dirección a largo plazo · Exploración activa</p>
             <h1>Alarisa</h1>
-            <p class="lead">Un doble digital privado que conserva el contexto y la intención al trabajar con agentes de IA.</p>
+            <p class="lead">Una visión de la relación entre una Persona Principal —la persona a la que sirve el Asistente— y su Asistente personal en el mundo digital.</p>
         </div>
     </header>
 
-    <h2>Por qué la estoy construyendo</h2>
-    <p>La vida digital queda repartida entre mensajes, notas, archivos, servicios y conversaciones breves. Se pierde
-        el contexto, cambian las prioridades y un agente que actúa sin comprender lo suficiente puede hacer algo
-        equivocado. Alarisa busca conservar el contexto útil y la continuidad del trabajo real de una persona, para que
-        el siguiente paso no parta de un mensaje en blanco.</p>
+    <p>Alarisa es mi dirección de desarrollo a largo plazo. La exploro hoy mediante trabajo práctico; con el tiempo puede tomar la forma de un producto o de una familia de productos conectados. Su forma final no está fijada y Alarisa no es actualmente un producto comercial.</p>
 
-    <div class="project-principles">
-        <div><strong>Una persona</strong><span>Cada instancia privada pertenece a una sola persona.</span></div>
-        <div><strong>Contexto duradero</strong><span>El contexto confirmado perdura más que una conversación.</span></div>
-        <div><strong>Acción acotada</strong><span>La persona conserva la autoridad sobre las acciones importantes.</span></div>
-    </div>
+    <section aria-labelledby="principal-assistant-title">
+        <h2 id="principal-assistant-title">La Persona Principal y el Asistente</h2>
+        <p>La <strong>Persona Principal</strong> es la persona a la que sirve el Asistente. Define la intención, conserva la autoridad humana y asume las consecuencias de las decisiones importantes.</p>
+        <div class="project-principles">
+            <div><strong>Persona Principal</strong><span>Marca la intención, conserva la autoridad y decide qué importa.</span></div>
+            <div><strong>Asistente</strong><span>Acumula contexto útil, ayuda a entender las situaciones y apoya la acción.</span></div>
+            <div><strong>Límites definidos</strong><span>Los recursos digitales y las acciones importantes siguen siendo visibles y controlados.</span></div>
+        </div>
+    </section>
 
-    <h2>Para qué se está creando</h2>
-    <p>Alarisa ayudará a aclarar objetivos, a conectar el trabajo a lo largo del tiempo y a preparar o delegar tareas
-        digitales mediante herramientas y agentes aprobados. Las acciones importantes deben ser comprensibles,
-        acotadas y confirmadas cuando la autoridad o el riesgo no estén claros.</p>
+    <section aria-labelledby="exploration-title">
+        <h2 id="exploration-title">Qué explora esta dirección</h2>
+        <p>Alarisa explora cómo un Asistente puede conservar contexto útil y continuidad, trabajar con servicios digitales dentro de límites definidos, apoyar la delegación e interactuar con otras personas, sus servicios y sus agentes, sin diluir la responsabilidad humana.</p>
+    </section>
 
-    <p>El proyecto se construye con mis propias herramientas, <strong>TeqFW</strong> y <strong>ADSM</strong>. Aportan
-        la estructura de ingeniería y el contexto vivo necesarios para desarrollar con intención una herramienta
-        basada en agentes, en lugar de reunir instrucciones inconexas.</p>
+    <section aria-labelledby="outcomes-title">
+        <h2 id="outcomes-title">De la exploración a productos útiles</h2>
+        <p>Una dirección puede dar lugar a experimentos, capacidades y sistemas técnicos. Algunos se convierten en productos útiles e independientes; otros quedan como infraestructura; otros se abandonan cuando dejan de demostrar su utilidad. Esto es exploración, no una hoja de ruta predeterminada.</p>
+        <p><strong>PDE</strong> es uno de los sistemas técnicos surgidos al explorar cómo los agentes pueden acceder a recursos digitales controlados. Puede tener valor fuera de un producto Alarisa completo.</p>
+        <p><a href="/{{ locale }}/products/chatgpt-telegram.html">ChatGPT + Telegram</a> es un producto comercial actual de acceso anticipado construido sobre infraestructura relacionada con PDE. Es útil por sí mismo: no hace falta adoptar la visión de Alarisa para utilizarlo.</p>
+    </section>
+
+    <section aria-labelledby="roadmap-title">
+        <h2 id="roadmap-title">Una dirección estable, no una hoja de ruta fija</h2>
+        <p>Alarisa puede llegar a ser un producto o una familia de productos, pero hoy no se promete ni una arquitectura final ni un catálogo. Los productos independientes pueden sostenerse por sí mismos durante el camino, y los experimentos que no ayuden pueden dejarse atrás.</p>
+    </section>
 
     <div class="project-status">
-        <strong>Alarisa aún está en desarrollo.</strong>
-        <p>¿Te interesa probarla o seguir su evolución? <a href="/{{ locale }}/contact.html">Escríbeme →</a></p>
+        <strong>Estado actual</strong>
+        <p>Alarisa es una exploración activa a largo plazo, no un producto que se pueda comprar o probar. Consulta <a href="/{{ locale }}/#products">lo que existe hoy</a> o <a href="/{{ locale }}/#how-it-works">cómo trabajo con agentes de IA</a>.</p>
     </div>
 </article>
 {% endblock %}

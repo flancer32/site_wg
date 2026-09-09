@@ -1,43 +1,51 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Alarisa — private digital counterpart{% endblock %}
-{% block description %}Alarisa is a private digital counterpart in development for maintaining context and coordinating controlled work with AI agents.{% endblock %}
+{% block title %}Alarisa — a Principal–Assistant vision{% endblock %}
+{% block description %}Alarisa is a long-term Principal–Assistant vision for the digital world: active exploration toward a future personal Assistant product or product family.{% endblock %}
 
 {% block content %}
 <article class="card project-detail">
     <header class="project-detail-hero">
-        <img src="/img/projects/alarisa/avatar.webp" alt="Alarisa avatar" width="512" height="512"/>
+        <img src="/img/projects/alarisa/avatar.webp" alt="Alarisa avatar" width="512" height="512" fetchpriority="high"/>
         <div>
-            <p class="eyebrow">Personal tool · In development</p>
+            <p class="eyebrow">Long-term direction · Active exploration</p>
             <h1>Alarisa</h1>
-            <p class="lead">A private digital counterpart that preserves context and intent across work with AI agents.</p>
+            <p class="lead">A vision for the relationship between a Principal—the person an Assistant serves—and their personal Assistant in the digital world.</p>
         </div>
     </header>
 
-    <h2>Why I am building it</h2>
-    <p>Digital life is scattered across messages, notes, files, services, and short-lived chats. Context disappears,
-        priorities drift, and an agent that acts without enough understanding can easily do the wrong thing. Alarisa
-        is meant to keep useful context and continuity around one person’s real work, so the next step starts with more
-        than a blank prompt.</p>
+    <p>Alarisa is my long-term development direction. I am exploring it through practical work today; over time it may take the form of one product or a connected family of products. Its final form is not fixed, and Alarisa itself is not currently a commercial product.</p>
 
-    <div class="project-principles">
-        <div><strong>One person</strong><span>Each private instance belongs to one person.</span></div>
-        <div><strong>Durable context</strong><span>Confirmed context persists beyond a single conversation.</span></div>
-        <div><strong>Bounded action</strong><span>The person keeps authority over consequential work.</span></div>
-    </div>
+    <section aria-labelledby="principal-assistant-title">
+        <h2 id="principal-assistant-title">A Principal and an Assistant</h2>
+        <p>The <strong>Principal</strong> is the person the Assistant serves. The Principal owns the intent, remains the human authority, and lives with the consequences of important decisions.</p>
+        <div class="project-principles">
+            <div><strong>Principal</strong><span>Sets intent, keeps authority, and decides what matters.</span></div>
+            <div><strong>Assistant</strong><span>Builds useful context, helps understand situations, and supports action.</span></div>
+            <div><strong>Defined boundaries</strong><span>Digital resources and consequential actions remain visible and controlled.</span></div>
+        </div>
+    </section>
 
-    <h2>What it is meant to do</h2>
-    <p>Alarisa will help clarify goals, keep related work connected over time, and prepare or delegate digital tasks
-        through approved tools and agents. Consequential actions should be visible, bounded, and confirmed whenever
-        authority or risk is unclear.</p>
+    <section aria-labelledby="exploration-title">
+        <h2 id="exploration-title">What this direction explores</h2>
+        <p>Alarisa asks how an Assistant can retain useful context and continuity, work with digital services within defined boundaries, support delegation, and interact with other people, their services, and their agents—without dissolving human responsibility.</p>
+    </section>
 
-    <p>The project is built with my own <strong>TeqFW</strong> framework and <strong>ADSM</strong> methodology. They
-        provide the engineering structure and living project context needed to develop an agent-based tool deliberately
-        rather than as a collection of prompts.</p>
+    <section aria-labelledby="outcomes-title">
+        <h2 id="outcomes-title">From exploration to useful products</h2>
+        <p>A direction can lead to experiments, capabilities, and technical systems. Some become independently useful products; some remain infrastructure; some are abandoned when they stop proving useful. This is exploration, not a predetermined product roadmap.</p>
+        <p><strong>PDE</strong> is one technical system that emerged while exploring how agents can access controlled digital resources. It has value beyond any complete Alarisa product.</p>
+        <p><a href="/{{ locale }}/products/chatgpt-telegram.html">ChatGPT + Telegram</a> is a current early-access commercial product built on PDE-related infrastructure. It is useful on its own: a visitor does not need to adopt the Alarisa vision to use it.</p>
+    </section>
+
+    <section aria-labelledby="roadmap-title">
+        <h2 id="roadmap-title">A stable direction, not a fixed roadmap</h2>
+        <p>Alarisa may eventually become a product or product family, but no final architecture or catalogue is promised today. Independent products can stand on their own along the way, while experiments that do not help can be left behind.</p>
+    </section>
 
     <div class="project-status">
-        <strong>Alarisa is still in development.</strong>
-        <p>Interested in trying it or following its progress? <a href="/{{ locale }}/contact.html">Get in touch →</a></p>
+        <strong>Current status</strong>
+        <p>Alarisa is an active long-term exploration, not a product available to buy or try. See <a href="/{{ locale }}/#products">what exists today</a>, or <a href="/{{ locale }}/#how-it-works">how I work with AI agents</a>.</p>
     </div>
 </article>
 {% endblock %}
