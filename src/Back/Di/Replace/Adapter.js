@@ -76,6 +76,12 @@ export default class Adapter {
         };
 
         /** @param {string} cleanPath @returns {boolean} */
+        const isHomeRoute = (cleanPath) => {
+            const normalized = (cleanPath || '/').replace(/\/+$/, '') || '/';
+            return normalized === '/';
+        };
+
+        /** @param {string} cleanPath @returns {boolean} */
         const isPublicationRoute = (cleanPath) => {
             const normalized = (cleanPath || '').replace(/\/+$/, '');
             const indexRoutes = new Set([
@@ -107,7 +113,7 @@ export default class Adapter {
          * never rendered directly, so unrecognized input remains generic.
          *
          * @param {any} req
-         * @returns {'default'|'product'|'chatgpt-telegram'}
+         * @returns {'default'|'commercial'|'mcp-integration'|'product'|'chatgpt-telegram'}
          */
         const resolveContactTopic = (req) => {
             const rawUrl = typeof req?.url === 'string' ? req.url : '';
@@ -116,7 +122,12 @@ export default class Adapter {
                 if (queryStart < 0) return 'default';
                 const rawQuery = rawUrl.slice(queryStart + 1).split('#', 1)[0];
                 const topic = new URLSearchParams(rawQuery).get('topic');
-                if (topic === 'product' || topic === 'chatgpt-telegram') {
+                if (
+                    topic === 'commercial'
+                    || topic === 'mcp-integration'
+                    || topic === 'product'
+                    || topic === 'chatgpt-telegram'
+                ) {
                     return topic;
                 }
             } catch {
@@ -237,6 +248,20 @@ export default class Adapter {
                 data.blogIndex = {
                     items,
                 };
+            }
+
+            if (isHomeRoute(effectiveRouteInfo?.cleanPath)) {
+                const targetLocale = effectiveRouteInfo.locale || tmplConfig.getDefaultLocale();
+                /** @type {object[]} */
+                let items = [];
+                try {
+                    items = await blogHandler.collectRecentBlogEntries(targetLocale, 3);
+                } catch (error) {
+                    if (error?.code !== 'ENOENT') {
+                        log.error('Failed to build the Home Journal projection.', {err: error});
+                    }
+                }
+                data.recentJournal = {items};
             }
 
             return renderData;

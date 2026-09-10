@@ -1,47 +1,91 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Products — practical software by Alex Gusev | Wired Geese{% endblock %}
-{% block description %}Current practical software products by Alex Gusev for people and their AI agents, presented under the Wired Geese brand.{% endblock %}
+{% block title %}Commercial entries — Alex Gusev | Wired Geese{% endblock %}
+{% block description %}Current ways to work with Alex Gusev or buy a book: a provisional MCP integration pilot, paid Telegram validation, and available knowledge products.{% endblock %}
 
 {% block content %}
 <article class="products-catalogue-page">
     <header class="products-catalogue-opening">
         <div>
-            <h1>Products</h1>
-            <p class="lead">Practical software products I build for people and their AI agents.</p>
-            <p>Each product stands on its own. When one is close to your need, we can discuss a fitting adaptation.</p>
+            <p class="eyebrow">Wired Geese</p>
+            <h1>Current commercial entries.</h1>
+            <p class="lead">Ways to start direct work with Alex Gusev or purchase a book.</p>
+            <p>These entries have different kinds and maturity. They are not a catalogue of identical, mature software products.</p>
         </div>
-        <p class="catalogue-trust-link"><a href="/{{ locale }}/how-it-works.html">How it works →</a></p>
+        <p class="catalogue-trust-link"><a href="/{{ locale }}/how-it-works.html">How I work →</a></p>
     </header>
 
-    <section class="home-section product-detail-section" aria-labelledby="current-products-title">
+    <section class="home-section product-detail-section" aria-labelledby="mcp-title">
         <div class="section-heading">
-            <p class="eyebrow">Current products</p>
-            <h2 id="current-products-title">Available to discuss now</h2>
+            <p class="eyebrow">Primary near-term direction</p>
+            <h2 id="mcp-title">MCP Integration Pilot</h2>
         </div>
         <div class="product-collection">
             <article class="product-preview">
-                <p class="product-status">Early access</p>
-                <h3>ChatGPT + Telegram</h3>
-                <p class="product-outcome">Connect your ChatGPT to your Telegram.</p>
-                <p>Turn busy Telegram conversations into useful summaries, then act on them directly from ChatGPT.</p>
+                <p class="product-status">Provisional · bounded paid pilot</p>
+                <h3>Controlled agent access to an existing service.</h3>
+                <p class="product-outcome">Connect selected operations from an existing service, application, or API to a compatible AI-agent environment through MCP.</p>
+                <p>A pilot starts with one useful workflow and an explicit authority boundary. Scope, price, deployment responsibility, and acceptance evidence are agreed directly before work begins.</p>
                 <ul class="product-capabilities">
-                    <li>Read and summarize conversations and channels.</li>
-                    <li>Find relevant history where supported.</li>
-                    <li>Prepare and publish messages.</li>
+                    <li>Selected MCP server or tool layer for an existing resource.</li>
+                    <li>Agreed authentication, authorization, tool scope, and agent environment.</li>
+                    <li>Deployment and operational visibility appropriate to the agreed pilot.</li>
                 </ul>
-                <p class="product-commercial">Paid setup available.</p>
-                <p class="product-links"><a class="button-primary" href="/{{ locale }}/products/chatgpt-telegram.html">View product</a></p>
+                <p>This is not an enterprise architecture promise, a fixed package, an arbitrary AI transformation, or an autonomous-agent offer.</p>
+                <p class="product-links"><a class="button-primary" href="/{{ locale }}/contact.html?topic=mcp-integration">Discuss an MCP pilot</a></p>
             </article>
         </div>
     </section>
 
-    <section class="home-bridge" aria-labelledby="adaptation-title">
-        <div>
-            <h2 id="adaptation-title">Need something different?</h2>
-            <p>If an existing product is close to what you need, I can adapt it, connect another service, or extend it for your workflow.</p>
+    <section class="home-section product-detail-section" aria-labelledby="telegram-title">
+        <div class="section-heading">
+            <p class="eyebrow">Paid early access / validation</p>
+            <h2 id="telegram-title">ChatGPT + Telegram</h2>
         </div>
-        <a class="button-secondary" href="/{{ locale }}/contact.html?topic=product">Ask about a product</a>
+        <div class="product-collection">
+            <article class="product-preview">
+                <p class="product-status">Working but early · paid validation</p>
+                <h3>An agreed AI-to-Telegram workflow.</h3>
+                <p class="product-outcome">Connect an agent environment to Telegram work that matters to you, under an agreed deployment and trust boundary.</p>
+                <p>The setup is a paid experimental engagement intended to learn what is useful and repeatable. It is not a mature SaaS or a standardized scalable service.</p>
+                <p class="product-links"><a href="/{{ locale }}/products/chatgpt-telegram.html">Explore ChatGPT + Telegram →</a> · <a href="/{{ locale }}/contact.html?topic=chatgpt-telegram">Discuss Telegram validation →</a></p>
+            </article>
+        </div>
+    </section>
+
+    <section class="home-section product-detail-section" aria-labelledby="books-title">
+        <div class="section-heading">
+            <p class="eyebrow">Available now · knowledge products</p>
+            <h2 id="books-title">Books</h2>
+        </div>
+        <div class="product-collection">
+            <article class="product-preview">
+                <p class="product-status">Russian electronic edition · Leanpub</p>
+                <h3>Управляемая разработка с AI-агентами</h3>
+                <p>A Russian ADSM electronic edition about human-controlled development with AI agents.</p>
+                <p class="product-links"><a href="https://leanpub.com/adsm-ru" target="_blank" rel="noopener noreferrer">Buy on Leanpub →</a></p>
+            </article>
+            <article class="product-preview">
+                <p class="product-status">English electronic edition · Leanpub</p>
+                <h3>Agent-Driven Software Management</h3>
+                <p>An English ADSM electronic edition.</p>
+                <p class="product-links"><a href="https://leanpub.com/adsm-en" target="_blank" rel="noopener noreferrer">Buy on Leanpub →</a></p>
+            </article>
+            <article class="product-preview">
+                <p class="product-status">Russian-language BHV edition</p>
+                <h3>Браузер как операционная система для разработки современных приложений</h3>
+                <p>A published Russian-language book on developing modern applications in the browser.</p>
+                <p class="product-links"><a href="https://bhv.ru/product/brauzer-kak-operatsionnaya-sistema-dlya-razrabotki-sovremennyh-prilozhenij/" target="_blank" rel="noopener noreferrer">Buy from BHV →</a> · <a href="/{{ locale }}/books/browser-as-operating-system.html">Read about the book →</a></p>
+            </article>
+        </div>
+    </section>
+
+    <section class="home-bridge" aria-labelledby="aligned-work-title">
+        <div>
+            <h2 id="aligned-work-title">Need adjacent, aligned work?</h2>
+            <p>Commercial work can begin with a bounded MCP or agent integration, paid validation, adaptation of an existing capability, or a closely related ADSM conversation. It should strengthen a useful direction, not become generic staff augmentation.</p>
+        </div>
+        <a class="button-secondary" href="/{{ locale }}/work-with-me.html">Work with Alex</a>
     </section>
 </article>
 {% endblock %}

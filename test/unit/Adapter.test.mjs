@@ -6,7 +6,7 @@ import Adapter from '../../src/Back/Di/Replace/Adapter.js';
 
 const locales = ['en', 'ru', 'es'];
 
-function createAdapter({baseUrl, redirect} = {}) {
+function createAdapter({baseUrl, redirect, blogEntries = []} = {}) {
     const config = {
         getBaseUrl: () => baseUrl,
     };
@@ -32,7 +32,10 @@ function createAdapter({baseUrl, redirect} = {}) {
         config,
         tmplConfig,
         logger: {forSource: () => ({error() {}, warn() {}})},
-        blogHandler: {collectBlogIndex: async () => []},
+        blogHandler: {
+            collectBlogIndex: async () => [],
+            collectRecentBlogEntries: async () => blogEntries,
+        },
         redirectHandler: {
             applyRedirect: async ({req}) => redirect?.(req),
         },
@@ -183,12 +186,20 @@ test('maps Contact topics through an allowlist without changing canonical metada
     const telegram = await adapter.getRenderData({
         req: {url: '/es/contact.html?topic=chatgpt-telegram', headers: {}, socket: {}},
     });
+    const mcp = await adapter.getRenderData({
+        req: {url: '/en/contact.html?topic=mcp-integration', headers: {}, socket: {}},
+    });
+    const commercial = await adapter.getRenderData({
+        req: {url: '/en/contact.html?topic=commercial', headers: {}, socket: {}},
+    });
     const unknown = await adapter.getRenderData({
         req: {url: '/en/contact.html?topic=%3Cscript%3E', headers: {}, socket: {}},
     });
 
     assert.equal(product.data.contactTopic, 'product');
     assert.equal(telegram.data.contactTopic, 'chatgpt-telegram');
+    assert.equal(mcp.data.contactTopic, 'mcp-integration');
+    assert.equal(commercial.data.contactTopic, 'commercial');
     assert.equal(unknown.data.contactTopic, 'default');
     assert.equal(telegram.data.canonicalUrl, 'https://wiredgeese.com/es/contact.html');
     assert.deepEqual(telegram.data.alternateUrls, {
@@ -196,4 +207,14 @@ test('maps Contact topics through an allowlist without changing canonical metada
         ru: 'https://wiredgeese.com/ru/contact.html',
         es: 'https://wiredgeese.com/es/contact.html',
     });
+});
+
+test('adds a localized recent-Journal projection only to Home', async () => {
+    const entries = [{slug: 'latest'}];
+    const adapter = createAdapter({blogEntries: entries});
+    const home = await adapter.getRenderData({req: {url: '/ru/', headers: {}, socket: {}}});
+    const product = await adapter.getRenderData({req: {url: '/ru/products/', headers: {}, socket: {}}});
+
+    assert.deepEqual(home.data.recentJournal, {items: entries});
+    assert.equal(product.data.recentJournal, undefined);
 });

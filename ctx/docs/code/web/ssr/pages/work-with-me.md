@@ -10,7 +10,7 @@ Define the retained Work With Me route as an aligned-engagement continuity surfa
 
 ## Current State
 
-`/{locale}/work-with-me.html` is localized, canonical, indexable, and included in the sitemap. It currently frames engagement around adapting an existing product and links to Products, ChatGPT + Telegram, How it works, and Contact with `topic=product`. These are observable current implementation facts, not permanent target requirements.
+`/{locale}/work-with-me.html` is localized, canonical, indexable, and included in the sitemap. It frames engagement around a bounded aligned outcome, including MCP or agent integration, paid validation, existing capability adaptation, and related ADSM work. It routes directly to the commercial handoff with `mcp-integration` or `commercial` context. These are current implementation facts, not permanent packaging requirements.
 
 ## Target Relationship
 

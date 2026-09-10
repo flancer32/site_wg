@@ -12,11 +12,12 @@
         </button>
         <div class="site-menu" id="site-menu" data-open="false">
             <nav class="primary-nav" aria-label="Основная навигация">
-                <a href="/{{ locale }}/products/">Продукты</a>
-                <a href="/{{ locale }}/how-it-works.html">Как это работает</a>
-                <a href="/{{ locale }}/projects/alarisa.html">Alarisa</a>
+                <a href="/{{ locale }}/products/">Коммерческие возможности</a>
+                <a href="/{{ locale }}/blog/">Журнал</a>
+                <a href="/{{ locale }}/how-it-works.html">Как я работаю</a>
+                <a href="/{{ locale }}/projects.html">Проекты</a>
             </nav>
-            <a class="header-action" href="/{{ locale }}/contact.html?topic=product">Спросить о продукте</a>
+            <a class="header-action" href="/{{ locale }}/contact.html?topic=commercial">Начать разговор</a>
             <div class="locale-switcher" role="group" aria-label="Язык">
                 {% for loc in allowedLocales %}
                 {% if loc == locale %}

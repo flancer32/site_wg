@@ -34,4 +34,7 @@ test('builds accessible, lazy journal cards in reverse chronological order', asy
     assert.match(items[0].html, /aria-label="New &quot;entry&quot;"/);
     assert.match(items[0].html, /<img loading="lazy" decoding="async"/);
     assert.doesNotMatch(items[0].html, /<h4>/);
+
+    const recent = await blog.collectRecentBlogEntries('en', 1);
+    assert.deepEqual(recent.map((item) => item.slug), ['20260102-new']);
 });

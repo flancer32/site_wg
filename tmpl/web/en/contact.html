@@ -1,86 +1,40 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Contact Alex Gusev — product inquiries and adaptation{% endblock %}
-{% block description %}Ask Alex Gusev about a product presented through Wired Geese, whether it fits your need, and what adaptation or deployment may involve.{% endblock %}
+{% block title %}Contact Alex Gusev — commercial inquiry{% endblock %}
+{% block description %}Start a direct commercial conversation with Alex Gusev about a bounded MCP integration, Telegram validation, or another aligned engineering need.{% endblock %}
 
 {% block content %}
 <div class="contact-page">
     <section class="contact-hero">
         <div class="contact-intro">
-            {% if contactTopic == 'chatgpt-telegram' %}
-                <p class="eyebrow">Product inquiry</p>
-                <h1>Ask about ChatGPT + Telegram.</h1>
-                <p class="lead">Tell me what you want ChatGPT to do with Telegram. I will check whether the current setup fits and what a bounded deployment or adaptation would involve.</p>
-            {% elif contactTopic == 'product' %}
-                <p class="eyebrow">Product inquiry</p>
-                <h1>Ask about a product.</h1>
-                <p class="lead">Tell me the outcome you need. I will check whether an existing product fits or is close enough to adapt without turning this into an open-ended consultancy engagement.</p>
+            {% if contactTopic == 'mcp-integration' %}
+                <p class="eyebrow">MCP Integration Pilot</p><h1>Discuss a bounded MCP integration.</h1><p class="lead">Tell me about the existing service, useful agent workflow, and authority boundary. I will check whether a provisional pilot is a sensible fit.</p>
+            {% elif contactTopic == 'chatgpt-telegram' %}
+                <p class="eyebrow">Paid early access / validation</p><h1>Ask about ChatGPT + Telegram.</h1><p class="lead">Tell me what you want an agent to do with Telegram. I will check whether the current early-access setup fits and what an agreed boundary would involve.</p>
             {% else %}
-                <p class="eyebrow">Product conversation</p>
-                <h1>Tell me what you need a product to do.</h1>
-                <p class="lead">I will check whether a product I present through Wired Geese fits, whether adaptation makes sense, and what a bounded next step could be.</p>
+                <p class="eyebrow">Commercial conversation</p><h1>Tell me about the useful outcome you need.</h1><p class="lead">I will check whether a bounded MCP integration, Telegram validation, an available capability, or another aligned next step is a fit.</p>
             {% endif %}
         </div>
         <aside class="contact-direct" aria-labelledby="direct-contact-title">
-            <h2 id="direct-contact-title">Contact me directly</h2>
-            <p>Email is best for context; Telegram is useful for a short first exchange.</p>
+            <h2 id="direct-contact-title">Contact me directly</h2><p>Email is best for context; Telegram is useful for a short first exchange.</p>
             <ul class="contact-list">
-                {% if contactTopic == 'chatgpt-telegram' %}
-                    <li><a href="mailto:alex@wiredgeese.com?subject=ChatGPT%20%2B%20Telegram%20inquiry"><img src="/img/contacts/email.svg" alt=""/><span>alex@wiredgeese.com</span></a></li>
-                {% else %}
-                    <li><a href="mailto:alex@wiredgeese.com?subject=Wired%20Geese%20product%20inquiry"><img src="/img/contacts/email.svg" alt=""/><span>alex@wiredgeese.com</span></a></li>
-                {% endif %}
-                <li><a href="https://t.me/wiredgeese" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/telegram.svg" alt=""/><span>@wiredgeese</span></a></li>
-                <li><a href="https://wa.me/37129181801" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/whatsapp.svg" alt=""/><span>+371 29181801</span></a></li>
-                <li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/linkedin.svg" alt=""/><span>LinkedIn</span></a></li>
+                {% if contactTopic == 'mcp-integration' %}<li><a href="mailto:alex@wiredgeese.com?subject=MCP%20Integration%20Pilot%20inquiry"><img src="/img/contacts/email.svg" alt=""/><span>alex@wiredgeese.com</span></a></li>
+                {% elif contactTopic == 'chatgpt-telegram' %}<li><a href="mailto:alex@wiredgeese.com?subject=ChatGPT%20%2B%20Telegram%20inquiry"><img src="/img/contacts/email.svg" alt=""/><span>alex@wiredgeese.com</span></a></li>
+                {% else %}<li><a href="mailto:alex@wiredgeese.com?subject=Wired%20Geese%20commercial%20inquiry"><img src="/img/contacts/email.svg" alt=""/><span>alex@wiredgeese.com</span></a></li>{% endif %}
+                <li><a href="https://t.me/wiredgeese" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/telegram.svg" alt=""/><span>@wiredgeese</span></a></li><li><a href="https://wa.me/37129181801" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/whatsapp.svg" alt=""/><span>+371 29181801</span></a></li><li><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/" target="_blank" rel="noopener noreferrer"><img src="/img/contacts/linkedin.svg" alt=""/><span>LinkedIn</span></a></li>
             </ul>
         </aside>
     </section>
-
     <section class="contact-section" aria-labelledby="contact-details-title">
-        <div class="section-heading">
-            <p class="eyebrow">What to tell me</p>
-            {% if contactTopic == 'chatgpt-telegram' %}
-                <h2 id="contact-details-title">A little context is enough to check the fit.</h2>
-            {% else %}
-                <h2 id="contact-details-title">Start with the outcome, not a technical brief.</h2>
-            {% endif %}
-        </div>
+        <div class="section-heading"><p class="eyebrow">What to tell me</p>{% if contactTopic == 'mcp-integration' %}<h2 id="contact-details-title">Start with the service and the useful workflow.</h2>{% elif contactTopic == 'chatgpt-telegram' %}<h2 id="contact-details-title">A little context is enough to check the fit.</h2>{% else %}<h2 id="contact-details-title">Start with the outcome, not a technical brief.</h2>{% endif %}</div>
         <div class="next-step-grid">
-            {% if contactTopic == 'chatgpt-telegram' %}
-                <div><h3>The Telegram outcome</h3><p>What do you want ChatGPT to help you do with Telegram?</p></div>
-                <div><h3>Your working context</h3><p>Is this a personal account, channel, group, or another Telegram use?</p></div>
-                <div><h3>Where it could run</h3><p>Say whether you already have a suitable VPS or host, or need to discuss the options.</p></div>
-                <div><h3>Standard or adapted</h3><p>Tell me whether the existing workflow sounds sufficient or needs to change.</p></div>
-            {% else %}
-                <div><h3>The product or capability</h3><p>Which current product or capability interests you, if you already know.</p></div>
-                <div><h3>The outcome</h3><p>What would you like the product to make easier, safer, or more useful?</p></div>
-                <div><h3>Your current approach</h3><p>Briefly describe what you use today and the relevant constraints.</p></div>
-                <div><h3>Fit or adaptation</h3><p>Say whether the existing product looks sufficient or only close to your need.</p></div>
-            {% endif %}
+            {% if contactTopic == 'mcp-integration' %}<div><h3>The existing service</h3><p>What application, API, or digital resource should an agent use?</p></div><div><h3>The useful workflow</h3><p>What selected operation should become possible or easier?</p></div><div><h3>Authority boundary</h3><p>Who controls access, data, and the agent environment today?</p></div><div><h3>Delivery context</h3><p>Share relevant deployment, acceptance, or confidentiality constraints—never secrets.</p></div>
+            {% elif contactTopic == 'chatgpt-telegram' %}<div><h3>The Telegram outcome</h3><p>What do you want an agent to help you do with Telegram?</p></div><div><h3>Your working context</h3><p>Is this a personal account, channel, group, or another Telegram use?</p></div><div><h3>Where it could run</h3><p>Say whether you have a suitable host or need to discuss options.</p></div><div><h3>Standard or adapted</h3><p>Tell me whether the existing workflow sounds sufficient or needs to change.</p></div>
+            {% else %}<div><h3>The outcome</h3><p>What should become easier, safer, or more useful?</p></div><div><h3>Your current approach</h3><p>Briefly describe what you use today and relevant constraints.</p></div><div><h3>Commercial direction</h3><p>Say whether MCP integration, Telegram, ADSM, or another capability seems closest.</p></div><div><h3>Fit and boundary</h3><p>We will decide whether a bounded next step makes sense.</p></div>{% endif %}
         </div>
     </section>
-
-    <section class="contact-section" aria-labelledby="next-steps-title">
-        <div class="section-heading"><p class="eyebrow">What happens next</p><h2 id="next-steps-title">A bounded product discussion.</h2></div>
-        <div class="service-grid">
-            <article class="service-card"><span class="product-index">01</span><h3>I review the fit.</h3><p>I check whether the current product addresses the outcome you described.</p></article>
-            <article class="service-card"><span class="product-index">02</span><h3>We clarify the boundary.</h3><p>If needed, we discuss deployment, adaptation, and the smallest sensible scope.</p></article>
-            <article class="service-card"><span class="product-index">03</span><h3>We agree before work begins.</h3><p>Scope and price are agreed before setup, adaptation, or other work starts.</p></article>
-        </div>
-    </section>
-
-    <section class="contact-section"><p><strong>A safe first message.</strong> Do not send credentials, passwords, session files, access tokens, or other secrets. First contact is for qualification; any access boundary is agreed before setup.</p></section>
-
-    <details class="disclosure">
-        <summary>Business details</summary>
-        <div class="disclosure-content"><dl class="business-details">
-            <dt>Legal entity</dt><dd>F. Lancer, SIA</dd>
-            <dt>Registration number</dt><dd>40103303120 · since 29 June 2010</dd>
-            <dt>SEPA ID</dt><dd>LV82ZZZ40103303120</dd>
-            <dt>VAT number</dt><dd>LV40103303120 · since 27 September 2023</dd>
-            <dt>Bank account</dt><dd>LV83HABA0551028650868</dd>
-        </dl></div>
-    </details>
+    <section class="contact-section" aria-labelledby="next-steps-title"><div class="section-heading"><p class="eyebrow">What happens next</p><h2 id="next-steps-title">A bounded commercial discussion.</h2></div><div class="service-grid"><article class="service-card"><span class="product-index">01</span><h3>I review the fit.</h3><p>I check whether the proposed outcome fits a current commercial direction.</p></article><article class="service-card"><span class="product-index">02</span><h3>We clarify the boundary.</h3><p>We discuss the smallest sensible scope, trust, deployment, and acceptance boundary.</p></article><article class="service-card"><span class="product-index">03</span><h3>We agree before work begins.</h3><p>Scope and price are agreed before setup, pilot work, or another engagement starts.</p></article></div></section>
+    <section class="contact-section"><p><strong>A safe first message.</strong> Do not send credentials, passwords, session files, access tokens, or other secrets. First contact is for qualification; any access boundary is agreed before work begins.</p></section>
+    <details class="disclosure"><summary>Business details</summary><div class="disclosure-content"><dl class="business-details"><dt>Legal entity</dt><dd>F. Lancer, SIA</dd><dt>Registration number</dt><dd>40103303120 · since 29 June 2010</dd><dt>SEPA ID</dt><dd>LV82ZZZ40103303120</dd><dt>VAT number</dt><dd>LV40103303120 · since 27 September 2023</dd><dt>Bank account</dt><dd>LV83HABA0551028650868</dd></dl></div></details>
 </div>
 {% endblock %}

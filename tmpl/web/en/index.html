@@ -1,91 +1,124 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Wired Geese — Alex Gusev's site and trade brand for software made with AI agents{% endblock %}
-{% block description %}Software products by Alex Gusev that connect people and their AI agents with useful digital services and information.{% endblock %}
+{% block title %}Wired Geese — useful software and controlled AI-agent integrations{% endblock %}
+{% block description %}Alex Gusev builds useful software and controlled AI-agent integrations with AI agents as working participants and Alex accountable for the result.{% endblock %}
+
+{% block html_head_extra %}
+<link rel="stylesheet" href="/styles/blog.css">
+{% endblock %}
 
 {% block content %}
 <div class="home-page">
     <div class="home-opening">
         <section class="home-hero" aria-labelledby="home-title">
-            <h1 id="home-title">I build software for people and their AI agents.</h1>
-            <p class="lead">I make practical products that connect AI agents with the digital services and information you already use.</p>
+            <p class="eyebrow">Wired Geese by Alex Gusev</p>
+            <h1 id="home-title">Useful software and controlled AI-agent integrations.</h1>
+            <p class="lead">I am the accountable maker. AI agents are normal working participants in the software I build, inspect, and evolve.</p>
             <div class="hero-links">
-                <a class="button-primary" href="/{{ locale }}/products/">Explore products</a>
-                <a class="button-secondary" href="#how-it-works">How it works</a>
+                <a class="button-primary" href="/{{ locale }}/contact.html?topic=mcp-integration">Discuss an MCP integration</a>
+                <a class="button-secondary" href="/{{ locale }}/products/">See commercial entries</a>
             </div>
         </section>
-
-        <section class="home-products" id="products" aria-labelledby="products-title" tabindex="-1">
+        <section class="home-products" id="commercial-entries" aria-labelledby="commercial-entries-title" tabindex="-1">
             <div class="home-products-heading">
-                <h2 id="products-title">Available now</h2>
+                <p class="eyebrow">Available for bounded commercial work</p>
+                <h2 id="commercial-entries-title">Start with an MCP Integration Pilot.</h2>
             </div>
             <div class="product-collection">
                 <article class="product-preview">
-                    <p class="product-status">Early access</p>
-                    <h3>ChatGPT + Telegram</h3>
-                    <p class="product-outcome">Connect your ChatGPT to your Telegram.</p>
-                    <p>Turn busy Telegram conversations into useful summaries, then act on them directly from ChatGPT.</p>
+                    <p class="product-status">Provisional · bounded paid pilot</p>
+                    <h3>Connect a useful service to an AI agent.</h3>
+                    <p class="product-outcome">Expose selected operations from an existing service or API through a controlled MCP boundary.</p>
+                    <p>We begin with one useful workflow, agreed tools and authority, and a direct human conversation about the boundary.</p>
                     <ul class="product-capabilities">
-                        <li>Read and summarize conversations and channels.</li>
-                        <li>Find relevant history where supported.</li>
-                        <li>Prepare and publish messages.</li>
+                        <li>Selected MCP tools for an existing service or API.</li>
+                        <li>Agreed agent environment, access boundary, and deployment responsibility.</li>
+                        <li>Verification of a bounded workflow—not an arbitrary AI transformation.</li>
                     </ul>
-                    <p class="product-commercial">Paid setup available.</p>
-                    <p class="product-links"><a class="button-primary" href="/{{ locale }}/products/chatgpt-telegram.html">View product</a></p>
+                    <p class="product-links"><a class="button-primary" href="/{{ locale }}/contact.html?topic=mcp-integration">Discuss the MCP pilot</a></p>
                 </article>
             </div>
         </section>
     </div>
 
-    <section class="home-bridge" aria-labelledby="adaptation-title">
-        <div>
-            <h2 id="adaptation-title">Need something different?</h2>
-            <p>If an existing product is close to what you need, I can adapt it, connect another service, or extend it for your workflow.</p>
+    <section class="home-section" aria-labelledby="other-entries-title">
+        <div class="section-heading">
+            <p class="eyebrow">Other current entries</p>
+            <h2 id="other-entries-title">Paid validation and books are available too.</h2>
         </div>
-        <a class="button-secondary" href="/{{ locale }}/contact.html?topic=product">Ask about a product</a>
+        <div class="product-collection">
+            <article class="product-preview">
+                <p class="product-status">Paid early access / validation</p>
+                <h3>ChatGPT + Telegram</h3>
+                <p class="product-outcome">An agreed AI-to-Telegram workflow for a specific need.</p>
+                <p>Working but early capability, set up through an explicit human agreement—not a mature SaaS subscription.</p>
+                <p class="product-links"><a href="/{{ locale }}/products/chatgpt-telegram.html">Explore Telegram validation →</a></p>
+            </article>
+            <article class="product-preview">
+                <p class="product-status">Available now · books</p>
+                <h3>Books on ADSM and modern application development</h3>
+                <p>Purchasable knowledge products that explain the methodology and technical depth behind the work.</p>
+                <p class="product-links"><a href="/{{ locale }}/products/">See available books →</a></p>
+            </article>
+        </div>
+    </section>
+
+    <section class="home-section home-preview" aria-labelledby="journal-title">
+        <div class="section-heading">
+            <p class="eyebrow">Recent Journal evidence</p>
+            <h2 id="journal-title">What is changing in the work.</h2>
+            <p>These are recent records of active work and learning, not claims of commercial validation.</p>
+        </div>
+        {% if recentJournal and recentJournal.items.length %}
+        <ul class="blog-list" role="list">
+            {% for item in recentJournal.items %}
+                {{ item.html | safe }}
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <p><a href="/{{ locale }}/blog/">Read the Journal →</a></p>
     </section>
 
     <section class="home-section home-preview home-preview--method" id="how-it-works" aria-labelledby="how-it-works-title" tabindex="-1">
         <div>
-            <p class="eyebrow">How it works</p>
-            <h2 id="how-it-works-title">One accountable maker, with AI agents actively involved.</h2>
+            <p class="eyebrow">Working model</p>
+            <h2 id="how-it-works-title">Human direction, active AI-agent participation.</h2>
         </div>
         <div class="home-preview-copy">
-            <p>I set the direction and remain responsible for what ships. AI agents participate in research, implementation, inspection, and maintenance. I use TeqFW and ADSM to keep the software modular, understandable, and easier to evolve.</p>
-            <p><a href="/{{ locale }}/how-it-works.html">See how it works →</a></p>
+            <p>I set intent, authorize consequential work, verify outcomes, and remain accountable. TeqFW is the technical foundation; ADSM helps keep human-and-agent development understandable and controlled. I use this model in my own current software, including this site.</p>
+            <p><a href="/{{ locale }}/how-it-works.html">See how I work →</a></p>
         </div>
     </section>
 
-    <section class="home-section home-preview home-preview--vision" id="alarisa" aria-labelledby="alarisa-title" tabindex="-1">
+    <section class="home-section home-preview home-preview--vision" aria-labelledby="current-work-title">
         <div>
-            <p class="eyebrow">Alarisa</p>
-            <h2 id="alarisa-title">Where this work is heading</h2>
+            <p class="eyebrow">Current systems and proof</p>
+            <h2 id="current-work-title">Work in progress, with an honest boundary.</h2>
         </div>
         <div class="home-preview-copy">
-            <p>Alarisa is my long-term Principal–Assistant vision: how a person (the Principal) and their personal Assistant can work with digital services. It is a direction, not a catalogue product or fixed roadmap; independently useful products may emerge from the exploration.</p>
-            <p><a href="/{{ locale }}/projects/alarisa.html">Explore Alarisa →</a></p>
+            <p>Alarisa is an ambitious ongoing proof system and long-term direction. PDE, Telegram Desk, TeqCMS, and other current systems provide working evidence; they are not all mature products or promises of market validation.</p>
+            <p><a href="/{{ locale }}/projects.html">Explore projects and systems →</a> · <a href="/{{ locale }}/projects/alarisa.html">About Alarisa →</a></p>
         </div>
     </section>
 
     <section class="home-section home-preview home-preview--maker" id="maker" aria-labelledby="maker-title" tabindex="-1">
         <div>
             <p class="eyebrow">Alex Gusev</p>
-            <h2 id="maker-title">The maker behind Wired Geese</h2>
+            <h2 id="maker-title">The accountable maker behind Wired Geese.</h2>
         </div>
         <div class="home-preview-copy">
-            <p>Wired Geese is the name and brand I use for this site and my work building software with AI agents. I work directly on the products and remain responsible for the decisions behind them.</p>
-            <p>I have built and maintained production software for decades. Today I build web applications with AI agents. I use these capabilities in my own work, with a few early users testing them as well.</p>
+            <p>Wired Geese is the public model for my work with hired AI agents, not a large development company or an autonomous software factory. You speak directly with the person who makes and accepts consequential decisions.</p>
         </div>
     </section>
 
     <section class="cta-panel home-cta" aria-labelledby="start-title">
         <div>
-            <h2 id="start-title">Start with a working product.</h2>
-            <p>If a product looks useful—or close to what you need—tell me what you want it to do. I’ll help identify the right starting point.</p>
+            <h2 id="start-title">Have a service an AI agent should use?</h2>
+            <p>Tell me about the existing service, the useful workflow, and the authority boundary. We can decide whether a bounded MCP pilot, Telegram validation, or another aligned conversation is a fit.</p>
         </div>
         <div class="home-cta-actions">
-            <a class="button-primary" href="/{{ locale }}/contact.html?topic=product">Ask about a product</a>
-            <a class="home-cta-secondary" href="/{{ locale }}/products/">Explore products</a>
+            <a class="button-primary" href="/{{ locale }}/contact.html?topic=commercial">Start a commercial conversation</a>
+            <a class="home-cta-secondary" href="/{{ locale }}/products/">See commercial entries</a>
         </div>
     </section>
 </div>

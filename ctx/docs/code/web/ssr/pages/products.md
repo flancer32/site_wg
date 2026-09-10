@@ -10,7 +10,7 @@ Record the existing Products route and constrain any retained or repurposed comm
 
 ## Current State
 
-`/{locale}/products/` is currently authored in English, Russian, and Spanish. Its aliases normalize to that catalogue path. It presently presents ChatGPT + Telegram as an early-access product. This route is a canonical current implementation fact and a continuity candidate, not proof that a generic catalogue is the required target commercial inventory.
+`/{locale}/products/` is authored in English, Russian, and Spanish. Its aliases normalize to that retained canonical path. It presents a provisional MCP Integration Pilot, ChatGPT + Telegram as paid early-access validation, and purchasable books as distinct commercial entries. This route is a continuity fact, not proof that a generic catalogue or homogeneous product inventory is required.
 
 ## Target Relationship
 

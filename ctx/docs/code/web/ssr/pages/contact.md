@@ -10,7 +10,7 @@ Define the shared direct-human commercial handoff and current query-context boun
 
 ## Current State
 
-`/{locale}/contact.html` is the established localized handoff. It currently supports render contexts `default`, `product`, and `chatgpt-telegram`; unknown values use `default` and never reflect into public copy. The optional `topic` query records inbound context rather than a page identity; variants retain the clean canonical URL and locale alternates. This is current implementation state, not permanent offer taxonomy.
+`/{locale}/contact.html` is the established localized handoff. It supports render contexts `default`, `commercial`, `mcp-integration`, `chatgpt-telegram`, and legacy `product`; unknown values use `default` and never reflect into public copy. The optional `topic` query records inbound context rather than a page identity; variants retain the clean canonical URL and locale alternates. This is current implementation state, not permanent offer taxonomy.
 
 ## Target Role
 

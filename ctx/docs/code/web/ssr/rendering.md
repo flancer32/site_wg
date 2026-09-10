@@ -29,6 +29,7 @@ The stable target includes:
 - locale and route classification used by the shared shell;
 - localized not-found handling;
 - journal-index collection from authored article fragments;
+- a small deterministic recent-Journal projection from those same authored fragments on locale Home routes;
 - redirect behavior supporting canonical routes and intentional legacy-path preservation.
 
 Request host and forwarding headers do not define the public metadata origin.

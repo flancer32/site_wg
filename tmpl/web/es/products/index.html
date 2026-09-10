@@ -1,47 +1,34 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Productos — software práctico de Alex Gusev | Wired Geese{% endblock %}
-{% block description %}Productos de software prácticos y actuales de Alex Gusev para personas y sus agentes de IA, presentados bajo la marca Wired Geese.{% endblock %}
+{% block title %}Opciones comerciales — Alex Gusev | Wired Geese{% endblock %}
+{% block description %}Formas actuales de trabajar con Alex Gusev o comprar un libro: un piloto provisional de integración MCP, validación de pago con Telegram y productos de conocimiento disponibles.{% endblock %}
 
 {% block content %}
 <article class="products-catalogue-page">
     <header class="products-catalogue-opening">
-        <div>
-            <h1>Productos</h1>
-            <p class="lead">Productos de software prácticos que creo para las personas y sus agentes de IA.</p>
-            <p>Cada producto tiene valor por sí mismo. Si alguno se acerca a lo que necesitas, podemos hablar de una adaptación adecuada.</p>
-        </div>
-        <p class="catalogue-trust-link"><a href="/{{ locale }}/how-it-works.html">Cómo funciona →</a></p>
+        <div><p class="eyebrow">Wired Geese</p><h1>Opciones comerciales actuales.</h1><p class="lead">Formas de iniciar trabajo directo con Alex Gusev o comprar un libro.</p><p>Estas opciones tienen tipos y grados de madurez distintos. No son un catálogo de productos de software idénticos y maduros.</p></div>
+        <p class="catalogue-trust-link"><a href="/{{ locale }}/how-it-works.html">Cómo trabajo →</a></p>
     </header>
 
-    <section class="home-section product-detail-section" aria-labelledby="current-products-title">
-        <div class="section-heading">
-            <p class="eyebrow">Productos actuales</p>
-            <h2 id="current-products-title">Disponibles para conversar ahora</h2>
-        </div>
+    <section class="home-section product-detail-section" aria-labelledby="mcp-title">
+        <div class="section-heading"><p class="eyebrow">Dirección principal a corto plazo</p><h2 id="mcp-title">Piloto de integración MCP</h2></div>
+        <div class="product-collection"><article class="product-preview"><p class="product-status">Provisional · piloto de pago acotado</p><h3>Acceso controlado de un agente a un servicio existente.</h3><p class="product-outcome">Conecta operaciones seleccionadas de un servicio, aplicación o API existente a un entorno compatible de agentes de IA mediante MCP.</p><p>El piloto empieza con un flujo útil y un límite de autoridad explícito. El alcance, precio, responsabilidad de despliegue y evidencia de aceptación se acuerdan directamente antes de empezar.</p><ul class="product-capabilities"><li>Servidor MCP o capa de herramientas seleccionada para un recurso existente.</li><li>Autenticación, autorización, alcance de herramientas y entorno de agente acordados.</li><li>Despliegue y visibilidad operativa adecuados al piloto acordado.</li></ul><p>No es una promesa de arquitectura empresarial, paquete fijo, transformación arbitraria con IA ni agentes autónomos.</p><p class="product-links"><a class="button-primary" href="/{{ locale }}/contact.html?topic=mcp-integration">Hablar de un piloto MCP</a></p></article></div>
+    </section>
+
+    <section class="home-section product-detail-section" aria-labelledby="telegram-title">
+        <div class="section-heading"><p class="eyebrow">Acceso anticipado / validación de pago</p><h2 id="telegram-title">ChatGPT + Telegram</h2></div>
+        <div class="product-collection"><article class="product-preview"><p class="product-status">Funciona, pero es temprano · validación de pago</p><h3>Un flujo acordado entre IA y Telegram.</h3><p class="product-outcome">Conecta un entorno de agente al trabajo de Telegram que te importa, con un límite de despliegue y confianza acordado.</p><p>La configuración es un trabajo experimental de pago para descubrir lo útil y repetible. No es un SaaS maduro ni un servicio escalable estandarizado.</p><p class="product-links"><a href="/{{ locale }}/products/chatgpt-telegram.html">Explorar ChatGPT + Telegram →</a> · <a href="/{{ locale }}/contact.html?topic=chatgpt-telegram">Hablar de validación de Telegram →</a></p></article></div>
+    </section>
+
+    <section class="home-section product-detail-section" aria-labelledby="books-title">
+        <div class="section-heading"><p class="eyebrow">Disponible ahora · conocimiento</p><h2 id="books-title">Libros</h2></div>
         <div class="product-collection">
-            <article class="product-preview">
-                <p class="product-status">Acceso anticipado</p>
-                <h3>ChatGPT + Telegram</h3>
-                <p class="product-outcome">Conecta ChatGPT con tu Telegram.</p>
-                <p>Convierte conversaciones activas de Telegram en resúmenes útiles y trabaja con ellas directamente desde ChatGPT.</p>
-                <ul class="product-capabilities">
-                    <li>Lee y resume conversaciones y canales.</li>
-                    <li>Encuentra el historial relevante cuando está disponible.</li>
-                    <li>Prepara y publica mensajes.</li>
-                </ul>
-                <p class="product-commercial">Configuración de pago disponible.</p>
-                <p class="product-links"><a class="button-primary" href="/{{ locale }}/products/chatgpt-telegram.html">Ver producto</a></p>
-            </article>
+            <article class="product-preview"><p class="product-status">Edición electrónica rusa · Leanpub</p><h3>Управляемая разработка с AI-агентами</h3><p>Edición electrónica rusa sobre ADSM y desarrollo controlado por una persona con agentes de IA.</p><p class="product-links"><a href="https://leanpub.com/adsm-ru" target="_blank" rel="noopener noreferrer">Comprar en Leanpub →</a></p></article>
+            <article class="product-preview"><p class="product-status">Edición electrónica inglesa · Leanpub</p><h3>Agent-Driven Software Management</h3><p>Edición electrónica inglesa sobre ADSM.</p><p class="product-links"><a href="https://leanpub.com/adsm-en" target="_blank" rel="noopener noreferrer">Comprar en Leanpub →</a></p></article>
+            <article class="product-preview"><p class="product-status">Edición BHV en ruso</p><h3>Браузер как операционная система для разработки современных приложений</h3><p>Libro publicado en ruso sobre desarrollo de aplicaciones modernas en el navegador.</p><p class="product-links"><a href="https://bhv.ru/product/brauzer-kak-operatsionnaya-sistema-dlya-razrabotki-sovremennyh-prilozhenij/" target="_blank" rel="noopener noreferrer">Comprar en BHV →</a> · <a href="/{{ locale }}/books/browser-as-operating-system.html">Sobre el libro →</a></p></article>
         </div>
     </section>
 
-    <section class="home-bridge" aria-labelledby="adaptation-title">
-        <div>
-            <h2 id="adaptation-title">¿Necesitas algo diferente?</h2>
-            <p>Si un producto existente se acerca a lo que necesitas, puedo adaptarlo, conectar otro servicio o ampliarlo para tu flujo de trabajo.</p>
-        </div>
-        <a class="button-secondary" href="/{{ locale }}/contact.html?topic=product">Consultar sobre un producto</a>
-    </section>
+    <section class="home-bridge" aria-labelledby="aligned-work-title"><div><h2 id="aligned-work-title">¿Necesitas trabajo cercano y alineado?</h2><p>Una conversación comercial puede empezar con una integración MCP o de agentes acotada, validación de pago, adaptación de una capacidad existente o un tema de ADSM relacionado. Debe reforzar una dirección útil, no convertirse en aumento de personal genérico.</p></div><a class="button-secondary" href="/{{ locale }}/work-with-me.html">Trabaja con Alex</a></section>
 </article>
 {% endblock %}

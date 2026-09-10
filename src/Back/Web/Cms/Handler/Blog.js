@@ -132,6 +132,18 @@ export default class Blog {
             const yearDirectories = await listYearDirectories(blogRoot);
             return collectEntriesFromYears(locale, blogRoot, yearDirectories);
         };
+
+        /**
+         * Builds a deliberately small, deterministic projection for a page
+         * that needs recent Journal evidence without becoming the Journal index.
+         * @param {string} locale
+         * @param {number} [limit]
+         * @returns {Promise<object[]>}
+         */
+        this.collectRecentBlogEntries = async function (locale, limit = 3) {
+            const items = await this.collectBlogIndex(locale);
+            return items.slice(0, Math.max(0, limit));
+        };
     }
 }
 

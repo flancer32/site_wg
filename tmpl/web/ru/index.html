@@ -1,91 +1,124 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Wired Geese — сайт и торговый бренд Алекса Гусева для программных продуктов, создаваемых с ИИ-агентами{% endblock %}
-{% block description %}Программные продукты Алекса Гусева, соединяющие людей и их ИИ-агентов с полезными цифровыми сервисами и информацией.{% endblock %}
+{% block title %}Wired Geese — полезное ПО и контролируемые интеграции с ИИ-агентами{% endblock %}
+{% block description %}Алекс Гусев создаёт полезное ПО и контролируемые интеграции с ИИ-агентами: агенты участвуют в работе, а Алекс отвечает за результат.{% endblock %}
+
+{% block html_head_extra %}
+<link rel="stylesheet" href="/styles/blog.css">
+{% endblock %}
 
 {% block content %}
 <div class="home-page">
     <div class="home-opening">
         <section class="home-hero" aria-labelledby="home-title">
-            <h1 id="home-title">Я создаю программное обеспечение для людей и их ИИ-агентов.</h1>
-            <p class="lead">Я создаю практические продукты, которые соединяют ИИ-агентов с цифровыми сервисами и информацией, которыми вы уже пользуетесь.</p>
+            <p class="eyebrow">Wired Geese — Алекс Гусев</p>
+            <h1 id="home-title">Полезное ПО и контролируемые интеграции с ИИ-агентами.</h1>
+            <p class="lead">Я остаюсь ответственным создателем. ИИ-агенты — обычные участники работы над ПО, которое я создаю, проверяю и развиваю.</p>
             <div class="hero-links">
-                <a class="button-primary" href="/{{ locale }}/products/">Посмотреть продукты</a>
-                <a class="button-secondary" href="#how-it-works">Как это работает</a>
+                <a class="button-primary" href="/{{ locale }}/contact.html?topic=mcp-integration">Обсудить MCP-интеграцию</a>
+                <a class="button-secondary" href="/{{ locale }}/products/">Коммерческие возможности</a>
             </div>
         </section>
-
-        <section class="home-products" id="products" aria-labelledby="products-title" tabindex="-1">
+        <section class="home-products" id="commercial-entries" aria-labelledby="commercial-entries-title" tabindex="-1">
             <div class="home-products-heading">
-                <h2 id="products-title">Доступно сейчас</h2>
+                <p class="eyebrow">Доступно для ограниченной коммерческой работы</p>
+                <h2 id="commercial-entries-title">Начните с пилота MCP-интеграции.</h2>
             </div>
             <div class="product-collection">
                 <article class="product-preview">
-                    <p class="product-status">Ранний доступ</p>
-                    <h3>ChatGPT + Telegram</h3>
-                    <p class="product-outcome">Подключите ChatGPT к Telegram.</p>
-                    <p>Превращайте активные разговоры в Telegram в полезные сводки, а затем работайте с ними прямо из ChatGPT.</p>
+                    <p class="product-status">Предварительное предложение · ограниченный платный пилот</p>
+                    <h3>Подключите полезный сервис к ИИ-агенту.</h3>
+                    <p class="product-outcome">Откройте выбранные операции существующего сервиса или API через контролируемую границу MCP.</p>
+                    <p>Мы начинаем с одного полезного сценария, согласованных инструментов и полномочий, а затем лично обсуждаем границы работы.</p>
                     <ul class="product-capabilities">
-                        <li>Читайте и суммируйте разговоры и каналы.</li>
-                        <li>Находите нужную историю там, где это поддерживается.</li>
-                        <li>Готовьте и публикуйте сообщения.</li>
+                        <li>Выбранные инструменты MCP для существующего сервиса или API.</li>
+                        <li>Согласованная среда агента, граница доступа и ответственность за развёртывание.</li>
+                        <li>Проверка ограниченного сценария, а не обещание произвольной ИИ-трансформации.</li>
                     </ul>
-                    <p class="product-commercial">Доступна платная настройка.</p>
-                    <p class="product-links"><a class="button-primary" href="/{{ locale }}/products/chatgpt-telegram.html">О продукте</a></p>
+                    <p class="product-links"><a class="button-primary" href="/{{ locale }}/contact.html?topic=mcp-integration">Обсудить MCP-пилот</a></p>
                 </article>
             </div>
         </section>
     </div>
 
-    <section class="home-bridge" aria-labelledby="adaptation-title">
-        <div>
-            <h2 id="adaptation-title">Нужно немного другое?</h2>
-            <p>Если существующий продукт близок к вашей задаче, я могу адаптировать его, подключить другой сервис или расширить для вашего рабочего процесса.</p>
+    <section class="home-section" aria-labelledby="other-entries-title">
+        <div class="section-heading">
+            <p class="eyebrow">Другие текущие возможности</p>
+            <h2 id="other-entries-title">Доступны платная проверка и книги.</h2>
         </div>
-        <a class="button-secondary" href="/{{ locale }}/contact.html?topic=product">Спросить о продукте</a>
+        <div class="product-collection">
+            <article class="product-preview">
+                <p class="product-status">Платный ранний доступ / проверка</p>
+                <h3>ChatGPT + Telegram</h3>
+                <p class="product-outcome">Согласованный сценарий работы ИИ с Telegram для конкретной задачи.</p>
+                <p>Работающая, но ранняя возможность с явным человеческим соглашением, а не зрелая SaaS-подписка.</p>
+                <p class="product-links"><a href="/{{ locale }}/products/chatgpt-telegram.html">Посмотреть проверку Telegram →</a></p>
+            </article>
+            <article class="product-preview">
+                <p class="product-status">Доступно сейчас · книги</p>
+                <h3>Книги об ADSM и современной разработке</h3>
+                <p>Покупаемые знания о методологии и технической глубине этой работы.</p>
+                <p class="product-links"><a href="/{{ locale }}/products/">Посмотреть книги →</a></p>
+            </article>
+        </div>
+    </section>
+
+    <section class="home-section home-preview" aria-labelledby="journal-title">
+        <div class="section-heading">
+            <p class="eyebrow">Недавние свидетельства из Журнала</p>
+            <h2 id="journal-title">Что меняется в работе.</h2>
+            <p>Это недавние записи о текущей работе и обучении, а не заявления о коммерческой проверке.</p>
+        </div>
+        {% if recentJournal and recentJournal.items.length %}
+        <ul class="blog-list" role="list">
+            {% for item in recentJournal.items %}
+                {{ item.html | safe }}
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <p><a href="/{{ locale }}/blog/">Читать Журнал →</a></p>
     </section>
 
     <section class="home-section home-preview home-preview--method" id="how-it-works" aria-labelledby="how-it-works-title" tabindex="-1">
         <div>
-            <p class="eyebrow">Как это работает</p>
-            <h2 id="how-it-works-title">Один ответственный создатель, а ИИ-агенты активно участвуют в работе.</h2>
+            <p class="eyebrow">Рабочая модель</p>
+            <h2 id="how-it-works-title">Человеческое направление, активное участие ИИ-агентов.</h2>
         </div>
         <div class="home-preview-copy">
-            <p>Я задаю направление и остаюсь ответственным за результат. ИИ-агенты участвуют в исследовании, реализации, проверке и поддержке. Я использую TeqFW и ADSM, чтобы программное обеспечение оставалось модульным, понятным и легче развивалось.</p>
-            <p><a href="/{{ locale }}/how-it-works.html">Узнать, как это работает →</a></p>
+            <p>Я определяю намерение, разрешаю значимую работу, проверяю результаты и остаюсь ответственным. TeqFW — техническая основа, а ADSM помогает сделать разработку человека и агентов понятной и управляемой. Я использую эту модель в своём текущем ПО, включая этот сайт.</p>
+            <p><a href="/{{ locale }}/how-it-works.html">Как я работаю →</a></p>
         </div>
     </section>
 
-    <section class="home-section home-preview home-preview--vision" id="alarisa" aria-labelledby="alarisa-title" tabindex="-1">
+    <section class="home-section home-preview home-preview--vision" aria-labelledby="current-work-title">
         <div>
-            <p class="eyebrow">Alarisa</p>
-            <h2 id="alarisa-title">К чему ведёт эта работа</h2>
+            <p class="eyebrow">Текущие системы и доказательства</p>
+            <h2 id="current-work-title">Работа продолжается — с честной границей.</h2>
         </div>
         <div class="home-preview-copy">
-            <p>Alarisa — моё долгосрочное видение отношений «Принципал–Ассистент»: как человек (Принципал) и его личный Ассистент могут работать с цифровыми сервисами. Это направление, а не продукт из каталога и не фиксированная дорожная карта; в ходе исследования могут появляться самостоятельные полезные продукты.</p>
-            <p><a href="/{{ locale }}/projects/alarisa.html">Узнать об Alarisa →</a></p>
+            <p>Alarisa — амбициозная продолжающаяся доказательная система и долгосрочное направление. PDE, Telegram Desk, TeqCMS и другие системы дают рабочие свидетельства; это не означает, что все они зрелые продукты или подтверждение рыночного спроса.</p>
+            <p><a href="/{{ locale }}/projects.html">Проекты и системы →</a> · <a href="/{{ locale }}/projects/alarisa.html">Об Alarisa →</a></p>
         </div>
     </section>
 
     <section class="home-section home-preview home-preview--maker" id="maker" aria-labelledby="maker-title" tabindex="-1">
         <div>
             <p class="eyebrow">Алекс Гусев</p>
-            <h2 id="maker-title">Создатель Wired Geese</h2>
+            <h2 id="maker-title">Ответственный создатель Wired Geese.</h2>
         </div>
         <div class="home-preview-copy">
-            <p>Wired Geese — название и бренд этого сайта и моей работы по созданию программного обеспечения с ИИ-агентами. Я работаю с продуктами напрямую и остаюсь ответственным за решения, стоящие за ними.</p>
-            <p>Я десятилетиями создаю и поддерживаю рабочее программное обеспечение. Сегодня я создаю веб-приложения вместе с ИИ-агентами. Эти возможности я использую в собственной работе; их также тестируют несколько ранних пользователей.</p>
+            <p>Wired Geese — публичная модель моей работы с нанятыми ИИ-агентами, а не большая компания разработки и не автономная фабрика ПО. Вы общаетесь напрямую с человеком, который принимает и утверждает значимые решения.</p>
         </div>
     </section>
 
     <section class="cta-panel home-cta" aria-labelledby="start-title">
         <div>
-            <h2 id="start-title">Начните с работающего продукта.</h2>
-            <p>Если продукт кажется полезным — или близким к тому, что вам нужно, — расскажите, что он должен делать. Я помогу определить подходящую точку старта.</p>
+            <h2 id="start-title">Есть сервис, которым должен пользоваться ИИ-агент?</h2>
+            <p>Расскажите о существующем сервисе, полезном сценарии и границе полномочий. Мы решим, подходит ли ограниченный MCP-пилот, проверка Telegram или другой близкий разговор.</p>
         </div>
         <div class="home-cta-actions">
-            <a class="button-primary" href="/{{ locale }}/contact.html?topic=product">Спросить о продукте</a>
-            <a class="home-cta-secondary" href="/{{ locale }}/products/">Посмотреть продукты</a>
+            <a class="button-primary" href="/{{ locale }}/contact.html?topic=commercial">Начать коммерческий разговор</a>
+            <a class="home-cta-secondary" href="/{{ locale }}/products/">Коммерческие возможности</a>
         </div>
     </section>
 </div>

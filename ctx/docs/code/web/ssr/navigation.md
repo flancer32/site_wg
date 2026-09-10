@@ -16,7 +16,7 @@ Direct discovery does not require one header item per responsibility, equal visu
 
 ## Current Implementation And Migration
 
-The current shared header exposes the brand link, `Products`, `How it works`, `Alarisa`, a product-oriented Contact action, and locale control. The footer groups Products, How it works, and Alarisa separately from Project Archive, Library, Journal, and Books. These are observable template facts and migration inputs, not target authority. Their preservation, relabelling, grouping, or redirect treatment needs later route and interface approval.
+The current shared header exposes the brand link, retained commercial entries, Journal, working-model explanation, Projects, a commercial Contact action, and locale control. Alarisa remains reachable contextually rather than holding mandatory primary-nav status. The footer retains older discovery groups. These are observable Phase 1 template facts, not permanent labels, grouping, or route authority.
 
 ## Contextual Relationships
 

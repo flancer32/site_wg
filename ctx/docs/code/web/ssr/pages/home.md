@@ -16,6 +16,6 @@ It must support quick comprehension, a commercially actionable route, visible cu
 
 ## Current State And Boundary
 
-Current locale-root templates contain a Products collection with ChatGPT + Telegram, then working-model and Alarisa previews. This is observable migration state, not a contract that Products must lead, that Telegram is central, or that Journal is secondary. No exact text, section count, card count, route, geometry, or CSS behavior is prescribed here.
+Current locale-root templates introduce Wired Geese and Alex's accountability, lead with a provisional MCP Integration Pilot, then expose Telegram paid validation and books. A small SSR-rendered recent-Journal projection follows; working-model, current-system, Alarisa, and maker-trust bridges remain available without displacing the commercial path. This Phase 1 composition is not a contract for a complete Current Work redesign, exact text, section count, route, geometry, or CSS behavior.
 
 Home must preserve honest object status and route commercial needs to direct human contact; it must not imply autonomous agents, mature SaaS, customer validation from site interaction, or website ownership of external product runtime.
