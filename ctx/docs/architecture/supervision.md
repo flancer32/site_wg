@@ -42,6 +42,8 @@ Agents must:
 - preserve honest maturity, claim-specific evidence, and the distinction between working behavior, internal use, external use, paid work, reuse, customer outcome, and recurring value;
 - keep TeqFW, ADSM, Alarisa, PDE, Desks, books, offers, and evidence in their product-authorized roles;
 - preserve Alex's accountability and describe AI agents as authorized participants rather than employees, owners, or independent authorities;
+- preserve the product-authorized principle that AI agents are normal working participants across Alex's current own software estate, including wiredgeese.com, without requiring every task to be agent-executed;
+- keep development-time agent participation distinct from any production-runtime agent, credential, state, integration, or authority;
 - distinguish ordinary outbound links and human contact from runtime integrations and authority transfers;
 - keep context transfer bounded, optional, explicitly authorized, and owned by accountable humans on both sides;
 - preserve valuable URLs, original historical value, explicit status, and meaningful internal discovery during later migration;
@@ -67,6 +69,10 @@ Architecture or lower-level drift exists when:
 - a current offer requires a generic Products catalogue, or exact routes and header-link counts are inferred without approval;
 - Sell, Demonstrate, and Document are forced into visual symmetry, or one responsibility eliminates the other two;
 - AI-agent participation obscures Alex's intent, acceptance, risk, or commercial accountability;
+- Alex's current software is described as wholly manual work in which agents have only an occasional external role, contrary to the product-authorized normal-participant model;
+- agents are described as autonomously building, owning, controlling, or accepting Alex's software, or Alex is reduced to an observer;
+- wiredgeese.com is presented as evidence of human-directed agent development while its development documentation denies that model or transfers accountability away from Alex;
+- development-time agent participation is used to infer autonomous agents, credentials, state, or authority inside the production website runtime;
 - customer or product credentials, private data, deployment, MCP execution, Telegram operation, storage, payment, CRM, provisioning, monitoring, or support silently migrate into the website runtime;
 - source, deployment, context, ownership, modification, operational, or support rights are treated as equivalent grants;
 - customer-confidential material or unrelated Wired Geese context is reused or transferred without authority;

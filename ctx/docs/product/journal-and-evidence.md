@@ -98,6 +98,7 @@ Evidence must be attached to the claim it actually supports. More evidence volum
 | Evidence | Supports | Does not by itself support |
 | --- | --- | --- |
 | Working software or technical artifact | The behavior or artifact exists and can be inspected in a stated context. | External demand, operational maturity, or customer value. |
+| Documented current development of Alex's own software with AI-agent participation | The Wired Geese model is practiced; agents are normal working participants under Alex's control; TeqFW and ADSM are exercised across the stated software types. | Autonomous development, exclusive AI authorship, superior productivity or quality, external usability, market demand, or commercial viability. |
 | Alex's repeated use | Practical internal utility and continued operation for Alex's workflow. | Independent demand, general usability, or willingness to pay. |
 | Close or experimental user installation | Operation outside Alex's own environment under stated conditions. | Repeatable delivery, broad trust acceptance, or commercial validation. |
 | External user feedback | A real user's observation, problem, or perceived value. | Willingness to pay, retention, or general market fit. |
@@ -114,17 +115,26 @@ Evidence must be attached to the claim it actually supports. More evidence volum
 
 Evidence can support several claims when each inference is explicit and bounded. A public statement must not silently climb from `used once` to `reliable`, from `paid once` to `validated`, or from `recurring payment` to `scalable SaaS`.
 
+## Own-Software Development Evidence
+
+Alex's current own-software development is first-class internal evidence for the Wired Geese thesis. Applications, frameworks, libraries and packages, infrastructure components, experimental and product systems, and wiredgeese.com may collectively show that the same human-directed agent model is used across different software roles rather than only described as an aspiration.
+
+The recursive case of wiredgeese.com supports the bounded claim that the site is developed through the model it explains. Evidence of agent participation must still preserve Alex's intent, authorization, verification, acceptance, and accountability. It must not imply that every task is delegated or that autonomous agents operate the software.
+
+This evidence category applies to current development unless a system is explicitly documented otherwise. It does not retroactively classify historical software as agent-developed. Historical work requires its own contemporaneous evidence and otherwise supports only the narrower responsibility claims appropriate to it.
+
 ## Current Evidence Baseline
 
 The accepted current baseline is limited:
 
+- Alex applies human-directed development with AI agents across the current own software estate defined in `overview.md`, including wiredgeese.com itself, unless a particular system is explicitly documented otherwise.
 - Alex uses software developed along the Alarisa direction and PDE capabilities in his own digital life.
 - Selected capabilities have been installed for close or experimental users.
-- TeqFW, PDE, Alarisa-related work, TeqCMS where applicable, and this site's maintained cognitive context demonstrate practical use of the technical and methodological foundation.
+- Current TeqFW, PDE, Alarisa-related, TeqCMS, package, infrastructure, and site work provides working evidence that TeqFW, ADSM, and AI-agent participation are exercised in real development. wiredgeese.com is part of this evidence because its maintained context and software are developed through the model it describes.
 - The ADSM book is published through Leanpub in Russian and English; the browser book exists in print.
 - Older engineering work provides real evidence of long-term system responsibility. Santegra is a substantial Magento-based commerce system with integrations, MLM/distributor management, balances, points, and recurring bonus calculations; it was developed over roughly two years, has operated in production since 2018, and remains supported.
 
-These facts do not establish broad external demand for PDE, repeatable MCP integration delivery, mature support, production-grade security, successful external cognitive-context transfer, a large agentic-AI portfolio, recurring product value, or economic sustainability. New evidence must be collected through current external use and paid work.
+These facts establish current practice and bounded internal engineering evidence. They do not establish autonomous development, superior productivity or quality, broad external demand for PDE, repeatable MCP integration delivery, mature support, production-grade security, successful external cognitive-context transfer, external usability across the estate, recurring product value, or economic sustainability. Those claims require their own external, commercial, comparative, or longitudinal evidence.
 
 ## Commercial Evidence Ladder
 

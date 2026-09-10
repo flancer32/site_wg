@@ -54,10 +54,10 @@ Only the current decision text in this document is normative. A `Revised` or `Su
 
 ## Decision 7: Expose The Accountable Maker And Agent Participation
 
-- **Status:** retained and aligned with the Wired Geese identity.
-- **Decision:** represent Alex Gusev as the accountable human maker and AI agents as hired, authorized working participants. Keep buyer outcome and claim-specific evidence ahead of production mythology.
-- **Rejected alternatives:** imply a larger organization; hide human accountability; describe agents as employees, owners, or independent commercial authorities; make maker biography the product.
-- **Reasoning:** the working model is central to trust and proof, but it does not establish unlimited capacity, organizational redundancy, maturity, or commercial success.
+- **Status:** retained and clarified.
+- **Decision:** represent Alex Gusev as the accountable human maker and AI agents as hired, authorized working participants. Treat Alex's current own software estate, including wiredgeese.com, as working evidence of this development practice while keeping development-time agent participation separate from production-runtime capability.
+- **Rejected alternatives:** imply a larger organization; hide human accountability; describe agents as occasional external tools with no normal role in current development; describe them as employees, owners, autonomous developers, or independent commercial authorities; require agent execution for every task; infer autonomous agents inside the deployed site.
+- **Reasoning:** the model must be visible as a practice applied to real software rather than only a narrative. That internal evidence does not establish unlimited capacity, superior outcomes, external demand, commercial success, or a production-agent architecture.
 
 ## Decision 8: Use Flexible Semantic Destinations Instead Of Fixed Primary Labels
 

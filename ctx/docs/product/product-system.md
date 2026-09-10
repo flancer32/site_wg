@@ -100,6 +100,14 @@ Productized engineering is bounded customer work around a repeatable problem and
 
 Evidence is an inspectable fact or record supporting a specific claim. Evidence is neither a product nor a generic prestige category. `journal-and-evidence.md` defines its claim boundaries and public chronology.
 
+## Own Software Estate As Cross-Cutting Evidence
+
+Alex's own software estate is a cross-cutting evidence scope, not another object kind, product category, status, catalogue, or deterministic hierarchy. It may include applications, frameworks, libraries and packages, platform and infrastructure components, experimental systems, product systems, and wiredgeese.com itself.
+
+As established in `overview.md`, Alex applies the human-directed Wired Geese development model to this current software unless a particular system is explicitly documented otherwise. Each object retains its actual kind, role, status, and commercial eligibility while also being capable of evidencing that TeqFW and ADSM are exercised in real development performed by Alex with AI agents as working participants. Agent participation does not convert infrastructure into a product or working software into commercial validation.
+
+This current-practice rule is not a claim about all software Alex has ever developed. Historical systems remain agent-developed evidence only where contemporaneous facts support that description; otherwise they may still evidence the narrower responsibility claims defined in `journal-and-evidence.md`.
+
 ## PDE And Desks
 
 Personal Digital Embassy (`PDE`) provides controlled digital representation and an MCP entry point through which authorized AI agents can interact with a person's services and resources. Conceptually:

@@ -58,7 +58,7 @@ The intended relationship is:
 
 ## Evidence And Claim Boundary
 
-ADSM is exercised in current work on TeqFW, Alarisa, PDE, TeqCMS where applicable, and wiredgeese.com. This supports a claim of practical internal use.
+`overview.md` establishes the broader rule: Alex applies the human-directed Wired Geese model across his current own software estate unless a particular system is explicitly documented otherwise. ADSM and AI-agent participation are therefore not limited to selected flagship systems. This supports a claim of practical internal use and a maintained development practice; `journal-and-evidence.md` defines its evidentiary limits.
 
 It does not prove successful external transfer, faster receiving-team orientation, reduced handoff loss, lower key-person risk, safe autonomous maintenance, tool compatibility, or commercial demand. Those claims require external transfers and observation of receiving teams continuing the work.
 

@@ -34,6 +34,32 @@ TeqFW has its own primary site at `teqfw.com`. Wiredgeese.com may use technical 
 
 ADSM may lead to sellable books, reviews, workflow improvements, or development services. Those commercial objects remain distinct from the methodology itself.
 
+## Own Software As Working Proof
+
+Alex applies the Wired Geese development model to his own current software unless a particular system is explicitly documented otherwise. His own software estate includes more than applications: it also includes current frameworks, libraries and packages, platform and infrastructure components, experimental and product systems, and wiredgeese.com itself.
+
+The working relationship is:
+
+```text
+TeqFW + ADSM
+       +
+Alex as accountable human
+       +
+AI agents as working participants
+       |
+       v
+Alex's current applications, frameworks, libraries, infrastructure, and systems
+       |
+       v
+working evidence that the Wired Geese development model is practiced
+```
+
+AI agents are normal participants in this current development practice. Depending on the authorized work, they may help with analysis, inspection, design, implementation, refactoring, testing, verification, documentation, deployment preparation, or operation. This does not mean every task is performed by an agent, all code is AI-generated, or agents independently own or control development. Alex defines intent, authorizes work, controls consequential decisions, verifies and accepts results, and remains accountable.
+
+wiredgeese.com is recursive evidence: it explains the Wired Geese model while being developed through that same human-directed model. This establishes that the practice is real. It does not by itself establish superior productivity or quality, autonomous development, external usability, market demand, scalability, commercial viability, or economic sustainability.
+
+This principle governs Alex's current development practice. It must not be applied retroactively to historical software without evidence that the agent-supported process was used at the time. `journal-and-evidence.md` defines the claims this internal development evidence can and cannot support.
+
 ## Alarisa And Current Systems
 
 Alarisa is the most ambitious current proof system and a long-term product direction built with the TeqFW and ADSM foundation. It explores how a `Principal` and that Principal's Assistant interact in the digital world.

@@ -16,6 +16,16 @@ Product meaning is accepted in `ctx/docs/product/`, refined through architecture
 
 Generated output does not feed meaning upstream. Template, asset, and configuration sources remain implementation inputs; browser-facing output under `web/` remains derived. Publication must preserve semantic parity across maintained locales.
 
+## Development Participation Flow
+
+wiredgeese.com evolves through the product-authorized human-directed agent model:
+
+`Alex defines intent and authorizes work -> Alex and/or authorized AI agents perform development tasks -> results are verified -> Alex accepts consequential results -> approved sources are published`
+
+AI agents are normal development participants and may support analysis, inspection, design, implementation, refactoring, testing, verification, documentation, deployment preparation, and explicitly authorized operations. The flow does not require every task to be delegated, prevent Alex from writing or editing software, or transfer acceptance and accountability away from him.
+
+This is a development-process relationship, not a request-time or production-runtime contract. Agent participation in building and maintaining wiredgeese.com does not imply autonomous agents, agent credentials, agent state, or agent authority inside the deployed public site. Any such runtime capability would require its own upstream purpose, owner, state, trust, and integration decisions.
+
 ## Request-Time Flow
 
 An inbound request is normalized, resolved to a locale-aware authored route, enriched only with bounded site data where justified, and rendered through the shared shell. Unresolved HTML requests return the localized not-found surface.

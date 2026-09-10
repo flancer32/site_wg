@@ -20,6 +20,10 @@ The site is the public and commercial surface of the Wired Geese model: one acco
 
 All three are first-class responsibilities, but architecture does not impose equal visual space, navigation weight, or implementation effort. During the current funding stage, aligned selling has immediate operational priority. Demonstration and documentation remain directly discoverable because they compound evidence, trust, acquisition value, and future commercial strength.
 
+wiredgeese.com is also part of Alex's own software estate and is developed through the same human-directed work with AI agents that it describes. The site therefore contributes working evidence that the model is practiced, while `../product/overview.md` and `../product/journal-and-evidence.md` remain authoritative for the meaning and limits of that evidence.
+
+Development-time agent participation is distinct from production-runtime behavior. Agents may help Alex inspect, design, implement, test, verify, document, and prepare or perform explicitly authorized operations for the site; Alex retains intent, consequential decisions, acceptance, and accountability. This does not require every implementation action to be agent-generated or place autonomous agents inside the public website runtime.
+
 ## Architectural Style
 
 The stable publication flow is:
