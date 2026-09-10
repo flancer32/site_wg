@@ -2,98 +2,79 @@
 
 - Path: `ctx/docs/product/transferable-development.md`
 - Template Version: `20260909`
-- Changed: `20260909`
+- Changed: `20260910`
 
-## Purpose
+## Purpose And Strategic Weight
 
-Define the strategic capability to deliver software with enough structured development context for another accountable human-and-agent team to continue its evolution. This document defines product meaning and commercial boundaries, not a fixed package, price, license, legal term, or automated handoff process.
+Define the emerging capability to deliver software with enough structured development context for another accountable human-and-agent team to continue its evolution.
+
+This capability is relevant to ADSM and may eventually differentiate suitable engineering or product deliveries. It is not the immediate commercial priority, a mature consulting offer, a mandatory part of every delivery, or a proven solution to continuity risk.
 
 ## ADSM Transfer Principle
 
-Agent-Driven Software Management (`ADSM`) organizes human-directed, AI-agent-assisted development by making product intent, architecture, constraints, accepted decisions, development rules, and agent-readable guidance explicit in a maintained cognitive context.
+ADSM makes product intent, architecture, constraints, accepted decisions, development rules, authority, and verification guidance explicit in a maintained cognitive context.
 
-The cognitive context is part of the engineering asset because it preserves development knowledge that would otherwise remain only in the original maker's memory or need to be reconstructed from source code. It does not replace source code, configuration, deployment knowledge, tests, or accountable engineering judgment.
+A conventional handoff may include source code, configuration, deployment knowledge, tests, and ordinary documentation. An ADSM-oriented handoff may additionally include an agreed, bounded cognitive context intended to help another accountable human-and-agent team understand and continue the system.
 
-A conventional software handoff may include source code, configuration, deployment instructions, and ordinary documentation. An ADSM-oriented handoff may additionally preserve product intent, architecture, constraints, accepted decisions, development rules, and agent-readable guidance in the cognitive context.
+The context complements rather than replaces code, configuration, deployment knowledge, tests, competent engineering judgment, or human supervision.
 
-An ADSM-oriented transfer may therefore include, as applicable:
+## Possible Delivery Relationships
 
-- source code and required configuration;
-- deployment and operating knowledge;
-- product intent and accepted scope;
-- architecture, boundaries, and constraints;
-- accepted decisions and development rules;
-- relevant agent-readable guidance and verification expectations.
+These are capabilities, not approved package names or tiers:
 
-The transferred material supports continuity; it does not guarantee complete knowledge transfer, safe autonomous evolution, indefinite maintenance, or freedom from future engineering work.
+- **Product use** — the customer uses deployed or delivered software while Alex remains the primary development source.
+- **Customized delivery** — the customer receives agreed adaptation, deployment, and support while Alex continues development as contracted.
+- **Transfer for further evolution** — the customer receives agreed source, configuration, deployment knowledge, and a bounded portion of cognitive context for its own accountable team.
+- **Context-maintained system development** — a new or adapted system is developed with explicit intent, architecture, constraints, decisions, and agent-readable guidance from the beginning.
 
-## Commercial Delivery Models
+The appropriate relationship depends on buyer need, maturity, risk, rights, and evidence. It must not be inferred merely because ADSM was used internally.
 
-Alex may provide several delivery relationships under the Wired Geese brand. These are strategic capabilities rather than final package names or pricing tiers.
+## Separate Agreement Dimensions
 
-### Product Use
+These dimensions are independent and must be agreed separately:
 
-The customer receives working software, agreed configuration and deployment, and optional support. Alex remains the primary source of product development and evolution.
+- use of a running product;
+- deployment and administrative access;
+- source-code access;
+- configuration and secret handling;
+- customization and modification rights;
+- cognitive-context access;
+- the right to continue development;
+- ownership and licensing;
+- maintenance, updates, support, and warranties;
+- security review and third-party rights.
 
-### Customized Product
+Transfer must create an explicit customer-controlled boundary. It must not expose unrelated Wired Geese context, private customer material, credentials, internal business knowledge, or rights that were not granted.
 
-The customer receives the product plus agreed customization, deployment, and support. Alex continues development as contracted, preferably strengthening reusable product or infrastructure assets when the customer need justifies it.
+## Human Authority
 
-### Transfer For Further Evolution
+Alex remains accountable for accepted decisions within his agreed work. After transfer, the receiving organization must identify the humans accountable for intent, acceptance, risk, credentials, permissions, and consequential changes in its environment.
 
-The customer may receive source code, required configuration and deployment knowledge, the relevant cognitive context, architecture, constraints, development rules, and other agreed material intended to help the customer's own human-and-agent team continue development.
+AI agents may inspect context, propose work, implement authorized changes, and help verify results. They do not acquire purpose, permission, ownership, or accountability from access to source or context.
 
-This is materially different from source-code delivery alone. It transfers a bounded body of development knowledge without claiming that the receiving team acquires Alex's complete tacit knowledge or that agents can continue unaided.
+The intended relationship is:
 
-### Agent-Maintainable System Development
+`accountable maker -> explicit bounded context -> agreed transfer -> accountable receiving human-and-agent team -> continued evolution`
 
-Alex may build a new or customized application from the beginning so that its intent, architecture, constraints, decisions, and development guidance are maintained explicitly. The target is software designed for continued human-directed, AI-agent-assisted development in the customer's chosen environment.
+## Evidence And Claim Boundary
 
-This model does not make development automatic. The customer's accountable humans continue to own goals, acceptance, risk, access, and consequential decisions.
+ADSM is exercised in current work on TeqFW, Alarisa, PDE, TeqCMS where applicable, and wiredgeese.com. This supports a claim of practical internal use.
 
-## Transfer Boundary And Ownership
+It does not prove successful external transfer, faster receiving-team orientation, reduced handoff loss, lower key-person risk, safe autonomous maintenance, tool compatibility, or commercial demand. Those claims require external transfers and observation of receiving teams continuing the work.
 
-Cognitive-context access is a distinct commercial and intellectual-property decision. Delivery of a running product, deployment access, source-code access, customization rights, cognitive-context access, the right to continue development, and maintenance responsibility are separate dimensions and must not be implied from one another.
+Potential benefits such as preserved intent, clearer constraints, easier orientation, and less reconstruction from source alone remain hypotheses until that evidence exists.
 
-Not every installation or product includes its full internal context. The transferable subset may depend on product maturity, licensing, customer competence, security, third-party rights, commercial agreement, and the amount of product-specific context available.
+## Commercial Boundary
 
-A transfer should create an agreed customer-controlled copy or other explicit boundary. It must not silently expose unrelated Wired Geese context, credentials, private customer material, internal business knowledge, or rights that were not granted. Exact licensing, pricing, warranties, support duties, update flows, and post-transfer ownership remain open for future agreements and must not be invented in site or lower-level documentation.
+Transferable development may be offered when a specific customer values continued evolution by its own accountable team and the system is mature and separable enough for a safe boundary. It should not displace the nearer-term focus on bounded MCP integration and paid validation of current capabilities.
 
-## Human Authority And Continuity
+No standard price, license, context scope, tool guarantee, support model, or transfer procedure is established. These questions require agreement and evidence for the particular system.
 
-Before transfer, Alex remains accountable for accepted development and delivery decisions within the agreed work. After transfer, the receiving organization must identify the humans who own product intent, acceptance, risk, credentials, and consequential changes in its environment.
+## Open Questions
 
-AI agents may inspect context, propose work, implement authorized changes, and help verify results. They do not acquire commercial purpose, ownership, permission, or accountability merely by receiving the context.
-
-The intended continuity model is:
-
-`accountable maker -> explicit cognitive context -> agreed transfer -> accountable receiving human-and-agent team -> continued product evolution`
-
-This may reduce loss of intent and dependence on one original developer. It cannot eliminate tacit knowledge, onboarding cost, architectural drift, key-person risk, or the need for competent human supervision.
-
-## Differentiation Hypotheses
-
-For suitable customers, ADSM-oriented delivery may provide:
-
-- better preservation of product and architectural intent during handoff;
-- clearer constraints, accepted decisions, and verification expectations;
-- faster orientation for future human contributors and AI agents;
-- less dependence on reconstructing the system from source code alone;
-- the option to continue work in the customer's own AI-agent environment;
-- software designed to remain understandable and modifiable rather than opaque.
-
-These are strategic strengths and hypotheses, not universal guarantees. Their value depends on context quality, product maturity, receiving-team competence, security boundaries, tool compatibility, and continuing human stewardship.
-
-## Maker-Led Model And Evidence
-
-The transferable-development capability extends the maker-led model. One accountable maker can create a coherent system while maintaining explicit development knowledge that may later become portable to another accountable team.
-
-ADSM is being exercised through real work on TeqFW, Alarisa-directed exploration, PDE, and the wiredgeese.com cognitive context. This is evidence of practical internal use. It is not broad market validation of the transfer model; such validation requires successful external transfers, continued development by receiving teams, and commercial evidence.
-
-## Commercial Direction
-
-The preferred economic sequence can extend beyond setup and customization:
-
-`useful product -> paid setup or sale -> customization -> optional transferable development package -> continued product evolution`
-
-The transferable option is not mandatory for every product. Conventional maker-led delivery remains valid, and customer evidence should determine when context transfer or an agent-maintainable build provides enough value to justify its cost and risk.
+- Which customer problem makes cognitive-context transfer worth its cost and risk?
+- Which products or engineering deliveries are mature and separable enough to transfer?
+- What minimum context allows a receiving team to continue meaningfully?
+- Which source, deployment, licensing, support, security, and update rights belong in a repeatable model?
+- How should successful continuation be observed and evidenced?
+- Does the capability justify a bounded commercial offer after external validation?

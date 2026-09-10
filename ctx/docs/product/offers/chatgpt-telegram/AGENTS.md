@@ -2,27 +2,27 @@
 
 - Path: `ctx/docs/product/offers/chatgpt-telegram/AGENTS.md`
 - Template Version: `20260630`
-- Changed: `20260908`
+- Changed: `20260910`
 
 ## Purpose
 
-Defines the canonical product documentation branch for the first active commercial offer built on the Personal Digital Embassy Telegram capability.
+Defines the paid early-access and validation offer for a bounded Telegram outcome using PDE and Telegram Desk.
 
 ## Level Map
 
-- `AGENTS.md` — level definition for the ChatGPT and Telegram offer.
-- `overview.md` — canonical definition of buyer outcomes, scope, trust boundary, pricing strategy, and customization path.
+- `AGENTS.md` — local offer instructions and map.
+- `overview.md` — buyer outcome, early-access status, scope, trust boundary, validation purpose, and commercial next step.
 
 ## Level Boundary
 
 Defines:
 
-- The concrete buyer outcomes and bounded commercial meaning of the offer.
-- The deployment, credential, trust, and responsibility questions that must be agreed with a client.
-- The relationship between the entry setup, reusable PDE capability, and paid customization.
+- The buyer outcome and paid-validation meaning of the Telegram offer.
+- Scope, exclusions, deployment, credential, trust, and responsibility questions.
+- The relationship between the bounded setup, early PDE capability, and reusable learning.
 
 Does NOT define:
 
-- Final public copy, page layout, route structure, or form implementation.
-- PDE runtime internals, Desk implementation, or infrastructure procedures.
-- Legal, privacy, security, availability, or production-maturity guarantees.
+- Final public copy, page design, route, form, payment, or delivery workflow.
+- PDE or Telegram Desk architecture, runtime internals, or infrastructure procedures.
+- Legal, privacy, security, availability, support, scale, or production-maturity guarantees.

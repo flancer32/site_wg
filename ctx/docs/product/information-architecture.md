@@ -1,520 +1,275 @@
-# Commercial Information Architecture
+# Information Architecture
 
 - Path: `ctx/docs/product/information-architecture.md`
 - Template Version: `20260909`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
-Define the authoritative semantic information architecture for wiredgeese.com as a scalable product-selling site. This document separates commercial hierarchy, page responsibility, navigation, knowledge preservation, and future URL migration. It does not approve final public labels, translated copy, visual composition, forms, redirects, or routes.
+Define the semantic public hierarchy through which wiredgeese.com must sell, demonstrate, and document Alex Gusev's work.
 
-## Authority And Scope
+This document defines visitor jobs, page-family responsibilities, discovery relationships, multilingual parity, and preservation boundaries. It does not approve exact URLs, final labels, public copy, visual design, forms, redirects, or implementation.
 
-The site is the commercial surface for software created by Alex Gusev with AI and LLM agents as active development participants. Alex remains the accountable human maker.
+## Architectural Principle
 
-The architecture must support a growing family of current and future commercial products without making the first Telegram offer the permanent centre of the site. It must also preserve Alarisa as the long-term vision and development direction, with an eventual product or connected product-family ambition, expose technical depth when it helps trust, keep customization commercially visible, and retain valuable knowledge and historical material across English, Russian, and Spanish.
+The site is not primarily a product catalogue with supporting content. It is an integrated commercial and evidence system with three first-class responsibilities:
 
-The previous target headed by `Products`, `Custom Development`, `Alarisa`, `Technology`, and `About`, together with fixed `products.html`, `technology.html`, `/resources/`, Telegram-offer routes, footer groups, and a fixed Home sequence, is superseded. The later working label `Approach` is also superseded as the preferred English public direction by the accepted label `How it works`. Those choices remain design evidence, not target contracts.
+- **Sell** — expose what can be bought now, what can be tested through paid validation, and which bounded engineering work is available.
+- **Demonstrate** — show working systems, current development, Alarisa's ambitious proof role, and the foundation behind the work.
+- **Document** — expose recent Events and cumulative Journal threads that show what changed, succeeded, failed, reached users, earned payment, or was discontinued.
 
-## Problem With The Previous Target
+No responsibility is allowed to absorb the other two. Offers without evidence become assertions. Demonstration without commercial paths becomes a portfolio. Documentation without current work and commercial meaning becomes a blog or archive.
 
-The previous target was product-led in intent but not sufficiently product-led in structure:
+## Primary Discovery Semantics
 
-- only one header destination represented products, while four equal destinations represented services, vision, technology, and biography;
-- `Custom Development` competed with owned products and risked restoring the generic hire-a-developer model;
-- `Technology` exposed an internal grouping before a durable visitor job for that grouping had been established;
-- Alarisa, TeqFW, ADSM, PDE, maker identity, and customization were separated according to internal concepts rather than the questions a buyer needs answered;
-- exact new paths were approved before information architecture, interface design, search evidence, and migration analysis had established that those paths were appropriate;
-- a new `Resources` hub and fixed footer taxonomy were made mandatory without proving that another aggregation layer would improve discovery;
-- the Home sequence was optimized around one Telegram offer rather than a replaceable product collection;
-- the model would require revisiting header balance whenever products, services, or technical foundations changed.
+The persistent public shell must provide direct discovery of these meanings:
 
-The new architecture preserves useful reasoning from that work: product value comes first, Alarisa is vision rather than product, technical depth is optional, customization remains visible, maker identity supports trust, and preservation does not imply primary prominence.
+1. **Brand/Home** — Wired Geese and Alex's accountable-maker model.
+2. **Commercial entry points** — available books, paid early access, bounded productized engineering, and later products.
+3. **Current work and systems** — what exists, what is being developed, maturity, and major proof directions including Alarisa.
+4. **Journal/Events** — recent activity and cumulative evidence threads.
+5. **How the work is made** — Alex's accountability, AI-agent participation, TeqFW and ADSM foundations, trust boundaries, reuse, and continuation.
+6. **Commercial action** — a distinct path to discuss a relevant offer or need.
 
-## Buyer Journeys
+These are semantic destinations, not approved English labels or a required count of header links. Offers/current work/Journal must each be reachable without passing through the others. Journal must not be relegated only to a footer or archive menu.
 
-The target hierarchy is derived from these journeys before navigation labels or paths.
+About, books, durable articles, projects, and historical material remain intentionally discoverable. About may remain secondary if Alex's accountability is already clear across Home, offers, work, and the working-model destination. Alarisa must be prominent within current work and Home, but it need not occupy a permanent top-level header item when the current-work destination exposes it clearly.
 
-### Journey A: Direct Product Lead
+## Visitor Journeys
 
-`direct or referred entry -> relevant product detail -> outcome and fit -> maturity and boundaries -> product-specific commercial action`
+### Immediate Commercial Need
 
-A Telegram lead can complete this journey without learning Alarisa, PDE, TeqFW, ADSM, or Alex's biography first.
+`Home or acquisition entry -> commercial entry points -> bounded offer -> evidence and fit -> direct conversation`
 
-### Journey B: Future Product Lead
+A buyer must be able to reach the MCP Integration Pilot or Telegram paid validation without learning Alarisa or the full platform first.
 
-`Home or Products -> scan independently understandable products -> select relevant outcome -> evaluate detail -> act`
+### System Or Demonstration Interest
 
-Adding private AI memory, another PDE-based integration, or a non-PDE product adds a catalogue entry and detail destination. It does not add a permanent header item or require a new site hierarchy.
+`Home or current work -> system/status -> working evidence and related events -> relevant offer or Journal thread`
 
-### Journey C: Custom Need
+Working systems may be valuable proof even when they are not for sale.
 
-`existing product -> customization or related-integration path -> relevant How it works explanation when useful -> shared commercial handoff with product context`
+### Evidence And Current Activity
 
-Customization is visible where the need arises. It does not require generic development services to compete with Products in the header.
+`Home recent activity or persistent Journal entry -> event -> related thread/system/offer -> current status or next question`
 
-### Journey D: Technical Search Visitor
+The route must show both progress and negative evidence, not only announcements.
 
-`legacy article or project -> retain original utility -> contextual current relationship -> relevant product, How it works, Alarisa, or maker evidence -> optional commercial action`
+### Technical Trust
 
-The relationship must be editorially genuine. A technical article is not rewritten into a sales page merely because it can send traffic.
+`offer or system -> how the work is made -> TeqFW/ADSM/trust detail -> inspectable evidence -> return to decision`
 
-### Journey E: Vision Visitor
+Technical depth supports a claim and does not become a prerequisite for understanding the buyer outcome.
 
-`Alarisa -> current exploration and durable questions -> independently useful outcomes discovered along the path -> relevant Products`
+### Alarisa Interest
 
-Alarisa remains visible and strategically important without being described as for sale or as a deterministic product roadmap.
+`Home or current work -> Alarisa -> proof hypothesis -> current systems and Journal threads -> honest current status`
 
-### Journey F: Trust-Evaluating Buyer
+Alarisa has no purchase action representing it as market-ready. A genuine related capability may link to its own separate offer.
 
-`product -> concise trust evidence -> How it works and/or About -> deeper foundation or proof -> return to product or commercial handoff`
+### Historical Or Search Entry
 
-Technical depth, credential control, deployment boundaries, maker accountability, and optional context-enabled transfer are available without becoming prerequisites for product discovery.
+`legacy page -> retain original value and status -> genuine current relationship -> current work, Journal, foundation, About, or offer`
 
-## Candidate Models Considered
+Old content is not rewritten into a sales page solely to extract traffic.
 
-### Candidate 1: Products And Services As Parallel Businesses
-
-- **Primary header:** Home by brand; Products; Custom Solutions; Technology; Alarisa; About; commercial action.
-- **Home:** routes equally toward products and commissioned work.
-- **Products:** owns the catalogue and product details.
-- **Alarisa:** remains a primary vision destination.
-- **TeqFW, ADSM, and PDE:** share a Technology destination, with PDE also explained from relevant products.
-- **Custom development:** has a first-class header destination.
-- **About:** has a first-class header destination.
-- **Legacy knowledge:** remains secondary, reached through a footer knowledge group and contextual links; a hub is optional.
-- **Footer:** separates commercial, knowledge, and organization destinations.
-- **Product scalability:** products scale inside the catalogue, but the header continues to divide attention between products and services.
-- **Multilingual implications:** five content labels plus an action must be maintained idiomatically in every locale; the service/solution distinction can drift in translation.
-- **Strengths:** makes commissioned work and technical trust highly discoverable; preserves familiar destinations.
-- **Weaknesses:** gives consultancy, internal technology, vision, and biography four times the header weight of products.
-- **Risks:** can revert to selling Alex's availability; encourages a technology page that becomes a stack inventory; remains close to the superseded target.
-
-### Candidate 2: Minimal Product Catalogue
-
-- **Primary header:** Home by brand; Products; Alarisa; commercial action. About may appear only in the footer.
-- **Home:** introduces the product family, shows current products, and provides concise maker and vision proof.
-- **Products:** owns all current commercial discovery, details, maturity, and customization entry points.
-- **Alarisa:** remains a primary vision destination.
-- **TeqFW, ADSM, and PDE:** appear only contextually on product, Alarisa, About, and knowledge pages.
-- **Custom development:** appears only as product-specific continuation and at the shared handoff.
-- **About:** is secondary maker evidence.
-- **Legacy knowledge:** retains its own families in the footer and contextual paths; no new hub is required.
-- **Footer:** exposes Products, Alarisa, About, Contact, Project Archive, Library, Journal, and Books in a curated set.
-- **Product scalability:** excellent; the header remains unchanged as catalogue size grows.
-- **Multilingual implications:** the smallest shell vocabulary and lowest synchronization burden.
-- **Strengths:** strongest product focus and simplest navigation.
-- **Weaknesses:** no obvious destination for a buyer evaluating customization, technical foundations, development method, control model, or transferability across products.
-- **Risks:** product pages or About may become overloaded; differentiation may be hidden too deeply; visitors with a related but non-catalogued need may miss the commercial path.
-
-### Candidate 3: Products, How It Works, And Vision
-
-- **Primary header:** Home by brand; Products; How it works; Alarisa; commercial action.
-- **Home:** routes to the catalogue first, then to customization and trust, vision, proof, and action without explaining every internal concept.
-- **Products:** owns independently understandable commercial products, maturity, product details, and product-related actions.
-- **Alarisa:** remains a primary vision destination after Products and How it works.
-- **TeqFW, ADSM, and PDE:** are explained under How it works and contextually from relevant products; they are not equal catalogue items or header destinations.
-- **Custom development:** is a cross-product capability explained where products expose extension needs and under How it works; it is not a parallel top-level business.
-- **About:** is a secondary trust destination reached from maker proof, product pages, How it works, and the footer.
-- **Legacy knowledge:** Library, Journal, Books, and Project Archive retain their identities and routes; contextual links connect them to current meaning. No new generic hub is required initially.
-- **Footer:** uses a stable curated model for commercial discovery, deeper exploration, knowledge families, maker identity, and contact without listing every product or historical page.
-- **Product scalability:** strong; products grow inside one catalogue while shared differentiation stays in one supporting destination.
-- **Multilingual implications:** three stable content meanings plus an action drive all locales; Russian and Spanish need idiomatic, meaning-preserving labels for How it works.
-- **Strengths:** keeps products first, gives customization and technical trust one coherent supporting home, keeps Alarisa visible, and demotes biography without hiding accountability.
-- **Weaknesses:** How it works can become vague or overloaded if it is not organized around buyer questions.
-- **Risks:** the accepted `How it works` page can still become vague or overloaded unless it stays organized around buyer questions rather than internal taxonomy.
-
-## Comparison And Recommendation
-
-| Criterion | Products and services | Minimal catalogue | Products, How it works, and vision |
-| --- | --- | --- | --- |
-| Product-first clarity | Medium | High | High |
-| Customization discovery | High but competing | Low to medium | High and contextual |
-| Technical trust | High but internally framed | Low to medium | High and buyer-supporting |
-| Alarisa visibility | High | High | High |
-| Header durability | Medium | Very high | High |
-| Risk of portfolio/consultancy drift | High | Low | Low to medium |
-| Risk of overloaded product pages | Low | High | Low |
-| Multilingual maintenance | Highest | Lowest | Low |
-
-Candidate 3 is the selected target. It offers almost the simplicity of the minimal catalogue while preserving an explicit place for cross-product differentiation, control, customization, and transferability. It avoids making custom development a competing business category and avoids presenting internal technologies as products. `How it works` is the accepted English public label and semantic direction. Russian and Spanish labels remain copy decisions and must express the same role idiomatically rather than translate the English words mechanically.
-
-## Selected Primary Navigation Semantics
-
-The durable primary header contains:
-
-1. **Brand/Home** — Wired Geese, with subordinate Alex Gusev attribution where useful, links to the locale Home;
-2. **Products** — the current product catalogue and route to product details;
-3. **How it works** — how products are built, controlled, adapted, deployed, and made continuable, including relevant technical foundations and customization;
-4. **Alarisa** — the long-term vision and exploration direction, with an eventual product or connected product-family ambition;
-5. **Commercial action** — a visually distinct shared action to discuss a product or need;
-6. **Locale control** — access to semantically equivalent English, Russian, and Spanish variants.
-
-This list defines destination meanings and relative hierarchy, not exact paths or translated strings. `How it works` is the accepted English label. Human review must select idiomatic Russian and Spanish wording without changing the destination's responsibility.
-
-Home is not duplicated as a text item when the brand provides an evident Home link. Contact is an action and continuity destination, not an equal editorial category. About, Projects, Library, Journal, Books, individual technologies, individual products, and individual offers do not receive permanent primary-header positions.
-
-## Current Home Assessment
-
-The implemented Home remains a coherent but structurally legacy personal-engineer landing page. Its sequence answers `why hire Alex?` before `what can Alex present under Wired Geese now?`, and its compact composition places biography, proof, and process before any product. The visual language remains broadly reusable; the commercial hierarchy does not.
-
-The authoritative critique, current-section disposition, reusable product-preview model, and accepted desktop and mobile semantic wireframes are defined in `home-page-composition.md`.
-
-## Durable Page Families
+## Page Families
 
 ### Home
 
-- **Audience/job:** orient a first-time visitor and route product seekers, custom-need visitors, trust evaluators, and vision visitors.
-- **Responsibility:** state the class of outcomes Alex makes and presents under Wired Geese; show a replaceable collection of current products; expose customization; provide concise differentiation and maker accountability; route to Alarisa, proof, and action.
-- **Belongs:** product-family proposition, current-product preview, decision-relevant maturity where it changes expectations, customization path, short How it works proof, short maker proof, selected evidence, Alarisa path, shared action.
-- **Does not belong:** complete catalogue, full technical taxonomy, biography, long philosophy-first funnel, permanent Telegram-centred page architecture, or unfiltered archive.
-- **Inbound:** locale root, brand, general referrals, and broad search/direct visits.
-- **Outbound:** Products, current product details, How it works, Alarisa, selected proof or knowledge, About where trust needs depth, and the commercial handoff.
+- **Job:** explain Wired Geese quickly, expose a current commercial path, show active work, and prove that activity is documented.
+- **Contains:** accountable maker proposition; commercially available-now or provisional entry point; current systems/status; recent meaningful events; human-plus-agents explanation; TeqFW/ADSM foundation; Alarisa proof direction; selected claim-specific evidence; final relevant action.
+- **Excludes:** full catalogues, deep platform documentation, generic service menus, long biography, unfiltered archive, or claims of completed economic proof.
+- **Routes to:** commercial entry points, current work/system details, Journal/Event threads, working-model explanation, Alarisa, About and maker evidence, commercial handoff, and secondary knowledge.
 
-Home's semantic order is:
+`home-page-composition.md` defines attention order and responsive constraints.
 
-1. **Product-maker positioning** — identify Alex as the maker of software products for humans working with AI agents, presented under the Wired Geese brand; establish concrete usefulness and route to Products or the current commercial action.
-2. **Current products** — show a replaceable catalogue preview with identity, buyer result, a few practical capabilities, and the next relevant action; add maturity, fit, or proof only when each materially helps the buyer decide.
-3. **Need adaptation?** — explain that installation, configuration, customization, a new Desk or integration, and a related application may be discussed around an existing product or reusable capability.
-4. **How it works** — provide a concise buyer-oriented bridge to accountable making, controlled deployment and trust boundaries, agent-assisted production, extensibility, and possible transfer; keep TeqFW, ADSM, PDE, and cognitive-context depth on the destination page.
-5. **Alarisa direction** — introduce the long-term Principal–Assistant vision and eventual product ambition, and route to its own page without making it a product prerequisite.
-6. **Maker and evidence** — establish Alex's accountability and show a deliberately small set of proofs matched to buyer risk; route biography and archives deeper.
-7. **Commercial action** — offer one clear next step tied to a product or qualified need rather than generic engineering availability.
+### Commercial Entry Points
 
-`home-page-composition.md` defines how these responsibilities satisfy the desktop opening-attention contract, protect mobile attention, scale the product preview from one to many products, and hand visitors into deeper destinations. Its side-by-side hero and featured-product arrangement is a provisional interface hypothesis rather than a normative page geometry.
+- **Job:** answer what can generate a commercial relationship now and at what maturity.
+- **Contains:** available knowledge products; paid early-access/validation offers; provisional productized-engineering offers; later reusable products when eligible; clear status and next action.
+- **Excludes:** raw capabilities, unbounded freelance availability, speculative products, or subscription claims without recurring value.
+- **Routes to:** offer detail, relevant evidence/events, working system context when useful, and shared commercial handoff.
 
-Buyer value and current products must remain ahead of methodology, vision, biography, and archival proof. On narrow viewports, this priority also governs reading order: secondary evidence and conceptual depth cannot create a long pre-action scroll before products and a meaningful commercial next step.
+The collection must visually distinguish available now, paid validation, and provisional bounded engineering. It must not make books, pilots, engineering, and mature products look like equivalent packages.
 
-The current-products region must be a collection even while it contains one product, so adding products changes content rather than Home's architecture.
+### Offer Detail
 
-### Products Catalogue
+- **Job:** let a suitable buyer understand one bounded result and decide whether to start a conversation.
+- **Contains:** payer problem; expected result; present status; scope; exclusions; fit; evidence; authority/trust/deployment boundary where relevant; validation purpose; unresolved packaging; next step.
+- **Excludes:** unsupported fixed price, schedule, SLA, security, support, or scale claims; unrelated offers; deep technical internals.
+- **Routes to:** commercial handoff, supporting evidence/events, relevant system context, and working-model depth.
 
-- **Audience/job:** discover what can solve a need now or in an explicitly labelled early-access form.
-- **Responsibility:** list only independently understandable products; communicate payer problem, outcome, audience, maturity, evidence, and next action; connect related products without exposing an internal component graph.
-- **Belongs:** available and early-access products; selectively public in-development products only when there is a truthful visitor action; concise relationships and customization availability.
-- **Does not belong:** Alarisa, PDE, TeqFW packages, Desks, operations, cognitive-context components, unbounded ideas, or experiments without a payer problem and delivery boundary.
-- **Inbound:** header, Home, product-related knowledge, Alarisa when a real outcome emerged from it, and external acquisition.
-- **Outbound:** product details, relevant How it works explanation, related products, and the shared commercial handoff.
+Offer authority lives under `offers/`.
 
-### Product Detail
+### Current Work And Systems
 
-- **Audience/job:** decide whether one product is relevant and whether to try, buy, request installation, or discuss it.
-- **Responsibility:** explain the bounded problem and outcome, who it is for, current maturity, evidence, scope and exclusions, control or deployment boundaries, related capabilities only when useful, customization, and available commercial actions.
-- **Belongs:** one product identity, one or more current offers, honest status, evidence, fit, boundaries, related products, customization, and foundation explanations after buyer value.
-- **Does not belong:** a complete PDE or TeqFW component map, unrelated offers, promises about future ideas, or an Alarisa adoption requirement.
-- **Inbound:** Products, Home, direct campaigns, referrals, search, related articles, and product-specific external profiles.
-- **Outbound:** shared handoff preserving product/offer context, How it works, relevant evidence, related products, and Alarisa only when lineage helps understanding.
+- **Job:** demonstrate what Alex and the agents are building, using, operating, or testing.
+- **Contains:** Alarisa, PDE, Telegram Desk, Shared Files Desk, TeqCMS, and other real systems when evidence justifies inclusion; object kind; current status; actual capability; active question; relevant proof; offer relationship where one exists.
+- **Excludes:** catalogue eligibility inferred from existence, forced Alarisa hierarchy, predetermined roadmap, and unsupported product maturity.
+- **Routes to:** system detail, Alarisa, Journal threads/events, related offers, foundation explanation, and historical proof.
 
-The first detail family represents the bounded product that lets an AI system work with a buyer's Telegram resources. Its final product name and path remain open. `Connect your ChatGPT to your Telegram` is the current offer, not a permanent site category or necessarily the product name.
+The collection must support systems that are infrastructure, proof, product hypotheses, tools, or several of these without pretending they all share one commercial lifecycle.
 
-A detail page is a semantic contract, not a fixed long landing-page template. Its required core is the payer/user problem, resulting value, intended users, current capabilities, maturity, fit and non-fit, evidence proportionate to claims, customization possibility, and a truthful next action. Deployment, control, privacy, credential ownership, source or context transfer, underlying technology, limitations, and related products appear when they affect the buyer's decision. A simple product may satisfy the contract concisely; additional sections are justified by decision risk, not by template symmetry.
+### System Or Direction Detail
 
-### How It Works
+- **Job:** explain one real system or development direction, its role, maturity, evidence, and current questions.
+- **Contains:** accepted meaning; relationship to foundations; working capability; status; evidence; current development; relevant events; genuine commercial relationship.
+- **Excludes:** technical implementation beyond product meaning, automatic offer status, or claims derived only from strategic importance.
 
-- **Audience/job:** understand why the software is different, whether it can be adapted, how authority and credentials are handled, who is accountable, and whether continued development can be transferred.
-- **Responsibility:** answer cross-product buyer and trust questions that would otherwise be duplicated across product pages.
-- **Belongs:** maker-led accountability; AI agents as supervised production participants; customization and new-integration capability; controlled data, credential, hosting, and authority principles; TeqFW as technical platform; ADSM as development methodology and cognitive-context model; PDE as reusable technical system behind relevant products; optional source/context-enabled continuation with explicit limits.
-- **Does not belong:** generic stack inventory, generic staff augmentation, a catalogue of packages or Desks, autonomous-maintenance claims, product-specific scope better owned by a product detail, or the full Alarisa vision.
-- **Inbound:** header, Home, product trust sections, About, and technical knowledge.
-- **Outbound:** Products, relevant product details, Alarisa, About, inspectable technical evidence, and shared handoff for adaptation or a related integration.
+Alarisa uses this family as the major proof system and long-term product direction. Its detail must distinguish the Principal–Assistant ambition, the ongoing engineering/economic hypothesis, present systems, unproven parts, and related chronology. It must not present all current work as Alarisa modules.
 
-How it works is one semantic destination, not a requirement that all material live on one page forever. Its internal explanation should progress from buyer questions to foundations:
+### Journal And Events
 
-1. who is accountable for intent and accepted decisions;
-2. how AI agents participate under that accountability;
-3. how products are deployed and trust, data, credential, and authority boundaries are made explicit;
-4. how configuration, customization, new Desks or integrations, and related applications extend the useful result;
-5. how TeqFW provides the technical platform;
-6. how ADSM and cognitive context preserve product intent, architecture, constraints, decisions, and development guidance;
-7. how an agreed product and relevant context may be transferred to another accountable human-and-agent team, with rights, scope, support, and continuity limits explicit;
-8. how PDE serves as reusable infrastructure for relevant products and may justify a deeper technical destination later without becoming a catalogue category.
+- **Job:** expose current activity, cumulative proof, decisions, failures, external use, and commercial learning.
+- **Contains:** recent meaningful events; ongoing threads; links among intent, agent work, human acceptance, implementation, verification, deployment, use, payment, reuse, and status change; corrections and discontinuations.
+- **Excludes:** activity theatre, success-only narrative, claims unsupported by linked evidence, or durable conceptual articles misclassified solely because they are recent.
+- **Routes to:** related systems, offers, proof threads, durable articles, historical context, and current commercial or development status.
 
-Supporting detail pages may be added only when a distinct visitor job and sufficient content justify them. TeqFW, ADSM, and PDE must not become permanent header items merely because supporting detail grows.
+The Journal index must support both recency and cumulative understanding. A chronological list alone becomes insufficient when it prevents a visitor from following a proof thread. `journal-and-evidence.md` defines the semantic model.
 
-### Alarisa
+### How The Work Is Made
 
-- **Audience/job:** understand the longer-term Principal–Assistant vision behind some of the work, its eventual product or connected product-family ambition, and its current non-market-ready status.
-- **Responsibility:** define the Principal-centred model, guiding vision, possible eventual product direction, open questions, current exploration, and the relationship between exploration and independent outcomes.
-- **Belongs:** vision, eventual product ambition, development direction, current exploration, honest dead ends, PDE and products as discoveries where relevant, and links to concrete outcomes.
-- **Does not belong:** market-ready purchase claims, a deterministic roadmap, a product catalogue, a claim that every experiment will ship, or a requirement that product buyers adopt the vision.
-- **Inbound:** header, Home, How it works, relevant product lineage, and vision-oriented knowledge.
-- **Outbound:** current Products that genuinely emerged from the direction, How it works for production foundations, relevant knowledge, and no purchase action that represents Alarisa as currently available.
+- **Job:** explain the Wired Geese production model and reduce technical, authority, trust, adaptability, and continuity uncertainty.
+- **Contains:** Alex's accountability; authorized AI-agent participation; the Wired Geese/Wild Geese metaphor; TeqFW as technical North Star; ADSM as development-management method; product-level trust and authority principles; customer-funded reuse boundaries; optional transferable development.
+- **Excludes:** TeqFW documentation duplicated from `teqfw.com`; generic stack inventory; claims that agents are employees or autonomous owners; unlimited capacity; generic consulting catalogue.
+- **Routes to:** teqfw.com or inspectable TeqFW evidence where useful, ADSM materials and books, current systems, Journal proof, About, offers, and commercial handoff.
+
+This destination may later split into subordinate pages only when distinct visitor jobs and enough content justify it. Internal concepts do not each receive a permanent navigation item.
 
 ### About And Maker Trust
 
-- **Audience/job:** verify who is responsible and whether the maker's experience and operating model support trust.
-- **Responsibility:** give Alex's relevant identity, accountability, experience, direct-access model, and honest single-maker boundaries.
-- **Belongs:** relevant biography, durable responsibility evidence, operating location, direct working model, selected experience, and continuity limits.
-- **Does not belong:** the primary product proposition, a CV dump, a generic freelancer catalogue, or claims of large-team capacity.
-- **Inbound:** footer, maker proof on Home and product pages, How it works, and selected historical evidence.
-- **Outbound:** Products, How it works, selected proof, and commercial handoff.
+- **Job:** verify the accountable person, relevant experience, legal/business identity, and single-maker boundaries.
+- **Contains:** Alex's identity and responsibility; direct maker relationship; selected current and historical evidence; `F. Lancer`, SIA where legal context matters; capacity and continuity honesty.
+- **Excludes:** primary sales proposition, CV dump, false agency identity, or replacement for product-specific proof.
 
-About remains a durable secondary destination. Maker identity should also appear concisely on Home, product details, How it works, and footer attribution where it helps trust without forcing a biography-first journey.
+### Books And Durable Knowledge
+
+- **Job:** sell or expose knowledge products and preserve durable explanations.
+- **Contains:** both books with their actual availability; Library or durable articles; genuine links to ADSM, TeqFW, systems, offers, or Journal threads.
+- **Excludes:** treating publication as software-delivery evidence or using knowledge volume to imply market validation.
+
+Books must have a commercial path because they are available now, even if they remain secondary to the near-term productized-engineering hypothesis.
+
+### Projects, History, And Discontinued Work
+
+- **Job:** preserve search value, references, learning, and valid responsibility evidence.
+- **Contains:** older project pages, technical work, case studies, discontinued experiments, and explicit status.
+- **Excludes:** automatic primary navigation, current-offer presentation, or substitution for missing AI-era evidence.
 
 ### Commercial Handoff
 
-- **Audience/job:** discuss a particular product, installation, customization, related integration, or transfer need.
-- **Responsibility:** provide one understandable transition from public information to a human commercial conversation.
-- **Belongs:** direct contact choices, expectation setting, and conceptually preserved originating product/offer/need context.
-- **Does not belong:** Telegram credentials, customer secrets, product provisioning, checkout, a forced generic project brief, or assumptions about final form fields.
-- **Inbound:** shared header action, Home, product details, How it works, About, and selected legacy content.
-- **Outbound:** external human conversation and appropriate back paths.
+- **Job:** begin a human conversation about a particular offer, current capability, adaptation, or closely aligned need.
+- **Contains:** direct contact options, minimum expectation setting, and originating context where practical.
+- **Excludes:** credentials, secrets, mandatory generic project questionnaire, final contract terms, or assumed checkout/provisioning.
 
-Product-specific actions should normally use this shared handoff. The originating product, offer, or customization context may survive through link context, a query value, prefilled guidance, or user-visible instructions, but this IA does not select the mechanism.
-
-### Knowledge And Historical Families
-
-- **Audience/job:** read, learn, verify expertise, follow an existing reference, or understand historical work.
-- **Responsibility:** preserve the distinct identities and usefulness of Project Archive, Library, Journal, Books, technical articles, and historical or discontinued work.
-- **Belongs:** original knowledge organization, truthful historical status, search-bearing material, related-content links, and selected contextual paths toward current products or foundations.
-- **Does not belong:** automatic product status, primary-header competition, a flattened undifferentiated archive, or sales copy replacing original usefulness.
-- **Inbound:** search, external links, footer, contextual links, and existing URLs.
-- **Outbound:** related content, genuine current Product/How-it-works/Alarisa/About relationships, Project Archive or collection indexes, and optional commercial action where appropriate.
-
-## Product Catalogue And Maturity Model
-
-A catalogue entry requires all of these:
-
-1. a bounded payer problem;
-2. an independently understandable result;
-3. a delivery and support boundary Alex is prepared to discuss;
-4. evidence sufficient for the maturity claimed;
-5. a truthful next action.
-
-The minimum public maturity model is:
-
-- **Available** — presently offered with an explicit delivery or use path;
-- **Early access** — working and discussable for suitable buyers, with experimental boundaries explicit;
-- **In development** — shown only when a specific public learning or interest action justifies visibility; absence from the catalogue is the default;
-- **Discontinued** — removed from active catalogue competition and retained only where history, references, or learning justify it.
-
-These are public maturity meanings, not a bureaucratic workflow. A product page may use idiomatic, product-specific wording that preserves the meaning. Capabilities, technical systems, vision, methodology, and historical proof are object kinds, not additional maturity states.
-
-Current application of the model:
-
-- the Telegram-connected AI outcome qualifies as one early-access commercial product with a current setup offer; its permanent name remains open;
-- Shared Files is a working capability and product candidate, not yet an equal catalogue product;
-- future PDE Desks remain technical capabilities unless they independently pass the catalogue-entry gate;
-- a non-PDE product uses the same catalogue and maturity rules;
-- GitHub Flows and Agent Orchestration PoC are discontinued and do not compete with active products.
-
-## Product Evolution Rules
-
-- **one product -> several products:** add catalogue entries and details; do not change the header;
-- **early access -> available:** update evidence, boundaries, action, and maturity; do not move the product to a new hierarchy;
-- **active -> discontinued:** remove it from active catalogue competition, preserve or redirect its detail according to evidence, and retain truthful history where useful;
-- **capability -> product:** require the catalogue-entry gate before public promotion;
-- **product -> product family:** create a family grouping inside Products only when several independently understandable products make the grouping useful;
-- **new PDE Desk -> no public product:** keep it out of Products;
-- **new PDE Desk -> commercial product:** add it only after the payer problem, result, delivery boundary, evidence, and action are documented;
-- **new non-PDE product -> Products:** use the same model without creating a technology-specific branch;
-- **new Alarisa exploration -> no commercial page:** keep it in Alarisa or research context until it becomes independently useful to a public audience.
-
-## Role Of Shared Foundations
-
-### PDE
-
-PDE is a reusable technical system that can enable multiple products. It is not the public product hierarchy and is not listed beside commercial products merely because products share it.
-
-PDE is exposed:
-
-- contextually on product details after the buyer outcome, when it clarifies control, extensibility, or shared foundations;
-- under How it works as the reusable integration system behind relevant products;
-- from Alarisa as a significant technical discovery along the exploration path.
-
-A standalone PDE detail destination is not required now. It may be introduced later under the How it works area if multiple products, technical evaluators, or integration partners demonstrate a distinct need for it. It does not become a permanent header item.
-
-### TeqFW And ADSM
-
-TeqFW remains the technical platform for modular JavaScript and web applications. ADSM remains the methodology for human-controlled development with AI agents and structured cognitive context. Neither is automatically a catalogue product.
-
-Their principal public home is How it works, supported by contextual product explanations and inspectable knowledge or external destinations. Separate detail destinations are justified only by distinct visitor jobs, not by the internal importance of the concept.
-
-## Customization And Related Development
-
-Customization is a cross-product commercial capability, not a parallel top-level product category.
-
-It appears:
-
-- on the Products catalogue as a general possibility;
-- on each product detail with product-specific examples and boundaries;
-- under How it works as the explanation of how existing products, new Desks, related integrations, and suitable web applications can be extended or built;
-- in the commercial handoff as an originating need that remains attached to the conversation.
-
-This model supports installation, configuration, new integrations, related applications, continued support, conventional delivery, and optional source/context transfer without returning the whole site to `hire Alex as a developer`. The default path is `Product or capability -> relevant adaptation possibilities -> How it works when trust or method needs depth -> shared commercial handoff`. A visitor with a valuable custom need may enter through How it works or the shared handoff and be qualified against reusable product capabilities. A dedicated customization page is not currently required; it becomes justified only when a stable, independently navigable buyer job cannot be served by these paths. A future standardized customization product may enter Products only if it develops a bounded payer problem and repeatable result of its own.
-
-## Secondary Navigation And Footer Model
-
-The selected model does not introduce a mandatory `Resources` or generic archive hub. The existing knowledge families already have distinct visitor and search meanings, and the current number of stable collections is small enough for curated footer access.
-
-The footer has three semantic groups:
-
-- **Discover** — Products, How it works, Alarisa;
-- **Knowledge** — Project Archive, Library, Journal, Books;
-- **Wired Geese** — About, Contact/commercial handoff, maker attribution, and any approved legal or external identity destinations.
-
-These group names are semantic placeholders, not approved translations. The footer links to collection-level destinations, not every product, article, book, or historical page. A current product may be featured elsewhere, but product growth must not expand the footer into a catalogue duplicate.
-
-A Knowledge or Resources hub may be added later only if content inventory, navigation testing, or search behavior demonstrates a real cross-collection discovery job. If introduced, it is a secondary index over retained destinations, not a required new subtree and not a primary-header item.
-
-Contextual discovery is equally important:
-
-- product pages link to evidence and technical material that directly supports their claims;
-- Alarisa links to independent products genuinely discovered along the direction;
-- How it works links to TeqFW, ADSM, PDE, transferable-development, and other inspectable material where useful;
-- About links to selected responsibility evidence;
-- retained articles and historical pages link to a current product, How it works, Alarisa, or About only when the relationship is genuine;
-- discontinued pages expose status and a relevant current alternative when one exists.
-
-## Multilingual Model
-
-One semantic IA governs `en`, `ru`, and `es`. Product and navigation decisions are made once and projected across all maintained locales.
-
-Requirements:
-
-- Home, Products, every promoted product detail, How it works, Alarisa, About, the commercial handoff, and collection-level knowledge destinations have semantic locale parity;
-- navigation keys represent destination meaning such as `nav.products`, `nav.how_it_works`, `nav.vision`, and `action.discuss`, not English display strings;
-- final labels and actions are idiomatic in each language and may differ literally while preserving hierarchy and intent;
-- canonical, alternate, `hreflang`, locale switching, and `x-default` behavior remain supported for equivalent destinations;
-- a new active product does not launch as a permanent English-only structural branch;
-- a missing translation may affect release timing or receive an explicit temporary policy, but it must not silently create a different IA;
-- legacy localized URLs remain valid or receive deliberate locale-preserving redirects after migration review.
-
-Locale parity concerns semantic public destinations, not word-for-word copy identity. The IA does not write final translations.
-
-## Evidence Model
-
-Evidence exists to reduce a buyer's uncertainty about a product, its delivery, and the maker behind it. It is selected according to the claim and decision being supported rather than exposed as three equal portfolio buckets.
-
-Evidence priority is:
-
-1. the working product and inspectable current behavior;
-2. Alex's own sustained use and explicitly bounded trusted-user use;
-3. real deployments and delivery outcomes, without converting them into broader validation claims;
-4. inspectable source, packages, architecture, or operational boundaries where relevant;
-5. Alex's long-term responsibility for systems, including selected historical work such as Santegra;
-6. TeqFW and ADSM artifacts that support claims about platform and method;
-7. technical writing, books, and historical experiments that demonstrate depth or lineage.
-
-Home uses only a compact, curated proof set. Products and Product Detail attach evidence directly to the claims it supports. How it works and About provide deeper technical and maker evidence. Project Archive, Library, Journal, Books, and historical pages preserve the broader corpus without competing with product discovery. Dogfooding and trusted-user installations must not be relabelled as independent commercial validation.
-
-## Target Semantic Sitemap
-
-The sitemap below defines page roles and hierarchy for each maintained locale. It does not select URL syntax.
+## Semantic Sitemap
 
 ```text
-Wired Geese [required shared SSR surface]
-├── Home [required; reached through brand]
-│   ├── current Products preview [collection, not a Telegram-specific branch]
-│   ├── adaptation path
-│   ├── How it works preview
-│   ├── Alarisa preview
-│   ├── selected maker/product evidence
+Wired Geese
+├── Home
+│   ├── current commercial entry
+│   ├── current work
+│   ├── recent Journal/Events
+│   ├── working-model explanation
+│   ├── Alarisa proof direction
 │   └── commercial handoff
-├── Products [required primary destination]
-│   ├── active Product Detail [required for each promoted product]
-│   │   └── offer detail [optional/later when one page cannot serve the buyer job]
-│   ├── product-family grouping [optional/later when catalogue scale warrants]
-│   └── Shared Files / memory [emerging capability or candidate; no product page now]
-├── How it works [required primary destination]
-│   ├── accountable maker and agent-assisted production
-│   ├── deployment, control, and trust boundaries
-│   ├── customization and related development
-│   ├── TeqFW platform
-│   ├── ADSM and cognitive context
-│   ├── transferable development
-│   └── PDE technical detail [optional/later; contextual infrastructure, not catalogue]
-├── Alarisa [required primary destination; vision and exploration]
-│   ├── Principal–Assistant vision, eventual product ambition, and current questions
-│   ├── experiments, learning, and dead ends
-│   └── genuine links to independently useful current products
-├── Commercial handoff [required shared action/destination]
-├── About / maker trust [required secondary destination]
-└── Secondary knowledge and history
-    ├── Project Archive and project details [legacy-preserved]
-    ├── Library and durable articles [legacy-preserved]
-    ├── Journal and dated posts [legacy-preserved]
-    ├── Books and book details [legacy-preserved]
-    ├── technical and case-study pages [legacy-preserved]
-    └── discontinued campaigns/experiments [legacy-preserved, redirect candidate, or
-        reviewed retirement according to inbound value]
+├── Commercial entry points
+│   ├── available books
+│   ├── paid early access / validation
+│   │   └── Connect ChatGPT to Telegram
+│   ├── productized engineering
+│   │   └── MCP Integration Pilot [provisional]
+│   └── future eligible products
+├── Current work and systems
+│   ├── Alarisa [ongoing proof / product direction]
+│   ├── PDE [working early system]
+│   ├── Telegram Desk [working early capability]
+│   ├── Shared Files Desk [working early capability]
+│   ├── TeqCMS [independent working system]
+│   └── other evidenced work
+├── Journal / Events
+│   ├── recent events
+│   ├── system, offer, and hypothesis threads
+│   └── corrections, failures, and discontinuations
+├── How the work is made
+│   ├── accountable maker + hired AI agents
+│   ├── TeqFW foundation
+│   ├── ADSM foundation
+│   ├── trust, authority, and reuse boundaries
+│   └── transferable development [emerging]
+├── About / maker trust
+├── Books and durable knowledge
+├── Projects / history / discontinued work
+└── Commercial handoff
 ```
 
-The entire model repeats semantically for English, Russian, and Spanish. Locale variants are peers connected by canonical/alternate relationships; they are not parent and child branches. Required page families have locale parity. Legacy families retain their current localized coverage, and any intentional exception must be documented explicitly rather than emerge through drift.
+The sitemap describes semantic relationships, not exact routes or necessarily one page per node.
 
-## Current-Site Transition Classification
+## Home And Persistent-Shell Attention
 
-The following classification describes semantic treatment. It does not authorize route, redirect, template, or generated-page changes.
+The persistent shell must not imply that Products are the site's only primary object or that Journal is secondary archive content. Commercial entry points, current work, and Journal must have comparable discoverability, with the commercial action visibly distinct.
 
-| Existing area | Classification | Target role or migration question |
-| --- | --- | --- |
-| Locale Home | Repurpose | Product-family routing and conversion surface; retain locale-root role. |
-| Current English-only `products.html` source and redirect behavior | Repurpose or redirect candidate | Products catalogue is required with EN/RU/ES parity, but the current services content and final canonical path are not target authority. |
-| Work With Me | Repurpose or redirect candidate | Preserve useful content and inbound value; distribute product-specific customization into Products/Product Detail and cross-product meaning into How it works. A standalone destination is not required. |
-| Projects index | Preserve as archive; demote to secondary | Becomes Project Archive/evidence rather than the current-product catalogue. |
-| Alarisa project page | Repurpose | Becomes the vision, eventual-product-ambition, and exploration destination; retaining its existing URL is a strong migration candidate, not an IA mandate. |
-| About | Keep in a secondary trust role | Retains maker evidence but leaves primary navigation. |
-| Contact | Keep as commercial handoff | Existing route is a strong continuity candidate; exact action wording and context-transfer mechanism remain open. |
-| Library | Keep in current knowledge role; demote shell prominence where necessary | Preserve identity, indexed paths, and contextual current links. |
-| Journal/blog | Keep in current publication role; secondary discovery | Preserve dated content and distinguish announcements from durable Library material. |
-| Books | Keep in current knowledge role | Preserve book identity and existing localized detail paths. |
-| Historical project details | Preserve as archive where valuable | Show truthful status and contextual current relationships; do not imply active product status. |
-| Existing case studies and Custom GPT project pages | Preserve as legacy proof/resource | Retain their specific purpose and route value; connect them contextually to current products or How it works only where the relationship is genuine. |
-| Technical and methodology pages | Retain in role; demote to secondary | Preserve their educational/search function and use selected pages as evidence for TeqFW, ADSM, or How it works. |
-| GitHub Flows / Agent Orchestration PoC campaign | Retire from promotion | Preserve, archive, redirect, or remove only after inbound-value review; never present as current. |
-| Legacy aliases such as `contacts.html` or `posts.html` | Redirect candidates | Retain current normalization until a locale-aware route audit decides otherwise. |
-| Products catalogue | New target area required | Semantic destination required in all locales; path remains a migration decision. |
-| Product detail family | New target area required | First instance is the Telegram-connected AI product; naming and path remain open. |
-| How it works | New target area required | May repurpose Work With Me, split material from About, or use a new route after content and migration review; the English label is accepted while the exact path remains open. |
-| Generic Resources hub | Not currently required | Reconsider only if evidence demonstrates a cross-collection discovery need. |
+Home should expose recent activity early enough that a first-time visitor sees ongoing work rather than only static claims. Current work and commercial availability remain distinct: a working system can appear prominently without being purchasable, while a book can be purchasable without being a major software proof.
 
-## URL And Migration Boundary
+## Evidence Placement
 
-Information architecture does not select URL syntax. Existing `.html` paths, directory indexes, route aliases, and future clean-path alternatives are implementation and migration evidence, not semantic categories.
+Evidence follows the claim:
 
-Before implementation, a route inventory must establish for every EN/RU/ES destination:
+- offer pages show payment, delivery, fit, and outcome evidence relevant to that offer;
+- system pages show working behavior, use, development, and status evidence;
+- Journal shows chronology and changes in evidence;
+- How the work is made shows evidence of human accountability, agent participation, and foundation use;
+- About and history show long-term responsibility;
+- Home selects a small set spanning current work, recent activity, and commercial credibility.
 
-- current canonical path and alternate-locale relationships;
-- inbound links, search value, references, and internal links;
-- keep, repurpose, redirect, archive-access, or reviewed-retirement treatment;
-- the new canonical destination where one is needed;
-- reciprocal alternates and locale-preserving redirect behavior;
-- sitemap inclusion and exclusion.
+No generic evidence wall should make unlike proofs appear interchangeable.
 
-Likely continuity candidates include locale roots, About, Contact, Library, Journal, Books, Projects as archive, and the current Alarisa page. Candidate new or repurposed destinations include Products, Product Detail, and How it works. Exact paths such as `/products.html`, `/products/chatgpt-telegram.html`, `/how-it-works.html`, `/technology.html`, or `/resources/` have no target authority until migration design selects them.
+## Multilingual Semantic Parity
 
-No route may be removed merely because it leaves primary navigation. Leaving a route online without an intentional internal discovery path is also insufficient preservation.
+One semantic IA governs English, Russian, and Spanish.
+
+- Equivalent destinations must preserve identity, status, evidence limits, and commercial action across locales.
+- Final labels should be idiomatic rather than literal when needed.
+- A new active offer or first-class current-work destination must not become a permanent English-only branch without an explicit temporary policy.
+- Canonical, alternate, `hreflang`, locale switching, `x-default`, and locale-preserving redirects must be considered together during implementation.
+- Longer translations must not be shortened by deleting maturity, accountability, or trust meaning.
+
+## Preservation And Migration Boundary
+
+Existing routes and content are evidence for later migration, not authority over the new hierarchy. Before implementation, inventory each locale's canonical URLs, inbound links, indexed value, alternates, internal links, and current status.
+
+Each route must receive an intentional treatment: keep, repurpose, redirect, archive-access, or reviewed retirement. Leaving material online but undiscoverable is not sufficient preservation. Leaving discontinued material promoted is not honest preservation.
+
+Likely retained families include locale Homes, About, Contact, Library, Journal, Books, Projects/history, and useful technical pages. Existing product/services pages, Work With Me material, and Alarisa pages require semantic reassignment against the new model. GitHub Flows / Agent Orchestration PoC must remain discontinued.
+
+Exact `.html` paths, clean paths, aliases, redirect targets, and route ownership remain outside this product-level decision.
 
 ## Validation Rules
 
-Any later implementation must demonstrate that:
+A later public implementation must demonstrate that:
 
-- a visitor can identify current products from Home and reach Products or a relevant Product Detail without conceptual prerequisites;
-- the same header remains valid with one product, several PDE products, and a non-PDE product;
-- every catalogue item passes the product-entry gate and exposes honest maturity;
-- experimental capabilities and future ideas do not appear as mature products;
-- customization is visible from Products and Product Detail without becoming the site's dominant identity;
-- How it works distinguishes TeqFW, ADSM, PDE, AI agents, Alex's accountability, customization, control, and transferability without presenting them as equal products;
-- Alarisa remains the vision and direction with an eventual product/product-family ambition, never represented as market-ready, a current purchase object, or a deterministic roadmap;
-- About supports trust without becoming the entry proposition;
-- Project Archive, Library, Journal, Books, and valuable historical material remain intentionally reachable;
-- equivalent semantic destinations and product states exist across English, Russian, and Spanish;
-- canonical, alternate, locale switching, redirects, and sitemap behavior are verified together;
-- no product-specific route, public label, form, or component contract is inferred from this semantic document where it remains open.
+- a visitor can identify what Wired Geese means and who is accountable;
+- a visitor can reach a current commercial entry without learning the whole system;
+- MCP integration appears as provisional bounded engineering, not an established package;
+- Telegram appears as paid early access/validation, not the principal mature product;
+- current systems are discoverable with honest status even when not sellable;
+- Journal/Events are prominent and recent activity is visible from Home;
+- TeqFW and ADSM are explained as foundations without turning wiredgeese.com into their primary documentation site;
+- Alarisa is a major ongoing proof and direction, not the foundation or a market-ready product;
+- historical evidence remains accessible but cannot substitute for missing AI-era evidence;
+- all three site jobs remain represented across desktop, mobile, and maintained locales;
+- no exact route, final label, form, component, or workflow is inferred from this semantic document where it remains open.
 
-## Deliberately Open Decisions
+## Open Decisions
 
-- final idiomatic Russian and Spanish labels for How it works, Alarisa's navigation entry where needed, and the commercial action in each locale;
-- exact route syntax and whether existing Products, Work With Me, Alarisa, About, and Contact paths are retained or redirected;
-- the permanent public name of the Telegram-connected AI product;
-- whether one product detail can contain the current offer or whether offer details later need subordinate destinations;
-- whether How it works remains one page or becomes an index with justified TeqFW, ADSM, PDE, control, customization, or transfer detail pages;
-- whether a standalone customization destination remains useful after product and How it works content are designed;
-- whether evidence later justifies a Knowledge/Resources hub;
-- exact footer labels, current-product featuring, related-content rules, and visual hierarchy;
-- contact-channel order, context-passing mechanism, form fields, analytics, CRM, payment, provisioning, and deployment workflow;
-- route-by-route keep, repurpose, redirect, archive, or retirement decisions after EN/RU/ES inventory and search review.
+- Final English, Russian, and Spanish labels for commercial entry points, current work, Journal/Events, and how the work is made.
+- Exact persistent navigation composition at different viewport sizes while retaining equal discoverability of the three jobs.
+- Whether Alarisa uses an existing project route or a new/repurposed system-direction destination.
+- Whether PDE and individual Desks need separate public details or can remain within a current-work collection until demand grows.
+- How Journal threads, event types, corrections, and status changes are presented.
+- How books appear both as available commercial assets and durable knowledge without duplication.
+- Exact route migration, locale parity, redirects, sitemap, and search-preservation decisions.
+- Commercial handoff channels, context-passing mechanism, form fields, analytics, CRM, payment, and provisioning.
 
-## Implementation Boundary
-
-This document authorizes no website implementation. Source code, templates, tests, CSS, JavaScript, generated pages, redirects, runtime configuration, deployment configuration, and actual routes remain unchanged until the human reviews and separately authorizes implementation and migration work.
+This document authorizes no site, route, content, or implementation changes.

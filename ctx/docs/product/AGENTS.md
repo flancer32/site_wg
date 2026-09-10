@@ -2,61 +2,83 @@
 
 - Path: `ctx/docs/product/AGENTS.md`
 - Template Version: `20260605`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
-Defines the product documentation level for the wiredgeese.com site.
+Defines product meaning and strategy for `wiredgeese.com`.
 
-Documents at this level describe the site as a product: its meaning, purpose, scope, commercial roles of public surfaces, and durable product-level constraints.
+This branch is the authority for what Wired Geese represents, how the site must sell, demonstrate, and document the work, how current systems and offers are classified, and which claims their evidence can support.
 
 ## Level Map
 
-- `offers/` — offer-level documents that define concrete commercial entry offers under the site product hierarchy.
-- `AGENTS.md` — level definition for `ctx/docs/product/`.
-- `commercial-strategy.md` — revenue model, acquisition, price discovery, validation, and productization logic.
-- `home-page-composition.md` — accepted Home content architecture, desktop and mobile semantic wireframes, product-preview model, and section responsibilities.
-- `information-architecture.md` — approved semantic navigation hierarchy, public page roles, commercial journeys, secondary-content discovery model, and route-migration boundary.
-- `overview.md` — semantic entry point defining site purpose, commercial identity, public-surface roles, and preservation constraints.
-- `product-system.md` — distinctions and relationships among guiding vision, development methodology, technical platform, exploration, capabilities, products, offers, and proof.
-- `transferable-development.md` — strategic models and boundaries for delivering software with cognitive context for continued human-directed, AI-agent-assisted evolution.
+- `offers/` — bounded current and provisional commercial entry offers.
+- `AGENTS.md` — local product-documentation instructions and map.
+- `commercial-strategy.md` — immediate survival, aligned funding, commercial selection, validation, productization, and recurring-revenue direction.
+- `home-page-composition.md` — Home attention order, content responsibilities, responsive constraints, evidence placement, and semantic handoffs.
+- `information-architecture.md` — site-wide page families, navigation semantics, visitor journeys, and preservation boundaries across sell, demonstrate, and document responsibilities.
+- `journal-and-evidence.md` — Journal/Event strategy, cumulative proof model, claim-specific evidence hierarchy, and honesty rules.
+- `overview.md` — semantic entry point for site identity, the Wired Geese model, foundations, three site jobs, and economic proof hypothesis.
+- `product-system.md` — object kinds, relationships, current systems, maturity states, catalogue eligibility, and status authority.
+- `transferable-development.md` — bounded, emerging ADSM-enabled continuation and transfer capability.
+
+## Reading Order
+
+Read documents in this order unless the task is narrowly scoped:
+
+1. `overview.md` for the site identity and canonical strategic frame;
+2. `product-system.md` for object kinds, relationships, and maturity;
+3. `commercial-strategy.md` for revenue and productization logic;
+4. `journal-and-evidence.md` for evidence and public chronology rules;
+5. `information-architecture.md` and `home-page-composition.md` for public projection;
+6. `transferable-development.md` only when continuation or context transfer is relevant;
+7. the applicable document under `offers/` for a concrete commercial entry point.
+
+Facts, current status, strategic direction, hypotheses, and open questions must remain distinguishable. A lower document may refine but must not redefine an upstream object or status.
 
 ## Product Knowledge Model
 
-The product branch is intentionally compact:
-
-- `overview.md` defines the site product and its commercial communication model;
-- `commercial-strategy.md` defines how the site is expected to generate sustainable revenue;
-- `home-page-composition.md` defines Home content priority, desktop and mobile attention, reusable product previews, and the handoffs into deeper page families;
-- `information-architecture.md` defines the approved public hierarchy and maps product meaning to page and navigation roles;
-- `product-system.md` distinguishes Alarisa as a non-market-ready vision and development direction with an eventual product ambition from TeqFW, ADSM, working systems, capabilities, commercial products, offers, and historical proof;
-- `transferable-development.md` defines optional product-transfer and agent-maintainable-system capabilities without turning them into fixed packages or legal terms;
-- `offers/` defines bounded buyer-facing commercial presentations without treating every source capability or R&D subsystem as a product.
+- TeqFW is the technical North Star and application platform: it primarily answers how software is structured and built.
+- ADSM is the complementary development-management methodology: it primarily answers how a human controls software evolution with AI agents.
+- Wired Geese is Alex Gusev's brand and public model of one accountable human maker working with hired AI agents; it is neither software nor a legal organization.
+- Alarisa is the most ambitious current proof system and long-term product direction built on that foundation; it is not the foundation itself and its proof is ongoing.
+- PDE, Telegram Desk, Shared Files Desk, TeqCMS, books, offers, and historical work are different kinds of objects with different maturity and evidence.
+- The site must perform three first-class jobs together: `SELL`, `DEMONSTRATE`, and `DOCUMENT`.
+- Productized engineering is the primary near-term cash direction; paid early access validates immature systems; reusable products and recurring revenue are later evidence-dependent directions.
+- Journal/Events are first-class evidence infrastructure, not merely an archive or search-support surface.
 
 ## Terminology Rule
 
-Within `ctx/docs/product/`, the term `product` has two distinct meanings that must not be merged:
+Within this branch:
 
-- the **site product**: `wiredgeese.com` as the product of this repository and the main object defined at this documentation level;
-- the **promoted work**: Alex Gusev's vision, exploration, systems, capabilities, products, offers, methods, and proofs presented through the site, not all of which are sellable.
+- the **site product** is `wiredgeese.com`, the object governed by this repository;
+- a **working system** or **capability** may be useful without being a commercial product;
+- a **commercial product** solves a bounded payer problem and has an honest delivery boundary;
+- an **offer** is a concrete commercial entry point around a product, capability, or bounded engineering result;
+- a **status** expresses present maturity, not strategic importance or object kind.
 
-Rules for agents:
+Do not force TeqFW, ADSM, Wired Geese, Alarisa, PDE, Desks, books, engineering work, products, offers, and evidence into one linear taxonomy.
 
-- when describing repository-level product meaning, treat the site itself as the product;
-- when describing what the site sells, explicitly identify a bounded product or offer instead of treating all promoted work as sellable;
-- do not collapse the site product, Alarisa's vision and eventual-product direction, ADSM, TeqFW, technical systems or capabilities, commercial products, and offers into one object or hierarchy;
-- do not treat promoted work as if it were the product of this repository.
+## Editing Rules
+
+- Preserve explicit human accountability and distinguish Alex Gusev, Wired Geese, and `F. Lancer`, SIA.
+- Do not promote wiredgeese.com as the primary TeqFW site; detailed TeqFW promotion belongs primarily to `teqfw.com`.
+- Do not invent customers, revenue, outcomes, pricing, schedules, security, availability, support, scale, or recurring-value evidence.
+- Do not turn provisional commercial directions into fixed packages without evidence.
+- Preserve useful historical and search-bearing content without making it dominate buyer attention.
+- Keep technical implementation, final public copy, routes, UI, and runtime behavior outside this level.
+- Update this map whenever the direct contents of this directory change.
 
 ## Level Boundary
 
 Defines:
 
-- Product identity, scope, and explicit exclusions for the site as a commercial product surface.
-- Product-level communication priorities and the relationship between the site product and the promoted product line.
-- The product-side boundary for concrete offers as semantic commercial objects within the site product.
+- Site identity, product meaning, strategic roles, maturity, and commercial direction.
+- Public information and evidence responsibilities for selling, demonstrating, and documenting the work.
+- Product-side boundaries for systems, products, offers, proof, and emerging commercial hypotheses.
 
 Does NOT define:
 
-- Architectural structure, system decomposition, or integration boundaries.
-- Execution environment, deployment topology, or code-level implementation constraints.
-- Agent workflow behavior, repository operations, or methodological rules above this level.
+- Architecture, technical decomposition, runtime integration, or deployment topology.
+- Final marketing copy, visual design, routes, components, or application behavior.
+- Agent workflows, repository operations, or implementation plans outside product meaning.

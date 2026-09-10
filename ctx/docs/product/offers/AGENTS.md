@@ -2,39 +2,46 @@
 
 - Path: `ctx/docs/product/offers/AGENTS.md`
 - Template Version: `20260629`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
-Defines the offer-level refinement branch for bounded commercial offers presented through the site.
+Defines the offer-level refinement branch for bounded commercial entry points presented through wiredgeese.com.
 
-Documents at this level describe concrete sellable entry offers, their outcomes, scope, commercial boundary, trust model, price logic, and relationship to the capability or product that enables them.
-
-## Terminology Rule
-
-Within this branch, an `offer` is:
-
-- a commercial object sold or validated through the site product;
-- not the site product itself;
-- a concrete commercial presentation of a bounded product or capability already defined in `ctx/docs/product/product-system.md`.
-
-Agents must keep the distinction explicit: `wiredgeese.com` is the site product of the repository, while an offer is a promoted commercial object sold through that site.
+This branch may contain current offers, explicitly experimental paid offers, and carefully marked provisional offers. It must not create fictional products for structural symmetry.
 
 ## Level Map
 
-- `chatgpt-telegram/` — canonical offer branch for connecting an MCP-compatible AI system to a client's Telegram account through Personal Digital Embassy.
-- `AGENTS.md` — level definition for `ctx/docs/product/offers/`.
+- `chatgpt-telegram/` — paid early-access and validation offer for a bounded Telegram outcome using PDE and Telegram Desk.
+- `mcp-integration/` — provisional productized-engineering offer for controlled MCP access to an existing customer service or API.
+- `AGENTS.md` — local offer-documentation instructions and map.
+
+## Offer Rules
+
+An offer must define:
+
+- the payer problem and bounded result;
+- current status and evidence;
+- scope and exclusions;
+- relevant trust, authority, deployment, ownership, and support boundaries;
+- what the engagement is intended to validate when it is experimental;
+- a truthful commercial next step;
+- unresolved packaging decisions.
+
+An offer may use a working system or capability without changing its object kind or maturity. No offer may invent fixed price, delivery time, SLA, security guarantee, support capacity, customer evidence, or repeatability.
+
+Offer documents refine `../product-system.md` and `../commercial-strategy.md`. They do not redefine the site identity, foundation, system relationships, or evidence rules established above this level.
 
 ## Level Boundary
 
 Defines:
 
-- Concrete commercial presentations of products already defined in `ctx/docs/product/product-system.md`, including bounded setup, installation, or customization outcomes built from documented capabilities.
-- Offer scope, exclusions, trust boundaries, and expected buyer-facing outcome.
-- The boundary among an offer, the independently deliverable product or capability behind it, and any exploration or technical lineage.
+- Bounded commercial outcomes and the current status of specific entry offers.
+- Offer scope, exclusions, trust boundaries, validation questions, and next actions.
+- The relationship between paid delivery, reusable capability, and the product or engineering hypothesis being tested.
 
 Does NOT define:
 
-- Top-level site identity or product hierarchy outside the meaning established above this level.
-- Architecture, runtime integration, or implementation mechanics of how the site renders or logs events.
-- Sales-operation workflow details that belong to experiment, architecture, environment, or code documents.
+- Top-level site identity, strategy, or product maturity outside the applicable offer.
+- Architecture, runtime internals, deployment procedures, or implementation mechanics.
+- Final public copy, routes, forms, prices, contracts, or unsupported guarantees.

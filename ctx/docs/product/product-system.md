@@ -1,210 +1,225 @@
-# Vision, Development, And Product System
+# Product System
 
 - Path: `ctx/docs/product/product-system.md`
 - Template Version: `20260605`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
-Define the distinctions and relationships among Alarisa as a long-term vision and development direction with an eventual product ambition, ADSM as a development methodology, TeqFW as a technical platform, exploratory work, independently useful systems and capabilities, commercial products and offers, and historical proof.
+Define the different kinds of objects presented through Wired Geese, their relationships, their current status, and the conditions under which a capability becomes a commercial product or offer.
 
-## Strategic Direction
+This model is relational rather than a single hierarchy. TeqFW, ADSM, Wired Geese, Alarisa, PDE, Desks, TeqCMS, books, productized engineering, offers, and evidence are not comparable objects at successive levels of one product tree.
 
-Alex intentionally creates and develops modern web applications for an environment in which people, software services, and AI agents coexist and interact. The Internet provides their shared environment; the Web Platform provides the application platform; and JavaScript provides a common language across browser and server applications. This supports reuse of code and concepts, modular distributed applications, and software increasingly developed and maintained by humans together with AI agents.
-
-JavaScript is an enabling technological choice, not the product being sold and not a reason to present Alex as a generic JavaScript developer. The long-term direction combines software architecture, human-agent development methods, and applications that connect AI systems to useful resources under explicit human control.
-
-The complementary roles are:
-
-- `Alarisa` is the long-term vision Alex is working toward: how a Principal and that Principal's Assistant interact in the digital world; it may ultimately unify a product or connected product family;
-- `TeqFW` provides a technical application platform and addresses how modular JavaScript and web software is structured;
-- `ADSM` provides a human-directed development methodology and addresses how software intent and evolution are organized and controlled;
-- `PDE` is an independently useful technical system that emerged from development guided by Alarisa;
-- commercial products and offers solve bounded present needs and have lifecycles distinct from the vision that motivated their discovery.
-
-The exploration relationship is:
+## Canonical Relationship Model
 
 ```text
-Alarisa vision and direction
-          |
-          v
-exploration and experiments
-          |
-          +-- useful capability --> independent product --> commercial offer
-          +-- reusable infrastructure
-          +-- failed or discontinued branch
-          +-- future question or idea
+Alex Gusev: accountable human maker
+  |
+  +-- Wired Geese: brand and public model
+  |
+  +-- working foundation
+  |     +-- TeqFW: technical North Star and application platform
+  |     +-- ADSM: development-management methodology
+  |
+  +-- systems and development directions built with that foundation
+  |     +-- Alarisa: ambitious ongoing proof system and long-term product direction
+  |     |     +-- PDE: working early system for controlled digital representation
+  |     |           +-- Telegram Desk: working early capability
+  |     |           +-- Shared Files Desk: working early capability
+  |     |           +-- future Desks or integrations, if developed
+  |     +-- TeqCMS and other systems: independent roles; no forced Alarisa lineage
+  |
+  +-- commercial objects
+  |     +-- sellable knowledge products
+  |     +-- paid early access and validation
+  |     +-- productized engineering
+  |     +-- later reusable products when evidence supports them
+  |
+  +-- evidence stream
+        +-- working artifacts and use
+        +-- external and commercial evidence
+        +-- Journal/Events chronology
+        +-- historical responsibility
 ```
 
-Not every experiment must succeed or become a product. Products are hypotheses discovered and tested while moving in the Alarisa direction; Alarisa is not a deterministic roadmap or a container that makes every result one of its product modules.
+The diagram explains relationships, not ownership, legal structure, technical architecture, or a deterministic roadmap.
 
-## Maker And Production Responsibility
+## Object Kinds
 
-Alex Gusev is the single accountable human maker who selects product direction and accepts engineering decisions. AI and LLM agents are active production participants, using TeqFW where applicable and working under ADSM governance, but their ability to propose, inspect, or implement work does not transfer accountability away from Alex.
+### Accountable Maker
 
-Wired Geese is Alex's site and trade brand, and expresses his separate vision of developer–agent interaction while creating applications. It is not the software being created, a product, a platform, a company, or a substitute for Alex's identity. This model must be represented honestly: the brand must not pretend to be a larger company, describe agents as employees, claim that agents eliminate key-person risk, or imply unlimited delivery and support capacity. For suitable buyers, the same model may provide direct creator access, coherent ownership, rapid feedback, and deep customization of original technology.
+Alex Gusev is the human who sets intent, authorizes work, accepts consequential results, and remains accountable. AI agents participate in work but do not acquire this role.
 
-## Core Distinctions
+### Brand And Public Model
 
-- `Alarisa` is Alex's long-term vision, development direction, and practical exploration path for interaction between a Principal and that Principal's Assistant in the digital world. It may ultimately become a product or connected product family, but is not yet a market-ready commercial product, a commercial product category, or a conventional software project.
-- `TeqFW` is a technical application platform and architectural approach used to structure modular JavaScript and web applications.
-- `ADSM` is a methodology for organizing and controlling human-directed, AI-agent-assisted software development and preserving its cognitive context.
-- An `experiment` tests a question along the Alarisa path. It may produce a capability, reusable infrastructure, an independent product, a future idea, or a valid dead end.
-- A `technical system` such as PDE may emerge from Alarisa-guided development and remain useful both to further exploration and to independent deployments or products.
-- A `capability` is a useful technical ability created through exploration or product work, such as reading Telegram channels, publishing messages, or working with private files. A capability is not automatically a product.
-- A `product` is a bounded solution to a concrete payer need that can be independently offered, delivered, and supported. It may emerge from exploration guided by Alarisa without requiring a customer to adopt that vision.
-- An `offer` is a concrete commercial presentation of a product, including a bounded setup, installation, or customization outcome. It does not make a raw capability a product. `Connect your ChatGPT to your Telegram` is the current canonical example.
+Wired Geese is the brand and narrative for Alex working with hired AI agents. It is not a company, platform, team of employees, or software product. Its Wild Geese wordplay may be used deliberately while keeping legal and accountability boundaries explicit.
 
-Vision, exploration lineage, technical composition, product identity, and commercial presentation describe different relationships. A system may continue serving Alarisa-guided exploration while an independently deliverable product built from its capabilities develops its own commercial lifecycle.
+### Foundational Platform
 
-## Alarisa
+TeqFW is Alex's foundational application platform and technical North Star. It primarily determines how modular JavaScript and web software is structured and built. Its detailed technical promotion belongs primarily to `teqfw.com`; wiredgeese.com uses it as foundation and evidence.
 
-Alarisa is the long-term vision Alex is working toward: how a `Principal` and that Principal's Assistant interact in the digital world. `Principal` is the person whose interests, resources, context, and actions the Assistant serves. In Alarisa's conceptual domain, `Principal` is deliberate terminology and must not be casually replaced with `customer`, `owner`, or `user`. Those terms remain valid for a buyer or client in commercial documentation.
+### Development Methodology
 
-The intended Assistant role is an intelligent bridge between a Principal and the surrounding digital environment: the Principal's digital resources, external digital services, resources or services belonging to other people where authority permits, AI agents, and other people's agents. This vision does not claim that a current Alarisa runtime implements every bridge or interaction.
+ADSM organizes how an accountable human and AI agents understand, control, verify, and evolve software through maintained cognitive context. It is part of the working foundation. A book, review, or service derived from ADSM may be sellable without making the methodology itself an ordinary catalogue product.
 
-Today Alarisa is simultaneously a long-term vision, an active development direction, and an experimental environment for testing Principal–Assistant interaction. It may eventually become a product or connected product family unified by this vision. It has not reached commercial product maturity: it is not a market-ready offer, a sellable package waiting only for packaging, or a monolithic application whose parts are sold early. Experimental software used by Alex and trusted users provides instruments for this work, but no single runtime or repository exhausts Alarisa's identity.
+### Proof System And Product Direction
 
-Capabilities and reusable technology developed along this path may solve concrete customer needs independently. Some may become standalone commercial products; others may remain exploration infrastructure, be superseded, reveal a dead end, or leave only useful learning. Commercial failure or technical discontinuation of one branch does not invalidate the Alarisa direction.
+Alarisa is the most ambitious current attempt to demonstrate what the foundation can support. It explores interaction between a `Principal` and that Principal's Assistant in the digital world. It is an ongoing proof system and long-term product direction, not the foundation above TeqFW and ADSM, not proof already completed, and not a requirement that every related capability become part of a single market product.
 
-GitHub Flows and Agent Orchestration PoC are discontinued branches and must not return as active offers. Their discontinuation is a normal result of exploration rather than evidence that the broader vision failed.
+### Working System
 
-## Public Page Placement
+A working system performs useful behavior in a real development or operating context. It may be infrastructure, proof, an owned tool, a product candidate, or several of these. Working status alone does not establish external demand, mature operations, or catalogue eligibility.
 
-The product system is projected into the public page architecture according to visitor jobs rather than internal ownership:
+PDE and TeqCMS are working systems with different relationships. PDE belongs to the Alarisa direction. TeqCMS can remain useful software, infrastructure, proof, reusable technology, or a future product hypothesis without being forced into Alarisa.
 
-- Products and Product Detail contain only independently understandable commercial products and their offers;
-- How it works explains Alex's accountability, AI-agent participation, control, customization, TeqFW, ADSM, cognitive context, transferable development, and PDE where relevant;
-- Alarisa explains the vision, possible eventual product/product-family direction, exploration, learning, and genuine relationships to independent outcomes;
-- Home previews current products before deeper method, vision, maker history, or archive evidence;
-- About supplies secondary maker trust;
-- Project Archive, Library, Journal, Books, and historical pages preserve proof and knowledge.
+### Capability
 
-Placement does not change object kind. Mentioning PDE on a product page does not make PDE a catalogue product; linking a product from Alarisa does not make the product a module of Alarisa; explaining TeqFW or ADSM under How it works does not make either a commercial offer.
+A capability is a bounded technical ability, such as reading Telegram messages, publishing to channels, exposing selected files, or connecting an existing service through MCP. A capability may be real and reusable without being an independently understandable commercial product.
 
-Alarisa does not enumerate a fixed roadmap. PDE was discovered and developed through exploration rather than treated as a permanently predetermined module, and future products must emerge from validated needs and technical discoveries rather than from a claim that their final architecture is already known.
+### Desk
 
-Alarisa should therefore remain visible as the unifying strategic vision and R&D direction, with an eventual product/product-family ambition, while current buyers encounter independent products and offers in language appropriate to their needs.
+A Desk is a PDE service or resource integration exposed under explicit authority. Telegram Desk and Shared Files Desk are current early examples. A Desk is not automatically a product, offer, or mature service.
 
-## Tequila Framework
+### Commercial Product
 
-Tequila Framework (`TeqFW`) is an original JavaScript application platform and architectural approach. Its durable direction includes:
+A commercial product solves a bounded payer problem through an independently understandable useful result and has a delivery, use, and support boundary appropriate to its stated maturity. It may combine several capabilities or systems. Buyers do not need to adopt the internal development lineage.
 
-- JavaScript, Node.js, and the Web Platform;
-- isomorphic application code where appropriate;
-- dependency injection, inversion of control, and late binding;
-- modular composition with understandable and replaceable parts;
-- distributed application development and replaceable package-level contributions;
-- package-level architecture that humans and AI agents can inspect and modify.
+### Offer
 
-`@teqfw/di` is an important original technical asset and concrete evidence of this architectural work.
+An offer is a concrete commercial entry point: a bounded sale, pilot, setup, integration, review, or other agreed result. Offers state the buyer outcome, scope, exclusions, evidence, trust boundary, and next action. They may validate a product hypothesis or package productized engineering; they do not make an immature capability mature by naming it.
 
-TeqFW is part of Alex's software-production system, not merely another library in a portfolio. It is enabling technology and proof and should not become the primary commercial offer unless a concrete paid offer around it is later validated.
+### Sellable Knowledge Product
 
-## Agent-Driven Software Management
+A book or other bounded knowledge artifact can be available now even when it mainly supports authority, explanation, search acquisition, trust, or a bridge to higher-value work. Its commercial role differs from software and engineering delivery.
 
-Agent-Driven Software Management (`ADSM`) is Alex's methodology for controlled software creation and evolution with AI agents under human direction. It makes product intent, architecture, environment assumptions, implementation constraints, accepted decisions, development rules, authority, and review explicit in a structured cognitive context.
+### Productized Engineering
 
-TeqFW primarily supplies application structure and the technical platform; ADSM organizes how humans and agents understand, change, verify, and govern software. AI agents are development participants within that method, not independent owners of product purpose.
+Productized engineering is bounded customer work around a repeatable problem and relevant existing capability. It lies between arbitrary custom development and an independent software product. It may generate cash, market knowledge, current portfolio evidence, and reusable technology while its packaging is still being learned.
 
-ADSM's strategic commercial relevance extends beyond Alex's internal production process. A maintained cognitive context can accompany source code, configuration, deployment knowledge, and tests so another accountable human-and-agent team can continue development with more preserved intent and structure than source code alone provides.
+### Evidence
 
-This is support for continued human-directed, AI-agent-assisted evolution, not a promise of perfect continuity, autonomous maintenance, or elimination of developers. Transfer models and boundaries are defined in `transferable-development.md`.
+Evidence is an inspectable fact or record supporting a specific claim. Evidence is neither a product nor a generic prestige category. `journal-and-evidence.md` defines its claim boundaries and public chronology.
 
-## Personal Digital Embassy
+## PDE And Desks
 
-Personal Digital Embassy (`PDE`) is an experimental but working application and infrastructure system that emerged from development toward Alarisa. It provides controlled bridges through which MCP-compatible AI systems can interact with digital resources associated with a Principal.
-
-PDE has a legitimate dual role. It contributes to the broader Alarisa architecture and development direction, and it is sufficiently independent to be deployed on its own, solve customer problems, support standalone products and offers, receive customization, and evolve on a technical lifecycle distinct from the commercial lifecycles of products it enables.
-
-PDE is not merely an incomplete piece of Alarisa, a subsystem of a future commercial Alarisa package, or a piece of a finished product sold early. It is neither unrelated to Alarisa nor dependent on Alarisa becoming market-ready before it can have independent value. Its commercial value comes from independently useful capabilities discovered through development toward Alarisa.
-
-Conceptually:
+Personal Digital Embassy (`PDE`) provides controlled digital representation and an MCP entry point through which authorized AI agents can interact with a person's services and resources. Conceptually:
 
 ```text
-Alarisa vision and direction
+authorized AI agent
        |
-       v
-exploration and technical discovery
+      MCP
        |
-       +-- PDE technical system
-       |     +-- Telegram Desk
-       |     +-- Shared Files Desk
-       |     +-- future resource integrations
-       |
-       +-- other capabilities, products, ideas, or dead ends
+      PDE
+    /      \
+Telegram  Shared Files  ...future Desks
 ```
 
-An operational PDE interaction may look like:
+This is a product-level relationship, not a runtime or security design.
+
+PDE has several simultaneous roles:
+
+- a real working system;
+- a building block in the Alarisa direction;
+- an early product hypothesis and commercial experiment;
+- a source of reusable integration technology;
+- evidence of the Wired Geese development model.
+
+Telegram Desk and Shared Files Desk have the same early maturity constraint. They may be used in paid pilots or early-access arrangements, but no unsupported reliability, security, support, scale, market-validation, or mature-SaaS claim is permitted.
+
+The Telegram integration has a bounded paid-validation offer under `offers/chatgpt-telegram/`. Shared Files has no canonical standard offer yet. New Desks remain capabilities until an offer or product boundary is justified by a payer problem and evidence.
+
+## Other Working Systems
+
+TeqCMS and other systems may be represented according to the roles they actually serve:
+
+- useful software in their own right;
+- infrastructure for Alex's work;
+- practical proof of TeqFW and ADSM;
+- sources of reusable capability;
+- future commercial hypotheses.
+
+No document may imply that every system must become a product or fit into the Alarisa hierarchy. A separate system's technical or economic path may diverge, converge, or end according to evidence.
+
+## Status Model
+
+Object kind and current status are separate. These public status meanings cover the minimum distinctions required across products and commercial surfaces:
+
+| Status | Meaning | Does not imply |
+| --- | --- | --- |
+| **Available now** | A bounded product is currently obtainable through a stated purchase or delivery path. | High revenue, broad validation, or maturity beyond the stated boundary. |
+| **Paid early access / validation** | A working but immature capability, system, or offer may be delivered to suitable paying users to learn demand and boundaries. | Mature SaaS, standardized delivery, retention, or scale. |
+| **In active development** | Work is being developed and may be shown when there is a truthful demonstration, learning, or participation reason. | Availability for purchase or a promised roadmap. |
+| **Foundation / infrastructure** | The object enables other work and may remain valuable in that role. | An obligation to become a customer-facing product. |
+| **Proof / experimental system** | The object tests or demonstrates an engineering, product, or economic hypothesis. | Completion or successful validation of that hypothesis. |
+| **Historical / discontinued** | The object is no longer an active commercial or development priority but may retain evidentiary, educational, or search value. | Current availability, support, or endorsement as the present direction. |
+
+An object may need more than one non-conflicting status description, such as `foundation / infrastructure` and `in active development`. Status language must remain concise on public surfaces and must not be used as a fictional progression in which everything becomes a commercial product.
+
+## Current Status Authority
+
+| Object | Kind and role | Current status |
+| --- | --- | --- |
+| TeqFW | Foundational platform and technical North Star | Foundation / infrastructure; active technical direction; primary promotion at `teqfw.com`. |
+| ADSM | Development-management methodology | Foundation; exercised in current work; separately supports books and emerging service hypotheses. |
+| Wired Geese | Brand and public model | Active identity, not a product maturity object. |
+| Alarisa | Proof system and long-term product direction | In active development; proof / experimental; not market-ready and not proven complete. |
+| PDE | Working system in the Alarisa direction | Working but early; proof / infrastructure; eligible for paid validation, not mature SaaS. |
+| Telegram Desk | PDE capability | Working but early; used by the paid early-access Telegram offer. |
+| Shared Files Desk | PDE capability | Working but early; product hypothesis with no standard offer or validation claim. |
+| TeqCMS | Independent working system and infrastructure | Working; may support proof and reuse; no current canonical commercial offer in this branch. |
+| `Connect ChatGPT to Telegram` | Bounded offer using PDE and Telegram Desk | Paid early access / validation; not the assumed primary long-term cash engine. |
+| MCP integration work | Productized engineering direction | Primary provisional near-term cash direction; bounded offer hypothesis documented under `offers/mcp-integration/`. |
+| ADSM workflow/context work | Emerging commercial direction | Offer hypothesis only; buyer need and delivery boundary remain insufficiently validated for a canonical offer. |
+| Browser book | Sellable knowledge product | Available now in print; not assumed to be a major revenue engine. |
+| ADSM book | Sellable knowledge product | Available through Leanpub in Russian and English; not assumed to be a major revenue engine. |
+| GitHub Flows / Agent Orchestration PoC | Historical experiment | Discontinued; may remain as truthful history but not an active offer. |
+| Santegra and older engineering work | Historical responsibility evidence | Historical/current responsibility evidence where accurate; not proof of modern agentic-AI delivery. |
+
+The browser book is titled *Browser as an Operating System for Modern Application Development*. The ADSM book is *Agent-Driven Software Management* / *Управляемая разработка с AI-агентами*.
+
+## Catalogue And Offer Gates
+
+A capability or system enters a current commercial catalogue only when the branch can truthfully state:
+
+1. the payer problem;
+2. the independently understandable result;
+3. present maturity;
+4. a bounded delivery or use model;
+5. relevant trust, authority, and support boundaries;
+6. evidence sufficient for the claims made;
+7. a truthful next action.
+
+A provisional offer may be documented before all packaging decisions are known when it is clearly labelled as a hypothesis and records unresolved scope, price, timing, or support decisions. This is appropriate for the MCP Integration Pilot because productized integration is the primary near-term direction but final packaging is not yet validated.
+
+Paid early access has a different gate from a mature product. It must be working, useful to a defined type of buyer, deliverable under an explicit experimental boundary, and designed to learn. It need not pretend to be standardized or self-service.
+
+## Evolution Without A Forced Roadmap
+
+Valid paths include:
 
 ```text
-ChatGPT or another MCP-compatible agent
-                  |
-                 MCP
-                  |
-                 PDE
-               /     \
-          Telegram   Shared Files
-               ...   other Desks
+working capability -> paid validation -> repeated workflow -> standardized capability
+                   -> independent product -> recurring value -> recurring revenue
 ```
 
-PDE is the reusable technical system. A `Desk` is a capability or resource bridge within it. A buyer-facing product packages a bounded result built on one or more capabilities, and an offer presents that product commercially. These concepts must remain distinct.
+```text
+customer integration -> reusable component -> better future delivery or owned system
+```
 
-PDE should initially be explained through outcomes rather than requiring customers to understand its runtime, Desk architecture, protocol implementation, or dependencies.
+```text
+experiment -> evidence of failure -> learning or discontinuation
+```
 
-## Active Capabilities
+```text
+foundation or internal system -> remains foundation or internal system
+```
 
-### Telegram
+Subscription follows evidence of recurring customer value; it is not a required destination. Alarisa may become a product or product family, remain principally a proof system, or produce independent useful outcomes without forcing those outcomes into a monolith.
 
-The Telegram Desk is the basis of the first active commercial offer. It supports reading, summarizing, retrieving, preparing, sending, and publishing Telegram information within the permissions and operational boundaries of the connected account.
+## Honesty Boundary
 
-The Desk operations are capabilities. A configured integration that delivers an agreed Telegram outcome is the bounded customer product. `Connect your ChatGPT to your Telegram` is the offer used to present that product commercially. The three must not be treated as interchangeable names for one object.
+Working software proves that behavior can operate in the observed conditions. Alex's repeated use proves practical internal value. A close user's installation proves bounded external operation. A payment proves some willingness to pay for the agreed outcome. None alone proves retention, repeatable delivery, mature support, security, scalability, or sustainable SaaS economics.
 
-The canonical offer boundary is defined in `offers/chatgpt-telegram/overview.md`.
+Historical production systems support claims about engineering responsibility, architecture, deployment, integration, operations, and long-term maintenance. They do not establish a large modern AI-development portfolio. New AI-era evidence must be created through current owned systems and external paid work.
 
-### Shared Files
-
-Shared Files allows an AI system to read and write files in storage controlled through PDE. It is an existing experimental capability and a possible future private persistent workspace for AI systems.
-
-It is not currently an equal commercial offer. No customer validation, standardized scope, or price is claimed.
-
-## Other Alarisa-Directed Outcomes
-
-The World Map and general memory are current exploration areas whose work may produce independently useful capabilities or products, just as PDE work can.
-
-This possibility does not make Alarisa a product being commercialized in modules and does not imply that every exploration branch should become a product. Before either becomes an active commercial product or offer, product documentation must define the payer need, independent delivery and support boundary, maturity, evidence, and commercial next step.
-
-## AI-Agent Direction
-
-Alex already uses AI agents as software-development participants. The long-term hypothesis is that software platforms increasingly need to support environments in which agents create, inspect, and modify code; consume architectural and contextual documentation; and continue software work across different accountable human-and-agent teams.
-
-This direction may guide product and architecture choices, but speculative future behavior must not be presented as currently available. Access to code or cognitive context gives an agent capability, not permission or ownership. Agents act within human-defined goals and authority; they do not select commercial purpose or replace human responsibility for accepted outcomes.
-
-## Practical-Use Evidence
-
-Alex uses software developed along the Alarisa direction and PDE capabilities in his own digital life, and selected capabilities have also been installed for close or experimental users. TeqFW, PDE, Alarisa-directed exploration, and this site's maintained cognitive context also exercise ADSM in real development. This dogfooding demonstrates practical use in bounded settings.
-
-Practical use and commercial validation are separate evidence categories. Personal and trusted-user use does not establish payer demand, standardized delivery, mature support, production-grade security, or repeatable external deployment. External paying customers remain necessary to validate a commercial product or offer.
-
-## Historical Proof
-
-Historical systems demonstrate engineering responsibility; they do not define the technology being sold now.
-
-Santegra is a legitimate proof point: a substantial Magento-based commerce application with third-party integrations, custom MLM network and distributor management, internal balance and points accounting, and recurring bonus calculations. It was developed over roughly two years, has operated in production since 2018, and remains supported.
-
-Its valid role is evidence that Alex can build, operate, evolve, and remain responsible for a substantial business system. It is not a reason to position around PHP or Magento, and it is not proof of a large portfolio of repeatable independent product successes.
-
-## Product Maturity And Catalogue Eligibility
-
-Object kind and product maturity are separate. Vision, methodology, technical platform, technical system, Desk, capability, product, offer, research, and proof describe what something is or how it relates to other work. They must not become a long list of public product statuses.
-
-A commercial product enters the public catalogue only when it has a bounded payer problem, an independently understandable result, a delivery and support boundary Alex is prepared to discuss, evidence appropriate to its claim, and a truthful next action.
-
-The minimum public maturity meanings are:
-
-- `available` — presently offered with an explicit delivery or use path;
-- `early access` — working and discussable for suitable buyers, with experimental boundaries explicit;
-- `in development` — public only when a specific learning or interest action justifies visibility; otherwise omitted from the catalogue;
-- `discontinued` — removed from active catalogue competition and retained only where history, references, or learning justify it.
-
-The Telegram-connected AI product is currently early access. Shared Files remains a capability and product candidate, not an equal catalogue item. GitHub Flows and Agent Orchestration PoC are discontinued. Lower-level documentation must not promote any of these beyond its documented status.
+All public and lower-level documentation must apply the more detailed evidence rules in `journal-and-evidence.md`.
