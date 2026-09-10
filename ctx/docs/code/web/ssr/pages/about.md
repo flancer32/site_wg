@@ -2,31 +2,18 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/about.md`
 - Template Version: `20260909`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
-Define the retained About route as the maker-identity and trust page supporting the product-led commercial hierarchy.
+Define the retained About route as accountable-maker and practice evidence.
 
-## Route
+## Current State
 
-- `/{locale}/about.html`
+`/{locale}/about.html` is an existing localized continuity candidate. Its current placement outside the header does not forbid future direct discovery under the accepted IA.
 
 ## Target Role
 
-The page explains:
+About explains Alex's accountability, Wired Geese identity, F. Lancer's legal distinction where relevant, agents as working participants, long-lived engineering responsibility, the current human-directed development practice, and honest single-maker limits. It supports current work and evidence without framing them through a Products-first commercial hierarchy.
 
-- Alex Gusev's accountable ownership of product direction and accepted engineering decisions;
-- Wired Geese as Alex's site and trade brand, distinct from both Alex and the software products presented under it;
-- `F. Lancer`, SIA as the legal/business entity only where legal or administrative context makes that distinction necessary;
-- AI agents as active production participants rather than employees or replacements for responsibility;
-- relevant experience, long-term system ownership, and continuity behind current products;
-- the direct maker relationship and customization advantage for suitable buyers;
-- ADSM's ability to make part of the maker's development knowledge explicit and potentially transferable without claiming perfect continuity;
-- honest limits of single-maker capacity, support, redundancy, and continuity.
-
-Biography and personal context support trust but must not precede or replace the connection to Products, How it works, product-specific customization, proof, and the commercial action.
-
-## Implementation Boundary
-
-About is a durable secondary maker-trust destination and does not belong to primary navigation. The existing route is a strong continuity candidate, but its canonical target status remains subject to route migration review. Final copy, portrait treatment, chronology depth, external-profile selection, and visual composition require interface design.
+It may link meaningfully to commercial entries, working-model explanation, current work, Journal evidence, durable material, and human handoff. Biography must not displace current commercial access, current work, or active evidence. Final copy, route status, portrait treatment, and navigation weight remain interface and migration decisions.

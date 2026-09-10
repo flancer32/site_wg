@@ -2,30 +2,18 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/alarisa.md`
 - Template Version: `20260909`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
-Define the existing Alarisa route as the primary destination for its guiding Principal–Assistant vision and long-term R&D direction, including its eventual product or connected product-family ambition, without presenting Alarisa as market-ready, a conventional project, or a deterministic roadmap.
+Define the existing Alarisa route as a current-work proof and continuity candidate.
 
-## Route
+## Current State
 
-- `/{locale}/projects/alarisa.html`
+`/{locale}/projects/alarisa.html` is currently authored as a localized project detail. Its existence is a strong continuity input, not a requirement for a permanent top-level destination or final route classification.
 
 ## Target Role
 
-The page presents:
+Alarisa is the most ambitious current ongoing proof system and a long-term product direction exploring interaction between a Principal and that Principal's Assistant. It demonstrates what TeqFW and ADSM can support; it is not the foundation above them, the principal direction for every system, a completed proof, a market-ready product, or a deterministic roadmap.
 
-- Alarisa as Alex's guiding vision, principal long-term R&D direction, and open exploration path for interaction between a Principal and that Principal's Assistant in the digital world;
-- the deliberate `Principal` terminology and the eventual product or connected product-family ambition as central expressions of that vision;
-- active experiments and working systems used by Alex and selected experimental users without equating any one system with Alarisa or claiming commercial validation;
-- PDE and other independently useful systems, capabilities, or products as discoveries along the direction rather than pieces of a finished product sold early;
-- reusable learning, future ideas, and failed or discontinued branches as legitimate exploration outcomes;
-- the absence of a deterministic product roadmap or current purchase promise, despite the eventual product ambition;
-- current Products and How it works as related destinations where useful.
-
-## Implementation Boundary
-
-Alarisa belongs to primary navigation, but the existing route is a strong continuity candidate rather than an IA-mandated canonical path. The page must not contain a purchase CTA for Alarisa or imply that its product ambition is ready for packaging; its commercial links lead to independently available products, How it works, product-specific customization, or the shared contact action with status intact.
-
-Final public narrative, diagrams, proof selection, and visual composition require interface design.
+The page may expose honest status, open questions, related systems, relevant Journal threads, and independently useful outcomes where real. It has no false purchase CTA. Any commercial link leads only to an independently valid offer or direct human handoff with status intact.

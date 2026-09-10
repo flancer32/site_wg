@@ -2,29 +2,18 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/products.md`
 - Template Version: `20260909`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
-Define the primary commercial inventory page family, its catalogue and maturity boundaries, and its accepted localized route.
+Record the existing Products route and constrain any retained or repurposed commercial-entry surface.
 
-## Target Role
+## Current State
 
-The page:
+`/{locale}/products/` is currently authored in English, Russian, and Spanish. Its aliases normalize to that catalogue path. It presently presents ChatGPT + Telegram as an early-access product. This route is a canonical current implementation fact and a continuity candidate, not proof that a generic catalogue is the required target commercial inventory.
 
-- lists only products that pass the payer-problem, independently understandable result, delivery/support boundary, evidence, and truthful-action gate;
-- lets a visitor compare each product's problem, result, intended audience, maturity, learning path, and customization possibility without understanding internal platform terminology;
-- leads currently with the early-access Telegram-connected AI product and its offer detail without treating its working offer wording as a permanent product name;
-- distinguishes Available, Early access, selectively public In development, and Discontinued meanings without turning capabilities or object kinds into additional status labels;
-- exposes product-specific customization and related-integration paths;
-- may show PDE as enabling infrastructure after the buyer outcome;
-- must not list Alarisa as a current commercial catalogue product or present PDE, Shared Files, the World Map, general memory, or every Desk as equal purchasable products without independent commercial status;
-- gives each listed item an explicit status and next action proportionate to that status.
+## Target Relationship
 
-The catalogue remains structurally valid at one, two, or five products. It may introduce groupings only when several independently understandable products make them useful; it must not invent product families or expose internal R&D to make a one-product catalogue appear larger.
+A retained surface may help visitors discover current commercial entries, but it must accommodate different honest objects: purchasable knowledge products, paid validation, provisional productized engineering, and later reusable products. It must not force all of them into ordinary product semantics or claim that every capability, system, Desk, or Alarisa is purchasable.
 
-## Route And Legacy Boundary
-
-The canonical catalogue route is `/{locale}/products/` in English, Russian, and Spanish. Legacy Products aliases, including `/{locale}/products` and `/{locale}/products.html`, resolve to that same current catalogue meaning and canonical identity. Project Archive remains independently available at `/{locale}/projects.html`.
-
-Catalogue presentation, localized status labels, card composition, copy, and proof selection require later interface design.
+The upstream offer and status authorities determine eligibility, maturity, buyer outcome, boundary, evidence, and next action. Final route role, grouping, labels, card design, and whether this route becomes a broader commercial-entry surface remain migration decisions.

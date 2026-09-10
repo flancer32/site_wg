@@ -14,7 +14,7 @@ This branch isolates implementation-facing documentation for the site's web surf
 
 The current project uses a multilingual SSR site model built from authored templates under `tmpl/` and runtime adaptation under `src/`.
 
-The accepted commercial target is product-led, and its navigation meanings, page roles, and route-selection boundary are approved in the product information architecture. Exact target paths, final visual composition, interaction details, and public copy are not yet approved. Existing engineer-centric and GitHub-offer implementation is legacy drift rather than a source for new code contracts.
+The accepted target realizes the Architecture's `SELL + DEMONSTRATE + DOCUMENT` responsibilities. It must support direct commercial entry, current work, Journal evidence, working-model explanation, and human commercial handoff, while preserving durable/history discovery. Exact target paths, labels, final visual composition, interaction details, and public copy are not yet approved. The existing Products-first header, product routes, and Alarisa placement are observable migration inputs, not a source for new target contracts; the retired GitHub offer remains historical only.
 
 ## Current Scope
 

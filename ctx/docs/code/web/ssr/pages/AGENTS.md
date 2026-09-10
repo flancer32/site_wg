@@ -1,37 +1,35 @@
-# SSR Page Documents
+# SSR Page Documentation
 
 - Path: `ctx/docs/code/web/ssr/pages/AGENTS.md`
-- Template Version: `20260630`
-- Changed: `20260909`
+- Template Version: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
-Defines the page-level SSR implementation documentation branch.
-
-Documents at this level describe concrete SSR page families, current route boundaries, and approved implementation constraints derived from product meaning.
+Defines the code-facing page documents for existing SSR routes and target page-family responsibilities.
 
 ## Level Map
 
 - `AGENTS.md` — level definition for `ctx/docs/code/web/ssr/pages/`.
-- `about.md` — current About route and its target secondary maker-identity and trust role.
-- `alarisa.md` — current Alarisa route and its target role as the guiding vision and primary strategic R&D direction, with an eventual product or connected product-family ambition.
-- `contact.md` — current Contact route and its target shared commercial-handoff boundary.
-- `home.md` — locale-root route and its approved product-family routing semantics.
-- `how-it-works.md` — cross-product production, control, customization, and transfer page family at its approved localized route.
-- `product-detail.md` — flexible product-detail page family contract without product-specific copy or an approved route.
-- `products.md` — Products index page family at its approved localized catalogue route, with catalogue and maturity boundaries.
-- `work-with-me.md` — current route whose future repurpose or redirect treatment remains a migration decision.
+- `about.md` — retained About route and accountable-maker evidence role.
+- `alarisa.md` — existing Alarisa route as ongoing proof/direction and continuity candidate.
+- `contact.md` — shared direct-human commercial handoff and current query-context boundary.
+- `home.md` — locale-root Home responsibilities and migration boundary.
+- `how-it-works.md` — existing working-model route and semantic continuity boundary.
+- `product-detail.md` — existing commercial-detail route facts and flexible offer-detail constraints.
+- `products.md` — existing Products route and possible commercial-entry role.
+- `work-with-me.md` — retained aligned-engagement route and migration boundary.
 
 ## Level Boundary
 
 Defines:
 
-- Concrete SSR page documentation for specific page families.
-- The mapping between semantic product sources and SSR page structure.
-- Page-level implementation constraints relevant to templates, form representation, routing, and composition.
+- Implementation-facing responsibilities and observable route facts for documented SSR page families.
+- Current-state versus accepted-target distinctions needed for safe route and template migration.
+- Shared constraints for multilingual reachability, truthful status, and direct human handoff.
 
 Does NOT define:
 
-- Offer meaning, customer pain, or commercial positioning beyond what must be referenced from product documents.
-- Runtime handler internals already covered by higher SSR documents.
-- Generated output or localization policy beyond the page branch being documented.
+- Product identity, offer hierarchy, maturity, or visitor IA owned by higher context.
+- Final labels, paths, copy, layout, form behavior, or target template taxonomy.
+- New runtimes, persistent stores, payment, CRM, provisioning, analytics, or customer-system responsibilities.

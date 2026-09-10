@@ -6,43 +6,14 @@
 
 ## Purpose
 
-Define the current contact route and its target commercial boundary without prescribing a new form or page composition.
+Define the shared direct-human commercial handoff and current query-context boundary.
 
-## Route
+## Current State
 
-- `/{locale}/contact.html`
+`/{locale}/contact.html` is the established localized handoff. It currently supports render contexts `default`, `product`, and `chatgpt-telegram`; unknown values use `default` and never reflect into public copy. The optional `topic` query records inbound context rather than a page identity; variants retain the clean canonical URL and locale alternates. This is current implementation state, not permanent offer taxonomy.
 
 ## Target Role
 
-The contact page is a shared commercial next-step surface for:
+The handoff supports context from current offers and aligned needs without making Telegram the default commercial object. It may help start a conversation about MCP integration, paid validation, an owned capability, emerging ADSM work, or another qualified aligned need. The site does not perform automated qualification, payment, provisioning, or delivery.
 
-- a specific product or active offer, including the current Telegram offer;
-- PDE deployment, integration, or customization discussions;
-- product-specific cognitive-context transfer or an agent-maintainable system where the product and agreement make that suitable;
-- related specialized engineering where existing capabilities and reusable technology provide leverage;
-- other qualified conversations supported by the product context.
-
-It must not make GitHub Flows, Agent Orchestration PoC, generic consulting, or a legacy fixed price the current reason to write.
-
-Contact is a commercial action and route-continuity concern, not a primary content category. The header exposes it through a shared action whose final public wording remains open; product details, How it works, About, the footer, and contextual actions may also link to it.
-
-## Contact Boundary
-
-The current page is a direct human handoff surface: product context may affect explanatory copy, and approved direct contact channels and first-message guidance may be exposed. It implements no Contact form or server-side mail/form pipeline. A first conversation may identify the desired outcome, AI system, Telegram boundary, preferred deployment model, likely customization, and whether source or cognitive-context transfer is relevant.
-
-The website must not request Telegram credentials, session data, client-host secrets, broad administrative access, or internal customer cognitive context as ordinary contact fields.
-
-No final form fields, channel order, automation, payment step, or deployment workflow are authorized here.
-
-## Implementation Constraints
-
-- The page remains inside the shared locale shell.
-- Equivalent commercial meaning and trust boundaries apply across locales.
-- Supporting engineering and business details may remain accessible without dominating the primary action.
-- The current page implements no Contact form or server-side mail/form pipeline. Any future form requires an approved page and architecture contract; GitHub-specific validation fields and promises are not target contracts.
-
-## Topic Context And Canonicality
-
-The established route remains the one shared handoff for every maintained locale. It supports only the bounded render contexts `default`, `product`, and `chatgpt-telegram`; unknown query values use `default` and are never reflected into public copy.
-
-The optional `topic` query records an inbound product context, not a new page identity. Every topic variant retains the clean localized Contact canonical URL and locale alternates without query parameters. The route remains valid during migration and is a strong continuity candidate.
+No contact surface requests credentials, session data, client-host secrets, broad administrative access, or customer cognitive context as ordinary fields. The current page has no form or mail pipeline; any future form or topic needs architecture and product approval. GitHub Flows remains historical and supplies no form or lead-flow contract.

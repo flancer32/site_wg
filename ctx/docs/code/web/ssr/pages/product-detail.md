@@ -1,45 +1,23 @@
-# SSR Page Family: Product Detail
+# SSR Page Family: Commercial Detail
 
 - Path: `ctx/docs/code/web/ssr/pages/product-detail.md`
 - Template Version: `20260909`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
-Define a durable, flexible Product Detail contract that can serve PDE-based and unrelated products without fixing a product name, route, final copy, or long-form landing-page template.
+Record existing detail-route facts and define flexible implementation constraints for an offer or product detail where one is justified.
 
-## Required Decision Content
+## Current State
 
-Every promoted Product Detail makes these meanings understandable without requiring prior knowledge of Alarisa, PDE, TeqFW, ADSM, MCP, or internal architecture:
+`/{locale}/products/chatgpt-telegram.html` is currently authored in all maintained locales and represents the paid early-access / validation Telegram offer. It is a current route fact, not a mandatory first target instance, permanent family name, or model for every commercial object.
 
-- payer and user problem;
-- useful result;
-- intended users and principal use cases;
-- current capabilities;
-- public maturity and evidence proportionate to that status;
-- fit and non-fit;
-- customization possibility and relevant boundaries;
-- truthful commercial next action.
+## Detail Constraints
 
-The page includes deployment model, control, privacy, credential ownership, trust boundaries, source or cognitive-context transfer, underlying technology, limitations, related products, or Alarisa lineage only when those meanings materially affect the buyer's decision.
+An approved commercial detail makes buyer problem, useful result, intended audience, current capability, honest maturity, relevant evidence, fit/non-fit, trust boundary, and truthful next action understandable before internal lineage. Deployment, credential ownership, control, privacy, source/context transfer, enabling technology, or Alarisa relationship appear only where materially relevant.
 
-## Flexible Composition
+Knowledge products, paid validation, provisional engineering, and later products may need different detail shapes. No single abstraction may erase those distinctions or require an invented route. The site must not accept Telegram credentials, provision customer deployments, promise support or transfer, or turn external systems into site runtime.
 
-This family defines responsibilities rather than mandatory sections or card counts. A narrow product may use a concise page. A product with consequential credentials, deployment choices, or integration boundaries may need deeper explanation. Buyer outcome comes before enabling technology and exploration lineage in either case.
+## Navigation
 
-The first target instance is the early-access product that lets an MCP-compatible AI system work with a buyer's Telegram resources. Its permanent name remains open, and its current offer wording must not become the family name. Its localized detail pages use `/{locale}/products/chatgpt-telegram.html` for `en`, `ru`, and `es`; the route places it in the durable product family without promoting the working label to a family name.
-
-The first page composes buyer outcome, supported practical workflows, setup and fixed-scope model, deployment and credential boundary, fit and early-access maturity, adaptation, concise PDE lineage, and a product-specific commercial handoff. It must not imply that the site itself accepts Telegram credentials or provisions a customer deployment.
-
-## Navigation And State
-
-- Inbound paths may come from Home, Products, direct acquisition, referrals, search, related knowledge, or a genuine Alarisa relationship.
-- Outbound paths include the shared commercial handoff with originating product context, How it works, relevant proof, related products, and Alarisa only when lineage helps.
-- Each active locale variant exposes equivalent product identity, maturity, core capabilities, boundaries, and action semantics. The ChatGPT + Telegram detail page is currently authored in English, Russian, and Spanish, and locale-switcher choices preserve the matching product route.
-- Available, Early access, selectively public In development, and Discontinued meanings remain distinguishable.
-
-## Exclusions
-
-The family must not expose internal R&D to fill the catalogue, require a complete PDE component graph, imply that every capability is purchasable, or promise deployment, support, transfer, or maturity beyond the product's approved evidence.
-
-Final copy, section arrangement, visual system use, CTA microcopy, route syntax, and any offer-specific interaction remain later decisions.
+Detail may link to claim-specific Events, current work, foundations, related entries, and direct human handoff. Alarisa is linked only when its real relationship assists understanding. Final URL, labels, sections, and interactions require migration and interface approval.

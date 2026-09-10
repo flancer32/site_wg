@@ -30,7 +30,7 @@ Stable enrichments include locale metadata, route classification, redirect behav
 
 The existing templates include locale roots, standalone pages, journal pages, library material, project pages, book pages, historical material, and a localized archived-experiment page.
 
-These observed families and their current navigation positions do not define the commercial hierarchy. The approved target uses Products, How it works, and Alarisa as primary meanings, the brand link for Home, and a distinct shared commercial action. About is secondary maker evidence. Customization is exposed through product journeys and How it works. Project Archive, Library, Journal, Books, technical material, and history form the secondary discovery surface.
+These observed families and their current navigation positions do not define the target hierarchy. The existing header makes Products, How it works, and Alarisa primary; this is observable migration state. The accepted target must instead make current commercial entry points, current work, Journal/Events, working-model explanation, and a distinct commercial action directly discoverable. About, books, durable knowledge, projects, and history remain intentionally reachable. Journal is active evidence, not ordinary archive material; Alarisa is a major ongoing proof and direction, not the foundation or a required primary destination.
 
 The two surfaces are semantic roles rendered through the same SSR system, not separate applications. Page responsibility and future route selection follow `../../../product/information-architecture.md`. Exact paths, final copy, styling, and responsive composition remain open. Retained content must remain intentionally discoverable after it leaves primary navigation.
 

@@ -22,21 +22,15 @@ The code documentation describes the existing multilingual SSR delivery model an
 
 ## Target-State Rule
 
-Future implementation must derive from the product-led commercial context:
+Future implementation realizes the current architecture's connected responsibilities:
 
-- products and concrete outcomes lead;
-- the primary commercial surface and navigation serve current business goals;
-- Projects, Library, Journal, Books, and other retained knowledge may become secondary without becoming orphaned;
-- engineering expertise supports product delivery and customization;
-- Alex Gusev is presented as the accountable maker and AI agents as active production participants without implied large-company capacity;
-- Alarisa remains visible as the guiding vision and strategic R&D direction, with an eventual product or connected product-family ambition, rather than a market-ready product, conventional project, single runtime, or deterministic roadmap;
-- TeqFW, ADSM, PDE, concrete products, and commercial offers remain visibly distinct kinds of things;
-- capabilities, independently deliverable products, and buyer-facing offers remain distinct;
-- PDE remains external to the website runtime;
-- optional transferable-development capability may be explained, but the website does not deliver cognitive context or imply autonomous maintenance;
-- valuable routes and public material are preserved deliberately;
-- retained material has a meaningful internal discovery path, not only a surviving file or search result;
-- experimental status and credential boundaries stay explicit.
+`SELL + DEMONSTRATE + DOCUMENT`
+
+Aligned selling has immediate operational priority, without hiding current work or the active Journal evidence stream. Implementation must be able to expose current commercial entry points, current work and systems, meaningful Journal/Events, the human-plus-agent working model, TeqFW and ADSM as foundations, Alarisa as a major ongoing proof, accountable-maker evidence, durable/history discovery, and a direct human commercial handoff.
+
+Product, offer, capability, system, evidence, and historical status remain distinct as defined upstream. Alex remains accountable; AI agents are normal authorized development participants, not public-runtime owners or autonomous site actors. TeqFW remains the technical North Star, ADSM the complementary methodology, and wiredgeese.com itself is evidence of their human-directed practice. PDE, Telegram, MCP deliveries, customer systems, and credentials remain external to the website runtime.
+
+The target does not mandate a generic Products catalogue, an Alarisa top-level route, one header link per responsibility, permanent English labels, or a particular route tree. Valuable existing routes and material require deliberate preservation or migration treatment; their existence is not target IA authority.
 
 ## Legacy Drift
 
@@ -44,7 +38,7 @@ The localized GitHub Flows and Agent Orchestration PoC route is retained as an a
 
 Future agents must not rebuild, extend, port, or reuse the retired campaign for the Telegram offer without a separately approved design.
 
-The implementation may also still express the former engineer-centric commercial hierarchy. That behavior remains observable current state but is not the accepted target.
+The implementation currently also expresses a Products-first hierarchy (including Products, How it works, and Alarisa in the header). That is observable migration state, not accepted target authority.
 
 ## Implementation Design Gate
 

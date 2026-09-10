@@ -1,58 +1,21 @@
-# SSR Pages
+# SSR Page Families
 
 - Path: `ctx/docs/code/web/ssr/pages.md`
-- Template Version: `20260630`
+- Template Version: `20260909`
 - Changed: `20260910`
 
 ## Purpose
 
-Describe current page families and the boundary for future page-level contracts.
+Map existing SSR route families and the target implementation-facing responsibilities they may realize.
 
-## Current Families
+## Target Responsibilities
 
-The current locale template tree contains:
+The SSR surface must support: Home; commercial entries and offer detail; current work/system/direction detail; Journal/Event chronology and cumulative threads; working-model/foundation explanation; About, books, durable knowledge, projects and history; and direct commercial handoff. These are semantic responsibilities, not required one-file or one-route families.
 
-- locale home pages;
-- standalone pages such as About, Contact, Projects, and Work With Me;
-- journal indexes and dated articles;
-- library indexes and articles;
-- book pages;
-- project indexes and detail pages;
-- a localized nested archived-experiment page;
-- localized not-found pages.
+Commercial entries distinguish knowledge products, paid validation, provisional productized engineering, and later products. Current-work destinations state honest status and only offer commercial action where genuine. Journal exposes meaningful events and may connect them to systems, offers, hypotheses, and status. It remains distinct from durable/history material and does not own canonical current state.
 
-## Target Families
+## Current Mapping And Open Migration
 
-The target primary page families are:
+Existing page documents record Home, Products, Product Detail, How It Works, Alarisa, Work With Me, Contact, and About. The currently authored Products and ChatGPT + Telegram routes are real implementation facts, not mandatory target abstractions. The target may retain a commercial-entry surface while avoiding a generic catalogue or one detail shape for every sellable object.
 
-- Home;
-- Products index;
-- Product detail;
-- How it works;
-- Alarisa vision;
-- shared commercial handoff.
-
-The target secondary page families are About and maker trust, Project Archive and detail, Library index and detail, Journal index and detail, Books, and retained historical material. A cross-collection Resources or Knowledge hub is not required unless later evidence establishes a distinct visitor job.
-
-Primary and secondary families share the same locale-aware SSR shell. Family status controls discovery and page responsibility, not runtime isolation.
-
-## Page Documents
-
-Route-boundary documents exist for:
-
-- `pages/about.md`;
-- `pages/alarisa.md`;
-- `pages/contact.md`;
-- `pages/home.md`;
-- `pages/how-it-works.md`;
-- `pages/product-detail.md`;
-- `pages/products.md`;
-- `pages/work-with-me.md`.
-
-They document current route evidence and approved semantic responsibilities without selecting the target path for repurposed or new families. Product Detail and How it works are durable semantic families even though their routes remain open. The former provisional Telegram, Resources, and Technology target page documents were removed because they froze an unimplemented route and page split that the selected IA does not approve. Add another route-specific target document only after product, migration, and architecture decisions make its route and responsibility durable.
-
-The former Agent Orchestration PoC page document has been retired because its offer is discontinued. Its remaining localized route is an archived historical page, outside primary navigation and the current product taxonomy.
-
-## Preservation Rule
-
-Historical and search-bearing pages should remain accessible, have a meaningful secondary or contextual internal discovery path, or receive deliberate redirects when future implementation changes page families. A discontinued offer or legacy category need not remain promoted or in primary navigation merely because its route exists today.
+The existing Journal renderer, authored content, asset behavior, locale routing, and no-runtime-product boundary remain in force. No new CMS subsystem, event store, form, CRM, payment, analytics, provisioning, customer credential, or product runtime is authorized. Exact route roles, labels, and whether additional code-facing page documents are needed remain migration and interface decisions.

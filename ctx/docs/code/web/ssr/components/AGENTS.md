@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/components/AGENTS.md`
 - Template Version: `20260630`
-- Changed: `20260716`
+- Changed: `20260910`
 
 ## Purpose
 
@@ -12,7 +12,7 @@ Defines the documentation branch for reusable browser-facing units delivered by 
 
 - `AGENTS.md` — level definition for the component-documentation branch.
 - `web-components.md` — catalogue of custom elements delivered by the site.
-- `widgets.md` — catalogue of reusable product/UI widgets composed by templates.
+- `widgets.md` — catalogue of reusable semantic/UI widgets composed by templates.
 - `zoom-img.md` — browser contract for the accessible zoomable-image custom element.
 
 ## Level Boundary
