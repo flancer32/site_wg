@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/pages.md`
 - Template Version: `20260630`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
@@ -18,7 +18,7 @@ The current locale template tree contains:
 - library indexes and articles;
 - book pages;
 - project indexes and detail pages;
-- a legacy nested campaign page;
+- a localized nested archived-experiment page;
 - localized not-found pages.
 
 ## Target Families
@@ -51,7 +51,7 @@ Route-boundary documents exist for:
 
 They document current route evidence and approved semantic responsibilities without selecting the target path for repurposed or new families. Product Detail and How it works are durable semantic families even though their routes remain open. The former provisional Telegram, Resources, and Technology target page documents were removed because they froze an unimplemented route and page split that the selected IA does not approve. Add another route-specific target document only after product, migration, and architecture decisions make its route and responsibility durable.
 
-The former Agent Orchestration PoC page document has been retired because its offer is discontinued. Its remaining source template is legacy implementation outside this task.
+The former Agent Orchestration PoC page document has been retired because its offer is discontinued. Its remaining localized route is an archived historical page, outside primary navigation and the current product taxonomy.
 
 ## Preservation Rule
 

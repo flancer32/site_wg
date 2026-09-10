@@ -16,7 +16,6 @@ export default class Adapter {
      * @param {TeqFw_Log_Provider} deps.logger
      * @param {App_Back_Web_Cms_Handler_Blog} deps.blogHandler
      * @param {App_Back_Web_Cms_Handler_Redirect} deps.redirectHandler
-     * @param {App_Back_Web_Helper_FormProtection} deps.formProtection
      */
     constructor(
         {
@@ -28,7 +27,6 @@ export default class Adapter {
             logger,
             blogHandler,
             redirectHandler,
-            formProtection,
         }
     ) {
         const self = this;
@@ -96,13 +94,6 @@ export default class Adapter {
         const isNotFoundRoute = (cleanPath) => {
             const normalized = (cleanPath || '').replace(/\/+$/, '');
             return normalized === '/404' || normalized === '/404.html';
-        };
-
-        /** @param {string} cleanPath @returns {boolean} */
-        const isAgentOrchestrationPocRoute = (cleanPath) => {
-            const normalized = (cleanPath || '').replace(/\/+$/, '');
-            return normalized === '/land/agent-orchestration-poc'
-                || normalized === '/land/agent-orchestration-poc/index.html';
         };
 
         /** @param {string} cleanPath @returns {boolean} */
@@ -248,12 +239,6 @@ export default class Adapter {
                 };
             }
 
-            if (effectiveRouteInfo?.cleanPath && isAgentOrchestrationPocRoute(effectiveRouteInfo.cleanPath)) {
-                data.formToken = await formProtection.issueFormToken({
-                    form: formProtection.getFormIdAgentOrchestrationPoc(),
-                });
-            }
-
             return renderData;
         };
 
@@ -269,5 +254,4 @@ export const __deps__ = Object.freeze({
     logger: 'TeqFw_Log_Provider$',
     blogHandler: 'App_Back_Web_Cms_Handler_Blog$',
     redirectHandler: 'App_Back_Web_Cms_Handler_Redirect$',
-    formProtection: 'App_Back_Web_Helper_FormProtection$',
 });

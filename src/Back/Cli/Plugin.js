@@ -9,13 +9,11 @@ export default class Plugin {
     /**
      * @param {object} deps
      * @param {TeqFw_Web_Back_PipelineEngine} deps.pipeline
-     * @param {App_Back_Web_Handler_SendEmail} deps.handEmail
      * @param {App_Back_Web_Handler_NotFound} deps.handNotFound
      */
-    constructor({pipeline, handEmail, handNotFound}) {
+    constructor({pipeline, handNotFound}) {
         /** @returns {Promise<void>} */
         this.onStartup = async function () {
-            pipeline.addHandler(handEmail);
             pipeline.addHandler(handNotFound);
         };
 
@@ -26,6 +24,5 @@ export default class Plugin {
 
 export const __deps__ = Object.freeze({
     pipeline: 'TeqFw_Web_Back_PipelineEngine$',
-    handEmail: 'App_Back_Web_Handler_SendEmail$',
     handNotFound: 'App_Back_Web_Handler_NotFound$',
 });

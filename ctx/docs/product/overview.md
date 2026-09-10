@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/overview.md`
 - Template Version: `20260605`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Site Purpose
 
@@ -182,7 +182,7 @@ Preservation does not require obsolete offers or historical sections to remain p
 
 ## Target State And Legacy Implementation
 
-This context defines the accepted target state. The current site may still contain engineer-centric service copy, the discontinued GitHub Flows experiment, old prices, and associated landing-page mechanics. Those are legacy implementation drift, not requirements to preserve or rebuild.
+This context defines the accepted target state. The localized GitHub Flows page is retained only as a discontinued historical experiment; it has no active price or associated landing-page mechanics. Engineer-centric service copy and other old prices are legacy implementation drift, not requirements to preserve or rebuild.
 
 Implementation changes require a later, separately approved task.
 

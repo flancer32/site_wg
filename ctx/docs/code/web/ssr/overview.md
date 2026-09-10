@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/overview.md`
 - Template Version: `20260630`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
@@ -28,7 +28,7 @@ Stable enrichments include locale metadata, route classification, redirect behav
 
 ## Current Public Families
 
-The existing templates include locale roots, standalone pages, journal pages, library material, project pages, book pages, historical material, and a legacy campaign landing page.
+The existing templates include locale roots, standalone pages, journal pages, library material, project pages, book pages, historical material, and a localized archived-experiment page.
 
 These observed families and their current navigation positions do not define the commercial hierarchy. The approved target uses Products, How it works, and Alarisa as primary meanings, the brand link for Home, and a distinct shared commercial action. About is secondary maker evidence. Customization is exposed through product journeys and How it works. Project Archive, Library, Journal, Books, technical material, and history form the secondary discovery surface.
 
@@ -38,8 +38,6 @@ The two surfaces are semantic roles rendered through the same SSR system, not se
 
 The SSR site may publish information about PDE and the Telegram offer. It must not connect to Telegram, expose MCP capabilities, provision product instances, or store customer product credentials unless a later approved architecture explicitly adds those responsibilities.
 
-## Legacy Drift
+## Archived Experiment Boundary
 
-Current code may still inject a signed form token for the discontinued Agent Orchestration PoC route. That behavior is an implementation remnant, not a reusable offer-page pattern or target requirement.
-
-No future agent should infer a new Telegram landing page, form, route, state, or browser behavior from the old campaign implementation.
+The localized Agent Orchestration PoC route remains an indexable historical page with ordinary locale metadata, but has no campaign form, token issuance, mail handler, or repository-validation path. No future agent should infer a new Telegram landing page, form, route, state, or browser behavior from the retired campaign.

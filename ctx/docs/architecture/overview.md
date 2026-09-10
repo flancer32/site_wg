@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/overview.md`
 - Template Version: `20260605`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
@@ -59,6 +59,6 @@ The repository's cognitive context is authoritative for this site. A product-spe
 
 ## Target And Legacy
 
-This level is normative for the accepted target state. Existing GitHub Flows landing pages, form-specific enrichment, telemetry contracts, and offer copy may remain in the implementation temporarily. They are legacy drift and do not belong to the target architecture.
+This level is normative for the accepted target state. GitHub Flows remains only as a localized archived historical page; its campaign form, token enrichment, mail handler, and offer copy are not part of the architecture.
 
-Removing or replacing that implementation requires a later approved task with URL-preservation review.
+Any later repurposing still requires a separate URL-preservation review.

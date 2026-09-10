@@ -2,11 +2,11 @@
 
 - Path: `ctx/docs/code/web/ssr/rendering.md`
 - Template Version: `20260630`
-- Changed: `20260908`
+- Changed: `20260910`
 
 ## Purpose
 
-Describe stable request-to-render behavior and identify legacy offer-specific enrichment without preserving it as a target contract.
+Describe stable request-to-render behavior and historical-route boundaries without creating offer-specific enrichment contracts.
 
 ## Project Wiring
 
@@ -33,18 +33,11 @@ The stable target includes:
 
 Request host and forwarding headers do not define the public metadata origin.
 
-## Legacy Offer Enrichment
+## Historical-Route Enrichment
 
-Current source may recognize the old `land/agent-orchestration-poc` route and inject a signed `formToken`. This is evidence of current implementation only.
+The archived `land/agent-orchestration-poc` route needs no form-specific render enrichment. It uses the normal locale-aware canonical and alternate metadata path; no signed campaign token is issued.
 
-It must not be:
-
-- treated as target behavior;
-- generalized into a reusable commercial-page requirement;
-- renamed and reused for the Telegram offer;
-- expanded without an approved product, state, interaction, and privacy contract.
-
-Its removal or repurposing belongs to a later implementation task that also reviews route preservation.
+Any future repurposing still requires a separate route-preservation review.
 
 ## Future Enrichment Gate
 

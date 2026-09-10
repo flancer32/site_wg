@@ -8,7 +8,3 @@ type App_Back_Web_Cms_Handler_Redirect = import("./src/Back/Web/Cms/Handler/Redi
 type App_Back_Web_Cms_Handler_Redirect__Class = typeof import("./src/Back/Web/Cms/Handler/Redirect.js").default;
 type App_Back_Web_Handler_NotFound = import("./src/Back/Web/Handler/NotFound.js").default;
 type App_Back_Web_Handler_NotFound__Class = typeof import("./src/Back/Web/Handler/NotFound.js").default;
-type App_Back_Web_Handler_SendEmail = import("./src/Back/Web/Handler/SendEmail.js").default;
-type App_Back_Web_Handler_SendEmail__Class = typeof import("./src/Back/Web/Handler/SendEmail.js").default;
-type App_Back_Web_Helper_FormProtection = import("./src/Back/Web/Helper/FormProtection.js").default;
-type App_Back_Web_Helper_FormProtection__Class = typeof import("./src/Back/Web/Helper/FormProtection.js").default;

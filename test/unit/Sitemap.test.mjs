@@ -74,5 +74,8 @@ test('sitemap contains only existing localized canonical templates', async () =>
     assert.ok(locations.includes('https://wiredgeese.com/en/products/'));
     assert.ok(locations.includes('https://wiredgeese.com/ru/products/'));
     assert.ok(locations.includes('https://wiredgeese.com/es/products/'));
+    assert.ok(locations.includes('https://wiredgeese.com/en/land/agent-orchestration-poc/'));
+    assert.ok(locations.includes('https://wiredgeese.com/ru/land/agent-orchestration-poc/'));
+    assert.ok(locations.includes('https://wiredgeese.com/es/land/agent-orchestration-poc/'));
     assert.equal((xml.match(/hreflang="x-default"/g) || []).length, locations.length);
 });

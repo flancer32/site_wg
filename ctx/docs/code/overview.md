@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/overview.md`
 - Template Version: `20260629`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
@@ -40,9 +40,9 @@ Future implementation must derive from the product-led commercial context:
 
 ## Legacy Drift
 
-Current source and templates may still implement the discontinued GitHub Flows and Agent Orchestration PoC funnel, including offer-specific page content, form fields, signed token enrichment, and event concepts.
+The localized GitHub Flows and Agent Orchestration PoC route is retained as an archived historical page. Its former offer-specific form fields, signed token enrichment, mail handler, repository validation, and event concepts have been removed.
 
-Those elements are not durable code contracts. Future agents must not rebuild, extend, port, or reuse them for the Telegram offer without a separately approved design.
+Future agents must not rebuild, extend, port, or reuse the retired campaign for the Telegram offer without a separately approved design.
 
 The implementation may also still express the former engineer-centric commercial hierarchy. That behavior remains observable current state but is not the accepted target.
 

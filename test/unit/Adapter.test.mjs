@@ -36,10 +36,6 @@ function createAdapter({baseUrl, redirect} = {}) {
         redirectHandler: {
             applyRedirect: async ({req}) => redirect?.(req),
         },
-        formProtection: {
-            getFormIdAgentOrchestrationPoc: () => 'poc',
-            issueFormToken: async () => 'token',
-        },
     });
 }
 
@@ -161,6 +157,21 @@ test('preserves localized How-it-works canonical and alternate routes', async ()
         ru: 'https://wiredgeese.com/ru/how-it-works.html',
         es: 'https://wiredgeese.com/es/how-it-works.html',
     });
+});
+
+test('preserves the localized canonical and alternate routes for the archived campaign', async () => {
+    const adapter = createAdapter();
+    const result = await adapter.getRenderData({
+        req: {url: '/es/land/agent-orchestration-poc/', headers: {}, socket: {}},
+    });
+
+    assert.equal(result.data.canonicalUrl, 'https://wiredgeese.com/es/land/agent-orchestration-poc/');
+    assert.deepEqual(result.data.alternateUrls, {
+        en: 'https://wiredgeese.com/en/land/agent-orchestration-poc/',
+        ru: 'https://wiredgeese.com/ru/land/agent-orchestration-poc/',
+        es: 'https://wiredgeese.com/es/land/agent-orchestration-poc/',
+    });
+    assert.equal(result.data.formToken, undefined);
 });
 
 test('maps Contact topics through an allowlist without changing canonical metadata', async () => {

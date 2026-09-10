@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/ui-states.md`
 - Template Version: `20260630`
-- Changed: `20260908`
+- Changed: `20260910`
 
 ## Purpose
 
@@ -28,4 +28,4 @@ Describe stable shared request and enhancement states without defining unapprove
 
 No Telegram-offer form, payment state, provisioning progress, credential flow, or deployment state is defined at code level.
 
-The old Agent Orchestration PoC form states are retired from normative documentation even if corresponding implementation remains temporarily. Any new interaction requires an approved product and architecture contract.
+The old Agent Orchestration PoC form states are retired; the archived route has no request interaction. Any new interaction requires an approved product and architecture contract.
