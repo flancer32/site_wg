@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/overview.md`
 - Template Version: `20260630`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
@@ -38,7 +38,8 @@ The current SSR web branch is anchored in these repository areas:
 
 - `tmpl/web/` — authored locale-specific templates, shared partials, and page families;
 - `src/Back/Web/Cms/Handler/` — custom SSR request enrichment and redirect handling;
-- `src/Back/Web/Handler/SendEmail.js` — web request handler for programmatic form-to-email delivery via SMTP;
+- `tmpl/web/{locale}/contact.html` — current static, product-aware contact handoff; the campaign-specific email runtime is retired;
+- `tmpl/web/{locale}/land/agent-orchestration-poc/index.html` — archived GitHub Flows page with no active mail or form pipeline;
 - `src/Back/Web/Handler/NotFound.js` — final localized HTML fallback for unresolved GET and HEAD requests;
 - `src/Back/Di/Replace/Adapter.js` — project-specific render-data adaptation around the CMS renderer;
 - `src/Back/Cli/Plugin.js` — application lifecycle plugin that registers project-specific web handlers before the standard web command starts;
