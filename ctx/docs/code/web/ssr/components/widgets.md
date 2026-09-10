@@ -16,6 +16,6 @@ The shared shell uses template-composed navigation, locale control, footer disco
 
 Widgets may represent commercial entries, offers, current work/systems, Journal Events, evidence, accountable-maker attribution, and durable/history discovery. A card or link must preserve its object's honest kind, status, claim boundary, and next action. A Journal Event is not a generic knowledge-collection entry, and chronology cannot replace a system or offer's current state.
 
-The current primary-navigation widget links Products, How it works, and Alarisa. Treat that as observable template state, not a required future widget contract. The target navigation widget must support the direct-discovery responsibilities in `../navigation.md` without hard-coding labels, ordering, or one link per responsibility.
+The current primary-navigation widget links commercial entries, Journal, working-model explanation, and Current Work, followed by a commercial Contact action. Alarisa remains contextual rather than a primary item. The widget must continue to support the direct-discovery responsibilities in `../navigation.md` without hard-coding labels, ordering, or one link per responsibility.
 
 No widget may imply mature SaaS, commercial validation from interaction, automated qualification, payment, provisioning, customer credential handling, or an external product runtime.

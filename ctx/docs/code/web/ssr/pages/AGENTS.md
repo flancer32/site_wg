@@ -18,6 +18,7 @@ Defines the code-facing page documents for existing SSR routes and target page-f
 - `how-it-works.md` — existing working-model route and semantic continuity boundary.
 - `product-detail.md` — existing commercial-detail route facts and flexible offer-detail constraints.
 - `products.md` — existing Products route and possible commercial-entry role.
+- `projects.md` — retained Projects route repurposed as Current Work with historical preservation.
 - `work-with-me.md` — retained aligned-engagement route and migration boundary.
 
 ## Level Boundary

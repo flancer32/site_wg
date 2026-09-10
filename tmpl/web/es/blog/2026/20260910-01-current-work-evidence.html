@@ -1,0 +1,29 @@
+{% extends "inc/layout.html" %}
+<!-- journal-relations: alarisa, pde, telegram-desk, shared-files-desk, teqcms -->
+
+{% block title %}Trabajo actual conecta ahora estado y evidencia de la Bitácora{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Trabajo actual conecta ahora estado y evidencia de la Bitácora</h1>
+    <time datetime="2026-09-10">10 de septiembre de 2026</time>
+
+    <p>He reconvertido la página conservada de Proyectos en Trabajo actual. Ahora separa los sistemas y direcciones activos del trabajo previo e histórico, que sigue siendo accesible más abajo.</p>
+
+    <p>La página da descripciones explícitas del estado actual de Alarisa, PDE, Telegram Desk, Shared Files Desk y TeqCMS. El cambio documenta la representación pública de estos objetos; no afirma que hoy haya cambiado su madurez técnica ni su validación comercial.</p>
+
+    <p>Los Eventos de la Bitácora ahora pueden llevar pequeñas relaciones autorales con Trabajo actual. Un Evento registra qué cambió en una fecha, mientras el destino de estado actual enlazado sigue siendo responsable de lo que se acepta ahora. El primer hilo acumulativo usa Eventos existentes de TeqCMS; los objetos sin Eventos anteriores de apoyo no reciben historia inventada.</p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/es/blog/2026/20260910-01-current-work-evidence.html"></a>
+        <img src="/img/avatar.jpg" alt=""/>
+        <div>
+            <h4>Trabajo actual conecta ahora estado y evidencia de la Bitácora</h4>
+            <p>La página conservada de Proyectos separa ahora sistemas activos de trabajo histórico y conecta Eventos fechados con estado actual sin cambiarlo por cronología.</p>
+            <time datetime="2026-09-10">10 de septiembre de 2026</time>
+        </div>
+    </li>
+{% endblock %}

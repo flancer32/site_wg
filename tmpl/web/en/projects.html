@@ -1,50 +1,62 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Projects — Alex Gusev{% endblock %}
-{% block description %}Selected products, client systems, tools, and experiments built by Alex Gusev.{% endblock %}
+{% block title %}Current Work — Alex Gusev{% endblock %}
+{% block description %}Current systems and directions by Alex Gusev, with honest status and inspectable Journal evidence.{% endblock %}
 
 {% block content %}
 <div class="card">
-    <p class="eyebrow">Selected work</p>
-    <h1>Products, systems, and experiments</h1>
-    <p class="lead">A practical record of the systems I build for myself and clients. The featured work shows my
-        current direction; the archive traces the engineering path that led here.</p>
+    <p class="eyebrow">Wired Geese</p>
+    <h1>Current Work</h1>
+    <p class="lead">Working systems and active directions built by Alex with AI agents as working participants and Alex accountable for the result.</p>
+    <p>Object kind and current status are stated separately. This is not a product catalogue: working software, a capability, a proof direction, and infrastructure do not all have the same commercial relationship.</p>
 </div>
 
 <section class="featured-work">
     <div class="section-heading">
-        <h2>What the work proves</h2>
-        <p>The products that best represent my current work with controlled agents and modular JavaScript systems.</p>
+        <p class="eyebrow">Active systems and directions</p>
+        <h2>What Alex is building now.</h2>
+        <p>Current status lives here; dated Journal entries record particular changes without replacing it.</p>
     </div>
-    <div class="featured-work-grid">
+    <div class="current-work-grid">
         <article class="featured-work-card">
-            <p class="eyebrow">Strategic R&amp;D · Active exploration</p><h3>Alarisa</h3><p>A long-term vision of a person (the Principal) and their Assistant: context, controlled digital action, and human responsibility.</p><p><a href="/{{ locale }}/projects/alarisa.html">Explore the direction →</a></p>
+            <p class="eyebrow">Proof system · long-term product direction</p><p class="product-status">Active development · proof / experimental · not market-ready</p><h3>Alarisa</h3><p>The most ambitious current proof of a Principal and their Assistant in the digital world. The proof is ongoing, not complete.</p><p><a href="/{{ locale }}/projects/alarisa.html">See the current Alarisa state →</a></p>
         </article>
-        <article class="featured-work-card">
-            <p class="eyebrow">Engineering foundation</p>
-            <h3>Tequila Framework</h3>
-            <p>The JavaScript architecture beneath my current products and sites.</p>
-            <p><a href="https://teqfw.com/" target="_blank" rel="noopener">Explore TeqFW →</a></p>
+        <article class="featured-work-card" id="pde">
+            <p class="eyebrow">Working system · Alarisa direction</p><p class="product-status">Working but early · proof / infrastructure · eligible for paid validation</p><h3>Personal Digital Embassy (PDE)</h3><p>Controlled digital representation and an MCP entry for authorized agents to use selected services and resources. It is not mature SaaS.</p><p><a href="/{{ locale }}/projects/alarisa.html">Understand the Alarisa direction →</a></p>
         </article>
-        <article class="featured-work-card">
-            <p class="eyebrow">Method and execution</p><h3>ADSM in working projects</h3><p>Durable context and controlled agent delivery exercised across this site, tools, packages, and applications.</p><p><a href="/{{ locale }}/library/adsm/20251122-01-adsm-top-level-dirs.html">Explore ADSM evidence →</a></p>
+        <article class="featured-work-card" id="telegram-desk">
+            <p class="eyebrow">PDE capability</p><p class="product-status">Working but early · paid validation relationship</p><h3>Telegram Desk</h3><p>Controlled agent access to Telegram under explicit authority. It supports the current paid early-access validation offer; that offer does not make the capability mature.</p><p><a href="/{{ locale }}/products/chatgpt-telegram.html">See Telegram paid validation →</a></p>
+        </article>
+        <article class="featured-work-card" id="shared-files-desk">
+            <p class="eyebrow">PDE capability</p><p class="product-status">Working but early · product hypothesis · no standard offer</p><h3>Shared Files Desk</h3><p>Controlled agent access to files and resources under explicit authority. It is a working early capability, not a standard commercial offer.</p>
+        </article>
+        <article class="featured-work-card" id="teqcms">
+            <p class="eyebrow">Independent working system · infrastructure</p><p class="product-status">Working · no current canonical commercial offer</p><h3>TeqCMS</h3><p>The multilingual SSR system used by this site: practical TeqFW and ADSM evidence, not an Alarisa child or a product currently offered for sale here.</p><p><a href="https://cms.teqfw.com/" target="_blank" rel="noopener noreferrer">Explore TeqCMS →</a></p>
         </article>
     </div>
 </section>
 
+{% if currentWorkEvidence and currentWorkEvidence.items.length %}
+<section class="home-section current-work-evidence" aria-labelledby="teqcms-evidence-title">
+    <div class="section-heading">
+        <p class="eyebrow">Related Journal evidence</p>
+        <h2 id="teqcms-evidence-title">Current Work changes in the Journal.</h2>
+        <p>These Events concern one or more current systems. They describe dated changes; the cards above state the accepted status now.</p>
+    </div>
+    <ul class="blog-list" role="list">
+        {% for item in currentWorkEvidence.items %}
+            {{ item.html | safe }}
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+
 <div class="archive-heading">
-    <h2>Project archive</h2>
-    <p>Products, utilities, client systems, and experiments from 2016 to the present.</p>
+    <h2>Previous and historical work</h2>
+    <p>Retained responsibility evidence: products, utilities, client systems, and experiments from 2016 onward. Their original descriptions preserve historical context and do not state the current status above.</p>
 </div>
 <div class="project-archive">
 <div class="card"><h2>Browser as an Operating System for Developing Modern Applications</h2><p><strong>Published:</strong> 2026 · BHV · Russian-language edition</p><p>A book about the browser as the personal operating environment of the internet: distributed execution, data, networking, isolation, lifecycles, profiles, and digital continuity.</p><p><a href="/en/books/browser-as-operating-system.html">About the book →</a></p></div>
-<div class="card">
-    <h2>Alarisa</h2>
-    <p>A long-term vision of a person (the Principal) and their Assistant: active exploration of context, controlled
-        digital action, and human responsibility. It is not a current catalogue product.</p>
-    <p><a href="/en/projects/alarisa.html">Learn about Alarisa...</a></p>
-</div>
-
 <div class="card">
     <h2>TG-WA Blog Post</h2>
     <p><strong>Start date:</strong> February 2026</p>

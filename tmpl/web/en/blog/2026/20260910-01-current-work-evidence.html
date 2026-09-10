@@ -1,0 +1,29 @@
+{% extends "inc/layout.html" %}
+<!-- journal-relations: alarisa, pde, telegram-desk, shared-files-desk, teqcms -->
+
+{% block title %}Current Work now connects status and Journal evidence{% endblock %}
+
+{% block content %}
+<div class="card blog-post">
+    <h1>Current Work now connects status and Journal evidence</h1>
+    <time datetime="2026-09-10">September 10, 2026</time>
+
+    <p>I repurposed the retained Projects page as Current Work. It now separates active systems and directions from the previous and historical work that remains reachable below it.</p>
+
+    <p>The page gives Alarisa, PDE, Telegram Desk, Shared Files Desk, and TeqCMS explicit current-state descriptions. The change documents the public representation of these objects; it does not claim that their technical maturity or commercial validation changed today.</p>
+
+    <p>Journal Events can now carry small authored relationships to Current Work. An Event records what changed at a date, while the linked current-state destination remains responsible for what is accepted now. The first cumulative thread uses existing TeqCMS Events; objects without earlier supporting Events are not given invented history.</p>
+</div>
+{% endblock %}
+
+{% block blog_item %}
+    <li class="blog-item">
+        <a class="card-link" href="/en/blog/2026/20260910-01-current-work-evidence.html"></a>
+        <img src="/img/avatar.jpg" alt=""/>
+        <div>
+            <h4>Current Work now connects status and Journal evidence</h4>
+            <p>Repurposed the retained Projects page to separate active systems from historical work and connect dated Events to current status without changing that status through chronology.</p>
+            <time datetime="2026-09-10">September 10, 2026</time>
+        </div>
+    </li>
+{% endblock %}

@@ -11,15 +11,16 @@ test('builds accessible, lazy journal cards in reverse chronological order', asy
     const blogRoot = path.join(root, 'tmpl', 'web', 'en', 'blog');
     await fs.mkdir(path.join(blogRoot, '2025'), {recursive: true});
     await fs.mkdir(path.join(blogRoot, '2026'), {recursive: true});
-    const fragment = (title) => `{% block blog_item %}
+    const fragment = (title, relations = '') => `<!-- journal-relations: ${relations} -->
+{% block blog_item %}
 <li class="blog-item">
   <a class="card-link" href="/entry.html"></a>
   <img src="/img/entry.webp" alt="">
   <div><h4>${title}</h4></div>
 </li>
 {% endblock %}`;
-    await fs.writeFile(path.join(blogRoot, '2025', '20250101-old.html'), fragment('Old entry'));
-    await fs.writeFile(path.join(blogRoot, '2026', '20260102-new.html'), fragment('New "entry"'));
+    await fs.writeFile(path.join(blogRoot, '2025', '20250101-old.html'), fragment('Old entry', 'teqcms'));
+    await fs.writeFile(path.join(blogRoot, '2026', '20260102-new.html'), fragment('New "entry"', 'teqcms, pde, teqcms, invalid value'));
 
     const blog = new Blog({
         fs,
@@ -34,7 +35,15 @@ test('builds accessible, lazy journal cards in reverse chronological order', asy
     assert.match(items[0].html, /aria-label="New &quot;entry&quot;"/);
     assert.match(items[0].html, /<img loading="lazy" decoding="async"/);
     assert.doesNotMatch(items[0].html, /<h4>/);
+    assert.deepEqual(items[0].relations, ['teqcms', 'pde']);
 
     const recent = await blog.collectRecentBlogEntries('en', 1);
     assert.deepEqual(recent.map((item) => item.slug), ['20260102-new']);
+
+    const related = await blog.collectRelatedBlogEntries('en', 'teqcms', 3);
+    assert.deepEqual(related.map((item) => item.slug), ['20260102-new', '20250101-old']);
+    const multiRelation = await blog.collectRelatedBlogEntries('en', ['pde', 'teqcms'], 1);
+    assert.deepEqual(multiRelation.map((item) => item.slug), ['20260102-new']);
+    assert.deepEqual(await blog.collectEntryRelations('en', '/blog/2025/20250101-old.html'), ['teqcms']);
+    assert.deepEqual(await blog.collectRelatedBlogEntries('en', 'not valid', 3), []);
 });

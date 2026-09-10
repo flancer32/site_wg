@@ -16,7 +16,7 @@ Direct discovery does not require one header item per responsibility, equal visu
 
 ## Current Implementation And Migration
 
-The current shared header exposes the brand link, retained commercial entries, Journal, working-model explanation, Projects, a commercial Contact action, and locale control. Alarisa remains reachable contextually rather than holding mandatory primary-nav status. The footer retains older discovery groups. These are observable Phase 1 template facts, not permanent labels, grouping, or route authority.
+The current shared header exposes the brand link, retained commercial entries, Journal, working-model explanation, Current Work at the retained `/projects.html` route, a commercial Contact action, and locale control. Alarisa remains reachable contextually rather than holding mandatory primary-nav status. The footer retains older discovery groups. These are observable Phase 2 template facts, not permanent labels, grouping, or route authority.
 
 ## Contextual Relationships
 

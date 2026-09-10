@@ -1,40 +1,51 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Проекты — Алекс Гусев{% endblock %}
-{% block description %}Продукты, клиентские системы, инструменты и эксперименты Алекса Гусева.{% endblock %}
+{% block title %}Текущая работа — Алекс Гусев{% endblock %}
+{% block description %}Текущие системы и направления Алекса Гусева с честным статусом и проверяемыми свидетельствами из Журнала.{% endblock %}
 
 {% block content %}
 <div class="card">
-    <p class="eyebrow">Избранные работы</p>
-    <h1>Продукты, системы и эксперименты</h1>
-    <p class="lead">Практическая история систем, которые я создаю для себя и клиентов. В начале — нынешнее направление,
-        ниже — инженерный путь, который к нему привёл.</p>
+    <p class="eyebrow">Wired Geese</p>
+    <h1>Текущая работа</h1>
+    <p class="lead">Работающие системы и активные направления, которые Алекс создаёт с ИИ-агентами как рабочими участниками, оставаясь ответственным за результат.</p>
+    <p>Вид объекта и его текущий статус указаны отдельно. Это не каталог продуктов: работающий софт, возможность, доказательное направление и инфраструктура имеют разные коммерческие отношения.</p>
 </div>
 
 <section class="featured-work">
     <div class="section-heading">
-        <h2>Что доказывают эти работы</h2>
-        <p>Продукты, которые лучше всего отражают мою нынешнюю работу с управляемыми агентами и модульными JavaScript-системами.</p>
+        <p class="eyebrow">Активные системы и направления</p>
+        <h2>Над чем Алекс работает сейчас.</h2>
+        <p>Текущий статус указан здесь; записи Журнала фиксируют отдельные изменения, но не заменяют его.</p>
     </div>
-    <div class="featured-work-grid">
+    <div class="current-work-grid">
         <article class="featured-work-card">
-            <p class="eyebrow">Стратегическая разработка · Активное исследование</p><h3>Alarisa</h3><p>Долгосрочное видение человека (Принципала) и его Ассистента: контекст, контролируемые цифровые действия и человеческая ответственность.</p><p><a href="/{{ locale }}/projects/alarisa.html">Узнать о направлении →</a></p>
+            <p class="eyebrow">Доказательная система · долгосрочное продуктовое направление</p><p class="product-status">Активная разработка · доказательство / эксперимент · не готово для рынка</p><h3>Alarisa</h3><p>Самое амбициозное текущее доказательство отношений Принципала и Ассистента в цифровом мире. Доказательство продолжается и не завершено.</p><p><a href="/{{ locale }}/projects/alarisa.html">Текущий статус Alarisa →</a></p>
         </article>
-        <article class="featured-work-card">
-            <p class="eyebrow">Инженерная основа</p>
-            <h3>Tequila Framework</h3>
-            <p>JavaScript-архитектура, на которой работают мои нынешние продукты и сайты.</p>
-            <p><a href="https://teqfw.com/" target="_blank" rel="noopener">Познакомиться с TeqFW →</a></p>
+        <article class="featured-work-card" id="pde">
+            <p class="eyebrow">Работающая система · направление Alarisa</p><p class="product-status">Работает, но ранняя · доказательство / инфраструктура · возможна платная проверка</p><h3>Personal Digital Embassy (PDE)</h3><p>Управляемое цифровое представительство и MCP-вход, через который авторизованные агенты используют выбранные сервисы и ресурсы. Это не зрелый SaaS.</p><p><a href="/{{ locale }}/projects/alarisa.html">Направление Alarisa →</a></p>
         </article>
-        <article class="featured-work-card">
-            <p class="eyebrow">Метод и реализация</p><h3>ADSM в работающих проектах</h3><p>Долговечный контекст и управляемая работа агентов, проверенные на этом сайте, инструментах и приложениях.</p><p><a href="/{{ locale }}/library/adsm/20251122-01-adsm-top-level-dirs.html">Изучить материалы ADSM →</a></p>
+        <article class="featured-work-card" id="telegram-desk">
+            <p class="eyebrow">Возможность PDE</p><p class="product-status">Работает, но ранняя · связь с платной проверкой</p><h3>Telegram Desk</h3><p>Управляемый доступ агента к Telegram при явных полномочиях. Он поддерживает текущее предложение платной проверки в раннем доступе; это не делает возможность зрелой.</p><p><a href="/{{ locale }}/products/chatgpt-telegram.html">Платная проверка Telegram →</a></p>
+        </article>
+        <article class="featured-work-card" id="shared-files-desk">
+            <p class="eyebrow">Возможность PDE</p><p class="product-status">Работает, но ранняя · продуктовая гипотеза · нет стандартного предложения</p><h3>Shared Files Desk</h3><p>Управляемый доступ агента к файлам и ресурсам при явных полномочиях. Это работающая ранняя возможность, а не стандартное коммерческое предложение.</p>
+        </article>
+        <article class="featured-work-card" id="teqcms">
+            <p class="eyebrow">Независимая работающая система · инфраструктура</p><p class="product-status">Работает · сейчас нет канонического коммерческого предложения</p><h3>TeqCMS</h3><p>Многоязычная SSR-система, на которой работает этот сайт: практическое свидетельство TeqFW и ADSM, не часть Alarisa и не продукт, продаваемый здесь сейчас.</p><p><a href="https://cms.teqfw.com/" target="_blank" rel="noopener noreferrer">Открыть TeqCMS →</a></p>
         </article>
     </div>
 </section>
 
+{% if currentWorkEvidence and currentWorkEvidence.items.length %}
+<section class="home-section current-work-evidence" aria-labelledby="teqcms-evidence-title">
+    <div class="section-heading"><p class="eyebrow">Связанные свидетельства в Журнале</p><h2 id="teqcms-evidence-title">Изменения текущей работы в Журнале.</h2><p>Эти События относятся к одной или нескольким текущим системам. Они описывают изменения тогда; карточки выше указывают принятый статус сейчас.</p></div>
+    <ul class="blog-list" role="list">{% for item in currentWorkEvidence.items %}{{ item.html | safe }}{% endfor %}</ul>
+</section>
+{% endif %}
+
 <div class="archive-heading">
-    <h2>Архив проектов</h2>
-    <p>Продукты, утилиты, клиентские системы и эксперименты с 2016 года до наших дней.</p>
+    <h2>Предыдущая и историческая работа</h2>
+    <p>Сохранённые свидетельства ответственности: продукты, утилиты, клиентские системы и эксперименты с 2016 года. Исходные описания сохраняют исторический контекст и не задают текущий статус, указанный выше.</p>
 </div>
 <div class="project-archive">
 <div class="card">
@@ -46,13 +57,6 @@
     <p><a href="/ru/books/browser-as-operating-system.html">Подробнее о книге →</a></p>
     <p><a href="https://bhv.ru/product/brauzer-kak-operatsionnaya-sistema-dlya-razrabotki-sovremennyh-prilozhenij/"
             target="_blank" rel="noopener noreferrer">Страница книги у издателя →</a></p>
-</div>
-
-<div class="card">
-    <h2>Alarisa</h2>
-    <p>Долгосрочное видение человека (Принципала) и его Ассистента: активное исследование контекста, контролируемых
-        цифровых действий и человеческой ответственности. Это не продукт из текущего каталога.</p>
-    <p><a href="/ru/projects/alarisa.html">Подробнее об Alarisa...</a></p>
 </div>
 
 <div class="card">

@@ -14,7 +14,7 @@ This branch isolates implementation-facing documentation for the site's web surf
 
 The current project uses a multilingual SSR site model built from authored templates under `tmpl/` and runtime adaptation under `src/`.
 
-The accepted target realizes the Architecture's `SELL + DEMONSTRATE + DOCUMENT` responsibilities. It must support direct commercial entry, current work, Journal evidence, working-model explanation, and human commercial handoff, while preserving durable/history discovery. Exact target paths, labels, final visual composition, interaction details, and public copy are not yet approved. The existing Products-first header, product routes, and Alarisa placement are observable migration inputs, not a source for new target contracts; the retired GitHub offer remains historical only.
+The current implementation realizes the Architecture's `SELL + DEMONSTRATE + DOCUMENT` responsibilities through direct commercial entry, Current Work, Journal evidence, working-model explanation, and human commercial handoff while preserving durable/history discovery. The retained `/projects.html` route is publicly labelled Current Work and separates active systems from historical material. Exact future paths, labels, visual composition, and interaction details remain open; the retired GitHub offer remains historical only.
 
 ## Current Scope
 

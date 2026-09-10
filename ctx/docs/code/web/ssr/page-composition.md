@@ -25,4 +25,4 @@ Journal/Event chronology is distinct from current canonical system or offer stat
 
 ## Current State And Design Gate
 
-Current templates lead with a product collection and place methodology and Alarisa after it. This is migration evidence only. Future composition must not infer permanent Products-first ordering, Telegram centrality, or final labels from it. Do not add a product runtime, database, event service, forms, analytics, payments, provisioning, or a new template system without approved architecture and interface decisions.
+Current Home templates lead with the provisional MCP commercial path, retain Telegram paid validation and books, then show a bounded Current Work preview and recent Journal projection. `/projects.html` gives active current systems their own status cards before a historical archive. These are current implementation facts, not permanent ordering or labels. Do not add a product runtime, database, event service, forms, analytics, payments, provisioning, or a new template system without approved architecture and interface decisions.

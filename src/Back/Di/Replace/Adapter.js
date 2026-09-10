@@ -82,6 +82,12 @@ export default class Adapter {
         };
 
         /** @param {string} cleanPath @returns {boolean} */
+        const isProjectsRoute = (cleanPath) => {
+            const normalized = (cleanPath || '').replace(/\/+$/, '');
+            return normalized === '/projects' || normalized === '/projects.html';
+        };
+
+        /** @param {string} cleanPath @returns {boolean} */
         const isPublicationRoute = (cleanPath) => {
             const normalized = (cleanPath || '').replace(/\/+$/, '');
             const indexRoutes = new Set([
@@ -262,6 +268,39 @@ export default class Adapter {
                     }
                 }
                 data.recentJournal = {items};
+            }
+
+            if (isProjectsRoute(effectiveRouteInfo?.cleanPath)) {
+                const targetLocale = effectiveRouteInfo.locale || tmplConfig.getDefaultLocale();
+                /** @type {object[]} */
+                let items = [];
+                try {
+                    items = await blogHandler.collectRelatedBlogEntries?.(
+                        targetLocale,
+                        ['alarisa', 'pde', 'telegram-desk', 'shared-files-desk', 'teqcms'],
+                        3
+                    ) || [];
+                } catch (error) {
+                    if (error?.code !== 'ENOENT') {
+                        log.error('Failed to build the Current Work evidence projection.', {err: error});
+                    }
+                }
+                data.currentWorkEvidence = {items};
+            }
+
+            if (data.isPublication && effectiveRouteInfo?.cleanPath?.startsWith('/blog/')) {
+                const targetLocale = effectiveRouteInfo.locale || tmplConfig.getDefaultLocale();
+                try {
+                    const relations = await blogHandler.collectEntryRelations?.(
+                        targetLocale,
+                        effectiveRouteInfo.cleanPath
+                    ) || [];
+                    if (relations.length) data.journalRelations = relations;
+                } catch (error) {
+                    if (error?.code !== 'ENOENT') {
+                        log.error('Failed to collect Journal Event relationships.', {err: error});
+                    }
+                }
             }
 
             return renderData;

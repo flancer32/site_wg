@@ -30,7 +30,10 @@ The stable target includes:
 - localized not-found handling;
 - journal-index collection from authored article fragments;
 - a small deterministic recent-Journal projection from those same authored fragments on locale Home routes;
+- optional `<!-- journal-relations: stable-id -->` metadata parsed from authored Journal pages; the project adapter uses it only for a bounded Current Work evidence projection and Event-to-current-state links;
 - redirect behavior supporting canonical routes and intentional legacy-path preservation.
+
+The relation identifier states that a dated Event materially concerns an object. It does not change status, prove validation, or create an Event store. The status-bearing Current Work destination remains authoritative.
 
 Request host and forwarding headers do not define the public metadata origin.
 

@@ -7,9 +7,11 @@
 
 const YEAR_DIRECTORY_PATTERN = /^\d{4}$/;
 const BLOG_ITEM_BLOCK_PATTERN = /{% block blog_item %}([\s\S]*?){% endblock %}/i;
+const JOURNAL_RELATIONS_PATTERN = /<!--\s*journal-relations:\s*([^>]*?)\s*-->/gi;
 const HTML_EXTENSION_PATTERN = /\.html$/i;
 const BLOG_ITEM_TITLE_PATTERN = /<h4\b[^>]*>([\s\S]*?)<\/h4>/i;
 const BLOG_ITEM_LINK_PATTERN = /<a(\s+class=["'][^"']*\bcard-link\b[^"']*["'])/i;
+const RELATION_ID_PATTERN = /^[a-z][a-z0-9-]*$/;
 
 /** @param {string} a @param {string} b @returns {number} */
 const sortNumericDesc = (a, b) => Number(b) - Number(a);
@@ -75,15 +77,36 @@ export default class Blog {
         };
 
         /**
+         * Parses optional, authored relationships without making journal
+         * chronology responsible for the current status of an object.
+         *
+         * @param {string} content
+         * @returns {string[]}
+         */
+        const extractRelations = (content) => {
+            const relations = new Set();
+            for (const match of content.matchAll(JOURNAL_RELATIONS_PATTERN)) {
+                for (const value of match[1].split(',')) {
+                    const relation = value.trim();
+                    if (RELATION_ID_PATTERN.test(relation)) relations.add(relation);
+                }
+            }
+            return [...relations];
+        };
+
+        /**
          * @param {string} dir
          * @param {string} fileName
-         * @returns {Promise<string|null>}
+         * @returns {Promise<{html: string, relations: string[]}|null>}
          */
-        const extractBlogItemHtml = async (dir, fileName) => {
+        const extractBlogItem = async (dir, fileName) => {
             const filePath = path.join(dir, fileName);
             const content = await fs.readFile(filePath, 'utf-8');
             const match = BLOG_ITEM_BLOCK_PATTERN.exec(content);
-            return match ? normalizeBlogItemHtml(match[1]) : null;
+            return match ? {
+                html: normalizeBlogItemHtml(match[1]),
+                relations: extractRelations(content),
+            } : null;
         };
 
         /**
@@ -96,12 +119,12 @@ export default class Blog {
             const entries = [];
             const files = await listHtmlFiles(yearPath);
             for (const fileName of files) {
-                const html = await extractBlogItemHtml(yearPath, fileName);
-                if (!html) continue;
+                const item = await extractBlogItem(yearPath, fileName);
+                if (!item) continue;
                 entries.push({
                     slug: fileName.replace(HTML_EXTENSION_PATTERN, ''),
                     url: path.posix.join('/', locale, 'blog', year, fileName),
-                    html,
+                    ...item,
                 });
             }
             return entries;
@@ -143,6 +166,39 @@ export default class Blog {
         this.collectRecentBlogEntries = async function (locale, limit = 3) {
             const items = await this.collectBlogIndex(locale);
             return items.slice(0, Math.max(0, limit));
+        };
+
+        /**
+         * Projects a bounded, deterministic set of genuinely related Events
+         * from the same authored Journal content.
+         *
+         * @param {string} locale
+         * @param {string|string[]} relationId
+         * @param {number} [limit]
+         * @returns {Promise<object[]>}
+         */
+        this.collectRelatedBlogEntries = async function (locale, relationId, limit = 3) {
+            const relationIds = Array.isArray(relationId) ? relationId : [relationId];
+            if (!relationIds.length || relationIds.some((id) => !RELATION_ID_PATTERN.test(id))) return [];
+            const items = await this.collectBlogIndex(locale);
+            return items
+                .filter((item) => item.relations.some((relation) => relationIds.includes(relation)))
+                .slice(0, Math.max(0, limit));
+        };
+
+        /**
+         * Finds optional authored relation identifiers for a localized Event.
+         * The relation only identifies what the dated Event concerns; it does
+         * not change the current state owned by the target destination.
+         *
+         * @param {string} locale
+         * @param {string} cleanPath
+         * @returns {Promise<string[]>}
+         */
+        this.collectEntryRelations = async function (locale, cleanPath) {
+            const normalized = (cleanPath || '').replace(/\/+$/, '') || '/';
+            const items = await this.collectBlogIndex(locale);
+            return items.find((item) => item.url === `/${locale}${normalized}`)?.relations || [];
         };
     }
 }

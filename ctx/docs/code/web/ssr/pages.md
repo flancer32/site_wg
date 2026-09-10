@@ -16,6 +16,6 @@ Commercial entries distinguish knowledge products, paid validation, provisional 
 
 ## Current Mapping And Open Migration
 
-Existing page documents record Home, Products, Product Detail, How It Works, Alarisa, Work With Me, Contact, and About. The currently authored Products and ChatGPT + Telegram routes are real implementation facts, not mandatory target abstractions. The target may retain a commercial-entry surface while avoiding a generic catalogue or one detail shape for every sellable object.
+Existing page documents record Home, Products, Product Detail, How It Works, Current Work, Alarisa, Work With Me, Contact, and About. The retained `/projects.html` Current Work surface uses stable anchors for current systems and a bounded SSR Journal projection where authored relationships exist; its historical archive remains separate. The currently authored Products and ChatGPT + Telegram routes are real implementation facts, not mandatory target abstractions. The target may retain a commercial-entry surface while avoiding a generic catalogue or one detail shape for every sellable object.
 
 The existing Journal renderer, authored content, asset behavior, locale routing, and no-runtime-product boundary remain in force. No new CMS subsystem, event store, form, CRM, payment, analytics, provisioning, customer credential, or product runtime is authorized. Exact route roles, labels, and whether additional code-facing page documents are needed remain migration and interface decisions.

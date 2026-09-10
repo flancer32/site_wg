@@ -1381,9 +1381,57 @@ pre code {
 }
 
 .featured-work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.current-work-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
   gap: 1rem;
+}
+
+.current-work-grid--preview {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.home-current-work {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.78fr) minmax(0, 1.22fr);
+  align-items: start;
+  gap: clamp(1.5rem, 5vw, 4rem);
+}
+
+.home-current-work > :last-child {
+  grid-column: 2;
+  margin-bottom: 0;
+}
+
+.current-work-evidence {
+  max-width: 58rem;
+}
+
+.journal-relations {
+  max-width: 58rem;
+  margin: 2rem auto 0;
+  padding: 1.25rem;
+  border-left: 4px solid var(--color-brand);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: var(--color-brand-soft);
+}
+
+.journal-relations h2 {
+  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+}
+
+.journal-relations ul {
+  padding-left: 1.1rem;
+}
+
+.journal-relations > :last-child {
+  margin-bottom: 0;
+  color: var(--color-ink-soft);
 }
 
 .featured-work-card {
@@ -2134,8 +2182,13 @@ html.zoom-open {
   }
 
   .home-preview,
+  .home-current-work,
   .home-bridge {
     grid-template-columns: 1fr;
+  }
+
+  .home-current-work > :last-child {
+    grid-column: auto;
   }
 
   .home-bridge {
@@ -2180,6 +2233,10 @@ html.zoom-open {
   .process-grid li { min-height: 0; }
 
   .featured-work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .current-work-grid--preview {
     grid-template-columns: 1fr;
   }
 

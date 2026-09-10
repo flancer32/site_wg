@@ -29,6 +29,28 @@
 {% include "inc/nav.html" %}
 <main class="site-main" id="main-content" tabindex="-1">
     {% block content %}{% endblock %}
+    {% if journalRelations and journalRelations.length %}
+    <aside class="journal-relations" aria-labelledby="related-current-work-title">
+        <p class="eyebrow">Связанная текущая работа</p>
+        <h2 id="related-current-work-title">Что верно сейчас</h2>
+        <ul>
+            {% for relation in journalRelations %}
+            {% if relation == 'alarisa' %}
+            <li><a href="/{{ locale }}/projects/alarisa.html">Alarisa — текущий статус</a></li>
+            {% elif relation == 'pde' %}
+            <li><a href="/{{ locale }}/projects.html#pde">PDE — текущий статус</a></li>
+            {% elif relation == 'telegram-desk' %}
+            <li><a href="/{{ locale }}/projects.html#telegram-desk">Telegram Desk — текущий статус</a></li>
+            {% elif relation == 'shared-files-desk' %}
+            <li><a href="/{{ locale }}/projects.html#shared-files-desk">Shared Files Desk — текущий статус</a></li>
+            {% elif relation == 'teqcms' %}
+            <li><a href="/{{ locale }}/projects.html#teqcms">TeqCMS — текущий статус</a></li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        <p>Эта запись Журнала фиксирует изменение в тот момент. Принятый текущий статус указан на странице «Текущая работа».</p>
+    </aside>
+    {% endif %}
     {% if isPublication %}
     <aside class="discussion-cta">
         <div>

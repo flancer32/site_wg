@@ -38,16 +38,8 @@ The localized GitHub Flows and Agent Orchestration PoC route is retained as an a
 
 Future agents must not rebuild, extend, port, or reuse the retired campaign for the Telegram offer without a separately approved design.
 
-The implementation currently also expresses a Products-first hierarchy (including Products, How it works, and Alarisa in the header). That is observable migration state, not accepted target authority.
+The current implementation expresses the Phase 1 commercial path and Phase 2 evidence surface: the shared header exposes commercial entries, Journal, working-model explanation, Current Work, and a commercial Contact action. Home leads with the provisional MCP pilot, retains Telegram paid validation and books, then projects Current Work and recent Journal evidence. `/projects.html` is the current-work surface while its archive remains historical responsibility evidence. These are observable implementation facts, not authority to freeze labels or future prominence.
 
 ## Implementation Design Gate
 
-The commercial information architecture, navigation semantics, page roles, and route-selection boundary are approved in `../product/information-architecture.md`. Before code changes begin, the human must still approve enough migration, interface, and interaction detail to define:
-
-- final public copy and visual composition;
-- exact target paths and the role of existing route candidates;
-- the evidence-based preservation or redirect treatment for affected legacy routes;
-- contact and qualification behavior;
-- whether any telemetry, payment, provisioning, or customer-data handling is required.
-
-Absent that approval, code documentation may map the approved semantic information architecture but must not promote candidate labels, paths, or page splits into implementation contracts.
+The commercial information architecture, navigation semantics, page roles, and route-selection boundary are governed by `../product/information-architecture.md`. New implementation must preserve the current route continuity, contact behavior, and authored SSR model; final labels, visual composition, later route cleanup, telemetry, payment, provisioning, and customer-data handling remain open or require approval.

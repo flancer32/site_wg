@@ -18,7 +18,7 @@ Public pages use `/{locale}/...` for `en`, `es`, and `ru`; locale resolution pre
 
 The repository currently authors `/{locale}/products/` and `/{locale}/products/chatgpt-telegram.html` in all maintained locales. `/{locale}/products` and `/{locale}/products.html` are catalogue aliases. Existing `/{locale}/work-with-me.html`, `/{locale}/projects/alarisa.html`, `/{locale}/about.html`, and `/{locale}/contact.html` are localized, canonical, indexable, and sitemap inputs where authored.
 
-These facts do not prove a permanent generic Products catalogue, a permanent ChatGPT + Telegram product family, a top-level Alarisa route, or the final commercial IA. They are candidates for retention, aliasing, repurposing, or migration review.
+`/{locale}/projects.html` is also retained, canonical, indexable, and now publicly serves as Current Work with stable status anchors for its current systems; historical material remains below it. These facts do not prove permanent labels, a generic Products catalogue, a permanent ChatGPT + Telegram product family, a top-level Alarisa route, or final commercial IA. They remain subject to later reviewed migration.
 
 ## Target And Preservation Rules
 
