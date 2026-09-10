@@ -66,9 +66,15 @@ Show real systems and increasingly ambitious work produced through the Wired Gee
 
 Maintain a visible chronology of attempts, decisions, implementations, failures, deployments, uses, payments, reuse, changes, and discontinuations. Journal/Events turn activity into cumulative, inspectable evidence rather than promotional assertion.
 
-These jobs reinforce one another:
+All three jobs are indispensable, but first-class status does not mean equal short-term priority, visual space, or implementation effort. During the current funding stage, `SELL` has immediate operational priority because aligned cash flow finances the work and creates market contact. `DEMONSTRATE` supplies credible proof that supports selling and the broader Wired Geese thesis. `DOCUMENT` accumulates evidence, trust, acquisition value, and an observable account of engineering and economic progress.
 
-`commercial work and owned development -> working outcomes -> documented evidence -> stronger trust and opportunities -> more informed work`
+```text
+SELL        -> immediate financing and market contact
+DEMONSTRATE -> credible proof for selling and the Wired Geese thesis
+DOCUMENT    -> cumulative evidence, trust, acquisition, and observability
+```
+
+The three jobs reinforce one another. Commercial conversion must not be weakened merely to give them formal symmetry.
 
 The site must not collapse into only a portfolio, catalogue, consultancy site, technical blog, archive, or ideological account of AI-assisted development.
 
@@ -78,17 +84,13 @@ Wiredgeese.com makes this question observable:
 
 `Can one experienced, accountable developer working with AI agents through TeqFW and ADSM create useful software and build an economically sustainable software-making practice?`
 
-The answer must emerge from evidence. Current systems and Alex's own use can demonstrate practical operation. Paid pilots, paid integrations, repeat delivery, reuse, customer outcomes, product revenue, recurring use, and recurring revenue may later demonstrate progressively stronger engineering and economic claims. None may be claimed before it exists.
+The answer must emerge from claim-specific evidence rather than marketing assertions. `journal-and-evidence.md` defines the evidence hierarchy, current baseline, and limits on engineering and commercial inferences.
 
 The site therefore documents both engineering progress and the attempt to establish economic viability. Failure, rejection, and discontinuation are valid evidence when described truthfully.
 
 ## Current Economic Position
 
-Alex has long engineering experience but not yet a portfolio of large external agentic-AI client projects sufficient to compete mainly through past AI delivery. Older work can prove architecture, integration, deployment, operations, and long-term responsibility; it cannot substitute for missing AI-era customer evidence.
-
-The relevant new portfolio must be created through current work:
-
-`working system -> external use -> paid use -> repeatable delivery -> customer result -> public evidence -> stronger relevant portfolio`
+Alex has long engineering experience but not yet a portfolio of large external agentic-AI client projects sufficient to compete mainly through past AI delivery. The relevant new portfolio must be created through current owned work and external commercial delivery. `journal-and-evidence.md` is authoritative for both the value and limits of older work and the progression of current evidence.
 
 Commercial survival cannot wait for Alarisa, PDE, or another future product to mature. The primary near-term funding direction is bounded productized engineering close to the existing technology, especially controlled MCP and agent integrations with real customer services. Paid early access to PDE and Desks is a validation path. Books are already sellable assets and support authority and acquisition, but they are not assumed to be the main cash engine.
 
@@ -111,7 +113,7 @@ Do not use generic `AI expert`, arbitrary freelance, or artificial enterprise po
 
 ## Public Surface Principle
 
-Sell, demonstrate, and document are equal strategic responsibilities, but every page need not give them equal visual weight. Page responsibility follows visitor intent.
+Sell, demonstrate, and document are all first-class responsibilities. At the current stage, aligned selling has operational priority; demonstration and documentation remain essential compounding mechanisms rather than optional secondary content. Page responsibility and attention follow the visitor job and current commercial need, not a requirement for equal allocation.
 
 Home must provide immediate comprehension, a commercial path, visible current work, and recent evidence. Commercial destinations must attach evidence to the buyer claim. Journal/Events must be intentionally prominent as the ongoing proof stream. About supplies maker trust. Historical projects, technical articles, books, and other search-bearing material remain discoverable without controlling first-time buyer attention.
 

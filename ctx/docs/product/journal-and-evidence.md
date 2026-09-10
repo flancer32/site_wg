@@ -24,7 +24,7 @@ Journal is not merely:
 
 It is the cumulative public record of what Alex and the agents attempt, build, test, deploy, learn, sell, reuse, change, reject, or discontinue.
 
-The Journal's prominence does not require every event to be commercially important. Small connected events become meaningful when they expose a durable sequence from intent through implementation and external evidence.
+Journal prominence does not mean publishing volume. Fewer technically or economically meaningful events are preferable to a high-volume activity feed. Small connected events become valuable when they expose a durable sequence from intent through implementation and external evidence, but routine output must not be published merely to maintain cadence.
 
 ## Journal And Event Model
 
@@ -37,8 +37,10 @@ An **Event** is a dated record of a meaningful state change, observation, decisi
 - implementing or deploying a capability;
 - recording a failure or abandoned direction;
 - receiving external use or feedback;
+- receiving a qualified commercial lead or rejecting an offer hypothesis;
 - beginning or completing a paid pilot or integration;
-- observing repeat demand or reuse;
+- observing repeated delivery, reuse, or a customer result;
+- receiving a recurring payment where disclosure is appropriate;
 - changing a product assumption, offer boundary, or status;
 - discontinuing a system or experiment.
 
@@ -134,7 +136,7 @@ Each step answers a different uncertainty. Skipping a public claim ahead of the 
 
 ## Wired Geese Proof Responsibilities
 
-The evidence stream should gradually test whether:
+The evidence stream should gradually test both engineering viability and economic viability:
 
 - the human-plus-agents model is operational rather than rhetorical;
 - Alex can direct and accept increasingly ambitious work;
@@ -187,4 +189,4 @@ Exact public labels, URLs, feeds, categories, metadata, visual timelines, and ev
 - Which measures can be collected ethically and consistently enough to support product and economic claims?
 - When does the evidence volume justify filters, thread pages, or a dedicated visual timeline?
 
-These questions do not weaken the first-class requirement: current activity and accumulating evidence must remain prominent even before the final presentation model is selected.
+These questions do not weaken the first-class requirement: current activity and accumulating evidence must remain prominent even before the final presentation model is selected. Prominence requires direct discovery and meaningful selection, not a publishing quota or equal implementation effort with current commercial conversion.

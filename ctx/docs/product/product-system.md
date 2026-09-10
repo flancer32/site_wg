@@ -52,7 +52,7 @@ Alex Gusev is the human who sets intent, authorizes work, accepts consequential 
 
 ### Brand And Public Model
 
-Wired Geese is the brand and narrative for Alex working with hired AI agents. It is not a company, platform, team of employees, or software product. Its Wild Geese wordplay may be used deliberately while keeping legal and accountability boundaries explicit.
+Wired Geese is the deliberate Wild Geese-inspired brand and public model for Alex working with hired AI agents. `overview.md` is authoritative for the metaphor, human accountability, and legal/organizational boundary.
 
 ### Foundational Platform
 
@@ -94,7 +94,7 @@ A book or other bounded knowledge artifact can be available now even when it mai
 
 ### Productized Engineering
 
-Productized engineering is bounded customer work around a repeatable problem and relevant existing capability. It lies between arbitrary custom development and an independent software product. It may generate cash, market knowledge, current portfolio evidence, and reusable technology while its packaging is still being learned.
+Productized engineering is bounded customer work around a repeatable problem and relevant existing capability. It lies between arbitrary custom development and an independent software product. `commercial-strategy.md` governs its economic role and productization path.
 
 ### Evidence
 
@@ -170,12 +170,20 @@ An object may need more than one non-conflicting status description, such as `fo
 | `Connect ChatGPT to Telegram` | Bounded offer using PDE and Telegram Desk | Paid early access / validation; not the assumed primary long-term cash engine. |
 | MCP integration work | Productized engineering direction | Primary provisional near-term cash direction; bounded offer hypothesis documented under `offers/mcp-integration/`. |
 | ADSM workflow/context work | Emerging commercial direction | Offer hypothesis only; buyer need and delivery boundary remain insufficiently validated for a canonical offer. |
-| Browser book | Sellable knowledge product | Available now in print; not assumed to be a major revenue engine. |
-| ADSM book | Sellable knowledge product | Available through Leanpub in Russian and English; not assumed to be a major revenue engine. |
+| Browser book | Sellable knowledge product | Russian-language BHV edition available now; canonical name and purchase destination are defined below. |
+| ADSM book | Sellable knowledge product | Russian and English electronic editions available now through the canonical Leanpub destinations below. |
 | GitHub Flows / Agent Orchestration PoC | Historical experiment | Discontinued; may remain as truthful history but not an active offer. |
 | Santegra and older engineering work | Historical responsibility evidence | Historical/current responsibility evidence where accurate; not proof of modern agentic-AI delivery. |
 
-The browser book is titled *Browser as an Operating System for Modern Application Development*. The ADSM book is *Agent-Driven Software Management* / *Управляемая разработка с AI-агентами*.
+### Known Purchasable Knowledge Products
+
+Canonical currently known commercial facts are:
+
+- *Управляемая разработка с AI-агентами* — Russian electronic edition of the ADSM book, available at `https://leanpub.com/adsm-ru`;
+- *Agent-Driven Software Management* — English electronic edition of the ADSM book, available at `https://leanpub.com/adsm-en`;
+- *Браузер как операционная система для разработки современных приложений* — published Russian-language BHV edition, available from the publisher at `https://bhv.ru/product/brauzer-kak-operatsionnaya-sistema-dlya-razrabotki-sovremennyh-prilozhenij/`.
+
+The repository's English public page uses *Browser as an Operating System for Developing Modern Applications* as a descriptive rendering of the Russian-language edition. Neither that rendering nor the previously used *Browser as an Operating System for Modern Application Development* is an established official English-edition title. Product context must distinguish an official product name from a descriptive translation.
 
 ## Catalogue And Offer Gates
 
@@ -195,31 +203,10 @@ Paid early access has a different gate from a mature product. It must be working
 
 ## Evolution Without A Forced Roadmap
 
-Valid paths include:
+No object has a mandatory commercial lifecycle. A capability may remain infrastructure, an experiment may end with learning, customer work may remain engineering, and a system may continue as proof without becoming a product. Alarisa may become a product or family, remain principally a proof system, or produce independently useful outcomes without forcing those outcomes into a monolith.
 
-```text
-working capability -> paid validation -> repeated workflow -> standardized capability
-                   -> independent product -> recurring value -> recurring revenue
-```
+`commercial-strategy.md` is authoritative for progression from paid work toward reusable or recurring products.
 
-```text
-customer integration -> reusable component -> better future delivery or owned system
-```
+## Evidence Boundary
 
-```text
-experiment -> evidence of failure -> learning or discontinuation
-```
-
-```text
-foundation or internal system -> remains foundation or internal system
-```
-
-Subscription follows evidence of recurring customer value; it is not a required destination. Alarisa may become a product or product family, remain principally a proof system, or produce independent useful outcomes without forcing those outcomes into a monolith.
-
-## Honesty Boundary
-
-Working software proves that behavior can operate in the observed conditions. Alex's repeated use proves practical internal value. A close user's installation proves bounded external operation. A payment proves some willingness to pay for the agreed outcome. None alone proves retention, repeatable delivery, mature support, security, scalability, or sustainable SaaS economics.
-
-Historical production systems support claims about engineering responsibility, architecture, deployment, integration, operations, and long-term maintenance. They do not establish a large modern AI-development portfolio. New AI-era evidence must be created through current owned systems and external paid work.
-
-All public and lower-level documentation must apply the more detailed evidence rules in `journal-and-evidence.md`.
+`journal-and-evidence.md` is authoritative for evidence meaning, evidence progression, commercial-proof interpretation, and the boundary between historical responsibility and current agentic-AI evidence. Status changes in this document require evidence appropriate to the changed claim.

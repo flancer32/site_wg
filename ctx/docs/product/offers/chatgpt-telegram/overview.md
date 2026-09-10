@@ -41,11 +41,7 @@ PDE and Telegram Desk are part of the Alarisa development direction, but purchas
 
 ## Early-Access Boundary
 
-Accepted facts are limited:
-
-- the underlying capabilities work in Alex's use;
-- selected capabilities have been installed for close or experimental users;
-- external paid delivery is a validation objective, not an achieved repeatability claim.
+The current evidence baseline is defined in `../../journal-and-evidence.md`. For this offer, external paid delivery remains a validation objective rather than an achieved repeatability claim.
 
 The offer must remain explicit that delivery may involve manual configuration, discussion, and troubleshooting. It must not imply unattended reliability, generalized support, production-grade security, broad market validation, scalability, or service continuity that has not been established.
 
@@ -92,7 +88,7 @@ Each paid engagement should help answer:
 - Was the workflow used after setup?
 - Did continuing or additional value appear?
 
-Payment proves willingness to pay for the agreed engagement. It does not prove retention, repeatability, product-market fit, mature support, or subscription readiness.
+Results from an engagement must be interpreted under the commercial evidence ladder in `../../journal-and-evidence.md`; they do not change global product or offer status automatically.
 
 ## Exclusions
 

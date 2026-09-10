@@ -14,32 +14,39 @@ Commercial success is one of the Wired Geese hypotheses under test. The site mus
 
 ## Current Economic Reality
 
-Alex has substantial engineering experience but does not yet have enough large external agentic-AI deliveries to compete primarily through a modern AI client portfolio. Earlier work remains valid evidence of architecture, integration, deployment, operations, maintenance, and long-term responsibility. It must not be represented as extensive prior delivery of modern human-plus-agent systems.
+Alex has substantial engineering experience but does not yet have enough large external agentic-AI deliveries to compete primarily through a modern AI client portfolio. `journal-and-evidence.md` is authoritative for what earlier work proves and why it cannot substitute for current agentic-AI evidence.
 
-The relevant portfolio must be created through owned work and external commercial experience:
-
-`working system -> external use -> paid use -> repeatable delivery -> customer result -> public evidence -> stronger relevant portfolio`
-
-This makes commercial work both a survival mechanism and a source of the evidence currently missing.
+The commercial consequence is that the relevant portfolio must be created through owned work and external commercial experience. Commercial work is both a survival mechanism and a source of the evidence currently missing.
 
 ## Aligned Funding Model
 
-The preferred economic loop is:
+An aligned commercial engagement can produce several parallel outcomes:
 
 ```text
-commercial work
-  -> cash
-  -> market knowledge
-  -> relevant portfolio evidence
-  -> reusable capability
-  -> stronger TeqFW / ADSM / PDE / Alarisa / related ecosystem
-  -> better products and stronger evidence
-  -> better commercial opportunities
+aligned commercial engagement
+  +-- cash
+  +-- market knowledge
+  +-- relevant AI-era evidence
+  +-- reusable capability or learning
+  |
+  +-> stronger future position
+        +-- stronger owned systems
+        +-- stronger TeqFW / ADSM practice
+        +-- better commercial offers
+        +-- possible productization
 ```
 
-One engagement need not produce every result. The strategic value comes from selecting work that produces several results without compromising the buyer's boundary.
+One engagement need not produce every result. The agreed customer outcome comes first. The strategic value comes from selecting work that produces several additional results without compromising the buyer's boundary.
 
 Customer-funded reuse is not automatic. Contract, confidentiality, ownership, licensing, security, and customer-specific requirements may prevent generalization. Reusable learning or capability may strengthen owned work only when Alex has the right and practical ability to reuse it.
+
+### Foundation Direction Boundary
+
+TeqFW and ADSM shape how aligned work is performed. Customer-funded work may finance, inform, exercise, validate, and improve that foundation by exposing real constraints and producing reusable learning.
+
+Market demand may influence development priorities, but it does not redefine TeqFW as the technical North Star or automatically turn customer-specific pressure into foundation policy. Validated learning may improve TeqFW or ADSM when it fits their long-term direction; individual customer requirements do not automatically become general framework or methodology requirements.
+
+Commercial work finances and informs TeqFW/ADSM-based development. It must not gradually turn the foundation into arbitrary bespoke consulting infrastructure. This is a product-direction boundary, not a rigid governance process.
 
 ## Commercial Work Selection Heuristic
 
@@ -58,10 +65,7 @@ Work that provides only cash may be accepted for survival. It must be recognized
 
 ### A. Available Now: Knowledge Products
 
-The currently sellable books are:
-
-- the printed book *Browser as an Operating System for Modern Application Development*;
-- the electronic book *Agent-Driven Software Management* / *Управляемая разработка с AI-агентами*, available through Leanpub in Russian and English.
+The current set includes the published Russian-language browser book and the Russian and English electronic editions of the ADSM book. `product-system.md` is authoritative for their official names, language and format boundaries, availability, and canonical purchase destinations.
 
 Books may generate direct revenue. Their larger role may be authority, methodology explanation, search acquisition, trust, and a bridge into higher-value ADSM-related work. They are not assumed to provide the main near-term cash flow, and sales or audience claims require evidence.
 
@@ -152,7 +156,7 @@ Before standardizing an offer, price, delivery time, or product, evidence should
 - Does value continue after setup?
 - Will customers pay for that continuing value?
 
-One paid delivery may justify further testing but not a standard package. Several deliveries without common reuse may still be consulting rather than a product. Recurring use without recurring willingness to pay does not establish a subscription business.
+Productization decisions must apply the claim-specific evidence meanings and commercial evidence ladder in `journal-and-evidence.md`; evidence from one stage must not be interpreted as proof of a later stage.
 
 ## Acquisition And Conversion
 
@@ -168,18 +172,7 @@ Manual qualification, scoping, contracting, payment, and delivery are acceptable
 
 ## Portfolio And Evidence Development
 
-Each suitable engagement should produce an internal and, where safe, public record of:
-
-- the payer problem and agreed result;
-- actual scope, effort, and trust boundary;
-- what was delivered and verified;
-- customer feedback or measurable outcome;
-- what repeated or was reusable;
-- what remained bespoke;
-- whether follow-on or recurring value appeared;
-- which claim the evidence supports.
-
-`journal-and-evidence.md` governs public chronology and claim boundaries. Confidential work may inform strategy without becoming public proof. The site must narrow public claims when disclosure is unavailable.
+Each suitable engagement should produce an internal record and, where disclosure is safe, a meaningful public event. `journal-and-evidence.md` governs event content, public chronology, claim boundaries, and the interpretation of commercial proof. Confidential work may inform strategy without becoming public proof.
 
 ## Transferable Development
 

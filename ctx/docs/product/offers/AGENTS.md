@@ -30,7 +30,7 @@ An offer must define:
 
 An offer may use a working system or capability without changing its object kind or maturity. No offer may invent fixed price, delivery time, SLA, security guarantee, support capacity, customer evidence, or repeatability.
 
-Offer documents refine `../product-system.md` and `../commercial-strategy.md`. They do not redefine the site identity, foundation, system relationships, or evidence rules established above this level.
+Offer documents inherit status and eligibility semantics from `../product-system.md`, commercial and productization semantics from `../commercial-strategy.md`, and evidence interpretation from `../journal-and-evidence.md`. They refine only the offer-specific buyer problem, outcome, maturity, scope, exclusions, trust boundary, validation questions, and next action.
 
 ## Level Boundary
 

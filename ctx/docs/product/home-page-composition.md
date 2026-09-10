@@ -25,7 +25,7 @@ Home must establish, in one coherent visit:
 9. how deeper Journal, system, trust, and historical evidence can be reached;
 10. what relevant commercial action a visitor can take.
 
-Home must balance `SELL`, `DEMONSTRATE`, and `DOCUMENT`. It must not read primarily as a product catalogue, consultancy landing page, portfolio, technical manifesto, or blog index.
+Home must preserve `SELL`, `DEMONSTRATE`, and `DOCUMENT` as first-class responsibilities. During the current funding stage, commercial comprehension and conversion have immediate operational priority; current work and recent Journal evidence remain prominent compounding mechanisms for proof, trust, and acquisition. First-class status does not require equal visual space or implementation effort. Home must not read only as a catalogue, consultancy landing page, portfolio, technical manifesto, or blog index.
 
 ## Opening Attention Contract
 
@@ -36,7 +36,7 @@ Before significant scrolling, a first-time visitor should be able to understand:
 - at least one concrete commercial path exists now;
 - current work, Journal/Events, and the commercial path are directly reachable.
 
-The opening may feature one current commercial path or one current system, but it must not imply that a single Telegram offer, Alarisa, or a product catalogue defines the whole site. TeqFW, ADSM, technical vocabulary, biography, and historical proof must not delay comprehension.
+The opening may visually feature one current commercial path or one current system, but the commercial route must remain immediate and unambiguous. The composition must not imply that a single Telegram offer, Alarisa, or a product catalogue defines the whole site. TeqFW, ADSM, technical vocabulary, biography, and historical proof must not delay comprehension.
 
 The Wired Geese/Wild Geese metaphor should be understandable in the opening or its immediate continuation. It may shape language and imagery confidently, provided Alex's accountability is explicit and agents are not represented as employees or independent commercial actors.
 
@@ -82,7 +82,7 @@ Alarisa must appear as the major proof system and long-term product direction. T
 - **Primary meaning:** the Wired Geese hypothesis is being tested in public over time.
 - **Excludes:** generic blog teasers, activity theatre, success-only announcements, or old content selected merely for traffic.
 
-Recent activity must have visual and semantic prominence comparable to current work and the commercial entry. It must appear before long foundation, biography, or historical sections.
+Recent activity must have clear visual and semantic prominence and appear before long foundation, biography, or historical sections. Its prominence protects evidence and currentness; it does not require space equal to the leading commercial entry or weaken conversion.
 
 ### 5. Human-Plus-Agents Working Model
 
@@ -130,7 +130,7 @@ This region may be visually combined with the working-model region if the distin
 
 - The opening composition must expose the proposition, current activity, and a commercial path before methodology or biography dominates attention.
 - A split opening may pair the proposition with recent work, an event, or the leading commercial entry. No exact column structure is approved.
-- Current work, recent Journal/Events, and the commercial entry must each have a recognizable visual role; none may be buried in an undifferentiated card collection.
+- Current work, recent Journal/Events, and the commercial entry must each have a recognizable visual role; none may be buried in an undifferentiated card collection. The commercial entry may receive greater attention during the current funding stage.
 - Foundation and Alarisa explanations follow visible evidence of real current activity.
 - Historical proof and broad archives remain deeper than current work and recent events.
 - The page may use editorial asymmetry to reflect what is most current, but status and object kinds must remain clear.
@@ -140,7 +140,7 @@ This region may be visually combined with the working-model region if the distin
 Mobile is not a mechanical stack of a desktop layout. It must protect the same strategic order with less content.
 
 1. Show the compact Wired Geese proposition and Alex's accountability.
-2. Expose direct actions for current work, Journal, and the leading commercial entry.
+2. Expose the leading commercial action together with direct paths to current work and Journal.
 3. Show the leading commercial result/status without a long preamble.
 4. Show one current system or development item.
 5. Show recent meaningful events.
@@ -207,12 +207,14 @@ Each affordance has one primary semantic destination. Exact links, routes, and c
 
 ## Evidence Responsibilities
 
-- Every commercial preview shows a status supported by its offer document.
-- Every current-work preview distinguishes working behavior from external validation.
+- Every commercial preview uses the current status defined in `product-system.md`; its offer document supplies only offer-specific refinement.
+- Every current-work preview uses the object kind and status from `product-system.md`.
 - Recent events link chronology to an actual state change or observation.
 - Alarisa evidence never implies completed engineering or economic proof.
 - Older work supports only the responsibility claims it evidences.
 - Home must change when authoritative status changes; it must not preserve obsolete maturity for visual stability.
+
+Evidence strength and inference limits come from `journal-and-evidence.md`; Home selects evidence but does not redefine it.
 
 ## Multilingual Rules
 
@@ -233,4 +235,4 @@ Each affordance has one primary semantic destination. Exact links, routes, and c
 - Which claim-specific evidence belongs on Home rather than deeper pages.
 - Final navigation labels, routes, imagery, components, accessibility behavior, and localized copy.
 
-These decisions may change expression but must preserve the balance among selling, demonstrating, and documenting.
+These decisions may change expression but must preserve all three first-class responsibilities and the current operational priority of aligned selling.

@@ -14,12 +14,12 @@ This branch is the authority for what Wired Geese represents, how the site must 
 
 - `offers/` — bounded current and provisional commercial entry offers.
 - `AGENTS.md` — local product-documentation instructions and map.
-- `commercial-strategy.md` — immediate survival, aligned funding, commercial selection, validation, productization, and recurring-revenue direction.
+- `commercial-strategy.md` — immediate survival, aligned funding, commercial selection, productization gates, and recurring-revenue direction.
 - `home-page-composition.md` — Home attention order, content responsibilities, responsive constraints, evidence placement, and semantic handoffs.
 - `information-architecture.md` — site-wide page families, navigation semantics, visitor journeys, and preservation boundaries across sell, demonstrate, and document responsibilities.
 - `journal-and-evidence.md` — Journal/Event strategy, cumulative proof model, claim-specific evidence hierarchy, and honesty rules.
 - `overview.md` — semantic entry point for site identity, the Wired Geese model, foundations, three site jobs, and economic proof hypothesis.
-- `product-system.md` — object kinds, relationships, current systems, maturity states, catalogue eligibility, and status authority.
+- `product-system.md` — object kinds, relationships, current systems, maturity authority, catalogue eligibility, and canonical purchase facts.
 - `transferable-development.md` — bounded, emerging ADSM-enabled continuation and transfer capability.
 
 ## Reading Order
@@ -43,7 +43,7 @@ Facts, current status, strategic direction, hypotheses, and open questions must 
 - Wired Geese is Alex Gusev's brand and public model of one accountable human maker working with hired AI agents; it is neither software nor a legal organization.
 - Alarisa is the most ambitious current proof system and long-term product direction built on that foundation; it is not the foundation itself and its proof is ongoing.
 - PDE, Telegram Desk, Shared Files Desk, TeqCMS, books, offers, and historical work are different kinds of objects with different maturity and evidence.
-- The site must perform three first-class jobs together: `SELL`, `DEMONSTRATE`, and `DOCUMENT`.
+- The site must preserve `SELL`, `DEMONSTRATE`, and `DOCUMENT` as first-class jobs; aligned cash generation has immediate operational priority during the current funding stage.
 - Productized engineering is the primary near-term cash direction; paid early access validates immature systems; reusable products and recurring revenue are later evidence-dependent directions.
 - Journal/Events are first-class evidence infrastructure, not merely an archive or search-support surface.
 

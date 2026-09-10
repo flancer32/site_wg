@@ -18,7 +18,9 @@ The site is not primarily a product catalogue with supporting content. It is an 
 - **Demonstrate** — show working systems, current development, Alarisa's ambitious proof role, and the foundation behind the work.
 - **Document** — expose recent Events and cumulative Journal threads that show what changed, succeeded, failed, reached users, earned payment, or was discontinued.
 
-No responsibility is allowed to absorb the other two. Offers without evidence become assertions. Demonstration without commercial paths becomes a portfolio. Documentation without current work and commercial meaning becomes a blog or archive.
+First-class does not mean equal current business priority, visual area, or implementation effort. During the current funding stage, `Sell` has operational priority. `Demonstrate` and `Document` remain indispensable because they compound proof, trust, acquisition, and future commercial strength.
+
+No responsibility is allowed to absorb or eliminate the other two. Offers without evidence become assertions. Demonstration without commercial paths becomes a portfolio. Documentation without current work and commercial meaning becomes a blog or archive.
 
 ## Primary Discovery Semantics
 
@@ -208,9 +210,9 @@ The sitemap describes semantic relationships, not exact routes or necessarily on
 
 ## Home And Persistent-Shell Attention
 
-The persistent shell must not imply that Products are the site's only primary object or that Journal is secondary archive content. Commercial entry points, current work, and Journal must have comparable discoverability, with the commercial action visibly distinct.
+The persistent shell must not imply that Products are the site's only primary object or that Journal is secondary archive content. Commercial entry points, current work, and Journal must remain directly discoverable, with the commercial action visibly prioritized during the current funding stage. Direct discovery does not require equal navigation weight or screen area.
 
-Home should expose recent activity early enough that a first-time visitor sees ongoing work rather than only static claims. Current work and commercial availability remain distinct: a working system can appear prominently without being purchasable, while a book can be purchasable without being a major software proof.
+Home should expose recent meaningful activity early enough that a first-time visitor sees ongoing work rather than only static claims. Journal prominence concerns the significance and accessibility of evidence, not posting volume. Current work and commercial availability remain distinct: a working system can appear prominently without being purchasable, while a book can be purchasable without being a major software proof.
 
 ## Evidence Placement
 
@@ -264,7 +266,7 @@ A later public implementation must demonstrate that:
 ## Open Decisions
 
 - Final English, Russian, and Spanish labels for commercial entry points, current work, Journal/Events, and how the work is made.
-- Exact persistent navigation composition at different viewport sizes while retaining equal discoverability of the three jobs.
+- Exact persistent navigation composition at different viewport sizes while preserving direct discovery of all three jobs and the current operational priority of selling.
 - Whether Alarisa uses an existing project route or a new/repurposed system-direction destination.
 - Whether PDE and individual Desks need separate public details or can remain within a current-work collection until demand grows.
 - How Journal threads, event types, corrections, and status changes are presented.

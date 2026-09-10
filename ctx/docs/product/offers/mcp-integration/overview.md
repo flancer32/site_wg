@@ -103,7 +103,7 @@ Early paid pilots must discover:
 - whether later support or recurring operation produces continuing value;
 - whether the work should remain engineering, become a repeatable integration, or become an independent product.
 
-One successful pilot proves only that its bounded outcome was achieved under its stated conditions. Standard scope, pricing, timing, support, and recurring models require repeated evidence.
+Pilot results must be interpreted under the commercial evidence ladder in `../../journal-and-evidence.md`. Standard scope, pricing, timing, support, and recurring models require evidence appropriate to each claim.
 
 ## Strategic Fit
 
