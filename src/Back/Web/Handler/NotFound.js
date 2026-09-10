@@ -38,7 +38,6 @@ export default class NotFound {
             after: [
                 'Fl32_Cms_Back_Web_Handler_Template',
                 'TeqFw_Web_Back_Handler_Static',
-                'App_Back_Web_Handler_SendEmail',
             ],
         });
 
