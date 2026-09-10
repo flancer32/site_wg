@@ -6,59 +6,72 @@
 
 ## Purpose
 
-Provide the entry point to the target architecture of the product-led commercial site.
+Provide the entry point to the target architecture of wiredgeese.com and identify the authority and runtime boundaries that govern the rest of this branch.
 
 ## Architecture Role
 
-The architecture realizes `wiredgeese.com` as a multilingual commercial publication and contact surface that:
+wiredgeese.com remains one multilingual, content-oriented TeqCMS site that is primarily rendered and published through SSR behavior with a thin project-specific Node.js adapter.
 
-- communicates concrete offers, active technologies, customization capability, proof, research, and writing with distinct status;
-- presents Alarisa as the principal long-term vision and R&D direction, with an eventual product or connected product-family ambition, while giving independently valuable products and offers direct commercial paths;
-- gives the primary commercial surface and navigation responsibility for the current business while preserving accumulated knowledge on a meaningfully reachable secondary surface;
-- preserves valuable historical and search-bearing public material without granting it automatic primary prominence;
-- presents Alex Gusev as the accountable maker working with AI-agent production participants and explains ADSM-enabled continuity without implying a larger organization, unbounded capacity, or autonomous maintenance;
-- supports explicit commercial next steps without assuming a mature automated sales system;
-- remains separate from the runtime and client deployments of products it promotes.
+The site is the public and commercial surface of the Wired Geese model: one accountable human maker, Alex Gusev, working with hired AI agents. Architecture must make all three product responsibilities structurally realizable:
+
+- `SELL` — direct access to truthful current commercial entry points and a human commercial handoff;
+- `DEMONSTRATE` — inspectable current systems, capabilities, development, and proof;
+- `DOCUMENT` — a first-class Journal/Event evidence stream connected to current status.
+
+All three are first-class responsibilities, but architecture does not impose equal visual space, navigation weight, or implementation effort. During the current funding stage, aligned selling has immediate operational priority. Demonstration and documentation remain directly discoverable because they compound evidence, trust, acquisition value, and future commercial strength.
 
 ## Architectural Style
 
-The site remains a content-oriented SSR and publication system with a thin Node.js application layer.
-
-The stable flow is:
+The stable publication flow is:
 
 `authoritative context -> authored templates and assets -> TeqCMS plus thin project adapter -> SSR or published browser output`
 
-The commercial repositioning changes site meaning and future content hierarchy. It does not by itself authorize a new site engine, a large custom application, or incorporation of PDE into the website process.
+The revised product model changes semantic surfaces, visitor paths, and evidence relationships. It does not authorize a new site engine, separate applications for those surfaces, or incorporation of promoted-product runtimes into the website process.
 
-The primary commercial and secondary knowledge/archive surfaces are semantic responsibilities, not separate applications or deployment units. Their approved navigation meanings, page roles, and route-selection boundary are defined in `../product/information-architecture.md` and rendered through the same multilingual SSR system.
+The public system must support direct discovery of current commercial entries, current work, Journal/Events, the working model, and a distinct commercial action. Brand/Home, About, books, durable knowledge, projects, and history remain intentionally reachable according to their product responsibilities. These are semantic capabilities, not frozen labels, routes, link counts, or a required symmetrical navigation layout.
 
-The primary page architecture is Home by brand, Products, Product Detail, How it works, Alarisa, and the shared commercial handoff. About supplies secondary maker trust. Project Archive, Library, Journal, Books, technical pages, and historical material supply secondary evidence and knowledge. This hierarchy remains valid from one current product to a larger catalogue and keeps the same semantic priority on compact viewports.
+## Product Translation Boundary
+
+Architecture consumes rather than restates the product model:
+
+- `../product/overview.md` owns site identity, foundation, and the three site jobs;
+- `../product/product-system.md` owns object kinds and current status;
+- `../product/commercial-strategy.md` owns economic direction and productization logic;
+- `../product/journal-and-evidence.md` owns evidence meaning and Journal semantics;
+- `../product/information-architecture.md` owns semantic hierarchy and visitor jobs;
+- `../product/home-page-composition.md` owns Home attention and content responsibilities;
+- `../product/transferable-development.md` and `../product/offers/` own their bounded product meanings.
+
+Architecture defines structural reachability, state separation, runtime boundaries, and durable downstream constraints needed to realize those authorities. It must not fix open product or presentation decisions.
 
 ## Major Boundaries
 
 - `ctx/` owns normative product and engineering context.
 - `tmpl/` and source-controlled assets own authored public content and composition.
-- `src/` plus `teqcms.config.mjs` own thin project-specific runtime adaptation.
-- `web/` contains downstream delivered or generated output.
+- `src/` plus `teqcms.config.mjs` own thin justified site-specific runtime adaptation.
+- `web/` contains derived browser-delivered or generated output.
 - `bin/` and `etc/` support site operation without defining product meaning.
-- PDE and customer-specific deployments are external promoted systems and operational environments, not components of the wiredgeese.com runtime.
+- Product and customer deployments own their own data, credentials, operation, and lifecycle outside the wiredgeese.com runtime.
+- Human-controlled agreements and confirmed delivery records own commercial truth; traffic and publication do not manufacture validation.
 
-PDE remains an independently useful technical and infrastructure system that emerged from Alarisa-guided development even though its deployed runtime stays outside the website architecture. Exploration lineage, technical composition, commercial independence, and runtime deployment boundaries must not be conflated.
+TeqFW is the technical North Star and ADSM the complementary development-management methodology. The architecture must support their product-authorized relationship to Alarisa:
 
-The repository's cognitive context is authoritative for this site. A product-specific cognitive context may also become a bounded transferable engineering asset under an explicit delivery agreement; that commercial transfer does not make the public site a context-distribution service or expose this repository's complete internal context by default.
+`TeqFW + ADSM -> capacity to build increasingly complex systems -> Alarisa as the most ambitious current ongoing proof`
+
+Detailed TeqFW promotion belongs primarily to `teqfw.com`. Alarisa is a long-term product direction, not the foundation, completed proof, or a market-ready offer. PDE and Desks are external working but early systems or capabilities; selling or demonstrating them does not make the site their runtime.
 
 ## Documentation Map
 
-- `structure.md` defines the blocks and separation between site and promoted products.
-- `behavior.md` defines authoring, publication, request, preservation, commercial-handoff, and optional product-continuation flows.
-- `state.md` defines authoritative, derived, operational, and external commercial state.
-- `integration.md` defines site integrations, the PDE boundary, and cognitive-context transfer boundaries.
-- `constraints.md` defines non-negotiable architecture restrictions.
-- `decisions.md` records durable choices.
-- `supervision.md` defines human-agent change control.
+- `structure.md` defines site blocks, semantic surfaces, and page-family relationships.
+- `behavior.md` defines publication, visitor, evidence, handoff, preservation, and continuation flows.
+- `state.md` defines sources of truth and state ownership.
+- `integration.md` defines site integrations, outbound-link semantics, and external-runtime boundaries.
+- `constraints.md` defines non-negotiable restrictions.
+- `decisions.md` records active durable choices and explicit supersession.
+- `supervision.md` defines human-agent governance and drift detection.
 
 ## Target And Legacy
 
-This level is normative for the accepted target state. GitHub Flows remains only as a localized archived historical page; its campaign form, token enrichment, mail handler, and offer copy are not part of the architecture.
+This branch is normative for the accepted target architecture. Current implementation is evidence of existing behavior, not authority to preserve superseded semantics.
 
-Any later repurposing still requires a separate URL-preservation review.
+GitHub Flows remains only historical content. Its campaign form, token enrichment, mail handler, and offer copy are not target architecture. Any later route or content change still requires deliberate multilingual and search-value preservation review.

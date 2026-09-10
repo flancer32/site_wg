@@ -2,68 +2,94 @@
 
 - Path: `ctx/docs/architecture/decisions.md`
 - Template Version: `20260605`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
-Record durable architecture decisions in a short ADR-like form.
+Record the active durable architecture decisions and make revision or supersession of earlier decisions explicit.
 
-## Decision 1: Keep the site on TeqCMS with a thin project adapter
+Only the current decision text in this document is normative. A `Revised` or `Supersedes` note identifies historical continuity; superseded wording is not an active alternative.
 
-- Decision: use TeqCMS as the primary site engine and keep repository-specific runtime logic in a small adapter layer under `src/`.
-- Rejected alternatives: rebuild the site engine for the repositioning; move runtime behavior into templates.
-- Reasoning: the new commercial model changes meaning and hierarchy, not the demonstrated need for a new website platform.
+## Decision 1: Keep TeqCMS With A Thin Project Adapter
 
-## Decision 2: Keep context and authored sources authoritative
+- **Status:** retained.
+- **Decision:** use TeqCMS as the site engine and keep repository-specific runtime behavior in a small Node.js adapter under `src/`.
+- **Rejected alternatives:** rebuild the engine for semantic repositioning; create separate applications for commercial, Journal, current-work, or history surfaces; move runtime behavior into templates.
+- **Reasoning:** the product change requires different public meaning and relationships, not a new platform.
 
-- Decision: keep durable product meaning in `ctx/`, public source material in `tmpl/` and source-controlled assets, and `web/` as downstream output.
-- Rejected alternatives: treat generated pages or current code behavior as authoritative when they conflict with the accepted target state.
-- Reasoning: the repositioning must propagate from product meaning rather than preserve obsolete implementation by inertia.
+## Decision 2: Keep Context And Authored Sources Authoritative
 
-## Decision 3: Keep multilingual routing locale-aware at the application boundary
+- **Status:** retained and clarified.
+- **Decision:** keep product and engineering truth in `ctx/`, implementation inputs in `tmpl/`, source-controlled assets, code, and configuration, and `web/` as downstream output.
+- **Rejected alternatives:** treat generated pages, existing route structure, or current code behavior as authority when they conflict with accepted context.
+- **Reasoning:** product meaning must flow through `product -> architecture -> environment -> code`; implementation inertia cannot reinstate a superseded model.
 
-- Decision: resolve locale and clean route information centrally before route-specific render enrichment.
-- Rejected alternatives: duplicate locale rules across templates or new offer handlers.
-- Reasoning: commercial restructuring must preserve consistent locale behavior and canonical public paths.
+## Decision 3: Keep One Locale-Aware Publication System
 
-## Decision 4: Keep promoted-product runtimes outside the site boundary
+- **Status:** retained.
+- **Decision:** keep one multilingual SSR/publication architecture and resolve locale and canonical route information at the shared application boundary before page-specific enrichment.
+- **Rejected alternatives:** duplicate locale rules across templates or semantic surfaces; create locale- or surface-specific applications.
+- **Reasoning:** identity, maturity, evidence, and commercial semantics must remain consistent across maintained locales.
 
-- Decision: allow wiredgeese.com to explain and sell PDE capabilities without making PDE, MCP, Telegram, or customer deployments part of the site runtime.
-- Rejected alternatives: add product runtime responsibilities merely because the site promotes the product.
-- Reasoning: the systems have different state, credentials, trust, failure, deployment, and revocation boundaries.
+## Decision 4: Keep Promoted And Customer Runtimes Outside The Site
 
-## Decision 5: Separate preservation from navigational prominence
+- **Status:** retained and broadened.
+- **Decision:** allow wiredgeese.com to present and sell external capabilities without becoming a PDE runtime, Desk host, customer MCP server, Telegram credential holder, customer storage owner, product deployment, CRM, payment processor, or provisioning system.
+- **Rejected alternatives:** add a runtime responsibility merely because the site promotes, documents, links to, or commercially qualifies it.
+- **Reasoning:** those systems have distinct state, credentials, authority, deployment, failure, support, and revocation boundaries.
 
-- Decision: let primary navigation serve current commercial direction while Project Archive, Library, Journal, Books, and other retained knowledge remain meaningfully reachable through curated collection-level footer links, contextual relationships, preserved inbound paths, and deliberate redirects. Add a cross-collection hub only if evidence establishes a distinct discovery job.
-- Rejected alternatives: erase the existing archive during a homepage repositioning; preserve the Home, Projects, Library, Journal, and Contact hierarchy solely because it exists or carries search value; leave retained pages online without internal discovery; create a mandatory `Resources` hub before showing that it improves navigation.
-- Reasoning: preservation does not imply navigational prominence or a new aggregation layer. Existing collection identities, search value, and references can remain accessible while the primary commercial hierarchy changes.
+## Decision 5: Separate Active Journal From Durable History
 
-## Decision 6: Defer new commercial automation
+- **Status:** revised; supersedes the prior decision that grouped Journal with Project Archive, Library, Books, and other secondary retained knowledge.
+- **Decision:** make Journal/Events a directly discoverable active evidence surface connected to current work, offers, hypotheses, and current status. Keep projects, older articles, books, technical material, and discontinued work on an intentionally reachable durable/history surface.
+- **Rejected alternatives:** erase historical material; make Journal footer-only; treat Journal as an equivalent archive collection; let retained history dominate current meaning; require a generic cross-collection hub without a demonstrated visitor job.
+- **Reasoning:** current evidence and chronology have a first-class architectural responsibility, while preservation still does not imply navigational dominance.
 
-- Decision: use the existing contact capability or another later-approved minimal handoff while pricing and delivery are learned manually.
-- Rejected alternatives: define a new offer form, analytics funnel, payment system, CRM, or automated PDE provisioning in this context rewrite.
-- Reasoning: those commitments are premature without external buyer and delivery evidence.
+## Decision 6: Defer Commercial Automation
 
-## Decision 7: Expose accountable maker-led production
+- **Status:** retained and generalized.
+- **Decision:** use a direct, context-aware human handoff while qualification, scope, price, deployment, trust, and delivery boundaries are being learned.
+- **Rejected alternatives:** infer a new form pipeline, analytics funnel, CRM, checkout, payment processor, provisioning service, or customer database from the existence of current offers.
+- **Reasoning:** human-controlled commercial truth is sufficient at present and avoids premature state and authority owners.
 
-- Decision: represent Alex Gusev as the accountable human maker and AI agents as active production participants, while keeping buyer outcome and evidence ahead of production identity.
-- Rejected alternatives: imply a larger organization; hide the single-maker model; treat agents as employees or as replacements for human authority; make Alex's identity the product.
-- Reasoning: suitable early buyers may value direct ownership, transparency, and customization, but those strengths do not establish maturity, capacity, continuity, or commercial validation.
+## Decision 7: Expose The Accountable Maker And Agent Participation
 
-## Decision 8: Adopt Products, How It Works, And Alarisa As Primary Semantics
+- **Status:** retained and aligned with the Wired Geese identity.
+- **Decision:** represent Alex Gusev as the accountable human maker and AI agents as hired, authorized working participants. Keep buyer outcome and claim-specific evidence ahead of production mythology.
+- **Rejected alternatives:** imply a larger organization; hide human accountability; describe agents as employees, owners, or independent commercial authorities; make maker biography the product.
+- **Reasoning:** the working model is central to trust and proof, but it does not establish unlimited capacity, organizational redundancy, maturity, or commercial success.
 
-- Decision: use Products, How it works, and Alarisa as the stable primary navigation meanings; use the brand for Home and a distinct shared commercial action for the human handoff. `How it works` is the accepted English public label; Russian and Spanish labels remain idiomatic copy decisions. Keep About as secondary maker evidence. Treat customization as a cross-product capability owned by product journeys and How it works rather than as a parallel header business. Do not freeze exact paths at the architecture level.
-- Rejected alternatives: retain the current personal-site navigation; use Products, Custom Development, Alarisa, Technology, and About as equal primary destinations; expose only Products and Alarisa with no cross-product trust destination; place retained knowledge in the header; create separate applications for commercial and knowledge surfaces.
-- Reasoning: the chosen model gives products the dominant discovery path, gives customization and shared foundations one buyer-oriented supporting destination, keeps Alarisa strategically visible, reduces portfolio and consultancy drift, and remains stable as products are added or retired.
+## Decision 8: Use Flexible Semantic Destinations Instead Of Fixed Primary Labels
 
-## Decision 9: Separate vision, method, platform, system, commercial product, and offer
+- **Status:** supersedes the prior decision fixing `Products / How it works / Alarisa` as permanent primary semantics.
+- **Decision:** require direct discovery of Brand/Home, current commercial entry points, current work and systems, Journal/Events, how the work is made, and a distinct commercial action. Allow labels, paths, grouping, header-link count, and the prominence of particular offers or systems to evolve under product authority.
+- **Rejected alternatives:** preserve legacy personal-site navigation; require a generic Products catalogue before an offer; keep Journal in secondary navigation; freeze MCP, Telegram, or Alarisa as permanent header identity; create separate applications for semantic surfaces.
+- **Reasoning:** durable architecture should preserve visitor jobs and relationships, not provisional labels or a catalogue-centered snapshot.
 
-- Decision: represent Alarisa as the non-market-ready Principal–Assistant vision and R&D direction, with an eventual product or connected product-family ambition; ADSM as the development methodology; TeqFW as the technical platform; PDE as an independently useful technical system produced by development toward Alarisa; and the Telegram setup as the current concrete commercial offer.
-- Rejected alternatives: treat them as equal catalogue items; model PDE and every subsequent offer as mandatory modules of Alarisa; treat one failed product experiment as failure of Alarisa's vision and direction.
-- Reasoning: these objects have different purposes, boundaries, and lifecycles. Separating them keeps Alarisa's strategic direction open while allowing commercial products and discontinued branches to be evaluated independently.
+## Decision 9: Separate Foundation, Proof, Systems, And Commercial Objects
 
-## Decision 10: Treat product-specific cognitive context as an optional transfer asset
+- **Status:** revised; supersedes the prior decision that made Alarisa the principal vision and Telegram the singular current concrete offer.
+- **Decision:** keep TeqFW as technical North Star, ADSM as complementary methodology, Alarisa as major ongoing proof and long-term product direction, PDE and Desks as working but early external systems or capabilities, books as available knowledge products, Telegram as paid validation, and MCP integration as a provisional near-term engineering entry while product authority supports those statuses.
+- **Rejected alternatives:** treat these objects as equivalent catalogue items; make Alarisa the foundation or universal container; present it as market-ready; make Telegram the assumed mature primary offer; make MCP permanent site identity; force every working capability into a product lifecycle.
+- **Reasoning:** the objects have different architectural relationships and runtime boundaries. Current commercial priority may change without requiring a site-identity or platform redesign.
 
-- Decision: allow an agreed product delivery to include a bounded cognitive context and development guidance for continued work by another accountable human-and-agent team, while keeping source access, context access, rights, authority, and support as separate agreement dimensions.
-- Rejected alternatives: make all internal context part of every installation; equate source delivery with development continuity; promise autonomous agent maintenance; turn the public site into an automated context-transfer service.
-- Reasoning: ADSM can preserve more development intent than source code alone, but transfer has confidentiality, intellectual-property, competence, authority, and continuity limits that require explicit human control.
+## Decision 10: Treat Product-Specific Context As An Optional Transfer Asset
+
+- **Status:** retained.
+- **Decision:** allow an agreed delivery to include bounded cognitive context and development guidance for another accountable human-and-agent team while keeping source, deployment, context, ownership, licensing, modification, operation, and support as separate grants.
+- **Rejected alternatives:** include all internal context in every delivery; equate source access with development continuity; promise autonomous maintenance; make the site an automated context-transfer service.
+- **Reasoning:** context can preserve development intent, but transfer creates confidentiality, rights, competence, authority, update, and support boundaries requiring explicit human control.
+
+## Decision 11: Separate Event Chronology From Current Canonical State
+
+- **Status:** added.
+- **Decision:** let Events preserve dated observations and changes while product authority and corresponding current-state surfaces own the latest accepted status. Link the two without allowing publication to change status automatically.
+- **Rejected alternatives:** use Journal as the only product-state store; rewrite old Events whenever status changes; infer canonical truth or validation from posting activity.
+- **Reasoning:** an inspectable chronology and an unambiguous current state have different lifecycle and correction semantics.
+
+## Decision 12: Preserve All Three Site Responsibilities Without Formal Symmetry
+
+- **Status:** added.
+- **Decision:** make Sell, Demonstrate, and Document structurally first-class, give aligned selling immediate operational priority, and avoid encoding equal visual or navigation weight as an architectural invariant.
+- **Rejected alternatives:** reduce the site to a catalogue, portfolio, consultancy, archive, technical blog, or single-offer funnel; impose a three-column or equal-link structure merely to signal conceptual equality.
+- **Reasoning:** the responsibilities reinforce one another, while the current funding stage and future evidence must be able to change attention without an architecture rewrite.

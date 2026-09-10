@@ -6,44 +6,67 @@
 
 ## Purpose
 
-Define sources of truth and state ownership for the target site while separating website state from promoted-product and customer state.
+Define state domains and sources of truth while separating normative meaning, authored publication inputs, derived output, website operation, evidence chronology, commercial truth, and external product/customer state.
 
-## Authoritative State
+## State Domains
 
-- `ctx/` is authoritative for product meaning and engineering guidance.
-- `tmpl/`, source-controlled assets, source code, and configuration are authoritative for approved implementation inputs.
-- Commercial agreements and confirmed customer delivery records are human-controlled business truth outside generic site analytics.
-- Each PDE deployment owns its operational configuration, credentials, grants, and customer data within the deployment boundary agreed with that client.
+| State domain | Authoritative owner | Architectural meaning |
+| --- | --- | --- |
+| Product and engineering truth | Applicable documents under `ctx/` | Normative identity, status, evidence meaning, boundaries, and downstream guidance. |
+| Authored public content | `tmpl/` and source-controlled assets or configuration | Approved implementation inputs for the public site; subordinate to context. |
+| Derived publication output | `web/` | Regenerable browser-delivered artifacts, never an authored source of truth. |
+| Ephemeral website operation | Request, route, locale, render, and publication process state | Bounded runtime data needed to serve or publish the site. |
+| Journal chronology | Authored Event and thread content | Dated public record of meaningful observations, decisions, and changes; not the sole owner of current status. |
+| Current public status | Product authority and corresponding authored current-state surfaces | Present accepted state of a system, offer, or hypothesis. |
+| Commercial truth | Human-controlled agreements and confirmed customer, payment, delivery, and outcome records | Evidence requiring explicit interpretation; not inferred from publication or traffic. |
+| Product and customer operation | The applicable external deployment and agreement | Credentials, grants, private data, operation, support, revocation, and lifecycle outside the website. |
+| Transferred development context | The explicitly agreed receiving boundary | A snapshot or separate repository owned according to the transfer agreement, not an automatic live mirror of Wired Geese context. |
 
-The repository's live `ctx/` is authoritative for Wired Geese development. A delivered cognitive-context snapshot or separately transferred repository becomes an engineering asset within the receiving boundary defined by the agreement; it is not automatically a shared mutable reference to Wired Geese's ongoing internal context.
+## Authority And Derivation
 
-## Derived And Ephemeral State
+`ctx/docs/product/` is authoritative for product meaning. Architecture, environment, code guidance, authored content, and generated output refine or project that meaning in descending order.
 
-- `web/` contains derived publication output.
-- render data, normalized route information, and publication command state are ephemeral site state.
-- The current website/contact architecture has no server-side form pipeline and therefore requires no form-delivery runtime secrets.
-- traffic or contact-intent observations, if approved, are diagnostic evidence rather than proof of revenue or validation.
+Current implementation may reveal an existing behavior but cannot override the accepted target state. Authored public content must be updated when authoritative status changes. Derived output must remain traceable to its authored sources and reproducible under the approved publication process.
 
-## Ownership Boundaries
+## Journal Chronology And Current State
 
-- Site runtime code may render product information and provide a direct-contact handoff; it does not own product strategy.
-- The website must not own Telegram session credentials, Telegram content, PDE configuration, or customer AI-system grants unless a later architecture decision explicitly creates and governs that responsibility.
-- Credential ownership, administrative access, configuration storage, updates, and revocation for a customer deployment belong to the commercial agreement and that deployment's own context.
-- Alex or the client may operate deployment state only within the authority explicitly granted for that arrangement.
-- Source-code access, cognitive-context access, continued-development rights, and operational authority are separate grants. Possession of one does not imply the others.
+An Event owns a dated statement about what changed, was observed, accepted, rejected, paid for, reused, or discontinued. It remains historically meaningful even after later events supersede its state.
 
-## Commercial Truth
+A current system, offer, or status surface owns the public projection of the latest accepted product fact. Journal content may link to and support that fact, but publication does not silently promote an event into canonical status.
 
-Visits, page events, submitted forms, and marketplace messages do not by themselves prove a qualified customer, payment, delivery, reusable capability, or product demand.
+When chronology and current state diverge, downstream implementation must preserve the historical record and update the current-state projection from product authority. Corrections should remain visible enough to prevent an earlier Event from becoming misleading.
 
-Early commercial validation requires evidence from external paying customers and completed setups. Human confirmation remains authoritative unless a separately approved trusted business system is introduced.
+## Evidence And Commercial Truth
 
-Alex's personal operation of software developed along the Alarisa direction and of PDE, together with selected installations for close or experimental users, is practical-use evidence. It must remain distinguishable from commercial evidence and must not be promoted into claims of market demand, mature support, production-grade security, or repeatable external deployment.
+Evidence remains claim-specific under `../product/journal-and-evidence.md`. The architecture must not equate any of these with commercial validation:
+
+- visits, clicks, page events, or contact attempts;
+- Journal publication or posting volume;
+- commits, agent activity, or technical output;
+- Alex's internal use;
+- close-user or unpaid experimental use.
+
+Those observations may support narrower claims. Payment, completed delivery, repeated use, reuse, customer outcomes, and recurring revenue require their own human-confirmed records and product-level interpretation.
+
+The site does not need a database, CRM, analytics backend, or evidence-management application to publish truthful evidence. Human confirmation remains authoritative unless a separately approved product and architecture decision establishes a trusted system with explicit ownership and semantics.
+
+## Operational And External Ownership
+
+The website runtime may render current information and initiate human contact. It does not own:
+
+- Telegram credentials, sessions, content, or publishing authority;
+- PDE or Desk configuration and operational state;
+- customer service credentials, MCP grants, private resources, or logs;
+- customer files or product deployment state;
+- payment, provisioning, managed-hosting, or support records;
+- a generalized customer or commercial database.
+
+Credential ownership, administrative access, configuration storage, updates, revocation, retention, support, and failure responsibility belong to the relevant external deployment and explicit agreement.
+
+Source access, deployment access, cognitive-context access, ownership, licensing, modification rights, operational authority, maintenance, and support remain separate grants. Possession of one does not imply another.
 
 ## Change Discipline
 
-New persistent site state, customer credential storage, automated provisioning, CRM-like records, payment authority, or cross-system identity require explicit product and architecture approval before environment or code documentation may define them.
+A new persistent site state owner, customer/private state, identity system, analytics authority, CRM, payment system, provisioning mechanism, synchronized context service, or evidence store requires an upstream product need and explicit architecture approval before environment or code documentation may define it.
 
-Any future synchronized context-sharing or automated handoff service would create new state ownership, confidentiality, update, conflict, and revocation responsibilities. It requires separate product and architecture approval and must not be inferred from the optional transfer model.
-
-State formerly associated with the discontinued GitHub funnel is retired. It has no current website runtime owner or target-state authority.
+State formerly associated with the discontinued GitHub funnel is retired and has no target website owner.

@@ -6,60 +6,81 @@
 
 ## Purpose
 
-Define the site's external integrations, internal contracts, and boundary with products promoted through the site.
+Define stable website integrations, ordinary outbound connections, and the runtime, authority, and trust boundaries between wiredgeese.com and the systems or commercial work it presents.
 
-## Site Integrations
+## Stable Site Integrations
 
-The stable site integrations are:
+The website architecture integrates with:
 
 - TeqCMS under the `@teqfw/cli` host for rendering and site workflows;
 - Node.js for local execution and publication commands;
 - Nunjucks-compatible templates for authored page composition;
-- public external destinations used as evidence, communication, or product references;
+- source-controlled configuration, templates, and public assets;
 - host-level deployment surfaces represented by `bin/` and `etc/`.
 
-These are website integrations. They do not make the website a host for the products it sells.
+These integrations support one multilingual SSR/publication system. The revised product model does not justify replacing the site engine or creating separate applications for commercial, current-work, Journal, or historical surfaces.
 
 ## Internal Contracts
 
 - Root package and TeqCMS configuration bind the project namespace, lifecycle plugin, DI replacements, and template engine.
 - Request routing resolves locale and canonical route information before page-specific enrichment.
 - Template sources produce browser-facing output through the CMS runtime.
-- Redirect configuration supports intentional preservation and normalization of public URLs.
-- Contact provides direct, product-aware channels for a human handoff without creating a server-side form-delivery pipeline or general customer database.
+- Redirect and routing configuration support intentional preservation and normalization of public URLs.
+- Shared navigation and contextual links provide direct discovery among commercial entries, current work, Journal, working-model explanation, and retained knowledge.
+- Contact provides a context-aware route to human conversation without creating a server-side sales pipeline or customer database by default.
 
-Detailed implementation contracts remain in the code documentation when they are durable and current.
+Detailed implementation contracts belong in code documentation when durable and current.
 
-## PDE Commercial Boundary
+## Outbound Links Are Not Runtime Integrations
 
-The site may describe a PDE capability and route a visitor to a commercial conversation. The following are outside the website integration boundary unless separately approved:
+The site may expose ordinary links to:
 
-- MCP interaction with a customer's AI system;
-- Telegram authentication, sessions, messages, and publishing authority;
-- Shared Files storage;
-- PDE deployment, monitoring, updates, and termination;
-- client VPS access or managed hosting.
+- current commercial entries such as the product-authorized MCP Integration Pilot or Telegram paid validation;
+- PDE, Telegram Desk, Shared Files Desk, TeqCMS, Alarisa, and other current-work or evidence destinations;
+- `teqfw.com` for primary TeqFW depth;
+- confirmed book sellers such as Leanpub or the browser-book publisher;
+- public artifacts, repositories, communication channels, and other approved evidence.
 
-These responsibilities belong to PDE and to client-specific delivery arrangements. Selling an external capability does not imply runtime coupling to the selling site.
+An outbound link neither transfers authority nor creates a runtime dependency beyond ordinary web navigation. External purchase destinations do not make wiredgeese.com a payment processor. Public evidence links do not make it an evidence store or owner of the referenced system.
+
+## Product And Customer Runtime Boundary
+
+The following remain outside the website integration boundary unless a separately approved architecture creates them:
+
+- MCP servers delivered for customers and interaction with customer services or APIs;
+- PDE and Desk runtimes;
+- Telegram authentication, sessions, messages, channel data, and publishing authority;
+- Shared Files storage and access grants;
+- customer identities, credentials, private resources, logs, and operational data;
+- product deployment, monitoring, updates, termination, support, and incident handling;
+- customer VPS access or managed hosting.
+
+Selling MCP work does not turn the site into a customer MCP server. Promoting Telegram capability does not give the site Telegram credentials or sessions. Demonstrating PDE and Desks does not make the site their host. A current commercial offer may change without changing these runtime boundaries.
+
+## Commercial Handoff Boundary
+
+The public site may carry the originating offer or system context into a direct contact action. Human-controlled qualification and agreement establish scope, price, acceptance, deployment, credentials, confidentiality, evidence disclosure, rights, support, and stopping conditions before sensitive access or external delivery begins.
+
+No particular form, payment, CRM, scheduling, analytics, or provisioning system is implied. A later integration must have an explicit owner, minimum data boundary, retention and revocation semantics, and upstream approval.
 
 ## Cognitive-Context Transfer Boundary
 
-An agreed product delivery may include source code, configuration and deployment knowledge, and a bounded cognitive context for continued human-directed, AI-agent-assisted development. This is a commercial handoff between accountable parties, not a runtime integration with wiredgeese.com.
+An agreed delivery may include source, configuration and deployment knowledge, and bounded product-specific cognitive context for continued human-directed, AI-agent-assisted development. This is a transfer between accountable parties, not a runtime integration with wiredgeese.com.
 
-The delivered context must be intentionally selected for the product and agreement. It must not implicitly include unrelated Wired Geese strategy, other customer material, credentials, third-party restricted content, or access to Alex's live internal source of truth. A one-time snapshot, a separately owned repository, and an ongoing shared collaboration have different state and authority semantics; no one model is selected automatically.
+The delivered context must be intentionally selected. It must not implicitly include unrelated Wired Geese strategy, other customer material, credentials, third-party restricted content, or access to Alex's live internal source of truth. A snapshot, separately owned repository, and ongoing collaboration have different state and authority semantics; none is selected automatically.
 
-The receiving human owner controls goals, acceptance, credentials, and consequential changes after transfer. AI-agent access conveys technical capability only within the permissions and supervision granted by that owner.
+The receiving human owner controls goals, acceptance, credentials, permissions, and consequential changes after transfer. AI-agent access conveys only the technical capability authorized within that receiving boundary.
 
 ## Trust And Authority
 
-Any future website interaction involving credentials, private resource identifiers, deployment administration, or product provisioning would transfer materially more authority than an ordinary contact request. It must be documented upstream, minimized, and approved before implementation.
+Any future website behavior involving credentials, private resources, deployment administration, payment, product provisioning, or customer records would transfer materially more authority than an ordinary contact or outbound link. It must be minimized, documented upstream, and approved before implementation.
 
-The current offer therefore favors a human agreement on deployment and credential boundaries before sensitive access is requested.
+MCP, Telegram, external sellers, agent environments, and third-party services do not become secure, compliant, supported, reliable, endorsed, or owned by Wired Geese merely because they are linked or used in an external delivery.
 
 ## Retired Integration
 
-The former GitHub Flows landing form, offer-specific token injection, repository-validation fields, and mail pipeline are retired. They are historical implementation only, not current integrations or reusable contracts for the Telegram offer.
+The former GitHub Flows landing form, offer-specific token injection, repository-validation fields, and mail pipeline are historical implementation only. They are not current integrations or reusable contracts for MCP, Telegram, Journal, or another current surface.
 
 ## Change Rule
 
-New runtime integrations, automated payment or provisioning, external analytics, CRM dependencies, customer-data owners, or synchronized context-transfer services require explicit architectural review. Product destinations and ordinary evidence links may evolve without becoming runtime dependencies.
+New runtime integrations, customer-data owners, automated payment or provisioning, analytics or CRM dependencies, managed product operation, or synchronized context-transfer services require explicit product need and architecture review. Current offers, systems, Journal links, book destinations, and public evidence references may evolve without being hard-coded as permanent runtime dependencies.
