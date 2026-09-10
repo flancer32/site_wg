@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/contact.md`
 - Template Version: `20260630`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
@@ -28,7 +28,7 @@ Contact is a commercial action and route-continuity concern, not a primary conte
 
 ## Contact Boundary
 
-The page may expose approved direct contact channels and first-message guidance. A first conversation may identify the desired outcome, AI system, Telegram boundary, preferred deployment model, likely customization, and whether source or cognitive-context transfer is relevant.
+The current page is a direct human handoff surface: product context may affect explanatory copy, and approved direct contact channels and first-message guidance may be exposed. It implements no Contact form or server-side mail/form pipeline. A first conversation may identify the desired outcome, AI system, Telegram boundary, preferred deployment model, likely customization, and whether source or cognitive-context transfer is relevant.
 
 The website must not request Telegram credentials, session data, client-host secrets, broad administrative access, or internal customer cognitive context as ordinary contact fields.
 
@@ -39,7 +39,7 @@ No final form fields, channel order, automation, payment step, or deployment wor
 - The page remains inside the shared locale shell.
 - Equivalent commercial meaning and trust boundaries apply across locales.
 - Supporting engineering and business details may remain accessible without dominating the primary action.
-- Existing form-to-email behavior may remain until later implementation review, but GitHub-specific validation fields and promises are not target contracts.
+- The current page implements no Contact form or server-side mail/form pipeline. Any future form requires an approved page and architecture contract; GitHub-specific validation fields and promises are not target contracts.
 
 ## Topic Context And Canonicality
 

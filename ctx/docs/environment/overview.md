@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/environment/overview.md`
 - Template Version: `20260605`
-- Changed: `20260908`
+- Changed: `20260910`
 
 ## Purpose
 
@@ -15,7 +15,6 @@ The site currently assumes:
 - a local Node.js environment for site generation, translation, validation, and repository maintenance;
 - a Linux host environment for long-running site serving through `npm start` and the `@teqfw/cli` host;
 - the TeqCMS-based rendering and publication model documented at architecture level;
-- SMTP configuration when the existing programmatic contact form is used.
 
 The stable external prerequisites include:
 
@@ -24,7 +23,6 @@ The stable external prerequisites include:
 - shell access sufficient for documented repository commands;
 - a Linux service environment compatible with current operational assets under `etc/`;
 - a valid public base URL supplied through `TEQ_CMS__BASE_URL`, with the documented production fallback;
-- environment-provided SMTP settings when email delivery is enabled.
 
 Template locale settings use the `TEQFW_TMPL__*` namespace, web transport settings use `TEQFW_WEB__*`, and CMS-specific settings use `TEQ_CMS__*`.
 
@@ -53,7 +51,7 @@ For each future product delivery, deployment location, credential ownership, adm
 
 Early qualification, pricing, payment confirmation, deployment agreement, and delivery validation may remain manual. No CRM, payment integration, automated provisioning, telemetry funnel, or managed-hosting control plane is an environment requirement.
 
-Ordinary access logs and contact delivery may remain operational evidence. They do not establish commercial validation or revenue truth.
+Ordinary access logs and direct-contact conversations may remain operational evidence. They do not establish commercial validation or revenue truth.
 
 ## Environment Constraints
 
@@ -61,4 +59,4 @@ Ordinary access logs and contact delivery may remain operational evidence. They 
 - Secrets remain outside version control and are scoped to the runtime that needs them.
 - New classes of site dependency require documentation and approval before they become durable requirements.
 - Local development must not require live PDE, Telegram, customer credentials, or product-delivery infrastructure.
-- Current implementation support for the discontinued GitHub offer is legacy drift and must not be generalized into future environment rules.
+- The retired GitHub offer creates no current environment requirement and must not be generalized into future environment rules.

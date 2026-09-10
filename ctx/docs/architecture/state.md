@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/state.md`
 - Template Version: `20260605`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
@@ -21,12 +21,12 @@ The repository's live `ctx/` is authoritative for Wired Geese development. A del
 
 - `web/` contains derived publication output.
 - render data, normalized route information, and publication command state are ephemeral site state.
-- runtime secrets required by existing site forms may exist outside version control, but they do not define product truth.
+- The current website/contact architecture has no server-side form pipeline and therefore requires no form-delivery runtime secrets.
 - traffic or contact-intent observations, if approved, are diagnostic evidence rather than proof of revenue or validation.
 
 ## Ownership Boundaries
 
-- Site runtime code may render product information and accept an approved contact request; it does not own product strategy.
+- Site runtime code may render product information and provide a direct-contact handoff; it does not own product strategy.
 - The website must not own Telegram session credentials, Telegram content, PDE configuration, or customer AI-system grants unless a later architecture decision explicitly creates and governs that responsibility.
 - Credential ownership, administrative access, configuration storage, updates, and revocation for a customer deployment belong to the commercial agreement and that deployment's own context.
 - Alex or the client may operate deployment state only within the authority explicitly granted for that arrangement.
@@ -46,4 +46,4 @@ New persistent site state, customer credential storage, automated provisioning, 
 
 Any future synchronized context-sharing or automated handoff service would create new state ownership, confidentiality, update, conflict, and revocation responsibilities. It requires separate product and architecture approval and must not be inferred from the optional transfer model.
 
-Legacy state used only by the discontinued GitHub funnel may remain in current code temporarily, but it has no target-state authority.
+State formerly associated with the discontinued GitHub funnel is retired. It has no current website runtime owner or target-state authority.

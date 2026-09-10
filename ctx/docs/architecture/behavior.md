@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/behavior.md`
 - Template Version: `20260605`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
@@ -74,4 +74,4 @@ This preservation flow protects useful public value without keeping discontinued
 
 ## Legacy Drift
 
-The implementation may still contain a GitHub orchestration landing flow, signed token enrichment, dedicated form fields, and related event assumptions. These are not target behavior and must not be expanded or rebuilt. Their implementation retirement is outside this documentation-only task.
+The former GitHub orchestration landing flow, signed token enrichment, dedicated form fields, and related event assumptions are retired. They are not current or target behavior and must not be rebuilt.

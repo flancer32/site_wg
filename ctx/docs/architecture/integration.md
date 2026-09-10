@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/integration.md`
 - Template Version: `20260605`
-- Changed: `20260909`
+- Changed: `20260910`
 
 ## Purpose
 
@@ -15,7 +15,6 @@ The stable site integrations are:
 - TeqCMS under the `@teqfw/cli` host for rendering and site workflows;
 - Node.js for local execution and publication commands;
 - Nunjucks-compatible templates for authored page composition;
-- SMTP for existing programmatic form-to-email delivery;
 - public external destinations used as evidence, communication, or product references;
 - host-level deployment surfaces represented by `bin/` and `etc/`.
 
@@ -27,7 +26,7 @@ These are website integrations. They do not make the website a host for the prod
 - Request routing resolves locale and canonical route information before page-specific enrichment.
 - Template sources produce browser-facing output through the CMS runtime.
 - Redirect configuration supports intentional preservation and normalization of public URLs.
-- Contact delivery sends approved page input to the operator without becoming a general customer database.
+- Contact provides direct, product-aware channels for a human handoff without creating a server-side form-delivery pipeline or general customer database.
 
 Detailed implementation contracts remain in the code documentation when they are durable and current.
 
@@ -57,9 +56,9 @@ Any future website interaction involving credentials, private resource identifie
 
 The current offer therefore favors a human agreement on deployment and credential boundaries before sensitive access is requested.
 
-## Legacy Integration Drift
+## Retired Integration
 
-The current code may still contain a GitHub-offer landing form, offer-specific token injection, and fields tied to repository validation. Those are implementation remnants of a discontinued direction. They must not be treated as reusable contracts for the Telegram offer.
+The former GitHub Flows landing form, offer-specific token injection, repository-validation fields, and mail pipeline are retired. They are historical implementation only, not current integrations or reusable contracts for the Telegram offer.
 
 ## Change Rule
 
