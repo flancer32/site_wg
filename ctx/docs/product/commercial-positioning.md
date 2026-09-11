@@ -44,7 +44,7 @@ Alarisa is the major ongoing proof of the system at substantial multi-component 
 
 ## Fit, Authority, And Pricing
 
-A suitable client has a new product or separable new system to build and is willing to let Alex own its engineering approach. Client constraints are respected, including integrations, protocol, compliance, deployment, infrastructure, browser, and operational requirements. A client seeking capacity inside an unrelated predetermined architecture is normally not a fit.
+A suitable client has a new product or separable new system to build and is willing to give Alex decision authority over, and accept his responsibility for, the engineering approach. Client constraints are respected, including integrations, protocol, compliance, deployment, infrastructure, browser, and operational requirements. A client seeking capacity inside an unrelated predetermined architecture is normally not a fit.
 
 There are no canonical public prices or hourly rates for client product builds. The first scope, deliverable, and price are agreed before implementation. PDE and Desk deployments also have no canonical numeric public price; their installation and support boundaries are agreed as product deployments, not hourly capacity. The client value is accountable product construction using Alex's accumulated engineering practice, not instruction in how the client's team should use agents.
 

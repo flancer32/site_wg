@@ -18,7 +18,8 @@ function render(locale, template) {
 test('commercial pages present product construction, engineering ownership, and a scope-based start', () => {
     const html = render('en', 'work-with-me.html');
     assert.match(html, /build web applications and software products from the ground up/i);
-    assert.match(html, /You own the product problem/i);
+    assert.match(html, /You define the business problem/i);
+    assert.match(html, /decision authority over and take responsibility/i);
     assert.match(html, /I choose and maintain the architecture/i);
     assert.match(html, /Scope and price/i);
     assert.match(html, /contact\.html\?topic=product/);
@@ -38,6 +39,7 @@ test('all maintained locales expose a product conversation and no retired commer
         assert.match(contact, /credentials|учётные данные|credenciales/i);
         await assert.rejects(fs.access(path.join(root, 'tmpl/web', locale, 'products/chatgpt-telegram.html')));
         await assert.rejects(fs.access(path.join(root, 'tmpl/web', locale, 'land/agent-orchestration-poc/index.html')));
+        await assert.rejects(fs.access(path.join(root, 'tmpl/web', locale, 'contacts.html')));
     }
 });
 

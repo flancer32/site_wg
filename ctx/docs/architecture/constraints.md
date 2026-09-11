@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/constraints.md`
 - Template Version: `20260605`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
@@ -60,7 +60,7 @@ The architecture must prevent wiredgeese.com from collapsing into:
 
 - a catalogue in which every system or capability must become a product;
 - a portfolio with working examples but no actionable commercial path;
-- a generic consultancy or service menu detached from the owned technical direction;
+- a generic consultancy or service menu detached from Alex's accountable technical direction;
 - an archive or blog in which historical content or publication volume replaces current work and commercial meaning;
 - a single-offer funnel in which MCP, Telegram, Alarisa, or another provisional object becomes permanent site identity;
 - a TeqFW documentation or marketing replacement for `teqfw.com`.

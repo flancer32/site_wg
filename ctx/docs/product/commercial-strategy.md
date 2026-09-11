@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Define how Wired Geese selects commercially aligned new-product work while preserving Alex Gusev's engineering-system ownership and honest evidence boundaries.
+Define how Wired Geese selects commercially aligned new-product work while preserving Alex Gusev's engineering decision authority and honest evidence boundaries.
 
 ## Direction
 
@@ -40,9 +40,9 @@ need for an existing PDE capability
 
 The first scope identifies the product problem, intended users and capabilities, hard constraints, acceptance boundary, and appropriate initial deliverable. Scope and price are agreed before implementation. Larger work may proceed through successive agreed scopes. No numeric price, hourly rate, delivery time, standard package, support promise, or subscription model is canonically established.
 
-## Engineering Ownership
+## Engineering Decision Authority
 
-The client owns the business problem, product requirements, and material constraints. Alex owns the engineering approach used to implement the agreed product. Constraints such as integrations, compliance, protocols, infrastructure, deployment, operations, and browser support are inputs to that approach, not a requirement to become implementation capacity inside arbitrary architecture.
+The client defines the business problem, product requirements, and material constraints. Alex has decision authority over and takes responsibility for the engineering approach used to implement the agreed product. Constraints such as integrations, compliance, protocols, infrastructure, deployment, operations, and browser support are inputs to that approach, not a requirement to become implementation capacity inside arbitrary architecture.
 
 TeqFW and ADSM are parts of one engineering system that Alex has evolved through his own product work. They are not selectable consulting products, universal prescriptions, or proof that other approaches are invalid. AI agents help in development under Alex's direction and acceptance; they are not the sales object or a promise of autonomous delivery.
 
@@ -50,7 +50,7 @@ TeqFW and ADSM are parts of one engineering system that Alex has evolved through
 
 Alarisa is the most substantial ongoing proof of the system's ability to support a multi-component product. TeqCMS, PDE, Mindstream, TeqFW, and other documented work show the same thinking across different systems and scales. This is evidence of engineering practice, not proof of a client's future outcome or of commercial validation.
 
-Prefer product work where the problem is real, the initial boundary can be made coherent, and Alex's approach can responsibly own the technical direction. Product work may be focused, substantial, or long-running; those are scale distinctions, not separate SKUs.
+Prefer product work where the problem is real, the initial boundary can be made coherent, and Alex can responsibly direct the technical work. Product work may be focused, substantial, or long-running; those are scale distinctions, not separate SKUs.
 
 ## Legacy Exclusions
 

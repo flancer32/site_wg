@@ -38,15 +38,15 @@ The public system must support direct discovery of current commercial entries, c
 
 Architecture consumes rather than restates the product model:
 
-- `../product/overview.md` owns site identity, foundation, and the three site jobs;
-- `../product/practitioner-positioning.md` owns the practitioner-first position, feedback loop, and ADSM/TeqFW epistemic boundaries;
-- `../product/product-system.md` owns object kinds and current status;
-- `../product/commercial-strategy.md` owns the new-product commercial direction;
-- `../product/commercial-positioning.md` owns the canonical proposition, fit, ownership, pricing mechanism, and exclusions;
-- `../product/journal-and-evidence.md` owns evidence meaning and Journal semantics;
-- `../product/information-architecture.md` owns semantic hierarchy and visitor jobs;
-- `../product/home-page-composition.md` owns Home attention and content responsibilities;
-- `../product/transferable-development.md` owns its bounded continuation capability.
+- `../product/overview.md` authoritatively defines site identity, foundation, and the three site jobs;
+- `../product/practitioner-positioning.md` authoritatively defines the practitioner-first position, feedback loop, and ADSM/TeqFW epistemic boundaries;
+- `../product/product-system.md` authoritatively defines object kinds and current status;
+- `../product/commercial-strategy.md` authoritatively defines the new-product commercial direction;
+- `../product/commercial-positioning.md` authoritatively defines the canonical proposition, fit, engineering decision authority, pricing mechanism, and exclusions;
+- `../product/journal-and-evidence.md` authoritatively defines evidence meaning and Journal semantics;
+- `../product/information-architecture.md` authoritatively defines semantic hierarchy and visitor jobs;
+- `../product/home-page-composition.md` authoritatively defines Home attention and content responsibilities;
+- `../product/transferable-development.md` authoritatively defines its bounded continuation capability.
 
 Architecture defines structural reachability, state separation, runtime boundaries, and durable downstream constraints needed to realize those authorities. It must not fix open product or presentation decisions.
 

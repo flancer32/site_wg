@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/rendering.md`
 - Template Version: `20260630`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
@@ -15,8 +15,8 @@ The project declares its `App_` namespace and CLI lifecycle plugin in `package.j
 ## Request Sequence
 
 1. decode the request path and derive locale-aware routing information;
-2. apply declarative redirect normalization;
-3. request base render data from the CMS adapter;
+2. apply a declarative permanent redirect response when the path is mapped;
+3. request base render data from the CMS adapter only when no redirect completes the request;
 4. resolve the effective post-normalization route;
 5. add approved project metadata or route-specific data;
 6. render the locale template or return the localized not-found response.
@@ -39,7 +39,7 @@ Request host and forwarding headers do not define the public metadata origin.
 
 ## Historical-Route Enrichment
 
-The archived `land/agent-orchestration-poc` route needs no form-specific render enrichment. It uses the normal locale-aware canonical and alternate metadata path; no signed campaign token is issued.
+The archived `land/agent-orchestration-poc` route, the former ChatGPT + Telegram page, and `contacts.html` need no form-specific render enrichment. The redirect handler returns a locale-preserving permanent response before static or template delivery, so no canonical or alternate metadata is rendered for these legacy routes. No signed campaign token is issued.
 
 Any future repurposing still requires a separate route-preservation review.
 
