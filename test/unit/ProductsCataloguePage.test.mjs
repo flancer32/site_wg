@@ -17,7 +17,7 @@ test('retained Products route renders distinct truthful commercial entry kinds i
         assert.match(html, /MCP/);
         assert.match(html, /Provisional|Предварительное|Provisional/u);
         assert.match(html, /ChatGPT \+ Telegram/);
-        assert.match(html, /paid validation|платной проверки|validación de pago/u);
+        assert.match(html, /paid (?:early access|validation)|платн(?:ая|ый) (?:ранн(?:ий|его) доступ|проверка)|(?:acceso anticipado|validación) de pago/u);
         assert.match(html, /leanpub\.com\/adsm-ru/);
         assert.match(html, /leanpub\.com\/adsm-en/);
         assert.match(html, /bhv\.ru\/product\/brauzer/);

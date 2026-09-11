@@ -29,6 +29,9 @@ test('Current Work separates active system status from history and projects real
             assert.match(html, new RegExp(`id="${id}"`));
         }
         assert.match(html, /Alarisa/);
+        const historical = html.slice(html.indexOf('archive-heading'));
+        assert.doesNotMatch(historical, /TeqCMS/, `${locale}: TeqCMS is not duplicated in history`);
+        assert.doesNotMatch(historical, /Tequila Framework \(TeqFW\)/, `${locale}: TeqFW is not presented as historical work`);
         assert.match(html, /Real TeqCMS event/);
         assert.match(html, /<ul class="blog-list" role="list">/);
         assert.match(html, new RegExp(`href="/${locale}/products/chatgpt-telegram\\.html"`));

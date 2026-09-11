@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Define the existing Alarisa route as a current-work proof and continuity candidate.
+Define the existing Alarisa route as a current-work direction and continuity candidate.
 
 ## Current State
 
@@ -16,4 +16,4 @@ Define the existing Alarisa route as a current-work proof and continuity candida
 
 Alarisa is the most ambitious current ongoing proof system and a long-term product direction exploring interaction between a Principal and that Principal's Assistant. It demonstrates what TeqFW and ADSM can support; it is not the foundation above them, the principal direction for every system, a completed proof, a market-ready product, or a deterministic roadmap.
 
-The current page names TeqFW and ADSM as foundation, states that the proof is experimental and incomplete, and links PDE as a related current system. It provides one safe external repository link as inspectable system evidence, not seven equal public cards or a product-readiness claim. It has no false purchase CTA. Any commercial link leads only to an independently valid offer or direct human handoff with status intact. There are no fabricated Alarisa Event relationships when the authored Journal does not support them.
+The current page calls Alarisa a major ongoing multi-component system, names TeqFW and ADSM as foundation, states that its exploration is experimental and incomplete, and links PDE as a related current system. It provides one safe external repository link as inspectable system evidence, not seven equal public cards or a product-readiness claim. It has no false purchase CTA. Any commercial link leads only to an independently valid offer or direct human handoff with status intact. There are no fabricated Alarisa Event relationships when the authored Journal does not support them.

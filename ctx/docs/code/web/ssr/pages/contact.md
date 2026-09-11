@@ -14,6 +14,6 @@ Define the shared direct-human commercial handoff and current query-context boun
 
 ## Target Role
 
-The handoff supports context from current offers and aligned needs without making Telegram the default commercial object. It may help start a conversation about MCP integration, paid validation, an owned capability, emerging ADSM work, or another qualified aligned need. The site does not perform automated qualification, payment, provisioning, or delivery.
+The handoff supports context from current offers and focused software needs without making Telegram the default commercial object. It may help start a conversation about MCP integration, paid early access, an owned capability, emerging ADSM work, or another qualified need. Its prompts describe the service, useful workflow, and access control in visitor language. The site does not perform automated qualification, payment, provisioning, or delivery.
 
 No contact surface requests credentials, session data, client-host secrets, broad administrative access, or customer cognitive context as ordinary fields. The current page has no form or mail pipeline; any future form or topic needs architecture and product approval. GitHub Flows remains historical and supplies no form or lead-flow contract.

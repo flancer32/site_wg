@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/about.md`
 - Template Version: `20260909`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
@@ -10,7 +10,7 @@ Define the retained About route as accountable-maker and practice evidence.
 
 ## Current State
 
-`/{locale}/about.html` is an existing localized continuity candidate. Its current placement outside the header does not forbid future direct discovery under the accepted IA.
+`/{locale}/about.html` is an existing localized continuity candidate. Its current opening foregrounds Alex's human-directed agent practice, JavaScript/Node.js, backend, architecture, integrations, and the TeqFW/ADSM foundation; PWA, SPA, Vue, Magento, and related work remain background experience. Its current placement outside the header does not forbid future direct discovery under the accepted IA.
 
 ## Target Role
 

@@ -22,6 +22,8 @@ test('Home gives every locale a proposition, provisional MCP action, alternative
         assert.match(html, /<h1/);
         assert.match(html, new RegExp(`href="/${locale}/contact\\.html\\?topic=mcp-integration"`));
         assert.match(html, /MCP/);
+        assert.match(html, /Wild Geese|Wild Geese|Wild Geese/u);
+        assert.match(html, /employees|сотрудники|empleados/u);
         assert.match(html, /Provisional|Предварительное|Provisional/u);
         assert.match(html, /ChatGPT \+ Telegram/);
         assert.match(html, /Books|книги|libros/u);
@@ -36,6 +38,17 @@ test('Home gives every locale a proposition, provisional MCP action, alternative
     }
 });
 
+test('Home keeps its commercial action before repository evidence and Current Work', () => {
+    for (const locale of Object.keys(locales)) {
+        const html = renderHome(locale);
+        const commercial = html.indexOf(`/${locale}/contact.html?topic=mcp-integration`);
+        const evidence = html.indexOf('github.com/teqfw/di');
+        const currentWork = html.indexOf('class="home-section home-preview--vision home-current-work"');
+        assert.ok(commercial >= 0 && commercial < evidence, `${locale}: commercial action precedes repository evidence`);
+        assert.ok(commercial >= 0 && commercial < currentWork, `${locale}: commercial action precedes Current Work`);
+    }
+});
+
 test('shared compact navigation exposes commercial entries, Journal, working model, projects, and human handoff', async () => {
     for (const locale of Object.keys(locales)) {
         const nav = await fs.readFile(path.join(root, 'tmpl', 'web', locale, 'inc', 'nav.html'), 'utf8');
@@ -46,5 +59,15 @@ test('shared compact navigation exposes commercial entries, Journal, working mod
         assert.doesNotMatch(nav, /projects\/alarisa\.html/);
         assert.match(nav, /aria-expanded="false"/);
         assert.match(nav, /aria-controls="site-menu"/);
+    }
+});
+
+test('footer preserves the same current discovery model as primary navigation', async () => {
+    for (const locale of Object.keys(locales)) {
+        const footer = await fs.readFile(path.join(root, 'tmpl', 'web', locale, 'inc', 'footer.html'), 'utf8');
+        for (const route of ['products/', 'work-with-me.html', 'projects.html', 'blog/', 'how-it-works.html', 'contact.html?topic=commercial']) {
+            assert.ok(footer.includes(route), `${locale}: ${route} remains reachable in the footer`);
+        }
+        assert.doesNotMatch(footer, /Project Archive|Archivo de proyectos|Архив проектов/u);
     }
 });

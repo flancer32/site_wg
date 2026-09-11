@@ -10,7 +10,7 @@ Describe the retained `/{locale}/projects.html` route as the SSR Current Work su
 
 ## Current State
 
-The route is localized, canonical, indexable, and labelled Current Work in the shared header. It begins with active systems and directions whose object kind and current status are separate: Alarisa, PDE, Telegram Desk, Shared Files Desk, and TeqCMS. Public status labels remain human-facing, while prose preserves material role and maturity distinctions. The stable section anchors are current-state destinations, not new route families.
+The route is localized, canonical, indexable, and labelled Current Work in the shared header. It begins with active systems and directions whose object kind and current status are separate: Alarisa, PDE, Telegram Desk, Shared Files Desk, and TeqCMS. Public status labels remain human-facing, while prose preserves material role and maturity distinctions. TeqCMS appears only in this current section; its former historical duplicate is not rendered. TeqFW remains a current foundation and repository-evidence reference, not a historical portfolio card. The stable section anchors are current-state destinations, not new route families.
 
 Alarisa remains a separate localized detail route. PDE, Telegram Desk, Shared Files Desk, and TeqCMS currently use their explicit anchored sections because a separate detail route would add taxonomy without new state ownership.
 

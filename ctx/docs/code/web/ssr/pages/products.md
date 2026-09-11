@@ -10,7 +10,7 @@ Record the existing Products route and constrain any retained or repurposed comm
 
 ## Current State
 
-`/{locale}/products/` is authored in English, Russian, and Spanish. Its aliases normalize to that retained canonical path. It presents a provisional MCP Integration Pilot, ChatGPT + Telegram as paid early-access validation, and purchasable books as distinct ways to begin or buy now. The stale English `products.html` authored source has been removed because the alias is redirect-only; it must not be restored as an active commercial authority. This route is a continuity fact, not proof that a generic catalogue or homogeneous product inventory is required.
+`/{locale}/products/` is authored in English, Russian, and Spanish. Its aliases normalize to that retained canonical path. Its public heading is `Available now` (with idiomatic localized equivalents), and it presents a provisional MCP Integration Pilot, ChatGPT + Telegram as paid early access, and purchasable books as distinct ways to begin or buy now. Its bridge leads to the separate fit-oriented Work With Alex route rather than treating the page as a customizable catalogue. The stale English `products.html` authored source has been removed because the alias is redirect-only; it must not be restored as an active commercial authority. This route is a continuity fact, not proof that a generic catalogue or homogeneous product inventory is required.
 
 ## Target Relationship
 
