@@ -17,3 +17,16 @@ test('working-model route stays localized and explains accountable human, agents
         assert.doesNotMatch(html, /GitHub Flows|Agent Orchestration PoC|€50/u);
     }
 });
+
+test('working-model page presents an evolving practice rather than a universal method', () => {
+    const expectedPracticeLoop = {
+        en: /build → observe → understand → document → change the approach → build again/,
+        ru: /создать → наблюдать → понять → задокументировать → изменить подход → создать снова/,
+        es: /construir → observar → comprender → documentar → cambiar el enfoque → construir de nuevo/,
+    };
+    for (const [locale, expected] of Object.entries(expectedPracticeLoop)) {
+        const html = nunjucks.configure(path.join(root, 'tmpl', 'web', locale), {autoescape: true}).render('how-it-works.html', {allowedLocales: ['en', 'ru', 'es'], locale});
+        assert.match(html, expected, `${locale}: shows the practice feedback loop`);
+        assert.match(html, /not a universal recipe|не универсальный рецепт|no una receta universal/u, `${locale}: does not claim a universal method`);
+    }
+});

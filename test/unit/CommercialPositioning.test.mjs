@@ -46,10 +46,24 @@ test('all maintained locales expose a product conversation and no retired commer
 test('English home presents the system and systems as evidence rather than services', () => {
     const html = render('en', 'index.html');
     assert.match(html, /engineering system of my own/i);
+    assert.match(html, /I change that system when working software reveals a better way/i);
     assert.match(html, /AI agents under human control/i);
     assert.match(html, /Alarisa/i);
     assert.match(html, /projects are evidence|Evidence in working systems/i);
     assert.doesNotMatch(html, /MCP Integration Pilot|ChatGPT \+ Telegram|agent-service problem/i);
+});
+
+test('Journal presents evolving practice instead of a generic development guide', () => {
+    const expectedPractice = {
+        en: /Records of what I build, observe, change, and learn/i,
+        ru: /Записи о том, что я создаю, наблюдаю, меняю и узнаю/i,
+        es: /Registros de lo que construyo, observo, cambio y aprendo/i,
+    };
+    for (const [locale, expected] of Object.entries(expectedPractice)) {
+        const html = render(locale, 'blog.html');
+        assert.match(html, expected, `${locale}: Journal records practice`);
+        assert.match(html, /not a generic guide|не универсальная инструкция|no una guía genérica/u, `${locale}: Journal does not teach a universal method`);
+    }
 });
 
 test('English Current Work makes PDE and Telegram Desk concrete early product paths', () => {
