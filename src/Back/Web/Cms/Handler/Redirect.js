@@ -2,7 +2,7 @@
 
 /**
  * @namespace App_Back_Web_Cms_Handler_Redirect
- * @description Normalizes legacy HTML routes before CMS rendering.
+ * @description Sends permanent redirects for legacy HTML routes before CMS rendering.
  */
 
 const HTML_EXTENSION_PATTERN = /\.html$/i;
@@ -16,6 +16,9 @@ export default class Redirect {
      * @param {Fl32_Tmpl_Back_Config} deps.tmplConfig
      * @param {TeqFw_Log_Provider} deps.logger
      * @param {Fl32_Cms_Back_Helper_Web} deps.helpWeb
+     * @param {TeqFw_Web_Back_Helper_Respond} deps.respond
+     * @param {TeqFw_Web_Back_Dto_Info__Factory} deps.dtoInfo
+     * @param {TeqFw_Web_Back_Enum_Stage} deps.STAGE
      */
     constructor(
         {
@@ -24,6 +27,9 @@ export default class Redirect {
             tmplConfig,
             logger,
             helpWeb,
+            respond,
+            dtoInfo,
+            STAGE,
         }
     ) {
         const self = this;
@@ -36,6 +42,17 @@ export default class Redirect {
             return Array.isArray(raw) ? raw : [];
         })();
         const localeSet = new Set(allowedLocaleList);
+        const info = dtoInfo.create({
+            name: 'App_Back_Web_Cms_Handler_Redirect',
+            stage: STAGE.PROCESS,
+            before: [
+                'TeqFw_Web_Back_Handler_Static',
+                'Fl32_Cms_Back_Web_Handler_Template',
+            ],
+        });
+
+        /** @returns {TeqFw_Web_Back_Dto_Info} */
+        self.getRegistrationInfo = () => info;
 
         /** @returns {string|null} */
         const getRedirectMapPath = () => {
@@ -290,7 +307,7 @@ export default class Redirect {
         /**
          * @param {object} params
          * @param {any} params.req
-         * @param {any} params.routeInfo
+         * @param {any} [params.routeInfo]
          * @returns {Promise<void>}
          */
         self.applyRedirect = async function ({req, routeInfo}) {
@@ -299,6 +316,26 @@ export default class Redirect {
             } catch (error) {
                 log.error('Redirect handler failure.', {err: error});
             }
+        };
+
+        /**
+         * Sends an HTTP 301 for a mapped legacy route. `applyRedirect` remains
+         * available for focused route tests, while the pipeline handler is the
+         * only production path that turns the mapping into a redirect response.
+         *
+         * @param {TeqFw_Web_Back_Pipeline_RequestContext} context
+         * @returns {Promise<void>}
+         */
+        self.handle = async function (context) {
+            const {request: req, response: res} = context;
+            if (!respond.isWritable(res) || !req || typeof req.url !== 'string') return;
+
+            const originalUrl = req.url;
+            await self.applyRedirect({req});
+            if (req.url === originalUrl) return;
+
+            respond.code301_MovedPermanently({res, headers: {location: req.url}});
+            context.completed = true;
         };
     }
 }
@@ -309,4 +346,7 @@ export const __deps__ = Object.freeze({
     tmplConfig: 'Fl32_Tmpl_Back_Config$',
     logger: 'TeqFw_Log_Provider$',
     helpWeb: 'Fl32_Cms_Back_Helper_Web$',
+    respond: 'TeqFw_Web_Back_Helper_Respond$',
+    dtoInfo: 'TeqFw_Web_Back_Dto_Info__Factory$',
+    STAGE: 'TeqFw_Web_Back_Enum_Stage$',
 });

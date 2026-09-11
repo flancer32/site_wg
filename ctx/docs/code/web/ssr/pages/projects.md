@@ -10,7 +10,7 @@ Describe the retained `/{locale}/projects.html` route as the SSR Current Work su
 
 ## Current State
 
-The route is localized, canonical, indexable, and labelled Current Work in the shared header. It begins with active systems and directions: Alarisa, PDE, Telegram Desk, Shared Files Desk, and TeqCMS. Human-facing cards state each system's role, maturity, and current commercial availability. TeqCMS appears only in this current section; its former historical duplicate is not rendered. TeqFW remains a current foundation and repository-evidence reference, not a historical portfolio card. The stable section anchors are current-state destinations, not new route families.
+The route is localized, canonical, indexable, and labelled Current Work in the shared header. It begins with active systems and directions: Alarisa, PDE, Telegram Desk, Shared Files Desk, and TeqCMS. Human-facing cards distinguish engineering evidence from existing products, state maturity honestly, and provide a direct PDE handoff only for authorized current product paths. TeqCMS appears only in this current section; its former historical duplicate is not rendered. TeqFW remains a current foundation and repository-evidence reference, not a historical portfolio card. The stable section anchors are current-state destinations, not new route families.
 
 Alarisa remains a separate localized detail route. PDE, Telegram Desk, Shared Files Desk, and TeqCMS currently use their explicit anchored sections because a separate detail route would add taxonomy without new state ownership.
 
@@ -22,4 +22,4 @@ The lower archive keeps existing project material and original descriptions as p
 
 ## Boundaries
 
-The route does not make a working system a product, change a status through Journal publication, create a new product runtime, or add a database, event store, analytics, CRM, payment, provisioning, or customer-data handling.
+The route does not make every working system a product, change a status through Journal publication, create a new product runtime, or add a database, event store, analytics, CRM, payment, provisioning, or customer-data handling. PDE and Telegram Desk are the documented exception: they may be presented as early product deployments under `../../../../product/pde.md`.

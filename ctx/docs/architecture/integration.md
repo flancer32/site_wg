@@ -35,8 +35,8 @@ Detailed implementation contracts belong in code documentation when durable and 
 
 The site may expose ordinary links to:
 
-- the Work with Alex and Contact paths for new-product conversations;
-- PDE, Telegram Desk, Shared Files Desk, TeqCMS, Alarisa, and other current-work or evidence destinations;
+- the Work with Alex and Contact paths for new-product or existing-PDE-capability conversations;
+- PDE, Telegram Desk, Shared Files Desk, TeqCMS, Alarisa, and other current-work, product, or evidence destinations;
 - `teqfw.com` for primary TeqFW depth;
 - confirmed book sellers such as Leanpub or the browser-book publisher;
 - public artifacts, repositories, communication channels, and other approved evidence.
@@ -59,7 +59,7 @@ Demonstrating PDE and Desks does not make the site their host or give it their c
 
 ## Commercial Handoff Boundary
 
-The public site may carry the originating offer or system context into a direct contact action. Human-controlled qualification and agreement establish scope, price, acceptance, deployment, credentials, confidentiality, evidence disclosure, rights, support, and stopping conditions before sensitive access or external delivery begins.
+The public site may carry `product` or `pde` origin context into a direct contact action. Human-controlled qualification and agreement establish scope, price, acceptance, deployment, credentials, confidentiality, evidence disclosure, rights, support, and stopping conditions before sensitive access or external delivery begins.
 
 No particular form, payment, CRM, scheduling, analytics, or provisioning system is implied. A later integration must have an explicit owner, minimum data boundary, retention and revocation semantics, and upstream approval.
 

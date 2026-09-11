@@ -15,7 +15,6 @@ export default class Adapter {
      * @param {Fl32_Tmpl_Back_Config} deps.tmplConfig
      * @param {TeqFw_Log_Provider} deps.logger
      * @param {App_Back_Web_Cms_Handler_Blog} deps.blogHandler
-     * @param {App_Back_Web_Cms_Handler_Redirect} deps.redirectHandler
      */
     constructor(
         {
@@ -26,7 +25,6 @@ export default class Adapter {
             tmplConfig,
             logger,
             blogHandler,
-            redirectHandler,
         }
     ) {
         const self = this;
@@ -119,7 +117,7 @@ export default class Adapter {
          * never rendered directly, so unrecognized input remains generic.
          *
          * @param {any} req
-         * @returns {'default'|'product'}
+         * @returns {'default'|'product'|'pde'}
          */
         const resolveContactTopic = (req) => {
             const rawUrl = typeof req?.url === 'string' ? req.url : '';
@@ -128,7 +126,7 @@ export default class Adapter {
                 if (queryStart < 0) return 'default';
                 const rawQuery = rawUrl.slice(queryStart + 1).split('#', 1)[0];
                 const topic = new URLSearchParams(rawQuery).get('topic');
-                if (topic === 'product') {
+                if (topic === 'product' || topic === 'pde') {
                     return topic;
                 }
             } catch {
@@ -216,7 +214,6 @@ export default class Adapter {
             normalizeMalformedUrl(req);
             // @LLM-DOC: `resolveRouting` returns `{ locale, cleanPath }` and we rely on `cleanPath`
             const routeInfo = resolveRouting(req);
-            await redirectHandler?.applyRedirect?.({req, routeInfo});
             const renderData = await cmsAdapter?.getRenderData({req});
             const data = renderData?.data;
             if (!renderData || !data) {
@@ -312,5 +309,4 @@ export const __deps__ = Object.freeze({
     tmplConfig: 'Fl32_Tmpl_Back_Config$',
     logger: 'TeqFw_Log_Provider$',
     blogHandler: 'App_Back_Web_Cms_Handler_Blog$',
-    redirectHandler: 'App_Back_Web_Cms_Handler_Redirect$',
 });

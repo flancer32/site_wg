@@ -60,7 +60,7 @@ These repositories belong to the Alarisa system. Together they are especially im
 
 ### PDE System And Desks
 
-These repositories represent the PDE system and current Desk capabilities. PDE is a controlled digital-representation subsystem and capability family that participates in the broader Alarisa direction, but it is distinct from the Alarisa repository group. Desks are integrations through which authorized agents access resources or services. PDE and its Desks retain their own evidence, validation, commercial experiments, and possible productization paths.
+These repositories represent PDE and current Desk capabilities. PDE is independently useful personal infrastructure that participates in the broader Alarisa direction, but is distinct from the Alarisa repository group. Desks are functional modules through which authorized agents access selected services or resources. PDE and its Desks retain their own evidence, validation, paid early-deployment, and productization paths; MCP is a technical interface in this model, not the product proposition.
 
 - https://github.com/flancer32/pde-sdk
 - https://github.com/flancer32/pde-runtime

@@ -18,6 +18,15 @@ function createRedirect() {
             getRootPath: () => root,
         },
         logger: {forSource: () => ({error() {}, info() {}})},
+        respond: {
+            isWritable: () => true,
+            code301_MovedPermanently({res, headers}) {
+                res.statusCode = 301;
+                res.headers = headers;
+            },
+        },
+        dtoInfo: {create: (info) => info},
+        STAGE: {PROCESS: 'PROCESS'},
         helpWeb: {
             extractRoutingInfo: ({path: requestPath}) => {
                 const match = requestPath.match(/^\/(en|ru|es)(\/.*)?$/);
@@ -52,6 +61,7 @@ test('normalizes localized Products aliases to the current catalogue and preserv
 test('redirects retired commercial routes to their closest current destinations', async () => {
     const redirect = createRedirect();
     const requests = [
+        {url: '/en/contacts.html', expected: '/en/contact.html', locale: 'en', cleanPath: '/contacts.html'},
         {url: '/en/products/chatgpt-telegram.html', expected: '/en/projects.html', locale: 'en', cleanPath: '/products/chatgpt-telegram.html'},
         {url: '/ru/land/agent-orchestration-poc/', expected: '/ru/work-with-me.html', locale: 'ru', cleanPath: '/land/agent-orchestration-poc/'},
     ];
@@ -60,4 +70,17 @@ test('redirects retired commercial routes to their closest current destinations'
         await redirect.applyRedirect({req, routeInfo: {locale: request.locale, cleanPath: request.cleanPath}});
         assert.equal(req.url, request.expected);
     }
+});
+
+test('sends a permanent HTTP redirect before template rendering', async () => {
+    const redirect = createRedirect();
+    const request = {url: '/en/products/chatgpt-telegram.html?source=legacy'};
+    const response = {};
+    const context = {request, response, completed: false};
+
+    await redirect.handle(context);
+
+    assert.equal(response.statusCode, 301);
+    assert.equal(response.headers.location, '/en/projects.html?source=legacy');
+    assert.equal(context.completed, true);
 });

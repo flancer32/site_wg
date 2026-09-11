@@ -47,9 +47,9 @@ Architecture must preserve these product-authorized distinctions without becomin
 - TeqFW is the technical North Star and application platform; primary detailed promotion belongs to `teqfw.com`.
 - ADSM is the complementary development-management methodology, not a promise of autonomous or developer-free evolution.
 - Alarisa is the major ongoing proof system and long-term product direction, not the foundation, completed proof, universal container, or market-ready purchase object.
-- PDE and Desks are working but early external systems or capabilities, not mature SaaS or automatic catalogue products.
-- MCP integration may be a primary provisional near-term commercial entry without becoming permanent site identity, standardized delivery, or website runtime responsibility.
-- Telegram is paid early access and validation, not the assumed primary mature offer or permanent cash engine.
+- PDE is an independently useful but early external product within the broader Alarisa direction; its Desks may be separately useful product surfaces, not mature SaaS or automatic catalogue products.
+- MCP is a technical interface for compatible agents to reach selected PDE capabilities, not a generic-integration commercial entry, standardized delivery, or website runtime responsibility.
+- Telegram Desk may support paid early deployment and product validation, but is not assumed to be a mature offer or permanent cash engine.
 - Books are available knowledge products whose purchase paths and evidence meaning differ from software and engineering delivery.
 
 No current system, offer, or strategic emphasis may be promoted beyond the status in `../product/product-system.md` and its applicable offer authority.

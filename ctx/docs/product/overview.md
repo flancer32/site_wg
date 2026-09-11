@@ -34,9 +34,15 @@ The client brings the business problem, product idea, required capabilities, dom
 
 A client who principally needs hourly capacity inside an unrelated predefined architecture is usually not a fit. `commercial-positioning.md` is authoritative for the complete boundary, commercial journey, pricing mechanism, and legacy exclusions.
 
+## Existing Products
+
+Alongside client product builds, Alex develops products of his own. PDE is an independently useful personal-infrastructure product within the broader Alarisa direction. Its Desks can expose controlled capabilities for a person's own digital services; Telegram Desk is the current strongest practical example. A person who wants to use or deploy PDE is in a different buying situation from a client who wants Alex to build a new product.
+
+MCP may connect compatible agents to PDE operations, but it is a technical interface rather than the commercial proposition. Paid early deployment of PDE or an independently useful Desk is permitted as product monetization and real-world validation. It does not imply a mature hosted service, a universal support promise, or generic MCP integration consulting. `pde.md` is authoritative for this line.
+
 ## Products As Evidence
 
-Projects are evidence of the engineering approach, not merely portfolio entries. Alarisa is the major ongoing multi-component proof that the system can support substantial software. It is an active product direction and not a completed or market-ready product. PDE, TeqCMS, Mindstream, TeqFW, and other documented systems demonstrate breadth and repeatability at different scales without becoming promised client outcomes.
+Projects can be both evidence and independently useful products. Alarisa is the major ongoing multi-component proof that the system can support substantial software. It is an active product direction and not a completed or market-ready product. PDE belongs to that direction while also being actionable on its own. TeqCMS, Mindstream, TeqFW, and other documented systems demonstrate breadth and repeatability at different scales without becoming promised client outcomes.
 
 Alex's current software estate is developed through the same human-directed model unless a particular system is documented otherwise. Repository and working-system evidence demonstrates sustained engineering practice; it does not by itself demonstrate external demand, customer outcomes, commercial validation, scale, or a guarantee of results. `software-estate.md` and `journal-and-evidence.md` define the evidence and its limits.
 

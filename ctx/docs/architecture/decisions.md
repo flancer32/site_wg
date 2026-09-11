@@ -69,8 +69,8 @@ Only the current decision text in this document is normative. A `Revised` or `Su
 ## Decision 9: Separate Foundation, Proof, Systems, And Commercial Objects
 
 - **Status:** revised; supersedes the prior decision that made Alarisa the principal vision and Telegram the singular current concrete offer.
-- **Decision:** keep TeqFW as technical North Star, ADSM as complementary methodology, Alarisa as major ongoing proof and long-term product direction, PDE and Desks as working systems or capabilities, books as separate knowledge products, and new-product construction as the primary commercial capability.
-- **Rejected alternatives:** treat these objects as equivalent catalogue items; make Alarisa the foundation or universal container; present it as market-ready; make a current capability an offer; or replace product construction with a service catalogue.
+- **Decision:** keep TeqFW as technical North Star, ADSM as complementary methodology, Alarisa as major ongoing proof and long-term product direction, PDE as an independently useful product within that direction, Desks as modules that may have separate early product value, books as separate knowledge products, and new-product construction as the primary strategic commercial capability.
+- **Rejected alternatives:** treat these objects as equivalent catalogue items; make Alarisa the foundation or universal container; present it as market-ready; turn MCP into a generic-integration offer; make every current capability an offer without product authority; or replace product construction with a service catalogue.
 - **Reasoning:** the objects have different architectural relationships and runtime boundaries. Current commercial priority may change without requiring a site-identity or platform redesign.
 
 ## Decision 10: Treat Product-Specific Context As An Optional Transfer Asset

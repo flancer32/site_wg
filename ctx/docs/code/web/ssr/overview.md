@@ -22,9 +22,9 @@ It:
 
 ## Stable SSR Chain
 
-`HTTP request -> locale-aware route extraction -> redirect normalization -> CMS render data -> bounded project enrichment -> locale template -> HTML response or localized 404`
+`HTTP request -> permanent legacy redirect or locale-aware route extraction -> CMS render data -> bounded project enrichment -> locale template -> HTML response or localized 404`
 
-Stable enrichments include locale metadata, route classification, redirect behavior, and journal-index assembly.
+Stable enrichments include locale metadata, route classification, journal-index assembly, and pipeline-level permanent redirects. A redirect map resolves locale-preserving legacy destinations before static or template rendering and responds with HTTP 301; it is never an internal rewrite.
 
 ## Current Public Families
 
@@ -36,7 +36,7 @@ The two surfaces are semantic roles rendered through the same SSR system, not se
 
 ## Product Runtime Boundary
 
-The SSR site may publish information about PDE and other current systems as engineering evidence. It must not connect to external product services, provision product instances, or store customer product credentials unless a later approved architecture explicitly adds those responsibilities.
+The SSR site may publish PDE and eligible Desk deployments as existing products as well as engineering evidence. It must not connect to external product services, provision product instances, or store customer product credentials unless a later approved architecture explicitly adds those responsibilities.
 
 ## Retired Campaign Boundary
 

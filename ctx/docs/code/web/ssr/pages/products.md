@@ -10,4 +10,4 @@ Define the retained `/products/` route as a purchase surface for separately sell
 
 ## Contract
 
-The route remains localized, canonical, and indexable. It may expose honest purchase destinations for books and lead readers to Work with Alex for product-building work. It must not list MCP, Telegram, AI integration, pilots, generic engineering services, or any current system as a purchasable product unless future product authority explicitly establishes it.
+The route remains localized, canonical, and indexable. It may expose honest purchase destinations for books and lead readers to Work with Alex for product-building work or Current Work for PDE. It must not list MCP as a service, generic AI integration, pilots, or generic engineering services. PDE and Telegram Desk remain on Current Work, where their early product status and direct handoff can be stated honestly.

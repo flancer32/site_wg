@@ -63,7 +63,7 @@ TeqFW is the technical North Star and ADSM the complementary development-managem
 
 `TeqFW + ADSM -> capacity to build increasingly complex systems -> Alarisa as the most ambitious current ongoing proof`
 
-Detailed TeqFW promotion belongs primarily to `teqfw.com`. Alarisa is a long-term product direction, not the foundation, completed proof, or a market-ready offer. PDE and Desks are external working but early systems or capabilities; selling or demonstrating them does not make the site their runtime.
+Detailed TeqFW promotion belongs primarily to `teqfw.com`. Alarisa is a long-term product direction, not the foundation, completed proof, or a market-ready offer. PDE is an independently useful early product within that direction, and its Desks may have their own early deployment path. Selling or demonstrating them does not make the site their runtime.
 
 ## Documentation Map
 

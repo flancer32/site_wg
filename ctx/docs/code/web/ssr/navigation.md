@@ -20,8 +20,8 @@ The current shared header exposes the brand link, available work, Journal, worki
 
 ## Contextual Relationships
 
-- A commercial entry routes to claim-specific evidence and direct human handoff without requiring prior understanding of Alarisa, PDE, TeqFW, or ADSM.
-- Current-work detail routes to honest status, relevant Journal Events, foundations, and an offer only where one is genuine.
+- A commercial entry routes to claim-specific evidence and direct human handoff without requiring prior understanding of Alarisa, PDE, TeqFW, ADSM, or MCP.
+- Current-work detail routes to honest status, relevant Journal Events, foundations, and an offer only where product authority makes one genuine.
 - Journal/Event views route to affected system, offer, hypothesis, or current status; chronology never silently owns the current state.
 - Working-model explanation routes to evidence, current work, relevant commercial entries, and handoff without becoming a prerequisite to purchase.
 - Alarisa routes to its proof evidence and related work; it has no false purchase path.

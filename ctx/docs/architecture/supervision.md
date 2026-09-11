@@ -61,7 +61,7 @@ Architecture or lower-level drift exists when:
 - ADSM is reduced to internal automation or exaggerated into autonomous, developer-free maintenance;
 - Telegram is presented as mature, validated, or the permanent main commercial offer;
 - provisional MCP work is presented as validated, standardized, fixed-scope, or permanent site identity without product evidence;
-- PDE, Telegram Desk, Shared Files Desk, or another early capability is represented as mature SaaS or a product merely because it works;
+- PDE, Telegram Desk, Shared Files Desk, or another early capability is represented as mature SaaS, or is made a product merely because it works rather than because product authority establishes an honest deployment boundary;
 - the site reverts to a generic freelance-services or consultancy catalogue detached from bounded outcomes and the working foundation;
 - the site reverts to a product catalogue or portfolio with no prominent current evidence stream;
 - historical content, biography, durable knowledge, or search value dominates current commercial and development meaning;

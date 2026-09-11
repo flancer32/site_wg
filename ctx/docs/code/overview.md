@@ -38,7 +38,7 @@ The GitHub Flows and Agent Orchestration PoC route is retired. Its former offer-
 
 Future agents must not rebuild, extend, port, or reuse the retired campaign as a commercial offer without a separately approved product decision.
 
-The current implementation expresses the product-building commercial path and the evidence surface: shared navigation exposes Work with Alex, Journal, working-model explanation, Current Work, books, and a direct Contact action. Home leads with Alex's accountable human-plus-agent practice, own engineering system, and selected Current Work evidence. `/projects.html` is the current-work surface while its archive remains historical responsibility evidence. Public repository links are representative inspectable evidence; the complete inventory and its claim limits live in `../product/software-estate.md`. These are observable implementation facts, not authority to freeze labels or future prominence.
+The current implementation expresses two commercial paths and an evidence surface: a new product built with Alex, and an existing PDE or eligible Desk deployment. Shared navigation exposes Work with Alex, Journal, working-model explanation, Current Work, books, and a direct Contact action. Home leads with Alex's accountable human-plus-agent practice and engineering system, then makes PDE discoverable. `/projects.html` is the current-work and early-PDE-product surface while its archive remains historical responsibility evidence. Public repository links are representative inspectable evidence; the complete inventory and its claim limits live in `../product/software-estate.md`. These are observable implementation facts, not authority to freeze labels or future prominence.
 
 ## Implementation Design Gate
 

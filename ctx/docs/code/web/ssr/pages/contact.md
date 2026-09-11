@@ -6,10 +6,10 @@
 
 ## Purpose
 
-Define the direct-human handoff for a new product or separable new system.
+Define the direct-human handoff for either a new product or an existing PDE capability.
 
 ## Contract
 
-`/{locale}/contact.html` is a localized, canonical handoff. `topic=product` may provide inbound context; unknown values use the general product copy and never reflect untrusted text. The page asks for the product idea, users, capability, constraints, isolation from existing systems, and current stage. It does not ask a prospect to diagnose architecture or understand TeqFW or ADSM.
+`/{locale}/contact.html` is the localized canonical handoff; `/{locale}/contacts.html` permanently redirects to it. `topic=product` and `topic=pde` may provide bounded inbound context; unknown values use the general copy and never reflect untrusted text. The page asks a product-build visitor for the product idea, users, capability, constraints, isolation from existing systems, and current stage. It asks a PDE visitor for the capability, intended use, environment, and self-installation or managed-help preference. It does not ask either visitor to diagnose architecture or understand TeqFW, ADSM, or MCP.
 
 The page has no form, payment, provisioning, credential collection, CRM, or delivery function. It warns against sharing secrets in a first message. Scope, price, rights, deployment, and access are agreed directly before implementation.

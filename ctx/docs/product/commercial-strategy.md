@@ -10,22 +10,32 @@ Define how Wired Geese selects commercially aligned new-product work while prese
 
 ## Direction
 
-The near-term commercial direction is new web applications and software products built from the ground up. A suitable engagement supplies cash, market learning, and evidence for the same engineering practice that Alex develops in his own systems. The agreed client product comes first; reuse is possible only where rights, confidentiality, and the actual work permit it.
+Wired Geese has two related commercial lines. The primary strategic line is new web applications and software products built from the ground up. A suitable engagement supplies cash, market learning, and evidence for the same engineering practice that Alex develops in his own systems. The agreed client product comes first; reuse is possible only where rights, confidentiality, and the actual work permit it.
+
+The complementary near-term product line is paid early deployment of PDE and independently useful Desks. A managed PDE installation, Telegram Desk setup, supported early access, or deployment on the user's own VPS can create revenue and real-world product validation before the broader Alarisa direction is mature. This is not a fallback generic-consulting funnel; `pde.md` defines its product boundary.
 
 This direction must not become a general freelance catalogue. Alex does not primarily sell architecture reviews, code audits, agent-readiness reviews, fractional CTO work, rescue of arbitrary legacy systems, generic technology or AI consulting, staff augmentation, hourly programming capacity, or implementation in a client-selected unrelated stack.
 
 Such activity can occur incidentally inside a genuine product engagement, but it is not a product, an entry offer, or a public funnel.
 
-## Commercial Journey
+## Commercial Journeys
 
 ```text
-product need
+new product need
   -> understand Alex's approach
   -> inspect relevant evidence
   -> assess mutual fit
   -> direct conversation
   -> bounded first scope
   -> agreed product development and, where useful, continued evolution
+```
+
+```text
+need for an existing PDE capability
+  -> understand PDE or a Desk and its current status
+  -> discuss intended use and deployment environment
+  -> agree an early product deployment boundary and price
+  -> install, validate, and learn from real use
 ```
 
 The first scope identifies the product problem, intended users and capabilities, hard constraints, acceptance boundary, and appropriate initial deliverable. Scope and price are agreed before implementation. Larger work may proceed through successive agreed scopes. No numeric price, hourly rate, delivery time, standard package, support promise, or subscription model is canonically established.
@@ -44,4 +54,4 @@ Prefer product work where the problem is real, the initial boundary can be made 
 
 ## Legacy Exclusions
 
-The discontinued GitHub Flows / Agent Orchestration PoC, its €50 repository pilot, trial and setup funnels, and prior MCP- or Telegram-centred commercial offers must not be restored as active positioning. Their associated systems may remain as historical or engineering evidence only when their status is explicit.
+The discontinued GitHub Flows / Agent Orchestration PoC, its EUR 50 repository pilot, generic EUR 35-per-hour workflow work, and unrelated trial/setup funnels must not be restored as active positioning. MCP is not a standalone commercial offer. Paid PDE and Desk deployments are current product monetization and must not be removed merely because earlier unrelated MCP- or Telegram-centred offers were retired.

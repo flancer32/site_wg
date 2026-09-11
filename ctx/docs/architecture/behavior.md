@@ -42,6 +42,10 @@ The architecture must keep these flows possible without prescribing exact routes
 
 The visitor can understand the product-building proposition without first learning Alarisa, PDE internals, TeqFW, or ADSM. Alex and the customer agree the first scope, price, deployment, access, and trust outside the public page.
 
+`entry -> existing PDE/Desk capability need -> current capability and status -> deployment fit -> direct human conversation`
+
+The existing-product journey must make PDE useful without requiring a visitor to understand MCP. It can explain that a compatible agent connects through a controlled PDE interface, while product deployment, credentials, access, price, and support remain a direct human agreement.
+
 ### Current Work And Demonstration
 
 `entry -> current work or system -> honest status and working evidence -> related Events, foundation, or Work with Alex`

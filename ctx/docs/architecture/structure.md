@@ -49,7 +49,7 @@ The architecture does not mandate `Products / How it works / Alarisa` as a perma
 The site must support these cooperating page-family responsibilities:
 
 1. **Home** establishes the Wired Geese proposition, exposes an immediate commercial path, current work, recent evidence, foundation, accountable maker, Alarisa direction, and deeper discovery.
-2. **Commercial entries and offer detail** distinguish what is available now, paid validation, and provisional bounded engineering, then route to claim-specific evidence and human contact.
+2. **Commercial entries and product detail** distinguish a new-product build from an existing PDE or Desk deployment, state early availability honestly, and route to claim-specific evidence and human contact.
 3. **Current work, system, and direction detail** expose working or active systems with honest status, related evidence, and a commercial relationship only where one genuinely exists.
 4. **Journal, Events, and cumulative threads** expose meaningful chronology and connect events to systems, offers, hypotheses, and current accepted status.
 5. **Working-model and foundation explanation** exposes Alex's accountability, authorized agent participation, TeqFW, ADSM, trust, reuse, and optional continuation boundaries without delaying buyer-value comprehension.
@@ -83,7 +83,7 @@ This is a structural capability and dependency order, not a copied content speci
 
 ## Site And Product Boundary
 
-The website may explain, demonstrate, and sell work involving MCP, PDE, Telegram Desk, Shared Files Desk, TeqCMS, books, or other authorized objects. It does not thereby become a PDE runtime, customer MCP server, Telegram credential holder, customer storage host, product deployment, payment processor, CRM, provisioning system, or primary TeqFW platform site.
+The website may explain, demonstrate, and sell new-product work plus authorized PDE or Desk deployments. MCP supports compatible-agent access inside PDE; it is not a generic service category. The site does not thereby become a PDE runtime, customer MCP server, Telegram credential holder, customer storage host, product deployment, payment processor, CRM, provisioning system, or primary TeqFW platform site.
 
 An optional product transfer may include source, deployment knowledge, and bounded product-specific cognitive context. It is a human-controlled delivery crossing between accountable parties, not a website runtime responsibility or automatic grant of unrelated context, credentials, ownership, modification rights, operation, or support.
 

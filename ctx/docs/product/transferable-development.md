@@ -66,7 +66,7 @@ Potential benefits such as preserved intent, clearer constraints, easier orienta
 
 ## Commercial Boundary
 
-Transferable development may be offered when a specific customer values continued evolution by its own accountable team and the system is mature and separable enough for a safe boundary. It should not displace the nearer-term focus on bounded MCP integration and paid validation of current capabilities.
+Transferable development may be offered when a specific customer values continued evolution by its own accountable team and the system is mature and separable enough for a safe boundary. It should not displace the nearer-term focus on paid early deployment and real-world validation of PDE and independently useful Desks.
 
 No standard price, license, context scope, tool guarantee, support model, or transfer procedure is established. These questions require agreement and evidence for the particular system.
 
