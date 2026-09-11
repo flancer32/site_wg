@@ -119,7 +119,7 @@ export default class Adapter {
          * never rendered directly, so unrecognized input remains generic.
          *
          * @param {any} req
-         * @returns {'default'|'commercial'|'mcp-integration'|'product'|'chatgpt-telegram'}
+         * @returns {'default'|'product'}
          */
         const resolveContactTopic = (req) => {
             const rawUrl = typeof req?.url === 'string' ? req.url : '';
@@ -128,12 +128,7 @@ export default class Adapter {
                 if (queryStart < 0) return 'default';
                 const rawQuery = rawUrl.slice(queryStart + 1).split('#', 1)[0];
                 const topic = new URLSearchParams(rawQuery).get('topic');
-                if (
-                    topic === 'commercial'
-                    || topic === 'mcp-integration'
-                    || topic === 'product'
-                    || topic === 'chatgpt-telegram'
-                ) {
+                if (topic === 'product') {
                     return topic;
                 }
             } catch {

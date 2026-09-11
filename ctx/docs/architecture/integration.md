@@ -35,7 +35,7 @@ Detailed implementation contracts belong in code documentation when durable and 
 
 The site may expose ordinary links to:
 
-- current commercial entries such as the product-authorized MCP Integration Pilot or Telegram paid validation;
+- the Work with Alex and Contact paths for new-product conversations;
 - PDE, Telegram Desk, Shared Files Desk, TeqCMS, Alarisa, and other current-work or evidence destinations;
 - `teqfw.com` for primary TeqFW depth;
 - confirmed book sellers such as Leanpub or the browser-book publisher;
@@ -55,7 +55,7 @@ The following remain outside the website integration boundary unless a separatel
 - product deployment, monitoring, updates, termination, support, and incident handling;
 - customer VPS access or managed hosting.
 
-Selling MCP work does not turn the site into a customer MCP server. Promoting Telegram capability does not give the site Telegram credentials or sessions. Demonstrating PDE and Desks does not make the site their host. A current commercial offer may change without changing these runtime boundaries.
+Demonstrating PDE and Desks does not make the site their host or give it their credentials or sessions. A new-product conversation does not change these runtime boundaries.
 
 ## Commercial Handoff Boundary
 
@@ -79,7 +79,7 @@ MCP, Telegram, external sellers, agent environments, and third-party services do
 
 ## Retired Integration
 
-The former GitHub Flows landing form, offer-specific token injection, repository-validation fields, and mail pipeline are historical implementation only. They are not current integrations or reusable contracts for MCP, Telegram, Journal, or another current surface.
+The former GitHub Flows landing form, offer-specific token injection, repository-validation fields, and mail pipeline are retired implementation only. They are not current integrations or reusable contracts.
 
 ## Change Rule
 

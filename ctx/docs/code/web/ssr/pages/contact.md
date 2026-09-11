@@ -2,18 +2,14 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/contact.md`
 - Template Version: `20260630`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
-Define the shared direct-human commercial handoff and current query-context boundary.
+Define the direct-human handoff for a new product or separable new system.
 
-## Current State
+## Contract
 
-`/{locale}/contact.html` is the established localized handoff. It supports render contexts `default`, `commercial`, `mcp-integration`, `chatgpt-telegram`, and legacy `product`; unknown values use `default` and never reflect into public copy. The optional `topic` query records inbound context rather than a page identity; variants retain the clean canonical URL and locale alternates. This is current implementation state, not permanent offer taxonomy.
+`/{locale}/contact.html` is a localized, canonical handoff. `topic=product` may provide inbound context; unknown values use the general product copy and never reflect untrusted text. The page asks for the product idea, users, capability, constraints, isolation from existing systems, and current stage. It does not ask a prospect to diagnose architecture or understand TeqFW or ADSM.
 
-## Target Role
-
-The handoff supports context from current offers and focused software needs without making Telegram the default commercial object. It may help start a conversation about MCP integration, paid early access, an owned capability, emerging ADSM work, or another qualified need. Its prompts describe the service, useful workflow, and access control in visitor language. The site does not perform automated qualification, payment, provisioning, or delivery.
-
-No contact surface requests credentials, session data, client-host secrets, broad administrative access, or customer cognitive context as ordinary fields. The current page has no form or mail pipeline; any future form or topic needs architecture and product approval. GitHub Flows remains historical and supplies no form or lead-flow contract.
+The page has no form, payment, provisioning, credential collection, CRM, or delivery function. It warns against sharing secrets in a first message. Scope, price, rights, deployment, and access are agreed directly before implementation.

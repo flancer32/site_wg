@@ -1,91 +1,10 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Available now — Alex Gusev | Wired Geese{% endblock %}
-{% block description %}Current ways to work with Alex Gusev or buy a book: a provisional MCP integration pilot, paid Telegram validation, and available knowledge products.{% endblock %}
+{% block title %}Books by Alex Gusev | Wired Geese{% endblock %}
+{% block description %}Books by Alex Gusev on human-directed AI-agent development and modern web applications.{% endblock %}
 
 {% block content %}
-<article class="products-catalogue-page">
-    <header class="products-catalogue-opening">
-        <div>
-            <p class="eyebrow">Wired Geese</p>
-            <h1>Available now.</h1>
-            <p class="lead">Ways to start direct work with Alex Gusev or purchase a book.</p>
-            <p>These entries have different kinds and maturity. They are not a catalogue of identical, mature software products.</p>
-        </div>
-        <p class="catalogue-trust-link"><a href="/{{ locale }}/how-it-works.html">How I work →</a></p>
-    </header>
-
-    <section class="home-section product-detail-section" aria-labelledby="mcp-title">
-        <div class="section-heading">
-            <p class="eyebrow">Primary near-term direction</p>
-            <h2 id="mcp-title">MCP Integration Pilot</h2>
-        </div>
-        <div class="product-collection">
-            <article class="product-preview">
-                <p class="product-status">Provisional · paid pilot with a defined scope</p>
-                <h3>Controlled agent access to an existing service.</h3>
-                <p class="product-outcome">Connect selected operations from an existing service, application, or API to a compatible AI-agent environment through MCP.</p>
-                <p>A pilot starts with one useful workflow and an explicit authority boundary. Scope, price, deployment responsibility, and acceptance evidence are agreed directly before work begins.</p>
-                <ul class="product-capabilities">
-                    <li>Selected MCP server or tool layer for an existing resource.</li>
-                    <li>Agreed authentication, authorization, tool scope, and agent environment.</li>
-                    <li>Deployment and operational visibility appropriate to the agreed pilot.</li>
-                </ul>
-                <p>This is not an enterprise architecture promise, a fixed package, an arbitrary AI transformation, or an autonomous-agent offer.</p>
-                <p class="product-links"><a class="button-primary" href="/{{ locale }}/contact.html?topic=mcp-integration">Discuss an MCP pilot</a></p>
-            </article>
-        </div>
-    </section>
-
-    <section class="home-section product-detail-section" aria-labelledby="telegram-title">
-        <div class="section-heading">
-            <p class="eyebrow">Paid early access / validation</p>
-            <h2 id="telegram-title">ChatGPT + Telegram</h2>
-        </div>
-        <div class="product-collection">
-            <article class="product-preview">
-                <p class="product-status">Working but early · paid validation</p>
-                <h3>An agreed AI-to-Telegram workflow.</h3>
-                <p class="product-outcome">Connect an agent environment to Telegram work that matters to you, under an agreed deployment and trust boundary.</p>
-                <p>The setup is a paid experimental engagement intended to learn what is useful and repeatable. It is not a mature SaaS or a standardized scalable service.</p>
-                <p class="product-links"><a href="/{{ locale }}/products/chatgpt-telegram.html">Explore ChatGPT + Telegram →</a> · <a href="/{{ locale }}/contact.html?topic=chatgpt-telegram">Discuss Telegram validation →</a></p>
-            </article>
-        </div>
-    </section>
-
-    <section class="home-section product-detail-section" aria-labelledby="books-title">
-        <div class="section-heading">
-            <p class="eyebrow">Available now · knowledge products</p>
-            <h2 id="books-title">Books</h2>
-        </div>
-        <div class="product-collection">
-            <article class="product-preview">
-                <p class="product-status">Russian electronic edition · Leanpub</p>
-                <h3>Управляемая разработка с AI-агентами</h3>
-                <p>A Russian ADSM electronic edition about human-controlled development with AI agents.</p>
-                <p class="product-links"><a href="https://leanpub.com/adsm-ru" target="_blank" rel="noopener noreferrer">Buy on Leanpub →</a></p>
-            </article>
-            <article class="product-preview">
-                <p class="product-status">English electronic edition · Leanpub</p>
-                <h3>Agent-Driven Software Management</h3>
-                <p>An English ADSM electronic edition.</p>
-                <p class="product-links"><a href="https://leanpub.com/adsm-en" target="_blank" rel="noopener noreferrer">Buy on Leanpub →</a></p>
-            </article>
-            <article class="product-preview">
-                <p class="product-status">Russian-language BHV edition</p>
-                <h3>Браузер как операционная система для разработки современных приложений</h3>
-                <p>A published Russian-language book on developing modern applications in the browser.</p>
-                <p class="product-links"><a href="https://bhv.ru/product/brauzer-kak-operatsionnaya-sistema-dlya-razrabotki-sovremennyh-prilozhenij/" target="_blank" rel="noopener noreferrer">Buy from BHV →</a> · <a href="/{{ locale }}/books/browser-as-operating-system.html">Read about the book →</a></p>
-            </article>
-        </div>
-    </section>
-
-    <section class="home-bridge" aria-labelledby="aligned-work-title">
-        <div>
-            <h2 id="aligned-work-title">Have a related software problem?</h2>
-            <p>Work can begin with an MCP or agent integration, paid Telegram early access, an adaptation of an existing capability, or an ADSM conversation. See whether your problem is a good fit for working directly with Alex.</p>
-        </div>
-        <a class="button-secondary" href="/{{ locale }}/work-with-me.html">Work with Alex</a>
-    </section>
-</article>
+<article class="products-catalogue-page"><header class="products-catalogue-opening"><div><p class="eyebrow">Wired Geese</p><h1>Books and durable knowledge.</h1><p class="lead">Published material about the ideas and engineering practice behind the work.</p></div><p class="catalogue-trust-link"><a href="/{{ locale }}/how-it-works.html">How I work →</a></p></header>
+<section class="home-section product-detail-section" aria-labelledby="books-title"><div class="section-heading"><p class="eyebrow">Available now</p><h2 id="books-title">Books</h2></div><div class="product-collection"><article class="product-preview"><p class="product-status">Russian electronic edition · Leanpub</p><h3>Управляемая разработка с AI-агентами</h3><p>A Russian ADSM electronic edition about human-controlled development with AI agents.</p><p class="product-links"><a href="https://leanpub.com/adsm-ru" target="_blank" rel="noopener noreferrer">Buy on Leanpub →</a></p></article><article class="product-preview"><p class="product-status">English electronic edition · Leanpub</p><h3>Agent-Driven Software Management</h3><p>An English ADSM electronic edition.</p><p class="product-links"><a href="https://leanpub.com/adsm-en" target="_blank" rel="noopener noreferrer">Buy on Leanpub →</a></p></article><article class="product-preview"><p class="product-status">Russian-language BHV edition</p><h3>Браузер как операционная система для разработки современных приложений</h3><p>A published Russian-language book on developing modern applications in the browser.</p><p class="product-links"><a href="https://bhv.ru/product/brauzer-kak-operatsionnaya-sistema-dlya-razrabotki-sovremennyh-prilozhenij/" target="_blank" rel="noopener noreferrer">Buy from BHV →</a> · <a href="/{{ locale }}/books/browser-as-operating-system.html">Read about the book →</a></p></article></div></section>
+<section class="home-bridge" aria-labelledby="product-work-title"><div><h2 id="product-work-title">Looking to build a product?</h2><p>The books explain the practice. For a new software product, work directly with Alex.</p></div><a class="button-secondary" href="/{{ locale }}/work-with-me.html">Work with Alex</a></section></article>
 {% endblock %}

@@ -28,7 +28,7 @@ Stable enrichments include locale metadata, route classification, redirect behav
 
 ## Current Public Families
 
-The existing templates include locale roots, standalone pages, journal pages, library material, project pages, book pages, historical material, and a localized archived-experiment page.
+The existing templates include locale roots, standalone pages, journal pages, library material, project pages, book pages, and historical material.
 
 The shared header currently makes commercial entries, Journal, working-model explanation, Current Work, and a distinct commercial action directly discoverable. About, books, durable knowledge, project detail, and history remain intentionally reachable. `/projects.html` is the Current Work surface: it gives current system status separately from its historical archive. Journal is active evidence, not ordinary archive material; related Events can link to a current-state anchor while chronology remains non-authoritative. Alarisa is a major ongoing proof and direction, not the foundation or a required primary destination.
 
@@ -36,8 +36,8 @@ The two surfaces are semantic roles rendered through the same SSR system, not se
 
 ## Product Runtime Boundary
 
-The SSR site may publish information about PDE and the Telegram offer. It must not connect to Telegram, expose MCP capabilities, provision product instances, or store customer product credentials unless a later approved architecture explicitly adds those responsibilities.
+The SSR site may publish information about PDE and other current systems as engineering evidence. It must not connect to external product services, provision product instances, or store customer product credentials unless a later approved architecture explicitly adds those responsibilities.
 
-## Archived Experiment Boundary
+## Retired Campaign Boundary
 
-The localized Agent Orchestration PoC route remains an indexable historical page with ordinary locale metadata, but has no campaign form, token issuance, mail handler, or repository-validation path. No future agent should infer a new Telegram landing page, form, route, state, or browser behavior from the retired campaign.
+The Agent Orchestration PoC route is removed and redirects to Work with Alex. No future agent should infer a landing page, form, route, state, or browser behavior from the retired campaign.

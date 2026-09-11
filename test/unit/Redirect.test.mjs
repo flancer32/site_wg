@@ -48,3 +48,16 @@ test('normalizes localized Products aliases to the current catalogue and preserv
         assert.doesNotMatch(req.url, /projects\.html/);
     }
 });
+
+test('redirects retired commercial routes to their closest current destinations', async () => {
+    const redirect = createRedirect();
+    const requests = [
+        {url: '/en/products/chatgpt-telegram.html', expected: '/en/projects.html', locale: 'en', cleanPath: '/products/chatgpt-telegram.html'},
+        {url: '/ru/land/agent-orchestration-poc/', expected: '/ru/work-with-me.html', locale: 'ru', cleanPath: '/land/agent-orchestration-poc/'},
+    ];
+    for (const request of requests) {
+        const req = {url: request.url};
+        await redirect.applyRedirect({req, routeInfo: {locale: request.locale, cleanPath: request.cleanPath}});
+        assert.equal(req.url, request.expected);
+    }
+});

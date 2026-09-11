@@ -12,8 +12,8 @@ This branch is the authority for what Wired Geese represents, how the site must 
 
 ## Level Map
 
-- `offers/` — bounded current and provisional commercial entry offers.
 - `AGENTS.md` — local product-documentation instructions and map.
+- `commercial-positioning.md` — canonical new-product proposition, fit, ownership, pricing mechanism, evidence role, and legacy exclusions.
 - `commercial-strategy.md` — immediate survival, aligned funding, commercial selection, productization gates, and recurring-revenue direction.
 - `home-page-composition.md` — Home attention order, content responsibilities, responsive constraints, evidence placement, and semantic handoffs.
 - `information-architecture.md` — site-wide page families, navigation semantics, visitor journeys, and preservation boundaries across sell, demonstrate, and document responsibilities.
@@ -30,11 +30,11 @@ Read documents in this order unless the task is narrowly scoped:
 1. `overview.md` for the site identity and canonical strategic frame;
 2. `product-system.md` for object kinds, relationships, and maturity;
 3. `commercial-strategy.md` for revenue and productization logic;
-4. `journal-and-evidence.md` for evidence and public chronology rules;
-5. `software-estate.md` for canonical repository evidence;
-6. `information-architecture.md` and `home-page-composition.md` for public projection;
-7. `transferable-development.md` only when continuation or context transfer is relevant;
-8. the applicable document under `offers/` for a concrete commercial entry point.
+4. `commercial-positioning.md` for the canonical commercial proposition and exclusions;
+5. `journal-and-evidence.md` for evidence and public chronology rules;
+6. `software-estate.md` for canonical repository evidence;
+7. `information-architecture.md` and `home-page-composition.md` for public projection;
+8. `transferable-development.md` only when continuation or context transfer is relevant.
 
 Facts, current status, strategic direction, hypotheses, and open questions must remain distinguishable. A lower document may refine but must not redefine an upstream object or status.
 
@@ -46,7 +46,7 @@ Facts, current status, strategic direction, hypotheses, and open questions must 
 - Alarisa is the most ambitious current proof system and long-term product direction built on that foundation; it is not the foundation itself and its proof is ongoing.
 - PDE, Telegram Desk, Shared Files Desk, TeqCMS, books, offers, and historical work are different kinds of objects with different maturity and evidence.
 - The site must preserve `SELL`, `DEMONSTRATE`, and `DOCUMENT` as first-class jobs; aligned cash generation has immediate operational priority during the current funding stage.
-- Productized engineering is the primary near-term cash direction; paid early access validates immature systems; reusable products and recurring revenue are later evidence-dependent directions.
+- Building new products through Alex's own engineering system is the commercial direction; reusable products and recurring revenue remain later evidence-dependent directions.
 - Journal/Events are first-class evidence infrastructure, not merely an archive or search-support surface.
 
 ## Terminology Rule

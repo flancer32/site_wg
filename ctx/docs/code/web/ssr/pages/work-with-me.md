@@ -2,18 +2,14 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/work-with-me.md`
 - Template Version: `20260811`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
-Define the retained Work With Me route as an aligned-engagement continuity surface without creating a generic freelance catalogue.
+Define the retained localized commercial route for new product construction.
 
-## Current State
+## Contract
 
-`/{locale}/work-with-me.html` is localized, canonical, indexable, and included in the sitemap. It answers whether a visitor's software problem is a fit for direct work with Alex, including MCP or agent integration, paid early access, existing capability adaptation, and related ADSM work. It routes directly to the commercial handoff with `mcp-integration` or `commercial` context. These are current implementation facts, not permanent packaging requirements.
+`/{locale}/work-with-me.html` is canonical and indexable. It explains suitable new products and isolated systems, the client/Alex ownership boundary, selection of a first scope, scope-based pricing, and a possible path to continued development. It routes to the direct human handoff using the stable `product` context.
 
-## Target Relationship
-
-An aligned commercial conversation may begin with an MCP integration need, paid validation, an owned capability, an emerging ADSM-related need, or another closely related engineering problem. It must remain bounded, human-agreed work rather than arbitrary staff augmentation or a generic engineer-for-hire proposition. Scope, price, delivery, rights, deployment, credentials, support, and evidence boundaries are agreed directly.
-
-The route's retention, repurposing, title, navigation weight, and outgoing links require migration review. It must not introduce forms, fixed public prices, delivery promises, testimonials, maturity claims, or sales of the retired GitHub campaign.
+It does not create a generic service catalogue, price card, hourly rate, architecture-review offer, audit, rescue, staff-augmentation promise, or externally owned product runtime.

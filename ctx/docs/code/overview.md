@@ -34,11 +34,11 @@ The target does not mandate a generic Products catalogue, an Alarisa top-level r
 
 ## Legacy Drift
 
-The localized GitHub Flows and Agent Orchestration PoC route is retained as an archived historical page. Its former offer-specific form fields, signed token enrichment, mail handler, repository validation, and event concepts have been removed.
+The GitHub Flows and Agent Orchestration PoC route is retired. Its former offer-specific form fields, signed token enrichment, mail handler, repository validation, and event concepts have been removed; its old URL is redirect-only.
 
-Future agents must not rebuild, extend, port, or reuse the retired campaign for the Telegram offer without a separately approved design.
+Future agents must not rebuild, extend, port, or reuse the retired campaign as a commercial offer without a separately approved product decision.
 
-The current implementation expresses the Phase 1 commercial path, Phase 2 evidence surface, and Phase 3 public-semantic cleanup: shared navigation exposes available work, Journal, working-model explanation, Current Work, and a commercial Contact action. Home leads with Alex's accountable human-plus-agent practice and the provisional MCP pilot, retains Telegram paid validation and books, then projects selected Current Work and repository evidence. `/projects.html` is the current-work surface while its archive remains historical responsibility evidence. Public repository links are representative inspectable evidence; the complete inventory and its claim limits live in `../product/software-estate.md`. These are observable implementation facts, not authority to freeze labels or future prominence.
+The current implementation expresses the product-building commercial path and the evidence surface: shared navigation exposes Work with Alex, Journal, working-model explanation, Current Work, books, and a direct Contact action. Home leads with Alex's accountable human-plus-agent practice, own engineering system, and selected Current Work evidence. `/projects.html` is the current-work surface while its archive remains historical responsibility evidence. Public repository links are representative inspectable evidence; the complete inventory and its claim limits live in `../product/software-estate.md`. These are observable implementation facts, not authority to freeze labels or future prominence.
 
 ## Implementation Design Gate
 

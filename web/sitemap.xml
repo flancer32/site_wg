@@ -1828,27 +1828,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/how-it-works.html"/>
   </url>
   <url>
-    <loc>https://wiredgeese.com/en/land/agent-orchestration-poc/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/land/agent-orchestration-poc/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/land/agent-orchestration-poc/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/land/agent-orchestration-poc/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/land/agent-orchestration-poc/"/>
-  </url>
-  <url>
-    <loc>https://wiredgeese.com/ru/land/agent-orchestration-poc/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/land/agent-orchestration-poc/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/land/agent-orchestration-poc/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/land/agent-orchestration-poc/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/land/agent-orchestration-poc/"/>
-  </url>
-  <url>
-    <loc>https://wiredgeese.com/es/land/agent-orchestration-poc/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/land/agent-orchestration-poc/"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/land/agent-orchestration-poc/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/land/agent-orchestration-poc/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/land/agent-orchestration-poc/"/>
-  </url>
-  <url>
     <loc>https://wiredgeese.com/en/library/adsm/20251122-01-adsm-top-level-dirs.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/library/adsm/20251122-01-adsm-top-level-dirs.html"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/adsm/20251122-01-adsm-top-level-dirs.html"/>
@@ -2750,27 +2729,6 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/library/web/20240704-01-esm-and-cdns.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/library/web/20240704-01-esm-and-cdns.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/library/web/20240704-01-esm-and-cdns.html"/>
-  </url>
-  <url>
-    <loc>https://wiredgeese.com/en/products/chatgpt-telegram.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/products/chatgpt-telegram.html"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/products/chatgpt-telegram.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/products/chatgpt-telegram.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/products/chatgpt-telegram.html"/>
-  </url>
-  <url>
-    <loc>https://wiredgeese.com/ru/products/chatgpt-telegram.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/products/chatgpt-telegram.html"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/products/chatgpt-telegram.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/products/chatgpt-telegram.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/products/chatgpt-telegram.html"/>
-  </url>
-  <url>
-    <loc>https://wiredgeese.com/es/products/chatgpt-telegram.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/products/chatgpt-telegram.html"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/products/chatgpt-telegram.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/products/chatgpt-telegram.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/products/chatgpt-telegram.html"/>
   </url>
   <url>
     <loc>https://wiredgeese.com/en/products/</loc>

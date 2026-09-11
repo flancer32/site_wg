@@ -40,11 +40,12 @@ Architecture consumes rather than restates the product model:
 
 - `../product/overview.md` owns site identity, foundation, and the three site jobs;
 - `../product/product-system.md` owns object kinds and current status;
-- `../product/commercial-strategy.md` owns economic direction and productization logic;
+- `../product/commercial-strategy.md` owns the new-product commercial direction;
+- `../product/commercial-positioning.md` owns the canonical proposition, fit, ownership, pricing mechanism, and exclusions;
 - `../product/journal-and-evidence.md` owns evidence meaning and Journal semantics;
 - `../product/information-architecture.md` owns semantic hierarchy and visitor jobs;
 - `../product/home-page-composition.md` owns Home attention and content responsibilities;
-- `../product/transferable-development.md` and `../product/offers/` own their bounded product meanings.
+- `../product/transferable-development.md` owns its bounded continuation capability.
 
 Architecture defines structural reachability, state separation, runtime boundaries, and durable downstream constraints needed to realize those authorities. It must not fix open product or presentation decisions.
 
@@ -78,4 +79,4 @@ Detailed TeqFW promotion belongs primarily to `teqfw.com`. Alarisa is a long-ter
 
 This branch is normative for the accepted target architecture. Current implementation is evidence of existing behavior, not authority to preserve superseded semantics.
 
-GitHub Flows remains only historical content. Its campaign form, token enrichment, mail handler, and offer copy are not target architecture. Any later route or content change still requires deliberate multilingual and search-value preservation review.
+GitHub Flows and its campaign route are retired. Their campaign form, token enrichment, mail handler, and offer copy are not target architecture; their former URLs must redirect deliberately.

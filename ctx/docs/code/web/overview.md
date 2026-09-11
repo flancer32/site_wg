@@ -38,8 +38,7 @@ The current SSR web branch is anchored in these repository areas:
 
 - `tmpl/web/` — authored locale-specific templates, shared partials, and page families;
 - `src/Back/Web/Cms/Handler/` — custom SSR request enrichment and redirect handling;
-- `tmpl/web/{locale}/contact.html` — current static, product-aware contact handoff; the campaign-specific email runtime is retired;
-- `tmpl/web/{locale}/land/agent-orchestration-poc/index.html` — archived GitHub Flows page with no active mail or form pipeline;
+- `tmpl/web/{locale}/contact.html` — current static new-product contact handoff; the campaign-specific email runtime is retired;
 - `src/Back/Web/Handler/NotFound.js` — final localized HTML fallback for unresolved GET and HEAD requests;
 - `src/Back/Di/Replace/Adapter.js` — project-specific render-data adaptation around the CMS renderer;
 - `src/Back/Cli/Plugin.js` — application lifecycle plugin that registers project-specific web handlers before the standard web command starts;

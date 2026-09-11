@@ -1,34 +1,4 @@
 {% extends "inc/layout.html" %}
-
-{% block title %}Disponible ahora — Alex Gusev | Wired Geese{% endblock %}
-{% block description %}Formas actuales de trabajar con Alex Gusev o comprar un libro: un piloto provisional de integración MCP, validación de pago con Telegram y productos de conocimiento disponibles.{% endblock %}
-
-{% block content %}
-<article class="products-catalogue-page">
-    <header class="products-catalogue-opening">
-        <div><p class="eyebrow">Wired Geese</p><h1>Disponible ahora.</h1><p class="lead">Formas de iniciar trabajo directo con Alex Gusev o comprar un libro.</p><p>Estas opciones tienen tipos y grados de madurez distintos. No son un catálogo de productos de software idénticos y maduros.</p></div>
-        <p class="catalogue-trust-link"><a href="/{{ locale }}/how-it-works.html">Cómo trabajo →</a></p>
-    </header>
-
-    <section class="home-section product-detail-section" aria-labelledby="mcp-title">
-        <div class="section-heading"><p class="eyebrow">Dirección principal a corto plazo</p><h2 id="mcp-title">Piloto de integración MCP</h2></div>
-        <div class="product-collection"><article class="product-preview"><p class="product-status">Provisional · piloto de pago acotado</p><h3>Acceso controlado de un agente a un servicio existente.</h3><p class="product-outcome">Conecta operaciones seleccionadas de un servicio, aplicación o API existente a un entorno compatible de agentes de IA mediante MCP.</p><p>El piloto empieza con un flujo útil y un límite de autoridad explícito. El alcance, precio, responsabilidad de despliegue y evidencia de aceptación se acuerdan directamente antes de empezar.</p><ul class="product-capabilities"><li>Servidor MCP o capa de herramientas seleccionada para un recurso existente.</li><li>Autenticación, autorización, alcance de herramientas y entorno de agente acordados.</li><li>Despliegue y visibilidad operativa adecuados al piloto acordado.</li></ul><p>No es una promesa de arquitectura empresarial, paquete fijo, transformación arbitraria con IA ni agentes autónomos.</p><p class="product-links"><a class="button-primary" href="/{{ locale }}/contact.html?topic=mcp-integration">Hablar de un piloto MCP</a></p></article></div>
-    </section>
-
-    <section class="home-section product-detail-section" aria-labelledby="telegram-title">
-        <div class="section-heading"><p class="eyebrow">Acceso anticipado / validación de pago</p><h2 id="telegram-title">ChatGPT + Telegram</h2></div>
-        <div class="product-collection"><article class="product-preview"><p class="product-status">Funciona, pero es temprano · validación de pago</p><h3>Un flujo acordado entre IA y Telegram.</h3><p class="product-outcome">Conecta un entorno de agente al trabajo de Telegram que te importa, con un límite de despliegue y confianza acordado.</p><p>La configuración es un trabajo experimental de pago para descubrir lo útil y repetible. No es un SaaS maduro ni un servicio escalable estandarizado.</p><p class="product-links"><a href="/{{ locale }}/products/chatgpt-telegram.html">Explorar ChatGPT + Telegram →</a> · <a href="/{{ locale }}/contact.html?topic=chatgpt-telegram">Hablar de validación de Telegram →</a></p></article></div>
-    </section>
-
-    <section class="home-section product-detail-section" aria-labelledby="books-title">
-        <div class="section-heading"><p class="eyebrow">Disponible ahora · conocimiento</p><h2 id="books-title">Libros</h2></div>
-        <div class="product-collection">
-            <article class="product-preview"><p class="product-status">Edición electrónica rusa · Leanpub</p><h3>Управляемая разработка с AI-агентами</h3><p>Edición electrónica rusa sobre ADSM y desarrollo controlado por una persona con agentes de IA.</p><p class="product-links"><a href="https://leanpub.com/adsm-ru" target="_blank" rel="noopener noreferrer">Comprar en Leanpub →</a></p></article>
-            <article class="product-preview"><p class="product-status">Edición electrónica inglesa · Leanpub</p><h3>Agent-Driven Software Management</h3><p>Edición electrónica inglesa sobre ADSM.</p><p class="product-links"><a href="https://leanpub.com/adsm-en" target="_blank" rel="noopener noreferrer">Comprar en Leanpub →</a></p></article>
-            <article class="product-preview"><p class="product-status">Edición BHV en ruso</p><h3>Браузер как операционная система для разработки современных приложений</h3><p>Libro publicado en ruso sobre desarrollo de aplicaciones modernas en el navegador.</p><p class="product-links"><a href="https://bhv.ru/product/brauzer-kak-operatsionnaya-sistema-dlya-razrabotki-sovremennyh-prilozhenij/" target="_blank" rel="noopener noreferrer">Comprar en BHV →</a> · <a href="/{{ locale }}/books/browser-as-operating-system.html">Sobre el libro →</a></p></article>
-        </div>
-    </section>
-
-    <section class="home-bridge" aria-labelledby="aligned-work-title"><div><h2 id="aligned-work-title">¿Tienes un problema de software relacionado?</h2><p>El trabajo puede empezar con una integración MCP o de agentes, acceso anticipado de pago a Telegram, adaptación de una capacidad existente o una conversación sobre ADSM. Mira si tu problema encaja para trabajar directamente con Alex.</p></div><a class="button-secondary" href="/{{ locale }}/work-with-me.html">Trabaja con Alex</a></section>
-</article>
-{% endblock %}
+{% block title %}Libros de Alex Gusev | Wired Geese{% endblock %}
+{% block description %}Libros de Alex Gusev sobre desarrollo con agentes de IA dirigido por personas y aplicaciones web modernas.{% endblock %}
+{% block content %}<article class="products-catalogue-page"><header class="products-catalogue-opening"><p class="eyebrow">Wired Geese</p><h1>Libros y conocimiento duradero.</h1><p class="lead">Material publicado sobre las ideas y la práctica de ingeniería detrás del trabajo.</p></header><section class="home-section"><h2>Disponible ahora</h2><div class="product-collection"><article class="product-preview"><h3>Управляемая разработка с AI-агентами</h3><p><a href="https://leanpub.com/adsm-ru">Comprar en Leanpub →</a></p></article><article class="product-preview"><h3>Agent-Driven Software Management</h3><p><a href="https://leanpub.com/adsm-en">Comprar en Leanpub →</a></p></article><article class="product-preview"><h3>Браузер как операционная система для разработки современных приложений</h3><p><a href="https://bhv.ru/product/brauzer-kak-operatsionnaya-sistema-dlya-razrabotki-sovremennyh-prilozhenij/">Comprar en BHV →</a></p></article></div></section><a class="button-secondary" href="/{{ locale }}/work-with-me.html">Trabaja con Alex en un producto</a></article>{% endblock %}

@@ -30,7 +30,7 @@ This is a development-process relationship, not a request-time or production-run
 
 An inbound request is normalized, resolved to a locale-aware authored route, enriched only with bounded site data where justified, and rendered through the shared shell. Unresolved HTML requests return the localized not-found surface.
 
-Commercial entries, current work, Journal, foundation explanation, history, and offer pages use this shared site flow. A semantic destination does not gain its own application or backend merely because its content role is distinct.
+Work-with-Alex, current work, Journal, foundation explanation, history, and book pages use this shared site flow. A semantic destination does not gain its own application or backend merely because its content role is distinct.
 
 ## Visitor Journeys
 
@@ -38,25 +38,25 @@ The architecture must keep these flows possible without prescribing exact routes
 
 ### Immediate Commercial Need
 
-`entry -> bounded commercial outcome -> fit, maturity, evidence, and trust boundaries -> direct human conversation`
+`entry -> new product need -> approach and evidence -> fit -> direct human conversation`
 
-The visitor can reach a current offer, including a provisional MCP pilot or Telegram paid validation while those remain product-authorized, without first learning Alarisa, PDE internals, TeqFW, or ADSM. Alex and the customer agree scope, price, deployment, access, and trust outside the public page.
+The visitor can understand the product-building proposition without first learning Alarisa, PDE internals, TeqFW, or ADSM. Alex and the customer agree the first scope, price, deployment, access, and trust outside the public page.
 
 ### Current Work And Demonstration
 
-`entry -> current work or system -> honest status and working evidence -> related Events, foundation, or genuine offer`
+`entry -> current work or system -> honest status and working evidence -> related Events, foundation, or Work with Alex`
 
-A working system can be inspected without being represented as purchasable. A commercial link appears only when an independently valid offer relationship exists.
+A working system can be inspected without being represented as purchasable.
 
 ### Journal And Evidence
 
-`recent activity or Event -> affected system, offer, or hypothesis -> cumulative thread -> current accepted status or next question`
+`recent activity or Event -> affected system or hypothesis -> cumulative thread -> current accepted status or next question`
 
 The flow must support failures, corrections, rejection, and discontinuation as well as progress. Event chronology remains available after status changes, while the status-bearing destination communicates current accepted meaning.
 
 ### Technical Trust
 
-`offer or system -> working-model/foundation explanation -> inspectable evidence -> return to the decision`
+`product conversation or system -> working-model/foundation explanation -> inspectable evidence -> return to the decision`
 
 TeqFW, ADSM, agent participation, and trust boundaries deepen confidence after the buyer outcome is understandable. Technical depth must not become an entry prerequisite. Primary detailed TeqFW promotion routes to `teqfw.com` rather than being duplicated by this site.
 
