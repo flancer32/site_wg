@@ -8,14 +8,14 @@
     <p class="eyebrow">Wired Geese</p>
     <h1>Trabajo actual</h1>
     <p class="lead">Sistemas funcionales y direcciones activas que Alex construye con agentes de IA como participantes de trabajo y con Alex responsable del resultado.</p>
-    <p>El tipo de objeto y su estado actual se muestran por separado. No es un catálogo de productos: software funcional, capacidad, dirección de prueba e infraestructura no tienen la misma relación comercial.</p>
+    <p>Estos son sistemas que Alex está construyendo y usando. Algunos son experimentales, otros ya funcionan, y solo algunos se pueden probar o comprar hoy.</p>
 </div>
 
 <section class="featured-work">
     <div class="section-heading">
         <p class="eyebrow">Sistemas y direcciones activas</p>
-        <h2>En qué trabaja Alex ahora.</h2>
-        <p>El estado actual vive aquí; las entradas fechadas de la Bitácora registran cambios concretos sin sustituirlo.</p>
+        <h2>Lo que Alex está construyendo y usando.</h2>
+        <p>Las tarjetas explican qué hace cada sistema, su madurez y si hoy se puede probar o comprar.</p>
     </div>
     <div class="current-work-grid">
         <article class="featured-work-card">
@@ -32,16 +32,20 @@
         </article>
         <article class="featured-work-card" id="teqcms">
             <p class="eyebrow">Infraestructura del sitio</p><p class="product-status">Infraestructura funcional · sin oferta actual</p><h3>TeqCMS</h3><p>El sistema SSR multilingüe que usa este sitio: evidencia práctica de TeqFW y ADSM, no un hijo de Alarisa ni un producto que se venda aquí ahora.</p><p><a href="https://cms.teqfw.com/" target="_blank" rel="noopener noreferrer">Explorar TeqCMS →</a> · <a href="https://github.com/flancer32/teq-cms" target="_blank" rel="noopener noreferrer">Inspeccionar el código →</a></p>
+            {% if currentWorkEvidence and currentWorkEvidence.items.length %}
+            <section class="current-work-card-evidence" aria-labelledby="teqcms-evidence-title">
+                <h4 id="teqcms-evidence-title">Registros de desarrollo relacionados</h4>
+                <p>Estas entradas de la Bitácora documentan trabajo en TeqCMS. Muestran cómo evolucionó el sistema; esta tarjeta describe su estado actual.</p>
+                <ul class="blog-list" role="list">
+                    {% for item in currentWorkEvidence.items %}
+                        {{ item.html | safe }}
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
         </article>
     </div>
 </section>
-
-{% if currentWorkEvidence and currentWorkEvidence.items.length %}
-<section class="home-section current-work-evidence" aria-labelledby="teqcms-evidence-title">
-    <div class="section-heading"><p class="eyebrow">Evidencia relacionada en la Bitácora</p><h2 id="teqcms-evidence-title">Cambios del Trabajo actual en la Bitácora.</h2><p>Estos Eventos se refieren a uno o varios sistemas actuales. Describen cambios fechados; las tarjetas anteriores expresan el estado aceptado ahora.</p></div>
-    <ul class="blog-list" role="list">{% for item in currentWorkEvidence.items %}{{ item.html | safe }}{% endfor %}</ul>
-</section>
-{% endif %}
 
 <div class="archive-heading">
     <h2>Trabajo previo e histórico</h2>

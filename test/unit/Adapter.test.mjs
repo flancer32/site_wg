@@ -6,7 +6,7 @@ import Adapter from '../../src/Back/Di/Replace/Adapter.js';
 
 const locales = ['en', 'ru', 'es'];
 
-function createAdapter({baseUrl, redirect, blogEntries = [], relatedEntries = [], entryRelations = []} = {}) {
+function createAdapter({baseUrl, redirect, blogEntries = [], relatedEntries = [], relatedCalls, entryRelations = []} = {}) {
     const config = {
         getBaseUrl: () => baseUrl,
     };
@@ -35,7 +35,10 @@ function createAdapter({baseUrl, redirect, blogEntries = [], relatedEntries = []
         blogHandler: {
             collectBlogIndex: async () => [],
             collectRecentBlogEntries: async () => blogEntries,
-            collectRelatedBlogEntries: async () => relatedEntries,
+            collectRelatedBlogEntries: async (...args) => {
+                relatedCalls?.push(args);
+                return relatedEntries;
+            },
             collectEntryRelations: async () => entryRelations,
         },
         redirectHandler: {
@@ -222,8 +225,10 @@ test('adds a localized recent-Journal projection only to Home', async () => {
 });
 
 test('keeps authored Event relationships separate from bounded Current Work evidence', async () => {
+    const relatedCalls = [];
     const adapter = createAdapter({
         relatedEntries: [{slug: 'teqcms-event'}],
+        relatedCalls,
         entryRelations: ['teqcms'],
     });
     const work = await adapter.getRenderData({req: {url: '/es/projects.html', headers: {}, socket: {}}});
@@ -232,5 +237,6 @@ test('keeps authored Event relationships separate from bounded Current Work evid
     });
 
     assert.deepEqual(work.data.currentWorkEvidence, {items: [{slug: 'teqcms-event'}]});
+    assert.deepEqual(relatedCalls, [['es', ['teqcms'], 3]]);
     assert.deepEqual(event.data.journalRelations, ['teqcms']);
 });

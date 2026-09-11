@@ -8,14 +8,14 @@
     <p class="eyebrow">Wired Geese</p>
     <h1>Текущая работа</h1>
     <p class="lead">Работающие системы и активные направления, которые Алекс создаёт с ИИ-агентами как рабочими участниками, оставаясь ответственным за результат.</p>
-    <p>Вид объекта и его текущий статус указаны отдельно. Это не каталог продуктов: работающий софт, возможность, доказательное направление и инфраструктура имеют разные коммерческие отношения.</p>
+    <p>Это системы, которые Алекс сейчас создаёт и использует. Одни экспериментальные, другие уже работают; лишь часть можно попробовать или купить сегодня.</p>
 </div>
 
 <section class="featured-work">
     <div class="section-heading">
         <p class="eyebrow">Активные системы и направления</p>
-        <h2>Над чем Алекс работает сейчас.</h2>
-        <p>Текущий статус указан здесь; записи Журнала фиксируют отдельные изменения, но не заменяют его.</p>
+        <h2>Что Алекс создаёт и использует.</h2>
+        <p>В карточках — назначение системы, её зрелость и возможность попробовать или купить её сегодня.</p>
     </div>
     <div class="current-work-grid">
         <article class="featured-work-card">
@@ -32,16 +32,20 @@
         </article>
         <article class="featured-work-card" id="teqcms">
             <p class="eyebrow">Инфраструктура сайта</p><p class="product-status">Работающая инфраструктура · сейчас нет предложения</p><h3>TeqCMS</h3><p>Многоязычная SSR-система, на которой работает этот сайт: практическое свидетельство TeqFW и ADSM, не часть Alarisa и не продукт, продаваемый здесь сейчас.</p><p><a href="https://cms.teqfw.com/" target="_blank" rel="noopener noreferrer">Открыть TeqCMS →</a> · <a href="https://github.com/flancer32/teq-cms" target="_blank" rel="noopener noreferrer">Исходники →</a></p>
+            {% if currentWorkEvidence and currentWorkEvidence.items.length %}
+            <section class="current-work-card-evidence" aria-labelledby="teqcms-evidence-title">
+                <h4 id="teqcms-evidence-title">Связанные записи о разработке</h4>
+                <p>Эти записи Журнала посвящены работе над TeqCMS. Они показывают, как развивалась система; в этой карточке указано её состояние сейчас.</p>
+                <ul class="blog-list" role="list">
+                    {% for item in currentWorkEvidence.items %}
+                        {{ item.html | safe }}
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
         </article>
     </div>
 </section>
-
-{% if currentWorkEvidence and currentWorkEvidence.items.length %}
-<section class="home-section current-work-evidence" aria-labelledby="teqcms-evidence-title">
-    <div class="section-heading"><p class="eyebrow">Связанные свидетельства в Журнале</p><h2 id="teqcms-evidence-title">Изменения текущей работы в Журнале.</h2><p>Эти События относятся к одной или нескольким текущим системам. Они описывают изменения тогда; карточки выше указывают принятый статус сейчас.</p></div>
-    <ul class="blog-list" role="list">{% for item in currentWorkEvidence.items %}{{ item.html | safe }}{% endfor %}</ul>
-</section>
-{% endif %}
 
 <div class="archive-heading">
     <h2>Предыдущая и историческая работа</h2>

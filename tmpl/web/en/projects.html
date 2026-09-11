@@ -8,14 +8,14 @@
     <p class="eyebrow">Wired Geese</p>
     <h1>Current Work</h1>
     <p class="lead">Working systems and active directions built by Alex with AI agents as working participants and Alex accountable for the result.</p>
-    <p>Object kind and current status are stated separately. This is not a product catalogue: working software, a capability, a proof direction, and infrastructure do not all have the same commercial relationship.</p>
+    <p>These are systems Alex is actively building and using. Some are experimental, some already work, and only some can be tried or bought today.</p>
 </div>
 
 <section class="featured-work">
     <div class="section-heading">
         <p class="eyebrow">Active systems and directions</p>
-        <h2>What Alex is building now.</h2>
-        <p>Current status lives here; dated Journal entries record particular changes without replacing it.</p>
+        <h2>What Alex is building and using.</h2>
+        <p>The cards explain what each system does, how mature it is, and whether it can be tried or bought today.</p>
     </div>
     <div class="current-work-grid">
         <article class="featured-work-card">
@@ -32,24 +32,20 @@
         </article>
         <article class="featured-work-card" id="teqcms">
             <p class="eyebrow">Site infrastructure</p><p class="product-status">Working infrastructure · no current offer</p><h3>TeqCMS</h3><p>The multilingual SSR system used by this site: practical TeqFW and ADSM evidence, not an Alarisa child or a product currently offered for sale here.</p><p><a href="https://cms.teqfw.com/" target="_blank" rel="noopener noreferrer">Explore TeqCMS →</a> · <a href="https://github.com/flancer32/teq-cms" target="_blank" rel="noopener noreferrer">Inspect the source →</a></p>
+            {% if currentWorkEvidence and currentWorkEvidence.items.length %}
+            <section class="current-work-card-evidence" aria-labelledby="teqcms-evidence-title">
+                <h4 id="teqcms-evidence-title">Related development records</h4>
+                <p>These Journal entries document work on TeqCMS. They show how the system developed; this card describes how it stands today.</p>
+                <ul class="blog-list" role="list">
+                    {% for item in currentWorkEvidence.items %}
+                        {{ item.html | safe }}
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
         </article>
     </div>
 </section>
-
-{% if currentWorkEvidence and currentWorkEvidence.items.length %}
-<section class="home-section current-work-evidence" aria-labelledby="teqcms-evidence-title">
-    <div class="section-heading">
-        <p class="eyebrow">Related Journal evidence</p>
-        <h2 id="teqcms-evidence-title">Current Work changes in the Journal.</h2>
-        <p>These Events concern one or more current systems. They describe dated changes; the cards above state the accepted status now.</p>
-    </div>
-    <ul class="blog-list" role="list">
-        {% for item in currentWorkEvidence.items %}
-            {{ item.html | safe }}
-        {% endfor %}
-    </ul>
-</section>
-{% endif %}
 
 <div class="archive-heading">
     <h2>Previous and historical work</h2>

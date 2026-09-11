@@ -277,7 +277,7 @@ export default class Adapter {
                 try {
                     items = await blogHandler.collectRelatedBlogEntries?.(
                         targetLocale,
-                        ['alarisa', 'pde', 'telegram-desk', 'shared-files-desk', 'teqcms'],
+                        ['teqcms'],
                         3
                     ) || [];
                 } catch (error) {

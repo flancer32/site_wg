@@ -68,6 +68,8 @@ test('footer preserves the same current discovery model as primary navigation', 
         for (const route of ['products/', 'work-with-me.html', 'projects.html', 'blog/', 'how-it-works.html', 'contact.html?topic=commercial']) {
             assert.ok(footer.includes(route), `${locale}: ${route} remains reachable in the footer`);
         }
+        assert.ok(footer.includes('/{{ locale }}/products/#books-title'), `${locale}: Books reaches the complete books section`);
+        assert.doesNotMatch(footer, /books\/browser-as-operating-system\.html/);
         assert.doesNotMatch(footer, /Project Archive|Archivo de proyectos|Архив проектов/u);
     }
 });
