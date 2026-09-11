@@ -12,9 +12,9 @@ This is a factual evidence inventory. It is not an automatically generated GitHu
 
 ## Working-Practice Statement
 
-These repositories are part of Alex Gusev's real current software estate. They are developed and evolved with AI agents acting as normal working participants under Alex's direction, verification, acceptance, and accountability.
+These repositories are part of Alex Gusev's real current software estate. They are developed and evolved with AI agents acting as normal working participants under Alex's direction, verification, acceptance, and accountability. Together they are the primary proof that Alex practices and evolves his own agent-driven approach through real construction.
 
-Developed with AI agents does not mean autonomous development. Alex defines intent, controls consequential decisions, verifies results, accepts changes, and remains accountable. Repository presence and evolution are evidence of real development; they do not change any object's actual maturity, product role, or commercial eligibility.
+Developed with AI agents does not mean autonomous development. Alex defines intent, controls consequential decisions, verifies results, accepts changes, and remains accountable. Repository presence and evolution are evidence of real development and practice, not proof of a universal correct methodology; they do not change any object's actual maturity, product role, or commercial eligibility.
 
 ## Canonical Inventory
 
@@ -76,7 +76,7 @@ These sites are real site and application contexts developed through the same pr
 
 ## Evidence Meaning And Limits
 
-The estate demonstrates real ongoing development, systematic use of AI agents across multiple software types, and practical application of TeqFW and ADSM across libraries, tooling, applications, integrations, systems, infrastructure, and sites.
+The estate demonstrates real ongoing development, systematic use of AI agents across multiple software types, and practical application and refinement of TeqFW and ADSM across libraries, tooling, applications, integrations, systems, infrastructure, and sites.
 
 It does not by itself demonstrate market demand, commercial viability, superior productivity, superior software quality, external adoption, customer satisfaction, recurring revenue, or scalability of a future SaaS business.
 

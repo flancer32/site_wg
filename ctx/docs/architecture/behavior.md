@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/behavior.md`
 - Template Version: `20260605`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
@@ -20,9 +20,11 @@ Generated output does not feed meaning upstream. Template, asset, and configurat
 
 wiredgeese.com evolves through the product-authorized human-directed agent model:
 
-`Alex defines intent and authorizes work -> Alex and/or authorized AI agents perform development tasks -> results are verified -> Alex accepts consequential results -> approved sources are published`
+`Alex defines intent and authorizes work -> Alex and/or authorized AI agents perform development tasks -> results are verified -> Alex accepts consequential results -> observations update context, tools, architecture, or process -> approved sources are published`
 
-AI agents are normal development participants and may support analysis, inspection, design, implementation, refactoring, testing, verification, documentation, deployment preparation, and explicitly authorized operations. The flow does not require every task to be delegated, prevent Alex from writing or editing software, or transfer acceptance and accountability away from him.
+AI agents are normal development participants and may support analysis, inspection, design, implementation, refactoring, testing, verification, documentation, deployment preparation, and explicitly authorized operations. Alex works mainly by directing them, while retaining intent, architecture, constraints, integration, verification, acceptance, and accountability. The flow does not require every task to be delegated, prevent Alex from writing or editing software, or transfer acceptance and accountability away from him.
+
+This is Alex's evolving practice, not a site claim that it is the universally correct way to develop with agents. `../product/practitioner-positioning.md` is authoritative for that epistemic boundary.
 
 This is a development-process relationship, not a request-time or production-runtime contract. Agent participation in building and maintaining wiredgeese.com does not imply autonomous agents, agent credentials, agent state, or agent authority inside the deployed public site. Any such runtime capability would require its own upstream purpose, owner, state, trust, and integration decisions.
 

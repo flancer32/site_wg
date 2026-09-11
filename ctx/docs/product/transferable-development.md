@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/transferable-development.md`
 - Template Version: `20260909`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose And Strategic Weight
 
@@ -12,7 +12,7 @@ This capability is relevant to ADSM and may eventually differentiate suitable en
 
 ## ADSM Transfer Principle
 
-ADSM makes product intent, architecture, constraints, accepted decisions, development rules, authority, and verification guidance explicit in a maintained cognitive context.
+ADSM makes product intent, architecture, constraints, accepted decisions, development rules, authority, and verification guidance explicit in a maintained cognitive context. It is Alex's evolving methodology for controlling his own agent-driven development, derived from practice rather than presented as a universal correct way for every team to build software.
 
 A conventional handoff may include source code, configuration, deployment knowledge, tests, and ordinary documentation. An ADSM-oriented handoff may additionally include an agreed, bounded cognitive context intended to help another accountable human-and-agent team understand and continue the system.
 

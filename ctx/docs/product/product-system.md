@@ -13,9 +13,9 @@ Distinguish the objects shown through Wired Geese so that evidence, products, me
 ```text
 Alex Gusev — accountable human maker
   ├── Wired Geese — brand and public expression of the practice
-  ├── engineering system
+  ├── evolving engineering system
   │   ├── TeqFW — application platform and technical foundation
-  │   └── ADSM — human-directed development-management methodology
+  │   └── ADSM — practice-derived human-directed development-management methodology
   ├── software built with that system
   │   ├── Alarisa — major ongoing proof system and product direction
   │   ├── PDE — independently useful personal-infrastructure product within the Alarisa direction
@@ -29,7 +29,7 @@ Alex Gusev — accountable human maker
 ## Object Boundaries
 
 - **Wired Geese** is Alex's brand, not a software product, agency, or autonomous company.
-- **TeqFW** and **ADSM** are components of the engineering system, not a catalogue of customer-selectable services.
+- **TeqFW** and **ADSM** are components of Alex's evolving engineering system, not a catalogue of customer-selectable services or a universal method for other teams. `practitioner-positioning.md` governs the epistemic boundary.
 - **Alarisa** is the largest current multi-component proof and a long-term product direction. It is not market-ready, completed proof, or a client offer.
 - **PDE** is a product in its own right as well as a practical part of the broader Alarisa direction. Its Runtime gives one person controlled access boundaries for Desk capabilities.
 - **Desks** are functional PDE modules. Telegram Desk is a working early capability with independent user value and may be deployed commercially; Shared Files Desk remains a working early capability whose separate offer status must be established explicitly.

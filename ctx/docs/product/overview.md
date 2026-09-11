@@ -6,7 +6,7 @@
 
 ## Site Identity
 
-`wiredgeese.com` is the public home of Alex Gusev's software-making practice. Its commercial purpose is clear: Alex builds new web applications and software products from the ground up with an engineering system he has developed through long-term practice.
+`wiredgeese.com` is the public home of Alex Gusev's software-making practice. Its commercial purpose is clear: Alex builds new web applications and software products from the ground up with an engineering system he has developed and continues to refine through practice.
 
 Wired Geese explains that system, shows software built with it, develops the ideas behind it, and provides a path for a client whose new product fits that way of building. It is not a catalogue of unrelated engineering services, a conventional agency, software, a platform, or a substitute identity for Alex.
 
@@ -24,7 +24,7 @@ The system currently includes, where appropriate:
 - Agent-Driven Software Management (`ADSM`) and structured contextual documentation;
 - AI agents as working participants under human direction, verification, acceptance, and responsibility.
 
-TeqFW primarily answers how the software is structured and built. ADSM primarily answers how a human controls software evolution while working with AI agents. Detailed TeqFW promotion and documentation remain the job of `teqfw.com`; Wired Geese uses TeqFW as a foundation and as evidence of Alex's practice.
+TeqFW primarily answers how the software is structured and built. ADSM primarily answers how Alex controls his own software evolution while working with AI agents. Both are opinionated, practice-derived parts of Alex's system rather than universal prescriptions; `practitioner-positioning.md` is authoritative for that boundary. Detailed TeqFW promotion and documentation remain the job of `teqfw.com`; Wired Geese uses TeqFW as a foundation and as evidence of Alex's practice.
 
 ## Commercial Meaning
 
@@ -48,9 +48,9 @@ Alex's current software estate is developed through the same human-directed mode
 
 ## AI Agents And Accountability
 
-AI agents are normal working participants in Alex's current practice. They may help inspect, design, implement, test, document, and operate authorized work. They are neither employees, legal actors, owners, nor independent commercial decision-makers. Alex defines intent, authorizes consequential work, verifies results, accepts changes, and remains responsible.
+AI agents are normal working participants in Alex's current practice. Alex now works mainly by directing them rather than by manual code writing as his primary interface. They may help inspect, design, implement, test, document, and operate authorized work. They are neither employees, legal actors, owners, nor independent commercial decision-makers. Alex defines intent, authorizes consequential work, verifies results, accepts changes, and remains responsible.
 
-The unusual combination matters: one experienced human engineer works with growing AI-agent capabilities inside his own engineering system. AI is not the primary product being sold and must not obscure the underlying proposition of building software products.
+The unusual combination matters: one experienced human engineer works with growing AI-agent capabilities inside his own engineering system and evolves that system from observed results. AI is not the primary product being sold and must not obscure the underlying proposition of building software products. `practitioner-positioning.md` defines the full practitioner-first position and its evidence limits.
 
 ## Site Responsibilities
 

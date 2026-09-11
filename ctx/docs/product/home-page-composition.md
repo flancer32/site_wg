@@ -12,7 +12,7 @@ Define the attention order and semantic handoffs of the public home page.
 
 1. Alex builds new web applications and software products.
 2. He builds through his own coherent engineering system, not an arbitrary framework selection.
-3. TeqFW, modular architecture, contextual documentation, and controlled AI-agent work are parts of that system.
+3. TeqFW, modular architecture, contextual documentation, and controlled AI-agent work are parts of that system, developed and revised through practical work rather than offered as a universal method.
 4. Alex remains accountable for direction, acceptance, and consequential decisions.
 5. Alarisa and smaller current systems provide concrete evidence at different scales; PDE and useful Desks may also be independently usable products.
 6. A visitor can either work with Alex on a new product or explore an existing PDE capability.

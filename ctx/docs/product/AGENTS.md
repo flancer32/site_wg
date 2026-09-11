@@ -20,6 +20,7 @@ This branch is the authority for what Wired Geese represents, how the site must 
 - `journal-and-evidence.md` — Journal/Event strategy, cumulative proof model, claim-specific evidence hierarchy, and honesty rules.
 - `overview.md` — semantic entry point for site identity, the Wired Geese model, foundations, three site jobs, and economic proof hypothesis.
 - `pde.md` — canonical PDE, Desk, MCP, Telegram Desk, deployment, and early-product-monetization meaning.
+- `practitioner-positioning.md` — canonical practitioner-first position, practice feedback loop, ADSM and TeqFW epistemic boundaries, and client-value meaning.
 - `product-system.md` — object kinds, relationships, current systems, maturity authority, catalogue eligibility, and canonical purchase facts.
 - `software-estate.md` — canonical repository inventory and limits of software-estate evidence.
 - `transferable-development.md` — bounded, emerging ADSM-enabled continuation and transfer capability.
@@ -29,21 +30,22 @@ This branch is the authority for what Wired Geese represents, how the site must 
 Read documents in this order unless the task is narrowly scoped:
 
 1. `overview.md` for the site identity and canonical strategic frame;
-2. `product-system.md` for object kinds, relationships, and maturity;
-3. `commercial-strategy.md` for revenue and productization logic;
-4. `commercial-positioning.md` for the canonical commercial proposition and exclusions;
-5. `pde.md` whenever PDE, Desks, MCP, Telegram, or early product deployment is relevant;
-6. `journal-and-evidence.md` for evidence and public chronology rules;
-7. `software-estate.md` for canonical repository evidence;
-8. `information-architecture.md` and `home-page-composition.md` for public projection;
-9. `transferable-development.md` only when continuation or context transfer is relevant.
+2. `practitioner-positioning.md` whenever Alex's agent-development role, ADSM, TeqFW philosophy, evidence, content stance, or client value is relevant;
+3. `product-system.md` for object kinds, relationships, and maturity;
+4. `commercial-strategy.md` for revenue and productization logic;
+5. `commercial-positioning.md` for the canonical commercial proposition and exclusions;
+6. `pde.md` whenever PDE, Desks, MCP, Telegram, or early product deployment is relevant;
+7. `journal-and-evidence.md` for evidence and public chronology rules;
+8. `software-estate.md` for canonical repository evidence;
+9. `information-architecture.md` and `home-page-composition.md` for public projection;
+10. `transferable-development.md` only when continuation or context transfer is relevant.
 
 Facts, current status, strategic direction, hypotheses, and open questions must remain distinguishable. A lower document may refine but must not redefine an upstream object or status.
 
 ## Product Knowledge Model
 
 - TeqFW is the technical North Star and application platform: it primarily answers how software is structured and built.
-- ADSM is the complementary development-management methodology: it primarily answers how a human controls software evolution with AI agents.
+- ADSM is the complementary development-management methodology Alex evolves through practice to control his own software evolution with AI agents; it is not a universal prescription.
 - Wired Geese is Alex Gusev's brand and public model of one accountable human maker working with hired AI agents; it is neither software nor a legal organization.
 - Alarisa is the most ambitious current proof system and long-term product direction built on that foundation; it is not the foundation itself and its proof is ongoing.
 - PDE, Telegram Desk, Shared Files Desk, TeqCMS, books, offers, and historical work are different kinds of objects with different maturity and evidence.

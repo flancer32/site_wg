@@ -10,7 +10,7 @@ Define Journal/Events as the public evidence stream of the Wired Geese model and
 
 `software-estate.md` is the canonical repository inventory and defines its non-commercial evidence limits. Repository evidence is a factual current-practice input to this model; it is never a substitute for a claim-specific Event or external/commercial evidence.
 
-The Journal documents the attempt to build useful software and an economically sustainable software-making practice. It does not announce success before evidence exists.
+The Journal documents the attempt to build useful software and an economically sustainable software-making practice. It does not announce success before evidence exists, or turn observations from Alex's own practice into universal advice about how every team should use AI agents.
 
 ## Journal As A First-Class Surface
 
@@ -24,7 +24,7 @@ Journal is not merely:
 - search-acquisition support;
 - a sequence of success stories.
 
-It is the cumulative public record of what Alex and the agents attempt, build, test, deploy, learn, sell, reuse, change, reject, or discontinue.
+It is the cumulative public record of what Alex and the agents attempt, build, test, deploy, learn, sell, reuse, change, reject, or discontinue. Its preferred stance is "what was built, observed, and changed" rather than teaching a definitive agent-development workflow.
 
 Journal prominence does not mean publishing volume. Fewer technically or economically meaningful events are preferable to a high-volume activity feed. Small connected events become valuable when they expose a durable sequence from intent through implementation and external evidence, but routine output must not be published merely to maintain cadence.
 
@@ -65,6 +65,12 @@ intent or problem
 
 Not every thread reaches every step. A stopped thread must retain its truthful ending rather than disappear from the narrative. The absence of paid or recurring evidence must remain visible when that absence is material to the claim.
 
+For Alex's own engineering practice, a thread may also make the learning loop explicit:
+
+`build -> observe -> understand -> document -> change the approach -> build again`
+
+An architectural decision, contextual correction, workflow experiment, incorrect assumption, or accepted/rejected agent result is meaningful when it explains a real change in that loop. This is evidence of Alex's evolving practice, not proof of a universal method.
+
 ## Event Content Responsibilities
 
 A useful event identifies enough of the following to establish meaning:
@@ -100,7 +106,7 @@ Evidence must be attached to the claim it actually supports. More evidence volum
 | Evidence | Supports | Does not by itself support |
 | --- | --- | --- |
 | Working software or technical artifact | The behavior or artifact exists and can be inspected in a stated context. | External demand, operational maturity, or customer value. |
-| Documented current development of Alex's own software with AI-agent participation | The Wired Geese model is practiced; agents are normal working participants under Alex's control; TeqFW and ADSM are exercised across the stated software types. | Autonomous development, exclusive AI authorship, superior productivity or quality, external usability, market demand, or commercial viability. |
+| Documented current development of Alex's own software with AI-agent participation | The Wired Geese model is practiced; agents are normal working participants under Alex's control; TeqFW and ADSM are exercised across the stated software types. | A universal correct method, autonomous development, exclusive AI authorship, superior productivity or quality, external usability, market demand, or commercial viability. |
 | Alex's repeated use | Practical internal utility and continued operation for Alex's workflow. | Independent demand, general usability, or willingness to pay. |
 | Close or experimental user installation | Operation outside Alex's own environment under stated conditions. | Repeatable delivery, broad trust acceptance, or commercial validation. |
 | External user feedback | A real user's observation, problem, or perceived value. | Willingness to pay, retention, or general market fit. |
@@ -136,7 +142,7 @@ The accepted current baseline is limited:
 - The ADSM book is published through Leanpub in Russian and English; the browser book exists in print.
 - Older engineering work provides real evidence of long-term system responsibility. Santegra is a substantial Magento-based commerce system with integrations, MLM/distributor management, balances, points, and recurring bonus calculations; it was developed over roughly two years, has operated in production since 2018, and remains supported.
 
-These facts establish current practice and bounded internal engineering evidence. They do not establish autonomous development, superior productivity or quality, broad external demand for PDE, repeatable MCP integration delivery, mature support, production-grade security, successful external cognitive-context transfer, external usability across the estate, recurring product value, or economic sustainability. Those claims require their own external, commercial, comparative, or longitudinal evidence.
+These facts establish current practice and bounded internal engineering evidence. They do not establish a universal agent-development methodology, autonomous development, superior productivity or quality, broad external demand for PDE, repeatable MCP integration delivery, mature support, production-grade security, successful external cognitive-context transfer, external usability across the estate, recurring product value, or economic sustainability. Those claims require their own external, commercial, comparative, or longitudinal evidence.
 
 ## Commercial Evidence Ladder
 
@@ -180,6 +186,7 @@ The site must distinguish Alex's technology and decisions from third-party platf
 - Do not imply security, privacy, uptime, support, scale, or compliance beyond an explicit and evidenced boundary.
 - Do not describe future plans as delivered capability.
 - Correct material public errors or outdated status with a visible update rather than silently preserving a misleading story.
+- Do not turn a product-specific observation into a claim that every team should adopt Alex's method; state the context, current conclusion, and remaining uncertainty.
 
 ## Distribution Responsibilities
 

@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/overview.md`
 - Template Version: `20260605`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
@@ -39,6 +39,7 @@ The public system must support direct discovery of current commercial entries, c
 Architecture consumes rather than restates the product model:
 
 - `../product/overview.md` owns site identity, foundation, and the three site jobs;
+- `../product/practitioner-positioning.md` owns the practitioner-first position, feedback loop, and ADSM/TeqFW epistemic boundaries;
 - `../product/product-system.md` owns object kinds and current status;
 - `../product/commercial-strategy.md` owns the new-product commercial direction;
 - `../product/commercial-positioning.md` owns the canonical proposition, fit, ownership, pricing mechanism, and exclusions;
@@ -59,7 +60,7 @@ Architecture defines structural reachability, state separation, runtime boundari
 - Product and customer deployments own their own data, credentials, operation, and lifecycle outside the wiredgeese.com runtime.
 - Human-controlled agreements and confirmed delivery records own commercial truth; traffic and publication do not manufacture validation.
 
-TeqFW is the technical North Star and ADSM the complementary development-management methodology. The architecture must support their product-authorized relationship to Alarisa:
+TeqFW is the technical North Star and ADSM the complementary development-management methodology Alex evolves through practice. The architecture must support their product-authorized relationship to Alarisa without presenting either as a universal prescription:
 
 `TeqFW + ADSM -> capacity to build increasingly complex systems -> Alarisa as the most ambitious current ongoing proof`
 

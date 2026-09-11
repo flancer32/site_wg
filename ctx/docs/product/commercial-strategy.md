@@ -44,7 +44,7 @@ The first scope identifies the product problem, intended users and capabilities,
 
 The client owns the business problem, product requirements, and material constraints. Alex owns the engineering approach used to implement the agreed product. Constraints such as integrations, compliance, protocols, infrastructure, deployment, operations, and browser support are inputs to that approach, not a requirement to become implementation capacity inside arbitrary architecture.
 
-TeqFW and ADSM are parts of one engineering system. They are not selectable consulting products. AI agents help in development under Alex's direction and acceptance; they are not the sales object or a promise of autonomous delivery.
+TeqFW and ADSM are parts of one engineering system that Alex has evolved through his own product work. They are not selectable consulting products, universal prescriptions, or proof that other approaches are invalid. AI agents help in development under Alex's direction and acceptance; they are not the sales object or a promise of autonomous delivery.
 
 ## Evidence And Selection
 

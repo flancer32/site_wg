@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/decisions.md`
 - Template Version: `20260605`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
@@ -55,9 +55,9 @@ Only the current decision text in this document is normative. A `Revised` or `Su
 ## Decision 7: Expose The Accountable Maker And Agent Participation
 
 - **Status:** retained and clarified.
-- **Decision:** represent Alex Gusev as the accountable human maker and AI agents as hired, authorized working participants. Treat Alex's current own software estate, including wiredgeese.com, as working evidence of this development practice while keeping development-time agent participation separate from production-runtime capability.
-- **Rejected alternatives:** imply a larger organization; hide human accountability; describe agents as occasional external tools with no normal role in current development; describe them as employees, owners, autonomous developers, or independent commercial authorities; require agent execution for every task; infer autonomous agents inside the deployed site.
-- **Reasoning:** the model must be visible as a practice applied to real software rather than only a narrative. That internal evidence does not establish unlimited capacity, superior outcomes, external demand, commercial success, or a production-agent architecture.
+- **Decision:** represent Alex Gusev as the accountable human maker and AI agents as hired, authorized working participants. Treat Alex's current own software estate, including wiredgeese.com, as working evidence of this development practice while keeping development-time agent participation separate from production-runtime capability. Show the model as Alex's evolving, practice-derived approach rather than a universal agent-development doctrine.
+- **Rejected alternatives:** imply a larger organization; hide human accountability; describe agents as occasional external tools with no normal role in current development; describe them as employees, owners, autonomous developers, or independent commercial authorities; require agent execution for every task; infer autonomous agents inside the deployed site; present Alex as a guru teaching the one correct agent workflow.
+- **Reasoning:** the model must be visible as a practice applied to real software rather than only a narrative. That internal evidence does not establish unlimited capacity, superior outcomes, external demand, commercial success, a universally correct methodology, or a production-agent architecture.
 
 ## Decision 8: Use Flexible Semantic Destinations Instead Of Fixed Primary Labels
 
