@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/AGENTS.md`
 - Template Version: `20260605`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
@@ -20,6 +20,7 @@ This branch is the authority for what Wired Geese represents, how the site must 
 - `journal-and-evidence.md` — Journal/Event strategy, cumulative proof model, claim-specific evidence hierarchy, and honesty rules.
 - `overview.md` — semantic entry point for site identity, the Wired Geese model, foundations, three site jobs, and economic proof hypothesis.
 - `product-system.md` — object kinds, relationships, current systems, maturity authority, catalogue eligibility, and canonical purchase facts.
+- `software-estate.md` — canonical repository inventory and limits of software-estate evidence.
 - `transferable-development.md` — bounded, emerging ADSM-enabled continuation and transfer capability.
 
 ## Reading Order
@@ -30,9 +31,10 @@ Read documents in this order unless the task is narrowly scoped:
 2. `product-system.md` for object kinds, relationships, and maturity;
 3. `commercial-strategy.md` for revenue and productization logic;
 4. `journal-and-evidence.md` for evidence and public chronology rules;
-5. `information-architecture.md` and `home-page-composition.md` for public projection;
-6. `transferable-development.md` only when continuation or context transfer is relevant;
-7. the applicable document under `offers/` for a concrete commercial entry point.
+5. `software-estate.md` for canonical repository evidence;
+6. `information-architecture.md` and `home-page-composition.md` for public projection;
+7. `transferable-development.md` only when continuation or context transfer is relevant;
+8. the applicable document under `offers/` for a concrete commercial entry point.
 
 Facts, current status, strategic direction, hypotheses, and open questions must remain distinguishable. A lower document may refine but must not redefine an upstream object or status.
 

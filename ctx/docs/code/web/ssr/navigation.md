@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/navigation.md`
 - Template Version: `20260909`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
@@ -16,7 +16,7 @@ Direct discovery does not require one header item per responsibility, equal visu
 
 ## Current Implementation And Migration
 
-The current shared header exposes the brand link, retained commercial entries, Journal, working-model explanation, Current Work at the retained `/projects.html` route, a commercial Contact action, and locale control. Alarisa remains reachable contextually rather than holding mandatory primary-nav status. The footer retains older discovery groups. These are observable Phase 2 template facts, not permanent labels, grouping, or route authority.
+The current shared header exposes the brand link, available work, Journal, working-model explanation, Current Work at the retained `/projects.html` route, a commercial Contact action, and locale control. Alarisa remains reachable contextually rather than holding mandatory primary-nav status. The footer promotes current commercial access, Current Work, Journal, working-model explanation, and Contact; books and durable knowledge remain reachable without presenting Journal as archive material. These are observable implementation facts, not permanent labels, grouping, or route authority.
 
 ## Contextual Relationships
 

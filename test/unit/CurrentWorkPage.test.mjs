@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
 import {fileURLToPath} from 'node:url';
@@ -35,7 +36,7 @@ test('Current Work separates active system status from history and projects real
     }
 });
 
-test('related Journal Events link to their current state without turning chronology into status', () => {
+test('real TeqCMS Events link to their current state without turning chronology into status', () => {
     for (const [locale, [, , currentStateLabel]] of Object.entries(labels)) {
         const html = nunjucks.configure(path.join(root, 'tmpl', 'web', locale), {autoescape: true}).render(
             'blog/2025/20250529-01-teq-cms-demo.html',
@@ -43,18 +44,18 @@ test('related Journal Events link to their current state without turning chronol
                 allowedLocales: ['en', 'ru', 'es'],
                 locale,
                 isPublication: true,
-                journalRelations: ['alarisa', 'pde', 'telegram-desk', 'shared-files-desk', 'teqcms'],
+                journalRelations: ['teqcms'],
             }
         );
         assert.ok(html.includes(currentStateLabel), `${locale}: current-state explanation`);
-        for (const destination of [
-            `/${locale}/projects/alarisa.html`,
-            `/${locale}/projects.html#pde`,
-            `/${locale}/projects.html#telegram-desk`,
-            `/${locale}/projects.html#shared-files-desk`,
-            `/${locale}/projects.html#teqcms`,
-        ]) {
-            assert.ok(html.includes(`href="${destination}"`), `${locale}: ${destination}`);
-        }
+        assert.ok(html.includes(`href="/${locale}/projects.html#teqcms"`), `${locale}: TeqCMS current state`);
+    }
+});
+
+test('the 2026-09-10 site-publication Event does not claim Current Work relationships', async () => {
+    for (const locale of Object.keys(labels)) {
+        const source = await fs.readFile(path.join(root, 'tmpl', 'web', locale, 'blog/2026/20260910-01-current-work-evidence.html'), 'utf8');
+        assert.doesNotMatch(source, /journal-relations:/);
+        assert.match(source, /does not manufacture|не создаёт искусственных|no fabrica evidencia/u);
     }
 });

@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/routes.md`
 - Template Version: `20260630`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
@@ -16,7 +16,7 @@ Public pages use `/{locale}/...` for `en`, `es`, and `ru`; locale resolution pre
 
 ## Current Commercial Route Facts
 
-The repository currently authors `/{locale}/products/` and `/{locale}/products/chatgpt-telegram.html` in all maintained locales. `/{locale}/products` and `/{locale}/products.html` are catalogue aliases. Existing `/{locale}/work-with-me.html`, `/{locale}/projects/alarisa.html`, `/{locale}/about.html`, and `/{locale}/contact.html` are localized, canonical, indexable, and sitemap inputs where authored.
+The repository currently authors `/{locale}/products/` and `/{locale}/products/chatgpt-telegram.html` in all maintained locales. `/{locale}/products` and `/{locale}/products.html` are redirected continuity aliases; the stale authored English `products.html` source is retired. Existing `/{locale}/work-with-me.html`, `/{locale}/projects/alarisa.html`, `/{locale}/about.html`, and `/{locale}/contact.html` are localized, canonical, indexable, and sitemap inputs where authored.
 
 `/{locale}/projects.html` is also retained, canonical, indexable, and now publicly serves as Current Work with stable status anchors for its current systems; historical material remains below it. These facts do not prove permanent labels, a generic Products catalogue, a permanent ChatGPT + Telegram product family, a top-level Alarisa route, or final commercial IA. They remain subject to later reviewed migration.
 

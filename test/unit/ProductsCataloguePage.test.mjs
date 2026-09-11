@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import nunjucks from 'nunjucks';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const titles = {en: 'Current commercial entries.', ru: 'Текущие коммерческие возможности.', es: 'Opciones comerciales actuales.'};
+const titles = {en: 'Available now.', ru: 'Доступно сейчас.', es: 'Disponible ahora.'};
 
 test('retained Products route renders distinct truthful commercial entry kinds in every locale', () => {
     for (const [locale, title] of Object.entries(titles)) {

@@ -2,11 +2,13 @@
 
 - Path: `ctx/docs/product/journal-and-evidence.md`
 - Template Version: `20260910`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
 Define Journal/Events as the public evidence stream of the Wired Geese model and establish claim-specific evidence rules for every product and commercial surface.
+
+`software-estate.md` is the canonical repository inventory and defines its non-commercial evidence limits. Repository evidence is a factual current-practice input to this model; it is never a substitute for a claim-specific Event or external/commercial evidence.
 
 The Journal documents the attempt to build useful software and an economically sustainable software-making practice. It does not announce success before evidence exists.
 

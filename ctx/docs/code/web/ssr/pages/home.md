@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/home.md`
 - Template Version: `20260909`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
@@ -16,6 +16,6 @@ It must support quick comprehension, a commercially actionable route, visible cu
 
 ## Current State And Boundary
 
-Current locale-root templates introduce Wired Geese and Alex's accountability, lead with a provisional MCP Integration Pilot, then expose Telegram paid validation and books. A bounded Current Work preview links to the retained `/projects.html` surface before the small SSR-rendered recent-Journal projection, while working-model, Alarisa, and maker-trust bridges remain available without displacing the commercial path. This Phase 2 composition is not a contract for exact text, section count, route, geometry, or CSS behavior.
+Current locale-root templates introduce Wired Geese, Alex's accountability, and AI agents as normal working participants in the real software estate; they lead with a provisional MCP Integration Pilot, then expose Telegram paid validation and books. A compact representative repository-evidence section shows system composition without enumerating the full inventory, which remains owned by `../../../../product/software-estate.md`. A bounded Current Work preview links to the retained `/projects.html` surface before the small SSR-rendered recent-Journal projection, while working-model, Alarisa, and maker-trust bridges remain available without displacing the commercial path. This Phase 3 composition is not a contract for exact text, section count, route, geometry, or CSS behavior.
 
 Home must preserve honest object status and route commercial needs to direct human contact; it must not imply autonomous agents, mature SaaS, customer validation from site interaction, or website ownership of external product runtime.

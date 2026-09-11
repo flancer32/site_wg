@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/projects.md`
 - Template Version: `20260910`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
@@ -10,11 +10,11 @@ Describe the retained `/{locale}/projects.html` route as the SSR Current Work su
 
 ## Current State
 
-The route is localized, canonical, indexable, and labelled Current Work in the shared header. It begins with active systems and directions whose object kind and current status are separate: Alarisa, PDE, Telegram Desk, Shared Files Desk, and TeqCMS. The stable section anchors are current-state destinations, not new route families.
+The route is localized, canonical, indexable, and labelled Current Work in the shared header. It begins with active systems and directions whose object kind and current status are separate: Alarisa, PDE, Telegram Desk, Shared Files Desk, and TeqCMS. Public status labels remain human-facing, while prose preserves material role and maturity distinctions. The stable section anchors are current-state destinations, not new route families.
 
 Alarisa remains a separate localized detail route. PDE, Telegram Desk, Shared Files Desk, and TeqCMS currently use their explicit anchored sections because a separate detail route would add taxonomy without new state ownership.
 
-The page renders up to three reverse-chronological Events when authored `journal-relations` metadata identifies any current object. The projection is localized, deterministic, SSR-rendered, and read from existing authored Journal files. A 2026-09-10 Event records this public-current-work publication change for all listed objects without claiming a status change; the TeqCMS thread also includes three earlier genuine TeqCMS Events. Objects receive no invented pre-existing history.
+The page renders up to three reverse-chronological Events when authored `journal-relations` metadata identifies a current object that the Event materially concerns. The projection is localized, deterministic, SSR-rendered, and read from existing authored Journal files. The 2026-09-10 site-publication Event has no Current Work relationship: it documents the public representation, not a change in any listed system. The TeqCMS thread retains its earlier genuine TeqCMS Events. Objects receive no invented pre-existing history.
 
 ## Historical Preservation
 

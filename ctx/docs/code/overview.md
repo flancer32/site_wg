@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/overview.md`
 - Template Version: `20260629`
-- Changed: `20260910`
+- Changed: `20260911`
 
 ## Purpose
 
@@ -38,7 +38,7 @@ The localized GitHub Flows and Agent Orchestration PoC route is retained as an a
 
 Future agents must not rebuild, extend, port, or reuse the retired campaign for the Telegram offer without a separately approved design.
 
-The current implementation expresses the Phase 1 commercial path and Phase 2 evidence surface: the shared header exposes commercial entries, Journal, working-model explanation, Current Work, and a commercial Contact action. Home leads with the provisional MCP pilot, retains Telegram paid validation and books, then projects Current Work and recent Journal evidence. `/projects.html` is the current-work surface while its archive remains historical responsibility evidence. These are observable implementation facts, not authority to freeze labels or future prominence.
+The current implementation expresses the Phase 1 commercial path, Phase 2 evidence surface, and Phase 3 public-semantic cleanup: shared navigation exposes available work, Journal, working-model explanation, Current Work, and a commercial Contact action. Home leads with Alex's accountable human-plus-agent practice and the provisional MCP pilot, retains Telegram paid validation and books, then projects selected Current Work and repository evidence. `/projects.html` is the current-work surface while its archive remains historical responsibility evidence. Public repository links are representative inspectable evidence; the complete inventory and its claim limits live in `../product/software-estate.md`. These are observable implementation facts, not authority to freeze labels or future prominence.
 
 ## Implementation Design Gate
 
