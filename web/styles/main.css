@@ -2147,7 +2147,7 @@ html.zoom-open {
     grid-column: 1;
     max-width: 24ch;
     margin-bottom: 0;
-    font-size: clamp(2.45rem, 3.5vw, 3.35rem);
+    font-size: clamp(2.4rem, 3.25vw, 3.15rem);
   }
 
   .home-hero .eyebrow {
