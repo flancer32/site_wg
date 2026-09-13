@@ -15,6 +15,21 @@ function render(locale, template) {
     });
 }
 
+async function readTemplate(locale, template) {
+    return fs.readFile(path.join(root, 'tmpl/web', locale, template), 'utf8');
+}
+
+function homeStructure(html) {
+    return {
+        sections: [...html.matchAll(/<section class="([^"]+)" aria-labelledby="([^"]+)">/g)]
+            .map(([, className, labelledBy]) => ({className, labelledBy})),
+        headings: [...html.matchAll(/<h([1-3])(?: id="([^"]+)")?>/g)]
+            .map(([, level, id]) => ({level, id: id ?? null})),
+        links: [...html.matchAll(/href="\/(en|ru|es)(\/[^\"]*)"/g)]
+            .map(([, , destination]) => destination),
+    };
+}
+
 test('commercial pages present product construction, engineering ownership, and a scope-based start', () => {
     const html = render('en', 'work-with-me.html');
     assert.match(html, /build web applications and software products from the ground up/i);
@@ -61,6 +76,38 @@ test('principal buyer-journey pages keep an equivalent semantic structure in eve
 
     for (const locale of ['en', 'ru', 'es']) {
         assert.match(render(locale, 'contact.html'), /<ol class="process-grid">/, `${locale}: contact steps are a semantic list`);
+    }
+});
+
+test('localized Home pages preserve the English document structure and discovery paths', async () => {
+    const english = render('en', 'index.html');
+    const canonical = homeStructure(english);
+    const expectedSections = [
+        {className: 'home-hero', labelledBy: 'home-title'},
+        {className: 'home-products', labelledBy: 'system-title'},
+        {className: 'home-section', labelledBy: 'paths-title'},
+        {className: 'home-section home-preview--vision home-current-work', labelledBy: 'proof-title'},
+        {className: 'home-section home-preview', labelledBy: 'journal-title'},
+        {className: 'home-section home-preview--maker', labelledBy: 'maker-title'},
+        {className: 'cta-panel home-cta', labelledBy: 'start-title'},
+    ];
+
+    assert.deepEqual(canonical.sections, expectedSections, 'English Home defines the canonical section order');
+    assert.match(english, /<div class="home-page">[\s\S]*<div class="home-opening">/);
+    assert.equal((english.match(/class="featured-work-card"/g) ?? []).length, 3, 'English Home has three evidence cards');
+    assert.equal((english.match(/class="fit-card fit-card--yes"/g) ?? []).length, 2, 'English Home has both commercial paths');
+
+    for (const locale of ['ru', 'es']) {
+        const localized = render(locale, 'index.html');
+        assert.deepEqual(homeStructure(localized), canonical, `${locale}: Home structure and localized destinations match English`);
+        assert.equal((localized.match(/class="featured-work-card"/g) ?? []).length, 3, `${locale}: three evidence cards`);
+        assert.match(localized, /home-preview--maker/, `${locale}: responsible-maker section`);
+        assert.match(localized, /contact\.html\?topic=product/, `${locale}: product CTA`);
+        assert.match(localized, /contact\.html\?topic=pde/, `${locale}: PDE CTA`);
+
+        const source = await readTemplate(locale, 'index.html');
+        assert.match(source, /\{% if recentJournal and recentJournal\.items\.length %\}/, `${locale}: Journal template integration`);
+        assert.match(source, /\{% for item in recentJournal\.items %\}/, `${locale}: Journal item loop`);
     }
 });
 
