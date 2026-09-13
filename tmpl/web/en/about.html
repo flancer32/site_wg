@@ -1,65 +1,28 @@
 {% extends "inc/layout.html" %}
 
 {% block title %}About Alex Gusev — independent software maker | Wired Geese{% endblock %}
-{% block description %}Alex Gusev is the independent software maker behind Wired Geese, working directly with AI agents while remaining accountable for the products he builds.{% endblock %}
+{% block description %}Alex Gusev is an experienced software maker who now builds primarily by directing AI agents while remaining accountable for architecture and accepted results.{% endblock %}
 
 {% block content %}
-<div class="card">
-    <p class="eyebrow">Profile</p>
-    <h1>About Alex Gusev</h1>
-    <p class="lead">I am an independent software maker who works systematically with AI agents and remains accountable for the result.</p>
-    <p>Wired Geese is my site and trade brand for this maker-to-agent approach. F. Lancer, SIA is the legal entity used for formal commercial relationships.</p>
-    <p>Today I build new web applications and software products with JavaScript, Node.js, modular architecture, and a system I develop through real work. TeqFW and ADSM support that practice; when a product needs them, connections to agents and services are engineering details.</p>
-    <p class="action-links"><a class="button-primary" href="/{{ locale }}/work-with-me.html">Build a product with Alex</a><a class="button-secondary" href="/{{ locale }}/projects.html#pde">Explore PDE</a></p>
-    <h2>Personal path</h2>
-    <img src="/img/avatar.jpg" alt="Alex Gusev" class="bio-photo" width="640" height="640"/>
-
-    <p>My name is Alex Gusev, I'm a web developer from Latvia (EU). My passion for programming began in school when I first encountered the <a href="https://en.wikipedia.org/wiki/Agat_(computer)">Agat</a> computer. This inspired me to enroll at Riga Aviation University, where I graduated in 1996 with a degree in Systems Engineering. I got my first job in 1998 at "Paritate" bank — this marked the beginning of my IT career.</p>
-
-    <p>From the very start, I worked with web applications. I was the team lead for "Paritate Online" — one of the first internet banks in Latvia. Later I became Technical Director at "Renesource Capital" (a financial company in the e-money sector), where I continued developing my technical expertise.</p>
-
-    <p>In 2010, I founded "F. Lancer" company and have been developing web applications under this brand ever since. Concurrently, I collaborated with "D8" for two years, working on banking systems. Then for nearly 10 years I developed e-commerce solutions on Magento.</p>
-
-    <p>About five years ago I discovered Vue Storefront (PWA for Magento) — this revolutionized my understanding of the web: it turned out that one language — JavaScript — could do everything. Since then, I've worked exclusively with JS, creating modern web applications.</p>
-</div>
-
-<div class="card">
-    <h2>Professional</h2>
-
-    <p>I have over 25 years of programming experience. I've worked with LotusScript, C/C++, Java, PHP, but now I use only JavaScript.</p>
-
-    <p>I'm proficient in HTML/XML, CSS, JSON, YAML, Markdown. I configure Ubuntu servers, work with domains, web and databases, and use shell scripts. In projects I implement CI/CD through GitHub Actions.</p>
-
-    <p>My current core is JavaScript, Node.js, backend work, modular architecture, and integrations. Earlier project experience also includes:</p>
-    <ul>
-        <li>JavaScript (ES6+) + JSDoc</li>
-        <li>Node.js, npm</li>
-        <li>Vue.js, Quasar, i18next</li>
-        <li>Knex.js (PostgreSQL, MariaDB/MySQL, SQLite)</li>
-    </ul>
-
-    <p>PWA, SPA, Vue, Quasar, Telegram bots, and browser-first applications are part of that background. They inform my work today without defining it.</p>
-</div>
-
-<div class="card">
-    <h2>Approach</h2>
-
-    <p>I advocate for modular monoliths — they're convenient for medium-sized web applications with distributed storage. I use only JavaScript (ES6+) and JSDoc — no TypeScript and no transpilation.</p>
-
-    <p>I rely on DI and late binding (from JavaEE and Magento), writing code that works both on frontend and backend.</p>
-
-    <p>My stack is implemented in Tequila Framework — Node.js + familiar npm packages (e.g. Commander, Knex.js). I easily integrate external services: authentication, payments, LLM.</p>
-
-    <p>The platform supports both classic browser applications and PWAs for smartphones, as well as bots for messengers.</p>
-</div>
-
-<div class="card">
-    <h2>Personal Life</h2>
-
-    <p>Hobbies help me stay in shape. I love traveling, mountains and sea, deserts and forests, especially coniferous ones. I prefer hiking, walking trails and day trips. I have a PADI Open Water Diver certificate, but I prefer staying on land.</p>
-
-    <p>I have a large family and value my loved ones. Relationships with family and friends are important to me. I respect freedom and personal responsibility.</p>
-
-    <p>I'm a cat person. Our cat is named Firefox, but at home we call her Faya. She's smart, playful and brightens our days with her mood.</p>
-</div>
+<article class="service-page">
+    <section class="card service-hero">
+        <p class="eyebrow">About Alex</p>
+        <h1>An experienced software maker building primarily through AI agents.</h1>
+        <p class="lead">I direct agents to do much of the analysis, implementation, testing, and documentation. I retain the work that cannot be delegated: intent, architecture, constraints, integration, verification, acceptance, and responsibility for the software.</p>
+        <p>Wired Geese is my public practice and trade brand. F. Lancer, SIA is the Latvian legal entity used for formal commercial relationships.</p>
+        <p class="action-links"><a class="button-primary" href="/{{ locale }}/work-with-me.html">Build a product with Alex</a><a class="button-secondary" href="/{{ locale }}/projects.html#pde">Explore PDE</a></p>
+    </section>
+    <section class="card">
+        <img src="/img/avatar.jpg" alt="Alex Gusev" class="bio-photo" width="640" height="640"/>
+        <h2>Engineering judgment, converted into a current practice</h2>
+        <p>I have built web software since the late 1990s: early online banking, financial systems, e-commerce, and independent product work. Those decades taught me that code alone is not the product; the hard work is preserving intent, making trade-offs explicit, and accepting the consequences of engineering decisions.</p>
+        <p>Today that experience is applied through an evolving system built around JavaScript, Node.js, modular architecture, TeqFW, ADSM, and AI agents. The result is not a claim that agents replace engineering. It is a practical way for one accountable engineer to direct more of the direct production work while keeping the system understandable and under review.</p>
+    </section>
+    <section class="card">
+        <h2>What the practice has to prove</h2>
+        <p>Alarisa is the strongest ongoing proof: a substantial multi-component system developed in this model. PDE, Telegram Desk, TeqCMS, Mindstream, TeqFW, and smaller systems show the same practice across different kinds of software. They are evidence of real construction, not claims of market success, adoption, or guaranteed client outcomes.</p>
+        <p>My working loop remains simple: build → observe → understand → document → change the approach → build again. I use this practice for my own software first, revise it when the evidence requires it, and apply it to a client product only when the product and its constraints are a fit.</p>
+        <p><a href="/{{ locale }}/how-it-works.html">How I work →</a> · <a href="/{{ locale }}/projects.html">Current Work →</a> · <a href="/{{ locale }}/blog/">Journal →</a></p>
+    </section>
+</article>
 {% endblock %}

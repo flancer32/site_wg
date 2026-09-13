@@ -61,15 +61,31 @@ test('normalizes localized Products aliases to the current catalogue and preserv
 test('redirects retired commercial routes to their closest current destinations', async () => {
     const redirect = createRedirect();
     const requests = [
+        {url: '/en/index.html', expected: '/en/', locale: 'en', cleanPath: '/index.html'},
         {url: '/en/contacts.html', expected: '/en/contact.html', locale: 'en', cleanPath: '/contacts.html'},
         {url: '/en/products/chatgpt-telegram.html', expected: '/en/projects.html', locale: 'en', cleanPath: '/products/chatgpt-telegram.html'},
         {url: '/ru/land/agent-orchestration-poc/', expected: '/ru/work-with-me.html', locale: 'ru', cleanPath: '/land/agent-orchestration-poc/'},
+        {url: '/es/github-flows.html', expected: '/es/work-with-me.html', locale: 'es', cleanPath: '/github-flows.html'},
+        {url: '/en/mcp-integration-pilot.html', expected: '/en/work-with-me.html', locale: 'en', cleanPath: '/mcp-integration-pilot.html'},
     ];
     for (const request of requests) {
         const req = {url: request.url};
         await redirect.applyRedirect({req, routeInfo: {locale: request.locale, cleanPath: request.cleanPath}});
         assert.equal(req.url, request.expected);
     }
+});
+
+test('sends a permanent redirect for the legacy localized index before static or template delivery', async () => {
+    const redirect = createRedirect();
+    const request = {url: '/en/index.html'};
+    const response = {};
+    const context = {request, response, completed: false};
+
+    await redirect.handle(context);
+
+    assert.equal(response.statusCode, 301);
+    assert.equal(response.headers.location, '/en/');
+    assert.equal(context.completed, true);
 });
 
 test('sends a permanent HTTP redirect before template rendering', async () => {

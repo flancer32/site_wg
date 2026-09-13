@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/rendering.md`
 - Template Version: `20260630`
-- Changed: `20260911`
+- Changed: `20260913`
 
 ## Purpose
 
@@ -39,7 +39,7 @@ Request host and forwarding headers do not define the public metadata origin.
 
 ## Historical-Route Enrichment
 
-The archived `land/agent-orchestration-poc` route, the former ChatGPT + Telegram page, and `contacts.html` need no form-specific render enrichment. The redirect handler returns a locale-preserving permanent response before static or template delivery, so no canonical or alternate metadata is rendered for these legacy routes. No signed campaign token is issued.
+The legacy locale `index.html`, archived `land/agent-orchestration-poc` and GitHub Flows routes, former MCP-integration and ChatGPT + Telegram pages, and `contacts.html` need no render enrichment. The redirect handler returns a locale-preserving permanent response before static or template delivery, so no canonical or alternate metadata is rendered for these legacy routes. Locale `index.html` lands directly on the canonical locale-root directory URL; no signed campaign token is issued.
 
 Any future repurposing still requires a separate route-preservation review.
 

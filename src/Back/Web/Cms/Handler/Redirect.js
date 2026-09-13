@@ -126,7 +126,9 @@ export default class Redirect {
                 return normalizedTarget;
             }
             if (normalizedTarget === '/') {
-                return normalizeRoute(`/${locale}`);
+                // Locale roots are canonical directory URLs. Keeping the final
+                // slash here avoids redirecting a legacy index through /{locale}.
+                return `/${locale}/`;
             }
             return normalizeRoute(`/${locale}${normalizedTarget}`);
         };

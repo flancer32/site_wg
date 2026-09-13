@@ -30,3 +30,15 @@ test('working-model page presents an evolving practice rather than a universal m
         assert.match(html, /not a universal recipe|не универсальный рецепт|no una receta universal/u, `${locale}: does not claim a universal method`);
     }
 });
+
+test('working-model page makes agent direction the primary development interface', () => {
+    const expectedPrimaryInterface = {
+        en: /primarily develop it by directing AI agents/i,
+        ru: /Основной интерфейс разработки для меня — управление ИИ-агентами/u,
+        es: /interfaz principal de desarrollo es dirigir agentes de IA/i,
+    };
+    for (const [locale, expected] of Object.entries(expectedPrimaryInterface)) {
+        const html = nunjucks.configure(path.join(root, 'tmpl', 'web', locale), {autoescape: true}).render('how-it-works.html', {allowedLocales: ['en', 'ru', 'es'], locale});
+        assert.match(html, expected, `${locale}: makes agent direction primary`);
+    }
+});

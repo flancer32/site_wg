@@ -6,16 +6,17 @@ import {fileURLToPath} from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
-test('About keeps the current software-making identity and omits political self-labels', async () => {
+test('About leads with the current agent-directed practice rather than a freelancer CV', async () => {
     const currentIdentity = {
-        en: /independent software maker.*AI agents|software and integrations between agents and services/u,
-        ru: /независимый создатель ПО.*ИИ-агентами|создаю ПО и интеграции агентов с сервисами/u,
-        es: /creador independiente de software.*agentes de IA|software e integraciones entre agentes y servicios/u,
+        en: /software maker building primarily through AI agents/i,
+        ru: /создатель ПО, который разрабатывает главным образом через ИИ-агентов/u,
+        es: /creador experimentado de software que construye principalmente mediante agentes de IA/u,
     };
-    const politicalSelfLabels = /traditional values|liberal conservative|традиционных ценностей|либеральный консерватор|valores tradicionales|liberal conservador/ui;
     for (const [locale, expectedIdentity] of Object.entries(currentIdentity)) {
         const source = await fs.readFile(path.join(root, 'tmpl', 'web', locale, 'about.html'), 'utf8');
         assert.match(source, expectedIdentity, `${locale}: current identity remains primary`);
-        assert.doesNotMatch(source, politicalSelfLabels, `${locale}: political self-label is absent`);
+        assert.match(source, /Alarisa/);
+        assert.match(source, /PDE/);
+        assert.doesNotMatch(source, /Vue|Quasar|Knex|HTML\/XML|CSS, JSON/u, `${locale}: omits generic capability inventory`);
     }
 });

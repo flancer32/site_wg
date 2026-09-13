@@ -45,12 +45,22 @@ test('all maintained locales expose a product conversation and no retired commer
 
 test('English home presents the system and systems as evidence rather than services', () => {
     const html = render('en', 'index.html');
-    assert.match(html, /engineering system of my own/i);
+    assert.match(html, /directing AI agents through an engineering system of my own/i);
+    assert.match(html, /agents do much of the direct implementation work/i);
+    assert.match(html, /no longer write most implementation code by hand/i);
     assert.match(html, /I change that system when working software reveals a better way/i);
-    assert.match(html, /AI agents under human control/i);
+    assert.match(html, /AI agents are my primary development interface/i);
     assert.match(html, /Alarisa/i);
     assert.match(html, /projects are evidence|Evidence in working systems/i);
     assert.doesNotMatch(html, /MCP Integration Pilot|ChatGPT \+ Telegram|agent-service problem/i);
+});
+
+test('Work with Alex excludes retired service-catalogue positioning', () => {
+    const html = render('en', 'work-with-me.html');
+    assert.match(html, /not interchangeable hourly capacity/i);
+    assert.match(html, /agent-readiness review/i);
+    assert.match(html, /generic AI or MCP integration/i);
+    assert.match(html, /rescue work, or staff augmentation/i);
 });
 
 test('Journal presents evolving practice instead of a generic development guide', () => {

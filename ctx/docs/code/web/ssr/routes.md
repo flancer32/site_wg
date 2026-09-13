@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/routes.md`
 - Template Version: `20260630`
-- Changed: `20260911`
+- Changed: `20260913`
 
 ## Purpose
 
@@ -16,7 +16,7 @@ Public pages use `/{locale}/...` for `en`, `es`, and `ru`; locale resolution pre
 
 ## Current Commercial Route Facts
 
-The repository currently authors `/{locale}/products/`. `/{locale}/products` and `/{locale}/products.html` are redirected continuity aliases; the stale authored English `products.html` source is retired. `/{locale}/products/chatgpt-telegram.html` and `/{locale}/land/agent-orchestration-poc/` are retired commercial routes that permanently redirect to the closest current destination before static or template delivery. Existing `/{locale}/work-with-me.html`, `/{locale}/projects/alarisa.html`, `/{locale}/about.html`, and `/{locale}/contact.html` are localized, canonical, indexable, and sitemap inputs where authored. `/{locale}/contacts.html` permanently redirects to the canonical Contact route and has no authored template.
+The repository currently authors `/{locale}/products/`. `/{locale}/products` and `/{locale}/products.html` are redirected continuity aliases; the stale authored English `products.html` source is retired. `/{locale}/index.html` permanently redirects to the canonical locale-root directory URL. `/{locale}/products/chatgpt-telegram.html`, `/{locale}/land/agent-orchestration-poc/`, legacy GitHub Flows routes, and old MCP-integration routes permanently redirect to the closest current destination before static or template delivery. Existing `/{locale}/work-with-me.html`, `/{locale}/projects/alarisa.html`, `/{locale}/about.html`, and `/{locale}/contact.html` are localized, canonical, indexable, and sitemap inputs where authored. `/{locale}/contacts.html` permanently redirects to the canonical Contact route and has no authored template.
 
 `/{locale}/projects.html` is also retained, canonical, indexable, and now publicly serves as Current Work with stable status anchors for its current systems; historical material remains below it. These facts do not prove permanent labels, a generic Products catalogue, a permanent ChatGPT + Telegram product family, a top-level Alarisa route, or final commercial IA. They remain subject to later reviewed migration.
 
