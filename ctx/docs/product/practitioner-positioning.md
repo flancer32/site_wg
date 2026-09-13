@@ -48,6 +48,10 @@ This practice has concrete client value: Alex can apply an accumulated engineeri
 
 Clients hire Alex to build products through that system, not to receive generic AI-agent adoption advice, a universal agent workflow, or best-practice consulting. The field remains young and Alex's approach remains under active refinement; accumulated practice is nevertheless sufficient to create accountable, concrete product-building value now. `commercial-positioning.md` governs the resulting offer boundary.
 
+## Public Voice
+
+Wired Geese is Alex Gusev's personal site and brand, not an independent organization, agency, editorial voice, or narrator describing him from the outside. Public editorial and commercial copy normally speaks in Alex's first-person voice. The site may use Alex Gusev's name where it identifies the author or legal/business actor clearly, including metadata, attribution, legal identification, and other factual references where first person would be ambiguous.
+
 ## Public Content Boundary
 
 Wired Geese should favor showing what is being built and what was learned while building it over prescribing how everyone should develop software. Useful evidence includes a delivered capability, architectural decision, agent experiment, failed assumption, contextual correction, or changed workflow and its observed result.

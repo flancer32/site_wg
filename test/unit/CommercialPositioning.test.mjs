@@ -153,3 +153,54 @@ test('English Current Work makes PDE and Telegram Desk concrete early product pa
     assert.match(html, /contact\.html\?topic=pde/);
     assert.doesNotMatch(html, /not a public offer/i);
 });
+
+test('principal journey pages use a direct first-person narrator and personal commercial actions', () => {
+    const voice = {
+        en: {
+            work: /Work with me/,
+            build: /Build a product with me/,
+            about: /About me/,
+            how: /How I work/,
+            current: /What I am building and using/,
+            narrator: /I build it through TeqFW, ADSM, and my human-directed agent workflow/,
+        },
+        ru: {
+            work: /Работайте со мной/,
+            build: /Создайте продукт вместе со мной/,
+            about: /Обо мне/,
+            how: /Как я работаю/,
+            current: /Что я создаю и использую/,
+            narrator: /Я создаю её с помощью TeqFW, ADSM и моего управляемого человеком процесса работы с агентами/,
+        },
+        es: {
+            work: /Trabaja conmigo/,
+            build: /Construye un producto conmigo/,
+            about: /Sobre mí/,
+            how: /Cómo trabajo/,
+            current: /Lo que estoy construyendo y utilizando/,
+            narrator: /La construyo mediante TeqFW, ADSM y mi flujo de trabajo con agentes dirigido por humanos/,
+        },
+    };
+
+    for (const [locale, expected] of Object.entries(voice)) {
+        assert.match(render(locale, 'index.html'), expected.work, `${locale}: Home has a personal work action`);
+        assert.match(render(locale, 'index.html'), expected.build, `${locale}: Home keeps a personal product-build path`);
+        assert.match(render(locale, 'how-it-works.html'), expected.how, `${locale}: working model is narrated by its author`);
+        assert.match(render(locale, 'projects.html'), expected.current, `${locale}: Current Work is narrated by its author`);
+        assert.match(render(locale, 'projects.html'), expected.narrator, `${locale}: Alarisa retains the accountable agent-work model`);
+        assert.match(render(locale, 'about.html'), expected.about, `${locale}: About speaks from the author's perspective`);
+        assert.match(render(locale, 'contact.html'), expected.build, `${locale}: Contact retains a personal product-build path`);
+
+        const nav = render(locale, 'inc/nav.html');
+        const footer = render(locale, 'inc/footer.html');
+        assert.match(nav, expected.work, `${locale}: shared navigation uses a personal work action`);
+        assert.match(footer, expected.about, `${locale}: shared footer uses a personal About action`);
+    }
+
+    const englishSources = ['index.html', 'how-it-works.html', 'projects.html', 'work-with-me.html', 'about.html', 'contact.html'];
+    for (const page of englishSources) {
+        const source = render('en', page);
+        assert.doesNotMatch(source, /<a\b[^>]*>Work with Alex(?:\s|→|<)/, `${page}: no legacy third-person work CTA`);
+        assert.doesNotMatch(source, /<a\b[^>]*>Build a product with Alex(?:\s|→|<)/, `${page}: no legacy third-person build CTA`);
+    }
+});
