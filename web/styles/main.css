@@ -2156,6 +2156,7 @@ html.zoom-open {
 
   .home-hero .lead {
     grid-column: 2;
+    align-self: center;
     max-width: none;
     margin-bottom: 0;
   }
@@ -2198,8 +2199,16 @@ html.zoom-open {
   .home-products .product-preview p {
     margin-bottom: 0.65rem;
     color: var(--color-ink-soft);
-    font-size: 0.97rem;
-    line-height: 1.55;
+    font-size: 0.99rem;
+    line-height: 1.58;
+  }
+
+  .home-page .fit-card {
+    padding: clamp(1.2rem, 2vw, 1.5rem);
+  }
+
+  .home-page .fit-card > p:not(:last-child) {
+    margin-bottom: 0.95rem;
   }
 
   .home-page > .home-section {
@@ -2260,6 +2269,24 @@ html.zoom-open {
 
   .home-page .blog-item h4 {
     font-size: 1.04rem;
+  }
+
+  .home-page .blog-item p {
+    font-size: 0.97rem;
+    line-height: 1.58;
+  }
+
+  .home-page .blog-item time {
+    color: #4d6265;
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
+
+  .home-page .journal-action {
+    margin-top: 0.6rem;
+    color: var(--color-brand-dark);
+    font-size: 0.94rem;
+    font-weight: 720;
   }
 
   .home-preview--maker {

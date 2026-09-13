@@ -60,9 +60,8 @@
     </section>
 
     <section class="home-section home-preview" aria-labelledby="journal-title">
-        <div class="section-heading"><p class="eyebrow">Bitácora</p><h2 id="journal-title">Ideas y evidencia desarrolladas en público.</h2><p>Registros de trabajo, decisiones y aprendizaje mientras la práctica evoluciona.</p></div>
+        <div class="section-heading"><p class="eyebrow">Bitácora</p><h2 id="journal-title">Ideas y evidencia desarrolladas en público.</h2><p>Registros de trabajo, decisiones y aprendizaje mientras la práctica evoluciona.</p><p class="journal-action"><a href="/{{ locale }}/blog/">Leer la Bitácora →</a></p></div>
         {% if recentJournal and recentJournal.items.length %}<ul class="blog-list" role="list">{% for item in recentJournal.items %}{{ item.html | safe }}{% endfor %}</ul>{% endif %}
-        <p><a href="/{{ locale }}/blog/">Leer la Bitácora →</a></p>
     </section>
 
     <section class="home-section home-preview--maker" aria-labelledby="maker-title">

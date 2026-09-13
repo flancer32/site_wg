@@ -60,9 +60,8 @@
     </section>
 
     <section class="home-section home-preview" aria-labelledby="journal-title">
-        <div class="section-heading"><p class="eyebrow">Журнал</p><h2 id="journal-title">Идеи и свидетельства, развиваемые публично.</h2><p>Записи о работе, решениях и обучении по мере развития практики.</p></div>
+        <div class="section-heading"><p class="eyebrow">Журнал</p><h2 id="journal-title">Идеи и свидетельства, развиваемые публично.</h2><p>Записи о работе, решениях и обучении по мере развития практики.</p><p class="journal-action"><a href="/{{ locale }}/blog/">Читать Журнал →</a></p></div>
         {% if recentJournal and recentJournal.items.length %}<ul class="blog-list" role="list">{% for item in recentJournal.items %}{{ item.html | safe }}{% endfor %}</ul>{% endif %}
-        <p><a href="/{{ locale }}/blog/">Читать Журнал →</a></p>
     </section>
 
     <section class="home-section home-preview--maker" aria-labelledby="maker-title">
