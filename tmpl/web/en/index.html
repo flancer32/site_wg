@@ -16,12 +16,10 @@
             <p class="lead">Bring the product problem, the people it must serve, and the constraints that matter. I define the architecture and acceptance boundaries; agents do much of the direct implementation work; I take responsibility for the software we accept.</p>
             <div class="hero-links">
                 <a class="button-primary" href="/{{ locale }}/work-with-me.html">Work with Alex</a>
-                <a class="button-secondary" href="/{{ locale }}/projects.html#pde">Explore existing products</a>
             </div>
         </section>
         <section class="home-products" aria-labelledby="system-title">
             <div class="home-products-heading">
-                <p class="eyebrow">The approach is part of the choice</p>
                 <h2 id="system-title">A coherent system, built through real work.</h2>
             </div>
             <div class="product-collection">
@@ -39,7 +37,7 @@
     </div>
 
     <section class="home-section" aria-labelledby="paths-title">
-        <div class="section-heading"><p class="eyebrow">Two ways to work together</p><h2 id="paths-title">Build something new, or use something already built.</h2><p>The same engineering practice supports both paths. They start with different needs.</p></div>
+        <div class="section-heading"><h2 id="paths-title">Build something new, or use something already built.</h2><p>The same engineering practice supports both paths. They start with different needs.</p></div>
         <div class="fit-grid">
             <article class="fit-card fit-card--yes"><h3>Build a product with Alex</h3><p>Bring a new product problem, its users, capabilities, and real constraints. I take responsibility for the architecture and engineering approach.</p><p><a href="/{{ locale }}/work-with-me.html">Work with Alex →</a></p></article>
             <article class="fit-card fit-card--yes"><h3>Use a PDE capability</h3><p>Personal Digital Embassy and useful Desks are products in their own right. Explore an early deployment for your own account and compatible agents.</p><p><a href="/{{ locale }}/projects.html#pde">Explore PDE →</a></p></article>
@@ -60,13 +58,13 @@
     </section>
 
     <section class="home-section home-preview" aria-labelledby="journal-title">
-        <div class="section-heading"><p class="eyebrow">Journal</p><h2 id="journal-title">Ideas and evidence developed in public.</h2><p>Records of work, decisions, and learning as the practice develops.</p><p class="journal-action"><a href="/{{ locale }}/blog/">Read the Journal →</a></p></div>
+        <div class="section-heading"><h2 id="journal-title">Ideas and evidence developed in public.</h2><p>Records of work, decisions, and learning as the practice develops.</p><p class="journal-action"><a href="/{{ locale }}/blog/">Read the Journal →</a></p></div>
         {% if recentJournal and recentJournal.items.length %}<ul class="blog-list" role="list">{% for item in recentJournal.items %}{{ item.html | safe }}{% endfor %}</ul>{% endif %}
     </section>
 
     <section class="home-section home-preview--maker" aria-labelledby="maker-title">
-        <div><p class="eyebrow">One responsible maker</p><h2 id="maker-title">Wired Geese is Alex Gusev’s practice, not an artificial agency.</h2></div>
-        <div class="home-preview-copy"><p>You work directly with the engineer who makes and accepts consequential decisions. The name describes a growing set of AI-agent capabilities working under that human responsibility.</p><p><a href="/{{ locale }}/about.html">About Alex →</a></p></div>
+        <div><h2 id="maker-title">Wired Geese is Alex Gusev’s practice, not an artificial agency.</h2></div>
+        <div class="home-preview-copy"><p>You work directly with the engineer who makes and accepts consequential decisions. The name describes a growing set of AI-agent capabilities working under that human responsibility.</p></div>
     </section>
 
     <section class="cta-panel home-cta" aria-labelledby="start-title">

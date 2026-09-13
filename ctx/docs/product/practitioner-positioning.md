@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/practitioner-positioning.md`
 - Template Version: `20260911`
-- Changed: `20260911`
+- Changed: `20260913`
 
 ## Canonical Position
 
@@ -53,3 +53,11 @@ Clients hire Alex to build products through that system, not to receive generic 
 Wired Geese should favor showing what is being built and what was learned while building it over prescribing how everyone should develop software. Useful evidence includes a delivered capability, architectural decision, agent experiment, failed assumption, contextual correction, or changed workflow and its observed result.
 
 The site may explain ideas deeply, but its epistemic stance is "this is what Alex observed and how he currently works," not "this is the correct way everyone should work." Strong personal engineering convictions are allowed; unsupported universal prescriptions, guru framing, thought-leadership claims, and claims of definitive agent-development expertise are not.
+
+## Future Media Direction
+
+Wired Geese should eventually use more visual media according to one principle: **media as evidence, not decoration**. Suitable material includes real screenshots of working systems such as Alarisa, PDE, Telegram Desk, TeqCMS, or Mindstream; architecture and interaction diagrams; contextual-documentation fragments; and meaningful code, diff, repository, terminal, workflow, or product-behavior evidence.
+
+Such media should interrupt long textual flows with useful visual information for human readers while remaining understandable to agents through semantic markup, captions, alt text, headings, and surrounding context. This is a future content direction, not a requirement to add media to pages now.
+
+Decorative stock imagery, generic AI artwork, and visual filler are not the intended direction. A distinctive character should emerge from real artifacts and evidence rather than an invented visual persona.

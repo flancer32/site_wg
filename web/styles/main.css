@@ -2167,7 +2167,10 @@ html.zoom-open {
   }
 
   .home-products {
-    display: block;
+    display: grid;
+    grid-template-columns: minmax(14rem, 0.72fr) minmax(0, 1.28fr);
+    align-items: start;
+    gap: clamp(2rem, 5vw, 4.5rem);
     margin-top: clamp(1.75rem, 3vw, 2.5rem);
     padding: clamp(1.5rem, 2.5vw, 2rem) 0 0;
     border-top: 1px solid var(--color-line);
@@ -2178,17 +2181,21 @@ html.zoom-open {
   }
 
   .home-products .product-collection {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(1.5rem, 4vw, 3.5rem);
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .home-products .product-preview {
     height: auto;
-    padding: 0;
+    padding: 0.8rem 0 0.8rem clamp(1rem, 2vw, 1.5rem);
     border: 0;
-    border-top: 1px solid rgba(8, 118, 92, 0.2);
+    border-left: 2px solid rgba(8, 118, 92, 0.22);
     border-radius: 0;
     background: transparent;
+  }
+
+  .home-products .product-preview + .product-preview {
+    margin-top: 0.45rem;
   }
 
   .home-products .product-preview h3 {
@@ -2230,7 +2237,10 @@ html.zoom-open {
   }
 
   .home-page .home-current-work {
-    display: block;
+    display: grid;
+    grid-template-columns: minmax(14rem, 0.68fr) minmax(0, 1.32fr);
+    align-items: start;
+    gap: clamp(2rem, 5vw, 4.5rem);
   }
 
   .home-preview h2 {
@@ -2242,7 +2252,7 @@ html.zoom-open {
   }
 
   .home-current-work .current-work-grid {
-    margin-top: 1.5rem;
+    margin-top: 0;
   }
 
   .home-current-work > :last-child {

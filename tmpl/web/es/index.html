@@ -16,12 +16,10 @@
             <p class="lead">Trae el problema de producto, las personas a las que debe servir y las restricciones importantes. Defino la arquitectura y los límites de aceptación; los agentes realizan gran parte de la implementación directa; asumo la responsabilidad del software que aceptamos.</p>
             <div class="hero-links">
                 <a class="button-primary" href="/{{ locale }}/work-with-me.html">Trabaja con Alex</a>
-                <a class="button-secondary" href="/{{ locale }}/projects.html#pde">Explora productos existentes</a>
             </div>
         </section>
         <section class="home-products" aria-labelledby="system-title">
             <div class="home-products-heading">
-                <p class="eyebrow">El enfoque forma parte de la elección</p>
                 <h2 id="system-title">Un sistema coherente, desarrollado mediante trabajo real.</h2>
             </div>
             <div class="product-collection">
@@ -39,7 +37,7 @@
     </div>
 
     <section class="home-section" aria-labelledby="paths-title">
-        <div class="section-heading"><p class="eyebrow">Dos formas de trabajar juntos</p><h2 id="paths-title">Construye algo nuevo o usa algo ya creado.</h2><p>La misma práctica de ingeniería sostiene ambas vías. Cada una comienza con una necesidad distinta.</p></div>
+        <div class="section-heading"><h2 id="paths-title">Construye algo nuevo o usa algo ya creado.</h2><p>La misma práctica de ingeniería sostiene ambas vías. Cada una comienza con una necesidad distinta.</p></div>
         <div class="fit-grid">
             <article class="fit-card fit-card--yes"><h3>Construye un producto con Alex</h3><p>Trae un problema de producto nuevo, sus usuarios, capacidades y restricciones reales. Me hago cargo de la arquitectura y del enfoque de ingeniería.</p><p><a href="/{{ locale }}/work-with-me.html">Trabaja con Alex →</a></p></article>
             <article class="fit-card fit-card--yes"><h3>Usa una capacidad de PDE</h3><p>Personal Digital Embassy y los Desks útiles son productos por derecho propio. Explora un despliegue temprano para tu propia cuenta y agentes compatibles.</p><p><a href="/{{ locale }}/projects.html#pde">Explora PDE →</a></p></article>
@@ -60,13 +58,13 @@
     </section>
 
     <section class="home-section home-preview" aria-labelledby="journal-title">
-        <div class="section-heading"><p class="eyebrow">Bitácora</p><h2 id="journal-title">Ideas y evidencia desarrolladas en público.</h2><p>Registros de trabajo, decisiones y aprendizaje mientras la práctica evoluciona.</p><p class="journal-action"><a href="/{{ locale }}/blog/">Leer la Bitácora →</a></p></div>
+        <div class="section-heading"><h2 id="journal-title">Ideas y evidencia desarrolladas en público.</h2><p>Registros de trabajo, decisiones y aprendizaje mientras la práctica evoluciona.</p><p class="journal-action"><a href="/{{ locale }}/blog/">Leer la Bitácora →</a></p></div>
         {% if recentJournal and recentJournal.items.length %}<ul class="blog-list" role="list">{% for item in recentJournal.items %}{{ item.html | safe }}{% endfor %}</ul>{% endif %}
     </section>
 
     <section class="home-section home-preview--maker" aria-labelledby="maker-title">
-        <div><p class="eyebrow">Un creador responsable</p><h2 id="maker-title">Wired Geese es la práctica de Alex Gusev, no una agencia ficticia.</h2></div>
-        <div class="home-preview-copy"><p>Trabajas directamente con el ingeniero que toma y acepta las decisiones importantes. El nombre describe un conjunto creciente de capacidades de agentes de IA que trabajan bajo esa responsabilidad humana.</p><p><a href="/{{ locale }}/about.html">Sobre Alex →</a></p></div>
+        <div><h2 id="maker-title">Wired Geese es la práctica de Alex Gusev, no una agencia ficticia.</h2></div>
+        <div class="home-preview-copy"><p>Trabajas directamente con el ingeniero que toma y acepta las decisiones importantes. El nombre describe un conjunto creciente de capacidades de agentes de IA que trabajan bajo esa responsabilidad humana.</p></div>
     </section>
 
     <section class="cta-panel home-cta" aria-labelledby="start-title">
