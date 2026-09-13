@@ -1,22 +1,125 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Cómo funciona — software responsable con agentes de IA{% endblock %}
-{% block description %}Cómo Alex Gusev utiliza agentes de IA, contexto explícito, verificación y una arquitectura adaptable, manteniendo la responsabilidad por los productos.{% endblock %}
+{% block title %}Cómo funciona — software responsable asistido por IA de Alex Gusev{% endblock %}
+{% block description %}Cómo Alex Gusev utiliza agentes de IA, contexto explícito, verificación y una arquitectura adaptable, manteniendo la responsabilidad por los productos que entrega.{% endblock %}
 
 {% block content %}
 <article class="product-detail-page how-it-works-page">
     <header class="product-detail-opening">
-        <div><p class="product-status">Wired Geese</p><h1>Cómo funciona</h1><p class="lead">Sigo siendo responsable del producto. Mi interfaz principal de desarrollo es dirigir agentes de IA, no escribir a mano la mayor parte del código de implementación.</p><p>Este es el modelo de trabajo detrás de mis productos: dirección humana, trabajo directo sustancial de los agentes, conocimiento explícito y comprobaciones antes de aceptar un cambio.</p></div>
-        <aside class="product-detail-summary" aria-label="Resumen del modelo de trabajo"><strong>Dirección humana, ejecución de agentes.</strong><span>La intención, los límites, la revisión y la responsabilidad siguen siendo de Alex.</span></aside>
+        <div>
+            <p class="product-status">Wired Geese</p>
+            <h1>Cómo funciona</h1>
+            <p class="lead">Sigo siendo responsable del producto. Mi interfaz principal de desarrollo es dirigir agentes de IA.</p>
+            <p>Este es el modelo de trabajo detrás de los productos que creo: dirección humana, ejecución sustancial por agentes, conocimiento explícito y comprobaciones antes de aceptar un cambio.</p>
+        </div>
+        <aside class="product-detail-summary" aria-label="Resumen del modelo de trabajo">
+            <strong>Dirección humana, ejecución de agentes.</strong>
+            <span>La intención, los límites, la revisión y la responsabilidad siguen siendo de Alex.</span>
+        </aside>
     </header>
-    <section class="home-section product-detail-section" aria-labelledby="responsibility-title"><div class="section-heading"><p class="eyebrow">Responsabilidad</p><h2 id="responsibility-title">Una persona sigue respondiendo por lo que se construye.</h2></div><div class="product-use-grid"><article><h3>Intención</h3><p>Decido qué problema importa y qué significa un resultado útil del producto.</p></article><article><h3>Prioridades</h3><p>Elijo el siguiente trabajo, las decisiones de compromiso y los límites que merece la pena proteger.</p></article><article><h3>Aceptación</h3><p>Reviso las decisiones importantes de producto e ingeniería antes de aceptar un cambio.</p></article><article><h3>Responsabilidad</h3><p>Sigo siendo responsable de lo entregado; los agentes no son dueños del producto ni de sus consecuencias humanas.</p></article></div></section>
-    <section class="product-detail-split" aria-labelledby="agents-title"><div><p class="eyebrow">Los agentes hacen trabajo real</p><h2 id="agents-title">Los agentes participan en el desarrollo; no son una caja negra.</h2></div><div><p>Defino intención, arquitectura, restricciones, contexto, descomposición y límites de aceptación. Los agentes de IA pueden investigar, analizar, implementar, inspeccionar, probar, documentar, mantener y ayudar con migraciones. Eso es trabajo de ingeniería directo y sustancial, no una empresa autónoma ni un sustituto de la autoridad sobre el producto.</p><p>Wired Geese replantea para el trabajo digital la imagen de los Wild Geese contratados: agentes capaces se suman a una tarea autorizada bajo mi dirección. Alex Gusev sigue siendo el creador humano responsable; los agentes no son empleados, propietarios ni actores comerciales independientes. F. Lancer, SIA es la entidad legal para relaciones comerciales formales.</p></div></section>
-    <section class="home-section product-detail-section" aria-labelledby="context-title"><div class="section-heading"><p class="eyebrow">Contexto duradero</p><h2 id="context-title">El conocimiento importante del producto se hace explícito.</h2></div><div class="product-detail-split"><div><p>El significado del producto no debería vivir solo en mi memoria, en el código fuente, en el historial de chats o en la ventana temporal de contexto de un agente.</p></div><div><p>Uso ADSM —Agent-Driven Software Management— para mantener un contexto cognitivo estructurado: propósito del producto, arquitectura, restricciones, decisiones, conocimiento del entorno y expectativas de verificación. Da a personas y agentes una base duradera para el trabajo posterior, la revisión y el cambio.</p></div></div></section>
-    <section class="product-detail-split product-detail-split--trust" aria-labelledby="change-title"><div><p class="eyebrow">Arquitectura y verificación</p><h2 id="change-title">Diseñado para cambiarse, comprobado antes de aceptarse.</h2></div><div><p>Cuando encaja con el producto, uso TeqFW como plataforma de aplicaciones para software web y JavaScript modular. Su modularidad, inversión de control y enlace tardío permiten sustituir o ampliar partes sin reconstruirlo todo.</p><p>La salida de un agente no se acepta solo porque la haya producido un agente. El ciclo es explícito: intención → trabajo del agente → inspección, pruebas, comprobaciones estáticas o de tipos, comportamiento renderizado y comparación con el contexto → cambio aceptado. La revisión humana forma parte del ciclo.</p><p>Mi práctica cambia mediante el mismo trabajo: construir → observar → comprender → documentar → cambiar el enfoque → construir de nuevo. TeqFW, ADSM, el contexto y el flujo de agentes son herramientas que reviso a partir de resultados en sistemas reales, no una receta universal para todos los equipos.</p></div></section>
-    <section class="home-section product-detail-section" aria-labelledby="control-title"><div class="section-heading"><p class="eyebrow">Despliegue y acceso</p><h2 id="control-title">El alojamiento y los límites de confianza se conversan explícitamente.</h2></div><div class="product-use-grid"><article><h3>Dónde se ejecuta</h3><p>Según el producto y el acuerdo, el software puede ejecutarse en tu infraestructura, un VPS dedicado, otro host controlado o una infraestructura experimental gestionada por Alex cuando sea apropiado.</p></article><article><h3>Credenciales</h3><p>Antes de usar acceso sensible, aclaramos dónde se guardan las credenciales o los datos de sesión y a qué pueden acceder.</p></article><article><h3>Control</h3><p>Hacemos explícitos el propietario del servidor, el acceso administrativo, la responsabilidad de las actualizaciones y el límite operativo.</p></article><article><h3>Revocación</h3><p>El acceso puede tratarse como parte explícita de la configuración, incluido cómo eliminarlo o revocarlo después.</p></article></div></section>
-    <section class="product-detail-split" aria-labelledby="adapt-title"><div><p class="eyebrow">Trabajar juntos</p><h2 id="adapt-title">Empieza con un producto y límites claros.</h2></div><div><p>Cuéntame qué producto nuevo o sistema aislado necesitas construir. Aclaramos usuarios, capacidades y restricciones, y decidimos si este enfoque encaja.</p><p><a href="/{{ locale }}/contact.html?topic=product">Hablar de un posible producto →</a></p></div></section>
-    <section class="home-section product-detail-section" aria-labelledby="evidence-title"><div class="section-heading"><p class="eyebrow">Evidencia inspeccionable</p><h2 id="evidence-title">El modelo se usa en el patrimonio de software propio de Alex.</h2></div><div class="product-detail-split"><div><p>Los repositorios muestran desarrollo real de la base TeqFW, software e infraestructura funcionales, el sistema Alarisa de varios componentes, PDE y Desks, y sitios reales. Muestran práctica sistemática, no un recuento de repositorios.</p></div><div><p><a href="https://github.com/teqfw/di" target="_blank" rel="noopener noreferrer">base TeqFW</a> · <a href="https://github.com/flancer32/teq-cms" target="_blank" rel="noopener noreferrer">TeqCMS</a> · <a href="https://github.com/flancer32/alarisa" target="_blank" rel="noopener noreferrer">Alarisa</a> · <a href="https://github.com/flancer32/pde-runtime" target="_blank" rel="noopener noreferrer">PDE</a> · <a href="https://github.com/flancer32/site_wg" target="_blank" rel="noopener noreferrer">wiredgeese.com</a></p><p>Los repositorios por sí solos no prueban demanda, calidad, adopción ni éxito comercial. <a href="/{{ locale }}/projects.html">Trabajo actual</a> y la <a href="/{{ locale }}/blog/">Bitácora</a> dan el estado actual y la cronología pertinentes.</p></div></div></section>
-    <section class="product-detail-split" aria-labelledby="continuity-title"><div><p class="eyebrow">Continuidad</p><h2 id="continuity-title">El trabajo futuro no tiene que empezar reconstruyendo toda la intención a partir del código.</h2></div><div><p>Cuando el acuerdo lo contempla, el conocimiento relevante del producto puede acompañar al software para que Alex y agentes, otra persona responsable con agentes o el equipo de desarrollo del cliente puedan continuar el trabajo. El código fuente, las licencias, el acceso y el alcance exacto de la transferencia son decisiones comerciales separadas.</p><p>Personal Digital Embassy (PDE) es un sistema técnico modular e independientemente útil que surgió al explorar problemas relacionados con Alarisa. Puede apoyar productos sin ser necesario para entenderlos o utilizarlos.</p></div></section>
-    <section class="cta-panel product-detail-cta" aria-labelledby="products-title"><div><h2 id="products-title">Elige una conversación útil para el siguiente paso.</h2><p>Revisa Trabajo actual y la Bitácora, lee los libros o habla directamente de un producto nuevo.</p></div><div class="home-cta-actions"><a class="button-primary" href="/{{ locale }}/work-with-me.html">Trabaja con Alex</a><a class="home-cta-secondary" href="/{{ locale }}/projects.html">Trabajo actual</a></div></section>
+
+    <section class="home-section product-detail-section" aria-labelledby="responsibility-title">
+        <div class="section-heading">
+            <p class="eyebrow">Responsabilidad</p>
+            <h2 id="responsibility-title">Una persona sigue respondiendo por lo que se construye.</h2>
+        </div>
+        <div class="product-use-grid">
+            <article><h3>Intención</h3><p>Decido qué problema importa y qué significa un resultado útil del producto.</p></article>
+            <article><h3>Prioridades</h3><p>Elijo el siguiente trabajo, las decisiones de compromiso y los límites que merece la pena proteger.</p></article>
+            <article><h3>Aceptación</h3><p>Reviso las decisiones importantes de producto e ingeniería antes de que se conviertan en un cambio aceptado.</p></article>
+            <article><h3>Responsabilidad</h3><p>Sigo siendo responsable de lo entregado; los agentes no son dueños del producto ni de sus consecuencias humanas.</p></article>
+        </div>
+    </section>
+
+    <section class="product-detail-split" aria-labelledby="agents-title">
+        <div>
+            <p class="eyebrow">Los agentes hacen trabajo real</p>
+            <h2 id="agents-title">Los agentes son participantes identificados en el trabajo.</h2>
+        </div>
+        <div>
+            <p>Defino la intención, la arquitectura, las restricciones, el contexto, la descomposición y los límites de aceptación. Los agentes de IA investigan, analizan, implementan, inspeccionan, prueban, documentan, mantienen y ayudan con migraciones. Es trabajo directo de ingeniería sustancial dentro de un esfuerzo de producto dirigido de forma explícita.</p>
+            <p>Wired Geese replantea para el trabajo digital la imagen de los Wild Geese contratados: agentes capaces se suman a una tarea autorizada bajo mi dirección. Alex Gusev sigue siendo el creador humano responsable, y F. Lancer, SIA es la entidad jurídica para relaciones comerciales formales.</p>
+        </div>
+    </section>
+
+    <section class="home-section product-detail-section" aria-labelledby="context-title">
+        <div class="section-heading">
+            <p class="eyebrow">Contexto duradero</p>
+            <h2 id="context-title">El conocimiento importante del producto se hace explícito.</h2>
+        </div>
+        <div class="product-detail-split">
+            <div><p>El significado del producto no debería existir solo en mi memoria, el código fuente, el historial de chats o la ventana temporal de contexto de un agente.</p></div>
+            <div><p>Uso ADSM —Agent-Driven Software Management— para mantener un contexto cognitivo estructurado: propósito del producto, arquitectura, restricciones, decisiones, conocimiento del entorno y expectativas de verificación. Da a personas y agentes una base duradera para el trabajo posterior, la revisión y el cambio.</p></div>
+        </div>
+    </section>
+
+    <section class="product-detail-split product-detail-split--trust" aria-labelledby="change-title">
+        <div>
+            <p class="eyebrow">Arquitectura y verificación</p>
+            <h2 id="change-title">Diseñado para cambiarse, comprobado antes de aceptarse.</h2>
+        </div>
+        <div>
+            <p>Cuando encaja con el producto, uso TeqFW como plataforma de aplicaciones para software web y JavaScript modular. Su estructura modular, inversión de control y enlace tardío hacen práctico sustituir o ampliar partes sin reconstruirlo todo.</p>
+            <p>Acepto la salida de los agentes mediante un ciclo explícito: intención → trabajo del agente → inspección, pruebas, comprobaciones estáticas o de tipos, comportamiento renderizado y comparación con el contexto → cambio aceptado. La revisión humana sigue formando parte del ciclo.</p>
+            <p>Mi práctica más amplia cambia a través del mismo trabajo: construir → observar → comprender → documentar → cambiar el enfoque → construir de nuevo. TeqFW, ADSM, la práctica contextual y el flujo de agentes son herramientas que reviso a partir de resultados en sistemas reales, no una receta universal para todos los equipos.</p>
+        </div>
+    </section>
+
+    <section class="home-section product-detail-section" aria-labelledby="control-title">
+        <div class="section-heading">
+            <p class="eyebrow">Despliegue y acceso</p>
+            <h2 id="control-title">El alojamiento y los límites de confianza se conversan explícitamente.</h2>
+        </div>
+        <div class="product-use-grid">
+            <article><h3>Dónde se ejecuta</h3><p>Según el producto y el acuerdo, el software puede ejecutarse en tu infraestructura, un VPS dedicado, otro host controlado o una infraestructura experimental gestionada por Alex cuando sea apropiado.</p></article>
+            <article><h3>Credenciales</h3><p>Antes de usar acceso sensible, aclaramos dónde se guardan las credenciales o los datos de sesión y a qué pueden acceder.</p></article>
+            <article><h3>Control</h3><p>Hacemos explícitos el propietario del servidor, el acceso administrativo, la responsabilidad de las actualizaciones y el límite operativo.</p></article>
+            <article><h3>Revocación</h3><p>El acceso puede tratarse como parte explícita de la configuración, incluido cómo eliminarlo o revocarlo después.</p></article>
+        </div>
+    </section>
+
+    <section class="product-detail-split" aria-labelledby="adapt-title">
+        <div>
+            <p class="eyebrow">Trabajar juntos</p>
+            <h2 id="adapt-title">Empieza con un resultado útil y límites claros.</h2>
+        </div>
+        <div>
+            <p>Cuéntame qué producto nuevo o sistema aislado necesitas construir. Podemos establecer sus usuarios, capacidades y restricciones, y después decidir si este enfoque de ingeniería encaja.</p>
+            <p><a href="/{{ locale }}/contact.html?topic=product">Hablar de un posible producto →</a></p>
+        </div>
+    </section>
+
+    <section class="home-section product-detail-section" aria-labelledby="evidence-title">
+        <div class="section-heading">
+            <p class="eyebrow">Evidencia inspeccionable</p>
+            <h2 id="evidence-title">El modelo se usa en el patrimonio de software propio de Alex.</h2>
+        </div>
+        <div class="product-detail-split">
+            <div><p>Los repositorios hacen que la práctica actual sea inspeccionable en los fundamentos de TeqFW, el software y la infraestructura en funcionamiento, el sistema Alarisa de varios componentes, PDE y Desks, y sitios reales.</p></div>
+            <div><p><a href="https://github.com/teqfw/di" target="_blank" rel="noopener noreferrer">Fundamento de TeqFW</a> · <a href="https://github.com/flancer32/teq-cms" target="_blank" rel="noopener noreferrer">TeqCMS</a> · <a href="https://github.com/flancer32/alarisa" target="_blank" rel="noopener noreferrer">Alarisa</a> · <a href="https://github.com/flancer32/pde-runtime" target="_blank" rel="noopener noreferrer">PDE</a> · <a href="https://github.com/flancer32/site_wg" target="_blank" rel="noopener noreferrer">wiredgeese.com</a></p><p><a href="/{{ locale }}/projects.html">Trabajo actual</a> indica el estado presente de los productos; la <a href="/{{ locale }}/blog/">Bitácora</a> registra la cronología que lo sustenta.</p></div>
+        </div>
+    </section>
+
+    <section class="product-detail-split" aria-labelledby="continuity-title">
+        <div>
+            <p class="eyebrow">Continuidad</p>
+            <h2 id="continuity-title">El trabajo futuro no tiene que empezar reconstruyendo la intención a partir del código solamente.</h2>
+        </div>
+        <div>
+            <p>Cuando un acuerdo lo contempla, el conocimiento relevante del producto puede acompañar al software para que Alex y los agentes, otra persona responsable y agentes, o el equipo de desarrollo del cliente puedan continuar el trabajo. El código fuente, las licencias, el acceso y el alcance exacto de la transferencia siguen siendo decisiones comerciales separadas.</p>
+            <p>Personal Digital Embassy (PDE) es un sistema técnico modular e independientemente útil que surgió al explorar problemas relacionados con Alarisa. Puede apoyar productos sin convertirse en un requisito para entenderlos o utilizarlos.</p>
+        </div>
+    </section>
+
+    <section class="cta-panel product-detail-cta" aria-labelledby="products-title">
+        <div>
+            <h2 id="products-title">Elige una conversación útil para el siguiente paso.</h2>
+            <p>Revisa Trabajo actual y la Bitácora, lee los libros o habla directamente de un producto nuevo.</p>
+        </div>
+        <div class="home-cta-actions">
+            <a class="button-primary" href="/{{ locale }}/work-with-me.html">Trabaja con Alex</a>
+            <a class="home-cta-secondary" href="/{{ locale }}/projects.html">Trabajo actual</a>
+        </div>
+    </section>
 </article>
 {% endblock %}

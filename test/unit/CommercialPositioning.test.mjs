@@ -19,7 +19,7 @@ test('commercial pages present product construction, engineering ownership, and 
     const html = render('en', 'work-with-me.html');
     assert.match(html, /build web applications and software products from the ground up/i);
     assert.match(html, /You define the business problem/i);
-    assert.match(html, /decision authority over and take responsibility/i);
+    assert.match(html, /I own the architecture and engineering approach/i);
     assert.match(html, /I choose and maintain the architecture/i);
     assert.match(html, /Scope and price/i);
     assert.match(html, /contact\.html\?topic=product/);
@@ -43,6 +43,27 @@ test('all maintained locales expose a product conversation and no retired commer
     }
 });
 
+test('principal buyer-journey pages keep an equivalent semantic structure in every locale', () => {
+    const pages = ['index.html', 'how-it-works.html', 'projects.html', 'work-with-me.html', 'about.html', 'contact.html'];
+    for (const page of pages) {
+        const structures = ['en', 'ru', 'es'].map((locale) => {
+            const html = render(locale, page);
+            return {
+                h1: (html.match(/<h1[ >]/g) ?? []).length,
+                h2: (html.match(/<h2[ >]/g) ?? []).length,
+                sections: (html.match(/<section[ >]/g) ?? []).length,
+            };
+        });
+        assert.equal(structures[0].h1, 1, `${page}: English has one H1`);
+        assert.deepEqual(structures[1], structures[0], `${page}: Russian matches English structure`);
+        assert.deepEqual(structures[2], structures[0], `${page}: Spanish matches English structure`);
+    }
+
+    for (const locale of ['en', 'ru', 'es']) {
+        assert.match(render(locale, 'contact.html'), /<ol class="process-grid">/, `${locale}: contact steps are a semantic list`);
+    }
+});
+
 test('English home presents the system and systems as evidence rather than services', () => {
     const html = render('en', 'index.html');
     assert.match(html, /directing AI agents through an engineering system of my own/i);
@@ -57,8 +78,8 @@ test('English home presents the system and systems as evidence rather than servi
 
 test('Work with Alex excludes retired service-catalogue positioning', () => {
     const html = render('en', 'work-with-me.html');
-    assert.match(html, /not interchangeable hourly capacity/i);
-    assert.match(html, /agent-readiness review/i);
+    assert.match(html, /product engineering, not interchangeable hourly capacity/i);
+    assert.match(html, /standalone review/i);
     assert.match(html, /generic AI or MCP integration/i);
     assert.match(html, /rescue work, or staff augmentation/i);
 });

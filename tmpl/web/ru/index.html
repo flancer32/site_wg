@@ -1,4 +1,78 @@
 {% extends "inc/layout.html" %}
-{% block title %}Wired Geese — веб-продукты Алекса Гусева{% endblock %}
-{% block description %}Алекс Гусев создаёт новые веб-приложения и программные продукты, направляя ИИ-агентов в собственной инженерной системе.{% endblock %}
-{% block content %}<div class="home-page"><section class="home-hero"><p class="eyebrow">Wired Geese — Алекс Гусев</p><h1>Я создаю новые веб-продукты, направляя ИИ-агентов в собственной инженерной системе.</h1><p class="lead">Вы приносите проблему продукта, пользователей и важные ограничения. Я определяю архитектуру и границы принятия; агенты выполняют значительную часть непосредственной реализации; за принятое ПО отвечаю я.</p><div class="hero-links"><a class="button-primary" href="/{{ locale }}/work-with-me.html">Работать с Алексом</a><a class="button-secondary" href="/{{ locale }}/projects.html#pde">Посмотреть продукты PDE</a></div></section><section class="home-section"><div class="section-heading"><p class="eyebrow">Два пути</p><h2>Создать новый продукт или использовать уже созданный.</h2></div><div class="fit-grid"><article class="fit-card"><h3>Создать продукт с Алексом</h3><p>Принесите новую проблему продукта, пользователей, возможности и реальные ограничения. Алекс отвечает за архитектуру и инженерный подход.</p><a href="/{{ locale }}/work-with-me.html">Работа с Алексом →</a></article><article class="fit-card"><h3>Использовать PDE</h3><p>PDE и полезные Desks — самостоятельные ранние продукты для вашего аккаунта и совместимых агентов.</p><a href="/{{ locale }}/projects.html#pde">Открыть PDE →</a></article></div></section><section class="home-section"><div class="section-heading"><p class="eyebrow">Подход — часть выбора</p><h2>Не взаимозаменяемая разработка в чужом стеке.</h2></div><div class="product-collection"><article class="product-preview"><h3>Цельная система</h3><p>TeqFW, модульная архитектура, JavaScript на клиенте и сервере, DI, Node.js и Web Platform составляют одну систему, выросшую из практики.</p><p>Я меняю её, когда работающие продукты показывают, как сделать следующее изменение более управляемым и полезным.</p></article><article class="product-preview"><h3>Агенты — мой основной интерфейс разработки</h3><p>Я больше не пишу вручную большую часть кода реализации. Я направляю агентов в анализе, реализации, тестировании и документации, а сам задаю замысел, ограничения, декомпозицию, проверку и принятие.</p></article></div></section><section class="home-section home-current-work"><p class="eyebrow">Доказательства в системах</p><h2>Подход должен выдерживать настоящее ПО.</h2><div class="current-work-grid"><article class="featured-work-card"><h3>Alarisa</h3><p>Крупное продолжающееся доказательство для многокомпонентного продукта, а не завершённое рыночное заявление.</p><a href="/{{ locale }}/projects/alarisa.html">Alarisa →</a></article><article class="featured-work-card"><h3>PDE и другие системы</h3><p>PDE — практический продукт внутри направления Alarisa; другие системы показывают широту той же инженерной практики.</p><a href="/{{ locale }}/projects.html#pde">PDE и текущая работа →</a></article></div></section><section class="cta-panel"><div><h2>Какой путь вам подходит?</h2><p>Можно обсудить создание нового продукта или развёртывание PDE / Telegram Desk для вашего аккаунта и агентов.</p></div><div class="home-cta-actions"><a class="button-primary" href="/{{ locale }}/contact.html?topic=product">Создать продукт с Алексом</a><a class="home-cta-secondary" href="/{{ locale }}/contact.html?topic=pde">Спросить о PDE</a></div></section></div>{% endblock %}
+
+{% block title %}Wired Geese — веб-продукты, созданные Алексом Гусевым{% endblock %}
+{% block description %}Алекс Гусев создаёт новые веб-приложения и программные продукты в собственной инженерной системе: TeqFW, ADSM и ИИ-агенты под руководством человека.{% endblock %}
+
+{% block html_head_extra %}
+<link rel="stylesheet" href="/styles/blog.css">
+{% endblock %}
+
+{% block content %}
+<div class="home-page">
+    <div class="home-opening">
+        <section class="home-hero" aria-labelledby="home-title">
+            <p class="eyebrow">Wired Geese — Алекс Гусев</p>
+            <h1 id="home-title">Я создаю новые веб-продукты, направляя ИИ-агентов в собственной инженерной системе.</h1>
+            <p class="lead">Принесите проблему продукта, людей, которым он должен служить, и важные ограничения. Я определяю архитектуру и границы принятия; агенты выполняют значительную часть непосредственной реализации; я отвечаю за принятое нами ПО.</p>
+            <div class="hero-links">
+                <a class="button-primary" href="/{{ locale }}/work-with-me.html">Работать с Алексом</a>
+                <a class="button-secondary" href="/{{ locale }}/projects.html#pde">Посмотреть готовые продукты</a>
+            </div>
+        </section>
+        <section class="home-products" aria-labelledby="system-title">
+            <div class="home-products-heading">
+                <p class="eyebrow">Подход — часть выбора</p>
+                <h2 id="system-title">Цельная система, созданная в реальной работе.</h2>
+            </div>
+            <div class="product-collection">
+                <article class="product-preview">
+                    <h3>Цельный способ создавать</h3>
+                    <p>TeqFW, модульная архитектура, JavaScript на клиенте и сервере, внедрение зависимостей, Node.js и возможности Web Platform составляют инженерную систему, выросшую из реальной работы, а не технологическое меню.</p>
+                    <p>Я меняю эту систему, когда работающее ПО показывает, как сделать следующее изменение более управляемым и полезным.</p>
+                </article>
+                <article class="product-preview">
+                    <h3>ИИ-агенты — мой основной интерфейс разработки</h3>
+                    <p>Я больше не пишу вручную большую часть кода реализации. Я направляю агентов в анализе, реализации, тестировании и документировании, а сам задаю замысел, ограничения, декомпозицию, проверку и принятие.</p>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <section class="home-section" aria-labelledby="paths-title">
+        <div class="section-heading"><p class="eyebrow">Два пути совместной работы</p><h2 id="paths-title">Создать новое или использовать уже созданное.</h2><p>Оба пути опираются на одну инженерную практику, но начинаются с разных потребностей.</p></div>
+        <div class="fit-grid">
+            <article class="fit-card fit-card--yes"><h3>Создать продукт с Алексом</h3><p>Принесите новую проблему продукта, его пользователей, возможности и реальные ограничения. Я отвечаю за архитектуру и инженерный подход.</p><p><a href="/{{ locale }}/work-with-me.html">Работать с Алексом →</a></p></article>
+            <article class="fit-card fit-card--yes"><h3>Использовать возможность PDE</h3><p>Personal Digital Embassy и полезные Desks — самостоятельные продукты. Рассмотрите раннее развёртывание для своего аккаунта и совместимых агентов.</p><p><a href="/{{ locale }}/projects.html#pde">Посмотреть PDE →</a></p></article>
+        </div>
+    </section>
+
+    <section class="home-section home-preview--vision home-current-work" aria-labelledby="proof-title">
+        <div>
+            <p class="eyebrow">Свидетельства в работающих системах</p>
+            <h2 id="proof-title">Работающие системы делают практику доступной для изучения.</h2>
+            <p>Проекты здесь показывают инженерную практику в действии, а их текущий статус указан явно.</p>
+        </div>
+        <div class="current-work-grid current-work-grid--preview">
+            <article class="featured-work-card"><p class="product-status">Главное продолжающееся свидетельство</p><h3>Alarisa</h3><p>Многокомпонентное направление продукта, которое проверяет, насколько далеко может зайти эта инженерная система. Это активная работа, а не заявление о готовом рынке.</p><p><a href="/{{ locale }}/projects/alarisa.html">Посмотреть Alarisa →</a></p></article>
+            <article class="featured-work-card"><p class="product-status">Работающие продукты и системы</p><h3>PDE, TeqCMS и другие</h3><p>PDE — практический продукт в направлении Alarisa; более компактные системы показывают тот же подход в публикации, контролируемых цифровых ресурсах и инфраструктуре.</p><p><a href="/{{ locale }}/projects.html#pde">Посмотреть PDE и текущую работу →</a></p></article>
+            <article class="featured-work-card"><p class="product-status">Основа</p><h3>TeqFW и ADSM</h3><p>Один отвечает на вопрос, как строить приложения; другая помогает сделать разработку людей и агентов понятной и управляемой.</p><p><a href="/{{ locale }}/how-it-works.html">Как я работаю →</a></p></article>
+        </div>
+    </section>
+
+    <section class="home-section home-preview" aria-labelledby="journal-title">
+        <div class="section-heading"><p class="eyebrow">Журнал</p><h2 id="journal-title">Идеи и свидетельства, развиваемые публично.</h2><p>Записи о работе, решениях и обучении по мере развития практики.</p></div>
+        {% if recentJournal and recentJournal.items.length %}<ul class="blog-list" role="list">{% for item in recentJournal.items %}{{ item.html | safe }}{% endfor %}</ul>{% endif %}
+        <p><a href="/{{ locale }}/blog/">Читать Журнал →</a></p>
+    </section>
+
+    <section class="home-section home-preview--maker" aria-labelledby="maker-title">
+        <div><p class="eyebrow">Один ответственный создатель</p><h2 id="maker-title">Wired Geese — практика Алекса Гусева, а не искусственно созданное агентство.</h2></div>
+        <div class="home-preview-copy"><p>Вы работаете напрямую с инженером, который принимает и утверждает значимые решения. Название описывает растущий набор возможностей ИИ-агентов, работающих под его ответственностью.</p><p><a href="/{{ locale }}/about.html">Об Алексе →</a></p></div>
+    </section>
+
+    <section class="cta-panel home-cta" aria-labelledby="start-title">
+        <div><h2 id="start-title">Какой путь подходит вашей задаче?</h2><p>Принесите новую задачу продукта для создания или спросите о развёртывании PDE либо Telegram Desk для своего аккаунта и совместимых агентов.</p></div>
+        <div class="home-cta-actions"><a class="button-primary" href="/{{ locale }}/contact.html?topic=product">Создать продукт с Алексом</a><a class="home-cta-secondary" href="/{{ locale }}/contact.html?topic=pde">Спросить о PDE</a></div>
+    </section>
+</div>
+{% endblock %}

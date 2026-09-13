@@ -1,4 +1,78 @@
 {% extends "inc/layout.html" %}
-{% block title %}Wired Geese — productos web de Alex Gusev{% endblock %}
-{% block description %}Alex Gusev construye nuevas aplicaciones web y productos de software dirigiendo agentes de IA con su propio sistema de ingeniería.{% endblock %}
-{% block content %}<div class="home-page"><section class="home-hero"><p class="eyebrow">Wired Geese por Alex Gusev</p><h1>Construyo nuevos productos web dirigiendo agentes de IA con un sistema de ingeniería propio.</h1><p class="lead">Trae el problema del producto, las personas a las que debe servir y las restricciones importantes. Defino la arquitectura y los límites de aceptación; los agentes realizan gran parte de la implementación directa; yo respondo por el software aceptado.</p><div class="hero-links"><a class="button-primary" href="/{{ locale }}/work-with-me.html">Trabaja con Alex</a><a class="button-secondary" href="/{{ locale }}/projects.html#pde">Explorar productos PDE</a></div></section><section class="home-section"><div class="section-heading"><p class="eyebrow">Dos caminos</p><h2>Construye algo nuevo o usa algo ya creado.</h2></div><div class="fit-grid"><article class="fit-card"><h3>Construir un producto con Alex</h3><p>Trae un problema de producto nuevo, sus usuarios, capacidades y restricciones reales. Alex asume la responsabilidad por la arquitectura y el enfoque.</p><a href="/{{ locale }}/work-with-me.html">Trabaja con Alex →</a></article><article class="fit-card"><h3>Usar una capacidad PDE</h3><p>PDE y los Desks útiles son productos tempranos independientes para tu cuenta y agentes compatibles.</p><a href="/{{ locale }}/projects.html#pde">Explorar PDE →</a></article></div></section><section class="home-section"><div class="section-heading"><p class="eyebrow">El enfoque forma parte de la elección</p><h2>No es capacidad intercambiable dentro del stack de otra persona.</h2></div><div class="product-collection"><article class="product-preview"><h3>Un sistema coherente</h3><p>TeqFW, arquitectura modular, JavaScript en navegador y servidor, DI, Node.js y Web Platform forman un sistema desarrollado en productos reales.</p><p>Lo cambio cuando el software en uso muestra cómo hacer el siguiente cambio más controlado y útil.</p></article><article class="product-preview"><h3>Los agentes son mi interfaz principal de desarrollo</h3><p>Ya no escribo a mano la mayor parte del código de implementación. Dirijo a los agentes en análisis, implementación, pruebas y documentación, mientras defino intención, restricciones, descomposición, verificación y aceptación.</p></article></div></section><section class="home-section home-current-work"><p class="eyebrow">Evidencia en sistemas reales</p><h2>El enfoque debe sostener software real.</h2><div class="current-work-grid"><article class="featured-work-card"><h3>Alarisa</h3><p>Prueba continua importante para un producto multicomponente, no una afirmación comercial terminada.</p><a href="/{{ locale }}/projects/alarisa.html">Alarisa →</a></article><article class="featured-work-card"><h3>PDE y otros sistemas</h3><p>PDE es un producto práctico dentro de la dirección Alarisa; otros sistemas muestran la amplitud de la misma práctica.</p><a href="/{{ locale }}/projects.html#pde">PDE y trabajo actual →</a></article></div></section><section class="cta-panel"><div><h2>¿Qué camino encaja contigo?</h2><p>Podemos hablar de construir un producto nuevo o desplegar PDE / Telegram Desk para tu cuenta y agentes.</p></div><div class="home-cta-actions"><a class="button-primary" href="/{{ locale }}/contact.html?topic=product">Construir un producto con Alex</a><a class="home-cta-secondary" href="/{{ locale }}/contact.html?topic=pde">Preguntar por PDE</a></div></section></div>{% endblock %}
+
+{% block title %}Wired Geese — productos web creados por Alex Gusev{% endblock %}
+{% block description %}Alex Gusev crea nuevas aplicaciones web y productos de software mediante su propio sistema de ingeniería: TeqFW, ADSM y trabajo con agentes de IA dirigido por una persona.{% endblock %}
+
+{% block html_head_extra %}
+<link rel="stylesheet" href="/styles/blog.css">
+{% endblock %}
+
+{% block content %}
+<div class="home-page">
+    <div class="home-opening">
+        <section class="home-hero" aria-labelledby="home-title">
+            <p class="eyebrow">Wired Geese por Alex Gusev</p>
+            <h1 id="home-title">Creo nuevos productos web dirigiendo agentes de IA dentro de un sistema de ingeniería propio.</h1>
+            <p class="lead">Trae el problema de producto, las personas a las que debe servir y las restricciones importantes. Defino la arquitectura y los límites de aceptación; los agentes realizan gran parte de la implementación directa; asumo la responsabilidad del software que aceptamos.</p>
+            <div class="hero-links">
+                <a class="button-primary" href="/{{ locale }}/work-with-me.html">Trabaja con Alex</a>
+                <a class="button-secondary" href="/{{ locale }}/projects.html#pde">Explora productos existentes</a>
+            </div>
+        </section>
+        <section class="home-products" aria-labelledby="system-title">
+            <div class="home-products-heading">
+                <p class="eyebrow">El enfoque forma parte de la elección</p>
+                <h2 id="system-title">Un sistema coherente, desarrollado mediante trabajo real.</h2>
+            </div>
+            <div class="product-collection">
+                <article class="product-preview">
+                    <h3>Una forma coherente de construir</h3>
+                    <p>TeqFW, arquitectura modular, JavaScript en el navegador y el servidor, inyección de dependencias, Node.js y capacidades de la Web Platform forman un sistema de ingeniería desarrollado mediante trabajo real, no un menú de tecnologías.</p>
+                    <p>Cambio ese sistema cuando el software en funcionamiento revela una manera mejor de hacer que el siguiente cambio sea controlado y útil.</p>
+                </article>
+                <article class="product-preview">
+                    <h3>Los agentes de IA son mi interfaz principal de desarrollo</h3>
+                    <p>Ya no escribo a mano la mayor parte del código de implementación. Dirijo a los agentes durante el análisis, la implementación, las pruebas y la documentación, mientras establezco la intención, las restricciones, la descomposición, la verificación y la aceptación.</p>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <section class="home-section" aria-labelledby="paths-title">
+        <div class="section-heading"><p class="eyebrow">Dos formas de trabajar juntos</p><h2 id="paths-title">Construye algo nuevo o usa algo ya creado.</h2><p>La misma práctica de ingeniería sostiene ambas vías. Cada una comienza con una necesidad distinta.</p></div>
+        <div class="fit-grid">
+            <article class="fit-card fit-card--yes"><h3>Construye un producto con Alex</h3><p>Trae un problema de producto nuevo, sus usuarios, capacidades y restricciones reales. Me hago cargo de la arquitectura y del enfoque de ingeniería.</p><p><a href="/{{ locale }}/work-with-me.html">Trabaja con Alex →</a></p></article>
+            <article class="fit-card fit-card--yes"><h3>Usa una capacidad de PDE</h3><p>Personal Digital Embassy y los Desks útiles son productos por derecho propio. Explora un despliegue temprano para tu propia cuenta y agentes compatibles.</p><p><a href="/{{ locale }}/projects.html#pde">Explora PDE →</a></p></article>
+        </div>
+    </section>
+
+    <section class="home-section home-preview--vision home-current-work" aria-labelledby="proof-title">
+        <div>
+            <p class="eyebrow">Evidencia en sistemas en funcionamiento</p>
+            <h2 id="proof-title">Los sistemas en funcionamiento hacen que la práctica sea inspeccionable.</h2>
+            <p>Los proyectos muestran la práctica de ingeniería en uso, con su estado actual indicado de forma explícita.</p>
+        </div>
+        <div class="current-work-grid current-work-grid--preview">
+            <article class="featured-work-card"><p class="product-status">Prueba principal en curso</p><h3>Alarisa</h3><p>Una dirección de producto multicomponente que pone a prueba hasta dónde puede llegar este sistema de ingeniería. Es trabajo activo, no una afirmación comercial terminada.</p><p><a href="/{{ locale }}/projects/alarisa.html">Ver Alarisa →</a></p></article>
+            <article class="featured-work-card"><p class="product-status">Productos y sistemas en funcionamiento</p><h3>PDE, TeqCMS y más</h3><p>PDE es un producto práctico dentro de la dirección de Alarisa; sistemas más pequeños también muestran el mismo enfoque en publicación, recursos digitales controlados e infraestructura.</p><p><a href="/{{ locale }}/projects.html#pde">Explorar PDE y el trabajo actual →</a></p></article>
+            <article class="featured-work-card"><p class="product-status">Fundamento</p><h3>TeqFW y ADSM</h3><p>Uno responde a cómo se construyen las aplicaciones; el otro mantiene el desarrollo humano-con-agentes comprensible y controlado.</p><p><a href="/{{ locale }}/how-it-works.html">Cómo trabajo →</a></p></article>
+        </div>
+    </section>
+
+    <section class="home-section home-preview" aria-labelledby="journal-title">
+        <div class="section-heading"><p class="eyebrow">Bitácora</p><h2 id="journal-title">Ideas y evidencia desarrolladas en público.</h2><p>Registros de trabajo, decisiones y aprendizaje mientras la práctica evoluciona.</p></div>
+        {% if recentJournal and recentJournal.items.length %}<ul class="blog-list" role="list">{% for item in recentJournal.items %}{{ item.html | safe }}{% endfor %}</ul>{% endif %}
+        <p><a href="/{{ locale }}/blog/">Leer la Bitácora →</a></p>
+    </section>
+
+    <section class="home-section home-preview--maker" aria-labelledby="maker-title">
+        <div><p class="eyebrow">Un creador responsable</p><h2 id="maker-title">Wired Geese es la práctica de Alex Gusev, no una agencia ficticia.</h2></div>
+        <div class="home-preview-copy"><p>Trabajas directamente con el ingeniero que toma y acepta las decisiones importantes. El nombre describe un conjunto creciente de capacidades de agentes de IA que trabajan bajo esa responsabilidad humana.</p><p><a href="/{{ locale }}/about.html">Sobre Alex →</a></p></div>
+    </section>
+
+    <section class="cta-panel home-cta" aria-labelledby="start-title">
+        <div><h2 id="start-title">¿Qué vía encaja con tu necesidad?</h2><p>Trae un problema de producto nuevo para construir, o pregunta por desplegar PDE o Telegram Desk para tu propia cuenta y agentes compatibles.</p></div>
+        <div class="home-cta-actions"><a class="button-primary" href="/{{ locale }}/contact.html?topic=product">Construye un producto con Alex</a><a class="home-cta-secondary" href="/{{ locale }}/contact.html?topic=pde">Pregunta por PDE</a></div>
+    </section>
+</div>
+{% endblock %}
