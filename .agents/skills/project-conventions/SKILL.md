@@ -23,6 +23,25 @@ description: Project-specific conventions. Use for every task in this repository
 
 - Before reading a project-local skill, inspect its directory entry with `ls -la` and resolve symlinks with `readlink -f` (or an equivalent command). Project skills may be symlinks into `node_modules`; do not conclude that a skill is absent until its target has been checked.
 
+## Localization
+
+- Treat English authored public content as the canonical semantic source unless an applicable `AGENTS.md` explicitly defines another source for a specific area.
+- Complete and review the canonical English change before translating it to other locales. Do not evolve product positioning independently in translated pages.
+- Translation is a delegated production task. When subagents are available, perform Russian and Spanish translations in separate isolated subagent sessions rather than carrying the main implementation context into translation work.
+- Give translation subagents only the context required for accurate localization:
+  - the final canonical English source being translated;
+  - the target locale;
+  - relevant terminology, glossary entries, and established shared UI wording;
+  - the minimal product constraints needed to preserve accepted meaning;
+  - directly related existing locale content when it is useful for consistency.
+- Do not pass translation subagents the full task history, exploratory reasoning, obsolete drafts, or unrelated repository context unless a concrete ambiguity requires it.
+- Translation subagents must preserve accepted product semantics, claims, CTA intent, status, and boundaries. They may adapt wording idiomatically for the target language, but must not introduce new positioning, offers, promises, capabilities, or interpretations.
+- If the canonical source is ambiguous or a faithful translation would require a product decision, the translation subagent must report the ambiguity instead of resolving it by invention.
+- Prefer one isolated translation session per target locale for a coherent group of related pages so terminology remains consistent within that locale.
+- For substantial multilingual changes, use a separate parity-review pass after translation. The reviewer should compare canonical English with each translated locale specifically for semantic drift, missing claims, altered CTA meaning, product-status differences, and accidental additions.
+- Edit authored multilingual sources in `tmpl/`; do not manually treat generated `web/` output as the source of translation truth.
+- Keep localization workflow separate from product reasoning: the main agent owns canonical semantics and acceptance; translation subagents own faithful locale rendering; final acceptance remains with the main task owner.
+
 ## Communication
 
 - User communication is in Russian; source code, comments, documentation, commit messages, and identifiers are in English.
