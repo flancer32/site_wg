@@ -643,7 +643,7 @@ pre code {
 }
 
 .home-hero h1 {
-  max-width: 12ch;
+  max-width: 16ch;
   margin-bottom: 1.1rem;
   font-size: clamp(2.4rem, 3.4vw, 3.05rem);
 }
@@ -2122,7 +2122,166 @@ html.zoom-open {
 
 /* Desktop reading density: retain the visual system while keeping explanations in a continuous flow. */
 @media (min-width: 50.0625rem) {
-  .home-section,
+  .home-page {
+    gap: clamp(1.5rem, 2.8vw, 2.5rem);
+  }
+
+  .home-opening {
+    display: block;
+    padding: clamp(0.5rem, 1.5vw, 1.25rem) 0 clamp(1.75rem, 3vw, 2.5rem);
+  }
+
+  .home-hero {
+    padding: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(21rem, 0.85fr);
+    column-gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: end;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .home-hero h1 {
+    grid-column: 1;
+    max-width: 24ch;
+    margin-bottom: 0;
+    font-size: clamp(2.45rem, 3.5vw, 3.35rem);
+  }
+
+  .home-hero .eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .home-hero .lead {
+    grid-column: 2;
+    max-width: none;
+    margin-bottom: 0;
+  }
+
+  .home-hero .hero-links {
+    grid-column: 2;
+    margin: 1rem 0 0;
+  }
+
+  .home-products {
+    display: block;
+    margin-top: clamp(1.75rem, 3vw, 2.5rem);
+    padding: clamp(1.5rem, 2.5vw, 2rem) 0 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .home-products-heading h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  .home-products .product-collection {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+  }
+
+  .home-products .product-preview {
+    height: auto;
+    padding: 0;
+    border: 0;
+    border-top: 1px solid rgba(8, 118, 92, 0.2);
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .home-products .product-preview h3 {
+    margin-bottom: 0.45rem;
+    font-size: clamp(1.18rem, 1.5vw, 1.38rem);
+  }
+
+  .home-products .product-preview p {
+    margin-bottom: 0.65rem;
+    color: var(--color-ink-soft);
+    font-size: 0.97rem;
+    line-height: 1.55;
+  }
+
+  .home-page > .home-section {
+    padding: clamp(1.75rem, 3vw, 2.5rem) 0;
+    border: 0;
+    border-top: 1px solid var(--color-line);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .home-page > .home-section .section-heading {
+    max-width: 58rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .home-preview {
+    display: block;
+  }
+
+  .home-page .home-current-work {
+    display: block;
+  }
+
+  .home-preview h2 {
+    max-width: 25ch;
+  }
+
+  .home-current-work > :first-child {
+    max-width: 58rem;
+  }
+
+  .home-current-work .current-work-grid {
+    margin-top: 1.5rem;
+  }
+
+  .home-current-work > :last-child {
+    grid-column: auto;
+  }
+
+  .home-page .blog-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .home-page .blog-item {
+    min-height: 0;
+    grid-template-columns: 3.25rem minmax(0, 1fr);
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .home-page .blog-item > img {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 0.65rem;
+  }
+
+  .home-page .blog-item h4 {
+    font-size: 1.04rem;
+  }
+
+  .home-preview--maker {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(22rem, 1.1fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+
+  .home-preview--maker .home-preview-copy {
+    max-width: 44rem;
+  }
+
+  .home-cta {
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+  }
+
+  .home-cta-actions {
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+  }
+
   .contact-section {
     padding: 1.75rem 2rem;
   }
