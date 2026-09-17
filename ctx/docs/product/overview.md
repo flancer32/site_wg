@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/overview.md`
 - Template Version: `20260605`
-- Changed: `20260911`
+- Changed: `20260917`
 
 ## Site Identity
 
@@ -11,6 +11,17 @@
 Wired Geese explains that system, shows software built with it, develops the ideas behind it, and provides a path for a client whose new product fits that way of building. It is not a catalogue of unrelated engineering services, a conventional agency, software, a platform, or a substitute identity for Alex.
 
 Alex Gusev is the accountable human maker. `F. Lancer`, SIA is his Latvian legal entity for contracts, invoicing, ownership where applicable, and formal commercial relationships. It is not the public brand or an artificial team identity.
+
+## Public Communication Channels
+
+Alex's public activity is distributed through the main Wired Geese Telegram contact and three language-specific Alex Gusev Lab channels:
+
+- `https://t.me/wiredgeese` — direct Telegram contact and the main Wired Geese channel;
+- `https://t.me/alexgusev_lab_en` — English public notes and activity;
+- `https://t.me/alexgusev_lab_es` — Spanish public notes and activity;
+- `https://t.me/alexgusev_lab_ru` — Russian public notes and activity.
+
+These channels are public discovery and communication destinations. Linking to them does not make Telegram part of the wiredgeese.com runtime, does not transfer ownership or endorsement, and does not introduce Telegram credentials, sessions, message state, or publishing automation into the website.
 
 ## Engineering System
 

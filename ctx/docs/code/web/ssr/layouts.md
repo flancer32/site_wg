@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/layouts.md`
 - Template Version: `20260630`
-- Changed: `20260910`
+- Changed: `20260917`
 
 ## Purpose
 
@@ -10,7 +10,7 @@ Describe the shared SSR shell, its stable regions, and its accessibility baselin
 
 ## Shared Shell
 
-Each locale defines the structural layout under `tmpl/web/{locale}/inc/layout.html`. It owns localized document metadata, canonical and alternate links from the adapter, shared assets, a skip link, header, one focusable main region, optional publication-discussion CTA, and footer. Page templates own route-specific metadata, content, and narrowly justified assets.
+Each locale defines the structural layout under `tmpl/web/{locale}/inc/layout.html`. It owns localized document metadata, canonical and alternate links from the adapter, shared assets, a skip link, header, one focusable main region, optional publication-discussion CTA, and footer. The footer keeps the main `@wiredgeese` contact and the Alex Gusev Lab Telegram destination matching the current locale permanently discoverable. Page templates own route-specific metadata, content, and narrowly justified assets.
 
 The shell supports brand, navigation, commercial action where required, locale switching, main content, and secondary discovery. Its eventual semantic grouping derives from Product and Architecture, not a Products/Knowledge split. Current header and footer groups are migration state documented in `navigation.md`.
 

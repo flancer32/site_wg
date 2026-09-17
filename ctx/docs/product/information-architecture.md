@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/information-architecture.md`
 - Template Version: `20260909`
-- Changed: `20260911`
+- Changed: `20260917`
 
 ## Purpose
 
@@ -25,6 +25,8 @@ The persistent shell must make these destinations directly discoverable:
 The client-build journey is `product need -> approach -> evidence -> fit -> conversation -> engagement`. The existing-product journey is `capability need -> current product status -> deployment fit -> conversation -> early deployment`. Both are distinct from the knowledge journey `hook -> resonance -> immersion -> reflection/discussion`.
 
 Home leads quickly to the product-building proposition and Work with Alex, then makes the existing-product path discoverable. Work with Alex explains that clients define the business problem and constraints while Alex has decision authority over and takes responsibility for the engineering approach. Current Work explains PDE and eligible Desks as products without turning every system into a catalogue item. Contact asks product-build visitors for intent, users, capabilities, constraints, and stage; PDE visitors can name the capability, intended use, environment, and self-installation or managed-help preference.
+
+The persistent shell and Contact page may expose Alex's public Telegram channel for the current locale as a secondary discovery and communication path. `@wiredgeese` remains the direct Telegram contact; the English, Spanish, and Russian Alex Gusev Lab channels provide language-specific public activity on their corresponding site locales. These links support audience discovery but do not replace the direct human handoff or create a Telegram runtime responsibility for the site.
 
 ## Page Responsibilities
 
