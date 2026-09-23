@@ -3,47 +3,30 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
+import * as marked from 'marked';
 
 import Blog from '../../../../../../src/Back/Web/Cms/Handler/Blog.js';
+import Publication from '../../../../../../src/Back/Web/Markdown/Publication.js';
 
-test('builds accessible, lazy journal cards in reverse chronological order', async () => {
+test('builds localized Journal index, recent entries, and relations from Markdown only', async () => {
     const root = await fs.mkdtemp(path.join(os.tmpdir(), 'wg-blog-'));
     const blogRoot = path.join(root, 'tmpl', 'web', 'en', 'blog');
     await fs.mkdir(path.join(blogRoot, '2025'), {recursive: true});
     await fs.mkdir(path.join(blogRoot, '2026'), {recursive: true});
-    const fragment = (title, relations = '') => `<!-- journal-relations: ${relations} -->
-{% block blog_item %}
-<li class="blog-item">
-  <a class="card-link" href="/entry.html"></a>
-  <img src="/img/entry.webp" alt="">
-  <div><h4>${title}</h4></div>
-</li>
-{% endblock %}`;
-    await fs.writeFile(path.join(blogRoot, '2025', '20250101-old.html'), fragment('Old entry', 'teqcms'));
-    await fs.writeFile(path.join(blogRoot, '2026', '20260102-new.html'), fragment('New "entry"', 'teqcms, pde, teqcms, invalid value'));
-
-    const blog = new Blog({
-        fs,
-        path,
-        tmplConfig: {getRootPath: () => root},
-    });
+    const source = (title, date, relations) => `---\ntitle: "${title}"\ndescription: "Summary"\ndate: ${date}\nrelations:\n  - ${relations}\n---\n\n# ${title}\n`;
+    await fs.writeFile(path.join(blogRoot, '2025', '20250101-old.md'), source('Old entry', '2025-01-01', 'teqcms'));
+    await fs.writeFile(path.join(blogRoot, '2026', '20260102-new.md'), source('New entry', '2026-01-02', 'pde'));
+    await fs.writeFile(path.join(blogRoot, '2026', '20260103-legacy.html'), '<!-- journal-relations: teqcms -->');
+    const tmplConfig = {getRootPath: () => root};
+    const publication = new Publication({fs, path, marked, tmplConfig});
+    const blog = new Blog({fs, path, tmplConfig, publication});
     const items = await blog.collectBlogIndex('en');
-
     assert.deepEqual(items.map((item) => item.slug), ['20260102-new', '20250101-old']);
-    assert.equal(items[0].url, '/en/blog/2026/20260102-new.html');
-    assert.match(items[0].html, /<h2>New "entry"<\/h2>/);
-    assert.match(items[0].html, /aria-label="New &quot;entry&quot;"/);
-    assert.match(items[0].html, /<img loading="lazy" decoding="async"/);
-    assert.doesNotMatch(items[0].html, /<h4>/);
-    assert.deepEqual(items[0].relations, ['teqcms', 'pde']);
-
-    const recent = await blog.collectRecentBlogEntries('en', 1);
-    assert.deepEqual(recent.map((item) => item.slug), ['20260102-new']);
-
-    const related = await blog.collectRelatedBlogEntries('en', 'teqcms', 3);
-    assert.deepEqual(related.map((item) => item.slug), ['20260102-new', '20250101-old']);
-    const multiRelation = await blog.collectRelatedBlogEntries('en', ['pde', 'teqcms'], 1);
-    assert.deepEqual(multiRelation.map((item) => item.slug), ['20260102-new']);
-    assert.deepEqual(await blog.collectEntryRelations('en', '/blog/2025/20250101-old.html'), ['teqcms']);
-    assert.deepEqual(await blog.collectRelatedBlogEntries('en', 'not valid', 3), []);
+    assert.match(items[0].html, /<h2>New entry<\/h2>/);
+    assert.match(items[0].html, /loading="lazy" decoding="async"/);
+    assert.deepEqual(items[0].relations, ['pde']);
+    assert.deepEqual((await blog.collectRecentBlogEntries('en', 1)).map((item) => item.slug), ['20260102-new']);
+    assert.deepEqual((await blog.collectRelatedBlogEntries('en', 'teqcms')).map((item) => item.slug), ['20250101-old']);
+    assert.deepEqual(await blog.collectEntryRelations('en', '/blog/2026/20260102-new.html'), ['pde']);
+    assert.deepEqual(await blog.collectRelatedBlogEntries('en', 'not valid'), []);
 });

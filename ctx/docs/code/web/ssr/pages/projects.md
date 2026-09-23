@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/projects.md`
 - Template Version: `20260910`
-- Changed: `20260911`
+- Changed: `20260923`
 
 ## Purpose
 
@@ -14,7 +14,7 @@ The route is localized, canonical, indexable, and labelled Current Work in the s
 
 Alarisa remains a separate localized detail route. PDE, Telegram Desk, Shared Files Desk, and TeqCMS currently use their explicit anchored sections because a separate detail route would add taxonomy without new state ownership.
 
-Inside the TeqCMS card, the page renders up to three reverse-chronological Events when authored `journal-relations` metadata identifies TeqCMS. The projection is localized, deterministic, SSR-rendered, and read from existing authored Journal files. The 2026-09-10 site-publication Event has no Current Work relationship: it documents the public representation, not a change in any listed system. The TeqCMS thread retains its earlier genuine TeqCMS Events. Other current objects receive no invented pre-existing history or empty evidence block.
+Inside the TeqCMS card, the page renders up to three reverse-chronological Events when authored Journal `relations` front matter identifies TeqCMS. The projection is localized, deterministic, SSR-rendered, and read from existing authored Journal files. The 2026-09-10 site-publication Event has no Current Work relationship: it documents the public representation, not a change in any listed system. The TeqCMS thread retains its earlier genuine TeqCMS Events. Other current objects receive no invented pre-existing history or empty evidence block.
 
 ## Historical Preservation
 

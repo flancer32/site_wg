@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/structure.md`
 - Template Version: `20260605`
-- Changed: `20260910`
+- Changed: `20260923`
 
 ## Purpose
 
@@ -11,7 +11,7 @@ Describe the major architectural blocks, semantic surfaces, page-family relation
 ## Architectural Blocks
 
 - `ctx/` — normative cognitive context governing product meaning and engineering constraints.
-- `tmpl/web/` — multilingual authored pages, page-family composition, and shared partials.
+- `tmpl/web/` — multilingual composition templates, canonical Journal and Library Markdown articles, and shared partials.
 - `src/` plus `teqcms.config.mjs` — thin application-extension block adapting TeqCMS to justified project behavior.
 - `web/` — browser-delivered and generated publication artifacts.
 - `bin/` and `etc/` — site operation and deployment support.

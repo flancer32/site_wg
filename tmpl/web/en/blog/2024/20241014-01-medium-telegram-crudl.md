@@ -9,8 +9,6 @@ image_alt: ""
 
 # Telegram Bot with Node.js: Implementing CRUD-L Operations Using Command Arguments
 
-{% raw %}
-
 In this post, I’ll share my journey into Telegram bot development, following up on a [previous post](https://flancer32.com/telegram-bots-the-first-steps-c1688e572abe) where I created a basic Node.js bot with standard commands like `/start`, `/help`, and `/settings` using the [grammY](https://grammy.dev/) library. This time, we’ll go a step further by building a bot capable of managing data in a database using the [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)-L pattern (Create, Read, Update, Delete, and List) through command arguments. While this approach is simple, it offers a great starting point for personal projects.
 
 The demo bot, [@flancer64/tg-demo-crudl](http://twitter.com/flancer64/tg-demo-crudl), allows users to manage a list of contacts and phone numbers in a database using the following commands:
@@ -209,5 +207,3 @@ Stay connected:
 - [Fiverr](https://www.fiverr.com/wiredgeese)
 
 Thank you for your support!
-
-    {% endraw %}

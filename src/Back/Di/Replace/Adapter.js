@@ -11,7 +11,7 @@ export default class Adapter {
      * @param {typeof import('node:path')} deps.path
      * @param {Fl32_Cms_Back_Di_Replace_Adapter} deps.cmsAdapter
      * @param {Fl32_Cms_Back_Helper_Web} deps.helpWeb
-     * @param {Fl32_Cms_Back_Config} deps.config
+     * @param {App_Back_Web_Metadata} deps.metadata
      * @param {Fl32_Tmpl_Back_Config} deps.tmplConfig
      * @param {TeqFw_Log_Provider} deps.logger
      * @param {App_Back_Web_Cms_Handler_Blog} deps.blogHandler
@@ -21,7 +21,7 @@ export default class Adapter {
             path,
             cmsAdapter,
             helpWeb,
-            config,
+            metadata,
             tmplConfig,
             logger,
             blogHandler,
@@ -166,22 +166,6 @@ export default class Adapter {
             return `${withoutTrailingSlash}.html`;
         };
 
-        /** @returns {string} */
-        const requestOrigin = () => {
-            const fallback = 'https://wiredgeese.com';
-            const configured = config.getBaseUrl?.() || fallback;
-            try {
-                const parsed = new URL(configured);
-                if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
-                    return parsed.origin;
-                }
-            } catch {
-                // Fall through to the stable public origin.
-            }
-            log.warn(`Ignored invalid TEQ_CMS__BASE_URL: ${configured}`);
-            return fallback;
-        };
-
         /**
          * @param {object} deps
          * @param {any} deps.data
@@ -191,18 +175,7 @@ export default class Adapter {
         const applyLocalizedMetadata = ({data, routeInfo}) => {
             const locale = routeInfo?.locale || tmplConfig.getDefaultLocale();
             const cleanPath = toCanonicalCleanPath(routeInfo?.cleanPath);
-            const origin = requestOrigin();
-            const localizedPath = cleanPath === '/' ? `/${locale}/` : `/${locale}${cleanPath}`;
-            data.canonicalUrl = `${origin}${localizedPath}`;
-            const routeLocales = tmplConfig.getAvailableLocales();
-            data.alternateUrls = Object.fromEntries(
-                routeLocales.map((targetLocale) => {
-                    const targetPath = cleanPath === '/'
-                        ? `/${targetLocale}/`
-                        : `/${targetLocale}${cleanPath}`;
-                    return [targetLocale, `${origin}${targetPath}`];
-                })
-            );
+            Object.assign(data, metadata.forRoute(locale, cleanPath));
         };
 
         /**
@@ -305,7 +278,7 @@ export const __deps__ = Object.freeze({
     path: 'node:path',
     cmsAdapter: 'Fl32_Cms_Back_Di_Replace_Adapter$',
     helpWeb: 'Fl32_Cms_Back_Helper_Web$',
-    config: 'Fl32_Cms_Back_Config$',
+    metadata: 'App_Back_Web_Metadata$',
     tmplConfig: 'Fl32_Tmpl_Back_Config$',
     logger: 'TeqFw_Log_Provider$',
     blogHandler: 'App_Back_Web_Cms_Handler_Blog$',

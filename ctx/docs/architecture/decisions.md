@@ -20,7 +20,7 @@ Only the current decision text in this document is normative. A `Revised` or `Su
 ## Decision 14: Publish Library Articles From Localized Markdown
 
 - **Status:** added.
-- **Decision:** author every Library article in locale-specific Markdown. Render its established `.html` URL through the shared SSR layout and expose the matching raw `.md` route in English, Russian, and Spanish. Keep Library indexes and shared composition as Nunjucks templates; preserve specialized elements as raw HTML inside Markdown where needed.
+- **Decision:** author every Library article in locale-specific Markdown. Render its established `.html` URL through the shared SSR layout and expose the matching raw `.md` route in English, Russian, and Spanish. Keep Library indexes and shared composition as Nunjucks templates; preserve specialized elements as raw HTML inside Markdown where needed, while keeping the publication understandable from the Markdown source without executing those elements.
 - **Rejected alternatives:** duplicate authored HTML and Markdown, change established human URLs, convert collection indexes into Markdown, or publish only one locale's durable knowledge to agents.
 - **Reasoning:** Library articles are durable explanatory material that benefits from agent-friendly editing and direct machine reading in each maintained language. Localized sources preserve the site's human-language parity while derived HTML retains the current public route and shared shell.
 

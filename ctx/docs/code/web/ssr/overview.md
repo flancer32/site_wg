@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/overview.md`
 - Template Version: `20260630`
-- Changed: `20260910`
+- Changed: `20260923`
 
 ## Purpose
 
@@ -14,7 +14,7 @@ The site is a multilingual SSR site built on `@flancer32/teq-cms`.
 
 It:
 
-- stores authored page templates under `tmpl/web/{locale}/`;
+- stores composition templates and canonical Journal and Library Markdown under `tmpl/web/{locale}/`;
 - uses Nunjucks-style inheritance and includes;
 - injects bounded project behavior through `src/Back/Di/Replace/Adapter.js`;
 - serves browser output through the CMS runtime;
@@ -22,7 +22,7 @@ It:
 
 ## Stable SSR Chain
 
-`HTTP request -> permanent legacy redirect or locale-aware route extraction -> CMS render data -> bounded project enrichment -> locale template -> HTML response or localized 404`
+`HTTP request -> permanent legacy redirect or normalization -> Markdown publication handler for Journal and Library (.md raw source or .html rendered in the shared shell) -> ordinary TeqCMS/Nunjucks route otherwise -> localized 404`
 
 Stable enrichments include locale metadata, route classification, journal-index assembly, and pipeline-level permanent redirects. A redirect map resolves locale-preserving legacy destinations before static or template rendering and responds with HTTP 301; it is never an internal rewrite.
 

@@ -14,7 +14,7 @@ The architecture must preserve:
 
 - `ctx/` as normative knowledge above architecture, environment, code, authored content, and generated output;
 - one multilingual, content-oriented TeqCMS SSR/publication site with thin justified Node.js adaptation;
-- authored templates, assets, and configuration as implementation inputs and `web/` as derived output;
+- authored composition templates, canonical Markdown publications, assets, and configuration as implementation inputs and `web/` as derived output;
 - one coherent site runtime across commercial, current-work, Journal, working-model, and retained-history surfaces;
 - separation between wiredgeese.com and product or customer runtimes;
 - Alex Gusev's accountability for intent, consequential decisions, acceptance, and commercial authority when AI agents participate;

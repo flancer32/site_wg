@@ -13,7 +13,7 @@ Define state domains and sources of truth while separating normative meaning, au
 | State domain | Authoritative owner | Architectural meaning |
 | --- | --- | --- |
 | Product and engineering truth | Applicable documents under `ctx/` | Normative identity, status, evidence meaning, boundaries, and downstream guidance. |
-| Authored public content | `tmpl/` and source-controlled assets or configuration | Approved implementation inputs for the public site; subordinate to context. |
+| Authored public content | Composition templates and locale-specific canonical Markdown publications in `tmpl/`, plus source-controlled assets or configuration | Approved implementation inputs for the public site; subordinate to context. |
 | Derived publication output | `web/` | Regenerable browser-delivered artifacts, never an authored source of truth. |
 | Ephemeral website operation | Request, route, locale, render, and publication process state | Bounded runtime data needed to serve or publish the site. |
 | Journal chronology | Authored Event and thread content | Dated public record of meaningful observations, decisions, and changes; not the sole owner of current status. |

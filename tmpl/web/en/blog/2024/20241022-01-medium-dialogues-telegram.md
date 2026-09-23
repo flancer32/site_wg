@@ -9,8 +9,6 @@ image_alt: "Image 2"
 
 # Telegram Bot with Node.js: Conversations
 
-{% raw %}
-
 In this article, I continue to share the results of studying the creation of Telegram bots in Node.js, as I began in previous publications ([one](https://flancer32.com/telegram-bots-the-first-steps-c1688e572abe), [two](https://flancer32.com/telegram-bot-with-node-js-implementing-crud-l-operations-using-command-arguments-fcfb38991efa)). This time, I will show you how to organize interactive conversations with users using the [conversations](https://grammy.dev/plugins/conversations) plugin from the [grammY](https://grammy.dev/) library. We’ll explore how to set up the library to work with conversations, manage their completion, and implement branching and looping. This approach will serve as a foundation for more complex projects where user interaction is crucial.
 
 ## Introduction
@@ -255,5 +253,3 @@ Stay connected:
 - [Fiverr](https://www.fiverr.com/wiredgeese)
 
 Thank you for your support!
-
-    {% endraw %}

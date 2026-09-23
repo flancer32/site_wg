@@ -16,7 +16,7 @@ image_alt: "Article removed from Habr"
             style="float: left; margin: 15px 15px 0 0;"
     ></zoom-img>
 
-On January 7th, I published an article titled **["How AGI Will Make the Smart Richer and Everyone Else Poorer"](/{{ locale }}/library/philosophy/20250107-ai-resources-levels.html)** on the [Habr](https://habr.com/) platform. A few hours later, it was removed due to their policy prohibiting AI-generated content — even when the material is based on original ideas and merely edited with AI assistance.
+On January 7th, I published an article titled **["How AGI Will Make the Smart Richer and Everyone Else Poorer"](/en/library/philosophy/20250107-ai-resources-levels.html)** on the [Habr](https://habr.com/) platform. A few hours later, it was removed due to their policy prohibiting AI-generated content — even when the material is based on original ideas and merely edited with AI assistance.
 
 Three weeks later, on January 30th, [another article](https://habr.com/ru/articles/877844/) appeared on the same platform with a postscript: *"P.S.: The text was entirely written by ChatGPT, but it's so good I couldn't resist sharing"*. This one remained published.
 

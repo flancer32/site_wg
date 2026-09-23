@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/behavior.md`
 - Template Version: `20260605`
-- Changed: `20260911`
+- Changed: `20260923`
 
 ## Purpose
 
@@ -14,7 +14,7 @@ Product meaning is accepted in `ctx/docs/product/`, refined through architecture
 
 `product context -> architecture -> environment -> code guidance -> authored sources -> TeqCMS rendering/publication -> derived web output`
 
-Generated output does not feed meaning upstream. Template, asset, and configuration sources remain implementation inputs; browser-facing output under `web/` remains derived. Publication must preserve semantic parity across maintained locales.
+Generated output does not feed meaning upstream. Template, canonical Markdown publication, asset, and configuration sources remain implementation inputs; browser-facing output under `web/` remains derived. Publication must preserve semantic parity across maintained locales.
 
 ## Development Participation Flow
 
@@ -30,7 +30,7 @@ This is a development-process relationship, not a request-time or production-run
 
 ## Request-Time Flow
 
-An inbound request is normalized, resolved to a locale-aware authored route, enriched only with bounded site data where justified, and rendered through the shared shell. Unresolved HTML requests return the localized not-found surface.
+An inbound request is normalized and checked for a permanent redirect. Journal and Library publication routes resolve to locale-specific Markdown: `.md` returns the raw source, while `.html` renders the Markdown body in the shared SSR shell. Other routes use ordinary locale-aware TeqCMS/Nunjucks rendering. Unresolved publication and HTML requests reach the localized not-found surface.
 
 Work-with-Alex, current work, Journal, foundation explanation, history, and book pages use this shared site flow. A semantic destination does not gain its own application or backend merely because its content role is distinct.
 

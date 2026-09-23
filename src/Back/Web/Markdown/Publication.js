@@ -80,6 +80,12 @@ export default class Publication {
          * @returns {Promise<object>}
          */
         this.load = async (route) => {
+            if (!route || !['en', 'ru', 'es'].includes(route.locale)
+                || !/^[a-z0-9][a-z0-9-]*$/.test(route.slug)
+                || (route.type === 'blog' && !/^\d{4}$/.test(route.year))
+                || (route.type === 'library' && (!Array.isArray(route.directory)
+                    || route.directory.some((segment) => !/^[a-z0-9-]+$/.test(segment))))
+                || !['blog', 'library'].includes(route.type)) return null;
             const parts = route.type === 'library'
                 ? [publicationRoot(), route.locale, 'library', ...route.directory]
                 : [publicationRoot(), route.locale, 'blog', route.year];
@@ -88,6 +94,7 @@ export default class Publication {
             if (path.dirname(filePath) !== expectedDirectory) return null;
             let source;
             try {
+                if (await fs.realpath(filePath) !== path.resolve(filePath)) return null;
                 source = await fs.readFile(filePath, 'utf8');
             } catch (error) {
                 if (error?.code === 'ENOENT' || error?.code === 'ENOTDIR') return null;
@@ -97,8 +104,9 @@ export default class Publication {
             const title = parsed?.attributes.title;
             const sourceDescription = parsed?.attributes.description;
             const date = parsed?.attributes.date;
-            if (!parsed || typeof title !== 'string') return null;
+            if (!parsed || typeof title !== 'string' || !title.trim()) return null;
             if (route.type === 'blog' && (typeof date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(date))) return null;
+            if (date && (typeof date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(date))) return null;
             const rawRelations = parsed.attributes.relations;
             const relations = Array.isArray(rawRelations)
                 ? rawRelations.filter((relation) => RELATION_ID_PATTERN.test(relation))

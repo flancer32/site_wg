@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/overview.md`
 - Template Version: `20260605`
-- Changed: `20260911`
+- Changed: `20260923`
 
 ## Purpose
 
@@ -28,7 +28,7 @@ Development-time agent participation is distinct from production-runtime behavio
 
 The stable publication flow is:
 
-`authoritative context -> authored templates and assets -> TeqCMS plus thin project adapter -> SSR or published browser output`
+`authoritative context -> authored templates, canonical Markdown publications, and assets -> TeqCMS plus thin project adapter -> HTML or raw Markdown public output`
 
 The revised product model changes semantic surfaces, visitor paths, and evidence relationships. It does not authorize a new site engine, separate applications for those surfaces, or incorporation of promoted-product runtimes into the website process.
 

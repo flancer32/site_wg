@@ -9,8 +9,6 @@ image_alt: "Image 2"
 
 # Telegram Bots: The First Steps
 
-{% raw %}
-
 Telegram bots have become [a popular tool](https://flancer32.com/what-is-a-telegram-bot-a-simple-introduction-for-new-users-9d9a675b27b9) for automating tasks, integrating services, and even creating new experiences for users. In this post, I’ll walk you through how to set up your first Telegram bot using the [grammY](https://grammy.dev/) library, a powerful and easy-to-use Node.js framework for building Telegram bots. This guide is for developers who want to get started with Telegram bot development using modern tools and frameworks.
 
 ## Why grammY?
@@ -307,5 +305,3 @@ Stay connected:
 - [Upwork](https://www.upwork.com/freelancers/~0181de0a64c6981497)
 
 Thank you for your support!
-
-    {% endraw %}

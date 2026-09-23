@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/overview.md`
 - Template Version: `20260630`
-- Changed: `20260910`
+- Changed: `20260923`
 
 ## Purpose
 
@@ -12,7 +12,7 @@ Provide the entry point for web-facing code documentation under `ctx/docs/code/`
 
 This branch isolates implementation-facing documentation for the site's web surface from other code-level concerns.
 
-The current project uses a multilingual SSR site model built from authored templates under `tmpl/` and runtime adaptation under `src/`.
+The current project uses a multilingual SSR site model built from authored composition templates and Markdown publications under `tmpl/`, with runtime adaptation under `src/`.
 
 The current implementation realizes the Architecture's `SELL + DEMONSTRATE + DOCUMENT` responsibilities through direct commercial entry, Current Work, Journal evidence, working-model explanation, and human commercial handoff while preserving durable/history discovery. The retained `/projects.html` route is publicly labelled Current Work and separates active systems from historical material. Exact future paths, labels, visual composition, and interaction details remain open; the retired GitHub offer remains historical only.
 
@@ -36,12 +36,12 @@ The current web-facing code branch contains:
 
 The current SSR web branch is anchored in these repository areas:
 
-- `tmpl/web/` — authored locale-specific templates, shared partials, and page families;
+- `tmpl/web/` — authored locale-specific templates, canonical Journal and Library Markdown, shared partials, and page families;
 - `src/Back/Web/Cms/Handler/` — custom SSR request enrichment and redirect handling;
 - `tmpl/web/{locale}/contact.html` — current static new-product contact handoff; the campaign-specific email runtime is retired;
 - `src/Back/Web/Handler/NotFound.js` — final localized HTML fallback for unresolved GET and HEAD requests;
 - `src/Back/Di/Replace/Adapter.js` — project-specific render-data adaptation around the CMS renderer;
 - `src/Back/Cli/Plugin.js` — application lifecycle plugin that registers project-specific web handlers before the standard web command starts;
-- `bin/generate-sitemap.mjs` — deterministic multilingual sitemap generation from authored template routes;
+- `bin/generate-sitemap.mjs` — deterministic multilingual sitemap generation from composition templates and Markdown article sources;
 - `teqcms.config.mjs` — pre-DI host configuration selecting the project CMS adapter and template engine provider;
 - `etc/redirect-map.json` — declarative redirect source used by SSR request normalization.

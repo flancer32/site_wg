@@ -9,8 +9,6 @@ image_alt: "Image 2"
 
 # Understanding Early vs. Late Binding in JavaScript
 
-{% raw %}
-
 The difference between early and late binding is significant but can be challenging to grasp — especially from a developer’s perspective. In this article, I’ll share a foundational insight that I believe captures this distinction, using a straightforward JavaScript/TypeScript example. While this perspective may be unconventional, it could offer valuable clarity for developers refining their approach to code dependencies.
 
 ![Image 2](/medium/img/d80c6b985f4b/image-01.jpg)
@@ -169,5 +167,3 @@ Stay connected:
 - [Fiverr](https://www.fiverr.com/wiredgeese)
 
 Thank you for your support!
-
-    {% endraw %}

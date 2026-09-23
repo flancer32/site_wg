@@ -21,3 +21,17 @@ test('resolves valid publication routes and renders canonical article metadata',
     assert.match(article.html, /<h1>Body<\/h1>/);
     assert.equal(publication.parseRoute('/en/blog/2026/%2e%2e%2farticle.html'), null);
 });
+
+test('requires publication metadata and uses a deterministic description fallback', async () => {
+    const root = await fs.mkdtemp(path.join(os.tmpdir(), 'wg-frontmatter-'));
+    const directory = path.join(root, 'tmpl/web/en/blog/2026');
+    await fs.mkdir(directory, {recursive: true});
+    const publication = new Publication({fs, path, marked, tmplConfig: {getRootPath: () => root}});
+    const route = publication.parseRoute('/en/blog/2026/article.md');
+    await fs.writeFile(path.join(directory, 'article.md'), '---\ntitle: ""\ndate: 2026-09-23\n---\n\nBody text.');
+    assert.equal(await publication.load(route), null);
+    await fs.writeFile(path.join(directory, 'article.md'), '---\ntitle: Article\ndate: invalid\n---\n\nBody text.');
+    assert.equal(await publication.load(route), null);
+    await fs.writeFile(path.join(directory, 'article.md'), '---\ntitle: Article\ndate: 2026-09-23\n---\n\nBody text.');
+    assert.equal((await publication.load(route)).metadata.description, 'Body text.');
+});

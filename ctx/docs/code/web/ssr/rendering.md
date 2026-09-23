@@ -14,25 +14,24 @@ The project declares its `App_` namespace and CLI lifecycle plugin in `package.j
 
 ## Request Sequence
 
-1. decode the request path and derive locale-aware routing information;
-2. apply a declarative permanent redirect response when the path is mapped;
-3. request base render data from the CMS adapter only when no redirect completes the request;
-4. resolve the effective post-normalization route;
-5. add approved project metadata or route-specific data;
-6. render the locale template or return the localized not-found response.
+1. normalize the request and apply a permanent redirect for mapped legacy paths;
+2. resolve an explicitly published locale-specific Journal or Library Markdown source when the route matches;
+3. return raw source for `.md`, or render its HTML body through the shared article template and locale layout for `.html`;
+4. otherwise request CMS render data, apply bounded project enrichment, and render the ordinary locale template;
+5. return the localized not-found response when no publication or template resolves.
 
 ## Stable Enrichment
 
 The stable target includes:
 
-- canonical and alternate URLs derived from a validated public origin;
+- canonical and alternate URLs derived by one shared metadata component from a validated public origin;
 - locale and route classification used by the shared shell;
 - localized not-found handling;
-- journal-index collection from authored article fragments;
-- a small deterministic recent-Journal projection from those same authored fragments on locale Home routes;
-- optional `<!-- journal-relations: stable-id -->` metadata parsed from authored Journal pages; the project adapter uses it only for a bounded Current Work evidence projection and Event-to-current-state links;
+- journal-index collection from Markdown front matter;
+- a small deterministic recent-Journal projection from those same Markdown sources on locale Home routes;
+- optional `relations` front matter on Journal Markdown, used only for a bounded Current Work evidence projection and Event-to-current-state links;
 - redirect behavior supporting canonical routes and intentional legacy-path preservation.
-- a Markdown publication handler that resolves locale-scoped Journal and Library sources and renders their `.html` projections through the shared Nunjucks layout; it returns raw Markdown without template execution for every locale. `/llms.txt` separately curates English URLs for agent discovery.
+- a Markdown publication handler that resolves locale-scoped Journal and Library sources and renders their `.html` projections through the shared article template and locale layout; it returns raw Markdown without template execution for every locale. `/llms.txt` separately curates English URLs for agent discovery.
 
 The relation identifier states that a dated Event materially concerns an object. It does not change status, prove validation, or create an Event store. The status-bearing Current Work destination remains authoritative.
 

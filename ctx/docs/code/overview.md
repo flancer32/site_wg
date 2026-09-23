@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/overview.md`
 - Template Version: `20260629`
-- Changed: `20260911`
+- Changed: `20260923`
 
 ## Purpose
 
@@ -15,7 +15,7 @@ The code documentation describes the existing multilingual SSR delivery model an
 ## Repository Boundaries
 
 - `src/` plus `teqcms.config.mjs` contain project-specific runtime adaptation.
-- `tmpl/` contains authored public pages and shared partials.
+- `tmpl/` contains authored composition templates, canonical Markdown publications, and shared partials.
 - `web/` contains generated or published output rather than primary authored implementation.
 - `etc/` and `bin/` contain environment-facing operational assets.
 - `ctx/` contains normative meaning and implementation constraints, not runtime code.

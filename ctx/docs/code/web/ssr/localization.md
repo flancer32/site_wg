@@ -10,7 +10,7 @@ Describe locale-aware SSR routes, metadata, shell copy, and locale switching.
 
 ## Supported Locales And URLs
 
-The authored trees are `en`, `ru`, and `es`, each with localized pages and shared includes. Public routes use `/{locale}/...`. The adapter supplies a clean canonical URL, equivalent alternates, and an English `x-default` where English exists. Directory indexes retain trailing slashes; current standalone and detail templates use `.html` paths.
+The authored trees are `en`, `ru`, and `es`, each with localized pages and shared includes. Public routes use `/{locale}/...`. The shared metadata component supplies a clean canonical URL and equivalent alternates to both the Markdown handler and ordinary CMS adapter; the layout emits an English `x-default` where English exists. Directory indexes retain trailing slashes; current standalone and detail templates use `.html` paths.
 
 All dated Markdown-backed Journal publications derive HTML in every existing locale, and all locales expose their corresponding raw `.md` routes. `/llms.txt` specially lists the English Journal corpus for agent discovery; Russian and Spanish `.md` routes remain directly retrievable.
 

@@ -2,23 +2,18 @@
 
 /**
  * @namespace App_Back_Web_Cms_Handler_Blog
- * @description Builds the localized journal index from article-owned summary fragments.
+ * @description Builds localized Journal indexes and relation projections from Markdown metadata.
  */
 
 const YEAR_DIRECTORY_PATTERN = /^\d{4}$/;
-const BLOG_ITEM_BLOCK_PATTERN = /{% block blog_item %}([\s\S]*?){% endblock %}/i;
-const JOURNAL_RELATIONS_PATTERN = /<!--\s*journal-relations:\s*([^>]*?)\s*-->/gi;
-const HTML_EXTENSION_PATTERN = /\.html$/i;
 const MARKDOWN_EXTENSION_PATTERN = /\.md$/i;
-const BLOG_ITEM_TITLE_PATTERN = /<h4\b[^>]*>([\s\S]*?)<\/h4>/i;
-const BLOG_ITEM_LINK_PATTERN = /<a(\s+class=["'][^"']*\bcard-link\b[^"']*["'])/i;
 const RELATION_ID_PATTERN = /^[a-z][a-z0-9-]*$/;
 
 /** @param {string} a @param {string} b @returns {number} */
 const sortNumericDesc = (a, b) => Number(b) - Number(a);
 
 /** @param {string} a @param {string} b @returns {number} */
-const sortHtmlFilesDesc = (a, b) =>
+const sortArticleFilesDesc = (a, b) =>
     b.localeCompare(a, undefined, { numeric: true, sensitivity: 'base' });
 
 export default class Blog {
@@ -56,9 +51,9 @@ export default class Blog {
             const dirents = await fs.readdir(target, {withFileTypes: true});
             return dirents
                 .filter((dirent) => dirent.isFile()
-                    && (HTML_EXTENSION_PATTERN.test(dirent.name) || MARKDOWN_EXTENSION_PATTERN.test(dirent.name)))
+                    && MARKDOWN_EXTENSION_PATTERN.test(dirent.name))
                 .map((dirent) => dirent.name)
-                .sort(sortHtmlFilesDesc);
+                .sort(sortArticleFilesDesc);
         };
 
         /** @param {string} value @returns {string} */
@@ -73,7 +68,7 @@ export default class Blog {
          */
         const extractMarkdownBlogItem = async (locale, year, fileName) => {
             const slug = fileName.replace(MARKDOWN_EXTENSION_PATTERN, '');
-            const article = await publication.load({locale, year, slug});
+            const article = await publication.load({type: 'blog', locale, year, slug});
             if (!article) return null;
             const {metadata} = article;
             const summary = typeof metadata.summary === 'string' ? metadata.summary : metadata.description;
@@ -83,65 +78,9 @@ export default class Blog {
             const image = typeof metadata.image === 'string' ? metadata.image : '/img/avatar.jpg';
             const imageAlt = typeof metadata.image_alt === 'string' ? metadata.image_alt : '';
             return {
-                html: `<li class="blog-item"><a class="card-link" href="/${locale}/blog/${year}/${slug}.html"></a><img src="${escapeHtml(image)}" alt="${escapeHtml(imageAlt)}"><div><h4>${escapeHtml(metadata.title)}</h4><p>${escapeHtml(summary)}</p><time datetime="${metadata.date}">${escapeHtml(displayDate)}</time></div></li>`,
+                html: `<li class="blog-item"><a class="card-link" href="/${locale}/blog/${year}/${slug}.html" aria-label="${escapeHtml(metadata.title)}"></a><img loading="lazy" decoding="async" src="${escapeHtml(image)}" alt="${escapeHtml(imageAlt)}"><div><h2>${escapeHtml(metadata.title)}</h2><p>${escapeHtml(summary)}</p><time datetime="${metadata.date}">${escapeHtml(displayDate)}</time></div></li>`,
                 relations: metadata.relations,
             };
-        };
-
-        /** @param {string} html @returns {string} */
-        const normalizeBlogItemHtml = (html) => {
-            const titleMatch = BLOG_ITEM_TITLE_PATTERN.exec(html);
-            const title = titleMatch?.[1]
-                ?.replace(/<[^>]+>/g, '')
-                .replace(/\s+/g, ' ')
-                .trim()
-                .replaceAll('"', '&quot;');
-            let result = html
-                .replace(/<h4\b([^>]*)>/i, '<h2$1>')
-                .replace(/<\/h4>/i, '</h2>')
-                .replace(/<img\b(?![^>]*\bloading=)/i, '<img loading="lazy" decoding="async"');
-            if (title) {
-                result = result.replace(BLOG_ITEM_LINK_PATTERN, `<a$1 aria-label="${title}"`);
-            }
-            return result;
-        };
-
-        /**
-         * Parses optional, authored relationships without making journal
-         * chronology responsible for the current status of an object.
-         *
-         * @param {string} content
-         * @returns {string[]}
-         */
-        const extractRelations = (content) => {
-            const relations = new Set();
-            for (const match of content.matchAll(JOURNAL_RELATIONS_PATTERN)) {
-                for (const value of match[1].split(',')) {
-                    const relation = value.trim();
-                    if (RELATION_ID_PATTERN.test(relation)) relations.add(relation);
-                }
-            }
-            return [...relations];
-        };
-
-        /**
-         * @param {string} locale
-         * @param {string} year
-         * @param {string} dir
-         * @param {string} fileName
-         * @returns {Promise<object>}
-         */
-        const extractBlogItem = async (locale, year, dir, fileName) => {
-            if (MARKDOWN_EXTENSION_PATTERN.test(fileName)) {
-                return extractMarkdownBlogItem(locale, year, fileName);
-            }
-            const filePath = path.join(dir, fileName);
-            const content = await fs.readFile(filePath, 'utf-8');
-            const match = BLOG_ITEM_BLOCK_PATTERN.exec(content);
-            return match ? {
-                html: normalizeBlogItemHtml(match[1]),
-                relations: extractRelations(content),
-            } : null;
         };
 
         /**
@@ -154,11 +93,11 @@ export default class Blog {
             const entries = [];
             const files = await listArticleFiles(yearPath);
             for (const fileName of files) {
-                const item = await extractBlogItem(locale, year, yearPath, fileName);
+                const item = await extractMarkdownBlogItem(locale, year, fileName);
                 if (!item) continue;
                 entries.push({
-                    slug: fileName.replace(/\.(?:html|md)$/i, ''),
-                    url: path.posix.join('/', locale, 'blog', year, `${fileName.replace(/\.(?:html|md)$/i, '')}.html`),
+                    slug: fileName.replace(MARKDOWN_EXTENSION_PATTERN, ''),
+                    url: path.posix.join('/', locale, 'blog', year, `${fileName.replace(MARKDOWN_EXTENSION_PATTERN, '')}.html`),
                     ...item,
                 });
             }

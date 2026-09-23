@@ -13,3 +13,5 @@ type App_Back_Web_Handler_Markdown = import("./src/Back/Web/Handler/Markdown.js"
 type App_Back_Web_Handler_Markdown__Class = typeof import("./src/Back/Web/Handler/Markdown.js").default;
 type App_Back_Web_Handler_NotFound = import("./src/Back/Web/Handler/NotFound.js").default;
 type App_Back_Web_Handler_NotFound__Class = typeof import("./src/Back/Web/Handler/NotFound.js").default;
+type App_Back_Web_Metadata = import("./src/Back/Web/Metadata.js").default;
+type App_Back_Web_Metadata__Class = typeof import("./src/Back/Web/Metadata.js").default;

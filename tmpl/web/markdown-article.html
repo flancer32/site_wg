@@ -1,0 +1,21 @@
+{% extends "inc/layout.html" %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block description %}{{ article.description }}{% endblock %}
+{% block html_head_extra %}
+<link rel="alternate" type="text/markdown" href="{{ markdownUrl }}" title="{{ article.title }} (Markdown)">
+{% endblock %}
+{% block content %}
+{% if isLibrary %}
+<article class="card library-article">
+    {% if article.date %}
+    <span style="display: block; text-align: right;"><strong>{{ article.dateLabel }}:</strong> <time datetime="{{ article.date }}">{{ article.date }}</time></span>
+    {% endif %}
+    {{ article.html | safe }}
+</article>
+{% else %}
+<article class="card blog-post">
+    <time datetime="{{ article.date }}">{{ article.display_date or article.date }}</time>
+    {{ article.html | safe }}
+</article>
+{% endif %}
+{% endblock %}

@@ -9,8 +9,6 @@ image_alt: "Image 2"
 
 # Telegram Bot with Node.js: Using Error Handling to Boost Resilience
 
-{% raw %}
-
 In this article, I’ll share my experience in developing Telegram bots on Node.js with the [grammY](https://grammy.dev/) library. Bot development often requires robust error handling to avoid breakdowns and improve application resilience. Using a [demo bot](https://github.com/flancer64/tg-demo-all) as an example, I’ll explain how such errors may arise and how to address them.
 
 ## Problem Description
@@ -110,5 +108,3 @@ Stay connected:
 - [Fiverr](https://www.fiverr.com/wiredgeese)
 
 Thank you for your support!
-
-    {% endraw %}

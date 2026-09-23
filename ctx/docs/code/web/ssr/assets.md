@@ -37,4 +37,4 @@ Content images remain passive assets. Interactive behavior around an image belon
 - Large article media should remain viewport-bounded.
 - Off-screen component images may load lazily and decode asynchronously.
 - New decorative media must not become a required third-party runtime dependency.
-- Generated publication output under `web/` remains downstream of authored templates and context.
+- Generated publication output under `web/` remains downstream of authored composition templates, canonical Markdown publications, and context.

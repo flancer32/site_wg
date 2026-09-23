@@ -9,6 +9,7 @@ import * as marked from 'marked';
 
 import Publication from '../../src/Back/Web/Markdown/Publication.js';
 import Markdown from '../../src/Back/Web/Handler/Markdown.js';
+import Metadata from '../../src/Back/Web/Metadata.js';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -29,6 +30,7 @@ async function fixture() {
     await fs.writeFile(path.join(russianLibraryDirectory, 'article.md'), source.replaceAll('A title', 'Русский заголовок'));
     await fs.mkdir(path.join(root, 'tmpl/web'), {recursive: true});
     await fs.writeFile(path.join(root, 'tmpl/web/llms.txt'), 'Discovery\n');
+    await fs.copyFile(path.join(projectRoot, 'tmpl/web/markdown-article.html'), path.join(root, 'tmpl/web/markdown-article.html'));
     const publication = new Publication({fs, path, marked, tmplConfig: {getRootPath: () => root}});
     return {root, source, publication};
 }
@@ -42,7 +44,7 @@ async function collectJournalRoutes(locale) {
         const directory = path.join(blogRoot, year);
         const files = await fs.readdir(directory, {withFileTypes: true});
         for (const file of files.filter((entry) => entry.isFile() && entry.name.endsWith('.md')).map((entry) => entry.name).sort()) {
-            routes.push({locale, year, slug: file.slice(0, -'.md'.length), representation: 'html'});
+            routes.push({type: 'blog', locale, year, slug: file.slice(0, -'.md'.length), representation: 'html'});
         }
         assert.deepEqual(files.filter((entry) => entry.isFile() && entry.name.endsWith('.html')).map((entry) => entry.name), []);
     }
@@ -135,13 +137,14 @@ test('parses and renders Library Markdown without Journal-only metadata', async 
 test('serves raw Markdown routes in every locale and exposes localized HTML', async () => {
     const {root, source, publication} = await fixture();
     const calls = [];
+    const rendered = [];
     const handler = new Markdown({
         http2, fs, path,
         respond: {isWritable: () => true, code200_Ok: (payload) => calls.push(payload)},
         dtoInfo: {create: (info) => info},
-        config: {getBaseUrl: () => 'https://wiredgeese.com'},
+        metadata: new Metadata({config: {getBaseUrl: () => 'https://wiredgeese.com'}, tmplConfig: {getAvailableLocales: () => ['en', 'ru', 'es']}}),
         tmplConfig: {getRootPath: () => root, getAvailableLocales: () => ['en', 'ru', 'es']},
-        servTmplRender: {perform: async ({data}) => ({content: `<html>${data.markdownUrl ? `<link rel="alternate" type="text/markdown" href="${data.markdownUrl}">` : ''}${data.article.html}</html>`})},
+        servTmplRender: {perform: async ({data}) => { rendered.push(data); return {content: `<html>${data.markdownUrl ? `<link rel="alternate" type="text/markdown" href="${data.markdownUrl}">` : ''}${data.article.html}</html>`}; }},
         publication, STAGE: {PROCESS: 'PROCESS'},
     });
     const html = {request: {method: 'GET', url: '/en/blog/2026/article.html'}, response: {}, completed: false};
@@ -149,6 +152,8 @@ test('serves raw Markdown routes in every locale and exposes localized HTML', as
     assert.equal(html.completed, true);
     assert.equal(calls[0].headers['content-type'], 'text/html; charset=utf-8');
     assert.match(calls[0].body, /<strong>body<\/strong>/);
+    assert.equal(rendered[0].canonicalUrl, 'https://wiredgeese.com/en/blog/2026/article.html');
+    assert.deepEqual(rendered[0].alternateUrls, {en: 'https://wiredgeese.com/en/blog/2026/article.html', ru: 'https://wiredgeese.com/ru/blog/2026/article.html', es: 'https://wiredgeese.com/es/blog/2026/article.html'});
     const markdown = {request: {method: 'GET', url: '/en/blog/2026/article.md'}, response: {}, completed: false};
     await handler.handle(markdown);
     assert.equal(calls[1].headers['content-type'], 'text/markdown; charset=utf-8');
@@ -176,17 +181,28 @@ test('serves raw Markdown routes in every locale and exposes localized HTML', as
     await handler.handle(spanishHtml);
     assert.equal(spanishHtml.completed, true);
     assert.match(calls[6].body, /type="text\/markdown" href="https:\/\/wiredgeese\.com\/es\/blog\/2026\/article\.md"/);
+    assert.equal(rendered[3].canonicalUrl, 'https://wiredgeese.com/es/blog/2026/article.html');
     const spanishMarkdown = {request: {method: 'GET', url: '/es/blog/2026/article.md'}, response: {}, completed: false};
     await handler.handle(spanishMarkdown);
     assert.equal(spanishMarkdown.completed, true);
     assert.equal(calls[7].headers['content-type'], 'text/markdown; charset=utf-8');
     assert.match(calls[7].body, /Título en español/);
+    const markdownHead = {request: {method: 'HEAD', url: '/en/blog/2026/article.md'}, response: {}, completed: false};
+    await handler.handle(markdownHead);
+    assert.equal(markdownHead.completed, true);
+    assert.equal(calls.at(-1).body, '');
+    assert.equal(calls.at(-1).headers['content-length'], Buffer.byteLength(source));
+    const htmlHead = {request: {method: 'HEAD', url: '/en/blog/2026/article.html'}, response: {}, completed: false};
+    await handler.handle(htmlHead);
+    assert.equal(htmlHead.completed, true);
+    assert.equal(calls.at(-1).body, '');
+    assert.equal(calls.at(-1).headers['content-type'], 'text/html; charset=utf-8');
     const missing = {request: {method: 'GET', url: '/en/blog/2026/missing.md'}, response: {}, completed: false};
     await handler.handle(missing);
     assert.equal(missing.completed, false);
     const llms = {request: {method: 'GET', url: '/llms.txt'}, response: {}, completed: false};
     await handler.handle(llms);
-    assert.equal(calls[8].body, 'Discovery\n');
+    assert.equal(calls.at(-1).body, 'Discovery\n');
 });
 
 test('uses locale-specific Markdown for the complete Journal and indexes only the English corpus', async () => {
@@ -216,5 +232,54 @@ test('uses locale-specific Markdown for the complete Journal and indexes only th
     assert.doesNotMatch(sitemap, /\.md<\/loc>/);
     for (const link of links) {
         assert.match(sitemap, new RegExp(link.replace('.md', '.html')));
+    }
+});
+
+test('publication resolver rejects malformed, unsupported, and unrelated Markdown routes', async () => {
+    const {publication} = await fixture();
+    for (const url of [
+        '/en/blog/2026/article.md%ZZ',
+        '/en/blog/2026/../article.md',
+        '/en/blog/2026/%2e%2e%2farticle.md',
+        '/en/library/%2e%2e%2farticle.md',
+        '/fr/blog/2026/article.md',
+        '/ctx/docs/filesystem.md',
+        '/en/index.md',
+        '/en/library/../article.md',
+    ]) assert.equal(publication.parseRoute(url), null, url);
+    for (const route of [
+        {type: 'blog', locale: 'en', year: '2026', slug: '../article'},
+        {type: 'library', locale: 'en', directory: ['..'], slug: 'article'},
+        {type: 'blog', locale: 'fr', year: '2026', slug: 'article'},
+        {type: 'other', locale: 'en', year: '2026', slug: 'article'},
+    ]) assert.equal(await publication.load(route), null);
+    const {root} = await fixture();
+    await fs.mkdir(path.join(root, 'ctx'), {recursive: true});
+    await fs.writeFile(path.join(root, 'ctx/private.md'), '---\ntitle: Private\ndescription: Private\ndate: 2026-09-23\n---\n\n# Secret');
+    await fs.symlink(path.join(root, 'ctx/private.md'), path.join(root, 'tmpl/web/en/blog/2026/leak.md'));
+    const privatePublication = new Publication({fs, path, marked, tmplConfig: {getRootPath: () => root}});
+    assert.equal(await privatePublication.load(privatePublication.parseRoute('/en/blog/2026/leak.md')), null);
+    assert.equal(await publication.load(publication.parseRoute('/en/library/concepts/missing.md')), null);
+    assert.equal(await publication.load(publication.parseRoute('/en/blog/2026/missing.html')), null);
+});
+
+test('shared article template renders localized HTML metadata in the site shell', async () => {
+    const {default: nunjucks} = await import('nunjucks');
+    const template = await fs.readFile(path.join(projectRoot, 'tmpl/web/markdown-article.html'), 'utf8');
+    for (const locale of ['en', 'ru', 'es']) {
+        const environment = new nunjucks.Environment(new nunjucks.FileSystemLoader(path.join(projectRoot, 'tmpl/web', locale)), {autoescape: true});
+        const html = environment.renderString(template, {
+            locale,
+            allowedLocales: ['en', 'ru', 'es'],
+            canonicalUrl: `https://wiredgeese.com/${locale}/blog/2026/article.html`,
+            alternateUrls: Object.fromEntries(['en', 'ru', 'es'].map((alternate) => [alternate, `https://wiredgeese.com/${alternate}/blog/2026/article.html`])),
+            markdownUrl: `https://wiredgeese.com/${locale}/blog/2026/article.md`,
+            isPublication: true,
+            article: {title: 'Article', description: 'Summary', date: '2026-09-23', html: '<h1>Body</h1>'},
+        });
+        assert.match(html, new RegExp(`rel="canonical" href="https://wiredgeese\\.com/${locale}/blog/2026/article\\.html"`));
+        assert.match(html, new RegExp(`type="text/markdown" href="https://wiredgeese\\.com/${locale}/blog/2026/article\\.md"`));
+        assert.match(html, /hreflang="x-default"/);
+        assert.match(html, /<h1>Body<\/h1>/);
     }
 });
