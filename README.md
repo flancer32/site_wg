@@ -7,7 +7,7 @@ The source code of the personal website [wiredgeese.com](https://wiredgeese.com)
 - Static multilingual site with Nunjucks templates.
 - Server-side rendering (SSR) without a database or frontend build.
 - AI-powered translation system based on OpenAI-compatible API.
-- Content stored as HTML/Nunjucks files in Git, with opt-in canonical Markdown for selected long-form Journal articles.
+- Content stored as HTML/Nunjucks files in Git, with all dated Journal articles authored in canonical Markdown.
 
 ## Requirements
 
@@ -94,9 +94,9 @@ The translation metadata is stored in `/var/teq-cms/db_translate.json`.
 
 ## Markdown publications
 
-Selected Journal articles may be authored once at `tmpl/web/{locale}/blog/{year}/{slug}.md`. Front matter requires `title`, `description`, and ISO `date`; optional `display_date`, `summary`, `image`, `image_alt`, and `relations` supply the existing Journal-card, locale display, and relation projections. Locale remains structural in the directory, not duplicated in front matter.
+Every dated Journal article is authored at `tmpl/web/{locale}/blog/{year}/{slug}.md`. Front matter requires `title`, `description`, and ISO `date`; optional `display_date`, `summary`, `image`, `image_alt`, and `relations` supply the existing Journal-card, locale display, and relation projections. Locale remains structural in the directory, not duplicated in front matter.
 
-Every existing locale is published at `/{locale}/blog/{year}/{slug}.html` as normal SSR HTML. Only the English source is additionally published at `/en/blog/{year}/{slug}.md` for agents; never add Russian or Spanish Markdown URLs to `/llms.txt`. Shared layout, navigation, footer, relation panel, and discussion CTA remain SSR responsibilities. Use Markdown for large, mostly linear documents; keep Nunjucks/HTML for shared composition and pages whose human meaning depends on layout or components. Markdown is opt-in: existing templates and unselected articles remain HTML/Nunjucks. Run `npm test`, `npm run typecheck`, and `npm run sitemap` after changes.
+Every existing locale is published at `/{locale}/blog/{year}/{slug}.html` as normal SSR HTML. Only the English source is additionally published at `/en/blog/{year}/{slug}.md` for agents; `/llms.txt` lists the complete English Journal corpus and never includes Russian or Spanish Markdown URLs. Shared layout, navigation, footer, relation panel, and discussion CTA remain SSR responsibilities. Keep Nunjucks/HTML for shared composition and pages whose human meaning depends on layout or components. Run `npm test`, `npm run typecheck`, and `npm run sitemap` after changes.
 
 ## License
 

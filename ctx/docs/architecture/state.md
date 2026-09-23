@@ -24,7 +24,7 @@ Define state domains and sources of truth while separating normative meaning, au
 
 ## Authority And Derivation
 
-For an opted-in long-form publication, its locale-specific Markdown file is the single authored content and metadata state for that human locale. Its HTML SSR page is derived, not an editable copy. The English Markdown source is also the sole public agent representation; `/llms.txt` links only to that English corpus. This adds neither a database nor a new authority boundary.
+For every dated Journal publication, its locale-specific Markdown file is the single authored content and metadata state for that human locale. Its HTML SSR page is derived, not an editable copy. The English Markdown source is also the sole public agent representation; `/llms.txt` links to the complete English Journal corpus. This adds neither a database nor a new authority boundary.
 
 `ctx/docs/product/` is authoritative for product meaning. Architecture, environment, code guidance, authored content, and generated output refine or project that meaning in descending order.
 

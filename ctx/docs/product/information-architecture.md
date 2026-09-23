@@ -37,7 +37,7 @@ The persistent shell and Contact page may expose Alex's public Telegram channel 
 - **Books** retain direct purchase paths, separate from product-development work.
 - **Contact** begins a direct, non-automated conversation; it has no form, payment, credential collection, provisioning, or CRM role.
 
-Selected long-form Journal material may additionally be directly readable by agents as canonical English Markdown while retaining localized HTML presentation for people. This is a representation and discovery capability, not a new public application, content taxonomy, or replacement for human-oriented site navigation.
+All dated Journal material is authored as locale-specific Markdown and retains localized HTML presentation for people. Its English Markdown corpus is directly readable by agents through `/llms.txt`; Russian and Spanish Markdown sources are not agent-facing. This is a representation and discovery capability, not a new public application, content taxonomy, or replacement for human-oriented site navigation.
 
 ## Legacy And Redirects
 

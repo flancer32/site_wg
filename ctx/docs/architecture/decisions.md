@@ -10,12 +10,12 @@ Record the active durable architecture decisions and make revision or supersessi
 
 Only the current decision text in this document is normative. A `Revised` or `Supersedes` note identifies historical continuity; superseded wording is not an active alternative.
 
-## Decision 13: Publish Selected Long-Form Content From Canonical Markdown
+## Decision 13: Publish The Journal From Canonical Markdown
 
 - **Status:** revised.
-- **Decision:** use Markdown as the canonical authored form for selected large, mostly linear long-form content. The existing TeqCMS SSR application derives all localized HTML presentations. Only the English `.md` representation is public to agents and linked from `/llms.txt`; Russian and Spanish remain human HTML surfaces.
-- **Rejected alternatives:** an agent application, a database or parallel CMS, editable generated HTML, agent-facing translations without a demonstrated need, a broad template migration, or a sitemap dump as agent discovery.
-- **Reasoning:** Markdown is efficient for agents and durable prose authoring, while Nunjucks/HTML remains the appropriate authored form for shared layout, human-facing composition, navigation, CTAs, widgets, and structurally complex pages. One English agent corpus prevents duplicated machine-facing content and semantic drift. The model is incremental; template-backed pages remain valid.
+- **Decision:** use locale-specific Markdown as the canonical authored form for every dated Journal article. The existing TeqCMS SSR application derives all localized HTML presentations. Only the English `.md` representation is public to agents; `/llms.txt` lists the complete English Journal corpus, while Russian and Spanish remain human HTML surfaces.
+- **Rejected alternatives:** an agent application, a database or parallel CMS, editable generated HTML, agent-facing translations without a demonstrated need, a migration of shared or structurally complex pages, or a sitemap dump as agent discovery.
+- **Reasoning:** Markdown is efficient for agents and durable prose authoring across the Journal, while Nunjucks/HTML remains the appropriate authored form for shared layout, human-facing composition, navigation, CTAs, widgets, and structurally complex non-Journal pages. One complete English agent corpus prevents duplicated machine-facing content and semantic drift.
 
 ## Decision 1: Keep TeqCMS With A Thin Project Adapter
 

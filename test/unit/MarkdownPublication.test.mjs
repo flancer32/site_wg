@@ -27,6 +27,22 @@ async function fixture() {
     return {root, source, publication};
 }
 
+/** @param {string} locale @returns {Promise<{locale: string, year: string, slug: string, representation: 'html'}[]>} */
+async function collectJournalRoutes(locale) {
+    const blogRoot = path.join(projectRoot, 'tmpl/web', locale, 'blog');
+    const years = await fs.readdir(blogRoot, {withFileTypes: true});
+    const routes = [];
+    for (const year of years.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort()) {
+        const directory = path.join(blogRoot, year);
+        const files = await fs.readdir(directory, {withFileTypes: true});
+        for (const file of files.filter((entry) => entry.isFile() && entry.name.endsWith('.md')).map((entry) => entry.name).sort()) {
+            routes.push({locale, year, slug: file.slice(0, -'.md'.length), representation: 'html'});
+        }
+        assert.deepEqual(files.filter((entry) => entry.isFile() && entry.name.endsWith('.html')).map((entry) => entry.name), []);
+    }
+    return routes;
+}
+
 test('parses a canonical Markdown source and rejects non-public paths', async () => {
     const {publication, source} = await fixture();
     const route = publication.parseRoute('/en/blog/2026/article.html');
@@ -78,19 +94,29 @@ test('serves every locale as HTML but publishes Markdown only in English', async
     assert.equal(calls[3].body, 'Discovery\n');
 });
 
-test('the curated llms discovery links exactly the three migrated Markdown articles', async () => {
-    const links = (await fs.readFile(path.join(projectRoot, 'tmpl/web/llms.txt'), 'utf8'))
-        .match(/https:\/\/wiredgeese\.com\/en\/blog\/2026\/[^\s]+\.md/g) ?? [];
-    assert.deepEqual(links, [
-        'https://wiredgeese.com/en/blog/2026/20260910-01-current-work-evidence.md',
-        'https://wiredgeese.com/en/blog/2026/20260810-01-teqfw-agent-skills.md',
-        'https://wiredgeese.com/en/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.md',
-    ]);
-    for (const link of links) {
-        const relative = new URL(link).pathname;
-        const source = path.join(projectRoot, 'tmpl/web', relative.replace(/^\/en\//, 'en/'));
-        await fs.access(source);
+test('uses Markdown for the complete localized Journal and exposes only its English corpus to agents', async () => {
+    const publication = new Publication({fs, path, marked, tmplConfig: {getRootPath: () => projectRoot}});
+    const routesByLocale = await Promise.all(['en', 'ru', 'es'].map(collectJournalRoutes));
+    for (const routes of routesByLocale) {
+        assert.equal(routes.length, 79);
+        for (const route of routes) {
+            const article = await publication.load(route);
+            assert.ok(article, `${route.locale}/${route.year}/${route.slug}`);
+            assert.equal(typeof article.metadata.title, 'string');
+            assert.equal(typeof article.metadata.description, 'string');
+            assert.match(article.body, /\S/);
+        }
     }
+    const englishPaths = routesByLocale[0].map((route) => `${route.year}/${route.slug}`);
+    assert.deepEqual(routesByLocale[1].map((route) => `${route.year}/${route.slug}`), englishPaths);
+    assert.deepEqual(routesByLocale[2].map((route) => `${route.year}/${route.slug}`), englishPaths);
+    const links = (await fs.readFile(path.join(projectRoot, 'tmpl/web/llms.txt'), 'utf8'))
+        .match(/(?<=^- )https:\/\/wiredgeese\.com\/en\/blog\/[^\s]+\.md$/gm) ?? [];
+    const expectedLinks = routesByLocale[0].map((route) =>
+        `https://wiredgeese.com/en/blog/${route.year}/${route.slug}.md`);
+    assert.deepEqual(links, expectedLinks);
+    assert.doesNotMatch(await fs.readFile(path.join(projectRoot, 'tmpl/web/llms.txt'), 'utf8'),
+        /https:\/\/wiredgeese\.com\/(?:ru|es)\/blog\/[^\s]+\.md/);
     const sitemap = await fs.readFile(path.join(projectRoot, 'web/sitemap.xml'), 'utf8');
     assert.doesNotMatch(sitemap, /\.md<\/loc>/);
     for (const link of links) {

@@ -12,7 +12,7 @@ Record current route facts and preservation constraints separately from unresolv
 
 Public pages use `/{locale}/...` for `en`, `es`, and `ru`; locale resolution precedes rendering. Current directory indexes use trailing slashes and standalone/detail pages use `.html`. Current families include locale roots, About, Contact, Projects, Work With Me, Journal and dated articles, books, Library, project detail, localized 404, and Products. Retired commercial pages are redirect-only continuity routes, not authored page families.
 
-An opted-in Journal article has one locale-specific Markdown source at `tmpl/web/{locale}/blog/{year}/{slug}.md`. Every existing locale preserves its human canonical URL at `/{locale}/blog/{year}/{slug}.html`. Only English exposes the additional non-layout agent representation at `/en/blog/{year}/{slug}.md`; Russian and Spanish `.md` requests use the normal safe not-found path. The sitemap retains only human HTML URLs. Root `/llms.txt` is a concise curated English-agent discovery document, not a sitemap replacement.
+Every dated Journal article has one locale-specific Markdown source at `tmpl/web/{locale}/blog/{year}/{slug}.md`. Every existing locale preserves its human canonical URL at `/{locale}/blog/{year}/{slug}.html`. Only English exposes the additional non-layout agent representation at `/en/blog/{year}/{slug}.md`; Russian and Spanish `.md` requests use the normal safe not-found path. The sitemap retains only human HTML URLs. Root `/llms.txt` lists the complete English-agent corpus, not a sitemap replacement.
 
 `etc/redirect-map.json` normalizes selected legacy paths with locale overlay; static assets are excluded. Redirects are continuity tools and cannot silently create a target hierarchy.
 

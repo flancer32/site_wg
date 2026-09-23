@@ -2,7 +2,7 @@
 
 /**
  * @namespace App_Back_Web_Markdown_Publication
- * @description Resolves the small, explicitly published Markdown article set.
+ * @description Resolves locale-scoped canonical Markdown sources for dated Journal articles.
  */
 
 const ROUTE_PATTERN = /^\/(en|es|ru)\/blog\/(\d{4})\/([a-z0-9][a-z0-9-]*)\.(html|md)$/;
