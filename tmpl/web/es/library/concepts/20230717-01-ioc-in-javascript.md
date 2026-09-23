@@ -108,32 +108,3 @@ bien preparados se pueden combinar de muchas maneras.
 Por eso, módulos ES6 que no están atados mediante imports estáticos a
 servicios concretos pueden servir como bloques tanto para una aplicación
 de navegador como para una de Node.js.
-
-## Fragmentos adicionales de código fuente
-
-    class LoggerNet {
-    error(msg) { } info(msg) { }
-    }
-
-    export class Service {
-    logger; constructor(logger) {
-    this.logger = logger;
-    }
-    exec(opts) {
-    this.logger.info(Service is running.);
-    }
-    }
-
-    import assert from ‘assert’;
-    import {describe, it} from ‘mocha’;
-    import {Service} from ‘./service.js’; const logger = {
-    error(mg) {},
-    info(msg) {}
-    };
-    describe(‘Service’, () => {
-    it(‘does the job’, () => {
-    const service = new Service(logger);
-    service.exec({});
-    assert(true);
-    });
-    });

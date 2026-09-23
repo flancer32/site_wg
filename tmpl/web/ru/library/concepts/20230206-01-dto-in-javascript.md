@@ -75,6 +75,9 @@ const dto = new Complex({
 
 ``` js
 export default class Simple1 {}
+```
+
+``` js
 import Simple from './simple.mjs';
 export default class Complex {}
 ```
@@ -91,16 +94,24 @@ export default class Complex {}
 свойства:
 
 ``` js
-this.name = String(data?.name);
-this.age = Number.parseInt(data?.age);
+class Person {
+  constructor(data) {
+    this.name = String(data?.name);
+    this.age = Number.parseInt(data?.age);
+  }
+}
 ```
 
 или сначала скопировать всё, а затем привести известные поля:
 
 ``` js
-Object.assign(this, data);
-this.name = String(data?.name);
-this.age = Number.parseInt(data?.age);
+class Person {
+  constructor(data) {
+    Object.assign(this, data);
+    this.name = String(data?.name);
+    this.age = Number.parseInt(data?.age);
+  }
+}
 ```
 
 <zoom-img src="/medium/img/3274a3063919/image-01.png" alt="Отсечение и приведение данных в DTO" width="100%"></zoom-img>
@@ -117,23 +128,3 @@ this.age = Number.parseInt(data?.age);
 - Вложенные DTO позволяют строить сложные структуры.
 - При преобразовании входа известные свойства можно либо отсечь, либо
   привести, сохранив остальные.
-
-## Дополнительные фрагменты исходного кода
-
-    {
-
-    } … and DTO for this data:
-    class Person {
-    name;
-    age;
-    }
-
-    constructor(data) {
-    this.name = String(data?.name);
-    this.age = Number.parseInt(data?.age);
-    }
-    constructor(data) {
-    Object.assign(this, data);
-    this.name = String(data?.name);
-    this.age = Number.parseInt(data?.age);
-    }

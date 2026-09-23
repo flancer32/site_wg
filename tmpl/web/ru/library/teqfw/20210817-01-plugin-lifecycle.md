@@ -12,28 +12,30 @@ date: 2021-08-17
 es6-модуль с фабричной функцией, которая создаёт функцию-инициализатор,
 и es6-модуль с фабричной функцией для функции-финализатора:
 
-    {
-
-“core”: {
-
-“plugin”: {
-
-“onInit”: “Vnd_Prj_Back_Plugin_Init”,
-
-    “onStop”: “Vnd_Prj_Back_Plugin_Stop”
+```json
+{
+  "core": {
+    "plugin": {
+      "onInit": "Vnd_Prj_Back_Plugin_Init",
+      "onStop": "Vnd_Prj_Back_Plugin_Stop"
     }
-    }
-    }
+  }
+}
+```
 
 Типовое содержимое es6-модуля:
 
-    export default function Factory(spec) {
-    // EXTRACT DEPS
-    // … // COMPOSE RESULT
-    async function action() {
+```js
+export default function Factory(spec) {
+  // EXTRACT DEPS
+  // …
+  // COMPOSE RESULT
+  async function action() {
     // …
-    } return action;
-    }
+  }
+  return action;
+}
+```
 
 ## Иерархия плагинов
 
@@ -41,21 +43,14 @@ es6-модуль с фабричной функцией, которая созд
 зависимостями друг от друга. Зависимости определяется по ноде
 `/dependencies`из `package.json`.
 
-    {
-
-“name”: “[<span class="citation"
-cites="teqfw/web">@teqfw/web</span>](http://twitter.com/teqfw/web)”,
-
-“dependencies”: {
-
-“[<span class="citation"
-cites="teqfw/core">@teqfw/core</span>](http://twitter.com/teqfw/core)”:
-“\*“,
-
-…
-
-    }
-    }
+```json
+{
+  "name": "@teqfw/web",
+  "dependencies": {
+    "@teqfw/core": "*"
+  }
+}
+```
 
 Первыми и инициализируются, и останавливаются плагины базовых уровней
 (`core`), а затем — более высоких (`web`)
@@ -66,15 +61,17 @@ cites="teqfw/core">@teqfw/core</span>](http://twitter.com/teqfw/core)”:
 (`TeqFw_Core_Back_App.init`) — после загрузки локальной конфигурации,
 сканирования плагинов и инициализации DI-контейнера:
 
-    this.init = async function ({path, version}) {
-    initBootConfig(config, path, version);
-    // …
-    config.loadLocal(path);
-    const registry = await pluginScan.exec(path);
-    initDiContainer(registry);
-    await initPlugins(registry);
-    // …
-    }
+```js
+this.init = async function ({path, version}) {
+  initBootConfig(config, path, version);
+  // …
+  config.loadLocal(path);
+  const registry = await pluginScan.exec(path);
+  initDiContainer(registry);
+  await initPlugins(registry);
+  // …
+};
+```
 
 Приложение по очереди запускает инициализационные функции плагинов
 снизу-вверх, начиная от базовых уровней (`core`) и заканчивая верхними
@@ -88,12 +85,19 @@ cites="teqfw/core">@teqfw/core</span>](http://twitter.com/teqfw/core)”:
 [сигналу](https://nodejs.org/api/process.html#process_signal_events), то
 метод вызывается автоматом:
 
-    this.run = async function () {
-    const me = this; async function onStop() {
+```js
+this.run = async function () {
+  const me = this;
+  async function onStop() {
     await me.stop();
     process.exit();
-    } process.on(‘SIGINT’, onStop);
-    process.on(‘SIGTERM’, onStop);
-    process.on(‘SIGQUIT’, onStop);
-    // …
-    };this.stop = async function () {/* … */} Функции останова плагинов запускаются также по очереди, снизу-вверх — от базовых уровне (core) к верхним (app).
+  }
+  process.on('SIGINT', onStop);
+  process.on('SIGTERM', onStop);
+  process.on('SIGQUIT', onStop);
+  // …
+};
+this.stop = async function () { /* … */ };
+```
+
+Функции останова плагинов запускаются также по очереди, снизу-вверх — от базовых уровне (core) к верхним (app).

@@ -60,9 +60,11 @@ both sides.
 A local producer supports publishing and subscription:
 
 ``` js
-emit(eventName, message) {}
-subscribe(eventName, handler) {}
-unsubscribe(subscription) {}
+class EventProducer {
+  emit(eventName, message) {}
+  subscribe(eventName, handler) {}
+  unsubscribe(subscription) {}
+}
 ```
 
 A subscriber tells the producer which event it needs and supplies a

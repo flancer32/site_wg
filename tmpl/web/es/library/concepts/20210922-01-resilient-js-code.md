@@ -41,11 +41,17 @@ archivo dentro de un paquete de `node_modules`.
 <zoom-img src="/medium/img/e9a0fe4f1e1f/image-03.jpg" alt="Jerarquía de paquetes y módulos en Node.js" width="100%"></zoom-img>
 
 La dirección a nivel de aplicación tiene dos partes: ruta del módulo y
-nombre de exportación:
+nombre de exportación. Estas son tres alternativas de importación:
 
 ``` js
 import { exportName } from 'https://domain.example/path/to/mod.mjs';
+```
+
+``` js
 import { exportName } from '../../path/to/mod.mjs';
+```
+
+``` js
 import { exportName } from '@vendor/project/src/path/to/mod.mjs';
 ```
 
@@ -130,70 +136,3 @@ demás módulos internos.
 Cuanto mayor es el componente, más importa la estabilidad de nombre e
 interfaz. Las buenas fronteras no evitan el cambio: mantienen local un
 cambio local.
-
-## Fragmentos adicionales de código fuente
-
-    import func from ‘./mod.mjs’;
-    import {fn} from ‘./mod.mjs’;
-
-    function outer() {
-    const obj = {};
-    function inner() {
-    const obj = {};
-    }
-    } > Глубоко вложенные области видимости ухудшают читаемость кода, а использование элементов кода с верхних уровней снижают устойчивость кода к изменениям (за исключением случая, когда элементы кода определяются на самом верхнем уровне — через импорты в es-модуле).
-
-    const OBJ = {prop: ‘value’}function consumer() {
-    console.log(OBJ.prop);
-    } ### Функции
-
-    function producer(x1, x2) {
-    return x2 * x1;
-    }const y = producer(1, 2); Я как-то уже размышлял на тему, что было бы, если бы у функции был только один входной параметр и один выходной:
-    const y = fn(x); JS с его деструктирующим присваиванием вплотную подошёл к этому варианту:
-    function producer({x1, x2}) {
-    return {y1: x1 + x2, y2: x2 * x1};
-    }const {y1, y2} = producer({x1: 1, x2: 2}); > Использование функций в таком виде добавляет коду устойчивости к изменениям относительно “классического” варианта. В этом случае мы можем смелее изменять входные и выходные аргументы (их количество и порядок следования), но платим за это читабельностью кода.
-
-    {
-
-    “another_dep”: “~2.2.0”
-    }
-    } Имя npm-пакета участвует в адресации es-модулей в nodejs-приложениях. В пакете может быть определён входной объект, в его ./package.json:
-    {
-    “main”: “lib/entry.js”
-    }
-
-    function producer(opts) {
-    function nested() {}
-    }
-
-    class SomeClass {
-
-    const nestedObj = {};
-    this.instMethod = function () {
-    nestedObj.prop = this.#privProp;
-    }
-    } setProp(data) {
-    this.#privProp = data;
-    }
-    } privProp и nestedObj являются внутренними элементами кода для класса SomeClass и недоступны извне напрямую.
-
-    {
-    “main”: “src/Shared/Container.mjs”
-    }
-
-    import Container from ‘@teqfw/di’;
-
-    import subModule from ‘./path/to/sub/modle.mjs’;export {
-
-    }
-
-    import * as module from ‘@scope/prj’;
-    const sub = module.subModule; Но это именно “джентльменское соглашение” — ничто не мешает разработчику другого npm-пакета обратиться внутрь нашего npm-пакета к любому es-модулю напрямую.
-
-    export default class TeqFw_Web_Back_Defaults {
-    constructor(spec) {
-    this.MOD_DI = spec[‘TeqFw_Di_Back_Defaults$’];
-    }
-    }

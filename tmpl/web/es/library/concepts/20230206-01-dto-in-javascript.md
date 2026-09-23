@@ -71,10 +71,15 @@ const dto = new Complex({
 ## Conversión de tipos en cascada
 
 Para convertir tipos en cascada, los componentes se conectan mediante
-import-export:
+import-export. Estos son módulos separados:
 
 ``` js
+// simple.mjs
 export default class Simple1 {}
+```
+
+``` js
+// complex.mjs
 import Simple from './simple.mjs';
 export default class Complex {}
 ```
@@ -116,23 +121,3 @@ tipos que usa directamente y conservar los datos que no conoce.
 - Los DTO anidados permiten formar estructuras complejas.
 - Al convertir la entrada, las propiedades conocidas se pueden recortar
   o convertir, conservando las demás cuando corresponda.
-
-## Fragmentos adicionales de código fuente
-
-    {
-
-    } … and DTO for this data:
-    class Person {
-    name;
-    age;
-    }
-
-    constructor(data) {
-    this.name = String(data?.name);
-    this.age = Number.parseInt(data?.age);
-    }
-    constructor(data) {
-    Object.assign(this, data);
-    this.name = String(data?.name);
-    this.age = Number.parseInt(data?.age);
-    }

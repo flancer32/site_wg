@@ -28,7 +28,10 @@ import (static or dynamic) represents a dependency of our module on some
 other module. Thus, in the following code, we can safely say that the
 `service` module has at least one dependency — on the `logger` module:
 
-    import logger from ‘./logger.js’; export class Service {…}
+``` js
+import logger from './logger.js';
+export class Service { /* ... */ }
+```
 
 ## The forward control
 
@@ -37,26 +40,29 @@ his code are. He can follow the link in the import and see the imported
 objects (dependencies) — observe the specific implementation of the
 dependencies:
 
-    export default {
-
-error: (msg) =\> console.error(msg),
-
-info: (msg) =\> console.info(msg),
-
-    };
+``` js
+export default {
+  error: (msg) => console.error(msg),
+  info: (msg) => console.info(msg),
+};
+```
 
 Imported dependencies can be used inside a module:
 
-    import logger from ‘./logger.js’; export class Service {
-    exec(opts) {
-    logger.info(Service is running.);
-    }
-    }
+``` js
+import logger from './logger.js';
+export class Service {
+  exec() { logger.info('Service is running.'); }
+}
+```
 
 When we use a service elsewhere:
 
-    import {Service} from ‘./service.js’; const s = new Service();
-    s.exec({});
+``` js
+import {Service} from './service.js';
+const s = new Service();
+s.exec({});
+```
 
 we also import its dependencies one by one.
 
@@ -72,37 +78,45 @@ file logger, and a third one makes a network logger. The first thing all
 developers will need to do is agree on a logger interface, for example,
 like this:
 
-    class ILogger {
-    error(msg) {} info(msg) {}
-    }
+``` js
+/** @interface */
+class ILogger {
+  error(msg) {}
+  info(msg) {}
+}
+```
 
 This code will never be executed by a computer. It uses
 [JSDoc](https://jsdoc.app/) solely to document the development process
 and to harmonize the interaction between different developers. The file
 logger developer writes something like:
 
-    class LoggerFile {
-    error(msg) { } info(msg) { }
-    }
+``` js
+class LoggerFile {
+  error(msg) {}
+  info(msg) {}
+}
+```
 
 The network logger developer writes something like:
 
-    class LoggerNet {
-    error(msg) { } info(msg) { }
-    }
+``` js
+class LoggerNet {
+  error(msg) {}
+  info(msg) {}
+}
+```
 
 The `service` developer does not know which `logger` will be used at
 runtime and must provide the ability to add the required dependency (the
 classic way — in the constructor):
 
-    export class Service {
-    logger; constructor(logger) {
-    this.logger = logger;
-    }
-    exec(opts) {
-    this.logger.info(Service is running.);
-    }
-    }
+``` js
+export class Service {
+  constructor(logger) { this.logger = logger; }
+  exec() { this.logger.info('Service is running.'); }
+}
+```
 
 This is where the inversion of control comes in. Now, it is not the
 `service` itself that decides where it gets the required dependency, but
@@ -128,19 +142,20 @@ required dependencies are satisfied in the other project as well.
 A vivid example of reducing connectivity is the possibility of creating
 a test environment for a `service` using TDD:
 
-    import assert from ‘assert’;
-    import {describe, it} from ‘mocha’;
-    import {Service} from ‘./service.js’; const logger = {
-    error(mg) {},
-    info(msg) {}
-    };
-    describe(‘Service’, () => {
-    it(‘does the job’, () => {
+``` js
+import assert from 'node:assert/strict';
+import {describe, it} from 'mocha';
+import {Service} from './service.js';
+
+const logger = {error(msg) {}, info(msg) {}};
+describe('Service', () => {
+  it('does the job', () => {
     const service = new Service(logger);
-    service.exec({});
-    assert(true);
-    });
-    });
+    service.exec();
+    assert.ok(true);
+  });
+});
+```
 
 In the test, we mock the dependency of our `service` and define the
 behavior we need without referencing a specific implementation (such as

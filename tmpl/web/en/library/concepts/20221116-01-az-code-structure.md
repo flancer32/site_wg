@@ -100,94 +100,63 @@ Each package contains everything you need to develop it — sources,
 tests, documentation, configuration, etc. Usually, we allocate a
 separate directory for sources in our package, for example: `./src/`.
 
-The further structure depends on the rules applied in the project. It
-can be role-based:
+The further structure depends on the rules applied in the project. It can be role-based:
 
-./doc/
+``` text
+src/
+  api/
+  components/
+  helpers/
+  pages/
+```
 
-./src/
+Or feature-based:
 
-./api/
+``` text
+src/
+  payments/
+  products/
+  users/
+```
 
-./components/
+I use mixed rules in my projects: first by role, then by feature:
 
-./helpers/
+``` text
+src/
+  Back/Mod/RDb/
+  Front/Mod/Store/Ui/
+  Lib/Route/Home.mjs
+  Shared/Dto/
+```
 
-./pages/
-
-…
-
-./test/ or feature-based:
-
-./src/
-
-./payments/
-
-./products/
-
-./users/
-
-… I use mixed rules in my projects — first ‘*by role’*, then ‘*by
-features*’:
-
-./src/
-
-./Back/
-
-./Mod/
-
-./RDb/
-
-./Front/
-
-./Mod/
-
-./Store/
-
-./Ui/
-
-./Lib/
-
-./Route/
-
-./Home.mjs
-
-./Settings.mjs
-
-./User.mjs
-
-./Shared/
-
-./Dto/ The first level of separation (*by role*) depends on the
+The first level of separation (*by role*) depends on the
 framework used (and on the abstractions of that framework), and the
 second level — is on the subject area (business tasks). The framework
 has more stability, but the subject area is changed from project to
 project.
 
-In case we have a big project, we can add more levels to ’*by feature’-*
-level:
+In a large project we can add more feature levels:
 
-./Route/
+``` text
+Route/
+  Settings/
+    Payments.mjs
+    Profile.mjs
+    Security.mjs
+```
 
-./Settings/
+Or even:
 
-./Payments.mjs
+``` text
+Route/
+  Settings/
+    Payments/
+      Payoneer.mjs
+      PayPal.mjs
+      Wise.mjs
+```
 
-./Profile.mjs
-
-./Security.mjs or even:
-
-./Route/
-
-./Settings/
-
-./Payments/
-
-./Payoneer.mjs
-
-./PayPal.mjs
-
-./Wise.mjs All these files in an (`npm`-)package have the same
+All these files in an (`npm`-)package have the same
 visibility — every file can import another file in general.
 
 In some cases, we can determine boundaries of change propagation based
@@ -212,25 +181,25 @@ Every big snippet of code (file) we can decompose into a set of smaller
 snippets (files). In some cases, these small snippets have boundaries of
 change propagation inside the original big snippet only.
 
-For example, we have one big code snippet for a model of the Settings
-object in our project:
+For example, suppose a large Settings model is stored here:
 
-./Mod/
+``` text
+Mod/
+  Settings.mjs
+```
 
-./Settings.mjs We can decompose this snippet as one root snippet
-(`./Settings.mjs`) and 4 nested snippets (`./Settings/*.mjs`):
+We can decompose it into a root file and related files:
 
-./Mod/
+``` text
+Mod/
+  Settings/
+    Payments.mjs
+    Profile.mjs
+    Security.mjs
+  Settings.mjs
+```
 
-./Settings/
-
-./Payments.mjs
-
-./Profile.mjs
-
-./Security.mjs
-
-./Settings.mjs Do we have a way to distinguish how many models there are
+Do we have a way to distinguish how many models there are
 here — 1 or 5? There is a sign that it is a one model with 4 dependent
 snippets — folder `./Settings/` and file `./Settings.mjs`. It is very
 likely that we can refactor code in `./Settings/` and not worry about
@@ -242,25 +211,21 @@ But what if file structure is already nested? We already have 5 models
 model `./Settings.mjs` into smaller pieces? How can we mark boundaries
 of change propagation?
 
-In my projects I use the `./A/` subfolder for these purposes:
+In my projects I use the `./A/` subfolder for this purpose:
 
-./Mod/
+``` text
+Mod/
+  Settings/
+    A/
+      Snippet1.mjs
+      Snippet2.mjs
+    Payments.mjs
+    Profile.mjs
+    Security.mjs
+  Settings.mjs
+```
 
-./Settings/
-
-./A/
-
-./Snippet1.mjs
-
-./Snippet2.mjs
-
-./Payments.mjs
-
-./Profile.mjs
-
-./Security.mjs
-
-./Settings.mjs In that case I know that all files in `./Settings/A/` are
+In that case I know that all files in `./Settings/A/` are
 pieces of `./Settings.mjs` (result of decomposition). Code from root
 file `./Settings.mjs` can be used anywhere in the package or even
 project, but code from `./Settings/A/` can be used in `./Settings.mjs`
@@ -276,21 +241,19 @@ files in a real project:
 
 There are cases when the dependent code is applied not to one file, but
 to a group of files — a sort of ’*library for a group’*. Also with its
-boundaries of change propagation. In this case I use z-structuring:
+boundaries of change propagation. In this case I use Z-structuring:
 
-./Cli/
+``` text
+Cli/
+  Data/
+    Z/
+      ListTables.mjs
+    Export.mjs
+    Import.mjs
+    Init.mjs
+```
 
-./Data/
-
-./Z/
-
-./ListTables.mjs
-
-./Export.mjs
-
-./Import.mjs
-
-./Init.mjs I know that changes in `./ListTables.mjs` do not affect the
+I know that changes in `./ListTables.mjs` do not affect the
 code above `./Cli/Data/`.
 
 ## Resume
@@ -309,34 +272,3 @@ Stay connected:
 - [Upwork](https://www.upwork.com/freelancers/~0181de0a64c6981497)
 
 Thank you for your support!
-
-## Additional source-code excerpts
-
-    src/
-      Back/Mod/RDb/
-      Front/Mod/Store/Ui/
-      Lib/Route/Home.mjs
-      Shared/Dto/
-
-    Mod/
-      Settings/
-        Payments.mjs
-        Profile.mjs
-        Security.mjs
-      Settings.mjs
-
-    Mod/
-      Settings/
-        A/
-          Snippet1.mjs
-          Snippet2.mjs
-        Payments.mjs
-        Profile.mjs
-      Settings.mjs
-
-    Cli/
-      Data/
-        Z/ListTables.mjs
-        Export.mjs
-        Import.mjs
-        Init.mjs

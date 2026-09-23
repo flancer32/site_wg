@@ -105,32 +105,3 @@ service.exec();
 Поэтому ES6-модули, не привязанные статическими импортами к конкретным
 службам, могут быть строительными блоками и браузерного, и
 Node.js-приложения.
-
-## Дополнительные фрагменты исходного кода
-
-    class LoggerNet {
-    error(msg) { } info(msg) { }
-    }
-
-    export class Service {
-    logger; constructor(logger) {
-    this.logger = logger;
-    }
-    exec(opts) {
-    this.logger.info(Service is running.);
-    }
-    }
-
-    import assert from ‘assert’;
-    import {describe, it} from ‘mocha’;
-    import {Service} from ‘./service.js’; const logger = {
-    error(mg) {},
-    info(msg) {}
-    };
-    describe(‘Service’, () => {
-    it(‘does the job’, () => {
-    const service = new Service(logger);
-    service.exec({});
-    assert(true);
-    });
-    });

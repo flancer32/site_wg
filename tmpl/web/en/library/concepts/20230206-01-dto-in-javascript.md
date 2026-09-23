@@ -30,109 +30,94 @@ In a simple case, the DTO is a flat structure where each attribute is a
 [primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)
 data type, such as a string or integer:
 
-    class Simple {
-    aBool;
-    aNumber;
-    aString;
-    } It’s about data structuring (the first objective). The second objective is data transformation. We need to be able to parse some input data and convert it into our structure while casting data types:
-    class Simple {
+``` js
+class Simple {
+  aBool;
+  aNumber;
+  aString;
+}
+```
 
-…
+That provides structure. To transform data, the DTO accepts input and
+casts its values:
 
-    constructor(data) {
+``` js
+class Simple {
+  constructor(data) {
     this.aBool = Boolean(data?.aBool);
     this.aNumber = Number.parseFloat(data?.aNumber);
     this.aString = String(data?.aString);
-    }
-    }
+  }
+}
+```
 
 ## Complex DTO
 
-A complex DTO consists of other DTOs (complex and simple) and
-primitives:
+A complex DTO consists of other DTOs and primitive values:
 
-    class Complex {
-    aDto;
-    aString; constructor(data) {
+``` js
+class Complex {
+  constructor(data) {
     this.aDto = new Simple(data?.aDto);
     this.aString = String(data?.aString);
-    }
-    }
+  }
+}
+```
 
-‘*JSON-to-DTO*’ transformation in this case looks like this:
+JSON-to-DTO transformation then looks like this:
 
-    const dto = new Complex({
-
-aDto: {
-
-aBool: true,
-
-aNumber: 16,
-
-aString: ‘simple’,
-
-    },
-
-aString: ‘complex’
-
-    });
+``` js
+const dto = new Complex({
+  aDto: {aBool: true, aNumber: 16, aString: 'simple'},
+  aString: 'complex',
+});
+```
 
 ## Waterfall Type Casting
 
-For waterfall casting of a types in complex objects, we need to connect
-the code sources with import-export:
+For waterfall casting of types in complex objects, connect the code
+sources with import and export. These are separate modules:
 
-    export default class Simple1 {}import Simple from ‘./simple.mjs’; export default class Complex {}
+``` js
+// simple.mjs
+export default class Simple1 {}
+```
 
-In this case, we can create complex DTOs with a very high level of
-complexity and independently modify individual components of complex
-DTOs. At each level, the component itself parses its input data
-fragment, casts data types, and connects constructors for nested levels.
+``` js
+// complex.mjs
+import Simple from './simple.mjs';
+export default class Complex {}
+```
 
-## Cutting vs. Casting
+This lets us create deeply nested DTOs and modify individual components.
+At each level, the component parses its input fragment, casts data types,
+and connects constructors for nested levels.
 
-Let’s say we have a JSON data:
+## Cutting vs. Casting
 
-    {
+Suppose input JSON contains `name`, `age`, and `weight`, while a `Person`
+DTO handles only the first two properties. We can cut unknown properties:
 
-“name”: “Alex Gusev”,
+``` js
+this.name = String(data?.name);
+this.age = Number.parseInt(data?.age);
+```
 
-“age”: “32”,
+Or copy everything and cast the known properties:
 
-“weight”: “64”
-
-    } … and DTO for this data:
-    class Person {
-    name;
-    age;
-    }
-
-In general, we may receive data that differs from what we are prepared
-to process. In such cases, there are two ways to convert the data to a
-DTO:
-
-    constructor(data) {
-    this.name = String(data?.name);
-    this.age = Number.parseInt(data?.age);
-    }
-    constructor(data) {
-    Object.assign(this, data);
-    this.name = String(data?.name);
-    this.age = Number.parseInt(data?.age);
-    }
-
-Here is the result for both cases:
+``` js
+Object.assign(this, data);
+this.name = String(data?.name);
+this.age = Number.parseInt(data?.age);
+```
 
 <figure>
-<img src="/medium/img/3274a3063919/image-01.png" alt="Image 2" />
+<img src="/medium/img/3274a3063919/image-01.png" alt="Cutting and casting data in a DTO" />
 </figure>
 
-cutting vs. casting
-
-If our code is the final DTO handler, it is better to eliminate any
-unnecessary data. If it is an intermediate handler, it is better to
-handle the casting of data types that we directly interact with and
-leave any unfamiliar data unchanged.
+If our code is the final DTO handler, it is better to eliminate unnecessary
+data. An intermediate handler can cast the types it uses and leave
+unfamiliar data unchanged.
 
 ## Resume
 

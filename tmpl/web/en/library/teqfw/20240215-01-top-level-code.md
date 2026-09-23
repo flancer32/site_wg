@@ -21,34 +21,36 @@ applications (databases, message queues, etc.).
 Of course, you can divide the front-end and back-end code at the
 directory level within a single npm package:
 
-./src
+``` text
+src/
+  back/
+  front/
+```
 
-./back
-
-./front If an application’s code is shared between the front-end and
+If an application’s code is shared between the front-end and
 back-end, you can also add a third directory:
 
-./src
+``` text
+src/
+  back/
+  front/
+  shared/
+```
 
-./back
-
-./front
-
-./shared This directory structure with source files is used in the TeqFW
+This directory structure with source files is used in the TeqFW
 platform, with the slight difference that all directories and file names
 within `./src` use CamelCase notation:
 
-./src
+``` text
+src/
+  Back/
+  Front/
+  Shared/
+    Dto/
+      UserAuth/
+```
 
-./Back
-
-./Front
-
-./Shared
-
-./Dto
-
-./UserAuth This is because the TeqFW platform constructs its own name
+This is because the TeqFW platform constructs its own name
 for each ES6 module in the application, and these names are then used by
 the Object Container for [dependency
 injection](https://flancer32.com/ioc-in-vanilla-javascript-es6-1b2e701f331d).
@@ -66,7 +68,9 @@ using any server resources (Node.js or npm packages not complying with
 TeqFW rules). For example, the following code cannot be processed in the
 browser:
 
-    import {existsSync, mkdirSync, rmSync} from ‘node:fs’;
+``` js
+import {existsSync, mkdirSync, rmSync} from 'node:fs';
+```
 
 Since there is no file system support from Node.js in the browser.
 
@@ -82,13 +86,14 @@ Any npm package that is a Tequila platform plugin places its sources in
 directories within its root source directory in accordance with this
 structure:
 
-./src
+``` text
+src/
+  Back/
+  Front/
+  Shared/
+```
 
-./Back
-
-./Front
-
-./Shared The platform does not impose restrictions on the name of the
+The platform does not impose restrictions on the name of the
 root directory (`./src` or `./source`). If there is no code from any
 sphere (Front, Back, or Shared) in the npm package, the corresponding
 directory is also absent.
@@ -99,18 +104,3 @@ directories, you can structure files however you like, but such division
 of code by [usage
 spheres](https://github.com/teqfw/core/blob/main/src/Shared/Enum/Sphere.mjs)
 is mandatory for any plugin of the platform.
-
-## Additional source-code excerpts
-
-    src/
-      Back/
-      Front/
-      Shared/
-        Dto/
-          UserAuth/
-
-    Vendor_App_Shared_Dto_UserAuth_Permission
-
-``` js
-import { existsSync, mkdirSync, rmSync } from 'node:fs';
-```

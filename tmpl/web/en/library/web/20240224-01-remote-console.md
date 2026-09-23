@@ -13,11 +13,15 @@ The simplest solution is to send logs to some server or log aggregator.
 All you need to do is write something like this at the very beginning of
 the application:
 
-    const orig = console.log;
-    console.log = function () {
-    orig.apply(console, arguments);
-    navigator.sendBeacon(URL, arguments[0]);
-    }; And that’s it — everything logged to the console using console.log(...) will be sent to the specified URL. I use the Beacon API because in this case, the browser does not expect a response from the server — the messages go in one direction.
+``` js
+const orig = console.log;
+console.log = function () {
+  orig.apply(console, arguments);
+  navigator.sendBeacon(URL, arguments[0]);
+};
+```
+
+Everything logged through `console.log(...)` is sent to the specified URL. I use the Beacon API because in this case, the browser does not expect a response from the server — the messages go in one direction.
 
 Now all that’s left is to collect the logs and present them in a
 readable format. This is precisely what the small web application
@@ -25,7 +29,9 @@ readable format. This is precisely what the small web application
 which I wrote for collecting and reading logs. It accepts all incoming
 messages from any address:
 
-    navigator.sendBeacon(‘https://console.wiredgeese.com/log/’, ‘any message’);
+``` js
+navigator.sendBeacon('https://console.wiredgeese.com/log/', 'any message');
+```
 
 The server then broadcasts messages through WebSockets to everyone
 currently viewing the console:
@@ -37,10 +43,12 @@ immediately forwarded to recipients if they exist. Of course, if there
 is confidential information in the logs, it’s safer to host Remote
 Console on a local network or even on the developer’s machine:
 
-    $ git clone https://github.com/flancer64/spa-remote-console.git
-    $ cd spa-remote-console/
-    $ npm install
-    $ npm start
+``` bash
+git clone https://github.com/flancer64/spa-remote-console.git
+cd spa-remote-console/
+npm install
+npm start
+```
 
 ## Channels
 

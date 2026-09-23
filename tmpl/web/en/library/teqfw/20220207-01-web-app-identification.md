@@ -94,8 +94,3 @@ is the registered one. This pattern suits reconnecting browser clients,
 but it must be combined with standard user authentication,
 authorization, secure storage, careful logging, and a recovery story for
 lost devices.
-
-## Additional source-code excerpts
-
-    “uuid”: “7dc933ff-5acd-434d-8703-7cef276d69e2”
-    } Эта информация хранится в IndexedDB браузера и является общей для всех экземпляров одного и того же приложения, запущенного в разных вкладках (но не в профилях!).

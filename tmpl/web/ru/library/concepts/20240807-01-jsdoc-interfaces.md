@@ -40,6 +40,12 @@ class Route {
   getPlaceFrom() { throw new Error('Implement this method.'); }
   getPlaceTo() { throw new Error('Implement this method.'); }
 }
+
+/**
+ * @param {Package} pack
+ * @param {Route} route
+ */
+function drive(pack, route) {}
 ```
 
 Только аннотаций JSDoc тоже достаточно, но современные IDE не всегда
@@ -101,37 +107,3 @@ IDE уже умеют разбирать такой код: подсказыва
 интерфейсов и реализаций в них используется
 [@teqfw/di](https://www.npmjs.com/package/@teqfw/di) — внедрение
 зависимостей через конструктор.
-
-## Дополнительные фрагменты исходного кода
-
-    }
-    }
-    class Route {
-    getPlaceFrom() {
-
-    } getPlaceTo() {
-
-    }
-    }
-
-    function drive(pack, route) {}
-
-    function app1() {
-    const pack = {
-
-    };
-    const route = {
-
-    };
-    drive(pack, route);
-    }
-
-    function app2() {
-    const pack = {
-
-    };
-    const route = {
-
-    };
-    drive(pack, route);
-    }

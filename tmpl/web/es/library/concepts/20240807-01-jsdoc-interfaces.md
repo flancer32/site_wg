@@ -105,37 +105,3 @@ Hay demostraciones en
 [@teqfw/di](https://www.npmjs.com/package/@teqfw/di) para vincular
 interfaces e implementaciones mediante inyección de dependencias por
 constructor.
-
-## Fragmentos adicionales de código fuente
-
-    }
-    }
-    class Route {
-    getPlaceFrom() {
-
-    } getPlaceTo() {
-
-    }
-    }
-
-    function drive(pack, route) {}
-
-    function app1() {
-    const pack = {
-
-    };
-    const route = {
-
-    };
-    drive(pack, route);
-    }
-
-    function app2() {
-    const pack = {
-
-    };
-    const route = {
-
-    };
-    drive(pack, route);
-    }

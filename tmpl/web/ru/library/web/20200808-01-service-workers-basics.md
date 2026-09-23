@@ -14,23 +14,25 @@ date: 2020-08-08
 [Регистрация](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register)
 происходит на главной странице web-приложения:
 
-    navigator.serviceWorker
-
-.register(“sw.js”, {scope})
-
-    .then(onSuccess, onFail);
+```js
+navigator.serviceWorker
+  .register('sw.js', {scope})
+  .then(onSuccess, onFail);
+```
 
 ## Простой service worker
 
 Самый простой service worker просто сообщает о факте своей загрузке
 (файл `sw.js`):
 
-    console.log(
+```js
+console.log(
+  "SW: registering itself, state:",
+  self.serviceWorker.state
+);
+```
 
-“SW: registering itself, state:”,
-
-    self.serviceWorker.state
-    ); Состояние worker’а берётся из собственного контекста — self. Если worker продолжительное время неактивен, то браузер завершает поток, в котором он существует, и создаёт новый, как только в worker’е вновь возникает необходимость.
+Состояние worker’а берётся из собственного контекста — self. Если worker продолжительное время неактивен, то браузер завершает поток, в котором он существует, и создаёт новый, как только в worker’е вновь возникает необходимость.
 
 ## Service Worker States
 
@@ -47,30 +49,39 @@ date: 2020-08-08
 Для трассировки изменения состояний worker’а сразу же после регистрации
 добавим к нему обработчик событий смены состояния worker’а:
 
-    // onSuccess:
-
-(reg) =\> {
-
-    // get service worker from registration const sw = reg.installing;
-    console.log(“SW registration done, state:”, sw.state);
-    // setup handler to “statechange” event to trace changes sw.addEventListener(“statechange”, (e) => {
-    console.log(“State is changed:”, e.target.state);
-    if (e.target.state === “activated”) {
-    console.log(“uninstall SW after activation.”);
-    reg.unregister();
+```js
+// onSuccess:
+(reg) => {
+  // get service worker from registration
+  const sw = reg.installing;
+  console.log("SW registration done, state:", sw.state);
+  // setup handler to "statechange" event to trace changes
+  sw.addEventListener("statechange", (e) => {
+    console.log("State is changed:", e.target.state);
+    if (e.target.state === "activated") {
+      console.log("uninstall SW after activation.");
+      reg.unregister();
     }
-    });
-    } Код можно посмотреть на github’е. В итоге получаем примерно такой вывод в консоли браузера:
-    index.html:12 before SW registration.
-    index.html:30 after SW registration.
-    index.html:44 end of body.
-    sw.js:1 registering itself, state: parsed
-    index.html:18 SW registration done, state: installing
-    index.html:21 SW state is changed: installed
-    index.html:21 SW state is changed: activating
-    index.html:21 SW state is changed: activated
-    index.html:23 uninstall service worker after activation.
-    index.html:21 SW state is changed: redundant Так как в обработчике после перехода в рабочее состояние “activated” вызывается де-регистрация service worker’а, то получается полный цикл всех возможных состояний:
+  });
+}
+```
+
+Код можно посмотреть на github’е. В итоге получаем примерно такой вывод в консоли браузера:
+
+```text
+index.html:12 before SW registration.
+index.html:30 after SW registration.
+index.html:44 end of body.
+sw.js:1 registering itself, state: parsed
+index.html:18 SW registration done, state: installing
+index.html:21 SW state is changed: installed
+index.html:21 SW state is changed: activating
+index.html:21 SW state is changed: activated
+index.html:23 uninstall service worker after activation.
+index.html:21 SW state is changed: redundant
+```
+
+Так как в обработчике после перехода в рабочее состояние “activated” вызывается де-регистрация service worker’а, то получается полный цикл всех возможных состояний:
 
 <figure>
 <img src="/medium/img/c7cda44c1c98/image-01.png" alt="Image 2" />
@@ -79,28 +90,46 @@ date: 2020-08-08
 Если же убрать де-регистрацию service worker’а после перехода в рабочее
 состояние:
 
-    sw.addEventListener(“statechange”, (e) => {
-    console.log(“State is changed:”, e.target.state);
+```js
+sw.addEventListener("statechange", (e) => {
+  console.log("State is changed:", e.target.state);
+  // if (e.target.state === "activated") {
+  //   console.log("Uninstall SW after activation.");
+  //   reg.unregister();
+  // }
+});
+```
 
-\_// if (e.target.state === “activated”) {
+То вывод на консоль для первой загрузки выглядит так:
 
-    // console.log(“Uninstall SW after activation.”);
-    // reg.unregister();
-    // }_}); то вывод на консоль для первой загрузки выглядит так:
-    index.html:12 before SW registration.
-    index.html:30 after SW registration.
-    index.html:44 end of body.
-    sw.js:1 registering itself, state: parsed
-    index.html:18 SW registration done, state: installing
-    index.html:21 SW state is changed: installed
-    index.html:21 SW state is changed: activating
-    index.html:21 SW state is changed: activated Service worker доходит до своего рабочего состояния (“activated”) и остаётся в нём. При повторной загрузке страницы вывод на консоль уже такой:
-    index.html:12 before SW registration.
-    index.html:30 after SW registration.
-    index.html:44 end of body.
-    index.html:18 SW registration done, state: activated Правда для этого нужно изменить строку:
-    // const sw = reg.installing;
-    const sw = reg.installing ?? reg.active; так как при попытке повторной регистрации того же самого service worker’а возвращается уже установленный (active).
+```text
+index.html:12 before SW registration.
+index.html:30 after SW registration.
+index.html:44 end of body.
+sw.js:1 registering itself, state: parsed
+index.html:18 SW registration done, state: installing
+index.html:21 SW state is changed: installed
+index.html:21 SW state is changed: activating
+index.html:21 SW state is changed: activated
+```
+
+Service worker доходит до своего рабочего состояния (“activated”) и остаётся в нём. При повторной загрузке страницы вывод на консоль уже такой:
+
+```text
+index.html:12 before SW registration.
+index.html:30 after SW registration.
+index.html:44 end of body.
+index.html:18 SW registration done, state: activated
+```
+
+Правда для этого нужно изменить строку:
+
+```js
+// const sw = reg.installing;
+const sw = reg.installing ?? reg.active;
+```
+
+Так как при попытке повторной регистрации того же самого service worker’а возвращается уже установленный (active).
 
 Перевести service worker в состояние “*redundant*” можно вручную, через
 панель инструментов разработчика:
@@ -121,14 +150,13 @@ offline-режиме).
 до завершения загрузки головной страницы web-приложения (`index.html`),
 чтобы загрузка кэша worker’ом не влияла на загрузку головной страницы:
 
-    window.addEventListener(‘load’, function () {
-    navigator.serviceWorker.register(‘sw.js’)
-
-.then()
-
-.catch();
-
-    });
+```js
+window.addEventListener('load', function () {
+  navigator.serviceWorker.register('sw.js')
+    .then()
+    .catch();
+});
+```
 
 В самом service worker’е обычно вешают обработчики на события для
 выполнения следующих типовых задач:
@@ -158,66 +186,68 @@ offline-режиме).
 [кэш](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage)
 service worker’а данными из сети:
 
-    self.addEventListener(“install”, (event) => {
-    event.waitUntil(
-    caches.open(“static-v2”)
+```js
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open("static-v2")
+      .then((cache) => {
+        return cache.addAll([
+          "./index.html",
+          "./pwa.webmanifest"
+        ]);
+      })
+      .then(() => {
+        console.log("Cache is loaded.");
+      })
+  );
+});
+```
 
-.then((cache) =\> {
-
-    return cache.addAll(
-    [
-
-“./index.html”,
-
-    “./pwa.webmanifest”
-    ]
-    );
-    })
-
-.then(() =\> {
-
-    console.log(“Cache is loaded.”);
-    })
-    );
-    }); Диспетчер событий ожидает выполнения промиса, переданного в event.waitUntil, и только после загрузки кэша переводит service worker из состояния installing в installed.
+Диспетчер событий ожидает выполнения промиса, переданного в event.waitUntil, и только после загрузки кэша переводит service worker из состояния installing в installed.
 
 ### activate
 
 Этот обработчик удаляет из кэша данные, относящиеся к предыдущей версии
 service worker’а
 
-    self.addEventListener(“activate”, (event) => {
-    event.waitUntil(
+```js
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
     caches.keys().then((cacheNames) => {
-    return Promise.all(
-    cacheNames.map((cacheName) => {
-    // delete all caches except “static-v2” if (cacheName !== “static-v2”) {
-    return caches.delete(cacheName);
-    }
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          // delete all caches except "static-v2"
+          if (cacheName !== "static-v2") {
+            return caches.delete(cacheName);
+          }
+        })
+      );
     })
-    );
-    })
-    );
-    }); Вообще-то правила работы с кэшем в web-приложении могут быть довольно разнообразны. В примерах, как правило, приводится самый простой вариант: при регистрации заполнили новый кэш, при активации — удалили старый. Но service worker обладает меньшей изменчивостью, чем всё приложение в целом (вернее, отдельные его ресурсы — HTML/CSS/JS). Поэтому web-приложение должно обладать возможностью принудительной ре-инициализации кэша (например, при переходе по ссылке /sw/cache/reset) без переинсталляции service worker’а.
+  );
+});
+```
+
+Вообще-то правила работы с кэшем в web-приложении могут быть довольно разнообразны. В примерах, как правило, приводится самый простой вариант: при регистрации заполнили новый кэш, при активации — удалили старый. Но service worker обладает меньшей изменчивостью, чем всё приложение в целом (вернее, отдельные его ресурсы — HTML/CSS/JS). Поэтому web-приложение должно обладать возможностью принудительной ре-инициализации кэша (например, при переходе по ссылке /sw/cache/reset) без переинсталляции service worker’а.
 
 ### fetch
 
 Опять-таки, вот один из самых простых вариантов — возвращаем ресурс из
 кэша, если он там есть, или запрашиваем из сети:
 
-    self.addEventListener(“fetch”, (event) => {
-    event.respondWith(
-    caches.match(event.request)
-
-.then(response =\> {
-
-    if (response) {
-    return response;
-    }
-    return fetch(event.request)
+```js
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      if (response) {
+        return response;
+      }
+      return fetch(event.request);
     })
-    );
-    }); Примеры кода также выложены на github.
+  );
+});
+```
+
+Примеры кода также выложены на github.
 
 ### Обновление основной страницы
 
@@ -230,27 +260,30 @@ service worker’а
 выполнению](https://developer.mozilla.org/en-US/docs/Web/API/Clients/claim)`fetch`-запросов
 регистрационной страницы через:
 
-    await clients.claim(); или просто повесить обработчик на событие смены статуса service worker’а в index.html:
-    window.addEventListener(‘load’, function () {
-    navigator.serviceWorker.register(‘sw.js’)
+```js
+await clients.claim();
+```
 
-.then((reg) =\> {
+Или просто повесить обработчик на событие смены статуса service worker’а в index.html:
 
-const sw = (reg.installing) ? reg.installing\
-(reg.waiting) ? reg.waiting
-
-(reg.active);
-
-<!-- -->
-
-    sw.addEventListener(“statechange”, (e) => {
-    console.log(“State is changed:”, e.target.state);
-    if (e.target.state === “activated”) {
-    location.reload();
-    }
+```js
+window.addEventListener('load', function () {
+  navigator.serviceWorker.register('sw.js')
+    .then((reg) => {
+      const sw = reg.installing
+        ? reg.installing
+        : reg.waiting
+          ? reg.waiting
+          : reg.active;
+      sw.addEventListener("statechange", (e) => {
+        console.log("State is changed:", e.target.state);
+        if (e.target.state === "activated") {
+          location.reload();
+        }
+      });
     });
-    });
-    });
+});
+```
 
 и принудительно обновить страницу после того, как service worker будет
 готов к обработке запросов.

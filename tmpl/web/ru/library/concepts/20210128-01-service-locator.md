@@ -22,17 +22,18 @@ Service Locator (как и его эволюция — DI-контейнер) п
 при визуальной проверке кода (а также компилятору/интерпретатору/IDE/…).
 Вот фрагмент PHP-кода:
 
-    function main($dep)
-    {
+``` php
+function main($dep) {
+    $res = $dep(12, 'str');
+    echo $res;
+}
 
-\$res = \$dep(12, ‘str’);
-
-echo \$res;
-
-    } fn = function(num, $str) {
+$fn = function ($num, $str) {
     return $num . $str;
-    };
-    main($fn);
+};
+
+main($fn);
+```
 
 По коду видно, что функция `main` ожидает в качестве входного аргумента
 некоторую другую функцию, которой на вход можно передать два аргумента и
@@ -46,51 +47,30 @@ echo \$res;
 свойства и методы зависимого элемента (`$dep`) желает использовать в
 своих целях основной элемент (`$app`):
 
-interface IDep
+``` php
+interface IDep {
+    public function get();
+    public function put($data);
+}
 
-    {
+class Dep implements IDep {
+    private $data;
 
-public function get(); public function put(\$data);
+    public function get() { return $this->data; }
+    public function put($data) { $this->data = $data; }
+}
 
+class Main {
+    public function run(IDep $dep) {
+        $dep->put(4);
+        echo $dep->get();
     }
-    class Dep implements IDep
-    {
+}
 
-private \$data;
-
-public function get()
-
-    {
-    return $this->data;
-    }
-
-public function put(\$data)
-
-    {
-
-\$this-\>data = \$data;
-
-    }
-    }
-    class Main
-    {
-
-public function run(IDep \$dep)
-
-    {
-
-\$dep-\>put(4);
-
-echo \$dep-\>get();
-
-    }
-    }
-
-\$app = new Main();
-
-\$dep = new Dep();
-
-<span class="math inline">*app* −  \> *run*(</span>dep);
+$app = new Main();
+$dep = new Dep();
+$app->run($dep);
+```
 
 Если на вход методу `run()` объекта `$app` подаётся объект `$dep`,
 имплементирующий ожидаемый интерфейс (`IDep`), то ни один компилятор не
@@ -115,23 +95,31 @@ echo \$dep-\>get();
 уровень DI-контейнера. Который, кстати, может использоваться и как
 Service Locator:
 
-    // DI in constructor public function __construct(IDep $dep)
-    {
+``` php
+// Constructor injection
+public function __construct(IDep $dep) {
+    $this->dep = $dep;
+}
+```
 
-\$this-\>dep = \$dep;
+Или другой вариант конструктора:
 
-    }// DI as ServiceLocator public function __construct(IContainer $di)
-    {
-
-\$this-\>dep = \$di-\>get(IDep::class);
-
-    }
+``` php
+// Resolve through the container
+public function __construct(IContainer $di) {
+    $this->dep = $di->get(IDep::class);
+}
+```
 
 Во втором случае мы теряем контекст — у контейнера нет информации, для
 какого класса создаётся зависимость. Лучше было бы использовать его в
 таком виде:
 
-\$this-\>dep = \$di-\>get(IDep::class, self::class); В чём же
+``` php
+$this->dep = $di->get(IDep::class, self::class);
+```
+
+В чём же
 заключаются претензии к Service Locator’у? Основная — в том, что
 [локатор скрывает зависимости между элементами
 приложения](https://designpatternsphp.readthedocs.io/en/latest/More/ServiceLocator/README.html):
@@ -145,21 +133,17 @@ Service Locator:
 качестве
 [анти-паттерна](https://freecontent.manning.com/the-service-locator-anti-pattern/):
 
-public class HomeController : Controller
+``` csharp
+public class HomeController : Controller {
+    public HomeController() { }
 
-    {
-
-public HomeController() { } public ViewResult Index()
-
-    {
-
-IProductService service =
-
-    Locator.GetService();
-    var products = service.GetFeaturedProducts();
-    return this.View(products);
+    public ViewResult Index() {
+        IProductService service = Locator.GetService<IProductService>();
+        var products = service.GetFeaturedProducts();
+        return this.View(products);
     }
-    }
+}
+```
 
 Можно ли считать сокрытием зависимости использование локатора в таком
 виде — `Locator.GetService<IProductService>()`? Насколько я знаю
@@ -170,7 +154,11 @@ IProductService service =
 Да, я согласен, что внедрение зависимостей через конструктор при
 создании объекта обладает большей наглядностью:
 
-public HomeController(IProductService service) { } Но внедрение
+``` csharp
+public HomeController(IProductService service) { }
+```
+
+Но внедрение
 зависимостей в конструкторе привносит другую проблему — чтобы запустить
 приложение, контейнер должен создать полное дерево зависимостей, даже
 если какие-то из них не используются в данном режиме работы. Внедрение в
@@ -178,25 +166,19 @@ public HomeController(IProductService service) { } Но внедрение
 зависимостей по ходу работы приложения решает эту проблему, но является,
 по мнению многих, анти-паттерном “Service Locator”:
 
-    class Main
-    {
+``` php
+class Main {
+    private $locator;
 
-private \$locator; public function \_\_construct(ILocator \$locator)
-
-    {
-
-\$this-\>locator = \$locator;
-
+    public function __construct(ILocator $locator) {
+        $this->locator = $locator;
     }
 
-public function run()
-
-    {
-
-\$dep = \$this-\>locator-\>get(IDep::class, self::class);
-
+    public function run() {
+        $dep = $this->locator->get(IDep::class, self::class);
     }
-    }
+}
+```
 
 [Подобный
 подход](https://manningbooks.medium.com/the-service-locator-anti-pattern-58e4f708eee0)
@@ -216,31 +198,23 @@ public function run()
 организационными мерами (например, извлекать все зависимости в методах с
 префиксом `dep`):
 
-    class Main
-    {
+``` php
+class Main {
+    private $locator;
 
-private \$locator; public function \_\_construct(ILocator \$locator)
-
-    {
-
-\$this-\>locator = \$locator;
-
+    public function __construct(ILocator $locator) {
+        $this->locator = $locator;
     }
 
-private function depIDep()
-
-    {
-    return $this->locator->get(IDep::class, self::class);
+    private function depIDep() {
+        return $this->locator->get(IDep::class, self::class);
     }
 
-public function run()
-
-    {
-
-\$dep = \$this-\>depIDep();
-
+    public function run() {
+        $dep = $this->depIDep();
     }
-    }
+}
+```
 
 По большому счёту этот подход мало чем отличается от внедрения
 зависимостей через setter’ы или свойства. Вот только создание

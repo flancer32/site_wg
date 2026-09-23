@@ -80,18 +80,3 @@ class Vnd_Plugin_Mod {
   }
 }
 ```
-
-## Additional source-code excerpts
-
-    }
-    export const {
-
-    } = window.nacl; Оболочка экспортирует функционал, находящийся в global, в виде, доступном для использования в качестве es6-модуля.
-
-    class Vnd_Plugin_Mod {
-    constructor(spec) {
-    // EXTRACT DEPS
-    const {box, secretbox} = spec[‘Fl32_Dup_Front_Lib_Nacl’];
-    // …
-    }
-    }

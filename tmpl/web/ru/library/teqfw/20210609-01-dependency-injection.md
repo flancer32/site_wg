@@ -34,7 +34,11 @@ cites="teqfw/di">@teqfw/di</span>](https://github.com/teqfw/di) и может
 
 Типовое обращение к контейнеру объектов выглядит примерно так:
 
-    const obj = container.get(id); Последовательность действий контейнера:
+```js
+const obj = container.get(id);
+```
+
+Последовательность действий контейнера:
 
 1.  Определить по `id` , что за объект хочет получить вызывающая
     сторона.
@@ -65,31 +69,35 @@ cites="teqfw/di">@teqfw/di</span>](https://github.com/teqfw/di) и может
 Вот типовой ES-модуль, который мог бы использоваться в `@teqfw/di`
 (`es6.mjs`):
 
-    const obj = {name: ‘Simple Object’};class Clazz {
-    constructor(spec) {
-    this.name = ‘instance from class constructor’;
-    }
-    }function Factory(spec) {
-    return {name: ‘instance from factory’};
-    }export {
-
-obj as ObjTmpl,
-
-Clazz as default,
-
-Factory,
-
-    }
+```js
+const obj = {name: 'Simple Object'};
+class Clazz {
+  constructor(spec) {
+    this.name = 'instance from class constructor';
+  }
+}
+function Factory(spec) {
+  return {name: 'instance from factory'};
+}
+export {
+  obj as ObjTmpl,
+  Clazz as default,
+  Factory,
+};
+```
 
 А это пример того, как вызывающая сторона могла бы создавать объекты при
 помощи кода из этого ES-модуля (вручную, без использования контейнера):
 
-    import Def from ‘./es6.mjs’;
-    import {Factory} from ‘./es6.mjs’;
-    import {ObjTmpl} from ‘./es6.mjs’;const spec = {}; // empty specification
-    const instClass = new Def(spec);
-    const instFact = Factory(spec);
-    const instTmpl = Object.assign(ObjTmpl, {});
+```js
+import Def from './es6.mjs';
+import {Factory} from './es6.mjs';
+import {ObjTmpl} from './es6.mjs';
+const spec = {}; // empty specification
+const instClass = new Def(spec);
+const instFact = Factory(spec);
+const instTmpl = Object.assign(ObjTmpl, {});
+```
 
 Итого, DI-контейнер, после загрузки ES-модуля, может создавать новые
 объекты на основе экспорта модуля:
@@ -104,22 +112,32 @@ Factory,
 ожидает получить конструктор объекта (фабричная функция) в качестве
 зависимости, или который DI-контейнер должен вернуть вызывающей стороне:
 
-    constructor(spec) {
-    const dep = spec[‘depId’];
-    }
+```js
+class Consumer {
+constructor(spec) {
+  const dep = spec['depId'];
+}
+}
+```
 
 …
 
-    await container.get(‘dep1’); ### Именованные и импортируемые
+```js
+await container.get('dep1');
+```
+
+### Именованные и импортируемые
 
 В самом простом случае разработчик может создавать объекты вручную и
 помещать их прямо в контейнер под произвольными идентификаторами:
 
-    import Container from ‘@teqfw/di’;
-    const container = new Container();
-    container.set(‘dep1’, {name: ‘first’});
-    container.set(‘dep2’, {name: ‘second’});
-    const obj = await container.get(‘dep1’);
+```js
+import Container from '@teqfw/di';
+const container = new Container();
+container.set('dep1', {name: 'first'});
+container.set('dep2', {name: 'second'});
+const obj = await container.get('dep1');
+```
 
 Но в большинстве случаев нас интересует способ автоматического
 нахождения контейнером ES-модуля, подгрузка исходников и определение
@@ -160,9 +178,14 @@ Factory,
 Зависимости объекта в `@teqfw/di` передаются в спецификации в
 конструктор или фабричную функцию:
 
-    class Clazz {
-    constructor(spec) {}
-    }function Factory(spec) {} Как различить случай, когда мы хотим получить от контейнера сам класс (функцию), а когда — экземпляр объекта данного класса (результат работы функции)? В идентификаторе зависимости для @teqfw/di это отражается при помощи символа $:
+```js
+class Clazz {
+  constructor(spec) {}
+}
+function Factory(spec) {}
+```
+
+Как различить случай, когда мы хотим получить от контейнера сам класс (функцию), а когда — экземпляр объекта данного класса (результат работы функции)? В идентификаторе зависимости для @teqfw/di это отражается при помощи символа $:
 
 - `EsModuleId#ExportName`: получить объект (класс, функцию) с именем
   `ExportName` из модуля `EsModuleId`.
@@ -199,14 +222,16 @@ DI-контейнер является global-объектом. Кто-то мо
 
 Итого в `@teqfw/di` используются следующие идентификаторы зависимостей:
 
-    let id1 = ‘named’; // named singleton been added manually
-    let id2 = ‘EsModId’; // ES module
-    let id3 = ‘EsModId#’; // default export of ES module
-    let id4 = ‘EsModId#name’; // named export of ES module
-    let id5 = ‘EsModId$’; // singleton from default export
-    let id6 = ‘EsModId$$’; // new instance from default export
-    let id7 = ‘EsModId#name$’; // singleton from named export
-    let id8 = ‘EsModId#name$$’; // new instance from named export
+```js
+let id1 = 'named'; // named singleton been added manually
+let id2 = 'EsModId'; // ES module
+let id3 = 'EsModId#'; // default export of ES module
+let id4 = 'EsModId#name'; // named export of ES module
+let id5 = 'EsModId$'; // singleton from default export
+let id6 = 'EsModId$$'; // new instance from default export
+let id7 = 'EsModId#name$'; // singleton from named export
+let id8 = 'EsModId#name$$'; // new instance from named export
+```
 
 ## Декларация зависимостей
 
@@ -214,17 +239,27 @@ DI-контейнер является global-объектом. Кто-то мо
 необходимые для создания объекта, в конструкторе (фабричной функции). В
 `@teqfw/di` это делается так:
 
-    constructor(spec) {
-    const named = spec[‘namedSingleton’];
-    const inst = spec[‘EsModId#name$$’];
-    const single = spec[‘EsModId$’];
-    } Особенностью @teqfw/di является то, что контейнер прерывает процесс создания запрошенного объекта, если обнаруживает неизвестную зависимость, подгружает исходники зависимости и создает зависимость, после чего вновь пытается создать запрошенный объект. Таким образом, первые строки конструктора запрошенного объекта могут выполняться несколько раз, если в процессе приходилось несколько раз прерывать процесс и подгружать нужные исходники.
+```js
+class Consumer {
+constructor(spec) {
+  const named = spec['namedSingleton'];
+  const inst = spec['EsModId#name$$'];
+  const single = spec['EsModId$'];
+}
+}
+```
+
+Особенностью @teqfw/di является то, что контейнер прерывает процесс создания запрошенного объекта, если обнаруживает неизвестную зависимость, подгружает исходники зависимости и создает зависимость, после чего вновь пытается создать запрошенный объект. Таким образом, первые строки конструктора запрошенного объекта могут выполняться несколько раз, если в процессе приходилось несколько раз прерывать процесс и подгружать нужные исходники.
 
 В простых случаях можно использовать такую форму декларации
 зависимостей, которая не дает возможности вставить код в конструктор до
 разрешения всех нужных зависимостей:
 
-    constructor({named, EsModId, EsModId$}) {}
+```js
+class Consumer {
+constructor({named, EsModId, EsModId$}) {}
+}
+```
 
 ## Загрузка исходников
 
@@ -233,8 +268,12 @@ DI-контейнер является global-объектом. Кто-то мо
 идентификаторов зависимостей файлам с исходниками. В `@teqfw/di`
 добавлением позиций в карту делается так:
 
-    container.addSourceMapping(‘EsModId’, ‘./relative/path’);
-    container.addSourceMapping(‘EsModId’, ‘/absolute/path’, true); Первый способ применяется, если контейнер используется в браузере, второй — в nodejs-приложениях.
+```js
+container.addSourceMapping('EsModId', './relative/path');
+container.addSourceMapping('EsModId', '/absolute/path', true);
+```
+
+Первый способ применяется, если контейнер используется в браузере, второй — в nodejs-приложениях.
 
 В карте сопоставления прописывается корневой каталог с исходниками,
 дальнейшее сопоставление идентификаторов исходникам идет через
@@ -242,7 +281,9 @@ DI-контейнер является global-объектом. Кто-то мо
 [namespace’ов](https://wiredgeese.com/%D0%BD%D0%B0%D0%B8%D0%BC%D0%B5%D0%BD%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2-%D0%BA%D0%BE%D0%B4%D0%B0-%D0%B2-js-fbcabbee5931),
 где разделителем имен каталогов является `_`:
 
-EsModId_PathTo_Mod =\> /absolute/path/PathTo/Mod.mjs
+```text
+EsModId_PathTo_Mod => /absolute/path/PathTo/Mod.mjs
+```
 
 ## Резюме
 
@@ -256,11 +297,13 @@ cites="teqfw/di">@teqfw/di</span>](https://github.com/teqfw/di)
 
 Типовой код для ES-модуля, используемого в `@teqfw/di`:
 
-    export default class Mod {
-    constructor(spec) {
-    const Clazz = spec[‘Lib_Dep#’];
-    const single = spec[‘Lib_Dep$’];
-    const inst = spec[‘Lib_Dep$$’];
+```js
+export default class Mod {
+  constructor(spec) {
+    const Clazz = spec['Lib_Dep#'];
+    const single = spec['Lib_Dep$'];
+    const inst = spec['Lib_Dep$$'];
     // …
-    }
-    }
+  }
+}
+```

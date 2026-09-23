@@ -56,9 +56,11 @@ queda explícito y puede reutilizarse a ambos lados.
 Un productor local permite publicación y suscripción:
 
 ``` js
-emit(eventName, message) {}
-subscribe(eventName, handler) {}
-unsubscribe(subscription) {}
+class EventProducer {
+  emit(eventName, message) {}
+  subscribe(eventName, handler) {}
+  unsubscribe(subscription) {}
+}
 ```
 
 Quien se suscribe indica qué evento necesita y aporta un manejador.

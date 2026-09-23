@@ -36,11 +36,28 @@ For objects the idea is the same: `IDep` states which methods `Main` is
 allowed to use.
 
 ``` php
-interface IDep { public function get(); public function put($data); }
-class Dep implements IDep { /* ... */ }
-class Main {
-    public function run(IDep $dep) { $dep->put(4); echo $dep->get(); }
+interface IDep {
+    public function get();
+    public function put($data);
 }
+
+class Dep implements IDep {
+    private $data;
+
+    public function get() { return $this->data; }
+    public function put($data) { $this->data = $data; }
+}
+
+class Main {
+    public function run(IDep $dep) {
+        $dep->put(4);
+        echo $dep->get();
+    }
+}
+
+$app = new Main();
+$dep = new Dep();
+$app->run($dep);
 ```
 
 The compiler is satisfied when an object implements `IDep`, even if it
@@ -55,7 +72,11 @@ container can also be used as a locator:
 ``` php
 // Constructor injection
 public function __construct(IDep $dep) { $this->dep = $dep; }
+```
 
+Alternatively:
+
+``` php
 // Resolve when needed
 public function __construct(IContainer $di) {
     $this->dep = $di->get(IDep::class);
@@ -100,63 +121,3 @@ My conclusion is pragmatic: injecting a DI container or Service Locator
 into an object is not inherently harmful. Use it deliberately, preserve
 the requester context, and keep the actual dependencies discoverable in
 the code.
-
-## Additional source-code excerpts
-
-    {
-
-    }
-    }
-    class Main
-    {
-
-    {
-
-    }
-    }
-
-    // DI in constructor public function __construct(IDep $dep)
-    {
-
-    }// DI as ServiceLocator public function __construct(IContainer $di)
-    {
-
-    }
-
-    {
-
-    {
-
-    Locator.GetService();
-    var products = service.GetFeaturedProducts();
-    return this.View(products);
-    }
-    }
-
-    class Main
-    {
-
-    {
-
-    }
-
-    {
-
-    }
-    }
-
-    class Main
-    {
-
-    {
-
-    }
-
-    {
-    return $this->locator->get(IDep::class, self::class);
-    }
-
-    {
-
-    }
-    }

@@ -48,235 +48,146 @@ object container:
 
 ## 1. The Composition Root
 
-In regular ES6+ code, static imports are used to load sources and create
-dependencies. It is a “direct control”:
+With direct control, the service imports a concrete logger:
 
-    import logger from ‘./logger.js’; export default class Service {
-    exec(opts) {
-    logger.info(Service is running with: ${JSON.stringify(opts)});
-    }
-    }
+``` js
+import logger from './logger.js';
+export default class Service {
+  exec(opts) { logger.info(JSON.stringify(opts)); }
+}
+```
 
-Here is an example of inversion, where control over the creation of
-dependencies is given to an external agent, and the service only
-provides the opportunity to inject dependencies into it:
+With inversion of control, it receives that dependency:
 
-    export default class Service {
-    constructor(logger) {
-    this.exec = function (opts) {
-    logger.info(Service is running with: ${JSON.stringify(opts)});
-    };
-    }
-    }
+``` js
+export default class Service {
+  constructor(logger) {
+    this.exec = (opts) => logger.info(JSON.stringify(opts));
+  }
+}
+```
 
-If the service itself does not create dependencies, then there must be a
-place somewhere in the application where these dependencies are created.
-This place is called the Composition Root:
+Somewhere the modules still have to be imported and assembled. That
+place is the Composition Root:
 
-    import logger from ‘./logger.js’;
-    import Service from ‘./service.js’; const serv = new Service(logger);
-    serv.exec({name: ‘The Composition Root’});
-
-Any code that uses inversion of control, including test units, has a
-place where the source code of dependencies is loaded and the desired
-objects are created.
+``` js
+import logger from './logger.js';
+import Service from './service.js';
+const service = new Service(logger);
+service.exec({name: 'Composition Root'});
+```
 
 ## 2. The Factory
 
-Classes are syntactic sugar, and object creation can be done with normal
-functions (factories):
+To simplify the example, each module can export an asynchronous factory
+that receives dependencies and returns a service:
 
-    async function Factory(dep1, dep2, …) {
-    return ;
-    }
+``` js
+export default async function Factory(logger) {
+  return (opts) => logger.info(JSON.stringify(opts));
+}
+```
 
-For simplicity, let’s assume that each ES6 module exports, by default,
-such an asynchronous factory that takes a dependencies as input
-arguments and produces the resulting object as output:
+The composition root then calls those factories:
 
-    export default async function Factory(logger) {
-    return function (opts) {
-    logger.info(Service is running with: ${JSON.stringify(opts)});
-    };
-    }
+``` js
+import fLogger from './logger.js';
+import fService from './service.js';
+const logger = await fLogger();
+const service = await fService(logger);
+service({name: 'The Factory'});
+```
 
-In this case, our composition root could look like this:
-
-    import fLogger from ‘./logger.js’;
-    import fService from ‘./service.js’; const logger = await fLogger();
-    const serv = await fService(logger);
-    serv({name: ‘The Factory’});
-
-Our simplification just makes the demo code much easier. In the general
-case, the export can be anything — a class, a function, an object.
+A real module may instead export a class, function, or object. The
+factory convention only makes the next steps easier to demonstrate.
 
 ## 3. The Specification of Dependencies
 
-Ordinary function arguments in JavaScript can be renamed during code
-minification:
+Minification may rename positional parameters. Passing one object lets
+us name each dependency explicitly:
 
-    function Factory(logger, config) {}
+``` js
+function Factory({logger, config}) { /* ... */ }
+```
 
-After minification:
+A key can even be a module path:
 
-    function Factory(a, b) {}
+``` js
+export default async function Factory({['./logger.js']: logger}) {
+  return (opts) => logger.info(JSON.stringify(opts));
+}
+```
 
-However, if we adopt the practice of passing all the necessary
-dependencies into the constructor in the form of a single object — the
-specification:
+For now, the composition root supplies that key:
 
-    function Factory(spec) {} where each property of the specification represents a separate dependency:
-    function Factory({logger, config}) {} then we protect ourselves from potential changes in the names of dependencies and gain the opportunity to analyze the names.
-
-In JavaScript, the key in an object can be any string:
-
-    const obj = {[’any string with spec. chars: !@#$%^&*()_+’]: prop};
-
-When creating a service, we can put the path to the source of the
-dependency in the specification itself:
-
-    export default async function Factory({[‘./logger.js’]: logger}) {
-    return function (opts) {
-    logger.info(Service is running with: ${JSON.stringify(opts)});
-    };
-    }
-
-The composition root for this case:
-
-    import fLogger from ‘./logger.js’;
-    import fService from ‘./service.js’; const logger = await fLogger();
-    const serv = await fService({[‘./logger.js’]: logger});
-    serv({name: ‘The Spec’});
-
-It might seem that our code has become more confusing. Instead of using
-static imports, we now specify source paths in the dependency
-specification of the factory function and in the composition root. But
-be patient a little, and you will see what happens in the end.
+``` js
+const service = await fService({['./logger.js']: logger});
+service({name: 'The Spec'});
+```
 
 ## 4. The Spec Parser
 
-A typical factory function now looks like this:
+The teaching example converts a factory to a string and extracts its
+parameter keys. This simplified parser illustrates the mechanism; a
+production container should use reliable, explicit dependency metadata.
 
-    function Factory(
-    {
-    }
-    ) { }
-
-We can transform a factory function to the string and get paths to the
-dependencies:
-
-    function parser (def) {
-    const res = [];
-    const parts = /function Factory({(.)})./s.exec(def);
-    if (parts?.[1]) {
-    const deps = parts[1].split(‘,’);
-    for (const dep of deps) {
-    const left = dep.split(‘:’)[0];
-    const path = left.trim()
-
-.replace(/‘/g,’’)
-
-.replace(/“/g, ’’)
-
-.replace(‘\[’, ’’)
-
-.replace(‘\]’, ’’);
-
-    res.push(path);
-    }
-    }
-    return res;
-    }; const paths = parser(factory.toString());
+``` js
+function parse(definition) {
+  const params = /function\s+\w+\s*\(\s*\{([^}]*)\}/s.exec(definition)?.[1];
+  if (!params) return [];
+  return params.split(',').map((dependency) =>
+    dependency.split(':')[0].trim().replace(/[\[\]'"]/g, '')
+  );
+}
+const paths = parse(factory.toString());
+```
 
 ## 5. The Object Container
 
-At this point, we have an agreement on the format for specifying
-dependencies and how they are created (factories). We can recursively
-load our modules and their dependencies:
+The container imports modules recursively, resolves their dependencies,
+and caches the result:
 
-    const deps = {}; const FN = /function Factory({(.)})./s;
-    function parser(def) {
-    const res = [];
-    const parts = FN.exec(def);
-    if (parts?.[1]) {
-    const deps = parts[1].split(‘,’);
-    for (const dep of deps) {
-    const left = dep.split(‘:’)[0];
-    const path = left.trim()
+``` js
+const cache = {};
+async function get(key) {
+  if (cache[key]) return cache[key];
+  const {default: factory} = await import(key);
+  const spec = {};
+  for (const path of parse(factory.toString())) spec[path] = await get(path);
+  return (cache[key] = await factory(spec));
+}
+export default {get};
+```
 
-.replace(/‘/g,’’)
+The composition root can now request the service through the container:
 
-.replace(/“/g, ’’)
-
-.replace(‘\[’, ’’)
-
-.replace(‘\]’, ’’);
-
-    res.push(path);
-    }
-    }
-    return res;
-    }
-    async function get(key) {
-    if (deps[key]) return deps[key];
-    else {
-    const {default: factory} = await import(key);
-    const def = factory.toString();
-    const paths = parser(def);
-    const spec = {};
-    for (const path of paths)
-    spec[path] = await get(path);
-    const res = factory(spec);
-    deps[key] = res;
-    return res;
-    }
-    }
-    export default {get};
-
-The object container is the composition root now. We should use this
-container to run our app:
-
-    import container from ‘./container.js’; const serv = await container.get(‘./service.js’);
-    serv({name: ‘The Object Container’});
+``` js
+import container from './container.js';
+const service = await container.get('./service.js');
+service({name: 'The Object Container'});
+```
 
 ## 6. The Resolver
 
-This is the most important part of the post. Up to this point, we were
-still under direct control. Objects still defined their dependencies,
-but previously, they did so through static imports:
+Module paths in dependency specifications still tie code to details. We
+can declare abstractions instead:
 
-    import logger from ‘./logger.js’; export default function {
-    logger.info(Service is running with: ${JSON.stringify(opts)});
-    }
+``` js
+export default async function Factory({logger, config}) {
+  return (opts) => logger.info(`${config.appName}: ${JSON.stringify(opts)}`);
+}
+```
 
-Now, we specify the path to the sources in the dependency specification:
+A map in the composition root connects those abstractions to modules:
 
-    export default async function Factory({[‘./logger.js’]: logger}) {
-    return function (opts) {
-    logger.info(Service is running with: ${JSON.stringify(opts)});
-    };
-    } In both cases, we use “details” (speaking in terms of the Dependency Inversion Principle). In this step, we remove the details from the dependency specification and leave only abstractions:
-    export default async function Factory({logger, config}) {
-    return function (opts) {
-    logger.info(Service '${config.appName}' is running with: ${JSON.stringify(opts)});
-    };
-    }
-
-Now, for the container, we need a map according to which we can match
-the details of each abstraction. This map is defined in the main script:
-
-    import container from ‘./container.js’; const map = {
-
-service: ‘./service.js’,
-
-logger: ‘./logger.js’,
-
-config: ‘./config.js’,
-
-    };
-    container.setMap(map);
-    const serv = await container.get(‘service’);
-    serv({name: ‘The Resolver’});
+``` js
+container.setMap({
+  service: './service.js',
+  logger: './logger.js',
+  config: './config.js',
+});
+const service = await container.get('service');
+```
 
 We no longer use early binding (static binding) based on the details in
 the code. Instead, we use abstractions in the specification (`logger`,

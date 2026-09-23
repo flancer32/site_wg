@@ -86,6 +86,15 @@ parámetros con una expresión regular y obtiene las claves. Es un recurso
 didáctico, no una recomendación de producción: en un contenedor real el
 contrato debe declararse mediante metadatos explícitos y fiables.
 
+``` js
+function parse(def) {
+  const params = /function\s+\w+\s*\(\s*\{([\s\S]*?)\}\s*\)/.exec(def)?.[1];
+  if (!params) return [];
+  return params.split(',').map((entry) => entry.split(':')[0]
+    .trim().replace(/[\[\]'\"]/g, ''));
+}
+```
+
 ## 5. Contenedor
 
 El contenedor importa recursivamente módulos, encuentra dependencias,
@@ -151,92 +160,3 @@ principio de enlace funciona en Node.js y navegador. Para producción
 conviene usar un contenedor maduro como
 [@teqfw/di](https://github.com/teqfw/di), no el parser didáctico del
 artículo.
-
-## Fragmentos adicionales de código fuente
-
-    export default async function Factory({[‘./logger.js’]: logger}) {
-    return function (opts) {
-    logger.info(Service is running with: ${JSON.stringify(opts)});
-    };
-    }
-
-    import fLogger from ‘./logger.js’;
-    import fService from ‘./service.js’; const logger = await fLogger();
-    const serv = await fService({[‘./logger.js’]: logger});
-    serv({name: ‘The Spec’});
-
-    function Factory(
-    {
-    }
-    ) { }
-
-    function parser (def) {
-    const res = [];
-    const parts = /function Factory({(.)})./s.exec(def);
-    if (parts?.[1]) {
-    const deps = parts[1].split(‘,’);
-    for (const dep of deps) {
-    const left = dep.split(‘:’)[0];
-    const path = left.trim()
-
-    res.push(path);
-    }
-    }
-    return res;
-    }; const paths = parser(factory.toString());
-
-    const deps = {}; const FN = /function Factory({(.)})./s;
-    function parser(def) {
-    const res = [];
-    const parts = FN.exec(def);
-    if (parts?.[1]) {
-    const deps = parts[1].split(‘,’);
-    for (const dep of deps) {
-    const left = dep.split(‘:’)[0];
-    const path = left.trim()
-
-    res.push(path);
-    }
-    }
-    return res;
-    }
-    async function get(key) {
-    if (deps[key]) return deps[key];
-    else {
-    const {default: factory} = await import(key);
-    const def = factory.toString();
-    const paths = parser(def);
-    const spec = {};
-    for (const path of paths)
-    spec[path] = await get(path);
-    const res = factory(spec);
-    deps[key] = res;
-    return res;
-    }
-    }
-    export default {get};
-
-    import container from ‘./container.js’; const serv = await container.get(‘./service.js’);
-    serv({name: ‘The Object Container’});
-
-    import logger from ‘./logger.js’; export default function {
-    logger.info(Service is running with: ${JSON.stringify(opts)});
-    }
-
-    export default async function Factory({[‘./logger.js’]: logger}) {
-    return function (opts) {
-    logger.info(Service is running with: ${JSON.stringify(opts)});
-    };
-    } In both cases, we use “details” (speaking in terms of the Dependency Inversion Principle). In this step, we remove the details from the dependency specification and leave only abstractions:
-    export default async function Factory({logger, config}) {
-    return function (opts) {
-    logger.info(Service '${config.appName}' is running with: ${JSON.stringify(opts)});
-    };
-    }
-
-    import container from ‘./container.js’; const map = {
-
-    };
-    container.setMap(map);
-    const serv = await container.get(‘service’);
-    serv({name: ‘The Resolver’});

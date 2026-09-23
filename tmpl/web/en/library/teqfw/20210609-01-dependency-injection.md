@@ -51,8 +51,10 @@ factory, or use an object as a template according to the identifier.
 Dependencies are entries in `spec`:
 
 ``` js
+class Consumer {
 constructor(spec) {
   const logger = spec['TeqFw_Log_Api_Logger$'];
+}
 }
 ```
 
@@ -85,17 +87,21 @@ do not.
 The explicit form makes identifiers easy to inspect:
 
 ``` js
+class Consumer {
 constructor(spec) {
   const named = spec['namedSingleton'];
   const one = spec['EsModId#name$$'];
   const shared = spec['EsModId$'];
+}
 }
 ```
 
 Destructuring is compact when no setup must precede resolution:
 
 ``` js
+class Consumer {
 constructor({ namedSingleton, EsModId$, EsModId$$ }) { /* ... */ }
+}
 ```
 
 ## Resolving sources
@@ -118,44 +124,3 @@ individual exports as dependencies, create singleton or transient
 objects, and run the same architectural pattern in browsers and Node.js.
 The convention makes object wiring visible and replaceable while keeping
 module source resolution systematic.
-
-## Additional source-code excerpts
-
-    import Container from ‘@teqfw/di’;
-    const container = new Container();
-    container.set(‘dep1’, {name: ‘first’});
-    container.set(‘dep2’, {name: ‘second’});
-    const obj = await container.get(‘dep1’);
-
-    class Clazz {
-    constructor(spec) {}
-    }function Factory(spec) {} Как различить случай, когда мы хотим получить от контейнера сам класс (функцию), а когда — экземпляр объекта данного класса (результат работы функции)? В идентификаторе зависимости для @teqfw/di это отражается при помощи символа $:
-
-    let id1 = ‘named’; // named singleton been added manually
-    let id2 = ‘EsModId’; // ES module
-    let id3 = ‘EsModId#’; // default export of ES module
-    let id4 = ‘EsModId#name’; // named export of ES module
-    let id5 = ‘EsModId$’; // singleton from default export
-    let id6 = ‘EsModId$’; // new instance from default export
-    let id7 = ‘EsModId#name$’; // singleton from named export
-    let id8 = ‘EsModId#name$’; // new instance from named export
-
-    constructor(spec) {
-    const named = spec[‘namedSingleton’];
-    const inst = spec[‘EsModId#name$’];
-    const single = spec[‘EsModId$’];
-    } Особенностью @teqfw/di является то, что контейнер прерывает процесс создания запрошенного объекта, если обнаруживает неизвестную зависимость, подгружает исходники зависимости и создает зависимость, после чего вновь пытается создать запрошенный объект. Таким образом, первые строки конструктора запрошенного объекта могут выполняться несколько раз, если в процессе приходилось несколько раз прерывать процесс и подгружать нужные исходники.
-
-    constructor({named, EsModId, EsModId$}) {}
-
-    container.addSourceMapping(‘EsModId’, ‘./relative/path’);
-    container.addSourceMapping(‘EsModId’, ‘/absolute/path’, true); Первый способ применяется, если контейнер используется в браузере, второй — в nodejs-приложениях.
-
-    export default class Mod {
-    constructor(spec) {
-    const Clazz = spec[‘Lib_Dep#’];
-    const single = spec[‘Lib_Dep$’];
-    const inst = spec[‘Lib_Dep$’];
-    // …
-    }
-    }

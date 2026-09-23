@@ -45,7 +45,15 @@ an export name. Examples:
 
 ``` js
 import { exportName } from 'https://domain.example/path/to/mod.mjs';
+```
+
+Or use a relative or package address:
+
+``` js
 import { exportName } from '../../path/to/mod.mjs';
+```
+
+``` js
 import { exportName } from '@vendor/project/src/path/to/mod.mjs';
 ```
 
@@ -128,70 +136,3 @@ internal.
 The larger the component, the more important the stability of its name
 and interface. Thoughtful boundaries do not prevent change; they keep a
 local change local.
-
-## Additional source-code excerpts
-
-    import func from ‘./mod.mjs’;
-    import {fn} from ‘./mod.mjs’;
-
-    function outer() {
-    const obj = {};
-    function inner() {
-    const obj = {};
-    }
-    } > Глубоко вложенные области видимости ухудшают читаемость кода, а использование элементов кода с верхних уровней снижают устойчивость кода к изменениям (за исключением случая, когда элементы кода определяются на самом верхнем уровне — через импорты в es-модуле).
-
-    const OBJ = {prop: ‘value’}function consumer() {
-    console.log(OBJ.prop);
-    } ### Функции
-
-    function producer(x1, x2) {
-    return x2 * x1;
-    }const y = producer(1, 2); Я как-то уже размышлял на тему, что было бы, если бы у функции был только один входной параметр и один выходной:
-    const y = fn(x); JS с его деструктирующим присваиванием вплотную подошёл к этому варианту:
-    function producer({x1, x2}) {
-    return {y1: x1 + x2, y2: x2 * x1};
-    }const {y1, y2} = producer({x1: 1, x2: 2}); > Использование функций в таком виде добавляет коду устойчивости к изменениям относительно “классического” варианта. В этом случае мы можем смелее изменять входные и выходные аргументы (их количество и порядок следования), но платим за это читабельностью кода.
-
-    {
-
-    “another_dep”: “~2.2.0”
-    }
-    } Имя npm-пакета участвует в адресации es-модулей в nodejs-приложениях. В пакете может быть определён входной объект, в его ./package.json:
-    {
-    “main”: “lib/entry.js”
-    }
-
-    function producer(opts) {
-    function nested() {}
-    }
-
-    class SomeClass {
-
-    const nestedObj = {};
-    this.instMethod = function () {
-    nestedObj.prop = this.#privProp;
-    }
-    } setProp(data) {
-    this.#privProp = data;
-    }
-    } privProp и nestedObj являются внутренними элементами кода для класса SomeClass и недоступны извне напрямую.
-
-    {
-    “main”: “src/Shared/Container.mjs”
-    }
-
-    import Container from ‘@teqfw/di’;
-
-    import subModule from ‘./path/to/sub/modle.mjs’;export {
-
-    }
-
-    import * as module from ‘@scope/prj’;
-    const sub = module.subModule; Но это именно “джентльменское соглашение” — ничто не мешает разработчику другого npm-пакета обратиться внутрь нашего npm-пакета к любому es-модулю напрямую.
-
-    export default class TeqFw_Web_Back_Defaults {
-    constructor(spec) {
-    this.MOD_DI = spec[‘TeqFw_Di_Back_Defaults$’];
-    }
-    }

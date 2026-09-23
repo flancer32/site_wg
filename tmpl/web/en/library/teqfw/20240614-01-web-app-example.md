@@ -46,7 +46,11 @@ The <span class="citation" cites="teqfw/di">@teqfw/di</span> library can
 be connected as ES6 modules by loading the sources, for example, from
 unpkg.com:
 
-\<!DOCTYPE html\>
+``` html
+<script type="module">
+  import Container from 'https://unpkg.com/@teqfw/di';
+</script>
+```
 
 ## Creating and Configuring the Container
 
@@ -58,12 +62,12 @@ After creating a new instance of the Container, you need to configure
 the Resolver so that it loads ES6 modules from the `./js` directory for
 the `Demo` namespace:
 
-    const container = new Container();
-    const url = new URL(location.href);
-    const root = url.href.replace(‘index.html’, ’’);
-    const pathApp = root + ‘/js’;
-    const resolver = container.getResolver();
-    resolver.addNamespaceRoot(‘Demo’, pathApp);
+``` js
+const container = new Container();
+const root = new URL(location.href).href.replace('index.html', '');
+const resolver = container.getResolver();
+resolver.addNamespaceRoot('Demo', root + '/js');
+```
 
 Thus, dependency identifiers resolve to the following paths:
 
@@ -78,8 +82,10 @@ To obtain a singleton instance of the application from the container,
 you need to specify its identifier `Demo_App$`. The `$` symbol at the
 end of the identifier indicates that a singleton object is needed:
 
-    const app = await container.get(‘Demo_App$’);
-    app.run();
+``` js
+const app = await container.get('Demo_App$');
+app.run();
+```
 
 The <span class="citation" cites="teqfw/di">@teqfw/di</span> container
 supports several identifier schemes and path-resolution rules:
@@ -110,16 +116,31 @@ through dependency identifiers.
 
 Dependencies of an object are set in its constructor:
 
-    export default class Demo_App {
-    constructor({Demo_Defs : defs, DemoToDoList: list}) {}
-    } The object container will load the source files for Demo_Defs and Demo_ToDo_List, create the corresponding singleton objects, and pass them to the constructor to create the Demo_App object.
+``` js
+export default class Demo_App {
+  constructor({Demo_Defs$: defs, Demo_ToDo_List$: list}) {
+    this.defs = defs;
+    this.list = list;
+  }
+}
+```
+
+The object container loads the modules, creates the singleton objects,
+and passes them to the application constructor.
 
 ### The Class (as-is)
 
-    export default class Demo_ToDo_List {
-    constructor({Demo_ToDo_Item: TItem}) { }
-    } In this case, the object container will load the corresponding ES6 module and return its default export as-is. The Demo_ToDo_Item class constructor does not have parameters, so in Demo_ToDo_List you can write:
-    const item = new TItem();
+``` js
+export default class Demo_ToDo_List {
+  constructor({Demo_ToDo_Item: ToDoItem}) {
+    this.item = new ToDoItem();
+  }
+}
+```
+
+Here the container returns the default class export as-is. The
+`Demo_ToDo_Item` constructor has no parameters, so `Demo_ToDo_List` can
+instantiate it directly.
 
 ## Summary
 
@@ -144,13 +165,3 @@ If you are interested in the Tequila Framework platform and have a
 commercial proposal, I will be happy to develop an application for you
 at 30 euros/hour. If you have an educational or humanitarian project, I
 will help you for free.
-
-## Additional source-code excerpts
-
-``` js
-export default class Demo_ToDo_List {
-  constructor({ Demo_ToDo_Item: ToDoItem }) {
-    this.item = new ToDoItem();
-  }
-}
-```

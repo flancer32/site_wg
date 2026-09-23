@@ -49,7 +49,11 @@ three npm packages:
 
 Let’s say a useful function is defined in the `plugin`:
 
-    function drive(pack, route) {} Apps app1 and app2 both call this function, but each passes different data into the function.
+``` js
+function drive(pack, route) {}
+```
+
+Both `app1` and `app2` call this function with different data.
 
 When using interfaces, it is important to understand that in the “*Frank
 Martin* — *Customer*” pair, Frank plays the leading role. He sets the
@@ -59,28 +63,19 @@ to hire Frank.
 In the code, such rules are played by interfaces. I will reflect the
 expectations from a parcel in two JS classes:
 
-    class Package {
-    getSize() {
+``` js
+/** @interface */
+class Package {
+  getSize() { throw new Error('Implement this method.'); }
+  getWeight() { throw new Error('Implement this method.'); }
+}
 
-throw ‘Please, implement this method.’;
-
-    } getWeight() {
-
-throw ‘Please, implement this method.’;
-
-    }
-    }
-    class Route {
-    getPlaceFrom() {
-
-throw ‘Please, implement this method.’;
-
-    } getPlaceTo() {
-
-throw ‘Please, implement this method.’;
-
-    }
-    }
+/** @interface */
+class Route {
+  getPlaceFrom() { throw new Error('Implement this method.'); }
+  getPlaceTo() { throw new Error('Implement this method.'); }
+}
+```
 
 It is possible to describe the interface using only JSDoc annotations,
 but my experience shows that modern IDEs do not handle them very well.
@@ -89,7 +84,9 @@ That is why I propose using regular JS code and then applying the
 
 Now, Frank’s contract with the Customer looks like this:
 
-    function drive(pack, route) {}
+``` js
+function drive(pack, route) {}
+```
 
 For Frank, to be able to deliver the parcel, he has to know the
 dimensions and weight of the parcel as well as where to deliver the
@@ -98,44 +95,36 @@ parcel from and where to deliver it to.
 Then in the first application (delivering a Chinese girl from Marseille
 to Nice) the code might look like this:
 
-    function app1() {
-    const pack = {
-
-getSize: () =\> {return {length: 150, width: 50, height: 50};},
-
-getWeight: () =\> 50,
-
-    };
-    const route = {
-
-getPlaceFrom: () =\> ‘Marseille’,
-
-getPlaceTo: () =\> ‘Nice’,
-
-    };
-    drive(pack, route);
-    }
+``` js
+function app1() {
+  const pack = {
+    getSize: () => ({length: 150, width: 50, height: 50}),
+    getWeight: () => 50,
+  };
+  const route = {
+    getPlaceFrom: () => 'Marseille',
+    getPlaceTo: () => 'Nice',
+  };
+  drive(pack, route);
+}
+```
 
 And in the second (delivering a briefcase with explosives from Nice to
 Grenoble) the code might look like this:
 
-    function app2() {
-    const pack = {
-
-getSize: () =\> {return {length: 45, width: 30, height: 10};},
-
-getWeight: () =\> 1,
-
-    };
-    const route = {
-
-getPlaceFrom: () =\> ‘Nice’,
-
-getPlaceTo: () =\> ‘Grenoble’,
-
-    };
-    drive(pack, route);
-    }
+``` js
+function app2() {
+  const pack = {
+    getSize: () => ({length: 45, width: 30, height: 10}),
+    getWeight: () => 1,
+  };
+  const route = {
+    getPlaceFrom: () => 'Nice',
+    getPlaceTo: () => 'Grenoble',
+  };
+  drive(pack, route);
+}
+```
 
 Modern IDEs can already parse such code and use it in autocompletes and
 for navigation with Ctrl+Click.

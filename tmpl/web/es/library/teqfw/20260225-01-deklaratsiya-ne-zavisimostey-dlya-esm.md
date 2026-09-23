@@ -31,7 +31,7 @@ export default class Namespace_Package_Module_Component {
     constructor({
         Namespace_Package_Module_Dep1: dep1,
         Namespace_Package_Module_Dep2: dep2,
-    }) { ... }
+    }) { /* ... */ }
 }
 ```
 

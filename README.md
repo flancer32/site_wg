@@ -13,7 +13,7 @@ The source code of the personal website [wiredgeese.com](https://wiredgeese.com)
 
 - Node.js >= 20
 - Access to OpenAI-compatible API (for translation)
-- `@flancer32/teq-cms` (included in dependencies)
+- `@flancer32/teq-cms` and `@flancer32/teq-tmpl` (installed from GitHub `main` as runtime dependencies)
 
 ## Configuration
 

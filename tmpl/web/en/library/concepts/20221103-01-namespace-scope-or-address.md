@@ -30,25 +30,15 @@ when I first time learned to write Java code many years ago. `Namespace`
 in Java [is called](https://en.wikipedia.org/wiki/Java_package) a
 `package`:
 
-package java.awt.event; Each Java class is placed in a separate file and
-each file should contain a `package` declaration. All files (and
-packages) form a hierarchy:
+``` java
+package java.awt.event;
+```
 
-\|- java
+Each Java class lives in a separate file. Packages and files form a
+hierarchy such as `java/applet/AppletContext.java` and
+`java/awt/event/ActionListener.java`.
 
-\|– applet
-
-\|— AppletContext
-
-\|— …
-
-\|– awt
-
-\|— event
-
-\|—- ActionListener
-
-\|… It is very easy to navigate Java code — sources
+It is very easy to navigate Java code — sources
 for`java.applet.AppletContext` class will be in
 `./java/applet/AppletContext.java`, sources
 for`java.awt.event.ActionListener` class will be in
@@ -75,43 +65,26 @@ identification (addressing) and only secondly about scopes (contexts).
 5.3](https://www.php.net/manual/en/language.namespaces.rationale.php)
 and they are closer to the filesystem than `namespaces` in Java:
 
-namespace Zend; Unlike the Java, it is possible to have [more than
-one](https://www.php.net/manual/en/language.namespaces.definitionmultiple.php)`namespace`
-in a file:
+``` php
+namespace Zend;
+```
 
-namespace Space1;
-
-…
-
-namespace Space2;
-
-… But “*It is strongly discouraged as a coding practice to combine
-multiple namespaces into the same file*” ©
+Unlike Java, a PHP file can declare more than one namespace, although
+combining them in a single file is discouraged.
 
 `Namespaces` in PHP can be
 [nested](https://www.php.net/manual/en/language.namespaces.nested.php):
 
-namespace Project; … and can be addressed [absolutely or
-relatively](https://www.php.net/manual/en/language.namespaces.rules.php),
-just like in a filesystem (alias == symbolic link):
+``` php
+namespace Project;
+use Project\ModuleA as ModA;
 
-\<?php namespace Project
+$modA = new ModuleA();
+$modA2 = new ModA();
+```
 
-namespace Project
-
-namespace {
-
-use Projectas ModA;
-
-\$modA = new ();
-
-\$modB = new ();
-
-\$modB2 = new Demo();
-
-\$modA2 = new ModA();
-
-    }
+Namespaces can be addressed absolutely or relatively, much like paths
+in a filesystem. An alias resembles a symbolic link.
 
 PHP `namespaces` have more flexible options for addressing code elements
 than Java `packages` but both languages allow IDE (and the developer) to
@@ -131,24 +104,27 @@ is a very-very old question that has more than one [right
 answer](https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch13s15.html).
 The most popular answer I know — “*just create named scope*”:
 
-    const MyNamespace = (function() {…})(); Unlike Java/PHP ‘namespace’ in JS is firstly about scopes and not about identification (addressing) at all. We can create nested ‘namespaces’ and all will be fine in runtime — all nested scopes will be isolated (e.g., we can have function myFunc in every scope):
-    const MyNamespace = (function () {
-    function myFunc() {
-    console.log(‘Main space.’);
-    } return {
+``` js
+const MyNamespace = (function () { /* ... */ })();
+```
 
-fn: myFunc
+Unlike Java and PHP, a JavaScript namespace is primarily a scope, not
+an address. Nested scopes can each define a `myFunc`:
 
-    }
-    })();(function (mainSpace) {
-    function myFunc() {
-    console.log(‘Nested space.’);
-    } mainSpace.subSpace = {
+``` js
+const MyNamespace = (() => {
+  function myFunc() { console.log('Main space.'); }
+  return {fn: myFunc};
+})();
 
-fn: myFunc
+((mainSpace) => {
+  function myFunc() { console.log('Nested space.'); }
+  mainSpace.subSpace = {fn: myFunc};
+})(MyNamespace);
 
-    }})(MyNamespace);MyNamespace.fn();
-    MyNamespace.subSpace.fn();
+MyNamespace.fn();
+MyNamespace.subSpace.fn();
+```
 
 But different `myFunc`s still cannot be addressed uniquely. An IDE’s
 *Copy Reference* action returns only `myFunc`, without a namespace.
@@ -193,16 +169,3 @@ Stay connected:
 - [Upwork](https://www.upwork.com/freelancers/~0181de0a64c6981497)
 
 Thank you for your support!
-
-## Additional source-code excerpts
-
-``` js
-const MyNamespace = (() => {
-  function myFunc() { console.log('Main space.'); }
-  return { fn: myFunc };
-})();
-((mainSpace) => {
-  function myFunc() { console.log('Nested space.'); }
-  mainSpace.subSpace = { fn: myFunc };
-})(MyNamespace);
-```

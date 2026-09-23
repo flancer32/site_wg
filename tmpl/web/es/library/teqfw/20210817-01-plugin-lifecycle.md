@@ -95,25 +95,3 @@ this.stop = async function () { /* ... */ };
 
 Los finalizadores se ejecutan en el mismo orden ascendente: de `core` a
 `app`.
-
-## Fragmentos adicionales de código fuente
-
-    this.init = async function ({path, version}) {
-    initBootConfig(config, path, version);
-    // …
-    config.loadLocal(path);
-    const registry = await pluginScan.exec(path);
-    initDiContainer(registry);
-    await initPlugins(registry);
-    // …
-    }
-
-    this.run = async function () {
-    const me = this; async function onStop() {
-    await me.stop();
-    process.exit();
-    } process.on(‘SIGINT’, onStop);
-    process.on(‘SIGTERM’, onStop);
-    process.on(‘SIGQUIT’, onStop);
-    // …
-    };this.stop = async function () {/* … */} Функции останова плагинов запускаются также по очереди, снизу-вверх — от базовых уровне (core) к верхним (app).

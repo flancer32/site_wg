@@ -143,14 +143,15 @@ https://server.com/sse/7dc933ff-5acd-434d-8703-7cef276d69e2 Бэк “на
 для чего уже нужен асимметричный ключ . Фронт-приложение
 идентифицируется совокупностью UUID’а и асимметричного ключа:
 
-    {
+```json
+{
+  "publicKey": "MvEyGsVIOxCrPrLcijxvHnWPtY+jS7sMgp+q5akMams=",
+  "secretKey": "A6xO8bbkqCNwJCzNYj5zJVbsGUi1MtUEzlCwisTp24Q=",
+  "uuid": "7dc933ff-5acd-434d-8703-7cef276d69e2"
+}
+```
 
-“publicKey”: “MvEyGsVIOxCrPrLcijxvHnWPtY+jS7sMgp+q5akMams=”,
-
-“secretKey”: “A6xO8bbkqCNwJCzNYj5zJVbsGUi1MtUEzlCwisTp24Q=”,
-
-    “uuid”: “7dc933ff-5acd-434d-8703-7cef276d69e2”
-    } Эта информация хранится в IndexedDB браузера и является общей для всех экземпляров одного и того же приложения, запущенного в разных вкладках (но не в профилях!).
+Эта информация хранится в IndexedDB браузера и является общей для всех экземпляров одного и того же приложения, запущенного в разных вкладках (но не в профилях!).
 
 `publicKey` и `uuid` являются публичной информацией и могут передаваться
 по сети, а вот `secretKey` является критически важной для безопасности

@@ -37,11 +37,28 @@ Con objetos la idea no cambia: `IDep` define qué métodos puede usar
 `Main`.
 
 ``` php
-interface IDep { public function get(); public function put($data); }
-class Dep implements IDep { /* ... */ }
-class Main {
-    public function run(IDep $dep) { $dep->put(4); echo $dep->get(); }
+interface IDep {
+    public function get();
+    public function put($data);
 }
+
+class Dep implements IDep {
+    private $data;
+
+    public function get() { return $this->data; }
+    public function put($data) { $this->data = $data; }
+}
+
+class Main {
+    public function run(IDep $dep) {
+        $dep->put(4);
+        echo $dep->get();
+    }
+}
+
+$app = new Main();
+$dep = new Dep();
+$app->run($dep);
 ```
 
 El compilador queda satisfecho cuando un objeto implementa `IDep`,
@@ -56,7 +73,11 @@ de DI también puede actuar como localizador:
 ``` php
 // Inyección en el constructor
 public function __construct(IDep $dep) { $this->dep = $dep; }
+```
 
+Como alternativa:
+
+``` php
 // Resolver al necesitarla
 public function __construct(IContainer $di) {
     $this->dep = $di->get(IDep::class);
@@ -100,63 +121,3 @@ Mi conclusión es pragmática: inyectar un contenedor DI o Service Locator
 no es malo por sí mismo. Hay que usarlo con intención, conservar el
 contexto de quien solicita el servicio y mantener las dependencias
 reales fáciles de encontrar en el código.
-
-## Fragmentos adicionales de código fuente
-
-    {
-
-    }
-    }
-    class Main
-    {
-
-    {
-
-    }
-    }
-
-    // DI in constructor public function __construct(IDep $dep)
-    {
-
-    }// DI as ServiceLocator public function __construct(IContainer $di)
-    {
-
-    }
-
-    {
-
-    {
-
-    Locator.GetService();
-    var products = service.GetFeaturedProducts();
-    return this.View(products);
-    }
-    }
-
-    class Main
-    {
-
-    {
-
-    }
-
-    {
-
-    }
-    }
-
-    class Main
-    {
-
-    {
-
-    }
-
-    {
-    return $this->locator->get(IDep::class, self::class);
-    }
-
-    {
-
-    }
-    }

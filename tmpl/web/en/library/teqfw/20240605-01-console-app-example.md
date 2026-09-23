@@ -37,23 +37,25 @@ TeqFW is a platform existing within the npm/nodejs ecosystem. Therefore,
 the entry point of the application is the `package.json` file. Key
 points to note:
 
-“type”: “module” In teq-applications, TypeScript and transpilation are
+``` json
+{"type": "module"}
+```
+
+In teq-applications, TypeScript and transpilation are
 not used. All source files are ES6 modules.
 
 ### Dependencies
 
-“dependencies”: {
-
-“<span class="citation" cites="teqfw/core">@teqfw/core</span>”:
-“0.24.0”,
-
-“<span class="citation" cites="teqfw/db">@teqfw/db</span>”: “0.21.0”,
-
-“<span class="citation" cites="teqfw/di">@teqfw/di</span>”: “0.22.0”,
-
-“mysql”: “^2.18.1”
-
-    }
+``` json
+{
+  "dependencies": {
+    "@teqfw/core": "0.24.0",
+    "@teqfw/db": "0.21.0",
+    "@teqfw/di": "0.22.0",
+    "mysql": "^2.18.1"
+  }
+}
+```
 
 Because the platform was under active development, this example fixes
 the package versions it uses. Their roles are:
@@ -74,11 +76,9 @@ the package versions it uses. Their roles are:
 
 ### Commands
 
-“scripts”: {
-
-“start”: “node ./bin/tequila.mjs app-clean”
-
-    }
+``` json
+{"scripts": {"start": "node ./bin/tequila.mjs app-clean"}}
+```
 
 The application contains only one command, which is run through npm:
 
@@ -89,17 +89,15 @@ The application contains only one command, which is run through npm:
 This file is the entry point for all teq-applications in the Node.js
 environment, and its code is the same for all backend applications:
 
-\#!/usr/bin/env node
+``` js
+#!/usr/bin/env node
+import {dirname, join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import teq from '@teqfw/core';
 
-‘use strict’;
-
-    import {dirname, join} from ‘node:path’;
-    import {fileURLToPath} from ‘node:url’;
-    import teq from ‘@teqfw/core’; const url = new URL(import.meta.url);
-    const script = fileURLToPath(url);
-    const bin = dirname(script);
-    const path = join(bin, ‘..’);
-    teq({path}).catch((e) => console.error(e));
+const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+teq({path: root}).catch(console.error);
+```
 
 The main task of the `./bin/tequila.mjs` file is to determine the root
 directory where the application is located, so that the platform core
@@ -131,28 +129,12 @@ other teq-plugins:
 
 Here is the descriptor text:
 
-    {
-
-“<span class="citation" cites="teqfw/di">@teqfw/di</span>”: {
-
-“autoload”: {
-
-“ns”: “Ab_Clean”,
-
-“path”: “./src”
-
-    }
-    },
-
-“<span class="citation" cites="teqfw/core">@teqfw/core</span>”: {
-
-“commands”: \[
-
-“Ab_Clean_Back_Cli_Clean”
-
-    ]
-    }
-    }
+``` json
+{
+  "@teqfw/di": {"autoload": {"ns": "Ab_Clean", "path": "./src"}},
+  "@teqfw/core": {"commands": ["Ab_Clean_Back_Cli_Clean"]}
+}
+```
 
 ## Configuration Structures
 
@@ -172,25 +154,21 @@ and parsing the configuration file. In our application, only one
 teq-plugin requires configuration — <span class="citation"
 cites="teqfw/db">@teqfw/db</span>:
 
-    {
-
-“<span class="citation" cites="teqfw/db">@teqfw/db</span>”: {
-
-“client”: “mysql”,
-
-“connection”: {
-
-“database”: “…”,
-
-“host”: “127.0.0.1”,
-
-“password”: “…”,
-
-“user”: “…”
-
+``` json
+{
+  "@teqfw/db": {
+    "client": "mysql",
+    "connection": {
+      "database": "...",
+      "host": "127.0.0.1",
+      "password": "...",
+      "user": "..."
     }
-    }
-    } The local configuration description structure follows the configuration parameters for the knexjs library:
+  }
+}
+```
+
+The local configuration description structure follows the configuration parameters for the knexjs library:
 
 - **<span class="citation" cites="teqfw/db">@teqfw/db</span>**:
   TeqFw_Db_Back_Dto_Config_Local
@@ -204,21 +182,23 @@ cites="flancer64/autobalta_cleaner">@flancer64/autobalta_cleaner</span>](https:/
 adds one command, which is defined in the script
 `Ab_Clean_Back_Cli_Clean`:
 
-“<span class="citation" cites="teqfw/core">@teqfw/core</span>”: {
+``` json
+{"@teqfw/core": {"commands": ["Ab_Clean_Back_Cli_Clean"]}}
+```
 
-“commands”: \[
+The result of `Ab_Clean_Back_Cli_Clean` is a command DTO. The platform
+adds each plugin's commands to commander:
 
-“Ab_Clean_Back_Cli_Clean”
+``` js
+const command = fCommand.create();
+command.realm = DEF.CLI_PREFIX;
+command.name = 'clean';
+command.desc = 'Clean up expired data.';
+command.action = action;
+```
 
-    ]
-    } The result of the Ab_Clean_Back_Cli_Clean function is an object whose structure matches that specified in the script TeqFw_Core_Back_Api_Dto_Command. The platform core sequentially connects all commands described in the descriptors of all used teq-plugins to the commander. In our case, it looks something like this:
-    const res = fCommand.create();
-    res.realm = DEF.CLI_PREFIX;
-    res.name = ‘clean’;
-    res.desc = ‘clean up the expired data’;
-    res.action = action;
-    return res; The command name is prefixed (realm) common to all commands of one plugin. In our case, DEF.CLI_PREFIX = ‘app’. When running the application with the parameter:
-    $ ./bin/tequila.mjs app-clean the action function will be called. The realm is needed to separate commands of one plugin from commands of another. As a rule, the name of the teq-plugin serves as the realm. If the teq-plugin is not intended for use by other teq-plugins, the prefix app is a good option.
+The realm prefixes commands of the plugin. Here it is `app`, so
+`./bin/tequila.mjs app-clean` calls the action function.
 
 ## Database Interaction
 
@@ -256,31 +236,33 @@ Two main scripts are used to work with the database:
 
 Typical code for interacting with the database in a teq-application:
 
-    const trx = await conn.startTransaction();
-
+``` js
+const trx = await conn.startTransaction();
 try {
-
-…
-
-    await trx.commit();
-    } catch (e) {
-    await trx.rollback();
-    }
-    await conn.disconnect();
+  // Read or change data.
+  await trx.commit();
+} catch (error) {
+  await trx.rollback();
+  throw error;
+} finally {
+  await conn.disconnect();
+}
+```
 
 A specific operation (in our case, deletion) is performed like this:
 
-    async function cleanSessions(trx) {
-    const from = util.subtractDays(45);
-    const date = util.formatDate(from);
-    logger.info(Clean up the sessions started before '${date}'.);
-    const where = function () {
-    this.where(A_SESS.EXPIRE, ‘<’, date);
-    };
-    const rows = await crud.deleteSet(trx, rdbSession, where);
-    logger.info(Total '${rows}' sessions were deleted.);
-    return rows;
-    } Note the functional style of performing CRUD operations. All necessary information is passed to the corresponding method of the crud object:
+``` js
+async function cleanSessions(trx) {
+  const date = util.formatDate(util.subtractDays(45));
+  logger.info(`Clean up the sessions started before '${date}'.`);
+  const where = function () { this.where(A_SESS.EXPIRE, '<', date); };
+  const rows = await crud.deleteSet(trx, rdbSession, where);
+  logger.info(`Total '${rows}' sessions were deleted.`);
+  return rows;
+}
+```
+
+Note the functional style of performing CRUD operations. All necessary information is passed to the corresponding method of the crud object:
 
 - **trx**: The transaction within which actions are performed.
 - **rdbSession**: The description of the entity over which actions are

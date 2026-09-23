@@ -91,8 +91,3 @@ registrada. Este patrón sirve para clientes que se reconectan, pero debe
 combinarse con autenticación y autorización de usuario normales,
 almacenamiento seguro, logs cuidadosos y recuperación ante pérdida de
 dispositivo.
-
-## Fragmentos adicionales de código fuente
-
-    “uuid”: “7dc933ff-5acd-434d-8703-7cef276d69e2”
-    } Эта информация хранится в IndexedDB браузера и является общей для всех экземпляров одного и того же приложения, запущенного в разных вкладках (но не в профилях!).
