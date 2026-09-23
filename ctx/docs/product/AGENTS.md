@@ -65,6 +65,10 @@ Within this branch:
 
 Do not force TeqFW, ADSM, Wired Geese, Alarisa, PDE, Desks, books, engineering work, products, offers, and evidence into one linear taxonomy.
 
+## Documentation Capacity Exception
+
+This product level intentionally contains eleven direct ordinary documents. Separate identity, positioning, strategy, system, evidence, and public-information responsibilities remain explicit so their distinct product meanings do not collapse into a single oversized document.
+
 ## Editing Rules
 
 - Preserve explicit human accountability and distinguish Alex Gusev, Wired Geese, and `F. Lancer`, SIA.

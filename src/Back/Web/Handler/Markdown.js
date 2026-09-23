@@ -32,6 +32,7 @@ export default class Markdown {
             stage: STAGE.PROCESS,
             before: ['Fl32_Cms_Back_Web_Handler_Template'],
         });
+        /** @returns {string} */
         const origin = () => {
             try {
                 const value = new URL(config.getBaseUrl?.() || 'https://wiredgeese.com');
@@ -40,7 +41,13 @@ export default class Markdown {
                 return 'https://wiredgeese.com';
             }
         };
+        /** @returns {TeqFw_Web_Back_Dto_Info} */
         this.getRegistrationInfo = () => info;
+
+        /**
+         * @param {TeqFw_Web_Back_Pipeline_RequestContext} context
+         * @returns {Promise<void>}
+         */
         this.handle = async (context) => {
             const {request: req, response: res} = context;
             if (!respond.isWritable(res) || !['GET', 'HEAD'].includes(req.method || 'GET')) return;

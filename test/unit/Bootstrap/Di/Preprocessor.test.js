@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import Preprocessor from '../../src/Bootstrap/Di/Preprocessor.js';
+import Preprocessor from '../../../../src/Bootstrap/Di/Preprocessor.js';
 
 test('replaces the current DI address fields used by CLI 2.4 container policy', () => {
     const preprocess = Preprocessor();

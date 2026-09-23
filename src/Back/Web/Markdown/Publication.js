@@ -18,9 +18,10 @@ export default class Publication {
      * @param {Fl32_Tmpl_Back_Config} deps.tmplConfig
      */
     constructor({fs, path, marked, tmplConfig}) {
+        /** @returns {string} */
         const publicationRoot = () => path.join(tmplConfig.getRootPath(), 'tmpl', 'web');
 
-        /** @param {string} source @returns {{attributes: Record<string, string|string[]>, body: string}|null} */
+        /** @param {string} source @returns {object} */
         const parseFrontMatter = (source) => {
             const match = FRONT_MATTER_PATTERN.exec(source);
             if (!match) return null;
@@ -50,7 +51,7 @@ export default class Publication {
             return {attributes, body: match[2]};
         };
 
-        /** @param {string} url @returns {{locale: string, year: string, slug: string, representation: 'html'|'md'}|null} */
+        /** @param {string} url @returns {object} */
         this.parseRoute = (url) => {
             const pathname = url.split('?', 1)[0];
             let decoded;
@@ -66,8 +67,8 @@ export default class Publication {
         };
 
         /**
-         * @param {{locale: string, year: string, slug: string}} route
-         * @returns {Promise<{source: string, body: string, html: string, metadata: Record<string, string|string[]> & {title: string, description: string, date: string, relations: string[]}}|null>}
+         * @param {object} route
+         * @returns {Promise<object>}
          */
         this.load = async (route) => {
             const filePath = path.join(publicationRoot(), route.locale, 'blog', route.year, `${route.slug}.md`);

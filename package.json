@@ -31,15 +31,13 @@
   },
   "scripts": {
     "start": "teq web:start",
-    "test": "node --test test/unit/*.test.mjs",
+    "test": "node --test $(find ./test -type f -name '*.test.js' -o -name '*.test.mjs')",
     "typecheck": "tsc -p jsconfig.json",
     "sitemap": "node bin/generate-sitemap.mjs",
     "translate": "teq cms:translate"
   },
   "dependencies": {
     "@flancer32/teq-cms": "^0.7.0",
-    "@teqfw/cli": "^2.4.0",
-    "@teqfw/web": "^2.0.0",
     "marked": "^15.0.12",
     "nunjucks": "^3.2.4"
   },

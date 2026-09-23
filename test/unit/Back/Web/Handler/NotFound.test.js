@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import * as http2 from 'node:http2';
 import test from 'node:test';
 
-import NotFound from '../../src/Back/Web/Handler/NotFound.js';
+import NotFound from '../../../../../src/Back/Web/Handler/NotFound.js';
 
 function createHandler() {
     const calls = [];

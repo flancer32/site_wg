@@ -4,9 +4,9 @@ import path from 'node:path';
 import test from 'node:test';
 import {fileURLToPath} from 'node:url';
 
-import Redirect from '../../src/Back/Web/Cms/Handler/Redirect.js';
+import Redirect from '../../../../../../src/Back/Web/Cms/Handler/Redirect.js';
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../../../../..');
 
 function createRedirect() {
     return new Redirect({
@@ -17,7 +17,7 @@ function createRedirect() {
             getDefaultLocale: () => 'en',
             getRootPath: () => root,
         },
-        logger: {forSource: () => ({error() {}, info() {}})},
+        logger: {forSource: () => ({error() {}, info() {}, warn() {}})},
         respond: {
             isWritable: () => true,
             code301_MovedPermanently({res, headers}) {

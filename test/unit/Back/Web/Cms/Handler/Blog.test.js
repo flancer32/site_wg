@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 
-import Blog from '../../src/Back/Web/Cms/Handler/Blog.js';
+import Blog from '../../../../../../src/Back/Web/Cms/Handler/Blog.js';
 
 test('builds accessible, lazy journal cards in reverse chronological order', async () => {
     const root = await fs.mkdtemp(path.join(os.tmpdir(), 'wg-blog-'));

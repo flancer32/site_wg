@@ -65,7 +65,12 @@ export default class Blog {
         const escapeHtml = (value) => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;')
             .replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 
-        /** @param {string} locale @param {string} year @param {string} fileName @returns {Promise<{html: string, relations: string[]}|null>} */
+        /**
+         * @param {string} locale
+         * @param {string} year
+         * @param {string} fileName
+         * @returns {Promise<object>}
+         */
         const extractMarkdownBlogItem = async (locale, year, fileName) => {
             const slug = fileName.replace(MARKDOWN_EXTENSION_PATTERN, '');
             const article = await publication.load({locale, year, slug});
@@ -120,9 +125,11 @@ export default class Blog {
         };
 
         /**
+         * @param {string} locale
+         * @param {string} year
          * @param {string} dir
          * @param {string} fileName
-         * @returns {Promise<{html: string, relations: string[]}|null>}
+         * @returns {Promise<object>}
          */
         const extractBlogItem = async (locale, year, dir, fileName) => {
             if (MARKDOWN_EXTENSION_PATTERN.test(fileName)) {
