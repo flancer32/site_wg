@@ -1,5 +1,6 @@
 type App_Back_Cli_Plugin = import("./src/Back/Cli/Plugin.js").default;
 type App_Back_Cli_Plugin__Class = typeof import("./src/Back/Cli/Plugin.js").default;
+type App_Bootstrap_Di_Preprocessor = typeof import("./src/Bootstrap/Di/Preprocessor.js").default;
 type App_Back_Di_Replace_Adapter = import("./src/Back/Di/Replace/Adapter.js").default;
 type App_Back_Di_Replace_Adapter__Class = typeof import("./src/Back/Di/Replace/Adapter.js").default;
 type App_Back_Web_Cms_Handler_Blog = import("./src/Back/Web/Cms/Handler/Blog.js").default;

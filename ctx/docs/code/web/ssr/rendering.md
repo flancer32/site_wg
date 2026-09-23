@@ -10,7 +10,7 @@ Describe stable request-to-render behavior and historical-route boundaries witho
 
 ## Project Wiring
 
-The project declares its `App_` namespace and CLI lifecycle plugin in `package.json`, replaces the CMS adapter through `teqcms.config.mjs`, and applies project behavior through `src/Back/Di/Replace/Adapter.js`.
+The project declares its `App_` namespace and CLI lifecycle plugin in `package.json`, replaces the CMS adapter through the declarative CLI container policy in `teqcms.config.mjs`, and applies project behavior through `src/Back/Di/Replace/Adapter.js`. The policy names a DI-produced preprocessor under `src/Bootstrap/Di/`; it is resolved before runtime entries and replaces current DI identity addresses rather than importing CMS internals.
 
 ## Request Sequence
 

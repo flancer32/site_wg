@@ -72,10 +72,13 @@ export default class Blog {
             if (!article) return null;
             const {metadata} = article;
             const summary = typeof metadata.summary === 'string' ? metadata.summary : metadata.description;
+            const displayDate = typeof metadata.display_date === 'string'
+                ? metadata.display_date
+                : metadata.date;
             const image = typeof metadata.image === 'string' ? metadata.image : '/img/avatar.jpg';
             const imageAlt = typeof metadata.image_alt === 'string' ? metadata.image_alt : '';
             return {
-                html: `<li class="blog-item"><a class="card-link" href="/${locale}/blog/${year}/${slug}.html"></a><img src="${escapeHtml(image)}" alt="${escapeHtml(imageAlt)}"><div><h4>${escapeHtml(metadata.title)}</h4><p>${escapeHtml(summary)}</p><time datetime="${metadata.date}">${metadata.date}</time></div></li>`,
+                html: `<li class="blog-item"><a class="card-link" href="/${locale}/blog/${year}/${slug}.html"></a><img src="${escapeHtml(image)}" alt="${escapeHtml(imageAlt)}"><div><h4>${escapeHtml(metadata.title)}</h4><p>${escapeHtml(summary)}</p><time datetime="${metadata.date}">${escapeHtml(displayDate)}</time></div></li>`,
                 relations: metadata.relations,
             };
         };
