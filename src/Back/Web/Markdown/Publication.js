@@ -2,10 +2,11 @@
 
 /**
  * @namespace App_Back_Web_Markdown_Publication
- * @description Resolves locale-scoped canonical Markdown sources for dated Journal articles.
+ * @description Resolves locale-scoped canonical Markdown sources for Journal and Library articles.
  */
 
-const ROUTE_PATTERN = /^\/(en|es|ru)\/blog\/(\d{4})\/([a-z0-9][a-z0-9-]*)\.(html|md)$/;
+const BLOG_ROUTE_PATTERN = /^\/(en|es|ru)\/blog\/(\d{4})\/([a-z0-9][a-z0-9-]*)\.(html|md)$/;
+const LIBRARY_ROUTE_PATTERN = /^\/(en|es|ru)\/library\/((?:[a-z0-9-]+\/)*)([a-z0-9][a-z0-9-]*)\.(html|md)$/;
 const FRONT_MATTER_PATTERN = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/;
 const RELATION_ID_PATTERN = /^[a-z][a-z0-9-]*$/;
 
@@ -60,10 +61,18 @@ export default class Publication {
             } catch {
                 return null;
             }
-            const match = ROUTE_PATTERN.exec(decoded);
-            if (!match || decoded.includes('..')) return null;
-            const [, locale, year, slug, representation] = match;
-            return {locale, year, slug, representation: /** @type {'html'|'md'} */ (representation)};
+            const match = BLOG_ROUTE_PATTERN.exec(decoded);
+            if (match) {
+                const [, locale, year, slug, representation] = match;
+                return {type: 'blog', locale, year, slug, representation: /** @type {'html'|'md'} */ (representation)};
+            }
+            const libraryMatch = LIBRARY_ROUTE_PATTERN.exec(decoded);
+            if (libraryMatch) {
+                const [, locale, directory, slug, representation] = libraryMatch;
+                const relativeDirectory = directory ? directory.slice(0, -1).split('/') : [];
+                return {type: 'library', locale, directory: relativeDirectory, slug, representation: /** @type {'html'|'md'} */ (representation)};
+            }
+            return null;
         };
 
         /**
@@ -71,8 +80,11 @@ export default class Publication {
          * @returns {Promise<object>}
          */
         this.load = async (route) => {
-            const filePath = path.join(publicationRoot(), route.locale, 'blog', route.year, `${route.slug}.md`);
-            const expectedDirectory = path.join(publicationRoot(), route.locale, 'blog', route.year);
+            const parts = route.type === 'library'
+                ? [publicationRoot(), route.locale, 'library', ...route.directory]
+                : [publicationRoot(), route.locale, 'blog', route.year];
+            const expectedDirectory = path.join(...parts);
+            const filePath = path.join(expectedDirectory, `${route.slug}.md`);
             if (path.dirname(filePath) !== expectedDirectory) return null;
             let source;
             try {
@@ -83,19 +95,29 @@ export default class Publication {
             }
             const parsed = parseFrontMatter(source);
             const title = parsed?.attributes.title;
-            const description = parsed?.attributes.description;
+            const sourceDescription = parsed?.attributes.description;
             const date = parsed?.attributes.date;
-            if (!parsed || typeof title !== 'string' || typeof description !== 'string'
-                || typeof date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return null;
+            if (!parsed || typeof title !== 'string') return null;
+            if (route.type === 'blog' && (typeof date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(date))) return null;
             const rawRelations = parsed.attributes.relations;
             const relations = Array.isArray(rawRelations)
                 ? rawRelations.filter((relation) => RELATION_ID_PATTERN.test(relation))
                 : [];
+            const bodyText = parsed.body
+                .replace(/<[^>]*>/g, ' ')
+                .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+                .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+                .replace(/[`*_>#]/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+            const excerpt = bodyText.length > 180 ? `${bodyText.slice(0, 180).replace(/\s+\S*$/, '')}…` : bodyText;
+            const description = typeof sourceDescription === 'string' ? sourceDescription : excerpt;
+            if (!description) return null;
             return {
                 source,
                 body: parsed.body,
                 html: await marked.parse(parsed.body, {gfm: true}),
-                metadata: {...parsed.attributes, title, description, date, relations},
+                metadata: {...parsed.attributes, title, description, date: date || '', relations},
             };
         };
     }

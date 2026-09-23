@@ -13,9 +13,16 @@ Only the current decision text in this document is normative. A `Revised` or `Su
 ## Decision 13: Publish The Journal From Canonical Markdown
 
 - **Status:** revised.
-- **Decision:** use locale-specific Markdown as the canonical authored form for every dated Journal article. The existing TeqCMS SSR application derives all localized HTML presentations. Only the English `.md` representation is public to agents; `/llms.txt` lists the complete English Journal corpus, while Russian and Spanish remain human HTML surfaces.
-- **Rejected alternatives:** an agent application, a database or parallel CMS, editable generated HTML, agent-facing translations without a demonstrated need, a migration of shared or structurally complex pages, or a sitemap dump as agent discovery.
-- **Reasoning:** Markdown is efficient for agents and durable prose authoring across the Journal, while Nunjucks/HTML remains the appropriate authored form for shared layout, human-facing composition, navigation, CTAs, widgets, and structurally complex non-Journal pages. One complete English agent corpus prevents duplicated machine-facing content and semantic drift.
+- **Decision:** use locale-specific Markdown as the canonical authored form for every dated Journal article. The existing TeqCMS SSR application derives all localized HTML presentations, and every locale's `.md` URL remains publicly retrievable. `/llms.txt` specially lists the complete English Journal corpus for agent discovery; localized Russian and Spanish Markdown URLs are not listed there.
+- **Rejected alternatives:** an agent application, a database or parallel CMS, editable generated HTML, creation of agent-only translations without a demonstrated need, a migration of shared or structurally complex pages, or a sitemap dump as agent discovery.
+- **Reasoning:** Markdown is efficient for agents and durable prose authoring across the Journal, while Nunjucks/HTML remains the appropriate authored form for shared layout, human-facing composition, navigation, CTAs, widgets, and structurally complex non-Journal pages. One curated English discovery list avoids duplicating the full multilingual corpus there without preventing direct access to localized Markdown.
+
+## Decision 14: Publish Library Articles From Localized Markdown
+
+- **Status:** added.
+- **Decision:** author every Library article in locale-specific Markdown. Render its established `.html` URL through the shared SSR layout and expose the matching raw `.md` route in English, Russian, and Spanish. Keep Library indexes and shared composition as Nunjucks templates; preserve specialized elements as raw HTML inside Markdown where needed.
+- **Rejected alternatives:** duplicate authored HTML and Markdown, change established human URLs, convert collection indexes into Markdown, or publish only one locale's durable knowledge to agents.
+- **Reasoning:** Library articles are durable explanatory material that benefits from agent-friendly editing and direct machine reading in each maintained language. Localized sources preserve the site's human-language parity while derived HTML retains the current public route and shared shell.
 
 ## Decision 1: Keep TeqCMS With A Thin Project Adapter
 

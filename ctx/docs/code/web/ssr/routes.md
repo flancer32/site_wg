@@ -12,7 +12,9 @@ Record current route facts and preservation constraints separately from unresolv
 
 Public pages use `/{locale}/...` for `en`, `es`, and `ru`; locale resolution precedes rendering. Current directory indexes use trailing slashes and standalone/detail pages use `.html`. Current families include locale roots, About, Contact, Projects, Work With Me, Journal and dated articles, books, Library, project detail, localized 404, and Products. Retired commercial pages are redirect-only continuity routes, not authored page families.
 
-Every dated Journal article has one locale-specific Markdown source at `tmpl/web/{locale}/blog/{year}/{slug}.md`. Every existing locale preserves its human canonical URL at `/{locale}/blog/{year}/{slug}.html`. Only English exposes the additional non-layout agent representation at `/en/blog/{year}/{slug}.md`; Russian and Spanish `.md` requests use the normal safe not-found path. The sitemap retains only human HTML URLs. Root `/llms.txt` lists the complete English-agent corpus, not a sitemap replacement.
+Every dated Journal article has one locale-specific Markdown source at `tmpl/web/{locale}/blog/{year}/{slug}.md`. Every existing locale preserves its canonical URL at `/{locale}/blog/{year}/{slug}.html` and exposes the matching raw Markdown at `/{locale}/blog/{year}/{slug}.md`. `/llms.txt` specially lists the English Journal corpus for agent discovery; Russian and Spanish Markdown routes remain publicly retrievable directly.
+
+Every Library article has one locale-specific Markdown source at `tmpl/web/{locale}/library/{path}/{slug}.md`. The existing `/{locale}/library/{path}/{slug}.html` URL remains the localized SSR presentation, and each locale also exposes its raw Markdown route. The Library indexes remain Nunjucks templates. The sitemap lists only HTML URLs; root `/llms.txt` lists the English Journal and Library Markdown corpora, not a sitemap replacement.
 
 `etc/redirect-map.json` normalizes selected legacy paths with locale overlay; static assets are excluded. Redirects are continuity tools and cannot silently create a target hierarchy.
 

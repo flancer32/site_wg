@@ -9,7 +9,7 @@ const PAGE_TEMPLATE = `{% extends "inc/layout.html" %}
 {% block title %}{{ article.title }}{% endblock %}
 {% block description %}{{ article.description }}{% endblock %}
 {% block html_head_extra %}{% if markdownUrl %}<link rel="alternate" type="text/markdown" href="{{ markdownUrl }}" title="{{ article.title }} (Markdown)">{% endif %}{% endblock %}
-{% block content %}<article class="card blog-post"><time datetime="{{ article.date }}">{{ article.display_date or article.date }}</time>{{ article.html | safe }}</article>{% endblock %}`;
+{% block content %}{% if isLibrary %}<article class="card library-article">{% if article.date %}<span style="display: block; text-align: right;"><strong>{{ article.dateLabel }}:</strong> <time datetime="{{ article.date }}">{{ article.date }}</time></span>{% endif %}{{ article.html | safe }}</article>{% else %}<article class="card blog-post"><time datetime="{{ article.date }}">{{ article.display_date or article.date }}</time>{{ article.html | safe }}</article>{% endif %}{% endblock %}`;
 
 export default class Markdown {
     /**
@@ -66,14 +66,11 @@ export default class Markdown {
             }
             const route = publication.parseRoute(req.url || '');
             if (!route) return;
-            if (route.representation === 'md' && route.locale !== 'en') {
-                // Keep unpublished localized Markdown on the normal localized 404 path.
-                req.url = `/${route.locale}/__markdown-not-published__.html`;
-                return;
-            }
             const article = await publication.load(route);
             if (!article) return;
-            const publicPath = `/${route.locale}/blog/${route.year}/${route.slug}`;
+            const publicPath = route.type === 'library'
+                ? `/${route.locale}/library/${route.directory.length ? `${route.directory.join('/')}/` : ''}${route.slug}`
+                : `/${route.locale}/blog/${route.year}/${route.slug}`;
             let body;
             let contentType;
             if (route.representation === 'md') {
@@ -86,11 +83,20 @@ export default class Markdown {
                     locale: route.locale,
                     allowedLocales: locales,
                     canonicalUrl,
-                    alternateUrls: Object.fromEntries(locales.map((locale) => [locale, `${origin()}/${locale}/blog/${route.year}/${route.slug}.html`])),
-                    isPublication: true,
-                    journalRelations: article.metadata.relations,
-                    markdownUrl: route.locale === 'en' ? `${origin()}${publicPath}.md` : undefined,
-                    article: {...article.metadata, html: article.html},
+                    alternateUrls: Object.fromEntries(locales.map((locale) => [locale, route.type === 'library'
+                        ? `${origin()}/${locale}/library/${route.directory.length ? `${route.directory.join('/')}/` : ''}${route.slug}.html`
+                        : `${origin()}/${locale}/blog/${route.year}/${route.slug}.html`])),
+                    isPublication: route.type === 'blog',
+                    isLibrary: route.type === 'library',
+                    journalRelations: route.type === 'blog' ? article.metadata.relations : [],
+                    markdownUrl: `${origin()}${publicPath}.md`,
+                    article: {
+                        ...article.metadata,
+                        dateLabel: route.locale === 'ru' ? 'Дата публикации'
+                            : route.locale === 'es' ? 'Fecha de publicación'
+                                : 'Publication date',
+                        html: article.html,
+                    },
                 };
                 const {content} = await servTmplRender.perform({
                     target: {locales: {user: route.locale}}, template: PAGE_TEMPLATE, data, options: {},

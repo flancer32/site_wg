@@ -12,7 +12,9 @@ Describe locale-aware SSR routes, metadata, shell copy, and locale switching.
 
 The authored trees are `en`, `ru`, and `es`, each with localized pages and shared includes. Public routes use `/{locale}/...`. The adapter supplies a clean canonical URL, equivalent alternates, and an English `x-default` where English exists. Directory indexes retain trailing slashes; current standalone and detail templates use `.html` paths.
 
-All dated Markdown-backed Journal publications derive human HTML in every existing locale. Their direct machine-readable representation is deliberately English-only: `/en/.../article.md` is published for agents, while equivalent Russian and Spanish Markdown routes are not public. This does not reduce the maintained human locale model or its HTML alternate behavior.
+All dated Markdown-backed Journal publications derive HTML in every existing locale, and all locales expose their corresponding raw `.md` routes. `/llms.txt` specially lists the English Journal corpus for agent discovery; Russian and Spanish `.md` routes remain directly retrievable.
+
+Library articles use locale-specific Markdown sources in English, Russian, and Spanish. Each localized `.html` URL is rendered through the shared layout, while the corresponding `.md` URL serves that locale's raw Markdown representation. Library indexes remain localized Nunjucks pages. `/llms.txt` lists the English Journal and Library Markdown corpora; it is a discovery list, not an access control.
 
 The layout metadata origin is a validated `TEQ_CMS__BASE_URL` using `http` or `https`, with `https://wiredgeese.com` fallback; request hosts and forwarding headers are not metadata sources.
 
