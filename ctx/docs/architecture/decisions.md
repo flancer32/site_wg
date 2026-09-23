@@ -2,13 +2,20 @@
 
 - Path: `ctx/docs/architecture/decisions.md`
 - Template Version: `20260605`
-- Changed: `20260911`
+- Changed: `20260923`
 
 ## Purpose
 
 Record the active durable architecture decisions and make revision or supersession of earlier decisions explicit.
 
 Only the current decision text in this document is normative. A `Revised` or `Supersedes` note identifies historical continuity; superseded wording is not an active alternative.
+
+## Decision 13: Publish Selected Long-Form Content From Canonical Markdown
+
+- **Status:** added.
+- **Decision:** selected long-form content may use Markdown as its canonical authored source. The existing TeqCMS SSR application derives the normal localized HTML representation, while a same-locale `.md` route exposes the source to agents. `/llms.txt` is the explicit curated discovery entry point.
+- **Rejected alternatives:** an agent application, a database or parallel CMS, editable generated HTML, a broad template migration, or a sitemap dump as agent discovery.
+- **Reasoning:** one authored article can serve human and agent readers without adding another runtime or authority owner. The model is incremental; template-backed pages remain valid.
 
 ## Decision 1: Keep TeqCMS With A Thin Project Adapter
 

@@ -7,7 +7,7 @@ The source code of the personal website [wiredgeese.com](https://wiredgeese.com)
 - Static multilingual site with Nunjucks templates.
 - Server-side rendering (SSR) without a database or frontend build.
 - AI-powered translation system based on OpenAI-compatible API.
-- Content stored as HTML files in Git.
+- Content stored as HTML/Nunjucks files in Git, with opt-in canonical Markdown for selected long-form Journal articles.
 
 ## Requirements
 
@@ -91,6 +91,12 @@ npm run translate
 
 This uses LLM to auto-translate `.html` files from the base locale to the others.
 The translation metadata is stored in `/var/teq-cms/db_translate.json`.
+
+## Markdown publications
+
+Selected Journal articles may be authored once at `tmpl/web/{locale}/blog/{year}/{slug}.md`. Front matter requires `title`, `description`, and ISO `date`; optional `display_date`, `summary`, `image`, `image_alt`, and `relations` supply the existing Journal-card, locale display, and relation projections. Locale remains structural in the directory, not duplicated in front matter.
+
+The source is published at `/{locale}/blog/{year}/{slug}.html` as normal SSR HTML and at `/{locale}/blog/{year}/{slug}.md` as direct Markdown. Shared layout, navigation, footer, relation panel, and discussion CTA remain SSR responsibilities. To publish another article, add every existing locale variant as Markdown, retain its HTML URL, and add only important resources to `tmpl/web/llms.txt`. Markdown is opt-in: existing templates and unselected articles remain HTML/Nunjucks. Run `npm test`, `npm run typecheck`, and `npm run sitemap` after changes.
 
 ## License
 

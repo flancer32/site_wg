@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/state.md`
 - Template Version: `20260605`
-- Changed: `20260910`
+- Changed: `20260923`
 
 ## Purpose
 
@@ -23,6 +23,8 @@ Define state domains and sources of truth while separating normative meaning, au
 | Transferred development context | The explicitly agreed receiving boundary | A snapshot or separate repository owned according to the transfer agreement, not an automatic live mirror of Wired Geese context. |
 
 ## Authority And Derivation
+
+For an opted-in long-form publication, its locale-specific Markdown file is the single authored content and metadata state. Its HTML SSR page and direct Markdown response are derived public representations, not editable copies. `/llms.txt` is a small authored discovery surface linking selected public Markdown resources; it adds neither a database nor a new authority boundary.
 
 `ctx/docs/product/` is authoritative for product meaning. Architecture, environment, code guidance, authored content, and generated output refine or project that meaning in descending order.
 

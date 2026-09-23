@@ -29,6 +29,8 @@ const collectHtml = async (directory, prefix = '') => {
             result.push(...await collectHtml(path.join(directory, entry.name), relative));
         } else if (entry.isFile() && entry.name.endsWith('.html') && !excluded.has(relative)) {
             result.push(relative);
+        } else if (entry.isFile() && entry.name.endsWith('.md') && relative.startsWith('blog/')) {
+            result.push(relative.replace(/\.md$/i, '.html'));
         }
     }
     return result;

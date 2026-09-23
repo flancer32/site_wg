@@ -1,0 +1,13 @@
+# Wired Geese
+
+Wired Geese is Alex Gusev's public software-making practice. The normal website is for human readers; selected long-form Journal resources are also available as canonical Markdown for AI agents.
+
+Maintained languages: English (`en`), Russian (`ru`), and Spanish (`es`). For a selected article, the `.html` URL is the human SSR presentation and the same-locale `.md` URL is its direct Markdown representation.
+
+Start with the Journal and these Markdown resources:
+
+- https://wiredgeese.com/en/blog/2026/20260910-01-current-work-evidence.md
+- https://wiredgeese.com/en/blog/2026/20260810-01-teqfw-agent-skills.md
+- https://wiredgeese.com/en/blog/2026/20260721-02-why-dependency-injection-matters-in-javascript.md
+
+Useful human entry points: https://wiredgeese.com/en/, https://wiredgeese.com/en/projects.html, and https://wiredgeese.com/en/blog/.
