@@ -32,7 +32,7 @@ The stable target includes:
 - a small deterministic recent-Journal projection from those same authored fragments on locale Home routes;
 - optional `<!-- journal-relations: stable-id -->` metadata parsed from authored Journal pages; the project adapter uses it only for a bounded Current Work evidence projection and Event-to-current-state links;
 - redirect behavior supporting canonical routes and intentional legacy-path preservation.
-- an opt-in Markdown publication handler that resolves only locale-scoped Journal Markdown sources, renders their `.html` projection through the shared Nunjucks layout, and returns their `.md` projection without template execution.
+- an opt-in Markdown publication handler that resolves only locale-scoped Journal Markdown sources and renders every locale's `.html` projection through the shared Nunjucks layout; it returns raw Markdown without template execution only for the English agent corpus.
 
 The relation identifier states that a dated Event materially concerns an object. It does not change status, prove validation, or create an Event store. The status-bearing Current Work destination remains authoritative.
 

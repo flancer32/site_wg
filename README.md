@@ -96,7 +96,7 @@ The translation metadata is stored in `/var/teq-cms/db_translate.json`.
 
 Selected Journal articles may be authored once at `tmpl/web/{locale}/blog/{year}/{slug}.md`. Front matter requires `title`, `description`, and ISO `date`; optional `display_date`, `summary`, `image`, `image_alt`, and `relations` supply the existing Journal-card, locale display, and relation projections. Locale remains structural in the directory, not duplicated in front matter.
 
-The source is published at `/{locale}/blog/{year}/{slug}.html` as normal SSR HTML and at `/{locale}/blog/{year}/{slug}.md` as direct Markdown. Shared layout, navigation, footer, relation panel, and discussion CTA remain SSR responsibilities. To publish another article, add every existing locale variant as Markdown, retain its HTML URL, and add only important resources to `tmpl/web/llms.txt`. Markdown is opt-in: existing templates and unselected articles remain HTML/Nunjucks. Run `npm test`, `npm run typecheck`, and `npm run sitemap` after changes.
+Every existing locale is published at `/{locale}/blog/{year}/{slug}.html` as normal SSR HTML. Only the English source is additionally published at `/en/blog/{year}/{slug}.md` for agents; never add Russian or Spanish Markdown URLs to `/llms.txt`. Shared layout, navigation, footer, relation panel, and discussion CTA remain SSR responsibilities. Use Markdown for large, mostly linear documents; keep Nunjucks/HTML for shared composition and pages whose human meaning depends on layout or components. Markdown is opt-in: existing templates and unselected articles remain HTML/Nunjucks. Run `npm test`, `npm run typecheck`, and `npm run sitemap` after changes.
 
 ## License
 

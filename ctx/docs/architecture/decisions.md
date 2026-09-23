@@ -12,10 +12,10 @@ Only the current decision text in this document is normative. A `Revised` or `Su
 
 ## Decision 13: Publish Selected Long-Form Content From Canonical Markdown
 
-- **Status:** added.
-- **Decision:** selected long-form content may use Markdown as its canonical authored source. The existing TeqCMS SSR application derives the normal localized HTML representation, while a same-locale `.md` route exposes the source to agents. `/llms.txt` is the explicit curated discovery entry point.
-- **Rejected alternatives:** an agent application, a database or parallel CMS, editable generated HTML, a broad template migration, or a sitemap dump as agent discovery.
-- **Reasoning:** one authored article can serve human and agent readers without adding another runtime or authority owner. The model is incremental; template-backed pages remain valid.
+- **Status:** revised.
+- **Decision:** use Markdown as the canonical authored form for selected large, mostly linear long-form content. The existing TeqCMS SSR application derives all localized HTML presentations. Only the English `.md` representation is public to agents and linked from `/llms.txt`; Russian and Spanish remain human HTML surfaces.
+- **Rejected alternatives:** an agent application, a database or parallel CMS, editable generated HTML, agent-facing translations without a demonstrated need, a broad template migration, or a sitemap dump as agent discovery.
+- **Reasoning:** Markdown is efficient for agents and durable prose authoring, while Nunjucks/HTML remains the appropriate authored form for shared layout, human-facing composition, navigation, CTAs, widgets, and structurally complex pages. One English agent corpus prevents duplicated machine-facing content and semantic drift. The model is incremental; template-backed pages remain valid.
 
 ## Decision 1: Keep TeqCMS With A Thin Project Adapter
 

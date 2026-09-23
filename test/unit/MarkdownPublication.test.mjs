@@ -15,9 +15,12 @@ const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 async function fixture() {
     const root = await fs.mkdtemp(path.join(os.tmpdir(), 'wg-markdown-'));
     const directory = path.join(root, 'tmpl/web/en/blog/2026');
+    const russianDirectory = path.join(root, 'tmpl/web/ru/blog/2026');
     await fs.mkdir(directory, {recursive: true});
+    await fs.mkdir(russianDirectory, {recursive: true});
     const source = `---\ntitle: "A title"\ndescription: "A description"\ndate: 2026-09-23\nrelations:\n  - pde\n---\n\n# A title\n\nMarkdown **body**.`;
     await fs.writeFile(path.join(directory, 'article.md'), source);
+    await fs.writeFile(path.join(russianDirectory, 'article.md'), source.replaceAll('A title', 'Русский заголовок'));
     await fs.mkdir(path.join(root, 'tmpl/web'), {recursive: true});
     await fs.writeFile(path.join(root, 'tmpl/web/llms.txt'), 'Discovery\n');
     const publication = new Publication({fs, path, marked, tmplConfig: {getRootPath: () => root}});
@@ -37,7 +40,7 @@ test('parses a canonical Markdown source and rejects non-public paths', async ()
     assert.equal(publication.parseRoute('/en/blog/2026/%2e%2e%2fstate.md'), null);
 });
 
-test('serves HTML and Markdown projections from one source plus llms discovery', async () => {
+test('serves every locale as HTML but publishes Markdown only in English', async () => {
     const {root, source, publication} = await fixture();
     const calls = [];
     const handler = new Markdown({
@@ -58,12 +61,21 @@ test('serves HTML and Markdown projections from one source plus llms discovery',
     await handler.handle(markdown);
     assert.equal(calls[1].headers['content-type'], 'text/markdown; charset=utf-8');
     assert.equal(calls[1].body, source);
+    const russianHtml = {request: {method: 'GET', url: '/ru/blog/2026/article.html'}, response: {}, completed: false};
+    await handler.handle(russianHtml);
+    assert.equal(russianHtml.completed, true);
+    assert.match(calls[2].body, /Русский заголовок/u);
+    assert.doesNotMatch(calls[2].body, /type="text\/markdown"/);
+    const russianMarkdown = {request: {method: 'GET', url: '/ru/blog/2026/article.md'}, response: {}, completed: false};
+    await handler.handle(russianMarkdown);
+    assert.equal(russianMarkdown.completed, false);
+    assert.equal(russianMarkdown.request.url, '/ru/__markdown-not-published__.html');
     const missing = {request: {method: 'GET', url: '/en/blog/2026/missing.md'}, response: {}, completed: false};
     await handler.handle(missing);
     assert.equal(missing.completed, false);
     const llms = {request: {method: 'GET', url: '/llms.txt'}, response: {}, completed: false};
     await handler.handle(llms);
-    assert.equal(calls[2].body, 'Discovery\n');
+    assert.equal(calls[3].body, 'Discovery\n');
 });
 
 test('the curated llms discovery links exactly the three migrated Markdown articles', async () => {
