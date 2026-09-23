@@ -6,7 +6,7 @@
 
 ## Purpose
 
-Route every current ordinary document in the four authoritative levels to crosscutting verification. The themes are [evidence](evidence.md), [publication](publication.md), and [runtime](runtime.md). Coverage means a document has an inspection path; it does not mean that every statement is already satisfied.
+Route every current ordinary document in the four authoritative levels to crosscutting verification. The canonical specification homes are [product evidence](product/evidence.md), [product visitor paths](product/visitor-paths.md), [publication architecture](architecture/publication.md), [runtime boundary](architecture/runtime-boundary.md), [operational prerequisites](environment/operations.md), and [localized delivery](code/delivery.md). The check IDs in the tables resolve to headings in those files. Coverage means a document has an inspection path; it does not mean that every statement is already satisfied.
 
 ## Product Sources
 

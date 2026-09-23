@@ -1,6 +1,7 @@
 {
   "schema": "adsm-context",
   "version": "0.1.0",
+  "capabilities": ["verification-layer"],
   "notes": [
     "Baseline ADSM context metadata initialized for wiredgeese.com.",
     "The product context defines wiredgeese.com as a product-led commercial system for original software capabilities, deployment, integration, customization, and related engineering.",

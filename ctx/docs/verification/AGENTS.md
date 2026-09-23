@@ -10,20 +10,22 @@ Route an agent through evidence-based checks of the four authoritative documenta
 
 ## Level Map
 
+- `architecture/` — specifications whose primary target is an architecture declaration.
+- `code/` — specifications whose primary target is a code declaration.
+- `environment/` — specifications whose primary target is an environment declaration.
+- `product/` — specifications whose primary target is a product declaration.
 - `AGENTS.md` — local reading and maintenance rules.
 - `coverage.md` — complete source-document inventory and theme routing.
-- `evidence.md` — claim, status, and commercial-truth checks.
 - `overview.md` — verification protocol and result format.
-- `publication.md` — authored-content, localization, routes, and discovery checks.
-- `runtime.md` — website/runtime separation, configuration, trust, and implementation checks.
 
 ## Reading Order
 
-Read `overview.md` and `coverage.md`, then run every thematic check affected by the task. For a whole-project audit, run all three thematic documents. Read the linked authoritative documents before interpreting a check; a verification document cannot change their meaning.
+Read `overview.md` and `coverage.md`, then inspect the applicable specifications under the four primary-target categories. For a whole-project audit, inspect all six specification documents. Read the linked authoritative declarations before interpreting a check; a verification document cannot change their meaning.
 
 ## Editing Rules
 
 - Keep links and evidence probes current when authoritative documents or implementation paths change.
+- Give each expectation one canonical specification under the category of its primary declaration target; cross-link secondary declarations instead of duplicating the check.
 - Record an upstream gap or conflict instead of manufacturing a requirement here.
 - Distinguish current implementation, accepted target, open decision, and historical material.
 - Do not use a passing command as proof of a semantic claim that the command does not inspect.
