@@ -21,8 +21,11 @@ test('authored llms.txt lists each and every English Markdown publication exactl
     const listed = source.split('\n').filter((line) => line.startsWith('- ')).map((line) => line.slice(2));
     const expectedPaths = (await Promise.all(['blog', 'library'].map((family) =>
         markdownPaths(path.join(root, 'tmpl/web/en', family), `/en/${family}`)))).flat();
-    const expected = expectedPaths.map((route) => `https://wiredgeese.com${route}`);
+    const digestIndex = 'https://wiredgeese.com/en/products/pde/telegram-digest/index.md';
+    const expected = [...expectedPaths.map((route) => `https://wiredgeese.com${route}`), digestIndex];
     assert.equal(listed.length, new Set(listed).size, 'Duplicate discovery URL');
     assert.deepEqual([...listed].sort(), [...expected].sort());
-    assert.ok(listed.every((url) => /^https:\/\/wiredgeese\.com\/en\/(?:blog|library)\/[a-z0-9/-]+\.md$/.test(url)));
+    assert.equal(listed.filter((url) => url === digestIndex).length, 1);
+    assert.ok(listed.every((url) => /^https:\/\/wiredgeese\.com\/en\/(?:blog|library)\/[a-z0-9/-]+\.md$/.test(url)
+        || url === digestIndex));
 });

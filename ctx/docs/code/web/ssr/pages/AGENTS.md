@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/pages/AGENTS.md`
 - Template Version: `20260909`
-- Changed: `20260910`
+- Changed: `20260923`
 
 ## Purpose
 
@@ -16,7 +16,7 @@ Defines the code-facing page documents for existing SSR routes and target page-f
 - `contact.md` — shared direct-human commercial handoff and current query-context boundary.
 - `home.md` — locale-root Home responsibilities and migration boundary.
 - `how-it-works.md` — existing working-model route and semantic continuity boundary.
-- `products.md` — retained Books route and purchase-path boundary.
+- `products.md` — retained Books parent route, purchase-path boundary, and bounded PDE Telegram Digest demonstration subtree.
 - `projects.md` — retained Projects route repurposed as Current Work with historical preservation.
 - `work-with-me.md` — retained aligned-engagement route and migration boundary.
 

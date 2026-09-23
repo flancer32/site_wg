@@ -2,7 +2,7 @@
 
 Wired Geese is Alex Gusev's public software-making practice. The human website is maintained in English (`en`), Russian (`ru`), and Spanish (`es`).
 
-Journal and Library articles are authored in locale-specific Markdown and rendered at their localized `.html` URLs. This file curates the English Markdown corpus for agent discovery. Russian and Spanish Markdown article URLs are also publicly retrievable directly; they are omitted from this English discovery list.
+Journal and Library articles, plus the PDE Telegram Digest demo, are authored in locale-specific Markdown and rendered at localized canonical HTML URLs. This file curates the English Journal and Library corpora and the English digest index for agent discovery. Russian and Spanish Markdown URLs are publicly retrievable directly; they are omitted from this English discovery list.
 
 English Journal corpus:
 
@@ -131,3 +131,7 @@ English Journal corpus:
 - https://wiredgeese.com/en/library/web/20240314-01-user-data-types.md
 - https://wiredgeese.com/en/library/web/20240324-01-personal-web-apps.md
 - https://wiredgeese.com/en/library/web/20240704-01-esm-and-cdns.md
+
+## PDE / Telegram Desk demonstration
+
+- https://wiredgeese.com/en/products/pde/telegram-digest/index.md

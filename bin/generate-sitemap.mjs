@@ -30,7 +30,8 @@ const collectHtml = async (directory, prefix = '') => {
         } else if (entry.isFile() && entry.name.endsWith('.html') && !excluded.has(relative)) {
             result.push(relative);
         } else if (entry.isFile() && entry.name.endsWith('.md')
-            && (relative.startsWith('blog/') || relative.startsWith('library/'))) {
+            && (relative.startsWith('blog/') || relative.startsWith('library/')
+                || /^products\/pde\/telegram-digest\/(?:index|\d{4}-\d{2}-\d{2})\.md$/.test(relative))) {
             result.push(relative.replace(/\.md$/i, '.html'));
         }
     }

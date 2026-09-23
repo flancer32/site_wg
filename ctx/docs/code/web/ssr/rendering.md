@@ -15,8 +15,8 @@ The project declares its `App_` namespace and CLI lifecycle plugin in `package.j
 ## Request Sequence
 
 1. normalize the request and apply a permanent redirect for mapped legacy paths;
-2. resolve an explicitly published locale-specific Journal or Library Markdown source when the route matches;
-3. return raw source for `.md`, or render its HTML body through the shared article template and locale layout for `.html`;
+2. resolve an explicitly published locale-specific Journal, Library, or PDE Telegram Digest Markdown source when the route matches;
+3. return raw source for `.md`, or render its HTML body through the shared article template and locale layout for canonical HTML routes;
 4. otherwise request CMS render data, apply bounded project enrichment, and render the ordinary locale template;
 5. return the localized not-found response when no publication or template resolves.
 
@@ -31,7 +31,7 @@ The stable target includes:
 - a small deterministic recent-Journal projection from those same Markdown sources on locale Home routes;
 - optional `relations` front matter on Journal Markdown, used only for a bounded Current Work evidence projection and Event-to-current-state links;
 - redirect behavior supporting canonical routes and intentional legacy-path preservation.
-- a Markdown publication handler that resolves locale-scoped Journal and Library sources and renders their `.html` projections through the shared article template and locale layout; it returns raw Markdown without template execution for every locale. `/llms.txt` separately curates English URLs for agent discovery.
+- a Markdown publication handler that resolves locale-scoped Journal, Library, and the bounded PDE Telegram Digest sources and renders HTML projections through the shared article template and locale layout; it returns raw Markdown without template execution for every locale. The digest index projects to the canonical directory URL; its dated artifacts project to `.html`. `/llms.txt` separately curates English URLs for agent discovery.
 
 The relation identifier states that a dated Event materially concerns an object. It does not change status, prove validation, or create an Event store. The status-bearing Current Work destination remains authoritative.
 

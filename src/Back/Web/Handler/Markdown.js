@@ -53,7 +53,9 @@ export default class Markdown {
             if (!route) return;
             const article = await publication.load(route);
             if (!article) return;
-            const publicPath = route.type === 'library'
+            const publicPath = route.type === 'telegram-digest'
+                ? `/products/pde/telegram-digest/${route.slug === 'index' ? '' : route.slug}`
+                : route.type === 'library'
                 ? `/library/${route.directory.length ? `${route.directory.join('/')}/` : ''}${route.slug}`
                 : `/blog/${route.year}/${route.slug}`;
             let body;
@@ -62,15 +64,19 @@ export default class Markdown {
                 body = article.source;
                 contentType = 'text/markdown; charset=utf-8';
             } else {
-                const routeMetadata = metadata.forRoute(route.locale, `${publicPath}.html`);
+                const routeMetadata = metadata.forRoute(route.locale, route.type === 'telegram-digest' && route.slug === 'index'
+                    ? publicPath : `${publicPath}.html`);
                 const data = {
                     locale: route.locale,
                     allowedLocales: tmplConfig.getAvailableLocales(),
                     ...routeMetadata,
                     isPublication: route.type === 'blog',
                     isLibrary: route.type === 'library',
+                    isDigest: route.type === 'telegram-digest',
                     journalRelations: route.type === 'blog' ? article.metadata.relations : [],
-                    markdownUrl: `${routeMetadata.canonicalUrl.slice(0, -5)}.md`,
+                    markdownUrl: route.type === 'telegram-digest' && route.slug === 'index'
+                        ? `${routeMetadata.canonicalUrl}index.md`
+                        : `${routeMetadata.canonicalUrl.slice(0, -5)}.md`,
                     article: {
                         ...article.metadata,
                         dateLabel: route.locale === 'ru' ? 'Дата публикации'

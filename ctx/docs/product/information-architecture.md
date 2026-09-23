@@ -33,6 +33,7 @@ The persistent shell and Contact page may expose Alex's public Telegram channel 
 - **Home** establishes the proposition, system, agent role, evidence, and a product-conversation action.
 - **Work with Alex** is the commercial destination. It describes suitable product work, scope selection, engineering decision authority, price-by-agreed-scope, and non-fit.
 - **Current Work and Alarisa** show what has been built and what engineering idea it demonstrates. Current Work may present PDE and authorized Desk deployments as current products; Alarisa remains a broader experimental direction, not a purchase object.
+- **PDE / Telegram Desk demonstration** is reached from Current Work and leads to the Telegram Digest index and dated artifacts. This bounded subtree under Products demonstrates a current capability without turning Products into a catalogue or the digest into a separate product, Journal, or Library collection.
 - **How I work** makes the engineering system understandable as Alex's current, practice-derived approach without requiring technical depth before a visitor can decide whether the approach fits. It must not become a universal agent-development tutorial or generic AI-adoption consulting surface.
 - **Books** retain direct purchase paths, separate from product-development work.
 - **Contact** begins a direct, non-automated conversation; it has no form, payment, credential collection, provisioning, or CRM role.

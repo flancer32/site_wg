@@ -12,6 +12,11 @@
     {% endif %}
     {{ article.html | safe }}
 </article>
+{% elif isDigest %}
+<article class="card digest-article">
+    {% if article.date %}<time datetime="{{ article.date }}">{{ article.date }}</time>{% endif %}
+    {{ article.html | safe }}
+</article>
 {% else %}
 <article class="card blog-post">
     <time datetime="{{ article.date }}">{{ article.display_date or article.date }}</time>

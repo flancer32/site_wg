@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/pde.md`
 - Template Version: `20260911`
-- Changed: `20260911`
+- Changed: `20260923`
 
 ## Purpose
 
@@ -34,6 +34,12 @@ Telegram Desk is the current clearest independently useful Desk. In a person's o
 The person configures the connection and explicit permissions. The Runtime evaluates current delegation before the Desk executes an operation; Telegram credentials, QR-login material, session state, and private configuration stay on the trusted deployment side. The product does not grant an agent unrestricted account access merely because the agent speaks MCP.
 
 This is working early software, not a mature hosted service or a promise that every Telegram capability is available. It is useful for a person who wants their compatible agent to work with their own Telegram through controlled personal infrastructure, rather than asking Alex to build a Telegram integration inside an unrelated system.
+
+## Telegram Digest Demonstration
+
+The public Telegram Digest demonstrates PDE and Telegram Desk in real use: an authorized AI client reads recent history of the Russian-language channel «Вастрик.Ай» through an external PDE deployment and produces a summary of the previous 24 hours. The website publishes the resulting localized Markdown artifacts and their derived HTML presentations under a bounded PDE demonstration surface. The source channel is neither owned by nor affiliated with Wired Geese. The digests report channel discussion, not independently verified facts.
+
+This demonstration is part of the PDE/Telegram Desk presentation, not a standalone digest product, Journal chronology, or durable Library knowledge. Telegram credentials, session state, and message retrieval remain in the external PDE/Telegram runtime.
 
 ## Near-Term Product Monetization
 

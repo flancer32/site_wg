@@ -30,7 +30,7 @@ This is a development-process relationship, not a request-time or production-run
 
 ## Request-Time Flow
 
-An inbound request is normalized and checked for a permanent redirect. Journal and Library publication routes resolve to locale-specific Markdown: `.md` returns the raw source, while `.html` renders the Markdown body in the shared SSR shell. Other routes use ordinary locale-aware TeqCMS/Nunjucks rendering. Unresolved publication and HTML requests reach the localized not-found surface.
+An inbound request is normalized and checked for a permanent redirect. Journal, Library, and the bounded PDE Telegram Digest publication routes resolve to locale-specific Markdown: `.md` returns the raw source, while canonical HTML routes render the Markdown body in the shared SSR shell. The digest index uses a canonical directory URL; dated artifacts use `.html`. Other routes use ordinary locale-aware TeqCMS/Nunjucks rendering. Unresolved publication and HTML requests reach the localized not-found surface.
 
 Work-with-Alex, current work, Journal, foundation explanation, history, and book pages use this shared site flow. A semantic destination does not gain its own application or backend merely because its content role is distinct.
 

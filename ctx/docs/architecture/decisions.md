@@ -24,6 +24,13 @@ Only the current decision text in this document is normative. A `Revised` or `Su
 - **Rejected alternatives:** duplicate authored HTML and Markdown, change established human URLs, convert collection indexes into Markdown, or publish only one locale's durable knowledge to agents.
 - **Reasoning:** Library articles are durable explanatory material that benefits from agent-friendly editing and direct machine reading in each maintained language. Localized sources preserve the site's human-language parity while derived HTML retains the current public route and shared shell.
 
+## Decision 15: Bound Telegram Digest To The PDE Demonstration
+
+- **Status:** accepted.
+- **Decision:** publish a locale-specific Markdown index and dated digest artifacts under the PDE Telegram Digest subtree. Derive their HTML pages through the existing SSR publication mechanism. Reach the demonstration through Telegram Desk on Current Work; keep Telegram connection, credentials, session, and retrieval in the external PDE runtime.
+- **Rejected alternatives:** a standalone digest product or service, Journal Events, Library articles, a separate renderer, and website-owned Telegram runtime state.
+- **Reasoning:** the digests demonstrate an already working PDE/Telegram Desk capability, while the website only publishes its resulting artifacts. Their dates identify daily snapshots of channel discussion rather than the site's own development chronology.
+
 ## Decision 1: Keep TeqCMS With A Thin Project Adapter
 
 - **Status:** retained.

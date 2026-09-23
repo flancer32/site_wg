@@ -11,7 +11,7 @@ Describe the major architectural blocks, semantic surfaces, page-family relation
 ## Architectural Blocks
 
 - `ctx/` — normative cognitive context governing product meaning and engineering constraints.
-- `tmpl/web/` — multilingual composition templates, canonical Journal and Library Markdown articles, and shared partials.
+- `tmpl/web/` — multilingual composition templates, canonical Journal, Library, and PDE demonstration Markdown, and shared partials.
 - `src/` plus `teqcms.config.mjs` — thin application-extension block adapting TeqCMS to justified project behavior.
 - `web/` — browser-delivered and generated publication artifacts.
 - `bin/` and `etc/` — site operation and deployment support.
@@ -43,6 +43,8 @@ The persistent public shell must be capable of making these semantic destination
 About and accountable-maker evidence, books, durable knowledge, projects, and history must also remain intentionally reachable. Direct discovery does not require equal navigation weight, one header link per meaning, or permanent English labels. The composition may change with evidence and viewport while preserving the visitor jobs defined by `../product/information-architecture.md`.
 
 The architecture does not mandate `Products / How it works / Alarisa` as a permanent navigation model. Alarisa must be prominent as current proof and direction, but a current-work destination may expose it without a dedicated top-level item. A current offer must be reachable without a generic product catalogue, and Journal must not depend only on footer or archive discovery.
+
+The bounded PDE Telegram Digest subtree is reached through Current Work and Telegram Desk. Its Markdown index and dated artifacts demonstrate external PDE use; derived HTML shares the SSR shell. This is separate from Journal chronology and Library knowledge, and does not move Telegram runtime state into the website.
 
 ## Page-Family Relationships
 

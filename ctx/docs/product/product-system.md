@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/product/product-system.md`
 - Template Version: `20260605`
-- Changed: `20260911`
+- Changed: `20260923`
 
 ## Purpose
 
@@ -33,6 +33,7 @@ Alex Gusev — accountable human maker
 - **Alarisa** is the largest current multi-component proof and a long-term product direction. It is not market-ready, completed proof, or a client offer.
 - **PDE** is a product in its own right as well as a practical part of the broader Alarisa direction. Its Runtime gives one person controlled access boundaries for Desk capabilities.
 - **Desks** are functional PDE modules. Telegram Desk is a working early capability with independent user value and may be deployed commercially; Shared Files Desk remains a working early capability whose separate offer status must be established explicitly.
+- **Telegram Digest** is a public demonstration artifact of PDE and Telegram Desk use, not a separate product or offer. Its dated summaries preserve what channel participants discussed; they are neither Journal Events nor durable Library articles.
 - **MCP** is a protocol/interface through which compatible agents can access selected PDE operations. It is not itself the commercial proposition or proof of permission.
 - **Client product build** is an agreed new application or software product created through Alex's system. It may include focused initial work and continued evolution without becoming an hourly-capacity contract.
 - **Books** are separate knowledge products with their own availability and purchase facts.
