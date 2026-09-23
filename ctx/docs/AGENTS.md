@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/AGENTS.md`
 - Template Version: `20260605`
-- Changed: `20260910`
+- Changed: `20260923`
 
 ## Purpose
 
@@ -16,6 +16,7 @@ Documents at this level describe the system as a design object, including meanin
 - `code/` — code-level documentation that constrains implementation structure, source-level conventions, and repository-facing engineering rules.
 - `environment/` — environment-level documentation that defines runtime and operational prerequisites.
 - `product/` — product-level documentation that defines site identity, the Wired Geese working model, commercial and evidence semantics, and visitor-level information architecture.
+- `verification/` — crosscutting checks that trace the four authoritative documentation levels to inspectable project evidence without defining a fifth authority level.
 - `AGENTS.md` — level definition for `ctx/docs/`.
 - `filesystem.md` — declarative description of top-level repository directories and root-level files, defining repository boundaries and serving as a navigation map.
 
