@@ -13,7 +13,7 @@ import Metadata from '../../src/Back/Web/Metadata.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const locales = ['en', 'ru', 'es'];
-const dates = ['2026-09-21', '2026-09-22', '2026-09-23'];
+const dates = ['2026-09-21', '2026-09-22', '2026-09-23', '2026-09-24'];
 const prefix = '/products/pde/telegram-digest/';
 const publication = new Publication({fs, path, marked, tmplConfig: {getRootPath: () => root}});
 
@@ -133,7 +133,7 @@ test('shared SSR article template renders the digest index and dated entries wit
         assert.match(html, /hreflang="x-default"/);
         assert.doesNotMatch(html, /class="card blog-post"|class="card library-article"/);
         if (slug === 'index') assert.doesNotMatch(html, /<time datetime=/);
-        else assert.match(html, /<time datetime="2026-09-23">/);
+        else assert.match(html, new RegExp(`<time datetime="${dates.at(-1)}">`));
     }
 });
 
