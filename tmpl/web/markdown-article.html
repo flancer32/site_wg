@@ -12,9 +12,8 @@
     {% endif %}
     {{ article.html | safe }}
 </article>
-{% elif isDigest %}
-<article class="card digest-article">
-    {% if article.date %}<time datetime="{{ article.date }}">{{ article.date }}</time>{% endif %}
+{% elif isDigestNotice %}
+<article class="card digest-notice">
     {{ article.html | safe }}
 </article>
 {% else %}

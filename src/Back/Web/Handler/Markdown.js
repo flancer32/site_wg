@@ -53,28 +53,27 @@ export default class Markdown {
             if (!route) return;
             const article = await publication.load(route);
             if (!article) return;
-            const publicPath = route.type === 'telegram-digest'
-                ? `/products/pde/telegram-digest/${route.slug === 'index' ? '' : route.slug}`
-                : route.type === 'library'
+            const publicPath = route.type === 'library'
                 ? `/library/${route.directory.length ? `${route.directory.join('/')}/` : ''}${route.slug}`
-                : `/blog/${route.year}/${route.slug}`;
+                : route.type === 'digest-notice'
+                    ? '/products/pde/telegram-digest/'
+                    : `/blog/${route.year}/${route.slug}`;
             let body;
             let contentType;
             if (route.representation === 'md') {
                 body = article.source;
                 contentType = 'text/markdown; charset=utf-8';
             } else {
-                const routeMetadata = metadata.forRoute(route.locale, route.type === 'telegram-digest' && route.slug === 'index'
-                    ? publicPath : `${publicPath}.html`);
+                const routeMetadata = metadata.forRoute(route.locale, route.type === 'digest-notice' ? publicPath : `${publicPath}.html`);
                 const data = {
                     locale: route.locale,
                     allowedLocales: tmplConfig.getAvailableLocales(),
                     ...routeMetadata,
                     isPublication: route.type === 'blog',
                     isLibrary: route.type === 'library',
-                    isDigest: route.type === 'telegram-digest',
+                    isDigestNotice: route.type === 'digest-notice',
                     journalRelations: route.type === 'blog' ? article.metadata.relations : [],
-                    markdownUrl: route.type === 'telegram-digest' && route.slug === 'index'
+                    markdownUrl: route.type === 'digest-notice'
                         ? `${routeMetadata.canonicalUrl}index.md`
                         : `${routeMetadata.canonicalUrl.slice(0, -5)}.md`,
                     article: {

@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/structure.md`
 - Template Version: `20260605`
-- Changed: `20260923`
+- Changed: `20260924`
 
 ## Purpose
 
@@ -44,7 +44,7 @@ About and accountable-maker evidence, books, durable knowledge, projects, and hi
 
 The architecture does not mandate `Products / How it works / Alarisa` as a permanent navigation model. Alarisa must be prominent as current proof and direction, but a current-work destination may expose it without a dedicated top-level item. A current offer must be reachable without a generic product catalogue, and Journal must not depend only on footer or archive discovery.
 
-The bounded PDE Telegram Digest subtree is reached through Current Work and Telegram Desk. Its Markdown index and dated artifacts demonstrate external PDE use; derived HTML shares the SSR shell. This is separate from Journal chronology and Library knowledge, and does not move Telegram runtime state into the website.
+Current Work presents PDE and Telegram Desk as product capabilities. Each locale has a Telegram Digest index notice linking to the source Telegram chat; the site holds no digest content or dated archive. Telegram runtime state remains outside the website.
 
 ## Page-Family Relationships
 

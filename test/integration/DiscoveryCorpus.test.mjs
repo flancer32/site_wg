@@ -16,16 +16,13 @@ async function markdownPaths(directory, prefix) {
     return paths;
 }
 
-test('authored llms.txt lists each and every English Markdown publication exactly once', async () => {
+test('authored llms.txt lists each English Journal and Library Markdown publication exactly once', async () => {
     const source = await fs.readFile(path.join(root, 'tmpl/web/llms.txt'), 'utf8');
     const listed = source.split('\n').filter((line) => line.startsWith('- ')).map((line) => line.slice(2));
     const expectedPaths = (await Promise.all(['blog', 'library'].map((family) =>
         markdownPaths(path.join(root, 'tmpl/web/en', family), `/en/${family}`)))).flat();
-    const digestIndex = 'https://wiredgeese.com/en/products/pde/telegram-digest/index.md';
-    const expected = [...expectedPaths.map((route) => `https://wiredgeese.com${route}`), digestIndex];
+    const expected = expectedPaths.map((route) => `https://wiredgeese.com${route}`);
     assert.equal(listed.length, new Set(listed).size, 'Duplicate discovery URL');
     assert.deepEqual([...listed].sort(), [...expected].sort());
-    assert.equal(listed.filter((url) => url === digestIndex).length, 1);
-    assert.ok(listed.every((url) => /^https:\/\/wiredgeese\.com\/en\/(?:blog|library)\/[a-z0-9/-]+\.md$/.test(url)
-        || url === digestIndex));
+    assert.ok(listed.every((url) => /^https:\/\/wiredgeese\.com\/en\/(?:blog|library)\/[a-z0-9/-]+\.md$/.test(url)));
 });

@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/architecture/decisions.md`
 - Template Version: `20260605`
-- Changed: `20260923`
+- Changed: `20260924`
 
 ## Purpose
 
@@ -26,10 +26,17 @@ Only the current decision text in this document is normative. A `Revised` or `Su
 
 ## Decision 15: Bound Telegram Digest To The PDE Demonstration
 
-- **Status:** accepted.
+- **Status:** superseded by Decision 16.
 - **Decision:** publish a locale-specific Markdown index and dated digest artifacts under the PDE Telegram Digest subtree. Derive their HTML pages through the existing SSR publication mechanism. Reach the demonstration through Telegram Desk on Current Work; keep Telegram connection, credentials, session, and retrieval in the external PDE runtime.
 - **Rejected alternatives:** a standalone digest product or service, Journal Events, Library articles, a separate renderer, and website-owned Telegram runtime state.
 - **Reasoning:** the digests demonstrate an already working PDE/Telegram Desk capability, while the website only publishes its resulting artifacts. Their dates identify daily snapshots of channel discussion rather than the site's own development chronology.
+
+## Decision 16: Keep Telegram Digests In Their Source Channel
+
+- **Status:** added.
+- **Decision:** publish Telegram Digests in the source channel and remove digest content, dated archives, and discovery links from wiredgeese.com. Keep a localized index-only notice that links to the source chat. Keep the PDE and Telegram Desk presentation on Current Work without a digest-demo link.
+- **Rejected alternatives:** retain the public website archive, expose localized copies, or keep a website demo route.
+- **Reasoning:** channel participants accept publication in their channel; the website archive exposed the same discussion in a separate public surface.
 
 ## Decision 1: Keep TeqCMS With A Thin Project Adapter
 

@@ -2,13 +2,12 @@
 
 /**
  * @namespace App_Back_Web_Markdown_Publication
- * @description Resolves locale-scoped canonical Markdown sources for Journal, Library, and PDE digest publications.
+ * @description Resolves locale-scoped canonical Markdown sources for Journal and Library publications.
  */
 
 const BLOG_ROUTE_PATTERN = /^\/(en|es|ru)\/blog\/(\d{4})\/([a-z0-9][a-z0-9-]*)\.(html|md)$/;
 const LIBRARY_ROUTE_PATTERN = /^\/(en|es|ru)\/library\/((?:[a-z0-9-]+\/)*)([a-z0-9][a-z0-9-]*)\.(html|md)$/;
-const DIGEST_PREFIX_PATTERN = /^\/(en|es|ru)\/products\/pde\/telegram-digest\//;
-const DIGEST_DATE_PATTERN = /^(\d{4}-\d{2}-\d{2})\.(html|md)$/;
+const DIGEST_INDEX_ROUTE_PATTERN = /^\/(en|es|ru)\/products\/pde\/telegram-digest\/(?:index\.md)?$/;
 const FRONT_MATTER_PATTERN = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/;
 const RELATION_ID_PATTERN = /^[a-z][a-z0-9-]*$/;
 
@@ -68,20 +67,16 @@ export default class Publication {
                 const [, locale, year, slug, representation] = match;
                 return {type: 'blog', locale, year, slug, representation: /** @type {'html'|'md'} */ (representation)};
             }
+            const digestIndex = DIGEST_INDEX_ROUTE_PATTERN.exec(decoded);
+            if (digestIndex) {
+                const [, locale] = digestIndex;
+                return {type: 'digest-notice', locale, slug: 'index', representation: decoded.endsWith('.md') ? 'md' : 'html'};
+            }
             const libraryMatch = LIBRARY_ROUTE_PATTERN.exec(decoded);
             if (libraryMatch) {
                 const [, locale, directory, slug, representation] = libraryMatch;
                 const relativeDirectory = directory ? directory.slice(0, -1).split('/') : [];
                 return {type: 'library', locale, directory: relativeDirectory, slug, representation: /** @type {'html'|'md'} */ (representation)};
-            }
-            const digestPrefix = DIGEST_PREFIX_PATTERN.exec(decoded);
-            if (digestPrefix) {
-                const [, locale] = digestPrefix;
-                const remainder = decoded.slice(digestPrefix[0].length);
-                if (remainder === '') return {type: 'telegram-digest', locale, slug: 'index', representation: 'html'};
-                if (remainder === 'index.md') return {type: 'telegram-digest', locale, slug: 'index', representation: 'md'};
-                const digestDate = DIGEST_DATE_PATTERN.exec(remainder);
-                if (digestDate) return {type: 'telegram-digest', locale, slug: digestDate[1], representation: /** @type {'html'|'md'} */ (digestDate[2])};
             }
             return null;
         };
@@ -94,14 +89,13 @@ export default class Publication {
             if (!route || !['en', 'ru', 'es'].includes(route.locale)
                 || !/^[a-z0-9][a-z0-9-]*$/.test(route.slug)
                 || (route.type === 'blog' && !/^\d{4}$/.test(route.year))
+                || (route.type === 'digest-notice' && route.slug !== 'index')
                 || (route.type === 'library' && (!Array.isArray(route.directory)
                     || route.directory.some((segment) => !/^[a-z0-9-]+$/.test(segment))))
-                || (route.type === 'telegram-digest' && route.slug !== 'index'
-                    && !/^\d{4}-\d{2}-\d{2}$/.test(route.slug))
-                || !['blog', 'library', 'telegram-digest'].includes(route.type)) return null;
+                || !['blog', 'library', 'digest-notice'].includes(route.type)) return null;
             const parts = route.type === 'library'
                 ? [publicationRoot(), route.locale, 'library', ...route.directory]
-                : route.type === 'telegram-digest'
+                : route.type === 'digest-notice'
                     ? [publicationRoot(), route.locale, 'products', 'pde', 'telegram-digest']
                     : [publicationRoot(), route.locale, 'blog', route.year];
             const expectedDirectory = path.join(...parts);
@@ -121,8 +115,6 @@ export default class Publication {
             const date = parsed?.attributes.date;
             if (!parsed || typeof title !== 'string' || !title.trim()) return null;
             if (route.type === 'blog' && (typeof date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(date))) return null;
-            if (route.type === 'telegram-digest' && route.slug !== 'index' && date !== route.slug) return null;
-            if (route.type === 'telegram-digest' && route.slug === 'index' && date) return null;
             if (date && (typeof date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(date))) return null;
             const rawRelations = parsed.attributes.relations;
             const relations = Array.isArray(rawRelations)
