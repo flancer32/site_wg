@@ -75,7 +75,9 @@ export default class Blog {
             const displayDate = typeof metadata.display_date === 'string'
                 ? metadata.display_date
                 : metadata.date;
-            const image = typeof metadata.image === 'string' ? metadata.image : '/img/avatar.jpg';
+            const sourceImage = typeof metadata.image === 'string' ? metadata.image.trim() : '';
+            const image = sourceImage && !/^(null|undefined)$/i.test(sourceImage)
+                ? sourceImage : '/img/avatar.jpg';
             const imageAlt = typeof metadata.image_alt === 'string' ? metadata.image_alt : '';
             return {
                 html: `<li class="blog-item"><a class="card-link" href="/${locale}/blog/${year}/${slug}.html" aria-label="${escapeHtml(metadata.title)}"></a><img loading="lazy" decoding="async" src="${escapeHtml(image)}" alt="${escapeHtml(imageAlt)}"><div><h2>${escapeHtml(metadata.title)}</h2><p>${escapeHtml(summary)}</p><time datetime="${metadata.date}">${escapeHtml(displayDate)}</time></div></li>`,

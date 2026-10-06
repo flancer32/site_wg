@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/components/zoom-img.md`
 - Template Version: `20260630`
-- Changed: `20260716`
+- Changed: `20261006`
 
 ## Purpose
 
@@ -12,6 +12,8 @@ Provide an optional enlarged view for authored article and library images while 
 
 - Tag: `zoom-img`.
 - Required attribute: `src` identifies the delivered image asset.
+- Image URLs are assigned after connection and refreshed when `src`, `alt`, or `width` changes.
+- Missing, empty, or literal `null`/`undefined` image sources leave both internal images without a `src` attribute and disable the trigger; they must never become relative requests.
 - Optional attribute: `alt` provides the image alternative and labels the enlarged view.
 - Optional attribute: `width` constrains the thumbnail while the full view remains viewport-bounded.
 

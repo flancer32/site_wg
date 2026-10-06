@@ -2,9 +2,6 @@ class ZoomImage extends HTMLElement {
     constructor() {
         super();
         const shadow = this.attachShadow({mode: 'open'});
-        const src = this.getAttribute('src') || '';
-        const alt = this.getAttribute('alt') || '';
-        const width = this.getAttribute('width') || '200px';
         const language = document.documentElement.lang.split('-')[0];
         const translations = {
             en: {open: 'Open image', expanded: 'Expanded image', close: 'Close image'},
@@ -56,19 +53,24 @@ class ZoomImage extends HTMLElement {
         const overlay = shadow.querySelector('.overlay');
         const close = shadow.querySelector('.close');
         const full = shadow.querySelector('.full');
-        const label = alt ? `${strings.open}: ${alt}` : strings.open;
-
-        trigger.setAttribute('aria-label', label);
-        thumbnail.src = src;
-        thumbnail.alt = alt;
+        this.updateImage = () => {
+            const source = this.getAttribute('src')?.trim();
+            const src = source && !/^(null|undefined)$/i.test(source) ? source : null;
+            const alt = this.getAttribute('alt') || '';
+            for (const image of [thumbnail, full]) {
+                if (src) image.setAttribute('src', src);
+                else image.removeAttribute('src');
+                image.alt = alt;
+            }
+            thumbnail.style.width = this.getAttribute('width') || '200px';
+            trigger.disabled = !src;
+            trigger.setAttribute('aria-label', alt ? `${strings.open}: ${alt}` : strings.open);
+            overlay.setAttribute('aria-label', alt || strings.expanded);
+        };
         thumbnail.loading = 'lazy';
         thumbnail.decoding = 'async';
-        thumbnail.style.width = width;
-        full.src = src;
-        full.alt = alt;
         full.loading = 'lazy';
         full.decoding = 'async';
-        overlay.setAttribute('aria-label', alt || strings.expanded);
         close.setAttribute('aria-label', strings.close);
 
         const open = () => {
@@ -97,6 +99,18 @@ class ZoomImage extends HTMLElement {
                 close.focus();
             }
         };
+    }
+
+    static get observedAttributes() {
+        return ['src', 'alt', 'width'];
+    }
+
+    attributeChangedCallback() {
+        this.updateImage();
+    }
+
+    connectedCallback() {
+        this.updateImage();
         document.addEventListener('keydown', this.handleDocumentKeydown);
     }
 
