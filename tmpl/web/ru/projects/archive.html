@@ -1,0 +1,257 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Архив разработки — Алекс Гусев{% endblock %}
+{% block description %}Прежние утилиты, приложения и технические эксперименты Алекса Гусева.{% endblock %}
+
+{% block content %}
+<div class="current-work-page">
+<header class="card current-work-intro">
+    <p><a href="/{{ locale }}/projects.html">← Текущая работа</a></p>
+    <h1>Архив разработки</h1>
+    <p class="lead">Прежние продукты, утилиты и эксперименты. Описания сохраняют исторический контекст и не подтверждают текущую доступность.</p>
+</header>
+<div class="project-archive">
+<article class="card" id="tg-wa-blog-post"><h2>TG-WA Blog Post</h2><p>Консольное приложение на Node.js переводит последний пост русскоязычного Telegram-канала и публикует его в английском и испанском каналах. Создано с Codex по методологии ADSM.</p>
+    <p><a href="https://t.me/alexgusev_lab_ru" target="_blank">alexgusev_lab_ru</a> · <a href="https://t.me/alexgusev_lab_en" target="_blank">alexgusev_lab_en</a> · <a href="https://t.me/alexgusev_lab_es" target="_blank">alexgusev_lab_es</a> · <a href="https://github.com/flancer64/tg-wa-blog-post" target="_blank">GitHub</a></p>
+    <details><summary>Подробнее и ссылки</summary>
+    <p><strong>Описание:</strong> Консольное приложение на Node.js, созданное за один день в сотрудничестве с агентом
+        Codex по методологии ADSM (Agent-Driven Software Management). После запуска приложение получает последний пост
+        из русскоязычного Telegram-канала, переводит его на английский и испанский языки и автоматически публикует
+        переводы в соответствующие каналы. Проект реализован как практическая проверка разбиения когнитивного контекста
+        ADSM на 7 типовых уровней документации и управления разработкой.</p>
+
+    <p><strong>Дата начала:</strong> февраль 2026</p>
+
+    <p><strong>Уровни ADSM в проекте:</strong></p>
+    <ul>
+        <li><strong>AGENTS</strong> — правила работы с агентом и требования к формализации знаний</li>
+        <li><strong>Constraints</strong> — жёсткие рамки и запреты, ограничивающие пространство решений</li>
+        <li><strong>Product</strong> — назначение системы и предметные инварианты</li>
+        <li><strong>Architecture</strong> — агрегаты, границы и внешние интерфейсы</li>
+        <li><strong>Composition</strong> — модель выполнения: run-cycle, фазы и точки завершения</li>
+        <li><strong>Environment</strong> — условия исполнения и инфраструктурные ограничения</li>
+        <li><strong>Code</strong> — контракты, DI, тестирование и обработка ошибок</li>
+    </ul>
+    <p><strong>Telegram-каналы:</strong></p>
+    <ul>
+        <li><a href="https://t.me/alexgusev_lab_ru" target="_blank">alexgusev_lab_ru</a></li>
+        <li><a href="https://t.me/alexgusev_lab_en" target="_blank">alexgusev_lab_en</a></li>
+        <li><a href="https://t.me/alexgusev_lab_es" target="_blank">alexgusev_lab_es</a></li>
+    </ul>
+    <p><strong>Репозиторий:</strong> <a href="https://github.com/flancer64/tg-wa-blog-post" target="_blank">GitHub</a></p>
+
+    </details>
+</article>
+
+<article class="card" id="mindstream"><h2>Mindstream</h2><p>Экспериментальное веб-приложение исследует персональное внимание, сравнивая публикации с вектором интересов пользователя. По умолчанию вычисления выполняются локально в браузере.</p>
+    <p><a href="https://mindstream.app.wiredgeese.com/"
+            target="_blank">mindstream.app.wiredgeese.com</a> · <a href="https://github.com/flancer32/mindstream" target="_blank">GitHub</a></p>
+    <details><summary>Подробнее и ссылки</summary>
+    <p><strong>Описание:</strong> Экспериментальное веб-приложение для наблюдения персонального внимания через
+        векторные представления и эмбеддинги. Приложение читает RSS Хабра, формирует аннотации и обзоры при помощи
+        LLM и рассчитывает маркеры семантической близости публикаций к персональному вектору интересов пользователя.
+        По умолчанию все вычисления выполняются локально в браузере. Проект создан в агентном режиме (LLM + Codex)
+        в рамках методологии ADSM.</p>
+
+    <p><strong>Дата начала:</strong> февраль 2026</p>
+
+    <p><strong>Особенности:</strong></p>
+    <ul>
+        <li>Персональный вектор интересов формируется в браузере пользователя</li>
+        <li>Эмбеддинги и расчёт семантической близости публикаций</li>
+        <li>Локальный режим по умолчанию без передачи данных на сервер</li>
+        <li>Опциональная анонимная identity (UUID) для дублирования сигналов внимания</li>
+        <li>Клиент-серверная архитектура на базе TeqFW и @teqfw/di</li>
+        <li>Разработка в агентном режиме с использованием LLM и Codex</li>
+    </ul>
+    <p><strong>Live demo:</strong> <a href="https://mindstream.app.wiredgeese.com/"
+            target="_blank">mindstream.app.wiredgeese.com</a></p>
+    <p><strong>Репозиторий:</strong> <a href="https://github.com/flancer32/mindstream" target="_blank">GitHub</a></p>
+
+    </details>
+</article>
+
+<article class="card" id="svyazist"><h2>Svyazist</h2><p>Самостоятельно размещаемое PWA для семейных видеозвонков с использованием WebRTC и сервера сигналинга. Создано с Codex как эксперимент с диалоговым программированием и ADSM.</p>
+    <p><a href="https://call.wiredgeese.com/" target="_blank">call.wiredgeese.com</a> · <a href="https://github.com/flancer64/pwa-home-call" target="_blank">GitHub</a></p>
+    <details><summary>Подробнее и ссылки</summary>
+    <p><strong>Описание:</strong> Небольшое self-hosted PWA для приватных видеозвонков между членами семьи.
+        Работает на чистом JavaScript, использует WebRTC без сторонних установок, учётных записей и серверных
+        зависимостей, кроме сигналинга. Проект создаётся в связке с агентом Codex и методологией ADSM,
+        экспериментируя с диалоговым программированием и когнитивным контекстом.</p>
+
+    <p><strong>Дата начала:</strong> ноябрь 2025</p>
+
+    <p><strong>Особенности:</strong></p>
+    <ul>
+        <li>PWA-приложение, ориентированное на смартфоны и сеньоров</li>
+        <li>Чистый JavaScript, минимальная архитектура, самодостаточность</li>
+        <li>WebRTC для прямой связи, безопасные приватные звонки</li>
+        <li>UI и документация на русском языке</li>
+        <li>Полная когнитивная среда разработки через ADSM</li>
+    </ul>
+    <p><strong>Live demo:</strong> <a href="https://call.wiredgeese.com/" target="_blank">call.wiredgeese.com</a></p>
+    <p><strong>Репозиторий:</strong> <a href="https://github.com/flancer64/pwa-home-call" target="_blank">GitHub</a></p>
+
+    </details>
+</article>
+
+<article class="card" id="smtp-logger"><h2>smtp-logger</h2><p>Утилита на Node.js записывает исходящие письма в SQL-базу данных через pipe-обработчик Postfix. Модульная архитектура использует внедрение зависимостей TeqFW.</p>
+    <p><a href="https://github.com/flancer64/smtp-logger" target="_blank">GitHub</a></p>
+    <details><summary>Подробнее и ссылки</summary>
+    <p><strong>Описание:</strong> Утилита на Node.js для логирования исходящих писем в SQL-базу данных (PostgreSQL,
+        MySQL, SQLite). Используется как `pipe`-обработчик в Postfix (`always_bcc` или `aliases`) и регистрирует полные
+        MIME-сообщения. Основана на DI-архитектуре TeqFW, легко встраивается и расширяется.</p>
+
+    <p><strong>Дата начала:</strong> апрель 2025</p>
+
+    <p><strong>Особенности:</strong></p>
+    <ul>
+        <li>Приём писем из stdin, полная парсинг заголовков и тела</li>
+        <li>Логирование в БД через Knex.js (поддержка PostgreSQL, SQLite, MySQL)</li>
+        <li>Модульная архитектура с @teqfw/di и конфигурацией через CLI</li>
+        <li>Инициализация схемы БД из коробки, конфиги через `.env`</li>
+        <li>Полезен для продакшн и staging-сред — простое аудирование писем</li>
+    </ul>
+    <p><strong>Репозиторий:</strong> <a href="https://github.com/flancer64/smtp-logger" target="_blank">GitHub</a></p>
+
+    </details>
+</article>
+
+<article class="card" id="nutrilog"><h2>NutriLog</h2><p>Персональное PWA для отслеживания питания и веса с GPT-ассистентом. В проекте исследуются дневники питания, расчёт калорий и привычки с помощью ИИ и TeqFW.</p>
+    <p><a href="https://nutrilog.app.wiredgeese.com/"
+            target="_blank">nutrilog.app.wiredgeese.com</a> · <a href="https://github.com/flancer32/pwa-svelters" target="_blank">GitHub</a></p>
+    <details><summary>Подробнее и ссылки</summary>
+    <p><strong>Описание:</strong> Персональное PWA-приложение для отслеживания питания и веса, с тесной интеграцией
+        GPT-ассистента. NutriLog продолжает идеи BWL, но переосмыслен через взаимодействие с LLM: ИИ помогает вести
+        дневник, рассчитывать калории и формировать осознанные привычки. Основан на TeqFW, активно развивается как
+        AI-эксперимент.</p>
+
+    <p><strong>Дата начала:</strong> январь 2025</p>
+
+    <p><strong>Особенности:</strong></p>
+    <ul>
+        <li>Интеграция с GPT-чатом, персонализированный диалог</li>
+        <li>Поддержка дневника питания, веса и целей</li>
+        <li>Автоматический расчёт калорий и БЖУ</li>
+        <li>Внешняя память и веб-интерфейс вокруг ИИ</li>
+    </ul>
+    <p><strong>Сайт:</strong> <a href="https://nutrilog.app.wiredgeese.com/"
+            target="_blank">nutrilog.app.wiredgeese.com</a></p>
+    <p><strong>Репозиторий:</strong> <a href="https://github.com/flancer32/pwa-svelters" target="_blank">GitHub</a></p>
+
+    </details>
+</article>
+
+<article class="card" id="pwa-wallet"><h2>PWA Wallet</h2><p>Прогрессивное веб-приложение для организации QR- и штрихкодов на мобильных устройствах. Оно хранит данные локально и демонстрирует офлайн-работу, сканирование и браузерное хранилище.</p>
+    <p><a href="https://wallet.wiredgeese.com/" target="_blank">wallet.wiredgeese.com</a> · <a href="https://github.com/flancer64/pwa-wallet" target="_blank">GitHub</a></p>
+    <details><summary>Подробнее и ссылки</summary>
+    <p><strong>Описание:</strong> Прогрессивное веб-приложение для хранения, отображения и организации QR- и штрихкодов
+        на мобильных устройствах.
+        Все данные сохраняются локально в браузере и доступны офлайн. Приложение демонстрирует возможности современных
+        PWA: установка, автономная работа, интеграция с аппаратными API и локальными базами.
+        Проект задуман как MVP, но реализует полноценную архитектуру с разделением логики, маршрутов и хранилищ.</p>
+
+    <p><strong>Дата начала:</strong> июль 2024</p>
+
+    <p><strong>Особенности:</strong></p>
+    <ul>
+        <li>Сканирование кодов через <code>Camera API</code> с помощью <code>html5-qrcode</code></li>
+        <li>Отображение штрихкодов с помощью <code>bwip-js</code></li>
+        <li>Геотрекинг использования карточек с помощью <code>Geolocation API</code></li>
+        <li>Хранение всех данных в <code>IndexedDB</code>, конфигураций — в <code>localStorage</code></li>
+        <li>Полная офлайн-работа благодаря <code>Service Worker</code> и <code>Cache API</code></li>
+        <li>Маршрутная архитектура: отдельные страницы для добавления, просмотра, настройки и использования карточек</li>
+        <li>Фреймворк: Vue 3 + Quasar + @teqfw/di; без сборщиков, установка через npm</li>
+    </ul>
+    <p><strong>Сайт:</strong> <a href="https://wallet.wiredgeese.com/" target="_blank">wallet.wiredgeese.com</a></p>
+    <p><strong>Репозиторий:</strong> <a href="https://github.com/flancer64/pwa-wallet" target="_blank">GitHub</a></p>
+
+    </details>
+</article>
+
+<article class="card" id="remote-console"><h2>Remote Console</h2><p>Утилита для удалённого мониторинга логов JavaScript-приложений. Сообщения браузера поступают подключённым разработчикам в реальном времени, помогая при разработке и отладке мобильных устройств.</p>
+    <p><a href="https://console.wiredgeese.com/"
+            target="_blank">console.wiredgeese.com</a> · <a href="https://github.com/flancer64/spa-remote-console" target="_blank">GitHub</a> · <a href="/{{ locale }}/library/web/20240224-01-remote-console.html">Читать технический кейс →</a> · <a href="/{{ locale }}/projects/remote-console/20220318-01-log-monitoring.html">Читать кейс о проектировании мониторинга логов →</a></p>
+    <details><summary>Подробнее и ссылки</summary>
+    <p><strong>Описание:</strong> Утилита для удалённого мониторинга логов JavaScript-приложений в реальном времени.
+        Сообщения из браузера передаются на сервер с помощью Beacon API, а затем ретранслируются всем подключённым
+        разработчикам через SSE (Server-Sent Events).
+        Решение минимально-инвазивное и удобно для локальной разработки и отладки на мобильных устройствах.</p>
+
+    <p><strong>Дата начала:</strong> июнь 2023</p>
+
+    <p><strong>Особенности:</strong></p>
+    <ul>
+        <li>Отправка логов с клиента через Beacon API или Fetch</li>
+        <li>Реалтайм-трансляция на фронтенд через SSE</li>
+        <li>Поддержка именованных каналов логирования</li>
+        <li>Без авторизации, с публичным тестовым сервером</li>
+        <li>Развёртывание через Node.js и npm без внешних зависимостей</li>
+    </ul>
+    <p><strong>Публичный сервер:</strong> <a href="https://console.wiredgeese.com/"
+            target="_blank">console.wiredgeese.com</a>
+    </p>
+    <p><strong>Репозиторий:</strong> <a href="https://github.com/flancer64/spa-remote-console" target="_blank">GitHub</a>
+    </p>
+    <p><a href="/{{ locale }}/library/web/20240224-01-remote-console.html">Читать технический кейс →</a></p>
+    <p><a href="/{{ locale }}/projects/remote-console/20220318-01-log-monitoring.html">Читать кейс о проектировании мониторинга логов →</a></p>
+
+    </details>
+</article>
+
+<article class="card" id="deepgram"><h2>Deepgram Live Speech-to-Text PWA</h2><p><strong>Описание:</strong> Прототип браузерного PWA, который передаёт звук с микрофона в Deepgram и получает текст живой речи через WebSocket.</p>
+    <p><a href="/{{ locale }}/projects/cases/20230310-01-deepgram-pwa.html">Читать технический кейс →</a></p>
+    <details><summary>Подробнее и ссылки</summary>
+
+
+    <p><strong>Технологии:</strong> MediaRecorder, потоковый WebSocket, объединение промежуточных и финальных транскриптов, интеграция в PWA.</p>
+    <p><a href="/{{ locale }}/projects/cases/20230310-01-deepgram-pwa.html">Читать технический кейс →</a></p>
+
+    </details>
+</article>
+
+<article class="card" id="webauthn"><h2>WebAuthn PublicKeyCredential</h2><p><strong>Описание:</strong> JavaScript-прототип беспарольной аутентификации через browser authenticator и серверную проверку публичного ключа.</p>
+    <p><a href="/{{ locale }}/projects/cases/20230519-01-publickeycredential.html">Читать технический кейс →</a></p>
+    <details><summary>Подробнее и ссылки</summary>
+
+
+    <p><a href="/{{ locale }}/projects/cases/20230519-01-publickeycredential.html">Читать технический кейс →</a></p>
+
+    </details>
+</article>
+
+<article class="card" id="browser-oauth2"><h2>Browser OAuth2</h2><p><strong>Описание:</strong> Практическое руководство по подключению браузерного приложения к OAuth2-провайдеру без раскрытия клиентского секрета.</p>
+    <p><a href="/{{ locale }}/projects/cases/20230123-01-browser-oauth2.html">Читать технический кейс →</a></p>
+    <details><summary>Подробнее и ссылки</summary>
+
+
+    <p><a href="/{{ locale }}/projects/cases/20230123-01-browser-oauth2.html">Читать технический кейс →</a></p>
+
+    </details>
+</article>
+
+<article class="card" id="bwl"><h2>BWL (Body Weight Logger)</h2><p>PWA для учёта веса, которым пользуется небольшая группа друзей и родственников. В проекте принципы TeqFW применены к интерфейсу, серверной логике и работе с базой данных.</p>
+    <p><a href="https://bwl.wiredgeese.com/pub/#/" target="_blank">bwl.wiredgeese.com</a> · <a href="https://github.com/flancer32/pwa_bwl" target="_blank">GitHub</a></p>
+    <details><summary>Подробнее и ссылки</summary>
+    <p><strong>Описание:</strong> PWA-приложение для учёта веса в малых группах.
+        Первая реализация архитектурных принципов TeqFW в пользовательском интерфейсе: внедрение зависимостей, CLI,
+        работа с БД.
+        Используется ограниченным кругом пользователей, в основном друзьями и родственниками.</p>
+
+    <p><strong>Дата начала:</strong> 2021</p>
+
+    <p><strong>Особенности:</strong></p>
+    <ul>
+        <li>Основан на TeqFW: DI, структура, серверная логика</li>
+        <li>Мобильная адаптация (mobile-first) и offline-доступ</li>
+        <li>Работа с локальной БД, автономность интерфейса</li>
+    </ul>
+    <p><strong>Сайт:</strong> <a href="https://bwl.wiredgeese.com/pub/#/" target="_blank">bwl.wiredgeese.com</a></p>
+    <p><strong>Репозиторий:</strong> <a href="https://github.com/flancer32/pwa_bwl" target="_blank">GitHub</a></p>
+
+    </details>
+</article>
+</div>
+<section class="card"><h2>Узнать больше</h2><p><a href="/{{ locale }}/projects.html">Текущая работа →</a> · <a href="/{{ locale }}/projects/portfolio.html">Избранное портфолио →</a> · <a href="/{{ locale }}/products/">Книги →</a> · <a href="/{{ locale }}/work-with-me.html">Работать со мной →</a></p></section>
+</div>
+{% endblock %}

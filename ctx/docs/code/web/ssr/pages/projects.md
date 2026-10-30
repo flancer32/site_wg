@@ -16,9 +16,9 @@ Alarisa remains a separate localized detail route. PDE, Telegram Desk, Shared Fi
 
 In a separate engineering-evidence section following the current work, the page renders up to three reverse-chronological Events when authored Journal `relations` front matter identifies TeqCMS. The section links these records to TeqCMS while the card states its current status; Journal entries do not themselves change that status. The projection is localized, deterministic, SSR-rendered, and read from existing authored Journal files. The 2026-09-10 site-publication Event has no Current Work relationship: it documents the public representation, not a change in any listed system. The TeqCMS thread retains its earlier genuine TeqCMS Events. Other current objects receive no invented pre-existing history or empty evidence block.
 
-## Historical Preservation
+## Portfolio and Historical Preservation
 
-The lower archive presents compact previews and keeps existing project material, original descriptions, and destinations accessible as previous or historical responsibility evidence. It is explicitly secondary to active Current Work and must not be treated as current status or modern agentic-AI delivery evidence without contemporaneous proof.
+Current Work includes concise selected evidence and links to `/{locale}/projects/portfolio.html` and `/{locale}/projects/archive.html`. The portfolio presents Rehapp, Santegra, and Domotehnika as earlier client and production work; the archive retains the remaining historical project descriptions and destinations. Direct links are visible in previews, with further original detail available in disclosure panels. The browser book remains in the Books section. These historical records are not current offers or evidence of modern agentic-AI delivery without contemporaneous proof. Both deeper pages link back to Current Work, to each other, and to the commercial handoff.
 
 ## Boundaries
 

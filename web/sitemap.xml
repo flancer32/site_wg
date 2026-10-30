@@ -2836,6 +2836,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/projects/alarisa.html"/>
   </url>
   <url>
+    <loc>https://wiredgeese.com/en/projects/archive.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/projects/archive.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/projects/archive.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/projects/archive.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/projects/archive.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/ru/projects/archive.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/projects/archive.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/projects/archive.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/projects/archive.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/projects/archive.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/es/projects/archive.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/projects/archive.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/projects/archive.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/projects/archive.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/projects/archive.html"/>
+  </url>
+  <url>
     <loc>https://wiredgeese.com/en/projects/cases/20230123-01-browser-oauth2.html</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/projects/cases/20230123-01-browser-oauth2.html"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/projects/cases/20230123-01-browser-oauth2.html"/>
@@ -2939,6 +2960,27 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/projects/custom-gpt/solo-teqfw-guide-enum.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/projects/custom-gpt/solo-teqfw-guide-enum.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/projects/custom-gpt/solo-teqfw-guide-enum.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/en/projects/portfolio.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/projects/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/projects/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/projects/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/projects/portfolio.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/ru/projects/portfolio.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/projects/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/projects/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/projects/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/projects/portfolio.html"/>
+  </url>
+  <url>
+    <loc>https://wiredgeese.com/es/projects/portfolio.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wiredgeese.com/en/projects/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wiredgeese.com/ru/projects/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://wiredgeese.com/es/projects/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wiredgeese.com/en/projects/portfolio.html"/>
   </url>
   <url>
     <loc>https://wiredgeese.com/en/projects/remote-console/20220318-01-log-monitoring.html</loc>

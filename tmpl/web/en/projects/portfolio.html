@@ -1,0 +1,89 @@
+{% extends "inc/layout.html" %}
+
+{% block title %}Selected Portfolio — Alex Gusev{% endblock %}
+{% block description %}Completed and production systems built by Alex Gusev: rehabilitation, commerce, and customer registration.{% endblock %}
+
+{% block content %}
+<div class="current-work-page">
+<header class="card current-work-intro">
+    <p><a href="/{{ locale }}/projects.html">← Current Work</a></p>
+    <h1>Selected Portfolio</h1>
+    <p class="lead">A selection of earlier client and production systems, their purposes, technical approaches, and available evidence. These projects are historical work, not current offers.</p>
+</header>
+<div class="project-archive">
+<article class="card" id="rehapp"><h2>Rehapp</h2><p>A personalized rehabilitation platform with a patient PWA and a specialist portal. It combined configurable exercise programs, progress tracking, and content tools in a medical product.</p><p>My work on the platform applied TeqFW’s modular architecture, server logic, and LLM integration.</p>
+    <p><a href="https://rehapp.ru/" target="_blank">rehapp.ru</a></p>
+    <details><summary>More details</summary>
+    <p><strong>Description:</strong> A platform for personalized rehabilitation, including a PWA for patients and a web
+        portal for specialists.
+        Implements TeqFW principles in a real medical product: modular architecture, dependency injection,
+        server logic, LLM integration.</p>
+
+    <p><strong>Start date:</strong> April 2022</p>
+
+    <p><strong>Features:</strong></p>
+    <ul>
+        <li>Animated exercise sets with flexible configuration</li>
+        <li>Support for 50+ programs based on scientific research</li>
+        <li>LLM integration for automated translation and content generation</li>
+        <li>Specialist portal for tracking patient progress</li>
+        <li>Motivation mechanisms: bonuses, discounts, custom dev interviews</li>
+    </ul>
+    <p><strong>Website:</strong> <a href="https://rehapp.ru/" target="_blank">rehapp.ru</a></p>
+    <p><strong>Repository:</strong> private</p>
+
+    </details>
+</article>
+
+<article class="card" id="santegra"><h2>Santegra</h2><p>A Magento 2 commerce system customized for distributor management, bonuses, and service integrations. Developed from 2016, it has operated in production since 2018.</p><p>I developed extensions for distributor trees, bonuses, administration, and integrations.</p>
+    <p><a href="https://santegra.com/" target="_blank">santegra.com</a></p>
+    <details><summary>More details</summary>
+    <p><strong>Description:</strong> A Magento 2 e-commerce store deeply customized for MLM business needs.
+        Developed extensions for client tree management, bonus calculations, custom admin components, and external
+        service integrations.
+        The project became the foundation for architectural ideas later implemented in TeqFW. This was my last major PHP
+        project,
+        and since 2018 it has been running stably in production.</p>
+
+    <p><strong>Start date:</strong> 2016</p>
+
+    <p><strong>Features:</strong></p>
+    <ul>
+        <li>Platform: Magento 2 (PHP)</li>
+        <li>MLM logic: bonuses, client tree, PV calculations</li>
+        <li>~30 third-party extensions + 15 custom plugins</li>
+    </ul>
+    <p><strong>Website:</strong> <a href="https://santegra.com/" target="_blank">santegra.com</a></p>
+    <p><strong>Repository:</strong> private</p>
+
+    </details>
+</article>
+
+<article class="card" id="domotehnika"><h2>Domotehnika QR Intake</h2><p>A mobile-oriented registration app for a store loyalty program. Customers follow personal QR links to register for offers, with data stored centrally for marketing and analytics.</p><p>I implemented the TeqFW application for QR registration, centralized customer data, and loyalty campaigns.</p>
+    <p><a href="https://tc.klientuklubs.lv/" target="_blank">tc.klientuklubs.lv</a></p>
+    <p><a href="/{{ locale }}/blog/2025/20250301-01-clientu-klubs.html">Read the Journal record →</a></p>
+    <details><summary>More details</summary>
+    <p><strong>Description:</strong> A minimalist web app for customer registration via QR links as part of Domotehnika
+        store's
+        loyalty program. Visitors scan a QR code in-store, land on a registration page, and get access to personalized
+        offers.
+        Data is stored centrally and used for marketing and analytics.</p>
+
+    <p><strong>Start date:</strong> January 2025</p>
+
+    <p><strong>Features:</strong></p>
+    <ul>
+        <li>Customer registration via personal QR link</li>
+        <li>Minimal fields, smartphone-optimized</li>
+        <li>Standalone TeqFW architecture, no third-party integrations</li>
+        <li>Server-side storage and analytics logic</li>
+    </ul>
+    <p><strong>Website:</strong> <a href="https://tc.klientuklubs.lv/" target="_blank">tc.klientuklubs.lv</a></p>
+    <p><strong>Repository:</strong> private</p>
+
+    </details>
+</article>
+</div>
+<section class="card"><h2>Explore further</h2><p><a href="/{{ locale }}/projects.html">Current Work →</a> · <a href="/{{ locale }}/projects/archive.html">Development archive →</a> · <a href="/{{ locale }}/work-with-me.html">Work with me →</a></p></section>
+</div>
+{% endblock %}
