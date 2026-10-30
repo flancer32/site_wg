@@ -12,7 +12,7 @@ Define how Wired Geese selects commercially aligned new-product work while prese
 
 Wired Geese has two related commercial lines. The primary strategic line is new web applications and software products built from the ground up. A suitable engagement supplies cash, market learning, and evidence for the same engineering practice that Alex develops in his own systems. The agreed client product comes first; reuse is possible only where rights, confidentiality, and the actual work permit it.
 
-The complementary near-term product line is paid early deployment of PDE and independently useful Desks. A managed PDE installation, Telegram Desk setup, supported early access, or deployment on the user's own VPS can create revenue and real-world product validation before the broader Alarisa direction is mature. This is not a fallback generic-consulting funnel; `pde.md` defines its product boundary.
+The complementary near-term product line is paid early deployment of PDE and independently useful Desks. Paid assistance with a similar deployment on the user's VPS and with Desk creation or adaptation can be discussed, subject to v3 readiness and individually agreed terms. This is not a fallback generic-consulting funnel; `pde.md` defines its product boundary.
 
 This direction must not become a general freelance catalogue. Alex does not primarily sell architecture reviews, code audits, agent-readiness reviews, fractional CTO work, rescue of arbitrary legacy systems, generic technology or AI consulting, staff augmentation, hourly programming capacity, or implementation in a client-selected unrelated stack.
 

@@ -85,6 +85,7 @@ English Journal corpus:
 - https://wiredgeese.com/en/blog/2026/20260804-01-browser-as-operating-system-book.md
 - https://wiredgeese.com/en/blog/2026/20260810-01-teqfw-agent-skills.md
 - https://wiredgeese.com/en/blog/2026/20260910-01-current-work-evidence.md
+- https://wiredgeese.com/en/blog/2026/20261030-01-pde-network-site.md
 
 ## English Library Markdown corpus
 

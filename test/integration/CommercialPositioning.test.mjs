@@ -147,9 +147,10 @@ test('Journal presents evolving practice instead of a generic development guide'
 test('English Current Work makes PDE and Telegram Desk concrete early product paths', () => {
     const html = render('en', 'projects.html');
     assert.match(html, /Independent product within the Alarisa direction/i);
-    assert.match(html, /MCP is one technical interface/i);
-    assert.match(html, /deployments available by agreement/i);
-    assert.match(html, /list contacts, list and search known chats, read known-chat history, and send plain-text messages/i);
+    assert.match(html, /v1 personal use · v3 in development/i);
+    assert.match(html, /https:\/\/pde\.network\//i);
+    assert.match(html, /Paid help with a similar VPS deployment/i);
+    assert.match(html, /A Telegram Desk is planned for v3; earlier use does not establish v3 availability/i);
     assert.match(html, /contact\.html\?topic=pde/);
     assert.doesNotMatch(html, /not a public offer/i);
 });

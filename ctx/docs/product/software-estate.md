@@ -99,6 +99,6 @@ repeat use / repeat payment
 
 ## Public Projection
 
-Public pages may link to representative repositories as inspectable evidence, without requiring a prospective client to inspect GitHub before contacting Alex. Home must show system structure rather than a repository count: TeqFW foundation; applications, CMS, and infrastructure; Alarisa; PDE runtime and Desks; and real sites, with ADSM and agent-development skills explaining how the work is controlled. The full inventory remains authoritative here.
+Public pages may link to representative repositories as inspectable evidence, without requiring a prospective client to inspect GitHub before contacting Alex. Home must show system structure rather than a repository count: TeqFW foundation; applications, CMS, and infrastructure; Alarisa; PDE infrastructure and Desks; and real sites, with ADSM and agent-development skills explaining how the work is controlled. The full inventory remains authoritative here.
 
 `journal-and-evidence.md` remains authoritative for Journal/Event semantics and claim-specific chronology. `product-system.md` remains authoritative for object kind, maturity, and commercial status.

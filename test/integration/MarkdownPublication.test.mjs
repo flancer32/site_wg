@@ -209,7 +209,7 @@ test('uses locale-specific Markdown for the complete Journal and indexes only th
     const publication = new Publication({fs, path, marked, tmplConfig: {getRootPath: () => projectRoot}});
     const routesByLocale = await Promise.all(['en', 'ru', 'es'].map(collectJournalRoutes));
     for (const routes of routesByLocale) {
-        assert.equal(routes.length, 79);
+        assert.equal(routes.length, 80);
         for (const route of routes) {
             const article = await publication.load(route);
             assert.ok(article, `${route.locale}/${route.year}/${route.slug}`);

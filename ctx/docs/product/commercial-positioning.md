@@ -20,7 +20,7 @@ The client supplies the product problem, users, required capabilities, domain kn
 
 ### Use Alex's Products
 
-Alex also develops products of his own. A person can use or deploy a capability Alex has already built without commissioning a new product. PDE and Telegram Desk are the current examples; other Desks may become separately useful as they mature.
+Alex also develops products of his own. A person can use or deploy a capability Alex has already built without commissioning a new product. PDE and Desk work are current enquiry paths, subject to implementation readiness; the owner’s v1 Telegram experience is not proof of v3 availability.
 
 This is product monetization, not a generic services list. It has a different buying situation, delivery boundary, and price agreement from a client product build. `pde.md` is authoritative for this line.
 

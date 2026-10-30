@@ -47,7 +47,7 @@ A client who principally needs hourly capacity inside an unrelated predefined ar
 
 ## Existing Products
 
-Alongside client product builds, Alex develops products of his own. PDE is an independently useful personal-infrastructure product within the broader Alarisa direction. Its Desks can expose controlled capabilities for a person's own digital services; Telegram Desk is the current strongest practical example. A person who wants to use or deploy PDE is in a different buying situation from a client who wants Alex to build a new product.
+Alongside client product builds, Alex develops products of his own. PDE is an independently useful personal-infrastructure product within the broader Alarisa direction. Its Desks can expose controlled capabilities for a person's own digital services. The owner reports personal Telegram and Porkbun use with PDE v1; v3 is under development. A person who wants to use or deploy PDE is in a different buying situation from a client who wants Alex to build a new product.
 
 MCP may connect compatible agents to PDE operations, but it is a technical interface rather than the commercial proposition. Paid early deployment of PDE or an independently useful Desk is permitted as product monetization and real-world validation. It does not imply a mature hosted service, a universal support promise, or generic MCP integration consulting. `pde.md` is authoritative for this line.
 

@@ -2,57 +2,38 @@
 
 - Path: `ctx/docs/product/pde.md`
 - Template Version: `20260911`
-- Changed: `20260924`
+- Changed: `20261030`
 
-## Purpose
+## Purpose and Authority
 
-Define the product meaning, current public boundary, and commercial role of Personal Digital Embassy (PDE) and its Desks at Wired Geese.
+Define the public and commercial meaning of Personal Digital Embassy Network (PDE) for Wired Geese. The independently maintained PDE skill owns network concepts and contracts; this document is not a second specification. Distinguish accepted v3 design, implementation evidence, owner-reported personal experience and plans.
 
 ## Product Relationship
 
-Alarisa is the broader, long-term direction for interaction between one Principal and digital Assistants. PDE is an independently useful product within that direction: personal infrastructure through which a person can give compatible software controlled access to selected digital services and resources.
+PDE is an independently useful product in the broader Alarisa direction: personal digital representation and controlled delegation of operations over a Person's Resources to external Consumers such as AI assistants. The Person is the ultimate source of Resource authority. PDE is useful in its own right; Alarisa remains a broader long-term direction, not a prerequisite for PDE use or an assertion of Alarisa maturity.
 
-PDE has its own Runtime, Owner-controlled access boundary, Desks, installation model, and possible user deployments. It is therefore both a practical product and evidence for the broader Alarisa direction. PDE does not reduce Alarisa to a utility, and Alarisa's ongoing experimental status does not prevent an independently useful PDE capability from being deployed early.
+## Current Network Model
 
-```text
-Alarisa direction
-  -> PDE personal infrastructure
-    -> Desk for one coherent service
-      -> controlled capability for the represented person
-```
+The v3 architecture follows `Consumer → Gate → Office → Desk → Resource`. Gate is shared infrastructure owning accounts, OAuth, Consumer Access and routing. Office is an independent Person-controlled application organizing Desks and connecting to multiple Gate accounts. Desk is an independently implementable application integrating Resources, holding Resource credentials in its execution environment, owning Consumer Access Policies and enforcing permitted Operations. An individually approved Consumer Access belongs to one Gate Account; it is not a globally verified Consumer identity. Office does not grant Resource authority.
 
-## Runtime, MCP, And Desks
+The Person can develop a compatible Desk independently, including with help from AI coding agents, and attach it through Office subject to the applicable trust and consent. Gate need not persist an authoritative catalogue of Desk types or Operations. Discovery obtains currently permitted Operations from available Desks; Desk checks its current Policy again at execution. Credentials remain in Desk's execution environment. Neither a discovered operation nor request routing proves execution or success.
 
-A PDE Runtime represents one person and administers controlled, revocable delegation to compatible software Clients. A Desk is a functional PDE module for one coherent service or domain. It exposes its own operations, capability and permission semantics, and authorization decisions. A Desk is not merely an internal plugin when it offers a useful user-facing capability: it can be part of a full PDE deployment, a practical entry point, and an independently valuable product surface.
+A Desk may run in a browser or on a computer. If unavailable it cannot execute new requests through itself; already initiated Resource effects may still complete. A Gate operator may see requests and responses in transit; the Person must trust the Desk software and its environment. Do not claim absolute security, universal confidentiality, compatibility, or that a completed effect can be undone. MCP is an external protocol interface, not the product or proof of authorization.
 
-MCP is a technical protocol projection through which compatible agents can call selected PDE operations. It establishes neither a product category nor permission. The commercial proposition is a controlled PDE deployment or Desk capability for the person's own account and agents; it is not arbitrary MCP integration work.
+## Current Evidence and Development
 
-## Current Telegram Desk
+The owner reports personally using PDE v1 with ChatGPT for Telegram channels and Porkbun DNS. That experience is not proof of general availability or v3 compatibility. PDE v3 protocols and software are under active development; the owner reports functionality exists but infrastructure readiness for rapid evolution requires further work. Implementation conformance and production readiness require independent evidence. Telegram and Porkbun Desks are planned for v3; do not represent v1 capabilities as verified v3 functionality. Current PDE code is private and opening is planned after stabilization without a committed date.
 
-Telegram Desk is the current clearest independently useful Desk. In a person's own PDE deployment, it can give a compatible AI agent controlled access to that person's Telegram account or bot connection. The current executable slice supports account information, contact listing, known-chat listing and lookup, known-chat search, chat history, and plain-text message sending. Chat reads require a TDLib user connection; the Bot API connection does not provide those read operations.
+The public information site https://pde.network/ explains PDE and invites enquiries. The owner is preparing a Gate and plans to register interested testers after software stabilization; enquiries are not immediate registration. Public Garage Gate and Echo Desk pages illustrate work in progress, not proof of end-to-end readiness. The bank-account scenario is an illustration of the desired level of control, not an available banking integration.
 
-The person configures the connection and explicit permissions. The Runtime evaluates current delegation before the Desk executes an operation; Telegram credentials, QR-login material, session state, and private configuration stay on the trusted deployment side. The product does not grant an agent unrestricted account access merely because the agent speaks MCP.
+## Commercial Direction
 
-This is working early software, not a mature hosted service or a promise that every Telegram capability is available. It is useful for a person who wants their compatible agent to work with their own Telegram through controlled personal infrastructure, rather than asking Alex to build a Telegram integration inside an unrelated system.
+PDE remains independently useful within the Alarisa direction. Alex offers to discuss paid help deploying a similar setup on a customer's VPS and creating or adapting Desks. Scope, timing, software availability, support and price are agreed individually. The website does not provision services, establish accounts, or promise immediate access, fixed pricing, guaranteed delivery, or a standard support model. Product-specific work does not reopen unrelated generic consulting or retired offer funnels.
 
-## Telegram Digest Publication Boundary
+## Telegram Digest Boundary
 
-The Telegram Digest is prepared from recent history of the Russian-language channel «Вастрик.Ай» through an external PDE deployment. Alex publishes it in the source Telegram channel. The Wired Geese website does not publish or archive these digests. The source channel is neither owned by nor affiliated with Wired Geese. Digests report channel discussion, not independently verified facts.
+The Telegram Digest is prepared from a private community's channel through an external PDE deployment and published in the source channel. Wired Geese does not publish or archive the private source content or the digest. The source community is neither owned by nor affiliated with Wired Geese. The digest is not a standalone product or proof that every claimed fact is independently verified. Credentials and session state remain outside the website.
 
-This is an in-channel publication practice, not a standalone digest product, website demonstration surface, Journal chronology, or durable Library knowledge. Telegram credentials, session state, and message retrieval remain in the external PDE/Telegram runtime.
+## Evidence and Evolution
 
-## Near-Term Product Monetization
-
-PDE and independently useful Desks may be offered before the whole Alarisa direction is mature. Valid early product paths include a managed PDE installation, Telegram Desk setup, supported early access, deployment on the user's own VPS, and future useful Desks as they become ready.
-
-These are paid early product deployments: they can generate revenue and validate the product in real use. They are not generic consulting, staff augmentation, an MCP-integration offer, or an automated website provisioning promise. Scope, supported configuration, installation responsibility, price, access, updates, and support boundaries are agreed directly for each deployment.
-
-## Pricing And Legacy Boundary
-
-No canonical numeric PDE, Telegram Desk, installation, or support price is currently established in this context. A low-priced early deployment would not be legacy merely because of its price, but a price requires product-specific authority before publication.
-
-The former GitHub Flows / Agent Orchestration PoC, its EUR 50 repository pilot, generic EUR 35-per-hour workflow work, and unrelated trial/setup funnels remain retired. They must not be confused with, restored as, or used to price PDE product deployments.
-
-## Evidence Boundary
-
-The public capability statement above is grounded in the current `pde-runtime` and `pde-desk-telegram` repositories. It does not establish external adoption, production reliability, security certification, commercial validation, a standard support model, or a guaranteed deployment outcome. `software-estate.md` remains the inventory authority and `journal-and-evidence.md` governs claim-specific evidence.
+The owner's reports, public website and architecture are evidence of their own stated scope, not evidence of external demand, security certification, interoperability, general readiness, commercial validation or future outcomes. Use `journal-and-evidence.md` for claim-specific evidence and `software-estate.md` for repository inventory. Current v3 meaning follows the PDE skill; do not impose obsolete compatibility or migration obligations from earlier versions.
