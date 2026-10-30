@@ -2,6 +2,7 @@
 title: "Un sitio para Personal Digital Embassy"
 description: "He lanzado pde.network para explicar la idea de PDE, compartir mi experiencia con la primera versión e invitar a quienes quieran probarla."
 summary: "He lanzado pde.network para explicar la idea de PDE, compartir mi experiencia con la primera versión e invitar a quienes quieran probarla."
+image: "/img/brand/pde-icon.png"
 date: 2026-10-30
 display_date: "30 de octubre de 2026"
 relations:

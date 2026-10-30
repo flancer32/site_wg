@@ -2,6 +2,7 @@
 title: "Дом для Personal Digital Embassy"
 description: "Я запустил pde.network, чтобы рассказать об идее PDE, своём опыте с первой версией и пригласить первых тестировщиков."
 summary: "Я запустил pde.network, чтобы рассказать об идее PDE, своём опыте с первой версией и пригласить первых тестировщиков."
+image: "/img/brand/pde-icon.png"
 date: 2026-10-30
 display_date: "30 октября 2026"
 relations:

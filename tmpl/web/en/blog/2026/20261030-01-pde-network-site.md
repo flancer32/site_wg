@@ -2,6 +2,7 @@
 title: "A home for Personal Digital Embassy"
 description: "I launched pde.network to explain the idea behind PDE, share my experience with the first version, and invite early testers."
 summary: "I launched pde.network to explain the idea behind PDE, share my experience with the first version, and invite early testers."
+image: "/img/brand/pde-icon.png"
 date: 2026-10-30
 display_date: "October 30, 2026"
 relations:
