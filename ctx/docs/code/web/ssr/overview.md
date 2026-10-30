@@ -41,3 +41,7 @@ The SSR site may publish PDE and eligible Desk deployments as existing products 
 ## Retired Campaign Boundary
 
 The Agent Orchestration PoC route is removed and redirects to Work with Alex. No future agent should infer a landing page, form, route, state, or browser behavior from the retired campaign.
+
+## CMS 0.10 Host Publication Policy
+
+The host replaces the CMS publication policy with an empty families-mode policy so the project-owned Journal and Library handler and existing templates retain route ownership. The site does not register CMS publication families. Qualify this boundary through real CLI HTTP tests, including locale Journal index, HTML and Markdown articles, and a missing article.

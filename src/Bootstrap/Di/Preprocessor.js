@@ -7,6 +7,7 @@
 
 const REPLACEMENTS = new Map([
     ['Fl32_Cms_Back_Api_Adapter', 'App_Back_Di_Replace_Adapter'],
+    ['Fl32_Cms_Back_Publication_Policy', 'App_Back_Di_Replace_PublicationPolicy'],
     ['Fl32_Tmpl_Back_Api_Engine', 'Fl32_Cms_Back_Di_Replace_Tmpl_Engine'],
 ]);
 
