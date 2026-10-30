@@ -3,6 +3,10 @@
 {% block title %}Trabajo actual — Alex Gusev{% endblock %}
 {% block description %}Sistemas y direcciones actuales de Alex Gusev, con estado honesto y evidencia inspeccionable de la Bitácora.{% endblock %}
 
+{% block html_head_extra %}
+<link rel="stylesheet" href="/styles/blog.css">
+{% endblock %}
+
 {% block content %}
 <div class="current-work-page">
 <header class="card current-work-intro">
@@ -16,38 +20,58 @@
     <div class="section-heading">
         <p class="eyebrow">Sistemas y direcciones activas</p>
         <h2>Lo que estoy construyendo y utilizando.</h2>
-        <p>Las tarjetas explican qué hace cada sistema, su madurez y si ahora es evidencia, producto o ambas cosas.</p>
+        <p>Cada sección explica qué hace un sistema, su madurez y si es evidencia, un producto existente o ambas cosas.</p>
     </div>
-    <div class="current-work-grid">
-        <article class="featured-work-card">
-            <p class="eyebrow">Dirección a largo plazo</p><p class="product-status">En desarrollo activo · experimental · no listo para el mercado</p><h3>Alarisa</h3><p>Un gran sistema multicomponente en desarrollo que explora a una Persona Principal y su Asistente en el mundo digital. La construyo mediante TeqFW, ADSM y mi flujo de trabajo con agentes dirigido por humanos.</p><p><a href="/{{ locale }}/projects/alarisa.html">Ver el estado actual de Alarisa →</a> · <a href="https://github.com/flancer32/alarisa" target="_blank" rel="noopener noreferrer">Inspeccionar el sistema →</a></p>
+    <div class="current-work-layout">
+        <article class="featured-work-card current-work-major">
+            <p class="eyebrow">Dirección a largo plazo</p><p class="product-status">Experimental · en desarrollo</p>
+            <h3>Alarisa</h3>
+            <p>Un sistema multicomponente que explora a una Persona Principal y su Asistente en el mundo digital. Es una dirección a largo plazo y una prueba de ingeniería en curso, no un producto listo para el mercado. La construyo mediante TeqFW, ADSM y mi flujo de trabajo con agentes dirigido por humanos.</p>
+            <p><a href="/{{ locale }}/projects/alarisa.html">Ver el estado actual de Alarisa →</a> · <a href="https://github.com/flancer32/alarisa" target="_blank" rel="noopener noreferrer">Inspeccionar el sistema →</a></p>
         </article>
-        <article class="featured-work-card" id="pde">
+        <article class="featured-work-card current-work-major" id="pde">
             <img src="/img/brand/pde.webp" alt="" width="96" height="96" loading="lazy">
-            <p class="eyebrow">Producto independiente dentro de la dirección Alarisa</p><p class="product-status">v1 en uso personal · v3 en desarrollo</p><h3>Personal Digital Embassy (PDE)</h3><p>PDE está en desarrollo para permitir que las personas controlen el acceso de la IA a sus recursos digitales. Las aplicaciones Desk independientes conectan recursos y aplican políticas de acceso. PDE es útil por sí mismo y también forma parte de la dirección más amplia de Alarisa.</p><p>Alex usa PDE v1 personalmente con ChatGPT para el DNS de Porkbun y Telegram; esto no demuestra que v3 esté disponible. Está preparando un Gate para las primeras pruebas.</p><p>Se puede hablar de ayuda remunerada para desplegar una configuración similar en un VPS o crear y adaptar Desks; el alcance y el precio se acuerdan individualmente.</p><p><a href="https://pde.network/">Explorar pde.network →</a> · <a href="/{{ locale }}/contact.html?topic=pde">Preguntar por PDE →</a> · <a href="/{{ locale }}/projects/alarisa.html">Entender la dirección Alarisa →</a></p>
+            <p class="eyebrow">Producto independiente dentro de la dirección Alarisa</p><p class="product-status">v1 en uso personal · v3 en desarrollo</p>
+            <h3>Personal Digital Embassy (PDE)</h3>
+            <p>PDE está en desarrollo para permitir que las personas controlen el acceso de la IA a sus recursos digitales. Alex usa v1 personalmente para Telegram y el DNS de Porkbun; esa experiencia no demuestra que v3 esté disponible.</p>
+            <p>Se puede hablar individualmente de ayuda remunerada para desplegar una configuración similar en un VPS o crear y adaptar Desks, según la preparación del software.</p>
+            <p><a href="https://pde.network/">Explorar pde.network →</a> · <a href="/{{ locale }}/contact.html?topic=pde">Preguntar por PDE →</a> · <a href="/{{ locale }}/projects/alarisa.html">Dirección Alarisa →</a></p>
         </article>
-        <article class="featured-work-card" id="telegram-desk">
-            <p class="eyebrow">PDE Desk</p><p class="product-status">Experiencia personal en v1 · v3 en desarrollo</p><h3>Telegram Desk</h3><p>Alex utiliza un Telegram Desk con ChatGPT en su propia configuración de PDE v1, también para sus canales públicos de Telegram. Está previsto desarrollar un Telegram Desk para v3; su uso anterior no implica que esté disponible en v3.</p><p>Se puede consultar sobre el desarrollo y despliegue de Desk; el alcance, los plazos y el precio dependen del software y se acuerdan individualmente.</p><p><a href="/{{ locale }}/contact.html?topic=pde">Preguntar por Telegram Desk →</a> · <a href="https://pde.network/desks">Explorar Desks →</a></p>
-        </article>
-        <article class="featured-work-card" id="shared-files-desk">
-            <p class="eyebrow">PDE Desk</p><p class="product-status">Capacidad anterior · disponibilidad en v3 no establecida</p><h3>Shared Files Desk</h3><p>El trabajo anterior exploró el acceso controlado de agentes a archivos bajo autorización explícita. No se ha establecido su disponibilidad en PDE v3 ni una oferta de despliegue independiente.</p><p><a href="https://pde.network/desks">Explorar Desks →</a></p>
-        </article>
-        <article class="featured-work-card" id="teqcms">
-            <p class="eyebrow">Infraestructura del sitio</p><p class="product-status">Infraestructura funcional · sin oferta actual</p><h3>TeqCMS</h3><p>El sistema SSR multilingüe que usa este sitio: evidencia práctica de TeqFW y ADSM, no un hijo de Alarisa ni un producto que se venda aquí ahora.</p><p><a href="https://cms.teqfw.com/" target="_blank" rel="noopener noreferrer">Explorar TeqCMS →</a> · <a href="https://github.com/flancer32/teq-cms" target="_blank" rel="noopener noreferrer">Inspeccionar el código →</a></p>
-            {% if currentWorkEvidence and currentWorkEvidence.items.length %}
-            <section class="current-work-card-evidence" aria-labelledby="teqcms-evidence-title">
-                <h4 id="teqcms-evidence-title">Registros de desarrollo relacionados</h4>
-                <p>Estas entradas de la Bitácora documentan trabajo en TeqCMS. Muestran cómo evolucionó el sistema; esta tarjeta describe su estado actual.</p>
-                <ul class="blog-list" role="list">
-                    {% for item in currentWorkEvidence.items %}
-                        {{ item.html | safe }}
-                    {% endfor %}
-                </ul>
-            </section>
-            {% endif %}
+        <section class="current-work-desks" aria-labelledby="desks-title">
+            <h3 id="desks-title">PDE Desks</h3>
+            <p>Las aplicaciones independientes conectan recursos y aplican políticas de acceso.</p>
+            <div class="current-work-grid">
+                <article class="featured-work-card" id="telegram-desk">
+                    <p class="product-status">Uso personal en v1 · previsto para v3</p><h4>Telegram Desk</h4>
+                    <p>Alex utiliza un Telegram Desk con ChatGPT en su propia configuración de PDE v1, incluidos los canales públicos. Hay un Desk previsto para v3; su uso anterior no demuestra que esté disponible en v3.</p>
+                    <p><a href="https://pde.network/desks">Explorar Desks →</a> · <a href="/{{ locale }}/contact.html?topic=pde">Preguntar por trabajo en Desks →</a></p>
+                </article>
+                <article class="featured-work-card" id="shared-files-desk">
+                    <p class="product-status">Capacidad anterior · v3 sin confirmar</p><h4>Shared Files Desk</h4>
+                    <p>El trabajo anterior exploró el acceso controlado de agentes a archivos bajo autorización explícita. No se ha establecido su disponibilidad en PDE v3 ni una oferta de despliegue independiente.</p>
+                    <p><a href="https://pde.network/desks">Explorar Desks →</a></p>
+                </article>
+            </div>
+        </section>
+        <article class="featured-work-card current-work-major" id="teqcms">
+            <p class="eyebrow">Infraestructura independiente</p><p class="product-status">En funcionamiento · sin oferta actual</p><h3>TeqCMS</h3>
+            <p>El sistema multilingüe renderizado en servidor que usa este sitio demuestra TeqFW y ADSM en la práctica. Es independiente de PDE y actualmente no se ofrece a la venta aquí.</p>
+            <p><a href="https://cms.teqfw.com/" target="_blank" rel="noopener noreferrer">Explorar TeqCMS →</a> · <a href="https://github.com/flancer32/teq-cms" target="_blank" rel="noopener noreferrer">Inspeccionar el código →</a></p>
         </article>
     </div>
 </section>
+
+{% if currentWorkEvidence and currentWorkEvidence.items.length %}
+<section class="current-work-evidence" aria-labelledby="teqcms-evidence-title">
+    <div class="section-heading"><p class="eyebrow">Evidencia de ingeniería</p><h2 id="teqcms-evidence-title">Desarrollo de TeqCMS en la Bitácora</h2><p>Estos registros muestran cómo evolucionó el sistema; su estado actual se describe arriba.</p></div>
+    <ul class="blog-list" role="list">
+        {% for item in currentWorkEvidence.items %}
+            {{ item.html | safe }}
+        {% endfor %}
+    </ul>
+    <p><a href="/{{ locale }}/blog/">Explorar la Bitácora →</a></p>
+</section>
+{% endif %}
 
 <div class="archive-heading">
     <h2>Trabajo previo e histórico</h2>
@@ -57,12 +81,16 @@
 <div class="card"><h2>El navegador como sistema operativo para desarrollar aplicaciones modernas</h2><p><strong>Publicado:</strong> 2026 · BHV · Edición en ruso</p><p>Un libro sobre el navegador como entorno operativo personal de internet: ejecución distribuida, datos, red, aislamiento, ciclos de vida, perfiles y continuidad digital.</p><p><a href="/es/books/browser-as-operating-system.html">Sobre el libro →</a></p></div>
 <div class="card">
     <h2>TG-WA Blog Post</h2>
-    <p><strong>Fecha de inicio:</strong> febrero de 2026</p>
+    <p>Una aplicación de línea de comandos en Node.js que traduce la última publicación de un canal de Telegram en ruso y la publica en canales en inglés y español. Creada con Codex mediante ADSM.</p>
+    <details><summary>Más detalles y enlaces</summary>
     <p><strong>Descripción:</strong> Aplicación de consola (CLI) en Node.js creada en un solo día en colaboración con el
         agente Codex siguiendo la metodología ADSM (Agent-Driven Software Management). Tras el arranque, la aplicación
         obtiene la última publicación de un canal de Telegram en ruso, la traduce al inglés y al español y publica
         automáticamente las traducciones en los canales correspondientes. El proyecto sirve como validación práctica de
         la división del contexto cognitivo de ADSM en siete niveles estándar de documentación y gestión del desarrollo.</p>
+
+    <p><strong>Fecha de inicio:</strong> febrero de 2026</p>
+
     <p><strong>Niveles de ADSM en el proyecto:</strong></p>
     <ul>
         <li><strong>AGENTS</strong> — reglas de interacción con el agente y requisitos de formalización del conocimiento</li>
@@ -80,17 +108,22 @@
         <li><a href="https://t.me/alexgusev_lab_es" target="_blank">alexgusev_lab_es</a></li>
     </ul>
     <p><strong>Repositorio:</strong> <a href="https://github.com/flancer64/tg-wa-blog-post" target="_blank">GitHub</a></p>
+    </details>
 </div>
 
 
 <div class="card">
     <h2>Mindstream</h2>
-    <p><strong>Fecha de inicio:</strong> febrero de 2026</p>
+    <p>Una aplicación web experimental que explora la atención personal comparando publicaciones con el vector de intereses del usuario. Por defecto, los cálculos se realizan localmente en el navegador.</p>
+    <details><summary>Más detalles y enlaces</summary>
     <p><strong>Descripción:</strong> Una aplicación web experimental para observar la atención personal mediante
         representaciones vectoriales y embeddings. La aplicación lee el RSS de Habr, genera anotaciones y
         resúmenes con LLMs y calcula marcadores de proximidad semántica entre las publicaciones y el
         vector personal de intereses del usuario. Por defecto, todos los cálculos se realizan localmente
         en el navegador. El proyecto fue creado en modo agent-driven (LLM + Codex) dentro de la metodología ADSM.</p>
+
+    <p><strong>Fecha de inicio:</strong> febrero de 2026</p>
+
     <p><strong>Características:</strong></p>
     <ul>
         <li>Vector personal de intereses formado directamente en el navegador del usuario</li>
@@ -103,18 +136,23 @@
     <p><strong>Demo en vivo:</strong> <a href="https://mindstream.app.wiredgeese.com/"
             target="_blank">mindstream.app.wiredgeese.com</a></p>
     <p><strong>Repositorio:</strong> <a href="https://github.com/flancer32/mindstream" target="_blank">GitHub</a></p>
+    </details>
 </div>
 
 
 <div class="card">
     <h2>Svyazist</h2>
-    <p><strong>Fecha de inicio:</strong> noviembre de 2025</p>
+    <p>Una PWA autoalojada para videollamadas privadas familiares, con WebRTC y un servidor de señalización. Creada con Codex como experimento de programación conversacional y ADSM.</p>
+    <details><summary>Más detalles y enlaces</summary>
     <p><strong>Descripción:</strong> Pequeña PWA autoalojada para videollamadas privadas entre miembros de la familia.
         Funciona con JavaScript puro, usa WebRTC sin instalaciones externas, cuentas ni dependencias de servidor más
         allá del
         señalizador. Se crea junto con el agente Codex y la metodología ADSM, experimentando con programación
         conversacional y
         contexto cognitivo.</p>
+
+    <p><strong>Fecha de inicio:</strong> noviembre de 2025</p>
+
     <p><strong>Características:</strong></p>
     <ul>
         <li>Aplicación PWA orientada a smartphones y personas mayores</li>
@@ -125,16 +163,21 @@
     </ul>
     <p><strong>Live demo:</strong> <a href="https://call.wiredgeese.com/" target="_blank">call.wiredgeese.com</a></p>
     <p><strong>Repositorio:</strong> <a href="https://github.com/flancer64/pwa-home-call" target="_blank">GitHub</a></p>
+    </details>
 </div>
 
 <div class="card">
     <h2>smtp-logger</h2>
-    <p><strong>Fecha de inicio:</strong> abril de 2025</p>
+    <p>Una utilidad en Node.js que registra correos salientes en una base de datos SQL mediante un manejador pipe de Postfix. Su diseño modular utiliza la inyección de dependencias de TeqFW.</p>
+    <details><summary>Más detalles y enlaces</summary>
     <p><strong>Descripción:</strong> Utilidad en Node.js para registrar correos salientes en una base de datos SQL
         (PostgreSQL,
         MySQL, SQLite). Se usa como manejador `pipe` en Postfix (`always_bcc` o `aliases`) y registra mensajes MIME
         completos.
         Basada en la arquitectura DI de TeqFW, fácil de integrar y extender.</p>
+
+    <p><strong>Fecha de inicio:</strong> abril de 2025</p>
+
     <p><strong>Características:</strong></p>
     <ul>
         <li>Recepción de correos desde stdin, análisis completo de cabeceras y cuerpo</li>
@@ -144,17 +187,22 @@
         <li>Útil para entornos de producción y staging — auditoría simple de correos</li>
     </ul>
     <p><strong>Repositorio:</strong> <a href="https://github.com/flancer64/smtp-logger" target="_blank">GitHub</a></p>
+    </details>
 </div>
 
 <div class="card">
     <h2>NutriLog</h2>
-    <p><strong>Fecha de inicio:</strong> enero de 2025</p>
+    <p>Una PWA personal para el seguimiento de nutrición y peso con un asistente GPT. Explora diarios de alimentación, cálculo de calorías y hábitos asistidos por IA mediante TeqFW.</p>
+    <details><summary>Más detalles y enlaces</summary>
     <p><strong>Descripción:</strong> Aplicación PWA personal para seguimiento de nutrición y peso, con integración
         estrecha de asistente
         GPT. NutriLog continúa las ideas de BWL pero reinterpretadas mediante interacción con LLM: la IA ayuda a llevar
         un diario,
         calcular calorías y formar hábitos conscientes. Basado en TeqFW, se desarrolla activamente como experimento de
         IA.</p>
+
+    <p><strong>Fecha de inicio:</strong> enero de 2025</p>
+
     <p><strong>Características:</strong></p>
     <ul>
         <li>Integración con chat GPT, diálogo personalizado</li>
@@ -165,16 +213,21 @@
     <p><strong>Sitio:</strong> <a href="https://nutrilog.app.wiredgeese.com/"
             target="_blank">nutrilog.app.wiredgeese.com</a></p>
     <p><strong>Repositorio:</strong> <a href="https://github.com/flancer32/pwa-svelters" target="_blank">GitHub</a></p>
+    </details>
 </div>
 
 <div class="card">
     <h2>Domothenika QR Intake</h2>
-    <p><strong>Fecha de inicio:</strong> enero de 2025</p>
+    <p>Una aplicación de registro orientada a móviles para el programa de fidelidad de una tienda. Los clientes siguen enlaces QR personales para registrarse y recibir ofertas; los datos se almacenan centralmente para marketing y análisis.</p>
+    <details><summary>Más detalles y enlaces</summary>
     <p><strong>Descripción:</strong> Aplicación web minimalista para registro de clientes mediante enlaces QR en el
         programa de
         fidelidad de la tienda Domotehnika. El visitante escanea un QR en la tienda, accede a la página de registro y
         obtiene
         ofertas personalizadas. Los datos se almacenan centralmente para marketing y análisis.</p>
+
+    <p><strong>Fecha de inicio:</strong> enero de 2025</p>
+
     <p><strong>Características:</strong></p>
     <ul>
         <li>Registro de cliente mediante enlace QR personal</li>
@@ -184,11 +237,13 @@
     </ul>
     <p><strong>Sitio:</strong> <a href="https://tc.klientuklubs.lv/" target="_blank">tc.klientuklubs.lv</a></p>
     <p><strong>Repositorio:</strong> privado</p>
+    </details>
 </div>
 
 <div class="card">
     <h2>PWA Wallet</h2>
-    <p><strong>Fecha de inicio:</strong> julio de 2024</p>
+    <p>Una aplicación web progresiva para organizar códigos QR y de barras en dispositivos móviles. Almacena los datos localmente y demuestra el uso sin conexión, el escaneo y el almacenamiento en el navegador.</p>
+    <details><summary>Más detalles y enlaces</summary>
     <p><strong>Descripción:</strong> Aplicación web progresiva para almacenar, mostrar y organizar códigos QR y de
         barras en
         dispositivos móviles. Todos los datos se guardan localmente en el navegador y están disponibles sin conexión.
@@ -196,6 +251,9 @@
         capacidades modernas de PWA: instalación, funcionamiento offline, integración con APIs hardware y bases locales.
         Concebido
         como MVP pero con arquitectura completa.</p>
+
+    <p><strong>Fecha de inicio:</strong> julio de 2024</p>
+
     <p><strong>Características:</strong></p>
     <ul>
         <li>Escanear códigos mediante <code>Camera API</code> con <code>html5-qrcode</code></li>
@@ -208,16 +266,21 @@
     </ul>
     <p><strong>Sitio:</strong> <a href="https://wallet.wiredgeese.com/" target="_blank">wallet.wiredgeese.com</a></p>
     <p><strong>Repositorio:</strong> <a href="https://github.com/flancer64/pwa-wallet" target="_blank">GitHub</a></p>
+    </details>
 </div>
 
 <div class="card">
     <h2>Remote Console</h2>
-    <p><strong>Fecha de inicio:</strong> junio de 2023</p>
+    <p>Una utilidad para monitorizar remotamente los logs de aplicaciones JavaScript. Los mensajes del navegador llegan en tiempo real a los desarrolladores conectados, lo que facilita el desarrollo y la depuración en dispositivos móviles.</p>
+    <details><summary>Más detalles y enlaces</summary>
     <p><strong>Descripción:</strong> Utilidad para monitoreo remoto de logs de aplicaciones JavaScript en tiempo real.
         Los mensajes
         del navegador se envían al servidor mediante Beacon API y se retransmiten a los desarrolladores conectados
         mediante SSE
         (Server-Sent Events). Solución mínimamente invasiva, útil para desarrollo local y depuración en móviles.</p>
+
+    <p><strong>Fecha de inicio:</strong> junio de 2023</p>
+
     <p><strong>Características:</strong></p>
     <ul>
         <li>Envío de logs desde cliente mediante Beacon API o Fetch</li>
@@ -232,34 +295,51 @@
             target="_blank">GitHub</a></p>
     <p><a href="/es/library/web/20240224-01-remote-console.html">Leer el caso técnico →</a></p>
     <p><a href="/es/projects/remote-console/20220318-01-log-monitoring.html">Leer el caso de diseño de monitorización de logs →</a></p>
+    </details>
 </div>
 
 <div class="card">
     <h2>Deepgram: reconocimiento de voz en PWA</h2>
     <p><strong>Descripción:</strong> Prototipo PWA de navegador que transmite audio del micrófono a Deepgram y convierte voz en directo a texto mediante WebSocket.</p>
+    <details><summary>Más detalles y enlaces</summary>
+
+
     <p><strong>Técnicas:</strong> MediaRecorder, WebSocket en streaming, combinación de transcripciones intermedias y finales e integración PWA.</p>
     <p><a href="/es/projects/cases/20230310-01-deepgram-pwa.html">Leer el caso técnico →</a></p>
+    </details>
 </div>
 
 <div class="card">
     <h2>WebAuthn PublicKeyCredential</h2>
     <p><strong>Descripción:</strong> Prueba de concepto JavaScript de autenticación sin contraseña con autenticadores de navegador y validación de clave pública en servidor.</p>
+    <details><summary>Más detalles y enlaces</summary>
+
+
     <p><a href="/es/projects/cases/20230519-01-publickeycredential.html">Leer el caso técnico →</a></p>
+    </details>
 </div>
 
 <div class="card">
     <h2>OAuth2 en el navegador</h2>
     <p><strong>Descripción:</strong> Guía práctica para conectar una aplicación de navegador con un proveedor OAuth2 sin exponer el secreto de cliente.</p>
+    <details><summary>Más detalles y enlaces</summary>
+
+
     <p><a href="/es/projects/cases/20230123-01-browser-oauth2.html">Leer el caso técnico →</a></p>
+    </details>
 </div>
 
 <div class="card">
     <h2>Rehapp</h2>
-    <p><strong>Fecha de inicio:</strong> abril de 2022</p>
+    <p>Una plataforma de rehabilitación personalizada con una PWA para pacientes y un portal para especialistas. Combinaba programas de ejercicios configurables, seguimiento del progreso y herramientas de contenido en un producto médico.</p>
+    <details><summary>Más detalles y enlaces</summary>
     <p><strong>Descripción:</strong> Plataforma para rehabilitación personalizada, incluyendo PWA para pacientes y panel
         web para
         especialistas. Implementa principios de TeqFW en un producto médico real: arquitectura modular, inyección de
         dependencias, lógica de servidor, integración con LLM.</p>
+
+    <p><strong>Fecha de inicio:</strong> abril de 2022</p>
+
     <p><strong>Características:</strong></p>
     <ul>
         <li>Ejercicios animados con configuración flexible</li>
@@ -270,16 +350,21 @@
     </ul>
     <p><strong>Sitio:</strong> <a href="https://rehapp.ru/" target="_blank">rehapp.ru</a></p>
     <p><strong>Repositorio:</strong> privado</p>
+    </details>
 </div>
 
 <div class="card">
     <h2>BWL (Body Weight Logger)</h2>
-    <p><strong>Fecha de inicio:</strong> 2021</p>
+    <p>Una PWA para registrar el peso, utilizada por un pequeño grupo de amigos y familiares. Aplicaba los principios de TeqFW a la interfaz, la lógica del servidor y las operaciones de base de datos.</p>
+    <details><summary>Más detalles y enlaces</summary>
     <p><strong>Descripción:</strong> Aplicación PWA para registrar peso en grupos pequeños. Primera implementación de
         principios
         arquitectónicos de TeqFW en interfaz de usuario: inyección de dependencias, CLI, trabajo con BD. Usado por un
         círculo
         limitado de usuarios.</p>
+
+    <p><strong>Fecha de inicio:</strong> 2021</p>
+
     <p><strong>Características:</strong></p>
     <ul>
         <li>Basado en TeqFW: DI, estructura, lógica de servidor</li>
@@ -288,16 +373,21 @@
     </ul>
     <p><strong>Sitio:</strong> <a href="https://bwl.wiredgeese.com/pub/#/" target="_blank">bwl.wiredgeese.com</a></p>
     <p><strong>Repositorio:</strong> <a href="https://github.com/flancer32/pwa_bwl" target="_blank">GitHub</a></p>
+    </details>
 </div>
 
 <div class="card">
     <h2>Santegra</h2>
-    <p><strong>Fecha de inicio:</strong> 2016</p>
+    <p>Un sistema de comercio Magento 2 personalizado para la gestión de distribuidores, bonos e integraciones de servicios. Desarrollado desde 2016, funciona en producción desde 2018.</p>
+    <details><summary>Más detalles y enlaces</summary>
     <p><strong>Descripción:</strong> Tienda online en Magento 2 con personalización profunda para negocio MLM.
         Extensiones para
         árbol de clientes, cálculo de bonos, componentes personalizados de admin, integraciones externas. Proyecto base
         para ideas
         arquitectónicas luego implementadas en TeqFW. Mi último gran proyecto en PHP, en producción desde 2018.</p>
+
+    <p><strong>Fecha de inicio:</strong> 2016</p>
+
     <p><strong>Características:</strong></p>
     <ul>
         <li>Plataforma: Magento 2 (PHP)</li>
@@ -306,8 +396,11 @@
     </ul>
     <p><strong>Sitio:</strong> <a href="https://santegra.com/" target="_blank">santegra.com</a></p>
     <p><strong>Repositorio:</strong> privado</p>
+    </details>
 </div>
 </div>
+</div>
+
 </div>
 
 {% endblock %}

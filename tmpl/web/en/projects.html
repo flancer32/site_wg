@@ -3,6 +3,10 @@
 {% block title %}Current Work — Alex Gusev{% endblock %}
 {% block description %}Current systems and directions by Alex Gusev, with honest status and inspectable Journal evidence.{% endblock %}
 
+{% block html_head_extra %}
+<link rel="stylesheet" href="/styles/blog.css">
+{% endblock %}
+
 {% block content %}
 <div class="current-work-page">
 <header class="card current-work-intro">
@@ -18,36 +22,56 @@
         <h2>What I am building and using.</h2>
         <p>Each section explains what a system does, how mature it is, and whether it is evidence, an existing product, or both.</p>
     </div>
-    <div class="current-work-grid">
-        <article class="featured-work-card">
-            <p class="eyebrow">Long-term direction</p><p class="product-status">In active development · experimental · not market-ready</p><h3>Alarisa</h3><p>A major ongoing multi-component system exploring a Principal and their Assistant in the digital world. I build it through TeqFW, ADSM, and my human-directed agent workflow.</p><p><a href="/{{ locale }}/projects/alarisa.html">See the current Alarisa state →</a> · <a href="https://github.com/flancer32/alarisa" target="_blank" rel="noopener noreferrer">Inspect the system →</a></p>
+    <div class="current-work-layout">
+        <article class="featured-work-card current-work-major">
+            <p class="eyebrow">Long-term direction</p><p class="product-status">Experimental · in development</p>
+            <h3>Alarisa</h3>
+            <p>A multi-component system exploring a Principal and their Assistant in the digital world. It is a long-term direction and ongoing engineering proof, not a market-ready product. I build it through TeqFW, ADSM, and my human-directed agent workflow.</p>
+            <p><a href="/{{ locale }}/projects/alarisa.html">See the current Alarisa state →</a> · <a href="https://github.com/flancer32/alarisa" target="_blank" rel="noopener noreferrer">Inspect the system →</a></p>
         </article>
-        <article class="featured-work-card" id="pde">
+        <article class="featured-work-card current-work-major" id="pde">
             <img src="/img/brand/pde.webp" alt="" width="96" height="96" loading="lazy">
-            <p class="eyebrow">Independent product within the Alarisa direction</p><p class="product-status">v1 personal use · v3 in development</p><h3>Personal Digital Embassy (PDE)</h3><p>PDE is being developed to let people control AI access to their digital resources. Independent Desk applications connect resources and enforce access policies. PDE is useful in its own right and is also part of the broader Alarisa direction.</p><p>Alex uses PDE v1 personally with ChatGPT for Porkbun DNS and Telegram; this does not establish v3 availability. He is preparing a Gate for early testing.</p><p>Paid help with a similar VPS deployment or creating and adapting Desks is available to discuss; scope and price are agreed individually.</p><p><a href="https://pde.network/">Explore pde.network →</a> · <a href="/{{ locale }}/contact.html?topic=pde">Ask about PDE →</a> · <a href="/{{ locale }}/projects/alarisa.html">Understand the Alarisa direction →</a></p>
+            <p class="eyebrow">Independent product within the Alarisa direction</p><p class="product-status">v1 personal use · v3 in development</p>
+            <h3>Personal Digital Embassy (PDE)</h3>
+            <p>PDE is being developed to give people control over AI access to their digital resources. Alex uses v1 personally for Telegram and Porkbun DNS; that experience does not establish v3 availability.</p>
+            <p>Paid help with a similar VPS deployment or creating and adapting Desks can be discussed individually, subject to software readiness.</p>
+            <p><a href="https://pde.network/">Explore pde.network →</a> · <a href="/{{ locale }}/contact.html?topic=pde">Ask about PDE →</a> · <a href="/{{ locale }}/projects/alarisa.html">Alarisa direction →</a></p>
         </article>
-        <article class="featured-work-card" id="telegram-desk">
-            <p class="eyebrow">PDE Desk</p><p class="product-status">Personal v1 experience · v3 in development</p><h3>Telegram Desk</h3><p>Alex uses a Telegram Desk with ChatGPT in his own PDE v1 setup, including for his public Telegram channels. A Telegram Desk is planned for v3; earlier use does not establish v3 availability.</p><p>Ask about Desk development and deployment; scope, timing and price depend on the software and are agreed individually.</p><p><a href="/{{ locale }}/contact.html?topic=pde">Ask about Telegram Desk →</a> · <a href="https://pde.network/desks">Explore Desks →</a></p>
-        </article>
-        <article class="featured-work-card" id="shared-files-desk">
-            <p class="eyebrow">PDE Desk</p><p class="product-status">Earlier capability · v3 availability not established</p><h3>Shared Files Desk</h3><p>Earlier work explored controlled agent access to files under explicit authority. Its availability in PDE v3 and a separate deployment offer are not established.</p><p><a href="https://pde.network/desks">Explore Desks →</a></p>
-        </article>
-        <article class="featured-work-card" id="teqcms">
-            <p class="eyebrow">Site infrastructure</p><p class="product-status">Working infrastructure · no current offer</p><h3>TeqCMS</h3><p>The multilingual SSR system used by this site: practical TeqFW and ADSM evidence, not an Alarisa child or a product currently offered for sale here.</p><p><a href="https://cms.teqfw.com/" target="_blank" rel="noopener noreferrer">Explore TeqCMS →</a> · <a href="https://github.com/flancer32/teq-cms" target="_blank" rel="noopener noreferrer">Inspect the source →</a></p>
-            {% if currentWorkEvidence and currentWorkEvidence.items.length %}
-            <section class="current-work-card-evidence" aria-labelledby="teqcms-evidence-title">
-                <h4 id="teqcms-evidence-title">Related development records</h4>
-                <p>These Journal entries document work on TeqCMS. They show how the system developed; this card describes how it stands today.</p>
-                <ul class="blog-list" role="list">
-                    {% for item in currentWorkEvidence.items %}
-                        {{ item.html | safe }}
-                    {% endfor %}
-                </ul>
-            </section>
-            {% endif %}
+        <section class="current-work-desks" aria-labelledby="desks-title">
+            <h3 id="desks-title">PDE Desks</h3>
+            <p>Independent applications connect resources and enforce access policies.</p>
+            <div class="current-work-grid">
+                <article class="featured-work-card" id="telegram-desk">
+                    <p class="product-status">Personal v1 use · v3 planned</p><h4>Telegram Desk</h4>
+                    <p>Alex uses a Telegram Desk with ChatGPT in his own PDE v1 setup, including public channels. A Telegram Desk is planned for v3; earlier use does not establish v3 availability.</p>
+                    <p><a href="https://pde.network/desks">Explore Desks →</a> · <a href="/{{ locale }}/contact.html?topic=pde">Ask about Desk work →</a></p>
+                </article>
+                <article class="featured-work-card" id="shared-files-desk">
+                    <p class="product-status">Earlier capability · v3 unconfirmed</p><h4>Shared Files Desk</h4>
+                    <p>Earlier work explored controlled agent access to files under explicit authority. Its availability in PDE v3 and a separate deployment offer are not established.</p>
+                    <p><a href="https://pde.network/desks">Explore Desks →</a></p>
+                </article>
+            </div>
+        </section>
+        <article class="featured-work-card current-work-major" id="teqcms">
+            <p class="eyebrow">Independent infrastructure</p><p class="product-status">Working · no current offer</p><h3>TeqCMS</h3>
+            <p>The multilingual server-rendered system used by this site demonstrates TeqFW and ADSM in practice. It is independent of PDE and is not currently offered for sale here.</p>
+            <p><a href="https://cms.teqfw.com/" target="_blank" rel="noopener noreferrer">Explore TeqCMS →</a> · <a href="https://github.com/flancer32/teq-cms" target="_blank" rel="noopener noreferrer">Inspect the source →</a></p>
         </article>
     </div>
 </section>
+
+{% if currentWorkEvidence and currentWorkEvidence.items.length %}
+<section class="current-work-evidence" aria-labelledby="teqcms-evidence-title">
+    <div class="section-heading"><p class="eyebrow">Engineering evidence</p><h2 id="teqcms-evidence-title">TeqCMS development in the Journal</h2><p>These records show how the system developed; the current status is described above.</p></div>
+    <ul class="blog-list" role="list">
+        {% for item in currentWorkEvidence.items %}
+            {{ item.html | safe }}
+        {% endfor %}
+    </ul>
+    <p><a href="/{{ locale }}/blog/">Explore the Journal →</a></p>
+</section>
+{% endif %}
 
 <div class="archive-heading">
     <h2>Previous and historical work</h2>
@@ -55,14 +79,16 @@
 </div>
 <div class="project-archive">
 <div class="card"><h2>Browser as an Operating System for Developing Modern Applications</h2><p><strong>Published:</strong> 2026 · BHV · Russian-language edition</p><p>A book about the browser as the personal operating environment of the internet: distributed execution, data, networking, isolation, lifecycles, profiles, and digital continuity.</p><p><a href="/en/books/browser-as-operating-system.html">About the book →</a></p></div>
-<div class="card">
-    <h2>TG-WA Blog Post</h2>
-    <p><strong>Start date:</strong> February 2026</p>
+<div class="card"><h2>TG-WA Blog Post</h2><p>A Node.js command-line application that translates the latest post from a Russian Telegram channel and publishes it to English and Spanish channels. Built with Codex using ADSM.</p>
+    <details><summary>More details and links</summary>
     <p><strong>Description:</strong> A Node.js CLI app built in one day in collaboration with the Codex agent using the
         ADSM (Agent-Driven Software Management) methodology. After startup, the app fetches the latest post from a
         Russian-language Telegram channel, translates it into English and Spanish, and automatically publishes the
         translations to the corresponding channels. The project serves as a practical validation of splitting ADSM’s
         cognitive context into seven standard levels for documentation and development management.</p>
+
+    <p><strong>Start date:</strong> February 2026</p>
+
     <p><strong>ADSM levels in the project:</strong></p>
     <ul>
         <li><strong>AGENTS</strong> — agent interaction rules and knowledge formalization requirements</li>
@@ -80,17 +106,21 @@
         <li><a href="https://t.me/alexgusev_lab_es" target="_blank">alexgusev_lab_es</a></li>
     </ul>
     <p><strong>Repository:</strong> <a href="https://github.com/flancer64/tg-wa-blog-post" target="_blank">GitHub</a></p>
+
+    </details>
 </div>
 
 
-<div class="card">
-    <h2>Mindstream</h2>
-    <p><strong>Start date:</strong> February 2026</p>
+<div class="card"><h2>Mindstream</h2><p>An experimental web application that explores personal attention by comparing publications with a user’s interest vector. Computation is local to the browser by default.</p>
+    <details><summary>More details and links</summary>
     <p><strong>Description:</strong> An experimental web application for observing personal attention through
         vector representations and embeddings. The application reads Habr RSS feeds, generates annotations and
         summaries using LLMs, and calculates semantic proximity markers between publications and the user’s
         personal interest vector. By default, all computations are performed locally in the browser. The project
         was created in an agent-driven mode (LLM + Codex) within the ADSM methodology.</p>
+
+    <p><strong>Start date:</strong> February 2026</p>
+
     <p><strong>Features:</strong></p>
     <ul>
         <li>Personal interest vector formed directly in the user’s browser</li>
@@ -103,16 +133,20 @@
     <p><strong>Live demo:</strong> <a href="https://mindstream.app.wiredgeese.com/"
             target="_blank">mindstream.app.wiredgeese.com</a></p>
     <p><strong>Repository:</strong> <a href="https://github.com/flancer32/mindstream" target="_blank">GitHub</a></p>
+
+    </details>
 </div>
 
 
-<div class="card">
-    <h2>Svyazist</h2>
-    <p><strong>Start date:</strong> November 2025</p>
+<div class="card"><h2>Svyazist</h2><p>A self-hosted PWA for private family video calls, using WebRTC and a signaling server. Built with Codex as an experiment in conversational programming and ADSM.</p>
+    <details><summary>More details and links</summary>
     <p><strong>Description:</strong> A small self-hosted PWA for private video calls between family members.
         Runs on plain JavaScript, uses WebRTC without third-party installs, accounts, or server dependencies beyond
         signaling. Built alongside the Codex agent and the ADSM methodology, experimenting with conversational
         programming and cognitive context.</p>
+
+    <p><strong>Start date:</strong> November 2025</p>
+
     <p><strong>Features:</strong></p>
     <ul>
         <li>PWA app focused on smartphones and seniors</li>
@@ -123,14 +157,18 @@
     </ul>
     <p><strong>Live demo:</strong> <a href="https://call.wiredgeese.com/" target="_blank">call.wiredgeese.com</a></p>
     <p><strong>Repository:</strong> <a href="https://github.com/flancer64/pwa-home-call" target="_blank">GitHub</a></p>
+
+    </details>
 </div>
 
-<div class="card">
-    <h2>smtp-logger</h2>
-    <p><strong>Start date:</strong> April 2025</p>
+<div class="card"><h2>smtp-logger</h2><p>A Node.js utility that records outgoing email messages in an SQL database through a Postfix pipe handler. Its modular design uses TeqFW dependency injection.</p>
+    <details><summary>More details and links</summary>
     <p><strong>Description:</strong> A Node.js utility for logging outgoing emails to an SQL database (PostgreSQL,
         MySQL, SQLite). Used as a `pipe` handler in Postfix (`always_bcc` or `aliases`) and records full
         MIME messages. Based on TeqFW's DI architecture, easily embeddable and extensible.</p>
+
+    <p><strong>Start date:</strong> April 2025</p>
+
     <p><strong>Features:</strong></p>
     <ul>
         <li>Email reception from stdin, full header and body parsing</li>
@@ -140,15 +178,19 @@
         <li>Useful for production and staging environments — simple email auditing</li>
     </ul>
     <p><strong>Repository:</strong> <a href="https://github.com/flancer64/smtp-logger" target="_blank">GitHub</a></p>
+
+    </details>
 </div>
 
-<div class="card">
-    <h2>NutriLog</h2>
-    <p><strong>Start date:</strong> January 2025</p>
+<div class="card"><h2>NutriLog</h2><p>A personal nutrition and weight tracking PWA with a GPT assistant. It explores AI-assisted food diaries, calorie calculation, and habits using TeqFW.</p>
+    <details><summary>More details and links</summary>
     <p><strong>Description:</strong> A personal PWA for tracking nutrition and weight, with deep GPT assistant
         integration.
         NutriLog continues BWL's ideas but reimagined through LLM interaction: AI helps maintain a diary,
         calculate calories, and form mindful habits. Based on TeqFW, actively developed as an AI experiment.</p>
+
+    <p><strong>Start date:</strong> January 2025</p>
+
     <p><strong>Features:</strong></p>
     <ul>
         <li>GPT chat integration, personalized dialogue</li>
@@ -159,16 +201,20 @@
     <p><strong>Website:</strong> <a href="https://nutrilog.app.wiredgeese.com/"
             target="_blank">nutrilog.app.wiredgeese.com</a></p>
     <p><strong>Repository:</strong> <a href="https://github.com/flancer32/pwa-svelters" target="_blank">GitHub</a></p>
+
+    </details>
 </div>
 
-<div class="card">
-    <h2>Domothenika QR Intake</h2>
-    <p><strong>Start date:</strong> January 2025</p>
+<div class="card"><h2>Domothenika QR Intake</h2><p>A mobile-oriented registration app for a store loyalty program. Customers follow personal QR links to register for offers, with data stored centrally for marketing and analytics.</p>
+    <details><summary>More details and links</summary>
     <p><strong>Description:</strong> A minimalist web app for customer registration via QR links as part of Domotehnika
         store's
         loyalty program. Visitors scan a QR code in-store, land on a registration page, and get access to personalized
         offers.
         Data is stored centrally and used for marketing and analytics.</p>
+
+    <p><strong>Start date:</strong> January 2025</p>
+
     <p><strong>Features:</strong></p>
     <ul>
         <li>Customer registration via personal QR link</li>
@@ -178,16 +224,20 @@
     </ul>
     <p><strong>Website:</strong> <a href="https://tc.klientuklubs.lv/" target="_blank">tc.klientuklubs.lv</a></p>
     <p><strong>Repository:</strong> private</p>
+
+    </details>
 </div>
 
-<div class="card">
-    <h2>PWA Wallet</h2>
-    <p><strong>Start date:</strong> July 2024</p>
+<div class="card"><h2>PWA Wallet</h2><p>A progressive web app for organizing QR codes and barcodes on mobile devices. It stores data locally and demonstrates offline use, scanning, and browser storage.</p>
+    <details><summary>More details and links</summary>
     <p><strong>Description:</strong> A progressive web app for storing, displaying, and organizing QR and barcodes on
         mobile devices.
         All data is saved locally in the browser and available offline. The app demonstrates modern PWA capabilities:
         installation, offline operation, hardware API integration, and local databases.
         Conceived as an MVP but implements full architecture with logic, routing, and storage separation.</p>
+
+    <p><strong>Start date:</strong> July 2024</p>
+
     <p><strong>Features:</strong></p>
     <ul>
         <li>Code scanning via <code>Camera API</code> using <code>html5-qrcode</code></li>
@@ -200,15 +250,19 @@
     </ul>
     <p><strong>Website:</strong> <a href="https://wallet.wiredgeese.com/" target="_blank">wallet.wiredgeese.com</a></p>
     <p><strong>Repository:</strong> <a href="https://github.com/flancer64/pwa-wallet" target="_blank">GitHub</a></p>
+
+    </details>
 </div>
 
-<div class="card">
-    <h2>Remote Console</h2>
-    <p><strong>Start date:</strong> June 2023</p>
+<div class="card"><h2>Remote Console</h2><p>A utility for monitoring JavaScript application logs remotely. Browser messages reach connected developers in real time, supporting development and mobile-device debugging.</p>
+    <details><summary>More details and links</summary>
     <p><strong>Description:</strong> A utility for real-time remote monitoring of JavaScript application logs.
         Browser messages are sent to the server via Beacon API and then relayed to all connected developers via SSE
         (Server-Sent
         Events). Minimally invasive and convenient for local development and mobile device debugging.</p>
+
+    <p><strong>Start date:</strong> June 2023</p>
+
     <p><strong>Features:</strong></p>
     <ul>
         <li>Client log sending via Beacon API or Fetch</li>
@@ -224,34 +278,47 @@
     </p>
     <p><a href="/en/library/web/20240224-01-remote-console.html">Read the technical case study →</a></p>
     <p><a href="/en/projects/remote-console/20220318-01-log-monitoring.html">Read the original logging-design case →</a></p>
+
+    </details>
 </div>
 
-<div class="card">
-    <h2>Deepgram Live Speech-to-Text PWA</h2>
-    <p><strong>Description:</strong> A browser PWA prototype that streams microphone audio to Deepgram and turns live speech into text through WebSocket.</p>
+<div class="card"><h2>Deepgram Live Speech-to-Text PWA</h2><p><strong>Description:</strong> A browser PWA prototype that streams microphone audio to Deepgram and turns live speech into text through WebSocket.</p>
+    <details><summary>More details and links</summary>
+
+
     <p><strong>Key techniques:</strong> MediaRecorder, WebSocket streaming, interim/final transcript merging, and client-side PWA integration.</p>
     <p><a href="/en/projects/cases/20230310-01-deepgram-pwa.html">Read the technical case study →</a></p>
+
+    </details>
 </div>
 
-<div class="card">
-    <h2>WebAuthn PublicKeyCredential</h2>
-    <p><strong>Description:</strong> A JavaScript proof of concept for passwordless authentication with browser authenticators and server-side public-key validation.</p>
+<div class="card"><h2>WebAuthn PublicKeyCredential</h2><p><strong>Description:</strong> A JavaScript proof of concept for passwordless authentication with browser authenticators and server-side public-key validation.</p>
+    <details><summary>More details and links</summary>
+
+
     <p><a href="/en/projects/cases/20230519-01-publickeycredential.html">Read the technical case study →</a></p>
+
+    </details>
 </div>
 
-<div class="card">
-    <h2>Browser OAuth2</h2>
-    <p><strong>Description:</strong> A practical guide to connecting a browser application to an OAuth2 provider without exposing client secrets.</p>
+<div class="card"><h2>Browser OAuth2</h2><p><strong>Description:</strong> A practical guide to connecting a browser application to an OAuth2 provider without exposing client secrets.</p>
+    <details><summary>More details and links</summary>
+
+
     <p><a href="/en/projects/cases/20230123-01-browser-oauth2.html">Read the technical case study →</a></p>
+
+    </details>
 </div>
 
-<div class="card">
-    <h2>Rehapp</h2>
-    <p><strong>Start date:</strong> April 2022</p>
+<div class="card"><h2>Rehapp</h2><p>A personalized rehabilitation platform with a patient PWA and a specialist portal. It combined configurable exercise programs, progress tracking, and content tools in a medical product.</p>
+    <details><summary>More details and links</summary>
     <p><strong>Description:</strong> A platform for personalized rehabilitation, including a PWA for patients and a web
         portal for specialists.
         Implements TeqFW principles in a real medical product: modular architecture, dependency injection,
         server logic, LLM integration.</p>
+
+    <p><strong>Start date:</strong> April 2022</p>
+
     <p><strong>Features:</strong></p>
     <ul>
         <li>Animated exercise sets with flexible configuration</li>
@@ -262,14 +329,18 @@
     </ul>
     <p><strong>Website:</strong> <a href="https://rehapp.ru/" target="_blank">rehapp.ru</a></p>
     <p><strong>Repository:</strong> private</p>
+
+    </details>
 </div>
 
-<div class="card">
-    <h2>BWL (Body Weight Logger)</h2>
-    <p><strong>Start date:</strong> 2021</p>
+<div class="card"><h2>BWL (Body Weight Logger)</h2><p>A weight-tracking PWA used by a small group of friends and family. It applied TeqFW principles to the interface, server logic, and database operations.</p>
+    <details><summary>More details and links</summary>
     <p><strong>Description:</strong> A PWA for weight tracking in small groups.
         First implementation of TeqFW architectural principles in UI: dependency injection, CLI,
         DB operations. Used by a limited circle of users, mainly friends and family.</p>
+
+    <p><strong>Start date:</strong> 2021</p>
+
     <p><strong>Features:</strong></p>
     <ul>
         <li>Based on TeqFW: DI, structure, server logic</li>
@@ -278,17 +349,21 @@
     </ul>
     <p><strong>Website:</strong> <a href="https://bwl.wiredgeese.com/pub/#/" target="_blank">bwl.wiredgeese.com</a></p>
     <p><strong>Repository:</strong> <a href="https://github.com/flancer32/pwa_bwl" target="_blank">GitHub</a></p>
+
+    </details>
 </div>
 
-<div class="card">
-    <h2>Santegra</h2>
-    <p><strong>Start date:</strong> 2016</p>
+<div class="card"><h2>Santegra</h2><p>A Magento 2 commerce system customized for distributor management, bonuses, and service integrations. Developed from 2016, it has operated in production since 2018.</p>
+    <details><summary>More details and links</summary>
     <p><strong>Description:</strong> A Magento 2 e-commerce store deeply customized for MLM business needs.
         Developed extensions for client tree management, bonus calculations, custom admin components, and external
         service integrations.
         The project became the foundation for architectural ideas later implemented in TeqFW. This was my last major PHP
         project,
         and since 2018 it has been running stably in production.</p>
+
+    <p><strong>Start date:</strong> 2016</p>
+
     <p><strong>Features:</strong></p>
     <ul>
         <li>Platform: Magento 2 (PHP)</li>
@@ -297,7 +372,11 @@
     </ul>
     <p><strong>Website:</strong> <a href="https://santegra.com/" target="_blank">santegra.com</a></p>
     <p><strong>Repository:</strong> private</p>
+
+    </details>
 </div>
+</div>
+
 </div>
 
 {% endblock %}
