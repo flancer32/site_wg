@@ -46,7 +46,7 @@ test('production Markdown rendering emits valid Journal URLs and cards in every 
         respond: {isWritable: () => true, code200_Ok: (payload) => { body = payload.body; }}});
     for (const locale of locales) {
         const cards = await blog.collectBlogIndex(locale);
-        assert.equal(cards.length, 80);
+        assert.equal(cards.length, 81);
         for (const card of cards) {
             const pageUrl = `https://wiredgeese.com${card.url}`;
             assertPublicUrls(card.html, pageUrl);

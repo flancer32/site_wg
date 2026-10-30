@@ -1,12 +1,14 @@
 {
   "schema": "adsm-context",
-  "version": "0.1.0",
-  "capabilities": ["verification-layer"],
+  "version": "0.5.0",
+  "capabilities": [
+    "verification-layer"
+  ],
   "notes": [
     "Baseline ADSM context metadata initialized for wiredgeese.com.",
     "The product context defines wiredgeese.com as a product-led commercial system for original software capabilities, deployment, integration, customization, and related engineering.",
     "Alarisa is Alex's guiding vision and principal long-term R&D direction for human-AI-agent coexistence and interaction; it is not a sellable product or deterministic product system.",
-    "The first active commercial offer connects an MCP-compatible AI system such as ChatGPT to Telegram through Personal Digital Embassy, an independently useful experimental technical system that emerged from Alarisa-guided exploration.",
+    "PDE remains independently useful in the Alarisa direction; v3 is under development and paid deployment and Desk work are discussed individually.",
     "The website runtime remains separate from PDE and customer deployments; current GitHub-offer implementation is documented only as legacy drift."
   ]
 }

@@ -2,7 +2,7 @@
 
 - Path: `ctx/docs/code/web/ssr/routes.md`
 - Template Version: `20260630`
-- Changed: `20260923`
+- Changed: `20261030`
 
 ## Purpose
 
@@ -16,7 +16,7 @@ Every dated Journal article has one locale-specific Markdown source at `tmpl/web
 
 Every Library article has one locale-specific Markdown source at `tmpl/web/{locale}/library/{path}/{slug}.md`. The existing `/{locale}/library/{path}/{slug}.html` URL remains the localized SSR presentation, and each locale also exposes its raw Markdown route. The Library indexes remain Nunjucks templates. The sitemap lists only canonical HTML URLs; root `/llms.txt` is the explicitly authored English Journal and Library Markdown discovery list plus the digest index, checked against the published source inventory by tests; it does not replace the sitemap.
 
-The bounded PDE Telegram Digest family uses `tmpl/web/{locale}/products/pde/telegram-digest/index.md` and dated Markdown files. The index has canonical HTML URL `/{locale}/products/pde/telegram-digest/` and raw source `/{locale}/products/pde/telegram-digest/index.md`; there is no `index.html` publication route. Each dated digest has a derived `.html` URL and a raw `.md` URL. The sitemap includes only these canonical HTML URLs. `/llms.txt` lists the English index Markdown once as the discovery entry point, without listing the daily digests. This subtree does not make Products a generic catalogue.
+The PDE Telegram Digest notice uses `tmpl/web/{locale}/products/pde/telegram-digest/index.md`. It has canonical HTML URL `/{locale}/products/pde/telegram-digest/` and raw source `/{locale}/products/pde/telegram-digest/index.md`; there is no `index.html` publication route. The site does not publish or archive the digest. The sitemap includes the canonical HTML URL, and `/llms.txt` lists the English notice Markdown. This route does not make Products a generic catalogue.
 
 `etc/redirect-map.json` normalizes selected legacy paths with locale overlay; static assets are excluded. Redirects are continuity tools and cannot silently create a target hierarchy.
 
